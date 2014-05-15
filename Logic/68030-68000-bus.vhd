@@ -413,7 +413,7 @@ begin
 
 	--output clock assignment
 	CLK_DIV_OUT	<= CLK_OUT_INT;
-	CLK_EXP		<= '1' when SM_AMIGA_D /= SM_AMIGA ELSE '0';
+	CLK_EXP		<= CLK_OUT_INT;
 	AVEC_EXP	<= 'Z' when FPU_CS_INT ='1' else '0';
 	
 	--dtack for dma
