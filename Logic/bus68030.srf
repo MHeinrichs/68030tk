@@ -6,7 +6,7 @@
 #Implementation: logic
 
 $ Start of Compile
-#Thu May 15 22:21:47 2014
+#Thu May 15 23:02:39 2014
 
 Synopsys VHDL Compiler, version comp201209rcp1, Build 283R, built Mar 19 2013
 @N|Running in 64-bit mode
@@ -18,20 +18,17 @@ File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed -
 VHDL syntax check successful!
 File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed - recompiling
 @N: CD630 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":6:7:6:14|Synthesizing work.bus68030.behavioral 
-@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":109:7:109:15|Signal clk_030_d is undriven 
+@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":106:7:106:15|Signal clk_030_d is undriven 
 Post processing for work.bus68030.behavioral
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":100:29:100:31|Pruning register SM_AMIGA_D(2 downto 0)  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":105:52:105:55|Pruning register VMA_INT_D  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":91:32:91:34|Pruning register CLK_REF(1 downto 0)  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":220:2:220:3|Pruning register AS_000_START  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":113:38:113:40|Pruning register CLK_000_CNT(3 downto 0)  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":112:37:112:39|Pruning register FALLING_CLK_AMIGA  
-@W: CL190 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":100:29:100:31|Optimizing register bit DSACK_INT(0) to a constant 1
-@W: CL260 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":100:29:100:31|Pruning register bit 0 of DSACK_INT(1 downto 0)  
-@W: CL189 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":124:2:124:3|Register bit CLK_CNT(1) is always 0, optimizing ...
-@W: CL260 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":124:2:124:3|Pruning register bit 1 of CLK_CNT(1 downto 0)  
-@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":113:38:113:40|Trying to extract state machine for register cpu_est
-@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":220:2:220:3|Trying to extract state machine for register SM_AMIGA
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":176:2:176:3|Pruning register CLK_REF(1 downto 0)  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":108:32:108:34|Pruning register cpu_est_d(3 downto 0)  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":108:32:108:34|Pruning register CLK_000_CNT(3 downto 0)  
+@W: CL190 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":102:52:102:55|Optimizing register bit DSACK_INT(0) to a constant 1
+@W: CL260 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":102:52:102:55|Pruning register bit 0 of DSACK_INT(1 downto 0)  
+@W: CL189 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":117:2:117:3|Register bit CLK_CNT(1) is always 0, optimizing ...
+@W: CL260 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":117:2:117:3|Pruning register bit 1 of CLK_CNT(1 downto 0)  
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":108:32:108:34|Trying to extract state machine for register cpu_est
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":176:2:176:3|Trying to extract state machine for register SM_AMIGA
 Extracted state machine for register SM_AMIGA
 State machine has 8 reachable states with original encodings of:
    000
@@ -42,10 +39,10 @@ State machine has 8 reachable states with original encodings of:
    101
    110
    111
-@W: CL249 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":220:2:220:3|Initial value is not supported on state machine SM_AMIGA
+@W: CL249 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":176:2:176:3|Initial value is not supported on state machine SM_AMIGA
 @END
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Thu May 15 22:21:47 2014
+# Thu May 15 23:02:39 2014
 
 ###########################################################]
 Map & Optimize Report
@@ -64,19 +61,19 @@ original code -> new code
    101 -> 00100000
    110 -> 01000000
    111 -> 10000000
-@N: MO106 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":160:4:160:7|Found ROM, 'clk\.cpu_est_11[3:0]', 16 words by 4 bits 
+@N: MO106 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":145:4:145:7|Found ROM, 'clk\.cpu_est_11[3:0]', 16 words by 4 bits 
 ---------------------------------------
 Resource Usage Report
 
 Simple gate primitives:
-DFF             16 uses
-DFFSH           16 uses
 DFFRH           7 uses
+DFFSH           16 uses
+DFF             11 uses
 IBUF            35 uses
 BUFTH           7 uses
 OBUF            15 uses
 BI_DIR          2 uses
-AND2            149 uses
+AND2            147 uses
 INV             119 uses
 OR2             17 uses
 XOR2            2 uses
@@ -89,6 +86,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 95MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Thu May 15 22:21:49 2014
+# Thu May 15 23:02:41 2014
 
 ###########################################################]
