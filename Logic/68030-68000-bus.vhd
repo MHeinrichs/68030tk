@@ -296,12 +296,12 @@ begin
 
 			-- VMA generation
 			--assert
-			if(CLK_000_D='0' AND VPA_SYNC='0')then
+			if(CLK_000_D='0' AND VPA_D='0' AND cpu_est = E4)then
 				VMA_INT <= '0';
 			end if;
 
 			--deassert
-			if(CLK_000_D='1' AND AS_000_INT='1')then
+			if(CLK_000_D='1' AND AS_000_INT='1' AND cpu_est_d=E1)then
 				VMA_INT <= '1';
 			end if;
 
@@ -314,7 +314,7 @@ begin
 					end if;
 				when IDLE_N 	 => --68000:S1 wait for rising edge, on a rising CLK_000 look for a amiga adressrobe
 					--AS_000_START <='0';
-					if(CLK_000_D='1' )then --sample AS only at the rising edge!
+					if(CLK_000_D='1' and CLK_000_DD = '0')then --sample AS only at the rising edge!
 						if( AS_030_000_SYNC 	= '0'  )then
 							AS_000_INT <= '0';
 							if (RW='1' and DS_030 = '0') then --read: set udl/lds 	
@@ -333,18 +333,6 @@ begin
 						end if;
 					end if;
 				when AS_SET_P	 => --68000:S2 Amiga cycle starts here: since AS is asserted during transition to this state we simply wait here
-					if (RW='1' and DS_030 = '0') then --read: set udl/lds if ds was not ready 	
-						if(A(0)='0') then
-							UDS_000_INT <= '0';
-						else
-							UDS_000_INT <= '1';
-						end if;
-						if((A(0)='1' OR SIZE(0)='0' OR SIZE(1)='1')) then
-							LDS_000_INT <= '0';
-						else
-							LDS_000_INT <= '1';
-						end if;
-					end if;
 					if(CLK_000_D='0')then
 						SM_AMIGA<=AS_SET_N;
 					end if;
@@ -374,39 +362,34 @@ begin
 					else -- high clock: sample DTACK
 						if(VPA_D = '1' AND DTACK='0') then 
 							DTACK_SYNC  <= '0';
-						elsif(VPA_D='0' AND cpu_est=E4) then --vpa/vma cycle: sync VPA on E3
+						elsif(VPA_D='0' AND cpu_est=E9 AND VMA_INT='0') then --vpa/vma cycle: sync VPA on E9: one 7M-clock to latch!
 							VPA_SYNC  <= '0';
 							
 						end if;
 					end if;
 				when DATA_FETCH_N=> --68000:S5 nothing happens here just wait for positive clock
-					
 					if(CLK_000_D='1')then
 						SM_AMIGA<=DATA_FETCH_P;
 					end if;
 				when DATA_FETCH_P => --68000:S6: READ: here comes the data on the bus!
-
-					if( CLK_000 ='0')then
-						if(	DTACK_SYNC ='0' OR 
-							(VPA_SYNC ='0' and cpu_est=E10 ) )then
-							SM_AMIGA<=END_CYCLE_N;
-						--elsif(VPA_SYNC ='0')then
-						--	SM_AMIGA<=DATA_FETCH_N; --wait for right moment to end vpa-cyclus
-						end if;
+					if( CLK_000_D ='0' AND CLK_OUT_PRE='1'
+					) then
+						DSACK_INT<="01"; 
+						SM_AMIGA<=END_CYCLE_N;
 					end if;
 				when END_CYCLE_N =>--68000:S7: Latch/Store data and go to IDLE on high clock
 					if(CLK_000_D='1' and AS_000_INT='1' )then
 						SM_AMIGA<=IDLE_P;
-					elsif(	CLK_000_D='0' AND CLK_OUT_PRE='1' --assert here (next 68030-Clock will be high)! 
-							and AS_030_000_SYNC ='0' -- if the cycle somehow aboarded do not send a dsack!
-						) then --timing is everything!
-							if(	(VPA_SYNC  ='0' AND CLK_000_CNT > x"0" and RW='0') OR
-								(VPA_SYNC  ='0' AND CLK_000_CNT > x"0" and RW='1') OR
-								(DTACK_SYNC='0' AND CLK_000_CNT > x"0" and RW='0') OR
-								(DTACK_SYNC='0' AND CLK_000_CNT > x"0" and RW='1')
-							)then
-								DSACK_INT<="01"; 
-							end if;
+					--elsif(	CLK_OUT_PRE='1' --assert here (next 68030-Clock will be high)! 
+					--		and AS_030_000_SYNC ='0' -- if the cycle somehow aboarded do not send a dsack!
+					--	) then --timing is everything!
+							--if(	(VPA_SYNC  ='0' AND CLK_000_CNT > x"0" and RW='0') OR
+							--	(VPA_SYNC  ='0' AND CLK_000_CNT > x"0" and RW='1') OR
+							--	(DTACK_SYNC='0' AND CLK_000_CNT > x"0" and RW='0') OR
+							--	(DTACK_SYNC='0' AND CLK_000_CNT > x"0" and RW='1')
+							--)then
+					--			DSACK_INT<="01"; 
+							--end if;
 								
 					end if;
 			end case;

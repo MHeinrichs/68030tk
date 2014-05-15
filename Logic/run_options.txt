@@ -1,7 +1,7 @@
 #--  Synopsys, Inc.
 #--  Version G-2012.09LC-SP1 
-#--  Project file C:\users\matze\amiga\hardwarehacks\68030-tk\logic\run_options.txt
-#--  Written on Thu May 15 19:20:46 2014
+#--  Project file C:\users\matze\documents\github\68030tk\logic\run_options.txt
+#--  Written on Thu May 15 22:17:20 2014
 
 
 #project files
@@ -48,5 +48,5 @@ set_option -write_apr_constraint 1
 project -result_file "./BUS68030.edi"
 
 #set log file 
-set_option log_file "C:/users/matze/amiga/hardwarehacks/68030-tk/logic/bus68030.srf" 
+set_option log_file "C:/users/matze/documents/github/68030tk/logic/bus68030.srf" 
 impl -active "logic"

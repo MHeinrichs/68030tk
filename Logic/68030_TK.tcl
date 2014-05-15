@@ -115104,3 +115104,4036 @@ if [runCmd "\"$cpld_bin/synsvf\" -exe \"$install_dir/ispvmsystem/ispufw\" -prj 6
 
 ########## Tcl recorder end at 05/15/14 19:20:46 ###########
 
+
+########## Tcl recorder starts at 05/15/14 21:18:29 ##########
+
+set version "1.7"
+set proj_dir "C:/Users/Matze/Documents/GitHub/68030tk/Logic"
+cd $proj_dir
+
+# Get directory paths
+set pver $version
+regsub -all {\.} $pver {_} pver
+set lscfile "lsc_"
+append lscfile $pver ".ini"
+set lsvini_dir [lindex [array get env LSC_INI_PATH] 1]
+set lsvini_path [file join $lsvini_dir $lscfile]
+if {[catch {set fid [open $lsvini_path]} msg]} {
+	 puts "File Open Error: $lsvini_path"
+	 return false
+} else {set data [read $fid]; close $fid }
+foreach line [split $data '\n'] { 
+	set lline [string tolower $line]
+	set lline [string trim $lline]
+	if {[string compare $lline "\[paths\]"] == 0} { set path 1; continue}
+	if {$path && [regexp {^\[} $lline]} {set path 0; break}
+	if {$path && [regexp {^bin} $lline]} {set cpld_bin $line; continue}
+	if {$path && [regexp {^fpgapath} $lline]} {set fpga_dir $line; continue}
+	if {$path && [regexp {^fpgabinpath} $lline]} {set fpga_bin $line}}
+
+set cpld_bin [string range $cpld_bin [expr [string first "=" $cpld_bin]+1] end]
+regsub -all "\"" $cpld_bin "" cpld_bin
+set cpld_bin [file join $cpld_bin]
+set install_dir [string range $cpld_bin 0 [expr [string first "ispcpld" $cpld_bin]-2]]
+regsub -all "\"" $install_dir "" install_dir
+set install_dir [file join $install_dir]
+set fpga_dir [string range $fpga_dir [expr [string first "=" $fpga_dir]+1] end]
+regsub -all "\"" $fpga_dir "" fpga_dir
+set fpga_dir [file join $fpga_dir]
+set fpga_bin [string range $fpga_bin [expr [string first "=" $fpga_bin]+1] end]
+regsub -all "\"" $fpga_bin "" fpga_bin
+set fpga_bin [file join $fpga_bin]
+
+if {[string match "*$fpga_bin;*" $env(PATH)] == 0 } {
+   set env(PATH) "$fpga_bin;$env(PATH)" }
+
+if {[string match "*$cpld_bin;*" $env(PATH)] == 0 } {
+   set env(PATH) "$cpld_bin;$env(PATH)" }
+
+lappend auto_path [file join $install_dir "ispcpld" "tcltk" "lib" "ispwidget" "runproc"]
+package require runcmd
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:18:29 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:19:32 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:19:32 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:21:04 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:21:04 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:21:32 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:21:32 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:21:36 ##########
+
+# Commands to make the Process: 
+# JEDEC File
+if [catch {open BUS68030.cmd w} rspFile] {
+	puts stderr "Cannot create response file BUS68030.cmd: $rspFile"
+} else {
+	puts $rspFile "STYFILENAME: 68030_tk.sty
+PROJECT: BUS68030
+WORKING_PATH: \"$proj_dir\"
+MODULE: BUS68030
+VHDL_FILE_LIST: 68030-68000-bus.vhd
+OUTPUT_FILE_NAME: BUS68030
+SUFFIX_NAME: edi
+PART: M4A5-128/64-10VC
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/Synpwrap\" -e BUS68030 -target mach -pro "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete BUS68030.cmd
+if [runCmd "\"$cpld_bin/edif2blf\" -edf BUS68030.edi -out BUS68030.bl0 -err automake.err -log BUS68030.log -prj 68030_tk -lib \"$install_dir/ispcpld/dat/mach.edn\" -net_Vcc VCC -net_GND GND -nbx -dse -tlw -cvt YES -xor"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" BUS68030.bl0 -collapse none -reduce none -keepwires  -err automake.err -family"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblflink\" \"BUS68030.bl1\" -o \"68030_tk.bl2\" -omod \"68030_tk\"  -err \"automake.err\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/impsrc\"  -prj 68030_tk -lci 68030_tk.lct -log 68030_tk.imp -err automake.err -tti 68030_tk.bl2 -dir $proj_dir"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -blifopt  68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" 68030_tk.bl2 -sweep -mergefb -err automake.err -o 68030_tk.bl3  @68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -diofft  68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mdiofft\" 68030_tk.bl3 -pla -family AMDMACH -idev van -o 68030_tk.tt2 -oxrf 68030_tk.xrf -err automake.err  @68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/tt2tott3\" -prj 68030_tk -dir $proj_dir -log 68030_tk.log -tti 68030_tk.tt2 -tto 68030_tk.tt3"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -prefit  68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/prefit\" -inp 68030_tk.tt3 -out 68030_tk.tt4 -err automake.err -log 68030_tk.log -percent 68030_tk.tte -mod BUS68030  @68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/blif2eqn\" 68030_tk.tte -o 68030_tk.eq3 -use_short -err automake.err "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/lci2vci\" -lci 68030_tk.lct -out 68030_tk.vct -log 68030_tk.l2v"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [catch {open 68030_tk.rsp w} rspFile] {
+	puts stderr "Cannot create response file 68030_tk.rsp: $rspFile"
+} else {
+	puts $rspFile "-inp \"68030_tk.tt4\" -vci \"68030_tk.vct\" -log \"68030_tk.log\" -eqn \"68030_tk.eq3\" -dev mach447a -dat \"$install_dir/ispcpld/dat/mach4a/\" -msg \"$install_dir/ispcpld/dat/\" -err automake.err -tmv \"NoInput.tmv\" 
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/machfitr\" \"@68030_tk.rsp\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete 68030_tk.rsp
+if [runCmd "\"$cpld_bin/lci2vci\" -vci 68030_tk.vco -out 68030_tk.lco -log 68030_tk.v2l"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/synsvf\" -exe \"$install_dir/ispvmsystem/ispufw\" -prj 68030_tk -if 68030_tk.jed -j2s -log 68030_tk.svl "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:21:36 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:26:46 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:26:46 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:27:02 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:27:02 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:27:06 ##########
+
+# Commands to make the Process: 
+# JEDEC File
+if [catch {open BUS68030.cmd w} rspFile] {
+	puts stderr "Cannot create response file BUS68030.cmd: $rspFile"
+} else {
+	puts $rspFile "STYFILENAME: 68030_tk.sty
+PROJECT: BUS68030
+WORKING_PATH: \"$proj_dir\"
+MODULE: BUS68030
+VHDL_FILE_LIST: 68030-68000-bus.vhd
+OUTPUT_FILE_NAME: BUS68030
+SUFFIX_NAME: edi
+PART: M4A5-128/64-10VC
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/Synpwrap\" -e BUS68030 -target mach -pro "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete BUS68030.cmd
+if [runCmd "\"$cpld_bin/edif2blf\" -edf BUS68030.edi -out BUS68030.bl0 -err automake.err -log BUS68030.log -prj 68030_tk -lib \"$install_dir/ispcpld/dat/mach.edn\" -net_Vcc VCC -net_GND GND -nbx -dse -tlw -cvt YES -xor"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" BUS68030.bl0 -collapse none -reduce none -keepwires  -err automake.err -family"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblflink\" \"BUS68030.bl1\" -o \"68030_tk.bl2\" -omod \"68030_tk\"  -err \"automake.err\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/impsrc\"  -prj 68030_tk -lci 68030_tk.lct -log 68030_tk.imp -err automake.err -tti 68030_tk.bl2 -dir $proj_dir"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -blifopt  68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" 68030_tk.bl2 -sweep -mergefb -err automake.err -o 68030_tk.bl3  @68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -diofft  68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mdiofft\" 68030_tk.bl3 -pla -family AMDMACH -idev van -o 68030_tk.tt2 -oxrf 68030_tk.xrf -err automake.err  @68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/tt2tott3\" -prj 68030_tk -dir $proj_dir -log 68030_tk.log -tti 68030_tk.tt2 -tto 68030_tk.tt3"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -prefit  68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/prefit\" -inp 68030_tk.tt3 -out 68030_tk.tt4 -err automake.err -log 68030_tk.log -percent 68030_tk.tte -mod BUS68030  @68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/blif2eqn\" 68030_tk.tte -o 68030_tk.eq3 -use_short -err automake.err "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/lci2vci\" -lci 68030_tk.lct -out 68030_tk.vct -log 68030_tk.l2v"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [catch {open 68030_tk.rsp w} rspFile] {
+	puts stderr "Cannot create response file 68030_tk.rsp: $rspFile"
+} else {
+	puts $rspFile "-inp \"68030_tk.tt4\" -vci \"68030_tk.vct\" -log \"68030_tk.log\" -eqn \"68030_tk.eq3\" -dev mach447a -dat \"$install_dir/ispcpld/dat/mach4a/\" -msg \"$install_dir/ispcpld/dat/\" -err automake.err -tmv \"NoInput.tmv\" 
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/machfitr\" \"@68030_tk.rsp\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete 68030_tk.rsp
+if [runCmd "\"$cpld_bin/lci2vci\" -vci 68030_tk.vco -out 68030_tk.lco -log 68030_tk.v2l"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/synsvf\" -exe \"$install_dir/ispvmsystem/ispufw\" -prj 68030_tk -if 68030_tk.jed -j2s -log 68030_tk.svl "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:27:06 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:28:18 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:28:18 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:28:29 ##########
+
+# Commands to make the Process: 
+# JEDEC File
+if [catch {open BUS68030.cmd w} rspFile] {
+	puts stderr "Cannot create response file BUS68030.cmd: $rspFile"
+} else {
+	puts $rspFile "STYFILENAME: 68030_tk.sty
+PROJECT: BUS68030
+WORKING_PATH: \"$proj_dir\"
+MODULE: BUS68030
+VHDL_FILE_LIST: 68030-68000-bus.vhd
+OUTPUT_FILE_NAME: BUS68030
+SUFFIX_NAME: edi
+PART: M4A5-128/64-10VC
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/Synpwrap\" -e BUS68030 -target mach -pro "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete BUS68030.cmd
+if [runCmd "\"$cpld_bin/edif2blf\" -edf BUS68030.edi -out BUS68030.bl0 -err automake.err -log BUS68030.log -prj 68030_tk -lib \"$install_dir/ispcpld/dat/mach.edn\" -net_Vcc VCC -net_GND GND -nbx -dse -tlw -cvt YES -xor"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" BUS68030.bl0 -collapse none -reduce none -keepwires  -err automake.err -family"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblflink\" \"BUS68030.bl1\" -o \"68030_tk.bl2\" -omod \"68030_tk\"  -err \"automake.err\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/impsrc\"  -prj 68030_tk -lci 68030_tk.lct -log 68030_tk.imp -err automake.err -tti 68030_tk.bl2 -dir $proj_dir"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -blifopt  68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" 68030_tk.bl2 -sweep -mergefb -err automake.err -o 68030_tk.bl3  @68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -diofft  68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mdiofft\" 68030_tk.bl3 -pla -family AMDMACH -idev van -o 68030_tk.tt2 -oxrf 68030_tk.xrf -err automake.err  @68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/tt2tott3\" -prj 68030_tk -dir $proj_dir -log 68030_tk.log -tti 68030_tk.tt2 -tto 68030_tk.tt3"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -prefit  68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/prefit\" -inp 68030_tk.tt3 -out 68030_tk.tt4 -err automake.err -log 68030_tk.log -percent 68030_tk.tte -mod BUS68030  @68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/blif2eqn\" 68030_tk.tte -o 68030_tk.eq3 -use_short -err automake.err "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/lci2vci\" -lci 68030_tk.lct -out 68030_tk.vct -log 68030_tk.l2v"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [catch {open 68030_tk.rsp w} rspFile] {
+	puts stderr "Cannot create response file 68030_tk.rsp: $rspFile"
+} else {
+	puts $rspFile "-inp \"68030_tk.tt4\" -vci \"68030_tk.vct\" -log \"68030_tk.log\" -eqn \"68030_tk.eq3\" -dev mach447a -dat \"$install_dir/ispcpld/dat/mach4a/\" -msg \"$install_dir/ispcpld/dat/\" -err automake.err -tmv \"NoInput.tmv\" 
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/machfitr\" \"@68030_tk.rsp\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete 68030_tk.rsp
+if [runCmd "\"$cpld_bin/lci2vci\" -vci 68030_tk.vco -out 68030_tk.lco -log 68030_tk.v2l"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/synsvf\" -exe \"$install_dir/ispvmsystem/ispufw\" -prj 68030_tk -if 68030_tk.jed -j2s -log 68030_tk.svl "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:28:29 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:32:45 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:32:45 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:32:59 ##########
+
+# Commands to make the Process: 
+# JEDEC File
+if [catch {open BUS68030.cmd w} rspFile] {
+	puts stderr "Cannot create response file BUS68030.cmd: $rspFile"
+} else {
+	puts $rspFile "STYFILENAME: 68030_tk.sty
+PROJECT: BUS68030
+WORKING_PATH: \"$proj_dir\"
+MODULE: BUS68030
+VHDL_FILE_LIST: 68030-68000-bus.vhd
+OUTPUT_FILE_NAME: BUS68030
+SUFFIX_NAME: edi
+PART: M4A5-128/64-10VC
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/Synpwrap\" -e BUS68030 -target mach -pro "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete BUS68030.cmd
+if [runCmd "\"$cpld_bin/edif2blf\" -edf BUS68030.edi -out BUS68030.bl0 -err automake.err -log BUS68030.log -prj 68030_tk -lib \"$install_dir/ispcpld/dat/mach.edn\" -net_Vcc VCC -net_GND GND -nbx -dse -tlw -cvt YES -xor"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" BUS68030.bl0 -collapse none -reduce none -keepwires  -err automake.err -family"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblflink\" \"BUS68030.bl1\" -o \"68030_tk.bl2\" -omod \"68030_tk\"  -err \"automake.err\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/impsrc\"  -prj 68030_tk -lci 68030_tk.lct -log 68030_tk.imp -err automake.err -tti 68030_tk.bl2 -dir $proj_dir"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -blifopt  68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" 68030_tk.bl2 -sweep -mergefb -err automake.err -o 68030_tk.bl3  @68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -diofft  68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mdiofft\" 68030_tk.bl3 -pla -family AMDMACH -idev van -o 68030_tk.tt2 -oxrf 68030_tk.xrf -err automake.err  @68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/tt2tott3\" -prj 68030_tk -dir $proj_dir -log 68030_tk.log -tti 68030_tk.tt2 -tto 68030_tk.tt3"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -prefit  68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/prefit\" -inp 68030_tk.tt3 -out 68030_tk.tt4 -err automake.err -log 68030_tk.log -percent 68030_tk.tte -mod BUS68030  @68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/blif2eqn\" 68030_tk.tte -o 68030_tk.eq3 -use_short -err automake.err "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/lci2vci\" -lci 68030_tk.lct -out 68030_tk.vct -log 68030_tk.l2v"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [catch {open 68030_tk.rsp w} rspFile] {
+	puts stderr "Cannot create response file 68030_tk.rsp: $rspFile"
+} else {
+	puts $rspFile "-inp \"68030_tk.tt4\" -vci \"68030_tk.vct\" -log \"68030_tk.log\" -eqn \"68030_tk.eq3\" -dev mach447a -dat \"$install_dir/ispcpld/dat/mach4a/\" -msg \"$install_dir/ispcpld/dat/\" -err automake.err -tmv \"NoInput.tmv\" 
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/machfitr\" \"@68030_tk.rsp\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete 68030_tk.rsp
+if [runCmd "\"$cpld_bin/lci2vci\" -vci 68030_tk.vco -out 68030_tk.lco -log 68030_tk.v2l"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/synsvf\" -exe \"$install_dir/ispvmsystem/ispufw\" -prj 68030_tk -if 68030_tk.jed -j2s -log 68030_tk.svl "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:32:59 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:34:04 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:34:04 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:34:09 ##########
+
+# Commands to make the Process: 
+# JEDEC File
+if [catch {open BUS68030.cmd w} rspFile] {
+	puts stderr "Cannot create response file BUS68030.cmd: $rspFile"
+} else {
+	puts $rspFile "STYFILENAME: 68030_tk.sty
+PROJECT: BUS68030
+WORKING_PATH: \"$proj_dir\"
+MODULE: BUS68030
+VHDL_FILE_LIST: 68030-68000-bus.vhd
+OUTPUT_FILE_NAME: BUS68030
+SUFFIX_NAME: edi
+PART: M4A5-128/64-10VC
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/Synpwrap\" -e BUS68030 -target mach -pro "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete BUS68030.cmd
+if [runCmd "\"$cpld_bin/edif2blf\" -edf BUS68030.edi -out BUS68030.bl0 -err automake.err -log BUS68030.log -prj 68030_tk -lib \"$install_dir/ispcpld/dat/mach.edn\" -net_Vcc VCC -net_GND GND -nbx -dse -tlw -cvt YES -xor"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" BUS68030.bl0 -collapse none -reduce none -keepwires  -err automake.err -family"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblflink\" \"BUS68030.bl1\" -o \"68030_tk.bl2\" -omod \"68030_tk\"  -err \"automake.err\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/impsrc\"  -prj 68030_tk -lci 68030_tk.lct -log 68030_tk.imp -err automake.err -tti 68030_tk.bl2 -dir $proj_dir"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -blifopt  68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" 68030_tk.bl2 -sweep -mergefb -err automake.err -o 68030_tk.bl3  @68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -diofft  68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mdiofft\" 68030_tk.bl3 -pla -family AMDMACH -idev van -o 68030_tk.tt2 -oxrf 68030_tk.xrf -err automake.err  @68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/tt2tott3\" -prj 68030_tk -dir $proj_dir -log 68030_tk.log -tti 68030_tk.tt2 -tto 68030_tk.tt3"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -prefit  68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/prefit\" -inp 68030_tk.tt3 -out 68030_tk.tt4 -err automake.err -log 68030_tk.log -percent 68030_tk.tte -mod BUS68030  @68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/blif2eqn\" 68030_tk.tte -o 68030_tk.eq3 -use_short -err automake.err "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/lci2vci\" -lci 68030_tk.lct -out 68030_tk.vct -log 68030_tk.l2v"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [catch {open 68030_tk.rsp w} rspFile] {
+	puts stderr "Cannot create response file 68030_tk.rsp: $rspFile"
+} else {
+	puts $rspFile "-inp \"68030_tk.tt4\" -vci \"68030_tk.vct\" -log \"68030_tk.log\" -eqn \"68030_tk.eq3\" -dev mach447a -dat \"$install_dir/ispcpld/dat/mach4a/\" -msg \"$install_dir/ispcpld/dat/\" -err automake.err -tmv \"NoInput.tmv\" 
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/machfitr\" \"@68030_tk.rsp\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete 68030_tk.rsp
+if [runCmd "\"$cpld_bin/lci2vci\" -vci 68030_tk.vco -out 68030_tk.lco -log 68030_tk.v2l"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/synsvf\" -exe \"$install_dir/ispvmsystem/ispufw\" -prj 68030_tk -if 68030_tk.jed -j2s -log 68030_tk.svl "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:34:09 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:35:23 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:35:23 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:35:26 ##########
+
+# Commands to make the Process: 
+# JEDEC File
+if [catch {open BUS68030.cmd w} rspFile] {
+	puts stderr "Cannot create response file BUS68030.cmd: $rspFile"
+} else {
+	puts $rspFile "STYFILENAME: 68030_tk.sty
+PROJECT: BUS68030
+WORKING_PATH: \"$proj_dir\"
+MODULE: BUS68030
+VHDL_FILE_LIST: 68030-68000-bus.vhd
+OUTPUT_FILE_NAME: BUS68030
+SUFFIX_NAME: edi
+PART: M4A5-128/64-10VC
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/Synpwrap\" -e BUS68030 -target mach -pro "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete BUS68030.cmd
+if [runCmd "\"$cpld_bin/edif2blf\" -edf BUS68030.edi -out BUS68030.bl0 -err automake.err -log BUS68030.log -prj 68030_tk -lib \"$install_dir/ispcpld/dat/mach.edn\" -net_Vcc VCC -net_GND GND -nbx -dse -tlw -cvt YES -xor"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" BUS68030.bl0 -collapse none -reduce none -keepwires  -err automake.err -family"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblflink\" \"BUS68030.bl1\" -o \"68030_tk.bl2\" -omod \"68030_tk\"  -err \"automake.err\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/impsrc\"  -prj 68030_tk -lci 68030_tk.lct -log 68030_tk.imp -err automake.err -tti 68030_tk.bl2 -dir $proj_dir"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -blifopt  68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" 68030_tk.bl2 -sweep -mergefb -err automake.err -o 68030_tk.bl3  @68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -diofft  68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mdiofft\" 68030_tk.bl3 -pla -family AMDMACH -idev van -o 68030_tk.tt2 -oxrf 68030_tk.xrf -err automake.err  @68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/tt2tott3\" -prj 68030_tk -dir $proj_dir -log 68030_tk.log -tti 68030_tk.tt2 -tto 68030_tk.tt3"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -prefit  68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/prefit\" -inp 68030_tk.tt3 -out 68030_tk.tt4 -err automake.err -log 68030_tk.log -percent 68030_tk.tte -mod BUS68030  @68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/blif2eqn\" 68030_tk.tte -o 68030_tk.eq3 -use_short -err automake.err "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/lci2vci\" -lci 68030_tk.lct -out 68030_tk.vct -log 68030_tk.l2v"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [catch {open 68030_tk.rsp w} rspFile] {
+	puts stderr "Cannot create response file 68030_tk.rsp: $rspFile"
+} else {
+	puts $rspFile "-inp \"68030_tk.tt4\" -vci \"68030_tk.vct\" -log \"68030_tk.log\" -eqn \"68030_tk.eq3\" -dev mach447a -dat \"$install_dir/ispcpld/dat/mach4a/\" -msg \"$install_dir/ispcpld/dat/\" -err automake.err -tmv \"NoInput.tmv\" 
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/machfitr\" \"@68030_tk.rsp\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete 68030_tk.rsp
+if [runCmd "\"$cpld_bin/lci2vci\" -vci 68030_tk.vco -out 68030_tk.lco -log 68030_tk.v2l"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/synsvf\" -exe \"$install_dir/ispvmsystem/ispufw\" -prj 68030_tk -if 68030_tk.jed -j2s -log 68030_tk.svl "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:35:26 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:35:47 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:35:47 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:35:49 ##########
+
+# Commands to make the Process: 
+# JEDEC File
+if [catch {open BUS68030.cmd w} rspFile] {
+	puts stderr "Cannot create response file BUS68030.cmd: $rspFile"
+} else {
+	puts $rspFile "STYFILENAME: 68030_tk.sty
+PROJECT: BUS68030
+WORKING_PATH: \"$proj_dir\"
+MODULE: BUS68030
+VHDL_FILE_LIST: 68030-68000-bus.vhd
+OUTPUT_FILE_NAME: BUS68030
+SUFFIX_NAME: edi
+PART: M4A5-128/64-10VC
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/Synpwrap\" -e BUS68030 -target mach -pro "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete BUS68030.cmd
+if [runCmd "\"$cpld_bin/edif2blf\" -edf BUS68030.edi -out BUS68030.bl0 -err automake.err -log BUS68030.log -prj 68030_tk -lib \"$install_dir/ispcpld/dat/mach.edn\" -net_Vcc VCC -net_GND GND -nbx -dse -tlw -cvt YES -xor"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" BUS68030.bl0 -collapse none -reduce none -keepwires  -err automake.err -family"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblflink\" \"BUS68030.bl1\" -o \"68030_tk.bl2\" -omod \"68030_tk\"  -err \"automake.err\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/impsrc\"  -prj 68030_tk -lci 68030_tk.lct -log 68030_tk.imp -err automake.err -tti 68030_tk.bl2 -dir $proj_dir"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -blifopt  68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" 68030_tk.bl2 -sweep -mergefb -err automake.err -o 68030_tk.bl3  @68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -diofft  68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mdiofft\" 68030_tk.bl3 -pla -family AMDMACH -idev van -o 68030_tk.tt2 -oxrf 68030_tk.xrf -err automake.err  @68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/tt2tott3\" -prj 68030_tk -dir $proj_dir -log 68030_tk.log -tti 68030_tk.tt2 -tto 68030_tk.tt3"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -prefit  68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/prefit\" -inp 68030_tk.tt3 -out 68030_tk.tt4 -err automake.err -log 68030_tk.log -percent 68030_tk.tte -mod BUS68030  @68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/blif2eqn\" 68030_tk.tte -o 68030_tk.eq3 -use_short -err automake.err "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/lci2vci\" -lci 68030_tk.lct -out 68030_tk.vct -log 68030_tk.l2v"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [catch {open 68030_tk.rsp w} rspFile] {
+	puts stderr "Cannot create response file 68030_tk.rsp: $rspFile"
+} else {
+	puts $rspFile "-inp \"68030_tk.tt4\" -vci \"68030_tk.vct\" -log \"68030_tk.log\" -eqn \"68030_tk.eq3\" -dev mach447a -dat \"$install_dir/ispcpld/dat/mach4a/\" -msg \"$install_dir/ispcpld/dat/\" -err automake.err -tmv \"NoInput.tmv\" 
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/machfitr\" \"@68030_tk.rsp\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete 68030_tk.rsp
+if [runCmd "\"$cpld_bin/lci2vci\" -vci 68030_tk.vco -out 68030_tk.lco -log 68030_tk.v2l"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/synsvf\" -exe \"$install_dir/ispvmsystem/ispufw\" -prj 68030_tk -if 68030_tk.jed -j2s -log 68030_tk.svl "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:35:49 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:36:10 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:36:10 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:36:46 ##########
+
+# Commands to make the Process: 
+# JEDEC File
+if [catch {open BUS68030.cmd w} rspFile] {
+	puts stderr "Cannot create response file BUS68030.cmd: $rspFile"
+} else {
+	puts $rspFile "STYFILENAME: 68030_tk.sty
+PROJECT: BUS68030
+WORKING_PATH: \"$proj_dir\"
+MODULE: BUS68030
+VHDL_FILE_LIST: 68030-68000-bus.vhd
+OUTPUT_FILE_NAME: BUS68030
+SUFFIX_NAME: edi
+PART: M4A5-128/64-10VC
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/Synpwrap\" -e BUS68030 -target mach -pro "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete BUS68030.cmd
+if [runCmd "\"$cpld_bin/edif2blf\" -edf BUS68030.edi -out BUS68030.bl0 -err automake.err -log BUS68030.log -prj 68030_tk -lib \"$install_dir/ispcpld/dat/mach.edn\" -net_Vcc VCC -net_GND GND -nbx -dse -tlw -cvt YES -xor"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" BUS68030.bl0 -collapse none -reduce none -keepwires  -err automake.err -family"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblflink\" \"BUS68030.bl1\" -o \"68030_tk.bl2\" -omod \"68030_tk\"  -err \"automake.err\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/impsrc\"  -prj 68030_tk -lci 68030_tk.lct -log 68030_tk.imp -err automake.err -tti 68030_tk.bl2 -dir $proj_dir"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -blifopt  68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" 68030_tk.bl2 -sweep -mergefb -err automake.err -o 68030_tk.bl3  @68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -diofft  68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mdiofft\" 68030_tk.bl3 -pla -family AMDMACH -idev van -o 68030_tk.tt2 -oxrf 68030_tk.xrf -err automake.err  @68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/tt2tott3\" -prj 68030_tk -dir $proj_dir -log 68030_tk.log -tti 68030_tk.tt2 -tto 68030_tk.tt3"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -prefit  68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/prefit\" -inp 68030_tk.tt3 -out 68030_tk.tt4 -err automake.err -log 68030_tk.log -percent 68030_tk.tte -mod BUS68030  @68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/blif2eqn\" 68030_tk.tte -o 68030_tk.eq3 -use_short -err automake.err "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/lci2vci\" -lci 68030_tk.lct -out 68030_tk.vct -log 68030_tk.l2v"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [catch {open 68030_tk.rsp w} rspFile] {
+	puts stderr "Cannot create response file 68030_tk.rsp: $rspFile"
+} else {
+	puts $rspFile "-inp \"68030_tk.tt4\" -vci \"68030_tk.vct\" -log \"68030_tk.log\" -eqn \"68030_tk.eq3\" -dev mach447a -dat \"$install_dir/ispcpld/dat/mach4a/\" -msg \"$install_dir/ispcpld/dat/\" -err automake.err -tmv \"NoInput.tmv\" 
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/machfitr\" \"@68030_tk.rsp\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete 68030_tk.rsp
+if [runCmd "\"$cpld_bin/lci2vci\" -vci 68030_tk.vco -out 68030_tk.lco -log 68030_tk.v2l"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/synsvf\" -exe \"$install_dir/ispvmsystem/ispufw\" -prj 68030_tk -if 68030_tk.jed -j2s -log 68030_tk.svl "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:36:46 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:39:06 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:39:06 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:39:13 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:39:13 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:39:20 ##########
+
+# Commands to make the Process: 
+# JEDEC File
+if [catch {open BUS68030.cmd w} rspFile] {
+	puts stderr "Cannot create response file BUS68030.cmd: $rspFile"
+} else {
+	puts $rspFile "STYFILENAME: 68030_tk.sty
+PROJECT: BUS68030
+WORKING_PATH: \"$proj_dir\"
+MODULE: BUS68030
+VHDL_FILE_LIST: 68030-68000-bus.vhd
+OUTPUT_FILE_NAME: BUS68030
+SUFFIX_NAME: edi
+PART: M4A5-128/64-10VC
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/Synpwrap\" -e BUS68030 -target mach -pro "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete BUS68030.cmd
+if [runCmd "\"$cpld_bin/edif2blf\" -edf BUS68030.edi -out BUS68030.bl0 -err automake.err -log BUS68030.log -prj 68030_tk -lib \"$install_dir/ispcpld/dat/mach.edn\" -net_Vcc VCC -net_GND GND -nbx -dse -tlw -cvt YES -xor"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" BUS68030.bl0 -collapse none -reduce none -keepwires  -err automake.err -family"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblflink\" \"BUS68030.bl1\" -o \"68030_tk.bl2\" -omod \"68030_tk\"  -err \"automake.err\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/impsrc\"  -prj 68030_tk -lci 68030_tk.lct -log 68030_tk.imp -err automake.err -tti 68030_tk.bl2 -dir $proj_dir"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -blifopt  68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" 68030_tk.bl2 -sweep -mergefb -err automake.err -o 68030_tk.bl3  @68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -diofft  68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mdiofft\" 68030_tk.bl3 -pla -family AMDMACH -idev van -o 68030_tk.tt2 -oxrf 68030_tk.xrf -err automake.err  @68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/tt2tott3\" -prj 68030_tk -dir $proj_dir -log 68030_tk.log -tti 68030_tk.tt2 -tto 68030_tk.tt3"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -prefit  68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/prefit\" -inp 68030_tk.tt3 -out 68030_tk.tt4 -err automake.err -log 68030_tk.log -percent 68030_tk.tte -mod BUS68030  @68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/blif2eqn\" 68030_tk.tte -o 68030_tk.eq3 -use_short -err automake.err "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/lci2vci\" -lci 68030_tk.lct -out 68030_tk.vct -log 68030_tk.l2v"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [catch {open 68030_tk.rsp w} rspFile] {
+	puts stderr "Cannot create response file 68030_tk.rsp: $rspFile"
+} else {
+	puts $rspFile "-inp \"68030_tk.tt4\" -vci \"68030_tk.vct\" -log \"68030_tk.log\" -eqn \"68030_tk.eq3\" -dev mach447a -dat \"$install_dir/ispcpld/dat/mach4a/\" -msg \"$install_dir/ispcpld/dat/\" -err automake.err -tmv \"NoInput.tmv\" 
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/machfitr\" \"@68030_tk.rsp\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete 68030_tk.rsp
+if [runCmd "\"$cpld_bin/lci2vci\" -vci 68030_tk.vco -out 68030_tk.lco -log 68030_tk.v2l"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/synsvf\" -exe \"$install_dir/ispvmsystem/ispufw\" -prj 68030_tk -if 68030_tk.jed -j2s -log 68030_tk.svl "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:39:20 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:40:40 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:40:40 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:40:47 ##########
+
+# Commands to make the Process: 
+# JEDEC File
+if [catch {open BUS68030.cmd w} rspFile] {
+	puts stderr "Cannot create response file BUS68030.cmd: $rspFile"
+} else {
+	puts $rspFile "STYFILENAME: 68030_tk.sty
+PROJECT: BUS68030
+WORKING_PATH: \"$proj_dir\"
+MODULE: BUS68030
+VHDL_FILE_LIST: 68030-68000-bus.vhd
+OUTPUT_FILE_NAME: BUS68030
+SUFFIX_NAME: edi
+PART: M4A5-128/64-10VC
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/Synpwrap\" -e BUS68030 -target mach -pro "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete BUS68030.cmd
+if [runCmd "\"$cpld_bin/edif2blf\" -edf BUS68030.edi -out BUS68030.bl0 -err automake.err -log BUS68030.log -prj 68030_tk -lib \"$install_dir/ispcpld/dat/mach.edn\" -net_Vcc VCC -net_GND GND -nbx -dse -tlw -cvt YES -xor"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" BUS68030.bl0 -collapse none -reduce none -keepwires  -err automake.err -family"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblflink\" \"BUS68030.bl1\" -o \"68030_tk.bl2\" -omod \"68030_tk\"  -err \"automake.err\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/impsrc\"  -prj 68030_tk -lci 68030_tk.lct -log 68030_tk.imp -err automake.err -tti 68030_tk.bl2 -dir $proj_dir"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -blifopt  68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" 68030_tk.bl2 -sweep -mergefb -err automake.err -o 68030_tk.bl3  @68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -diofft  68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mdiofft\" 68030_tk.bl3 -pla -family AMDMACH -idev van -o 68030_tk.tt2 -oxrf 68030_tk.xrf -err automake.err  @68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/tt2tott3\" -prj 68030_tk -dir $proj_dir -log 68030_tk.log -tti 68030_tk.tt2 -tto 68030_tk.tt3"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -prefit  68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/prefit\" -inp 68030_tk.tt3 -out 68030_tk.tt4 -err automake.err -log 68030_tk.log -percent 68030_tk.tte -mod BUS68030  @68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/blif2eqn\" 68030_tk.tte -o 68030_tk.eq3 -use_short -err automake.err "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/lci2vci\" -lci 68030_tk.lct -out 68030_tk.vct -log 68030_tk.l2v"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [catch {open 68030_tk.rsp w} rspFile] {
+	puts stderr "Cannot create response file 68030_tk.rsp: $rspFile"
+} else {
+	puts $rspFile "-inp \"68030_tk.tt4\" -vci \"68030_tk.vct\" -log \"68030_tk.log\" -eqn \"68030_tk.eq3\" -dev mach447a -dat \"$install_dir/ispcpld/dat/mach4a/\" -msg \"$install_dir/ispcpld/dat/\" -err automake.err -tmv \"NoInput.tmv\" 
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/machfitr\" \"@68030_tk.rsp\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete 68030_tk.rsp
+if [runCmd "\"$cpld_bin/lci2vci\" -vci 68030_tk.vco -out 68030_tk.lco -log 68030_tk.v2l"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/synsvf\" -exe \"$install_dir/ispvmsystem/ispufw\" -prj 68030_tk -if 68030_tk.jed -j2s -log 68030_tk.svl "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:40:47 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:42:07 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:42:07 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:42:21 ##########
+
+# Commands to make the Process: 
+# JEDEC File
+if [catch {open BUS68030.cmd w} rspFile] {
+	puts stderr "Cannot create response file BUS68030.cmd: $rspFile"
+} else {
+	puts $rspFile "STYFILENAME: 68030_tk.sty
+PROJECT: BUS68030
+WORKING_PATH: \"$proj_dir\"
+MODULE: BUS68030
+VHDL_FILE_LIST: 68030-68000-bus.vhd
+OUTPUT_FILE_NAME: BUS68030
+SUFFIX_NAME: edi
+PART: M4A5-128/64-10VC
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/Synpwrap\" -e BUS68030 -target mach -pro "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete BUS68030.cmd
+if [runCmd "\"$cpld_bin/edif2blf\" -edf BUS68030.edi -out BUS68030.bl0 -err automake.err -log BUS68030.log -prj 68030_tk -lib \"$install_dir/ispcpld/dat/mach.edn\" -net_Vcc VCC -net_GND GND -nbx -dse -tlw -cvt YES -xor"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" BUS68030.bl0 -collapse none -reduce none -keepwires  -err automake.err -family"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblflink\" \"BUS68030.bl1\" -o \"68030_tk.bl2\" -omod \"68030_tk\"  -err \"automake.err\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/impsrc\"  -prj 68030_tk -lci 68030_tk.lct -log 68030_tk.imp -err automake.err -tti 68030_tk.bl2 -dir $proj_dir"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -blifopt  68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" 68030_tk.bl2 -sweep -mergefb -err automake.err -o 68030_tk.bl3  @68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -diofft  68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mdiofft\" 68030_tk.bl3 -pla -family AMDMACH -idev van -o 68030_tk.tt2 -oxrf 68030_tk.xrf -err automake.err  @68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/tt2tott3\" -prj 68030_tk -dir $proj_dir -log 68030_tk.log -tti 68030_tk.tt2 -tto 68030_tk.tt3"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -prefit  68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/prefit\" -inp 68030_tk.tt3 -out 68030_tk.tt4 -err automake.err -log 68030_tk.log -percent 68030_tk.tte -mod BUS68030  @68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/blif2eqn\" 68030_tk.tte -o 68030_tk.eq3 -use_short -err automake.err "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/lci2vci\" -lci 68030_tk.lct -out 68030_tk.vct -log 68030_tk.l2v"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [catch {open 68030_tk.rsp w} rspFile] {
+	puts stderr "Cannot create response file 68030_tk.rsp: $rspFile"
+} else {
+	puts $rspFile "-inp \"68030_tk.tt4\" -vci \"68030_tk.vct\" -log \"68030_tk.log\" -eqn \"68030_tk.eq3\" -dev mach447a -dat \"$install_dir/ispcpld/dat/mach4a/\" -msg \"$install_dir/ispcpld/dat/\" -err automake.err -tmv \"NoInput.tmv\" 
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/machfitr\" \"@68030_tk.rsp\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete 68030_tk.rsp
+if [runCmd "\"$cpld_bin/lci2vci\" -vci 68030_tk.vco -out 68030_tk.lco -log 68030_tk.v2l"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/synsvf\" -exe \"$install_dir/ispvmsystem/ispufw\" -prj 68030_tk -if 68030_tk.jed -j2s -log 68030_tk.svl "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:42:21 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:46:42 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:46:42 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:47:09 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:47:09 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:47:49 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:47:49 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:47:55 ##########
+
+# Commands to make the Process: 
+# JEDEC File
+if [catch {open BUS68030.cmd w} rspFile] {
+	puts stderr "Cannot create response file BUS68030.cmd: $rspFile"
+} else {
+	puts $rspFile "STYFILENAME: 68030_tk.sty
+PROJECT: BUS68030
+WORKING_PATH: \"$proj_dir\"
+MODULE: BUS68030
+VHDL_FILE_LIST: 68030-68000-bus.vhd
+OUTPUT_FILE_NAME: BUS68030
+SUFFIX_NAME: edi
+PART: M4A5-128/64-10VC
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/Synpwrap\" -e BUS68030 -target mach -pro "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete BUS68030.cmd
+if [runCmd "\"$cpld_bin/edif2blf\" -edf BUS68030.edi -out BUS68030.bl0 -err automake.err -log BUS68030.log -prj 68030_tk -lib \"$install_dir/ispcpld/dat/mach.edn\" -net_Vcc VCC -net_GND GND -nbx -dse -tlw -cvt YES -xor"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" BUS68030.bl0 -collapse none -reduce none -keepwires  -err automake.err -family"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblflink\" \"BUS68030.bl1\" -o \"68030_tk.bl2\" -omod \"68030_tk\"  -err \"automake.err\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/impsrc\"  -prj 68030_tk -lci 68030_tk.lct -log 68030_tk.imp -err automake.err -tti 68030_tk.bl2 -dir $proj_dir"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -blifopt  68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" 68030_tk.bl2 -sweep -mergefb -err automake.err -o 68030_tk.bl3  @68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -diofft  68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mdiofft\" 68030_tk.bl3 -pla -family AMDMACH -idev van -o 68030_tk.tt2 -oxrf 68030_tk.xrf -err automake.err  @68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/tt2tott3\" -prj 68030_tk -dir $proj_dir -log 68030_tk.log -tti 68030_tk.tt2 -tto 68030_tk.tt3"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -prefit  68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/prefit\" -inp 68030_tk.tt3 -out 68030_tk.tt4 -err automake.err -log 68030_tk.log -percent 68030_tk.tte -mod BUS68030  @68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/blif2eqn\" 68030_tk.tte -o 68030_tk.eq3 -use_short -err automake.err "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/lci2vci\" -lci 68030_tk.lct -out 68030_tk.vct -log 68030_tk.l2v"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [catch {open 68030_tk.rsp w} rspFile] {
+	puts stderr "Cannot create response file 68030_tk.rsp: $rspFile"
+} else {
+	puts $rspFile "-inp \"68030_tk.tt4\" -vci \"68030_tk.vct\" -log \"68030_tk.log\" -eqn \"68030_tk.eq3\" -dev mach447a -dat \"$install_dir/ispcpld/dat/mach4a/\" -msg \"$install_dir/ispcpld/dat/\" -err automake.err -tmv \"NoInput.tmv\" 
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/machfitr\" \"@68030_tk.rsp\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete 68030_tk.rsp
+if [runCmd "\"$cpld_bin/lci2vci\" -vci 68030_tk.vco -out 68030_tk.lco -log 68030_tk.v2l"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/synsvf\" -exe \"$install_dir/ispvmsystem/ispufw\" -prj 68030_tk -if 68030_tk.jed -j2s -log 68030_tk.svl "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:47:55 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:48:11 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:48:11 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:48:15 ##########
+
+# Commands to make the Process: 
+# JEDEC File
+if [catch {open BUS68030.cmd w} rspFile] {
+	puts stderr "Cannot create response file BUS68030.cmd: $rspFile"
+} else {
+	puts $rspFile "STYFILENAME: 68030_tk.sty
+PROJECT: BUS68030
+WORKING_PATH: \"$proj_dir\"
+MODULE: BUS68030
+VHDL_FILE_LIST: 68030-68000-bus.vhd
+OUTPUT_FILE_NAME: BUS68030
+SUFFIX_NAME: edi
+PART: M4A5-128/64-10VC
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/Synpwrap\" -e BUS68030 -target mach -pro "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete BUS68030.cmd
+if [runCmd "\"$cpld_bin/edif2blf\" -edf BUS68030.edi -out BUS68030.bl0 -err automake.err -log BUS68030.log -prj 68030_tk -lib \"$install_dir/ispcpld/dat/mach.edn\" -net_Vcc VCC -net_GND GND -nbx -dse -tlw -cvt YES -xor"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" BUS68030.bl0 -collapse none -reduce none -keepwires  -err automake.err -family"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblflink\" \"BUS68030.bl1\" -o \"68030_tk.bl2\" -omod \"68030_tk\"  -err \"automake.err\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/impsrc\"  -prj 68030_tk -lci 68030_tk.lct -log 68030_tk.imp -err automake.err -tti 68030_tk.bl2 -dir $proj_dir"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -blifopt  68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" 68030_tk.bl2 -sweep -mergefb -err automake.err -o 68030_tk.bl3  @68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -diofft  68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mdiofft\" 68030_tk.bl3 -pla -family AMDMACH -idev van -o 68030_tk.tt2 -oxrf 68030_tk.xrf -err automake.err  @68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/tt2tott3\" -prj 68030_tk -dir $proj_dir -log 68030_tk.log -tti 68030_tk.tt2 -tto 68030_tk.tt3"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -prefit  68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/prefit\" -inp 68030_tk.tt3 -out 68030_tk.tt4 -err automake.err -log 68030_tk.log -percent 68030_tk.tte -mod BUS68030  @68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/blif2eqn\" 68030_tk.tte -o 68030_tk.eq3 -use_short -err automake.err "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/lci2vci\" -lci 68030_tk.lct -out 68030_tk.vct -log 68030_tk.l2v"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [catch {open 68030_tk.rsp w} rspFile] {
+	puts stderr "Cannot create response file 68030_tk.rsp: $rspFile"
+} else {
+	puts $rspFile "-inp \"68030_tk.tt4\" -vci \"68030_tk.vct\" -log \"68030_tk.log\" -eqn \"68030_tk.eq3\" -dev mach447a -dat \"$install_dir/ispcpld/dat/mach4a/\" -msg \"$install_dir/ispcpld/dat/\" -err automake.err -tmv \"NoInput.tmv\" 
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/machfitr\" \"@68030_tk.rsp\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete 68030_tk.rsp
+if [runCmd "\"$cpld_bin/lci2vci\" -vci 68030_tk.vco -out 68030_tk.lco -log 68030_tk.v2l"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/synsvf\" -exe \"$install_dir/ispvmsystem/ispufw\" -prj 68030_tk -if 68030_tk.jed -j2s -log 68030_tk.svl "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:48:15 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:49:47 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:49:47 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:49:55 ##########
+
+# Commands to make the Process: 
+# JEDEC File
+if [catch {open BUS68030.cmd w} rspFile] {
+	puts stderr "Cannot create response file BUS68030.cmd: $rspFile"
+} else {
+	puts $rspFile "STYFILENAME: 68030_tk.sty
+PROJECT: BUS68030
+WORKING_PATH: \"$proj_dir\"
+MODULE: BUS68030
+VHDL_FILE_LIST: 68030-68000-bus.vhd
+OUTPUT_FILE_NAME: BUS68030
+SUFFIX_NAME: edi
+PART: M4A5-128/64-10VC
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/Synpwrap\" -e BUS68030 -target mach -pro "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete BUS68030.cmd
+if [runCmd "\"$cpld_bin/edif2blf\" -edf BUS68030.edi -out BUS68030.bl0 -err automake.err -log BUS68030.log -prj 68030_tk -lib \"$install_dir/ispcpld/dat/mach.edn\" -net_Vcc VCC -net_GND GND -nbx -dse -tlw -cvt YES -xor"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" BUS68030.bl0 -collapse none -reduce none -keepwires  -err automake.err -family"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblflink\" \"BUS68030.bl1\" -o \"68030_tk.bl2\" -omod \"68030_tk\"  -err \"automake.err\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/impsrc\"  -prj 68030_tk -lci 68030_tk.lct -log 68030_tk.imp -err automake.err -tti 68030_tk.bl2 -dir $proj_dir"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -blifopt  68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" 68030_tk.bl2 -sweep -mergefb -err automake.err -o 68030_tk.bl3  @68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -diofft  68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mdiofft\" 68030_tk.bl3 -pla -family AMDMACH -idev van -o 68030_tk.tt2 -oxrf 68030_tk.xrf -err automake.err  @68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/tt2tott3\" -prj 68030_tk -dir $proj_dir -log 68030_tk.log -tti 68030_tk.tt2 -tto 68030_tk.tt3"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -prefit  68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/prefit\" -inp 68030_tk.tt3 -out 68030_tk.tt4 -err automake.err -log 68030_tk.log -percent 68030_tk.tte -mod BUS68030  @68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/blif2eqn\" 68030_tk.tte -o 68030_tk.eq3 -use_short -err automake.err "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/lci2vci\" -lci 68030_tk.lct -out 68030_tk.vct -log 68030_tk.l2v"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [catch {open 68030_tk.rsp w} rspFile] {
+	puts stderr "Cannot create response file 68030_tk.rsp: $rspFile"
+} else {
+	puts $rspFile "-inp \"68030_tk.tt4\" -vci \"68030_tk.vct\" -log \"68030_tk.log\" -eqn \"68030_tk.eq3\" -dev mach447a -dat \"$install_dir/ispcpld/dat/mach4a/\" -msg \"$install_dir/ispcpld/dat/\" -err automake.err -tmv \"NoInput.tmv\" 
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/machfitr\" \"@68030_tk.rsp\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete 68030_tk.rsp
+if [runCmd "\"$cpld_bin/lci2vci\" -vci 68030_tk.vco -out 68030_tk.lco -log 68030_tk.v2l"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/synsvf\" -exe \"$install_dir/ispvmsystem/ispufw\" -prj 68030_tk -if 68030_tk.jed -j2s -log 68030_tk.svl "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:49:55 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:56:26 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:56:26 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:56:37 ##########
+
+# Commands to make the Process: 
+# JEDEC File
+if [catch {open BUS68030.cmd w} rspFile] {
+	puts stderr "Cannot create response file BUS68030.cmd: $rspFile"
+} else {
+	puts $rspFile "STYFILENAME: 68030_tk.sty
+PROJECT: BUS68030
+WORKING_PATH: \"$proj_dir\"
+MODULE: BUS68030
+VHDL_FILE_LIST: 68030-68000-bus.vhd
+OUTPUT_FILE_NAME: BUS68030
+SUFFIX_NAME: edi
+PART: M4A5-128/64-10VC
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/Synpwrap\" -e BUS68030 -target mach -pro "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete BUS68030.cmd
+if [runCmd "\"$cpld_bin/edif2blf\" -edf BUS68030.edi -out BUS68030.bl0 -err automake.err -log BUS68030.log -prj 68030_tk -lib \"$install_dir/ispcpld/dat/mach.edn\" -net_Vcc VCC -net_GND GND -nbx -dse -tlw -cvt YES -xor"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" BUS68030.bl0 -collapse none -reduce none -keepwires  -err automake.err -family"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblflink\" \"BUS68030.bl1\" -o \"68030_tk.bl2\" -omod \"68030_tk\"  -err \"automake.err\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/impsrc\"  -prj 68030_tk -lci 68030_tk.lct -log 68030_tk.imp -err automake.err -tti 68030_tk.bl2 -dir $proj_dir"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -blifopt  68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" 68030_tk.bl2 -sweep -mergefb -err automake.err -o 68030_tk.bl3  @68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -diofft  68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mdiofft\" 68030_tk.bl3 -pla -family AMDMACH -idev van -o 68030_tk.tt2 -oxrf 68030_tk.xrf -err automake.err  @68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/tt2tott3\" -prj 68030_tk -dir $proj_dir -log 68030_tk.log -tti 68030_tk.tt2 -tto 68030_tk.tt3"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -prefit  68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/prefit\" -inp 68030_tk.tt3 -out 68030_tk.tt4 -err automake.err -log 68030_tk.log -percent 68030_tk.tte -mod BUS68030  @68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/blif2eqn\" 68030_tk.tte -o 68030_tk.eq3 -use_short -err automake.err "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/lci2vci\" -lci 68030_tk.lct -out 68030_tk.vct -log 68030_tk.l2v"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [catch {open 68030_tk.rsp w} rspFile] {
+	puts stderr "Cannot create response file 68030_tk.rsp: $rspFile"
+} else {
+	puts $rspFile "-inp \"68030_tk.tt4\" -vci \"68030_tk.vct\" -log \"68030_tk.log\" -eqn \"68030_tk.eq3\" -dev mach447a -dat \"$install_dir/ispcpld/dat/mach4a/\" -msg \"$install_dir/ispcpld/dat/\" -err automake.err -tmv \"NoInput.tmv\" 
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/machfitr\" \"@68030_tk.rsp\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete 68030_tk.rsp
+if [runCmd "\"$cpld_bin/lci2vci\" -vci 68030_tk.vco -out 68030_tk.lco -log 68030_tk.v2l"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/synsvf\" -exe \"$install_dir/ispvmsystem/ispufw\" -prj 68030_tk -if 68030_tk.jed -j2s -log 68030_tk.svl "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:56:37 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:57:43 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:57:43 ###########
+
+
+########## Tcl recorder starts at 05/15/14 21:57:54 ##########
+
+# Commands to make the Process: 
+# JEDEC File
+if [catch {open BUS68030.cmd w} rspFile] {
+	puts stderr "Cannot create response file BUS68030.cmd: $rspFile"
+} else {
+	puts $rspFile "STYFILENAME: 68030_tk.sty
+PROJECT: BUS68030
+WORKING_PATH: \"$proj_dir\"
+MODULE: BUS68030
+VHDL_FILE_LIST: 68030-68000-bus.vhd
+OUTPUT_FILE_NAME: BUS68030
+SUFFIX_NAME: edi
+PART: M4A5-128/64-10VC
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/Synpwrap\" -e BUS68030 -target mach -pro "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete BUS68030.cmd
+if [runCmd "\"$cpld_bin/edif2blf\" -edf BUS68030.edi -out BUS68030.bl0 -err automake.err -log BUS68030.log -prj 68030_tk -lib \"$install_dir/ispcpld/dat/mach.edn\" -net_Vcc VCC -net_GND GND -nbx -dse -tlw -cvt YES -xor"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" BUS68030.bl0 -collapse none -reduce none -keepwires  -err automake.err -family"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblflink\" \"BUS68030.bl1\" -o \"68030_tk.bl2\" -omod \"68030_tk\"  -err \"automake.err\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/impsrc\"  -prj 68030_tk -lci 68030_tk.lct -log 68030_tk.imp -err automake.err -tti 68030_tk.bl2 -dir $proj_dir"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -blifopt  68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" 68030_tk.bl2 -sweep -mergefb -err automake.err -o 68030_tk.bl3  @68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -diofft  68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mdiofft\" 68030_tk.bl3 -pla -family AMDMACH -idev van -o 68030_tk.tt2 -oxrf 68030_tk.xrf -err automake.err  @68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/tt2tott3\" -prj 68030_tk -dir $proj_dir -log 68030_tk.log -tti 68030_tk.tt2 -tto 68030_tk.tt3"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -prefit  68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/prefit\" -inp 68030_tk.tt3 -out 68030_tk.tt4 -err automake.err -log 68030_tk.log -percent 68030_tk.tte -mod BUS68030  @68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/blif2eqn\" 68030_tk.tte -o 68030_tk.eq3 -use_short -err automake.err "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/lci2vci\" -lci 68030_tk.lct -out 68030_tk.vct -log 68030_tk.l2v"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [catch {open 68030_tk.rsp w} rspFile] {
+	puts stderr "Cannot create response file 68030_tk.rsp: $rspFile"
+} else {
+	puts $rspFile "-inp \"68030_tk.tt4\" -vci \"68030_tk.vct\" -log \"68030_tk.log\" -eqn \"68030_tk.eq3\" -dev mach447a -dat \"$install_dir/ispcpld/dat/mach4a/\" -msg \"$install_dir/ispcpld/dat/\" -err automake.err -tmv \"NoInput.tmv\" 
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/machfitr\" \"@68030_tk.rsp\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete 68030_tk.rsp
+if [runCmd "\"$cpld_bin/lci2vci\" -vci 68030_tk.vco -out 68030_tk.lco -log 68030_tk.v2l"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/synsvf\" -exe \"$install_dir/ispvmsystem/ispufw\" -prj 68030_tk -if 68030_tk.jed -j2s -log 68030_tk.svl "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 21:57:54 ###########
+
+
+########## Tcl recorder starts at 05/15/14 22:01:09 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 22:01:09 ###########
+
+
+########## Tcl recorder starts at 05/15/14 22:03:13 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 22:03:13 ###########
+
+
+########## Tcl recorder starts at 05/15/14 22:03:17 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 22:03:17 ###########
+
+
+########## Tcl recorder starts at 05/15/14 22:03:25 ##########
+
+# Commands to make the Process: 
+# JEDEC File
+if [catch {open BUS68030.cmd w} rspFile] {
+	puts stderr "Cannot create response file BUS68030.cmd: $rspFile"
+} else {
+	puts $rspFile "STYFILENAME: 68030_tk.sty
+PROJECT: BUS68030
+WORKING_PATH: \"$proj_dir\"
+MODULE: BUS68030
+VHDL_FILE_LIST: 68030-68000-bus.vhd
+OUTPUT_FILE_NAME: BUS68030
+SUFFIX_NAME: edi
+PART: M4A5-128/64-10VC
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/Synpwrap\" -e BUS68030 -target mach -pro "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete BUS68030.cmd
+if [runCmd "\"$cpld_bin/edif2blf\" -edf BUS68030.edi -out BUS68030.bl0 -err automake.err -log BUS68030.log -prj 68030_tk -lib \"$install_dir/ispcpld/dat/mach.edn\" -net_Vcc VCC -net_GND GND -nbx -dse -tlw -cvt YES -xor"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" BUS68030.bl0 -collapse none -reduce none -keepwires  -err automake.err -family"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblflink\" \"BUS68030.bl1\" -o \"68030_tk.bl2\" -omod \"68030_tk\"  -err \"automake.err\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/impsrc\"  -prj 68030_tk -lci 68030_tk.lct -log 68030_tk.imp -err automake.err -tti 68030_tk.bl2 -dir $proj_dir"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -blifopt  68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" 68030_tk.bl2 -sweep -mergefb -err automake.err -o 68030_tk.bl3  @68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -diofft  68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mdiofft\" 68030_tk.bl3 -pla -family AMDMACH -idev van -o 68030_tk.tt2 -oxrf 68030_tk.xrf -err automake.err  @68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/tt2tott3\" -prj 68030_tk -dir $proj_dir -log 68030_tk.log -tti 68030_tk.tt2 -tto 68030_tk.tt3"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -prefit  68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/prefit\" -inp 68030_tk.tt3 -out 68030_tk.tt4 -err automake.err -log 68030_tk.log -percent 68030_tk.tte -mod BUS68030  @68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/blif2eqn\" 68030_tk.tte -o 68030_tk.eq3 -use_short -err automake.err "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/lci2vci\" -lci 68030_tk.lct -out 68030_tk.vct -log 68030_tk.l2v"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [catch {open 68030_tk.rsp w} rspFile] {
+	puts stderr "Cannot create response file 68030_tk.rsp: $rspFile"
+} else {
+	puts $rspFile "-inp \"68030_tk.tt4\" -vci \"68030_tk.vct\" -log \"68030_tk.log\" -eqn \"68030_tk.eq3\" -dev mach447a -dat \"$install_dir/ispcpld/dat/mach4a/\" -msg \"$install_dir/ispcpld/dat/\" -err automake.err -tmv \"NoInput.tmv\" 
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/machfitr\" \"@68030_tk.rsp\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete 68030_tk.rsp
+if [runCmd "\"$cpld_bin/lci2vci\" -vci 68030_tk.vco -out 68030_tk.lco -log 68030_tk.v2l"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/synsvf\" -exe \"$install_dir/ispvmsystem/ispufw\" -prj 68030_tk -if 68030_tk.jed -j2s -log 68030_tk.svl "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 22:03:25 ###########
+
+
+########## Tcl recorder starts at 05/15/14 22:06:12 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 22:06:12 ###########
+
+
+########## Tcl recorder starts at 05/15/14 22:06:16 ##########
+
+# Commands to make the Process: 
+# JEDEC File
+if [catch {open BUS68030.cmd w} rspFile] {
+	puts stderr "Cannot create response file BUS68030.cmd: $rspFile"
+} else {
+	puts $rspFile "STYFILENAME: 68030_tk.sty
+PROJECT: BUS68030
+WORKING_PATH: \"$proj_dir\"
+MODULE: BUS68030
+VHDL_FILE_LIST: 68030-68000-bus.vhd
+OUTPUT_FILE_NAME: BUS68030
+SUFFIX_NAME: edi
+PART: M4A5-128/64-10VC
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/Synpwrap\" -e BUS68030 -target mach -pro "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete BUS68030.cmd
+if [runCmd "\"$cpld_bin/edif2blf\" -edf BUS68030.edi -out BUS68030.bl0 -err automake.err -log BUS68030.log -prj 68030_tk -lib \"$install_dir/ispcpld/dat/mach.edn\" -net_Vcc VCC -net_GND GND -nbx -dse -tlw -cvt YES -xor"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" BUS68030.bl0 -collapse none -reduce none -keepwires  -err automake.err -family"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblflink\" \"BUS68030.bl1\" -o \"68030_tk.bl2\" -omod \"68030_tk\"  -err \"automake.err\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/impsrc\"  -prj 68030_tk -lci 68030_tk.lct -log 68030_tk.imp -err automake.err -tti 68030_tk.bl2 -dir $proj_dir"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -blifopt  68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" 68030_tk.bl2 -sweep -mergefb -err automake.err -o 68030_tk.bl3  @68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -diofft  68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mdiofft\" 68030_tk.bl3 -pla -family AMDMACH -idev van -o 68030_tk.tt2 -oxrf 68030_tk.xrf -err automake.err  @68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/tt2tott3\" -prj 68030_tk -dir $proj_dir -log 68030_tk.log -tti 68030_tk.tt2 -tto 68030_tk.tt3"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -prefit  68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/prefit\" -inp 68030_tk.tt3 -out 68030_tk.tt4 -err automake.err -log 68030_tk.log -percent 68030_tk.tte -mod BUS68030  @68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/blif2eqn\" 68030_tk.tte -o 68030_tk.eq3 -use_short -err automake.err "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/lci2vci\" -lci 68030_tk.lct -out 68030_tk.vct -log 68030_tk.l2v"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [catch {open 68030_tk.rsp w} rspFile] {
+	puts stderr "Cannot create response file 68030_tk.rsp: $rspFile"
+} else {
+	puts $rspFile "-inp \"68030_tk.tt4\" -vci \"68030_tk.vct\" -log \"68030_tk.log\" -eqn \"68030_tk.eq3\" -dev mach447a -dat \"$install_dir/ispcpld/dat/mach4a/\" -msg \"$install_dir/ispcpld/dat/\" -err automake.err -tmv \"NoInput.tmv\" 
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/machfitr\" \"@68030_tk.rsp\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete 68030_tk.rsp
+if [runCmd "\"$cpld_bin/lci2vci\" -vci 68030_tk.vco -out 68030_tk.lco -log 68030_tk.v2l"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/synsvf\" -exe \"$install_dir/ispvmsystem/ispufw\" -prj 68030_tk -if 68030_tk.jed -j2s -log 68030_tk.svl "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 22:06:16 ###########
+
+
+########## Tcl recorder starts at 05/15/14 22:16:15 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 22:16:15 ###########
+
+
+########## Tcl recorder starts at 05/15/14 22:16:20 ##########
+
+# Commands to make the Process: 
+# JEDEC File
+if [catch {open BUS68030.cmd w} rspFile] {
+	puts stderr "Cannot create response file BUS68030.cmd: $rspFile"
+} else {
+	puts $rspFile "STYFILENAME: 68030_tk.sty
+PROJECT: BUS68030
+WORKING_PATH: \"$proj_dir\"
+MODULE: BUS68030
+VHDL_FILE_LIST: 68030-68000-bus.vhd
+OUTPUT_FILE_NAME: BUS68030
+SUFFIX_NAME: edi
+PART: M4A5-128/64-10VC
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/Synpwrap\" -e BUS68030 -target mach -pro "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete BUS68030.cmd
+if [runCmd "\"$cpld_bin/edif2blf\" -edf BUS68030.edi -out BUS68030.bl0 -err automake.err -log BUS68030.log -prj 68030_tk -lib \"$install_dir/ispcpld/dat/mach.edn\" -net_Vcc VCC -net_GND GND -nbx -dse -tlw -cvt YES -xor"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" BUS68030.bl0 -collapse none -reduce none -keepwires  -err automake.err -family"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblflink\" \"BUS68030.bl1\" -o \"68030_tk.bl2\" -omod \"68030_tk\"  -err \"automake.err\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/impsrc\"  -prj 68030_tk -lci 68030_tk.lct -log 68030_tk.imp -err automake.err -tti 68030_tk.bl2 -dir $proj_dir"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -blifopt  68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" 68030_tk.bl2 -sweep -mergefb -err automake.err -o 68030_tk.bl3  @68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -diofft  68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mdiofft\" 68030_tk.bl3 -pla -family AMDMACH -idev van -o 68030_tk.tt2 -oxrf 68030_tk.xrf -err automake.err  @68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/tt2tott3\" -prj 68030_tk -dir $proj_dir -log 68030_tk.log -tti 68030_tk.tt2 -tto 68030_tk.tt3"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -prefit  68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/prefit\" -inp 68030_tk.tt3 -out 68030_tk.tt4 -err automake.err -log 68030_tk.log -percent 68030_tk.tte -mod BUS68030  @68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/blif2eqn\" 68030_tk.tte -o 68030_tk.eq3 -use_short -err automake.err "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/lci2vci\" -lci 68030_tk.lct -out 68030_tk.vct -log 68030_tk.l2v"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [catch {open 68030_tk.rsp w} rspFile] {
+	puts stderr "Cannot create response file 68030_tk.rsp: $rspFile"
+} else {
+	puts $rspFile "-inp \"68030_tk.tt4\" -vci \"68030_tk.vct\" -log \"68030_tk.log\" -eqn \"68030_tk.eq3\" -dev mach447a -dat \"$install_dir/ispcpld/dat/mach4a/\" -msg \"$install_dir/ispcpld/dat/\" -err automake.err -tmv \"NoInput.tmv\" 
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/machfitr\" \"@68030_tk.rsp\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete 68030_tk.rsp
+if [runCmd "\"$cpld_bin/lci2vci\" -vci 68030_tk.vco -out 68030_tk.lco -log 68030_tk.v2l"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/synsvf\" -exe \"$install_dir/ispvmsystem/ispufw\" -prj 68030_tk -if 68030_tk.jed -j2s -log 68030_tk.svl "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 22:16:20 ###########
+
+
+########## Tcl recorder starts at 05/15/14 22:16:30 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 22:16:30 ###########
+
+
+########## Tcl recorder starts at 05/15/14 22:16:31 ##########
+
+# Commands to make the Process: 
+# JEDEC File
+if [catch {open BUS68030.cmd w} rspFile] {
+	puts stderr "Cannot create response file BUS68030.cmd: $rspFile"
+} else {
+	puts $rspFile "STYFILENAME: 68030_tk.sty
+PROJECT: BUS68030
+WORKING_PATH: \"$proj_dir\"
+MODULE: BUS68030
+VHDL_FILE_LIST: 68030-68000-bus.vhd
+OUTPUT_FILE_NAME: BUS68030
+SUFFIX_NAME: edi
+PART: M4A5-128/64-10VC
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/Synpwrap\" -e BUS68030 -target mach -pro "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete BUS68030.cmd
+if [runCmd "\"$cpld_bin/edif2blf\" -edf BUS68030.edi -out BUS68030.bl0 -err automake.err -log BUS68030.log -prj 68030_tk -lib \"$install_dir/ispcpld/dat/mach.edn\" -net_Vcc VCC -net_GND GND -nbx -dse -tlw -cvt YES -xor"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" BUS68030.bl0 -collapse none -reduce none -keepwires  -err automake.err -family"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblflink\" \"BUS68030.bl1\" -o \"68030_tk.bl2\" -omod \"68030_tk\"  -err \"automake.err\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/impsrc\"  -prj 68030_tk -lci 68030_tk.lct -log 68030_tk.imp -err automake.err -tti 68030_tk.bl2 -dir $proj_dir"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -blifopt  68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" 68030_tk.bl2 -sweep -mergefb -err automake.err -o 68030_tk.bl3  @68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -diofft  68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mdiofft\" 68030_tk.bl3 -pla -family AMDMACH -idev van -o 68030_tk.tt2 -oxrf 68030_tk.xrf -err automake.err  @68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/tt2tott3\" -prj 68030_tk -dir $proj_dir -log 68030_tk.log -tti 68030_tk.tt2 -tto 68030_tk.tt3"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -prefit  68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/prefit\" -inp 68030_tk.tt3 -out 68030_tk.tt4 -err automake.err -log 68030_tk.log -percent 68030_tk.tte -mod BUS68030  @68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/blif2eqn\" 68030_tk.tte -o 68030_tk.eq3 -use_short -err automake.err "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/lci2vci\" -lci 68030_tk.lct -out 68030_tk.vct -log 68030_tk.l2v"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [catch {open 68030_tk.rsp w} rspFile] {
+	puts stderr "Cannot create response file 68030_tk.rsp: $rspFile"
+} else {
+	puts $rspFile "-inp \"68030_tk.tt4\" -vci \"68030_tk.vct\" -log \"68030_tk.log\" -eqn \"68030_tk.eq3\" -dev mach447a -dat \"$install_dir/ispcpld/dat/mach4a/\" -msg \"$install_dir/ispcpld/dat/\" -err automake.err -tmv \"NoInput.tmv\" 
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/machfitr\" \"@68030_tk.rsp\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete 68030_tk.rsp
+if [runCmd "\"$cpld_bin/lci2vci\" -vci 68030_tk.vco -out 68030_tk.lco -log 68030_tk.v2l"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/synsvf\" -exe \"$install_dir/ispvmsystem/ispufw\" -prj 68030_tk -if 68030_tk.jed -j2s -log 68030_tk.svl "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 22:16:31 ###########
+
+
+########## Tcl recorder starts at 05/15/14 22:17:09 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 22:17:09 ###########
+
+
+########## Tcl recorder starts at 05/15/14 22:17:20 ##########
+
+# Commands to make the Process: 
+# JEDEC File
+if [catch {open BUS68030.cmd w} rspFile] {
+	puts stderr "Cannot create response file BUS68030.cmd: $rspFile"
+} else {
+	puts $rspFile "STYFILENAME: 68030_tk.sty
+PROJECT: BUS68030
+WORKING_PATH: \"$proj_dir\"
+MODULE: BUS68030
+VHDL_FILE_LIST: 68030-68000-bus.vhd
+OUTPUT_FILE_NAME: BUS68030
+SUFFIX_NAME: edi
+PART: M4A5-128/64-10VC
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/Synpwrap\" -e BUS68030 -target mach -pro "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete BUS68030.cmd
+if [runCmd "\"$cpld_bin/edif2blf\" -edf BUS68030.edi -out BUS68030.bl0 -err automake.err -log BUS68030.log -prj 68030_tk -lib \"$install_dir/ispcpld/dat/mach.edn\" -net_Vcc VCC -net_GND GND -nbx -dse -tlw -cvt YES -xor"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" BUS68030.bl0 -collapse none -reduce none -keepwires  -err automake.err -family"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblflink\" \"BUS68030.bl1\" -o \"68030_tk.bl2\" -omod \"68030_tk\"  -err \"automake.err\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/impsrc\"  -prj 68030_tk -lci 68030_tk.lct -log 68030_tk.imp -err automake.err -tti 68030_tk.bl2 -dir $proj_dir"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -blifopt  68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mblifopt\" 68030_tk.bl2 -sweep -mergefb -err automake.err -o 68030_tk.bl3  @68030_tk.b2_"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -diofft  68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/mdiofft\" 68030_tk.bl3 -pla -family AMDMACH -idev van -o 68030_tk.tt2 -oxrf 68030_tk.xrf -err automake.err  @68030_tk.d0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/tt2tott3\" -prj 68030_tk -dir $proj_dir -log 68030_tk.log -tti 68030_tk.tt2 -tto 68030_tk.tt3"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/abelvci\" -vci 68030_tk.lct -dev mach4a -prefit  68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/prefit\" -inp 68030_tk.tt3 -out 68030_tk.tt4 -err automake.err -log 68030_tk.log -percent 68030_tk.tte -mod BUS68030  @68030_tk.l0"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/blif2eqn\" 68030_tk.tte -o 68030_tk.eq3 -use_short -err automake.err "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/lci2vci\" -lci 68030_tk.lct -out 68030_tk.vct -log 68030_tk.l2v"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [catch {open 68030_tk.rsp w} rspFile] {
+	puts stderr "Cannot create response file 68030_tk.rsp: $rspFile"
+} else {
+	puts $rspFile "-inp \"68030_tk.tt4\" -vci \"68030_tk.vct\" -log \"68030_tk.log\" -eqn \"68030_tk.eq3\" -dev mach447a -dat \"$install_dir/ispcpld/dat/mach4a/\" -msg \"$install_dir/ispcpld/dat/\" -err automake.err -tmv \"NoInput.tmv\" 
+"
+	close $rspFile
+}
+if [runCmd "\"$cpld_bin/machfitr\" \"@68030_tk.rsp\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+file delete 68030_tk.rsp
+if [runCmd "\"$cpld_bin/lci2vci\" -vci 68030_tk.vco -out 68030_tk.lco -log 68030_tk.v2l"] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+if [runCmd "\"$cpld_bin/synsvf\" -exe \"$install_dir/ispvmsystem/ispufw\" -prj 68030_tk -if 68030_tk.jed -j2s -log 68030_tk.svl "] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/15/14 22:17:20 ###########
+

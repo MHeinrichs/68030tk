@@ -1,18 +1,18 @@
-@N: CD630 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":6:7:6:14|Synthesizing work.bus68030.behavioral 
-@W: CD638 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":109:7:109:15|Signal clk_030_d is undriven 
+@N: CD630 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":6:7:6:14|Synthesizing work.bus68030.behavioral 
+@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":109:7:109:15|Signal clk_030_d is undriven 
 Post processing for work.bus68030.behavioral
-@W: CL169 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":105:52:105:55|Pruning register VMA_INT_D  
-@W: CL169 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":91:32:91:34|Pruning register CLK_REF(1 downto 0)  
-@W: CL169 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":220:2:220:3|Pruning register AS_000_START  
-@W: CL169 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":113:38:113:40|Pruning register cpu_est_d(3 downto 0)  
-@W: CL169 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":112:37:112:39|Pruning register FALLING_CLK_AMIGA  
-@A: CL282 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":100:29:100:31|Feedback mux created for signal SM_AMIGA_D[2:0] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
-@W: CL190 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":100:29:100:31|Optimizing register bit DSACK_INT(0) to a constant 1
-@W: CL260 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":100:29:100:31|Pruning register bit 0 of DSACK_INT(1 downto 0)  
-@W: CL189 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":124:2:124:3|Register bit CLK_CNT(1) is always 0, optimizing ...
-@W: CL260 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":124:2:124:3|Pruning register bit 1 of CLK_CNT(1 downto 0)  
-@N: CL201 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":113:38:113:40|Trying to extract state machine for register cpu_est
-@N: CL201 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":220:2:220:3|Trying to extract state machine for register SM_AMIGA
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":105:52:105:55|Pruning register VMA_INT_D  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":91:32:91:34|Pruning register CLK_REF(1 downto 0)  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":220:2:220:3|Pruning register AS_000_START  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":113:38:113:40|Pruning register CLK_000_CNT(3 downto 0)  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":112:37:112:39|Pruning register FALLING_CLK_AMIGA  
+@A: CL282 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":100:29:100:31|Feedback mux created for signal SM_AMIGA_D[2:0] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+@W: CL190 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":100:29:100:31|Optimizing register bit DSACK_INT(0) to a constant 1
+@W: CL260 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":100:29:100:31|Pruning register bit 0 of DSACK_INT(1 downto 0)  
+@W: CL189 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":124:2:124:3|Register bit CLK_CNT(1) is always 0, optimizing ...
+@W: CL260 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":124:2:124:3|Pruning register bit 1 of CLK_CNT(1 downto 0)  
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":113:38:113:40|Trying to extract state machine for register cpu_est
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":220:2:220:3|Trying to extract state machine for register SM_AMIGA
 Extracted state machine for register SM_AMIGA
 State machine has 8 reachable states with original encodings of:
    000
@@ -23,4 +23,4 @@ State machine has 8 reachable states with original encodings of:
    101
    110
    111
-@W: CL249 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":220:2:220:3|Initial value is not supported on state machine SM_AMIGA
+@W: CL249 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":220:2:220:3|Initial value is not supported on state machine SM_AMIGA

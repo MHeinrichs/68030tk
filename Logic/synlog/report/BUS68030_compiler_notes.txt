@@ -1,7 +1,7 @@
 @N|Running in 64-bit mode
 @N: CD720 :"C:\Program Files (x86)\ispLever\synpbase\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
-@N:"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":6:7:6:14|Top entity is set to BUS68030.
-@N: CD630 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":6:7:6:14|Synthesizing work.bus68030.behavioral 
-@N: CL201 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":113:38:113:40|Trying to extract state machine for register cpu_est
-@N: CL201 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":220:2:220:3|Trying to extract state machine for register SM_AMIGA
+@N:"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":6:7:6:14|Top entity is set to BUS68030.
+@N: CD630 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":6:7:6:14|Synthesizing work.bus68030.behavioral 
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":113:38:113:40|Trying to extract state machine for register cpu_est
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":220:2:220:3|Trying to extract state machine for register SM_AMIGA
 
