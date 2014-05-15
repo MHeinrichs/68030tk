@@ -1,0 +1,94 @@
+#Build: Synplify Pro G-2012.09LC-SP1 , Build 035R, Mar 19 2013
+#install: C:\Program Files (x86)\ispLever\synpbase
+#OS: Windows 7 6.1
+#Hostname: DEEPTHOUGHT
+
+#Implementation: logic
+
+$ Start of Compile
+#Thu May 15 19:20:46 2014
+
+Synopsys VHDL Compiler, version comp201209rcp1, Build 283R, built Mar 19 2013
+@N|Running in 64-bit mode
+Copyright (C) 1994-2012 Synopsys, Inc. This software the associated documentation are confidential and proprietary to Synopsys, Inc. Your use or disclosure of this software subject to the terms and conditions of a written license agreement between you, or your company, and Synopsys, Inc.
+
+@N: CD720 :"C:\Program Files (x86)\ispLever\synpbase\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
+@N:"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":6:7:6:14|Top entity is set to BUS68030.
+File C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd changed - recompiling
+VHDL syntax check successful!
+File C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd changed - recompiling
+@N: CD630 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":6:7:6:14|Synthesizing work.bus68030.behavioral 
+@W: CD638 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":109:7:109:15|Signal clk_030_d is undriven 
+Post processing for work.bus68030.behavioral
+@W: CL169 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":105:52:105:55|Pruning register VMA_INT_D  
+@W: CL169 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":91:32:91:34|Pruning register CLK_REF(1 downto 0)  
+@W: CL169 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":220:2:220:3|Pruning register AS_000_START  
+@W: CL169 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":113:38:113:40|Pruning register cpu_est_d(3 downto 0)  
+@W: CL169 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":112:37:112:39|Pruning register FALLING_CLK_AMIGA  
+@A: CL282 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":100:29:100:31|Feedback mux created for signal SM_AMIGA_D[2:0] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+@W: CL190 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":100:29:100:31|Optimizing register bit DSACK_INT(0) to a constant 1
+@W: CL260 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":100:29:100:31|Pruning register bit 0 of DSACK_INT(1 downto 0)  
+@W: CL189 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":124:2:124:3|Register bit CLK_CNT(1) is always 0, optimizing ...
+@W: CL260 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":124:2:124:3|Pruning register bit 1 of CLK_CNT(1 downto 0)  
+@N: CL201 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":113:38:113:40|Trying to extract state machine for register cpu_est
+@N: CL201 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":220:2:220:3|Trying to extract state machine for register SM_AMIGA
+Extracted state machine for register SM_AMIGA
+State machine has 8 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   100
+   101
+   110
+   111
+@W: CL249 :"C:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":220:2:220:3|Initial value is not supported on state machine SM_AMIGA
+@END
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Thu May 15 19:20:46 2014
+
+###########################################################]
+Map & Optimize Report
+
+Synopsys CPLD Technology Mapper, Version maplat, Build 621R, Built Mar 19 2013
+Copyright (C) 1994-2012, Synopsys Inc. This software the associated documentation are confidential and proprietary to Synopsys, Inc. Your use or disclosure of this software subject to the terms and conditions of a written license agreement between you, or your company, and Synopsys, Inc.
+Product Version G-2012.09LC-SP1 
+@N: MF248 |Running in 64-bit mode.
+Encoding state machine SM_AMIGA[0:7] (view:work.BUS68030(behavioral))
+original code -> new code
+   000 -> 00000001
+   001 -> 00000010
+   010 -> 00000100
+   011 -> 00001000
+   100 -> 00010000
+   101 -> 00100000
+   110 -> 01000000
+   111 -> 10000000
+@N: MO106 :"c:\users\matze\amiga\hardwarehacks\68030-tk\logic\68030-68000-bus.vhd":160:4:160:7|Found ROM, 'clk\.cpu_est_11[3:0]', 16 words by 4 bits 
+---------------------------------------
+Resource Usage Report
+
+Simple gate primitives:
+DFFRH           7 uses
+DFF             19 uses
+DFFSH           16 uses
+IBUF            35 uses
+BUFTH           7 uses
+OBUF            15 uses
+BI_DIR          2 uses
+AND2            179 uses
+INV             143 uses
+OR2             20 uses
+XOR2            8 uses
+
+
+@N: FC100 |Timing Report not generated for this device, please use place and route tools for timing analysis.
+G-2012.09LC-SP1 
+Mapper successful!
+
+At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 95MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Thu May 15 19:20:48 2014
+
+###########################################################]

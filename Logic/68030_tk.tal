@@ -1,0 +1,90 @@
+
+
+Design Name = 68030_tk.tt4
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+*******************
+* TIMING ANALYSIS *
+*******************
+
+Timing Analysis KEY:
+One unit of delay time is equivalent to one pass 
+     through the Central Switch Matrix.
+..   Delay ( in this column ) not applicable to the indicated signal.
+TSU, Set-Up Time ( 0 for input-paired signals ),
+     represents the number of switch matrix passes between
+     an input pin and a register setup before clock.
+     TSU is reported on the register.
+TCO, Clocked Output-to-Pin Time ( 0 for output-paired signals ),
+     represents the number of switch matrix passes between
+     a clocked register and an output pin.
+     TCO is reported on the register.
+TPD, Propagation Delay Time ( calculated only for combinatorial eqns.),
+     represents the number of switch matrix passes between
+     an input pin and an output pin.
+     TPD is reported on the output pin.
+TCR, Clocked Output-to-Register Time,
+     represents the number of switch matrix passes between
+     a clocked register and the register it drives ( before clock ).
+     TCR is reported on the driving register.
+
+                    TSU       TCO       TPD       TCR
+                  #passes   #passes   #passes   #passes
+SIGNAL NAME       min  max  min  max  min  max  min  max
+         LDS_000   1    2    0    0   ..   ..    1    1   
+      RN_LDS_000   1    2    0    0   ..   ..    1    1   
+inst_AS_030_000_SYNC   1    1   ..   ..   ..   ..    1    2   
+  inst_CLK_000_D   1    1   ..   ..   ..   ..    1    2   
+     SM_AMIGA_6_  ..   ..    1    1   ..   ..    1    2   
+     SM_AMIGA_4_  ..   ..    1    1   ..   ..    1    2   
+     SM_AMIGA_5_  ..   ..    1    1   ..   ..    1    2   
+AMIGA_BUS_DATA_DIR  ..   ..   ..   ..    1    1   ..   ..   
+            CIIN  ..   ..   ..   ..    1    1   ..   ..   
+      IPL_030_2_   1    1    0    0   ..   ..    1    1   
+   RN_IPL_030_2_   1    1    0    0   ..   ..    1    1   
+        DSACK_1_   1    1    0    0   ..   ..    1    1   
+     RN_DSACK_1_   1    1    0    0   ..   ..    1    1   
+          AS_000   1    1    0    0   ..   ..    1    1   
+       RN_AS_000   1    1    0    0   ..   ..    1    1   
+         UDS_000   1    1    0    0   ..   ..    1    1   
+      RN_UDS_000   1    1    0    0   ..   ..    1    1   
+          BG_000   1    1    0    0   ..   ..    1    1   
+       RN_BG_000   1    1    0    0   ..   ..    1    1   
+       BGACK_030   1    1    0    0   ..   ..    1    1   
+    RN_BGACK_030   1    1    0    0   ..   ..    1    1   
+          FPU_CS   1    1    0    0   ..   ..    1    1   
+       RN_FPU_CS   1    1    0    0   ..   ..    1    1   
+           DTACK   1    1    0    0   ..   ..   ..   ..   
+      IPL_030_1_   1    1    0    0   ..   ..    1    1   
+   RN_IPL_030_1_   1    1    0    0   ..   ..    1    1   
+      IPL_030_0_   1    1    0    0   ..   ..    1    1   
+   RN_IPL_030_0_   1    1    0    0   ..   ..    1    1   
+               E  ..   ..    0    0   ..   ..    1    1   
+            RN_E  ..   ..    0    0   ..   ..    1    1   
+             VMA  ..   ..    0    0   ..   ..    1    1   
+          RN_VMA  ..   ..    0    0   ..   ..    1    1   
+           RESET   1    1    0    0   ..   ..   ..   ..   
+      cpu_est_1_  ..   ..   ..   ..   ..   ..    1    1   
+ inst_DTACK_SYNC   1    1   ..   ..   ..   ..    1    1   
+      inst_VPA_D   1    1   ..   ..   ..   ..    1    1   
+   inst_VPA_SYNC   1    1   ..   ..   ..   ..    1    1   
+ inst_CLK_000_DD  ..   ..   ..   ..   ..   ..    1    1   
+inst_CLK_OUT_PRE  ..   ..   ..   ..   ..   ..    1    1   
+      cpu_est_0_  ..   ..   ..   ..   ..   ..    1    1   
+      cpu_est_2_  ..   ..   ..   ..   ..   ..    1    1   
+      CLK_CNT_0_  ..   ..   ..   ..   ..   ..    1    1   
+     SM_AMIGA_7_  ..   ..   ..   ..   ..   ..    1    1   
+inst_RISING_CLK_AMIGA   1    1   ..   ..   ..   ..    1    1   
+     SM_AMIGA_3_  ..   ..    1    1   ..   ..    1    1   
+  CLK_000_CNT_0_   1    1   ..   ..   ..   ..    1    1   
+  CLK_000_CNT_1_   1    1   ..   ..   ..   ..    1    1   
+  CLK_000_CNT_2_   1    1   ..   ..   ..   ..    1    1   
+  CLK_000_CNT_3_   1    1   ..   ..   ..   ..    1    1   
+     SM_AMIGA_2_  ..   ..    1    1   ..   ..    1    1   
+     SM_AMIGA_1_   1    1    1    1   ..   ..    1    1   
+     SM_AMIGA_0_   1    1    1    1   ..   ..    1    1   
+   SM_AMIGA_D_0_   1    1    1    1   ..   ..   ..   ..   
+   SM_AMIGA_D_1_   1    1    1    1   ..   ..   ..   ..   
+   SM_AMIGA_D_2_   1    1    1    1   ..   ..   ..   ..   
+un1_UDS_000_INT_0_sqmuxa_2_0  ..   ..   ..   ..    1    1   ..   ..   

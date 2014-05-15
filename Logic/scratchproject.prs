@@ -1,0 +1,50 @@
+#--  Synopsys, Inc.
+#--  Version G-2012.09LC-SP1 
+#--  Project file C:\users\matze\amiga\hardwarehacks\68030-tk\logic\scratchproject.prs
+
+#project files
+add_file -vhdl -lib work "C:/users/matze/amiga/hardwarehacks/68030-tk/logic/68030-68000-bus.vhd"
+
+
+#implementation: "logic"
+impl -add C:\users\matze\amiga\hardwarehacks\68030-tk\logic -type fpga
+
+#device options
+set_option -technology mach
+set_option -part M4A5-128
+set_option -package ""
+set_option -speed_grade ""
+set_option -part_companion ""
+
+#compilation/mapping options
+set_option -top_module "BUS68030"
+
+# mapper_options
+set_option -frequency 1
+set_option -write_verilog 0
+set_option -write_vhdl 0
+set_option -srs_instrumentation 1
+
+# Lattice ispMACH4000
+set_option -maxfanin 20
+set_option -RWCheckOnRam 1
+set_option -maxterms 16
+set_option -areadelay 0
+set_option -disable_io_insertion 0
+
+# sequential_optimization_options
+set_option -symbolic_fsm_compiler 1
+
+# Compiler Options
+set_option -compiler_compatible 0
+set_option -resource_sharing 1
+
+#automatic place and route (vendor) options
+set_option -write_apr_constraint 1
+
+#set result format/file last
+project -result_file "C:/users/matze/amiga/hardwarehacks/68030-tk/logic/BUS68030.edi"
+
+#set log file 
+set_option log_file "C:/users/matze/amiga/hardwarehacks/68030-tk/logic/bus68030.srf" 
+impl -active "logic"

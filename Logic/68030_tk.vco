@@ -1,0 +1,220 @@
+[DEVICE]
+
+Family = M4A5;
+PartType = M4A5-128/64;
+Package = 100TQFP;
+PartNumber = M4A5-128/64-10VC;
+Speed = -10;
+Operating_condition = COM;
+EN_Segment = NO;
+Pin_MC_1to1 = NO;
+Voltage = 5.0;
+
+[REVISION]
+
+RCS = "$Revision: 1.2 $";
+Parent = m4a5.lci;
+SDS_file = m4a5.sds;
+Design = 68030_tk.tt4;
+Rev = 0.01;
+DATE = 5/15/14;
+TIME = 19:20:57;
+Type = TT2;
+Pre_Fit_Time = 1;
+Source_Format = Pure_VHDL;
+
+[IGNORE ASSIGNMENTS]
+
+Pin_Assignments = NO;
+Pin_Keep_Block = NO;
+Pin_Keep_Segment = NO;
+Group_Assignments = NO;
+Macrocell_Assignments = NO;
+Macrocell_Keep_Block = NO;
+Macrocell_Keep_Segment = NO;
+Pin_Reservation = NO;
+Timing_Constraints = NO;
+Block_Reservation = NO;
+Segment_Reservation = NO;
+Ignore_Source_Location = NO;
+Ignore_Source_Optimization = NO;
+Ignore_Source_Timing = NO;
+
+[CLEAR ASSIGNMENTS]
+
+Pin_Assignments = NO;
+Pin_Keep_Block = NO;
+Pin_Keep_Segment = NO;
+Group_Assignments = NO;
+Macrocell_Assignments = NO;
+Macrocell_Keep_Block = NO;
+Macrocell_Keep_Segment = NO;
+Pin_Reservation = NO;
+Timing_Constraints = NO;
+Block_Reservation = NO;
+Segment_Reservation = NO;
+Ignore_Source_Location = NO;
+Ignore_Source_Optimization = NO;
+Ignore_Source_Timing = NO;
+
+[BACKANNOTATE NETLIST]
+
+Netlist = VHDL;
+Delay_File = SDF;
+Generic_VCC = ;
+Generic_GND = ;
+
+[BACKANNOTATE ASSIGNMENTS]
+
+Pin_Assignment = NO;
+Pin_Block = NO;
+Pin_Macrocell_Block = NO;
+Routing = NO;
+
+[GLOBAL PROJECT OPTIMIZATION]
+
+Balanced_Partitioning = YES;
+Spread_Placement = YES;
+Max_Pin_Percent = 100;
+Max_Macrocell_Percent = 100;
+Max_Inter_Seg_Percent = 100;
+Max_Seg_In_Percent = 100;
+Max_Blk_In_Percent = 100;
+
+[FITTER REPORT FORMAT]
+
+Fitter_Options = YES;
+Pinout_Diagram = NO;
+Pinout_Listing = YES;
+Detailed_Block_Segment_Summary = YES;
+Input_Signal_List = YES;
+Output_Signal_List = YES;
+Bidir_Signal_List = YES;
+Node_Signal_List = YES;
+Signal_Fanout_List = YES;
+Block_Segment_Fanin_List = YES;
+Prefit_Eqn = YES;
+Postfit_Eqn = YES;
+Page_Break = YES;
+
+[OPTIMIZATION OPTIONS]
+
+Logic_Reduction = YES;
+Max_PTerm_Split = 16;
+Max_PTerm_Collapse = 16;
+XOR_Synthesis = YES;
+Node_Collapse = Yes;
+DT_Synthesis = Yes;
+
+[FITTER GLOBAL OPTIONS]
+
+Run_Time = 0;
+Set_Reset_Dont_Care = NO;
+In_Reg_Optimize = YES;
+Clock_Optimize = NO;
+Conf_Unused_IOs = OUT_LOW;
+
+[POWER]
+Powerlevel = Low, High;
+Default = High;
+Type = GLB;
+
+[HARDWARE DEVICE OPTIONS]
+Zero_Hold_Time = Yes;
+Signature_Word = 0;
+Pull_up = Yes;
+Out_Slew_Rate = FAST, SLOW, 0;
+Device_max_fanin = 33;
+Device_max_pterms = 20;
+Usercode_Format = Hex;
+
+[LOCATION ASSIGNMENT]
+
+Layer = OFF;
+A_30_ = INPUT,5, B,-;
+A_29_ = INPUT,6, B,-;
+SIZE_1_ = INPUT,79, H,-;
+A_28_ = INPUT,15, C,-;
+A_27_ = INPUT,16, C,-;
+A_31_ = INPUT,4, B,-;
+A_26_ = INPUT,17, C,-;
+A_25_ = INPUT,18, C,-;
+A_24_ = INPUT,19, C,-;
+A_23_ = INPUT,84, H,-;
+IPL_2_ = INPUT,68, G,-;
+A_22_ = INPUT,85, H,-;
+A_21_ = INPUT,94, A,-;
+A_20_ = INPUT,93, A,-;
+A_19_ = INPUT,97, A,-;
+FC_1_ = INPUT,58, F,-;
+A_18_ = INPUT,95, A,-;
+AS_030 = INPUT,82, H,-;
+A_17_ = INPUT,59, F,-;
+A_16_ = INPUT,96, A,-;
+DS_030 = INPUT,98, A,-;
+CPU_SPACE = INPUT,14,-,-;
+BERR = OUTPUT,41, E,-;
+BG_030 = INPUT,21, C,-;
+BGACK_000 = INPUT,28, D,-;
+CLK_030 = INPUT,64,-,-;
+CLK_000 = INPUT,11,-,-;
+CLK_OSZI = INPUT,61,-,-;
+CLK_EXP = OUTPUT,10, B,-;
+A_0_ = INPUT,69, G,-;
+AVEC = OUTPUT,92, A,-;
+AVEC_EXP = OUTPUT,22, C,-;
+IPL_1_ = INPUT,56, F,-;
+VPA = INPUT,36,-,-;
+IPL_0_ = INPUT,67, G,-;
+DSACK_0_ = OUTPUT,80, H,-;
+RST = INPUT,86,-,-;
+FC_0_ = INPUT,57, F,-;
+RW = INPUT,71, G,-;
+AMIGA_BUS_ENABLE = OUTPUT,34, D,-;
+AMIGA_BUS_DATA_DIR = OUTPUT,48, E,-;
+AMIGA_BUS_ENABLE_LOW = OUTPUT,20, C,-;
+CIIN = OUTPUT,47, E,-;
+SIZE_0_ = INPUT,70, G,-;
+IPL_030_2_ = OUTPUT,9, B,-;
+DSACK_1_ = BIDIR,81, H,-;
+AS_000 = OUTPUT,33, D,-;
+UDS_000 = OUTPUT,32, D,-;
+LDS_000 = OUTPUT,31, D,-;
+BG_000 = OUTPUT,29, D,-;
+BGACK_030 = OUTPUT,83, H,-;
+CLK_DIV_OUT = OUTPUT,65, G,-;
+FPU_CS = OUTPUT,78, H,-;
+DTACK = BIDIR,30, D,-;
+IPL_030_1_ = OUTPUT,7, B,-;
+IPL_030_0_ = OUTPUT,8, B,-;
+E = OUTPUT,66, G,-;
+VMA = OUTPUT,35, D,-;
+RESET = OUTPUT,3, B,-;
+cpu_est_1_ = NODE,3, G,-;
+inst_AS_030_000_SYNC = NODE,1, H,-;
+inst_DTACK_SYNC = NODE,14, G,-;
+inst_VPA_D = NODE,6, B,-;
+inst_VPA_SYNC = NODE,12, G,-;
+inst_CLK_000_D = NODE,0, A,-;
+inst_CLK_000_DD = NODE,14, D,-;
+inst_CLK_OUT_PRE = NODE,10, G,-;
+cpu_est_0_ = NODE,11, G,-;
+cpu_est_2_ = NODE,7, G,-;
+CLK_CNT_0_ = NODE,15, G,-;
+SM_AMIGA_6_ = NODE,2, D,-;
+SM_AMIGA_7_ = NODE,6, G,-;
+inst_RISING_CLK_AMIGA = NODE,9, H,-;
+SM_AMIGA_4_ = NODE,13, D,-;
+SM_AMIGA_3_ = NODE,13, G,-;
+SM_AMIGA_5_ = NODE,6, D,-;
+CLK_000_CNT_0_ = NODE,5, H,-;
+CLK_000_CNT_1_ = NODE,5, G,-;
+CLK_000_CNT_2_ = NODE,13, H,-;
+CLK_000_CNT_3_ = NODE,2, H,-;
+SM_AMIGA_2_ = NODE,9, G,-;
+SM_AMIGA_1_ = NODE,1, G,-;
+SM_AMIGA_0_ = NODE,8, G,-;
+SM_AMIGA_D_0_ = NODE,13, B,-;
+SM_AMIGA_D_1_ = NODE,9, B,-;
+SM_AMIGA_D_2_ = NODE,2, G,-;
+un1_UDS_000_INT_0_sqmuxa_2_0 = NODE,10, D,-;
