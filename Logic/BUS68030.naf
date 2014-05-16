@@ -37,7 +37,7 @@ A[3]  b
 A[2]  b
 A[1]  b
 A[0]  b
-CPU_SPACE  i
+nEXP_SPACE  i
 BERR  b
 BG_030  i
 BG_000  o

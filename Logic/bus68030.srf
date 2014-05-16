@@ -6,7 +6,7 @@
 #Implementation: logic
 
 $ Start of Compile
-#Thu May 15 23:02:39 2014
+#Fri May 16 17:07:02 2014
 
 Synopsys VHDL Compiler, version comp201209rcp1, Build 283R, built Mar 19 2013
 @N|Running in 64-bit mode
@@ -18,16 +18,19 @@ File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed -
 VHDL syntax check successful!
 File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed - recompiling
 @N: CD630 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":6:7:6:14|Synthesizing work.bus68030.behavioral 
-@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":106:7:106:15|Signal clk_030_d is undriven 
+@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":105:7:105:15|Signal clk_030_d is undriven 
 Post processing for work.bus68030.behavioral
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":176:2:176:3|Pruning register CLK_REF(1 downto 0)  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":108:32:108:34|Pruning register cpu_est_d(3 downto 0)  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":108:32:108:34|Pruning register CLK_000_CNT(3 downto 0)  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":111:32:111:34|Pruning register cpu_est_d(3 downto 0)  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":110:32:110:34|Pruning register CLK_000_D5  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":109:32:109:34|Pruning register CLK_000_D4  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":108:32:108:34|Pruning register CLK_000_D3  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":107:32:107:34|Pruning register CLK_000_D2  
 @W: CL190 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":102:52:102:55|Optimizing register bit DSACK_INT(0) to a constant 1
 @W: CL260 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":102:52:102:55|Pruning register bit 0 of DSACK_INT(1 downto 0)  
-@W: CL189 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":117:2:117:3|Register bit CLK_CNT(1) is always 0, optimizing ...
-@W: CL260 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":117:2:117:3|Pruning register bit 1 of CLK_CNT(1 downto 0)  
-@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":108:32:108:34|Trying to extract state machine for register cpu_est
+@W: CL189 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":120:2:120:3|Register bit CLK_CNT(1) is always 0, optimizing ...
+@W: CL260 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":120:2:120:3|Pruning register bit 1 of CLK_CNT(1 downto 0)  
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":111:32:111:34|Trying to extract state machine for register cpu_est
 @N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":176:2:176:3|Trying to extract state machine for register SM_AMIGA
 Extracted state machine for register SM_AMIGA
 State machine has 8 reachable states with original encodings of:
@@ -42,7 +45,7 @@ State machine has 8 reachable states with original encodings of:
 @W: CL249 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":176:2:176:3|Initial value is not supported on state machine SM_AMIGA
 @END
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Thu May 15 23:02:39 2014
+# Fri May 16 17:07:02 2014
 
 ###########################################################]
 Map & Optimize Report
@@ -73,8 +76,8 @@ IBUF            35 uses
 BUFTH           7 uses
 OBUF            15 uses
 BI_DIR          2 uses
-AND2            147 uses
-INV             119 uses
+AND2            146 uses
+INV             116 uses
 OR2             17 uses
 XOR2            2 uses
 
@@ -86,6 +89,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 95MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Thu May 15 23:02:41 2014
+# Fri May 16 17:07:04 2014
 
 ###########################################################]

@@ -2,7 +2,7 @@
 Copyright(C), 1992-2013, Lattice Semiconductor Corp.
 All Rights Reserved.
 
-Design bus68030 created  Thu May 15 23:02:46 2014
+Design bus68030 created  Fri May 16 17:07:08 2014
 
 
  P-Terms   Fan-in  Fan-out  Type  Name (attributes)
@@ -16,7 +16,7 @@ Design bus68030 created  Thu May 15 23:02:46 2014
    1          0        1    Pin   AVEC 
    0          0        1    Pin   AVEC_EXP 
    1          1        1    Pin   AVEC_EXP.OE 
-   0          0        1    Pin   AMIGA_BUS_ENABLE 
+   1          1        1    Pin   AMIGA_BUS_ENABLE 
    1          1        1    Pin   AMIGA_BUS_DATA_DIR 
    1          0        1    Pin   AMIGA_BUS_ENABLE_LOW 
    1          4        1    Pin   CIIN 
@@ -40,18 +40,18 @@ Design bus68030 created  Thu May 15 23:02:46 2014
   12         12        1    Pin   LDS_000.D- 
    1          1        1    Pin   LDS_000.AP 
    1          1        1    Pin   LDS_000.C 
-   3          7        1    Pin   BG_000.D- 
-   1          1        1    Pin   BG_000.AP 
-   1          1        1    Pin   BG_000.C 
-   2          4        1    Pin   BGACK_030.D 
-   1          1        1    Pin   BGACK_030.AP 
-   1          1        1    Pin   BGACK_030.C 
    3          4        1    Pin   IPL_030_1_.D 
    1          1        1    Pin   IPL_030_1_.AP 
    1          1        1    Pin   IPL_030_1_.C 
    3          4        1    Pin   IPL_030_0_.D 
    1          1        1    Pin   IPL_030_0_.AP 
    1          1        1    Pin   IPL_030_0_.C 
+   3          7        1    Pin   BG_000.D- 
+   1          1        1    Pin   BG_000.AP 
+   1          1        1    Pin   BG_000.C 
+   2          4        1    Pin   BGACK_030.D 
+   1          1        1    Pin   BGACK_030.AP 
+   1          1        1    Pin   BGACK_030.C 
    1          1        1    Pin   CLK_EXP.D 
    1          1        1    Pin   CLK_EXP.C 
    2         10        1    Pin   FPU_CS.D- 
@@ -83,10 +83,10 @@ Design bus68030 created  Thu May 15 23:02:46 2014
    2         10        1    Node  inst_VPA_SYNC.D- 
    1          1        1    Node  inst_VPA_SYNC.AP 
    1          1        1    Node  inst_VPA_SYNC.C 
-   1          1        1    Node  inst_CLK_000_D.D 
-   1          1        1    Node  inst_CLK_000_D.C 
-   1          1        1    Node  inst_CLK_000_DD.D 
-   1          1        1    Node  inst_CLK_000_DD.C 
+   1          1        1    Node  inst_CLK_000_D0.D 
+   1          1        1    Node  inst_CLK_000_D0.C 
+   1          1        1    Node  inst_CLK_000_D1.D 
+   1          1        1    Node  inst_CLK_000_D1.C 
    2          2        1    Node  inst_CLK_OUT_PRE.D 
    1          1        1    Node  inst_CLK_OUT_PRE.C 
    3          6        1    NodeX1  cpu_est_2_.D.X1 
@@ -101,7 +101,7 @@ Design bus68030 created  Thu May 15 23:02:46 2014
    1          1        1    Node  SM_AMIGA_7_.AP 
    1          1        1    Node  SM_AMIGA_7_.C 
    1          1        1    Node  SM_AMIGA_1_.AR 
-   3          4        1    Node  SM_AMIGA_1_.D 
+   3          5        1    Node  SM_AMIGA_1_.D 
    1          1        1    Node  SM_AMIGA_1_.C 
    1          1        1    Node  SM_AMIGA_4_.AR 
    2          3        1    Node  SM_AMIGA_4_.D 
@@ -116,10 +116,10 @@ Design bus68030 created  Thu May 15 23:02:46 2014
    3          5        1    Node  SM_AMIGA_2_.D 
    1          1        1    Node  SM_AMIGA_2_.C 
    1          1        1    Node  SM_AMIGA_0_.AR 
-   3          5        1    Node  SM_AMIGA_0_.D 
+   3          6        1    Node  SM_AMIGA_0_.D 
    1          1        1    Node  SM_AMIGA_0_.C 
 =========
- 167                 P-Term Total: 167
+ 168                 P-Term Total: 168
                        Total Pins: 59
                       Total Nodes: 19
             Average P-Term/Output: 2
@@ -133,7 +133,7 @@ BERR.OE = (!FPU_CS.Q);
 
 DSACK_0_ = (1);
 
-DSACK_0_.OE = (!CPU_SPACE);
+DSACK_0_.OE = (nEXP_SPACE);
 
 CLK_DIV_OUT.D = (inst_CLK_OUT_PRE.Q);
 
@@ -145,7 +145,7 @@ AVEC_EXP = (0);
 
 AVEC_EXP.OE = (!FPU_CS.Q);
 
-AMIGA_BUS_ENABLE = (0);
+AMIGA_BUS_ENABLE = (!nEXP_SPACE);
 
 AMIGA_BUS_DATA_DIR = (!RW);
 
@@ -155,18 +155,18 @@ CIIN = (A_23_ & A_22_ & A_21_ & A_20_);
 
 CIIN.OE = (!A_31_ & !A_30_ & !A_29_ & !A_28_ & !A_27_ & !A_26_ & !A_25_ & !A_24_);
 
-IPL_030_2_.D = (IPL_030_2_.Q & !inst_CLK_000_D.Q
-     # IPL_030_2_.Q & inst_CLK_000_DD.Q
-     # IPL_2_ & inst_CLK_000_D.Q & !inst_CLK_000_DD.Q);
+IPL_030_2_.D = (!inst_CLK_000_D0.Q & IPL_030_2_.Q
+     # inst_CLK_000_D1.Q & IPL_030_2_.Q
+     # IPL_2_ & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q);
 
 IPL_030_2_.AP = (!RST);
 
 IPL_030_2_.C = (CLK_OSZI);
 
-DSACK_1_.OE = (!CPU_SPACE);
+DSACK_1_.OE = (nEXP_SPACE);
 
 !DSACK_1_.D = (!AS_030 & !DSACK_1_.Q
-     # !inst_CLK_000_D.Q & inst_CLK_OUT_PRE.Q & SM_AMIGA_1_.Q);
+     # !inst_CLK_000_D1.Q & inst_CLK_OUT_PRE.Q & SM_AMIGA_1_.Q);
 
 DSACK_1_.AP = (!RST);
 
@@ -175,7 +175,7 @@ DSACK_1_.C = (CLK_OSZI);
 AS_000.OE = (BGACK_030.Q);
 
 !AS_000.D = (!AS_030 & !AS_000.Q
-     # !inst_AS_030_000_SYNC.Q & inst_CLK_000_D.Q & !inst_CLK_000_DD.Q & SM_AMIGA_6_.Q);
+     # !inst_AS_030_000_SYNC.Q & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q & SM_AMIGA_6_.Q);
 
 AS_000.AP = (!RST);
 
@@ -184,13 +184,13 @@ AS_000.C = (CLK_OSZI);
 UDS_000.OE = (BGACK_030.Q);
 
 !UDS_000.D = (!AS_030 & DS_030 & !UDS_000.Q
-     # !AS_030 & !inst_CLK_000_D.Q & !UDS_000.Q
+     # !AS_030 & !inst_CLK_000_D0.Q & !UDS_000.Q
      # !AS_030 & RW & inst_AS_030_000_SYNC.Q & !UDS_000.Q
-     # !AS_030 & RW & inst_CLK_000_DD.Q & !UDS_000.Q
+     # !AS_030 & RW & inst_CLK_000_D1.Q & !UDS_000.Q
      # !AS_030 & RW & !SM_AMIGA_6_.Q & !UDS_000.Q
      # !AS_030 & !RW & !UDS_000.Q & !SM_AMIGA_4_.Q
-     # !DS_030 & !RW & !A_0_ & inst_CLK_000_D.Q & SM_AMIGA_4_.Q
-     # !DS_030 & RW & !A_0_ & !inst_AS_030_000_SYNC.Q & inst_CLK_000_D.Q & !inst_CLK_000_DD.Q & SM_AMIGA_6_.Q);
+     # !DS_030 & !RW & !A_0_ & inst_CLK_000_D0.Q & SM_AMIGA_4_.Q
+     # !DS_030 & RW & !A_0_ & !inst_AS_030_000_SYNC.Q & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q & SM_AMIGA_6_.Q);
 
 UDS_000.AP = (!RST);
 
@@ -199,52 +199,52 @@ UDS_000.C = (CLK_OSZI);
 LDS_000.OE = (BGACK_030.Q);
 
 !LDS_000.D = (!AS_030 & DS_030 & !LDS_000.Q
-     # !AS_030 & !inst_CLK_000_D.Q & !LDS_000.Q
+     # !AS_030 & !inst_CLK_000_D0.Q & !LDS_000.Q
      # !AS_030 & RW & inst_AS_030_000_SYNC.Q & !LDS_000.Q
-     # !AS_030 & RW & inst_CLK_000_DD.Q & !LDS_000.Q
+     # !AS_030 & RW & inst_CLK_000_D1.Q & !LDS_000.Q
      # !AS_030 & RW & !SM_AMIGA_6_.Q & !LDS_000.Q
      # !AS_030 & !RW & !LDS_000.Q & !SM_AMIGA_4_.Q
-     # SIZE_1_ & !DS_030 & !RW & inst_CLK_000_D.Q & SM_AMIGA_4_.Q
-     # !DS_030 & !RW & !SIZE_0_ & inst_CLK_000_D.Q & SM_AMIGA_4_.Q
-     # !DS_030 & !RW & A_0_ & inst_CLK_000_D.Q & SM_AMIGA_4_.Q
-     # SIZE_1_ & !DS_030 & RW & !inst_AS_030_000_SYNC.Q & inst_CLK_000_D.Q & !inst_CLK_000_DD.Q & SM_AMIGA_6_.Q
-     # !DS_030 & RW & !SIZE_0_ & !inst_AS_030_000_SYNC.Q & inst_CLK_000_D.Q & !inst_CLK_000_DD.Q & SM_AMIGA_6_.Q
-     # !DS_030 & RW & A_0_ & !inst_AS_030_000_SYNC.Q & inst_CLK_000_D.Q & !inst_CLK_000_DD.Q & SM_AMIGA_6_.Q);
+     # SIZE_1_ & !DS_030 & !RW & inst_CLK_000_D0.Q & SM_AMIGA_4_.Q
+     # !DS_030 & !RW & !SIZE_0_ & inst_CLK_000_D0.Q & SM_AMIGA_4_.Q
+     # !DS_030 & !RW & A_0_ & inst_CLK_000_D0.Q & SM_AMIGA_4_.Q
+     # SIZE_1_ & !DS_030 & RW & !inst_AS_030_000_SYNC.Q & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q & SM_AMIGA_6_.Q
+     # !DS_030 & RW & !SIZE_0_ & !inst_AS_030_000_SYNC.Q & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q & SM_AMIGA_6_.Q
+     # !DS_030 & RW & A_0_ & !inst_AS_030_000_SYNC.Q & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q & SM_AMIGA_6_.Q);
 
 LDS_000.AP = (!RST);
 
 LDS_000.C = (CLK_OSZI);
 
+IPL_030_1_.D = (!inst_CLK_000_D0.Q & IPL_030_1_.Q
+     # inst_CLK_000_D1.Q & IPL_030_1_.Q
+     # IPL_1_ & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q);
+
+IPL_030_1_.AP = (!RST);
+
+IPL_030_1_.C = (CLK_OSZI);
+
+IPL_030_0_.D = (!inst_CLK_000_D0.Q & IPL_030_0_.Q
+     # inst_CLK_000_D1.Q & IPL_030_0_.Q
+     # IPL_0_ & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q);
+
+IPL_030_0_.AP = (!RST);
+
+IPL_030_0_.C = (CLK_OSZI);
+
 !BG_000.D = (!BG_030 & CLK_030 & !BG_000.Q
-     # AS_030 & !CPU_SPACE & !BG_030 & !CLK_030 & SM_AMIGA_6_.Q
-     # AS_030 & !CPU_SPACE & !BG_030 & !CLK_030 & SM_AMIGA_7_.Q);
+     # AS_030 & !nEXP_SPACE & !BG_030 & !CLK_030 & SM_AMIGA_6_.Q
+     # AS_030 & !nEXP_SPACE & !BG_030 & !CLK_030 & SM_AMIGA_7_.Q);
 
 BG_000.AP = (!RST);
 
 BG_000.C = (CLK_OSZI);
 
 BGACK_030.D = (BGACK_000 & BGACK_030.Q
-     # BGACK_000 & inst_CLK_000_D.Q & !inst_CLK_000_DD.Q);
+     # BGACK_000 & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q);
 
 BGACK_030.AP = (!RST);
 
 BGACK_030.C = (CLK_OSZI);
-
-IPL_030_1_.D = (IPL_030_1_.Q & !inst_CLK_000_D.Q
-     # IPL_030_1_.Q & inst_CLK_000_DD.Q
-     # IPL_1_ & inst_CLK_000_D.Q & !inst_CLK_000_DD.Q);
-
-IPL_030_1_.AP = (!RST);
-
-IPL_030_1_.C = (CLK_OSZI);
-
-IPL_030_0_.D = (!inst_CLK_000_D.Q & IPL_030_0_.Q
-     # inst_CLK_000_DD.Q & IPL_030_0_.Q
-     # IPL_0_ & inst_CLK_000_D.Q & !inst_CLK_000_DD.Q);
-
-IPL_030_0_.AP = (!RST);
-
-IPL_030_0_.C = (CLK_OSZI);
 
 CLK_EXP.D = (inst_CLK_OUT_PRE.Q);
 
@@ -265,16 +265,16 @@ DTACK.AP = (!RST);
 
 DTACK.C = (CLK_OSZI);
 
-E.T = (E.Q & cpu_est_0_.Q & cpu_est_1_.Q & inst_CLK_000_D.Q & !inst_CLK_000_DD.Q & cpu_est_2_.Q
-     # !E.Q & cpu_est_0_.Q & cpu_est_1_.Q & inst_CLK_000_D.Q & !inst_CLK_000_DD.Q & !cpu_est_2_.Q
-     # !E.Q & !cpu_est_0_.Q & !cpu_est_1_.Q & inst_CLK_000_D.Q & !inst_CLK_000_DD.Q & !cpu_est_2_.Q);
+E.T = (E.Q & cpu_est_0_.Q & cpu_est_1_.Q & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q & cpu_est_2_.Q
+     # !E.Q & cpu_est_0_.Q & cpu_est_1_.Q & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q & !cpu_est_2_.Q
+     # !E.Q & !cpu_est_0_.Q & !cpu_est_1_.Q & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q & !cpu_est_2_.Q);
 
 E.C = (CLK_OSZI);
 
 VMA.AP = (!RST);
 
-VMA.T = (!E.Q & !VMA.Q & !cpu_est_0_.Q & cpu_est_1_.Q & AS_000.Q & inst_CLK_000_D.Q & cpu_est_2_.Q
-     # !E.Q & VMA.Q & cpu_est_0_.Q & !cpu_est_1_.Q & !inst_VPA_D.Q & !inst_CLK_000_D.Q & cpu_est_2_.Q);
+VMA.T = (!E.Q & !VMA.Q & !cpu_est_0_.Q & cpu_est_1_.Q & AS_000.Q & inst_CLK_000_D0.Q & cpu_est_2_.Q
+     # !E.Q & VMA.Q & cpu_est_0_.Q & !cpu_est_1_.Q & !inst_VPA_D.Q & !inst_CLK_000_D0.Q & cpu_est_2_.Q);
 
 VMA.C = (CLK_OSZI);
 
@@ -282,21 +282,21 @@ RESET.D = (RST);
 
 RESET.C = (CLK_OSZI);
 
-cpu_est_0_.D = (cpu_est_0_.Q & !inst_CLK_000_D.Q
-     # cpu_est_0_.Q & inst_CLK_000_DD.Q
-     # !cpu_est_0_.Q & inst_CLK_000_D.Q & !inst_CLK_000_DD.Q);
+cpu_est_0_.D = (cpu_est_0_.Q & !inst_CLK_000_D0.Q
+     # cpu_est_0_.Q & inst_CLK_000_D1.Q
+     # !cpu_est_0_.Q & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q);
 
 cpu_est_0_.C = (CLK_OSZI);
 
-cpu_est_1_.T = (E.Q & !cpu_est_0_.Q & !cpu_est_1_.Q & inst_CLK_000_D.Q & !inst_CLK_000_DD.Q
-     # !E.Q & cpu_est_0_.Q & inst_CLK_000_D.Q & !inst_CLK_000_DD.Q & cpu_est_2_.Q
-     # !E.Q & !cpu_est_1_.Q & inst_CLK_000_D.Q & !inst_CLK_000_DD.Q & !cpu_est_2_.Q
-     # E.Q & cpu_est_0_.Q & cpu_est_1_.Q & inst_CLK_000_D.Q & !inst_CLK_000_DD.Q & !cpu_est_2_.Q);
+cpu_est_1_.T = (E.Q & !cpu_est_0_.Q & !cpu_est_1_.Q & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q
+     # !E.Q & cpu_est_0_.Q & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q & cpu_est_2_.Q
+     # !E.Q & !cpu_est_1_.Q & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q & !cpu_est_2_.Q
+     # E.Q & cpu_est_0_.Q & cpu_est_1_.Q & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q & !cpu_est_2_.Q);
 
 cpu_est_1_.C = (CLK_OSZI);
 
 inst_AS_030_000_SYNC.D = (AS_030
-     # CPU_SPACE & CLK_030
+     # !nEXP_SPACE & CLK_030
      # !CLK_030 & inst_AS_030_000_SYNC.Q
      # FC_1_ & BGACK_000 & CLK_030 & !A_19_ & !A_18_ & A_17_ & !A_16_ & FC_0_);
 
@@ -305,7 +305,7 @@ inst_AS_030_000_SYNC.AP = (!RST);
 inst_AS_030_000_SYNC.C = (CLK_OSZI);
 
 !inst_DTACK_SYNC.D = (!AS_030 & !inst_DTACK_SYNC.Q
-     # inst_VPA_D.Q & inst_CLK_000_D.Q & SM_AMIGA_3_.Q & !DTACK.PIN);
+     # inst_VPA_D.Q & inst_CLK_000_D0.Q & SM_AMIGA_3_.Q & !DTACK.PIN);
 
 inst_DTACK_SYNC.AP = (!RST);
 
@@ -316,28 +316,28 @@ inst_VPA_D.D = (VPA);
 inst_VPA_D.C = (CLK_OSZI);
 
 !inst_VPA_SYNC.D = (!AS_030 & !inst_VPA_SYNC.Q
-     # E.Q & !VMA.Q & !cpu_est_0_.Q & !cpu_est_1_.Q & !inst_VPA_D.Q & inst_CLK_000_D.Q & cpu_est_2_.Q & SM_AMIGA_3_.Q);
+     # E.Q & !VMA.Q & !cpu_est_0_.Q & !cpu_est_1_.Q & !inst_VPA_D.Q & inst_CLK_000_D0.Q & cpu_est_2_.Q & SM_AMIGA_3_.Q);
 
 inst_VPA_SYNC.AP = (!RST);
 
 inst_VPA_SYNC.C = (CLK_OSZI);
 
-inst_CLK_000_D.D = (CLK_000);
+inst_CLK_000_D0.D = (CLK_000);
 
-inst_CLK_000_D.C = (CLK_OSZI);
+inst_CLK_000_D0.C = (CLK_OSZI);
 
-inst_CLK_000_DD.D = (inst_CLK_000_D.Q);
+inst_CLK_000_D1.D = (inst_CLK_000_D0.Q);
 
-inst_CLK_000_DD.C = (CLK_OSZI);
+inst_CLK_000_D1.C = (CLK_OSZI);
 
 inst_CLK_OUT_PRE.D = (!inst_CLK_OUT_PRE.Q & CLK_CNT_0_.Q
      # inst_CLK_OUT_PRE.Q & !CLK_CNT_0_.Q);
 
 inst_CLK_OUT_PRE.C = (CLK_OSZI);
 
-cpu_est_2_.D.X1 = (E.Q & cpu_est_0_.Q & inst_CLK_000_D.Q & !inst_CLK_000_DD.Q & !cpu_est_2_.Q
-     # !cpu_est_0_.Q & !cpu_est_1_.Q & inst_CLK_000_D.Q & !inst_CLK_000_DD.Q & !cpu_est_2_.Q
-     # !E.Q & cpu_est_0_.Q & !cpu_est_1_.Q & inst_CLK_000_D.Q & !inst_CLK_000_DD.Q & cpu_est_2_.Q);
+cpu_est_2_.D.X1 = (E.Q & cpu_est_0_.Q & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q & !cpu_est_2_.Q
+     # !cpu_est_0_.Q & !cpu_est_1_.Q & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q & !cpu_est_2_.Q
+     # !E.Q & cpu_est_0_.Q & !cpu_est_1_.Q & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q & cpu_est_2_.Q);
 
 cpu_est_2_.D.X2 = (cpu_est_2_.Q);
 
@@ -349,14 +349,14 @@ CLK_CNT_0_.C = (CLK_OSZI);
 
 SM_AMIGA_6_.AR = (!RST);
 
-!SM_AMIGA_6_.D = (inst_CLK_000_D.Q & !SM_AMIGA_6_.Q
+!SM_AMIGA_6_.D = (inst_CLK_000_D0.Q & !SM_AMIGA_6_.Q
      # !SM_AMIGA_6_.Q & !SM_AMIGA_7_.Q
-     # !inst_AS_030_000_SYNC.Q & inst_CLK_000_D.Q & !inst_CLK_000_DD.Q);
+     # !inst_AS_030_000_SYNC.Q & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q);
 
 SM_AMIGA_6_.C = (CLK_OSZI);
 
-SM_AMIGA_7_.D = (inst_CLK_000_D.Q & SM_AMIGA_7_.Q
-     # AS_000.Q & inst_CLK_000_D.Q & SM_AMIGA_0_.Q);
+SM_AMIGA_7_.D = (inst_CLK_000_D0.Q & SM_AMIGA_7_.Q
+     # AS_000.Q & inst_CLK_000_D0.Q & SM_AMIGA_0_.Q);
 
 SM_AMIGA_7_.AP = (!RST);
 
@@ -364,47 +364,47 @@ SM_AMIGA_7_.C = (CLK_OSZI);
 
 SM_AMIGA_1_.AR = (!RST);
 
-SM_AMIGA_1_.D = (inst_CLK_000_D.Q & SM_AMIGA_1_.Q
-     # inst_CLK_000_D.Q & SM_AMIGA_2_.Q
-     # !inst_CLK_OUT_PRE.Q & SM_AMIGA_1_.Q & !SM_AMIGA_2_.Q);
+SM_AMIGA_1_.D = (inst_CLK_000_D1.Q & SM_AMIGA_1_.Q
+     # !inst_CLK_OUT_PRE.Q & SM_AMIGA_1_.Q
+     # inst_CLK_000_D0.Q & SM_AMIGA_2_.Q);
 
 SM_AMIGA_1_.C = (CLK_OSZI);
 
 SM_AMIGA_4_.AR = (!RST);
 
-SM_AMIGA_4_.D = (!inst_CLK_000_D.Q & SM_AMIGA_4_.Q
-     # !inst_CLK_000_D.Q & SM_AMIGA_5_.Q);
+SM_AMIGA_4_.D = (!inst_CLK_000_D0.Q & SM_AMIGA_4_.Q
+     # !inst_CLK_000_D0.Q & SM_AMIGA_5_.Q);
 
 SM_AMIGA_4_.C = (CLK_OSZI);
 
 SM_AMIGA_3_.AR = (!RST);
 
-SM_AMIGA_3_.D = (inst_CLK_000_D.Q & SM_AMIGA_4_.Q
-     # inst_CLK_000_D.Q & SM_AMIGA_3_.Q
+SM_AMIGA_3_.D = (inst_CLK_000_D0.Q & SM_AMIGA_4_.Q
+     # inst_CLK_000_D0.Q & SM_AMIGA_3_.Q
      # inst_DTACK_SYNC.Q & inst_VPA_SYNC.Q & SM_AMIGA_3_.Q);
 
 SM_AMIGA_3_.C = (CLK_OSZI);
 
 SM_AMIGA_5_.AR = (!RST);
 
-SM_AMIGA_5_.D = (inst_CLK_000_D.Q & SM_AMIGA_5_.Q
-     # !inst_AS_030_000_SYNC.Q & inst_CLK_000_D.Q & !inst_CLK_000_DD.Q & SM_AMIGA_6_.Q);
+SM_AMIGA_5_.D = (inst_CLK_000_D0.Q & SM_AMIGA_5_.Q
+     # !inst_AS_030_000_SYNC.Q & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q & SM_AMIGA_6_.Q);
 
 SM_AMIGA_5_.C = (CLK_OSZI);
 
 SM_AMIGA_2_.AR = (!RST);
 
-SM_AMIGA_2_.D = (!inst_CLK_000_D.Q & SM_AMIGA_2_.Q
-     # !inst_DTACK_SYNC.Q & !inst_CLK_000_D.Q & SM_AMIGA_3_.Q
-     # !inst_VPA_SYNC.Q & !inst_CLK_000_D.Q & SM_AMIGA_3_.Q);
+SM_AMIGA_2_.D = (!inst_CLK_000_D0.Q & SM_AMIGA_2_.Q
+     # !inst_DTACK_SYNC.Q & !inst_CLK_000_D0.Q & SM_AMIGA_3_.Q
+     # !inst_VPA_SYNC.Q & !inst_CLK_000_D0.Q & SM_AMIGA_3_.Q);
 
 SM_AMIGA_2_.C = (CLK_OSZI);
 
 SM_AMIGA_0_.AR = (!RST);
 
 SM_AMIGA_0_.D = (!AS_000.Q & SM_AMIGA_0_.Q
-     # !inst_CLK_000_D.Q & SM_AMIGA_0_.Q
-     # !inst_CLK_000_D.Q & inst_CLK_OUT_PRE.Q & SM_AMIGA_1_.Q);
+     # !inst_CLK_000_D0.Q & SM_AMIGA_0_.Q
+     # !inst_CLK_000_D1.Q & inst_CLK_OUT_PRE.Q & SM_AMIGA_1_.Q);
 
 SM_AMIGA_0_.C = (CLK_OSZI);
 

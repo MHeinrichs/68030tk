@@ -11374,9 +11374,6 @@ Source: RS Component / Phycomp</description>
 <wire x1="-7.62" y1="121.92" x2="-20.32" y2="121.92" width="0.1524" layer="91"/>
 <pinref part="R9" gate="G$1" pin="1"/>
 <wire x1="-7.62" y1="116.84" x2="-20.32" y2="116.84" width="0.1524" layer="91"/>
-<pinref part="R2" gate="G$1" pin="2"/>
-<wire x1="-20.32" y1="91.44" x2="-20.32" y2="101.6" width="0.1524" layer="91"/>
-<junction x="-20.32" y="101.6"/>
 </segment>
 <segment>
 <pinref part="C19" gate="G$1" pin="1"/>
@@ -11542,9 +11539,12 @@ Source: RS Component / Phycomp</description>
 <junction x="40.64" y="5.08"/>
 </segment>
 <segment>
+<wire x1="-20.32" y1="91.44" x2="-20.32" y2="86.36" width="0.1524" layer="91"/>
 <label x="-20.32" y="40.64" size="1.27" layer="95" xref="yes"/>
 <wire x1="-20.32" y1="86.36" x2="-20.32" y2="81.28" width="0.1524" layer="91"/>
+<pinref part="R2" gate="G$1" pin="2"/>
 <pinref part="R3" gate="G$1" pin="2"/>
+<junction x="-20.32" y="86.36"/>
 <pinref part="RN1" gate="A" pin="2"/>
 <wire x1="-20.32" y1="81.28" x2="-20.32" y2="76.2" width="0.1524" layer="91"/>
 <junction x="-20.32" y="81.28"/>
