@@ -1,3 +1,10 @@
+-- Copyright: Matthias Heinrichs 2014
+-- Free for non-comercial use
+-- No warranty just for fun
+-- I you want to earn money with this code, ask me first!
+
+
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_arith.all;

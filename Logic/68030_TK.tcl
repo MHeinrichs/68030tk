@@ -124389,3 +124389,19 @@ if [runCmd "\"$cpld_bin/synsvf\" -exe \"$install_dir/ispvmsystem/ispufw\" -prj 6
 
 ########## Tcl recorder end at 05/16/14 17:07:02 ###########
 
+
+########## Tcl recorder starts at 05/16/14 20:27:52 ##########
+
+# Commands to make the Process: 
+# Hierarchy
+if [runCmd "\"$cpld_bin/vhd2jhd\" 68030-68000-bus.vhd -o 68030-68000-bus.jhd -m \"$install_dir/ispcpld/generic/lib/vhd/location.map\" -p \"$install_dir/ispcpld/generic/lib\""] {
+	return
+} else {
+	vwait done
+	if [checkResult $done] {
+		return
+	}
+}
+
+########## Tcl recorder end at 05/16/14 20:27:52 ###########
+
