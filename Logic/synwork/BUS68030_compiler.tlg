@@ -1,18 +1,17 @@
-@N: CD630 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":6:7:6:14|Synthesizing work.bus68030.behavioral 
-@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":105:7:105:15|Signal clk_030_d is undriven 
+@N: CD630 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Synthesizing work.bus68030.behavioral 
+@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":112:7:112:15|Signal clk_030_d is undriven 
 Post processing for work.bus68030.behavioral
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":176:2:176:3|Pruning register CLK_REF(1 downto 0)  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":111:32:111:34|Pruning register cpu_est_d(3 downto 0)  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":110:32:110:34|Pruning register CLK_000_D5  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":109:32:109:34|Pruning register CLK_000_D4  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":108:32:108:34|Pruning register CLK_000_D3  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":107:32:107:34|Pruning register CLK_000_D2  
-@W: CL190 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":102:52:102:55|Optimizing register bit DSACK_INT(0) to a constant 1
-@W: CL260 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":102:52:102:55|Pruning register bit 0 of DSACK_INT(1 downto 0)  
-@W: CL189 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":120:2:120:3|Register bit CLK_CNT(1) is always 0, optimizing ...
-@W: CL260 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":120:2:120:3|Pruning register bit 1 of CLK_CNT(1 downto 0)  
-@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":111:32:111:34|Trying to extract state machine for register cpu_est
-@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":176:2:176:3|Trying to extract state machine for register SM_AMIGA
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":118:32:118:34|Pruning register cpu_est_d(3 downto 0)  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":117:32:117:34|Pruning register CLK_000_D5  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":116:32:116:34|Pruning register CLK_000_D4  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":115:32:115:34|Pruning register CLK_000_D3  
+@A: CL282 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":109:52:109:55|Feedback mux created for signal AMIGA_BUS_ENABLE -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+@W: CL111 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":183:2:183:3|All reachable assignments to CLK_REF(0) assign '0'; register removed by optimization
+@W: CL117 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":183:2:183:3|Latch generated from process for signal CLK_REF(1 downto 0); possible missing assignment in an if or case statement.
+@W: CL190 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":109:52:109:55|Optimizing register bit DSACK_INT(0) to a constant 1
+@W: CL260 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":109:52:109:55|Pruning register bit 0 of DSACK_INT(1 downto 0)  
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":118:32:118:34|Trying to extract state machine for register cpu_est
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":183:2:183:3|Trying to extract state machine for register SM_AMIGA
 Extracted state machine for register SM_AMIGA
 State machine has 8 reachable states with original encodings of:
    000
@@ -23,4 +22,4 @@ State machine has 8 reachable states with original encodings of:
    101
    110
    111
-@W: CL249 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":176:2:176:3|Initial value is not supported on state machine SM_AMIGA
+@W: CL249 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":183:2:183:3|Initial value is not supported on state machine SM_AMIGA

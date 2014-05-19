@@ -129,7 +129,7 @@ begin
 			RESET <= RST;
 		    
 			--clk generation : up to now just half the clock
-			if(CLK_CNT="01") then
+			if(CLK_CNT = CLK_REF) then
 				CLK_OUT_PRE	<=	not CLK_OUT_PRE;			
 				CLK_CNT	<= "00";	
 			else
@@ -181,21 +181,21 @@ begin
 	state_machine: process(RST, CLK_OSZI)
 	begin
 		if(RST = '0' ) then
-			SM_AMIGA	<= IDLE_P;
-			AS_000_INT 	<='1';
-			AS_030_000_SYNC 	<='1';
-			UDS_000_INT	<='1';
-			LDS_000_INT	<='1';
-			CLK_REF		<= "10";
-			VMA_INT		<= '1';
-			FPU_CS_INT	<= '1';
-			BG_000		<= '1';
+			SM_AMIGA		<= IDLE_P;
+			AS_000_INT 		<= '1';
+			AS_030_000_SYNC <= '1';
+			UDS_000_INT		<= '1';
+			LDS_000_INT		<= '1';
+			CLK_REF			<= "00";
+			VMA_INT			<= '1';
+			FPU_CS_INT		<= '1';
+			BG_000			<= '1';
 			BGACK_030_INT	<= '1';
-			DSACK_INT	<= "11";
-			DTACK_DMA 	<= 	'1';
-			DTACK_SYNC  <= '1';
-			VPA_SYNC	<= '1';
-			IPL_030		<=	"111";
+			DSACK_INT		<= "11";
+			DTACK_DMA 		<= '1';
+			DTACK_SYNC  	<= '1';
+			VPA_SYNC		<= '1';
+			IPL_030			<= "111";
 		elsif(rising_edge(CLK_OSZI)) then
 
 
@@ -231,12 +231,13 @@ begin
 			if(AS_030 ='1') then -- "async" reset of various signals
 				AS_030_000_SYNC <= '1';
 				FPU_CS_INT		<= '1';
-				DSACK_INT<="11";
-				AS_000_INT  <= '1';
-				UDS_000_INT <= '1';
-				LDS_000_INT <= '1';
-				DTACK_SYNC  <= '1';
-				VPA_SYNC	<= '1';
+				DSACK_INT		<="11";
+				AS_000_INT  	<= '1';
+				UDS_000_INT 	<= '1';
+				LDS_000_INT 	<= '1';
+				DTACK_SYNC  	<= '1';
+				VPA_SYNC		<= '1';
+				AMIGA_BUS_ENABLE <= '1';
 			elsif(	CLK_030  	= '1'  AND --68030 has a valid AS on high clocks
 					AS_030 		= '0') then
 
@@ -268,7 +269,13 @@ begin
 						SM_AMIGA<=IDLE_N;
 					end if;
 				when IDLE_N 	 => --68000:S1 wait for rising edge, on a rising CLK_000 look for a amiga adressrobe
-					if(CLK_000_D0='1' and CLK_000_D1 = '0')then --sample AS only at the rising edge!
+					if(nEXP_SPACE ='1')then
+						AMIGA_BUS_ENABLE <= '0' ;--for now: allways on for amiga
+					else  
+						AMIGA_BUS_ENABLE <= '1';
+					end if; 
+
+					if(CLK_000_D1='1' and CLK_000_D2 = '0')then --sample AS only at the rising edge!
 						if( AS_030_000_SYNC 	= '0'  )then
 							AS_000_INT <= '0';
 							if (RW='1' and DS_030 = '0') then --read: set udl/lds 	
@@ -291,19 +298,19 @@ begin
 						SM_AMIGA<=AS_SET_N;
 					end if;
 				when AS_SET_N	 => --68000:S3: nothing happens here; on a transition to s4: assert uds/lds on write 
-					if(CLK_000_D0='1')then
-						if (RW='0' and DS_030 = '0') then --write: set udl/lds 				 
-							if(A(0)='0') then
-								UDS_000_INT <= '0';
-							else
-								UDS_000_INT <= '1';
-							end if;
-							if((A(0)='1' OR SIZE(0)='0' OR SIZE(1)='1')) then
-								LDS_000_INT <= '0';
-							else
-								LDS_000_INT <= '1';
-							end if;
+					if (RW='0' and DS_030 = '0') then --write: set udl/lds earlier than in the specs. this does not seem to harm anything and is saver, than sampling uds/lds too late 				 
+						if(A(0)='0') then
+							UDS_000_INT <= '0';
+						else
+							UDS_000_INT <= '1';
 						end if;
+						if((A(0)='1' OR SIZE(0)='0' OR SIZE(1)='1')) then
+							LDS_000_INT <= '0';
+						else
+							LDS_000_INT <= '1';
+						end if;
+					end if;
+					if(CLK_000_D0='1')then
 						SM_AMIGA <= SAMPLE_DTACK_P;
 					end if;
 				when SAMPLE_DTACK_P=> --68000:S4 wait for dtack or VMA
@@ -311,7 +318,7 @@ begin
 						if(DTACK_SYNC = '0' OR VPA_SYNC ='0')then
 							SM_AMIGA<=DATA_FETCH_N;
 						end if;
-					else -- high clock: sample DTACK
+					elsif(CLK_000='1' )then -- high clock: sample DTACK
 						if(VPA_D = '1' AND DTACK='0') then 
 							DTACK_SYNC  <= '0';
 						elsif(VPA_D='0' AND cpu_est=E9 AND VMA_INT='0') then --vpa/vma cycle: sync VPA on E9: one 7M-clock to latch!
@@ -323,7 +330,7 @@ begin
 						SM_AMIGA<=DATA_FETCH_P;
 					end if;
 				when DATA_FETCH_P => --68000:S6: READ: here comes the data on the bus!
-					if( CLK_000_D1 ='0' AND CLK_OUT_PRE='1' ) then --next 030-clock is high: dsack is sampled at the falling edge
+					if( CLK_000_D0 ='0' AND CLK_OUT_PRE='1' ) then --next 030-clock is high: dsack is sampled at the falling edge
 						DSACK_INT<="01"; 
 						SM_AMIGA<=END_CYCLE_N;
 					end if;
@@ -369,7 +376,6 @@ begin
 			'0';
 
 	--bus buffers
-	AMIGA_BUS_ENABLE <= '0' WHEN nEXP_SPACE ='1' else '1'; --for now: allways on for amiga
 	AMIGA_BUS_DATA_DIR <='1' WHEN RW='0' ELSE '0';
 	AMIGA_BUS_ENABLE_LOW <= '1'; --for now: allways off
 		
