@@ -2,7 +2,7 @@
 Copyright(C), 1992-2013, Lattice Semiconductor Corp.
 All Rights Reserved.
 
-Design bus68030 created  Sun May 18 21:01:47 2014
+Design bus68030 created  Thu May 22 14:56:10 2014
 
 
  P-Terms   Fan-in  Fan-out  Type  Name (attributes)
@@ -90,8 +90,7 @@ Design bus68030 created  Sun May 18 21:01:47 2014
    1          1        1    Node  inst_CLK_000_D1.C 
    1          1        1    Node  inst_CLK_000_D2.D 
    1          1        1    Node  inst_CLK_000_D2.C 
-   3          3        1    NodeX1  inst_CLK_OUT_PRE.D.X1 
-   1          2        1    NodeX2  inst_CLK_OUT_PRE.D.X2 
+   4          4        1    Node  inst_CLK_OUT_PRE.T 
    1          1        1    Node  inst_CLK_OUT_PRE.C 
    1          1        1    Node  SM_AMIGA_6_.AR 
    4          6        1    Node  SM_AMIGA_6_.D 
@@ -99,6 +98,9 @@ Design bus68030 created  Sun May 18 21:01:47 2014
    3          6        1    NodeX1  cpu_est_2_.D.X1 
    1          1        1    NodeX2  cpu_est_2_.D.X2 
    1          1        1    Node  cpu_est_2_.C 
+   0          0        1    Node  CLK_REF_0_.D 
+   1          1        1    Node  CLK_REF_0_.AP 
+   0          0        1    Node  CLK_REF_0_.LH 
    1          1        1    Node  CLK_REF_1_.AR 
    0          0        1    Node  CLK_REF_1_.D 
    0          0        1    Node  CLK_REF_1_.LH 
@@ -111,9 +113,9 @@ Design bus68030 created  Sun May 18 21:01:47 2014
    1          1        1    Node  SM_AMIGA_1_.AR 
    3          4        1    Node  SM_AMIGA_1_.D 
    1          1        1    Node  SM_AMIGA_1_.C 
-   2          3        1    Node  CLK_CNT_0_.D 
+   3          4        1    Node  CLK_CNT_0_.D 
    1          1        1    Node  CLK_CNT_0_.C 
-   2          3        1    Node  CLK_CNT_1_.D 
+   4          4        1    Node  CLK_CNT_1_.D 
    1          1        1    Node  CLK_CNT_1_.C 
    1          1        1    Node  SM_AMIGA_3_.AR 
    3          5        1    Node  SM_AMIGA_3_.D 
@@ -128,9 +130,9 @@ Design bus68030 created  Sun May 18 21:01:47 2014
    3          5        1    Node  SM_AMIGA_0_.D 
    1          1        1    Node  SM_AMIGA_0_.C 
 =========
- 181                 P-Term Total: 181
+ 185                 P-Term Total: 185
                        Total Pins: 59
-                      Total Nodes: 22
+                      Total Nodes: 23
             Average P-Term/Output: 2
 
 
@@ -162,8 +164,8 @@ DSACK_0_ = (1);
 
 DSACK_0_.OE = (nEXP_SPACE);
 
-IPL_030_2_.D = (IPL_030_2_.Q & !inst_CLK_000_D0.Q
-     # IPL_030_2_.Q & inst_CLK_000_D1.Q
+IPL_030_2_.D = (!inst_CLK_000_D0.Q & IPL_030_2_.Q
+     # inst_CLK_000_D1.Q & IPL_030_2_.Q
      # IPL_2_ & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q);
 
 IPL_030_2_.AP = (!RST);
@@ -347,11 +349,10 @@ inst_CLK_000_D2.D = (inst_CLK_000_D1.Q);
 
 inst_CLK_000_D2.C = (CLK_OSZI);
 
-inst_CLK_OUT_PRE.D.X1 = (inst_CLK_OUT_PRE.Q & CLK_CNT_0_.Q
-     # inst_CLK_OUT_PRE.Q & CLK_CNT_1_.Q
-     # !inst_CLK_OUT_PRE.Q & !CLK_CNT_0_.Q & !CLK_CNT_1_.Q);
-
-inst_CLK_OUT_PRE.D.X2 = (CLK_REF_1_.Q & !CLK_CNT_0_.Q);
+inst_CLK_OUT_PRE.T = (CLK_REF_0_.Q & CLK_REF_1_.Q & CLK_CNT_0_.Q & CLK_CNT_1_.Q
+     # !CLK_REF_0_.Q & CLK_REF_1_.Q & !CLK_CNT_0_.Q & CLK_CNT_1_.Q
+     # CLK_REF_0_.Q & !CLK_REF_1_.Q & CLK_CNT_0_.Q & !CLK_CNT_1_.Q
+     # !CLK_REF_0_.Q & !CLK_REF_1_.Q & !CLK_CNT_0_.Q & !CLK_CNT_1_.Q);
 
 inst_CLK_OUT_PRE.C = (CLK_OSZI);
 
@@ -371,6 +372,12 @@ cpu_est_2_.D.X1 = (E.Q & cpu_est_0_.Q & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q &
 cpu_est_2_.D.X2 = (cpu_est_2_.Q);
 
 cpu_est_2_.C = (CLK_OSZI);
+
+CLK_REF_0_.D = (0);
+
+CLK_REF_0_.AP = (!RST);
+
+CLK_REF_0_.LH = (0);
 
 CLK_REF_1_.AR = (!RST);
 
@@ -400,13 +407,16 @@ SM_AMIGA_1_.D = (inst_CLK_000_D0.Q & SM_AMIGA_1_.Q
 
 SM_AMIGA_1_.C = (CLK_OSZI);
 
-CLK_CNT_0_.D = (!CLK_REF_1_.Q & !CLK_CNT_0_.Q & CLK_CNT_1_.Q
+CLK_CNT_0_.D = (CLK_REF_0_.Q & !CLK_CNT_0_.Q
+     # !CLK_REF_1_.Q & !CLK_CNT_0_.Q & CLK_CNT_1_.Q
      # CLK_REF_1_.Q & !CLK_CNT_0_.Q & !CLK_CNT_1_.Q);
 
 CLK_CNT_0_.C = (CLK_OSZI);
 
-CLK_CNT_1_.D = (CLK_CNT_0_.Q & !CLK_CNT_1_.Q
-     # !CLK_REF_1_.Q & !CLK_CNT_0_.Q & CLK_CNT_1_.Q);
+CLK_CNT_1_.D = (CLK_REF_0_.Q & !CLK_CNT_0_.Q & CLK_CNT_1_.Q
+     # !CLK_REF_1_.Q & !CLK_CNT_0_.Q & CLK_CNT_1_.Q
+     # !CLK_REF_0_.Q & CLK_CNT_0_.Q & !CLK_CNT_1_.Q
+     # CLK_REF_1_.Q & CLK_CNT_0_.Q & !CLK_CNT_1_.Q);
 
 CLK_CNT_1_.C = (CLK_OSZI);
 

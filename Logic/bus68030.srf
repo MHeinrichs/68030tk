@@ -6,7 +6,7 @@
 #Implementation: logic
 
 $ Start of Compile
-#Sun May 18 21:01:41 2014
+#Thu May 22 14:56:04 2014
 
 Synopsys VHDL Compiler, version comp201209rcp1, Build 283R, built Mar 19 2013
 @N|Running in 64-bit mode
@@ -25,7 +25,6 @@ Post processing for work.bus68030.behavioral
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":116:32:116:34|Pruning register CLK_000_D4  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":115:32:115:34|Pruning register CLK_000_D3  
 @A: CL282 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":109:52:109:55|Feedback mux created for signal AMIGA_BUS_ENABLE -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
-@W: CL111 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":183:2:183:3|All reachable assignments to CLK_REF(0) assign '0'; register removed by optimization
 @W: CL117 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":183:2:183:3|Latch generated from process for signal CLK_REF(1 downto 0); possible missing assignment in an if or case statement.
 @W: CL190 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":109:52:109:55|Optimizing register bit DSACK_INT(0) to a constant 1
 @W: CL260 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":109:52:109:55|Pruning register bit 0 of DSACK_INT(1 downto 0)  
@@ -44,7 +43,7 @@ State machine has 8 reachable states with original encodings of:
 @W: CL249 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":183:2:183:3|Initial value is not supported on state machine SM_AMIGA
 @END
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sun May 18 21:01:41 2014
+# Thu May 22 14:56:04 2014
 
 ###########################################################]
 Map & Optimize Report
@@ -76,9 +75,10 @@ BUFTH           7 uses
 OBUF            15 uses
 BI_DIR          2 uses
 AND2            159 uses
-INV             126 uses
+INV             127 uses
 OR2             18 uses
-XOR2            4 uses
+XOR2            5 uses
+DLATSH          1 use
 DLATRH          1 use
 
 
@@ -89,6 +89,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 95MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sun May 18 21:01:42 2014
+# Thu May 22 14:56:05 2014
 
 ###########################################################]

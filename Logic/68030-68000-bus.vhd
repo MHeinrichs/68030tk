@@ -186,7 +186,7 @@ begin
 			AS_030_000_SYNC <= '1';
 			UDS_000_INT		<= '1';
 			LDS_000_INT		<= '1';
-			CLK_REF			<= "00";
+			CLK_REF			<= "01";
 			VMA_INT			<= '1';
 			FPU_CS_INT		<= '1';
 			BG_000			<= '1';
