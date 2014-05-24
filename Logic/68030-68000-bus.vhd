@@ -105,7 +105,8 @@ signal	VMA_INT: STD_LOGIC:='1';
 signal	UDS_000_INT: STD_LOGIC:='1';
 signal	LDS_000_INT: STD_LOGIC:='1';
 signal  DSACK_INT: STD_LOGIC_VECTOR ( 1 downto 0 ) := "11";
-signal	CLK_CNT: STD_LOGIC_VECTOR ( 1 downto 0 ) := "00";
+signal	CLK_CNT_P: STD_LOGIC_VECTOR ( 1 downto 0 ) := "00";
+signal	CLK_CNT_N: STD_LOGIC_VECTOR ( 1 downto 0 ) := "00";
 signal	CLK_REF: STD_LOGIC_VECTOR ( 1 downto 0 ) := "10";
 signal	CLK_OUT_PRE: STD_LOGIC:='1';
 signal	CLK_OUT_INT: STD_LOGIC:='1';
@@ -121,20 +122,55 @@ signal	CLK_000_D6: STD_LOGIC := '1';
 begin
 
 
-
 	--the clocks
-	clk: process(CLK_OSZI)
+	neg_clk: process(RST, CLK_OSZI)
 	begin
-		if(rising_edge(CLK_OSZI)) then
+		if(RST = '0' ) then
+			CLK_CNT_N	<= "00";	
+		elsif(falling_edge(CLK_OSZI)) then
+			--clk generation : up to now just half the clock
+			if(CLK_CNT_N = "10") then
+				--CLK_OUT_PRE	<=	not CLK_OUT_PRE;			
+				CLK_CNT_N	<= "00";	
+			else
+				CLK_CNT_N	<= CLK_CNT_N+1;					
+			end if;
+		end if;
+	end process neg_clk;
+	--the clocks
+	clk: process(RST, CLK_OSZI)
+	begin
+		if(RST = '0' ) then
+			CLK_CNT_P	<= "00";	
+			RESET 		<= '0';
+			CLK_OUT_PRE <= '0';
+			CLK_OUT_INT	<= '0';
+			cpu_est		<= E20;
+			cpu_est_d	<= E20;
+			VPA_D		<= '1';
+			CLK_000_D0	<= '1';
+			CLK_000_D1	<= '1';
+			CLK_000_D2	<= '1';
+			CLK_000_D3	<= '1';
+			CLK_000_D4	<= '1';
+			CLK_000_D5	<= '1';
+			CLK_000_D6	<= '1';
+
+		elsif(rising_edge(CLK_OSZI)) then
 			--reset buffer
-			RESET <= RST;
+			RESET <= '1';
 		    
 			--clk generation : up to now just half the clock
-			if(CLK_CNT = CLK_REF) then
-				CLK_OUT_PRE	<=	not CLK_OUT_PRE;			
-				CLK_CNT	<= "00";	
+			if(CLK_CNT_P = "10") then
+				--CLK_OUT_PRE	<=	not CLK_OUT_PRE;			
+				CLK_CNT_P	<= "00";	
 			else
-				CLK_CNT	<= CLK_CNT+1;					
+				CLK_CNT_P	<= CLK_CNT_P+1;					
+			end if;
+			if(CLK_CNT_P ="00" or CLK_CNT_N ="00")then --33MHz Clock
+				CLK_OUT_PRE <= '0'; 
+			else 
+				CLK_OUT_PRE <= '1';
 			end if;
 			-- the external clock to the processor is generated here
 			CLK_OUT_INT	<= CLK_OUT_PRE; --this way we know the clock of the next state: Its like looking in the future, cool!
@@ -212,13 +248,12 @@ begin
 			--bus grant only in idle state
 			if(BG_030= '1')then
 				BG_000	<= '1';
-			elsif(CLK_030 ='0') then
-				if(	BG_030= '0' AND (SM_AMIGA 	= IDLE_P)
-					and nEXP_SPACE = '0' and AS_030='1') then --bus granted no local access and no AS_030 running!
+			elsif(	BG_030= '0' AND (SM_AMIGA 	= IDLE_P)
+					and nEXP_SPACE = '0' and AS_030='1'
+					and CLK_000_D0='1' AND CLK_000_D1='0') then --bus granted no local access and no AS_030 running!
 					BG_000 	<= '0';
-				else
-					BG_000	<= '1'; 
-				end if;
+			else
+					BG_000	<= '1'; 			
 			end if;
 
 		
@@ -391,7 +426,7 @@ begin
 	AVEC <=	'1';
 		
 	--as and uds/lds
-	AS_000	<= 'Z' 	when BGACK_030_INT ='0' else
+	AS_000	<= 'Z' when BGACK_030_INT ='0' else
 					AS_000_INT;
 	UDS_000	<= 'Z' when BGACK_030_INT ='0' else -- output on cpu cycle
 					UDS_000_INT;

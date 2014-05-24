@@ -12,7 +12,7 @@ The file contains the job information from mapper to be displayed as part of the
 </job_status>
 <job_info>
 <info name="Notes">
-<data>3</data>
+<data>2</data>
 <report_link name="more">
 <data>C:\users\matze\documents\github\68030tk\logic\synlog\report\BUS68030_fpga_mapper_notes.txt</data>
 </report_link>
@@ -39,7 +39,7 @@ The file contains the job information from mapper to be displayed as part of the
 <data>95MB</data>
 </info>
 <info name="Date &amp; Time">
-<data type="timestamp">1400924644</data>
+<data type="timestamp">1400939325</data>
 </info>
 </job_info>
 </job_run_status>

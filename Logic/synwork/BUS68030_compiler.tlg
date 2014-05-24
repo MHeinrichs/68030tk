@@ -1,15 +1,13 @@
 @N: CD630 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Synthesizing work.bus68030.behavioral 
-@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":112:7:112:15|Signal clk_030_d is undriven 
+@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":113:7:113:15|Signal clk_030_d is undriven 
 Post processing for work.bus68030.behavioral
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":119:32:119:34|Pruning register cpu_est_d(3 downto 0)  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":118:32:118:34|Pruning register CLK_000_D6  
-@A: CL282 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":109:52:109:55|Feedback mux created for signal AMIGA_BUS_ENABLE -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
-@W: CL111 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":185:2:185:3|All reachable assignments to CLK_REF(0) assign '0'; register removed by optimization
-@W: CL117 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":185:2:185:3|Latch generated from process for signal CLK_REF(1 downto 0); possible missing assignment in an if or case statement.
-@W: CL190 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":109:52:109:55|Optimizing register bit DSACK_INT(0) to a constant 1
-@W: CL260 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":109:52:109:55|Pruning register bit 0 of DSACK_INT(1 downto 0)  
-@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":119:32:119:34|Trying to extract state machine for register cpu_est
-@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":185:2:185:3|Trying to extract state machine for register SM_AMIGA
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":221:2:221:3|Pruning register CLK_REF(1 downto 0)  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":119:32:119:34|Pruning register CLK_000_D6  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":112:31:112:33|Pruning register cpu_est_d(3 downto 0)  
+@A: CL282 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":110:52:110:55|Feedback mux created for signal AMIGA_BUS_ENABLE -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+@W: CL190 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":110:52:110:55|Optimizing register bit DSACK_INT(0) to a constant 1
+@W: CL260 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":110:52:110:55|Pruning register bit 0 of DSACK_INT(1 downto 0)  
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":221:2:221:3|Trying to extract state machine for register SM_AMIGA
 Extracted state machine for register SM_AMIGA
 State machine has 8 reachable states with original encodings of:
    000
@@ -20,4 +18,19 @@ State machine has 8 reachable states with original encodings of:
    101
    110
    111
-@W: CL249 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":185:2:185:3|Initial value is not supported on state machine SM_AMIGA
+@W: CL249 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":221:2:221:3|Initial value is not supported on state machine SM_AMIGA
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":112:31:112:33|Trying to extract state machine for register cpu_est
+Extracted state machine for register cpu_est
+State machine has 11 reachable states with original encodings of:
+   0000
+   0010
+   0011
+   0100
+   0101
+   0110
+   0111
+   1010
+   1011
+   1100
+   1111
+@W: CL249 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":112:31:112:33|Initial value is not supported on state machine cpu_est
