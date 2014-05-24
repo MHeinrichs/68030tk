@@ -60,6 +60,7 @@ RN_AMIGA_BUS_ENABLE   1    1    0    0   ..   ..    1    1
    RN_IPL_030_1_   1    1    0    0   ..   ..    1    1   
       IPL_030_0_   1    1    0    0   ..   ..    1    1   
    RN_IPL_030_0_   1    1    0    0   ..   ..    1    1   
+  CLK_OUT_INTreg  ..   ..   ..   ..   ..   ..    1    1   
 inst_AS_030_000_SYNC   1    1   ..   ..   ..   ..    1    1   
  inst_DTACK_SYNC   1    1   ..   ..   ..   ..    1    1   
       inst_VPA_D   1    1   ..   ..   ..   ..    1    1   

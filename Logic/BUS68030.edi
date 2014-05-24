@@ -4,7 +4,7 @@
   (keywordMap (keywordLevel 0))
   (status
     (written
-      (timeStamp 2014 5 24 15 48 45)
+      (timeStamp 2014 5 24 16 11 46)
       (author "Synopsys, Inc.")
       (program "Synplify Pro" (version "G-2012.09LC-SP1 , mapper maplat, Build 621R"))
      )
@@ -299,6 +299,8 @@
           (instance AMIGA_BUS_DATA_DIR (viewRef prim (cellRef OBUF (libraryRef mach)))          )
           (instance AMIGA_BUS_ENABLE_LOW (viewRef prim (cellRef OBUF (libraryRef mach)))          )
           (instance CIIN (viewRef prim (cellRef BUFTH (libraryRef mach)))          )
+          (instance (rename state_machine_un15_clk_000_d0_0_a3 "state_machine.un15_clk_000_d0_0_a3") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
+          (instance VPA_SYNC_1_sqmuxa_1_i_a3_3 (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance VPA_SYNC_1_sqmuxa_1_i_a3 (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance (rename SM_AMIGA_ns_0_1_0 "SM_AMIGA_ns_0_1[0]") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance (rename SM_AMIGA_ns_0_0 "SM_AMIGA_ns_0[0]") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
@@ -313,13 +315,13 @@
           (instance (rename state_machine_un15_clk_000_d0_0_a3_0_1 "state_machine.un15_clk_000_d0_0_a3_0_1") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance (rename state_machine_un15_clk_000_d0_0_a3_0 "state_machine.un15_clk_000_d0_0_a3_0") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance (rename state_machine_un15_clk_000_d0_0_a3_1 "state_machine.un15_clk_000_d0_0_a3_1") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
-          (instance (rename state_machine_un15_clk_000_d0_0_a3 "state_machine.un15_clk_000_d0_0_a3") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance (rename cpu_est_ns_0_0_2_1 "cpu_est_ns_0_0_2[1]") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance (rename cpu_est_ns_0_0_1 "cpu_est_ns_0_0[1]") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
-          (instance (rename state_machine_un10_bg_030_0_a3_1 "state_machine.un10_bg_030_0_a3_1") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
-          (instance (rename state_machine_un10_bg_030_0_a3_2 "state_machine.un10_bg_030_0_a3_2") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
-          (instance (rename state_machine_un10_bg_030_0_a3_3 "state_machine.un10_bg_030_0_a3_3") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
-          (instance (rename state_machine_un10_bg_030_0_a3 "state_machine.un10_bg_030_0_a3") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
+          (instance (rename state_machine_un12_bg_030_0_a3_1 "state_machine.un12_bg_030_0_a3_1") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
+          (instance (rename state_machine_un12_bg_030_0_a3_2 "state_machine.un12_bg_030_0_a3_2") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
+          (instance (rename state_machine_un12_bg_030_0_a3_3 "state_machine.un12_bg_030_0_a3_3") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
+          (instance (rename state_machine_un12_bg_030_0_a3_4 "state_machine.un12_bg_030_0_a3_4") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
+          (instance (rename state_machine_un12_bg_030_0_a3 "state_machine.un12_bg_030_0_a3") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance AS_030_000_SYNC_1_sqmuxa_i_a3_1 (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance AS_030_000_SYNC_1_sqmuxa_i_a3_2 (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance AS_030_000_SYNC_1_sqmuxa_i_a3 (viewRef prim (cellRef AND2 (libraryRef mach)))          )
@@ -328,7 +330,6 @@
           (instance DTACK_SYNC_1_sqmuxa_1_i_a3 (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance VPA_SYNC_1_sqmuxa_1_i_a3_1 (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance VPA_SYNC_1_sqmuxa_1_i_a3_2 (viewRef prim (cellRef AND2 (libraryRef mach)))          )
-          (instance VPA_SYNC_1_sqmuxa_1_i_a3_3 (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance un8_ciin_5 (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance un8_ciin_6 (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance un8_ciin (viewRef prim (cellRef AND2 (libraryRef mach)))          )
@@ -409,12 +410,12 @@
           (instance N_128_i (viewRef prim (cellRef INV (libraryRef mach)))          )
           (instance N_216_i (viewRef prim (cellRef INV (libraryRef mach)))          )
           (instance N_217_i (viewRef prim (cellRef INV (libraryRef mach)))          )
+          (instance (rename state_machine_UDS_000_INT_5_0_o3 "state_machine.UDS_000_INT_5_0_o3") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance un1_AMIGA_BUS_ENABLE_1_sqmuxa_2_0_o3 (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance (rename SM_AMIGA_ns_i_0_o2_1 "SM_AMIGA_ns_i_0_o2[1]") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance CLK_000_D0_i (viewRef prim (cellRef INV (libraryRef mach)))          )
           (instance (rename SM_AMIGA_i_4 "SM_AMIGA_i[4]") (viewRef prim (cellRef INV (libraryRef mach)))          )
           (instance (rename SM_AMIGA_ns_i_0_o2_4 "SM_AMIGA_ns_i_0_o2[4]") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
-          (instance nEXP_SPACE_i (viewRef prim (cellRef INV (libraryRef mach)))          )
           (instance BG_030_i (viewRef prim (cellRef INV (libraryRef mach)))          )
           (instance I_127 (viewRef prim (cellRef INV (libraryRef mach)))          )
           (instance VPA_D_i (viewRef prim (cellRef INV (libraryRef mach)))          )
@@ -431,13 +432,13 @@
           (instance (rename clk_un3_clk_000_d1_0_o2 "clk.un3_clk_000_d1_0_o2") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance DSACK_INT_1_sqmuxa_i_o3 (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance (rename SM_AMIGA_i_6 "SM_AMIGA_i[6]") (viewRef prim (cellRef INV (libraryRef mach)))          )
+          (instance nEXP_SPACE_i (viewRef prim (cellRef INV (libraryRef mach)))          )
           (instance (rename state_machine_AMIGA_BUS_ENABLE_3_f0_i_o2 "state_machine.AMIGA_BUS_ENABLE_3_f0_i_o2") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance (rename SM_AMIGA_i_1 "SM_AMIGA_i[1]") (viewRef prim (cellRef INV (libraryRef mach)))          )
           (instance (rename state_machine_un6_clk_000_d4_i "state_machine.un6_clk_000_d4_i") (viewRef prim (cellRef INV (libraryRef mach)))          )
           (instance un1_DSACK_INT_0_sqmuxa_i_o2_i_o2 (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance (rename cpu_est_i_3 "cpu_est_i[3]") (viewRef prim (cellRef INV (libraryRef mach)))          )
           (instance (rename cpu_est_ns_i_0_o2_3 "cpu_est_ns_i_0_o2[3]") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
-          (instance (rename state_machine_UDS_000_INT_5_0_o3 "state_machine.UDS_000_INT_5_0_o3") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance (rename state_machine_un15_clk_000_d0_0 "state_machine.un15_clk_000_d0_0") (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance VPA_SYNC_1_sqmuxa_1_i (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance un1_as_030_000_sync8_i (viewRef prim (cellRef AND2 (libraryRef mach)))          )
@@ -513,7 +514,7 @@
           (instance AS_030_000_SYNC_i (viewRef prim (cellRef INV (libraryRef mach)))          )
           (instance CLK_000_D2_i (viewRef prim (cellRef INV (libraryRef mach)))          )
           (instance (rename state_machine_un7_as_000_int_i "state_machine.un7_as_000_int_i") (viewRef prim (cellRef INV (libraryRef mach)))          )
-          (instance (rename state_machine_un10_bg_030_i "state_machine.un10_bg_030_i") (viewRef prim (cellRef INV (libraryRef mach)))          )
+          (instance (rename state_machine_un12_bg_030_i "state_machine.un12_bg_030_i") (viewRef prim (cellRef INV (libraryRef mach)))          )
           (instance (rename un4_clk_cnt_n_i_1 "un4_clk_cnt_n_i[1]") (viewRef prim (cellRef INV (libraryRef mach)))          )
           (instance CLK_OSZI_i (viewRef prim (cellRef INV (libraryRef mach)))          )
           (instance (rename un2_clk_cnt_p_i_1 "un2_clk_cnt_p_i[1]") (viewRef prim (cellRef INV (libraryRef mach)))          )
@@ -740,16 +741,16 @@
            (portRef Q (instanceRef DTACK_DMA))
            (portRef I0 (instanceRef DTACK))
           ))
-          (net (rename state_machine_un10_bg_030 "state_machine.un10_bg_030") (joined
-           (portRef O (instanceRef state_machine_un10_bg_030_0_a3))
-           (portRef I0 (instanceRef state_machine_un10_bg_030_i))
+          (net (rename state_machine_un12_bg_030 "state_machine.un12_bg_030") (joined
+           (portRef O (instanceRef state_machine_un12_bg_030_0_a3))
+           (portRef I0 (instanceRef state_machine_un12_bg_030_i))
           ))
           (net (rename SM_AMIGA_7 "SM_AMIGA[7]") (joined
            (portRef Q (instanceRef SM_AMIGA_7))
            (portRef I0 (instanceRef SM_AMIGA_ns_i_0_a3_0_1))
            (portRef I0 (instanceRef SM_AMIGA_i_7))
            (portRef I0 (instanceRef AS_030_000_SYNC_1_sqmuxa_i_a3_2))
-           (portRef I1 (instanceRef state_machine_un10_bg_030_0_a3))
+           (portRef I0 (instanceRef state_machine_un12_bg_030_0_a3_1))
           ))
           (net (rename SM_AMIGA_3 "SM_AMIGA[3]") (joined
            (portRef Q (instanceRef SM_AMIGA_3))
@@ -1202,8 +1203,8 @@
           ))
           (net VPA_D_i (joined
            (portRef O (instanceRef VPA_D_i))
-           (portRef I1 (instanceRef state_machine_un15_clk_000_d0_0_a3))
            (portRef I1 (instanceRef VPA_SYNC_1_sqmuxa_1_i_a3))
+           (portRef I1 (instanceRef state_machine_un15_clk_000_d0_0_a3))
           ))
           (net DTACK_i (joined
            (portRef O (instanceRef I_127))
@@ -1211,12 +1212,7 @@
           ))
           (net BG_030_i (joined
            (portRef O (instanceRef BG_030_i))
-           (portRef I0 (instanceRef state_machine_un10_bg_030_0_a3_2))
-          ))
-          (net nEXP_SPACE_i (joined
-           (portRef O (instanceRef nEXP_SPACE_i))
-           (portRef I1 (instanceRef SM_AMIGA_ns_0_a2_0))
-           (portRef I0 (instanceRef state_machine_un10_bg_030_0_a3_1))
+           (portRef I1 (instanceRef state_machine_un12_bg_030_0_a3_2))
           ))
           (net CLK_000_D0_i (joined
            (portRef O (instanceRef CLK_000_D0_i))
@@ -1250,6 +1246,10 @@
            (portRef O (instanceRef SM_AMIGA_i_6))
            (portRef I1 (instanceRef SM_AMIGA_ns_i_0_a3_2))
            (portRef I1 (instanceRef state_machine_AMIGA_BUS_ENABLE_3_f0_i_a3))
+          ))
+          (net nEXP_SPACE_i (joined
+           (portRef O (instanceRef nEXP_SPACE_i))
+           (portRef I1 (instanceRef SM_AMIGA_ns_0_a2_0))
           ))
           (net AS_000_INT_i (joined
            (portRef O (instanceRef AS_000_INT_i))
@@ -1417,8 +1417,8 @@
            (portRef R (instanceRef cpu_est_2))
            (portRef R (instanceRef cpu_est_3))
           ))
-          (net (rename state_machine_un10_bg_030_i "state_machine.un10_bg_030_i") (joined
-           (portRef O (instanceRef state_machine_un10_bg_030_i))
+          (net (rename state_machine_un12_bg_030_i "state_machine.un12_bg_030_i") (joined
+           (portRef O (instanceRef state_machine_un12_bg_030_i))
            (portRef D (instanceRef BG_000DFFSH))
           ))
           (net (rename state_machine_un7_as_000_int_i "state_machine.un7_as_000_int_i") (joined
@@ -1465,7 +1465,7 @@
            (portRef O (instanceRef AS_030))
            (portRef I0 (instanceRef FPU_CS_INT_0_m))
            (portRef I0 (instanceRef AS_030_i))
-           (portRef I1 (instanceRef state_machine_un10_bg_030_0_a3_1))
+           (portRef I0 (instanceRef state_machine_un12_bg_030_0_a3_2))
           ))
           (net AS_030 (joined
            (portRef AS_030)
@@ -1693,6 +1693,7 @@
            (portRef I1 (instanceRef state_machine_AMIGA_BUS_ENABLE_3_f0_i_o2))
            (portRef I0 (instanceRef nEXP_SPACE_i))
            (portRef I1 (instanceRef AS_030_000_SYNC_1_sqmuxa_i_a3_2))
+           (portRef I1 (instanceRef state_machine_un12_bg_030_0_a3_1))
            (portRef OE (instanceRef DSACK_0))
            (portRef OE (instanceRef DSACK_1))
           ))
@@ -1805,6 +1806,7 @@
           ))
           (net CLK_EXP_c (joined
            (portRef Q (instanceRef CLK_OUT_INT))
+           (portRef I0 (instanceRef state_machine_un12_bg_030_0_a3_3))
            (portRef I0 (instanceRef CLK_DIV_OUT))
            (portRef I0 (instanceRef CLK_EXP))
           ))
@@ -2056,7 +2058,7 @@
            (portRef O (instanceRef clk_un3_clk_000_d1_0_o2))
            (portRef I0 (instanceRef cpu_estse_0_a3_0))
            (portRef I0 (instanceRef clk_un3_clk_000_d1_0_o2_i))
-           (portRef I1 (instanceRef state_machine_un10_bg_030_0_a3_2))
+           (portRef I1 (instanceRef state_machine_un12_bg_030_0_a3_3))
           ))
           (net N_48_i (joined
            (portRef O (instanceRef N_88_i_0_o2))
@@ -2330,17 +2332,21 @@
            (portRef O (instanceRef cpu_est_ns_0_0_2_1))
            (portRef I1 (instanceRef cpu_est_ns_0_0_1))
           ))
-          (net (rename state_machine_un10_bg_030_1 "state_machine.un10_bg_030_1") (joined
-           (portRef O (instanceRef state_machine_un10_bg_030_0_a3_1))
-           (portRef I0 (instanceRef state_machine_un10_bg_030_0_a3_3))
+          (net (rename state_machine_un12_bg_030_1 "state_machine.un12_bg_030_1") (joined
+           (portRef O (instanceRef state_machine_un12_bg_030_0_a3_1))
+           (portRef I0 (instanceRef state_machine_un12_bg_030_0_a3_4))
           ))
-          (net (rename state_machine_un10_bg_030_2 "state_machine.un10_bg_030_2") (joined
-           (portRef O (instanceRef state_machine_un10_bg_030_0_a3_2))
-           (portRef I1 (instanceRef state_machine_un10_bg_030_0_a3_3))
+          (net (rename state_machine_un12_bg_030_2 "state_machine.un12_bg_030_2") (joined
+           (portRef O (instanceRef state_machine_un12_bg_030_0_a3_2))
+           (portRef I1 (instanceRef state_machine_un12_bg_030_0_a3_4))
           ))
-          (net (rename state_machine_un10_bg_030_3 "state_machine.un10_bg_030_3") (joined
-           (portRef O (instanceRef state_machine_un10_bg_030_0_a3_3))
-           (portRef I0 (instanceRef state_machine_un10_bg_030_0_a3))
+          (net (rename state_machine_un12_bg_030_3 "state_machine.un12_bg_030_3") (joined
+           (portRef O (instanceRef state_machine_un12_bg_030_0_a3_3))
+           (portRef I1 (instanceRef state_machine_un12_bg_030_0_a3))
+          ))
+          (net (rename state_machine_un12_bg_030_4 "state_machine.un12_bg_030_4") (joined
+           (portRef O (instanceRef state_machine_un12_bg_030_0_a3_4))
+           (portRef I0 (instanceRef state_machine_un12_bg_030_0_a3))
           ))
           (net N_73_1 (joined
            (portRef O (instanceRef AS_030_000_SYNC_1_sqmuxa_i_a3_1))

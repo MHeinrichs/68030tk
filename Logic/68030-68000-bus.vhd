@@ -249,7 +249,8 @@ begin
 			if(BG_030= '1')then
 				BG_000	<= '1';
 			elsif(	BG_030= '0' AND (SM_AMIGA 	= IDLE_P)
-					and nEXP_SPACE = '0' and AS_030='1'
+					and nEXP_SPACE = '1' and AS_030='1'
+					and CLK_OUT_INT ='1'
 					and CLK_000_D0='1' AND CLK_000_D1='0') then --bus granted no local access and no AS_030 running!
 					BG_000 	<= '0';
 			else
