@@ -12,23 +12,22 @@ original code -> new code
    101 -> 00100000
    110 -> 01000000
    111 -> 10000000
-@N: MO106 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":152:4:152:7|Found ROM, 'clk\.cpu_est_11[3:0]', 16 words by 4 bits 
+@N: MO106 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":154:4:154:7|Found ROM, 'clk\.cpu_est_11[3:0]', 16 words by 4 bits 
 ---------------------------------------
 Resource Usage Report
 
 Simple gate primitives:
-DFFRH           7 uses
-DFF             14 uses
 DFFSH           16 uses
+DFFRH           7 uses
+DFF             17 uses
 IBUF            35 uses
 BUFTH           7 uses
 OBUF            15 uses
 BI_DIR          2 uses
 AND2            159 uses
-INV             127 uses
-OR2             18 uses
-XOR2            5 uses
-DLATSH          1 use
+INV             132 uses
+OR2             19 uses
+XOR2            3 uses
 DLATRH          1 use
 
 
@@ -39,6 +38,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 95MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Thu May 22 14:56:05 2014
+# Sat May 24 11:44:04 2014
 
 ###########################################################]

@@ -1,3 +1,3 @@
-@E: CD204 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":151:49:151:49|Expecting sequential statement
+@E: CG119 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":272:31:272:40|Expecting closing )
 @E|Parse errors encountered - exiting
 

@@ -116,6 +116,7 @@ signal	CLK_000_D2: STD_LOGIC := '1';
 signal	CLK_000_D3: STD_LOGIC := '1';
 signal	CLK_000_D4: STD_LOGIC := '1';
 signal	CLK_000_D5: STD_LOGIC := '1';
+signal	CLK_000_D6: STD_LOGIC := '1';
 
 begin
 
@@ -144,6 +145,7 @@ begin
 			CLK_000_D3 <= CLK_000_D2;
 			CLK_000_D4 <= CLK_000_D3;
 			CLK_000_D5 <= CLK_000_D4;
+			CLK_000_D6 <= CLK_000_D5;
 
 
 
@@ -186,7 +188,7 @@ begin
 			AS_030_000_SYNC <= '1';
 			UDS_000_INT		<= '1';
 			LDS_000_INT		<= '1';
-			CLK_REF			<= "01";
+			CLK_REF			<= "00";
 			VMA_INT			<= '1';
 			FPU_CS_INT		<= '1';
 			BG_000			<= '1';
@@ -211,7 +213,7 @@ begin
 			if(BG_030= '1')then
 				BG_000	<= '1';
 			elsif(CLK_030 ='0') then
-				if(	BG_030= '0' AND (SM_AMIGA 	= IDLE_N or SM_AMIGA 	= IDLE_P)
+				if(	BG_030= '0' AND (SM_AMIGA 	= IDLE_P)
 					and nEXP_SPACE = '0' and AS_030='1') then --bus granted no local access and no AS_030 running!
 					BG_000 	<= '0';
 				else
@@ -240,17 +242,12 @@ begin
 				AMIGA_BUS_ENABLE <= '1';
 			elsif(	CLK_030  	= '1'  AND --68030 has a valid AS on high clocks
 					AS_030 		= '0') then
-
 				if(FC(1)='1' and FC(0)='1' and A(19)='0' and A(18)='0' and A(17)='1' and A(16)='0' AND BGACK_000='1') then
 					FPU_CS_INT	<= '0';
-					AS_030_000_SYNC 	<= '1';					
 				else 
-					if(nEXP_SPACE ='1')then
+					if(nEXP_SPACE ='1' and SM_AMIGA = IDLE_P )then
 						AS_030_000_SYNC <= '0';					
-					else
-						AS_030_000_SYNC <= '1';
 					end if;					
-					FPU_CS_INT		<= '1';
 				end if;
 			end if;
 
@@ -265,37 +262,39 @@ begin
 			--Amiga statemachine
 			case (SM_AMIGA) is
 				when IDLE_P 	 => --68000:S0 wait for a falling edge
-					if( CLK_000_D0='0' )then
-						SM_AMIGA<=IDLE_N;
+					if( CLK_000_D2='0' and CLK_000_D3= '1' and AS_030_000_SYNC = '0')then
+						SM_AMIGA<=IDLE_N;  --go to s1
 					end if;
-				when IDLE_N 	 => --68000:S1 wait for rising edge, on a rising CLK_000 look for a amiga adressrobe
-					if(nEXP_SPACE ='1')then
+				when IDLE_N 	 => --68000:S1 place Adress on bus and wait for rising edge, on a rising CLK_000 look for a amiga adressrobe
+					if(nEXP_SPACE ='1')then 
 						AMIGA_BUS_ENABLE <= '0' ;--for now: allways on for amiga
-					else  
+					else  -- if this a delayed expansion space detection, aboard this cycle!
 						AMIGA_BUS_ENABLE <= '1';
+						AS_030_000_SYNC	 <= '1';
+						SM_AMIGA		 <= IDLE_P; --aboard
 					end if; 
 
-					if(CLK_000_D1='1' and CLK_000_D2 = '0')then --sample AS only at the rising edge!
-						if( AS_030_000_SYNC 	= '0'  )then
-							AS_000_INT <= '0';
-							if (RW='1' and DS_030 = '0') then --read: set udl/lds 	
-								if(A(0)='0') then
-									UDS_000_INT <= '0';
-								else
-									UDS_000_INT <= '1';
-								end if;
-								if((A(0)='1' OR SIZE(0)='0' OR SIZE(1)='1')) then
-									LDS_000_INT <= '0';
-								else
-									LDS_000_INT <= '1';
-								end if;
-							end if;
-							SM_AMIGA <= AS_SET_P; --as for amiga set!
-						end if;
+					if(CLK_000_D0='1')then --go to s2
+						SM_AMIGA <= AS_SET_P; --as for amiga set! 
 					end if;
 				when AS_SET_P	 => --68000:S2 Amiga cycle starts here: since AS is asserted during transition to this state we simply wait here
-					if(CLK_000_D0='0')then
-						SM_AMIGA<=AS_SET_N;
+					AS_000_INT <= '0';
+					if (RW='1' and DS_030 = '0') then --read: set udl/lds 	
+						if(A(0)='0') then
+							UDS_000_INT <= '0';
+						else
+							UDS_000_INT <= '1';
+						end if;
+						if((A(0)='1' OR SIZE(0)='0' OR SIZE(1)='1')) then
+							LDS_000_INT <= '0';
+						else
+							LDS_000_INT <= '1';
+						end if;
+					end if;
+
+
+					if(CLK_000_D0='0')then --go to s3
+						SM_AMIGA<=AS_SET_N; 
 					end if;
 				when AS_SET_N	 => --68000:S3: nothing happens here; on a transition to s4: assert uds/lds on write 
 					if (RW='0' and DS_030 = '0') then --write: set udl/lds earlier than in the specs. this does not seem to harm anything and is saver, than sampling uds/lds too late 				 
@@ -310,15 +309,15 @@ begin
 							LDS_000_INT <= '1';
 						end if;
 					end if;
-					if(CLK_000_D0='1')then
-						SM_AMIGA <= SAMPLE_DTACK_P;
+					if(CLK_000_D0='1')then --go to s4
+						SM_AMIGA <= SAMPLE_DTACK_P; 
 					end if;
 				when SAMPLE_DTACK_P=> --68000:S4 wait for dtack or VMA
-					if(CLK_000_D0='0' )then
+					if(CLK_000_D0='0' )then --go to s5
 						if(DTACK_SYNC = '0' OR VPA_SYNC ='0')then
 							SM_AMIGA<=DATA_FETCH_N;
 						end if;
-					elsif(CLK_000='1' )then -- high clock: sample DTACK
+					elsif(CLK_000_D0='1' )then -- high clock: sample DTACK
 						if(VPA_D = '1' AND DTACK='0') then 
 							DTACK_SYNC  <= '0';
 						elsif(VPA_D='0' AND cpu_est=E9 AND VMA_INT='0') then --vpa/vma cycle: sync VPA on E9: one 7M-clock to latch!
@@ -326,16 +325,20 @@ begin
 						end if;
 					end if;
 				when DATA_FETCH_N=> --68000:S5 nothing happens here just wait for positive clock
-					if(CLK_000_D0='1')then
+					if(CLK_000_D0='1')then --go to s6
 						SM_AMIGA<=DATA_FETCH_P;
 					end if;
 				when DATA_FETCH_P => --68000:S6: READ: here comes the data on the bus!
-					if( CLK_000_D0 ='0' AND CLK_OUT_PRE='1' ) then --next 030-clock is high: dsack is sampled at the falling edge
+					if( CLK_000_D4 ='1' AND CLK_000_D5 = '0' ) then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
 						DSACK_INT<="01"; 
+						AS_030_000_SYNC 	<= '1'; --cycle end
+					elsif( CLK_000_D0 ='0') then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
+						--DSACK_INT<="01"; 
 						SM_AMIGA<=END_CYCLE_N;
+						--AS_030_000_SYNC 	<= '1'; --cycle end
 					end if;
-				when END_CYCLE_N =>--68000:S7: Latch/Store data and go to IDLE on high clock
-					if(CLK_000_D0='1' and AS_000_INT='1' )then
+				when END_CYCLE_N =>--68000:S7: Latch/Store data. Wait here for new cycle and go to IDLE on high clock
+					if(CLK_000_D0='1' and AS_000_INT 	= '1' )then --go to s0
 						SM_AMIGA<=IDLE_P;
 					end if;
 			end case;
