@@ -15,8 +15,8 @@ Voltage = 5.0;
 RCS = "$Revision: 1.2 $";
 Parent = m4a5.lci;
 SDS_File = m4a5.sds;
-DATE = 05/15/2014;
-TIME = 12:30:11;
+DATE = 05/24/2014;
+TIME = 21:28:20;
 Source_Format = Pure_VHDL;
 Type = TT2;
 Pre_Fit_Time = 1;
@@ -101,7 +101,7 @@ Routing_Attempts = 2;
 Conf_Unused_IOs = Out_Low;
 
 [HARDWARE DEVICE OPTIONS]
-Zero_Hold_Time = Yes;
+Zero_Hold_Time = No;
 Signature_Word = 0;
 Pull_up = Yes;
 Out_Slew_Rate = FAST,SLOW,0;
@@ -173,6 +173,8 @@ A_31_ = input,4,B,-;
 DS_030 = input,98,A,-;
 AVEC_EXP = input,22,C,-;
 BERR = input,41,E,-;
+nEXP_SPACE = input,14,-,-;
+A0 = input,69,G,-;
 
 [GROUP ASSIGNMENT]
 Layer = OFF;

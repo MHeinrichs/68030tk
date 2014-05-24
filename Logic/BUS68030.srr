@@ -6,7 +6,7 @@
 #Implementation: logic
 
 $ Start of Compile
-#Sat May 24 19:56:13 2014
+#Sat May 24 21:59:07 2014
 
 Synopsys VHDL Compiler, version comp201209rcp1, Build 283R, built Mar 19 2013
 @N|Running in 64-bit mode
@@ -18,14 +18,9 @@ File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed -
 VHDL syntax check successful!
 File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed - recompiling
 @N: CD630 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Synthesizing work.bus68030.behavioral 
-@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":113:7:113:15|Signal clk_030_d is undriven 
 Post processing for work.bus68030.behavioral
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":221:2:221:3|Pruning register CLK_REF(1 downto 0)  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":112:31:112:33|Pruning register cpu_est_d(3 downto 0)  
-@A: CL282 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":110:52:110:55|Feedback mux created for signal AMIGA_BUS_ENABLE -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
-@W: CL190 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":110:52:110:55|Optimizing register bit DSACK_INT(0) to a constant 1
-@W: CL260 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":110:52:110:55|Pruning register bit 0 of DSACK_INT(1 downto 0)  
-@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":221:2:221:3|Trying to extract state machine for register SM_AMIGA
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":219:2:219:3|Pruning register CLK_REF(1 downto 0)  
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":219:2:219:3|Trying to extract state machine for register SM_AMIGA
 Extracted state machine for register SM_AMIGA
 State machine has 8 reachable states with original encodings of:
    000
@@ -36,8 +31,7 @@ State machine has 8 reachable states with original encodings of:
    101
    110
    111
-@W: CL249 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":221:2:221:3|Initial value is not supported on state machine SM_AMIGA
-@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":112:31:112:33|Trying to extract state machine for register cpu_est
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":115:34:115:36|Trying to extract state machine for register cpu_est
 Extracted state machine for register cpu_est
 State machine has 11 reachable states with original encodings of:
    0000
@@ -51,10 +45,9 @@ State machine has 11 reachable states with original encodings of:
    1011
    1100
    1111
-@W: CL249 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":112:31:112:33|Initial value is not supported on state machine cpu_est
 @END
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sat May 24 19:56:13 2014
+# Sat May 24 21:59:08 2014
 
 ###########################################################]
 Map & Optimize Report
@@ -63,6 +56,7 @@ Synopsys CPLD Technology Mapper, Version maplat, Build 621R, Built Mar 19 2013
 Copyright (C) 1994-2012, Synopsys Inc. This software the associated documentation are confidential and proprietary to Synopsys, Inc. Your use or disclosure of this software subject to the terms and conditions of a written license agreement between you, or your company, and Synopsys, Inc.
 Product Version G-2012.09LC-SP1 
 @N: MF248 |Running in 64-bit mode.
+@W: MO111 :|Tristate driver DSACK_tri on net DSACK[0] has its enable tied to GND (module BUS68030) 
 Encoding state machine SM_AMIGA[0:7] (view:work.BUS68030(behavioral))
 original code -> new code
    000 -> 00000001
@@ -91,16 +85,15 @@ Resource Usage Report
 
 Simple gate primitives:
 DFFRH           17 uses
-DFFSH           25 uses
-DFF             1 use
-IBUF            35 uses
-BUFTH           7 uses
+DFFSH           30 uses
+BI_DIR          10 uses
+IBUF            30 uses
+BUFTH           4 uses
 OBUF            15 uses
-BI_DIR          2 uses
-AND2            148 uses
-INV             131 uses
-OR2             19 uses
-XOR2            2 uses
+AND2            170 uses
+INV             145 uses
+OR2             25 uses
+XOR2            4 uses
 
 
 @N: FC100 |Timing Report not generated for this device, please use place and route tools for timing analysis.
@@ -110,6 +103,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 95MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sat May 24 19:56:15 2014
+# Sat May 24 21:59:09 2014
 
 ###########################################################]

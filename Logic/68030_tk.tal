@@ -32,38 +32,48 @@ TCR, Clocked Output-to-Register Time,
                     TSU       TCO       TPD       TCR
                   #passes   #passes   #passes   #passes
 SIGNAL NAME       min  max  min  max  min  max  min  max
+ inst_DTACK_SYNC   1    2   ..   ..   ..   ..    1    1   
+           DTACK  ..   ..   ..   ..    1    1   ..   ..   
 AMIGA_BUS_DATA_DIR  ..   ..   ..   ..    1    1   ..   ..   
             CIIN  ..   ..   ..   ..    1    1   ..   ..   
-      IPL_030_2_   1    1    0    0   ..   ..    1    1   
-   RN_IPL_030_2_   1    1    0    0   ..   ..    1    1   
-        DSACK_1_   1    1    0    0   ..   ..    1    1   
-     RN_DSACK_1_   1    1    0    0   ..   ..    1    1   
-          AS_000   1    1    0    0   ..   ..    1    1   
-       RN_AS_000   1    1    0    0   ..   ..    1    1   
-         UDS_000   1    1    0    0   ..   ..    1    1   
-      RN_UDS_000   1    1    0    0   ..   ..    1    1   
-         LDS_000   1    1    0    0   ..   ..    1    1   
-      RN_LDS_000   1    1    0    0   ..   ..    1    1   
-          BG_000   1    1    0    0   ..   ..    1    1   
-       RN_BG_000   1    1    0    0   ..   ..    1    1   
-       BGACK_030   1    1    0    0   ..   ..    1    1   
-    RN_BGACK_030   1    1    0    0   ..   ..    1    1   
-          FPU_CS   1    1    0    0   ..   ..    1    1   
-       RN_FPU_CS   1    1    0    0   ..   ..    1    1   
-           DTACK   1    1    0    0   ..   ..   ..   ..   
-               E  ..   ..    0    0   ..   ..    1    1   
-            RN_E  ..   ..    0    0   ..   ..    1    1   
-             VMA  ..   ..    0    0   ..   ..    1    1   
-          RN_VMA  ..   ..    0    0   ..   ..    1    1   
-AMIGA_BUS_ENABLE   1    1    0    0   ..   ..    1    1   
-RN_AMIGA_BUS_ENABLE   1    1    0    0   ..   ..    1    1   
       IPL_030_1_   1    1    0    0   ..   ..    1    1   
    RN_IPL_030_1_   1    1    0    0   ..   ..    1    1   
       IPL_030_0_   1    1    0    0   ..   ..    1    1   
    RN_IPL_030_0_   1    1    0    0   ..   ..    1    1   
+         SIZE_1_   1    1    0    0   ..   ..    1    1   
+      RN_SIZE_1_   1    1    0    0   ..   ..    1    1   
+      IPL_030_2_   1    1    0    0   ..   ..    1    1   
+   RN_IPL_030_2_   1    1    0    0   ..   ..    1    1   
+        DSACK_1_   1    1    0    0   ..   ..    1    1   
+     RN_DSACK_1_   1    1    0    0   ..   ..    1    1   
+          AS_030   1    1    0    0   ..   ..    1    1   
+       RN_AS_030   1    1    0    0   ..   ..    1    1   
+          AS_000   1    1    0    0   ..   ..    1    1   
+       RN_AS_000   1    1    0    0   ..   ..    1    1   
+          DS_030   1    1    0    0   ..   ..    1    1   
+       RN_DS_030   1    1    0    0   ..   ..    1    1   
+         UDS_000   1    1    0    0   ..   ..    1    1   
+      RN_UDS_000   1    1    0    0   ..   ..    1    1   
+         LDS_000   1    1    0    0   ..   ..    1    1   
+      RN_LDS_000   1    1    0    0   ..   ..    1    1   
+              A0   1    1    0    0   ..   ..    1    1   
+           RN_A0   1    1    0    0   ..   ..    1    1   
+          BG_000   1    1    0    0   ..   ..    1    1   
+       RN_BG_000   1    1    0    0   ..   ..    1    1   
+       BGACK_030   1    1    0    1   ..   ..    1    1   
+    RN_BGACK_030   1    1    0    1   ..   ..    1    1   
+          FPU_CS   1    1    0    0   ..   ..    1    1   
+       RN_FPU_CS   1    1    0    0   ..   ..    1    1   
+               E  ..   ..    0    0   ..   ..    1    1   
+            RN_E  ..   ..    0    0   ..   ..    1    1   
+             VMA   1    1    0    0   ..   ..    1    1   
+          RN_VMA   1    1    0    0   ..   ..    1    1   
+AMIGA_BUS_ENABLE   1    1    0    0   ..   ..    1    1   
+RN_AMIGA_BUS_ENABLE   1    1    0    0   ..   ..    1    1   
+         SIZE_0_   1    1    0    0   ..   ..    1    1   
+      RN_SIZE_0_   1    1    0    0   ..   ..    1    1   
 inst_AS_030_000_SYNC   1    1   ..   ..   ..   ..    1    1   
- inst_DTACK_SYNC   1    1   ..   ..   ..   ..    1    1   
-      inst_VPA_D   1    1   ..   ..   ..   ..    1    1   
+inst_BGACK_030_INT_D  ..   ..   ..   ..   ..   ..    1    1   
    inst_VPA_SYNC   1    1   ..   ..   ..   ..    1    1   
  inst_CLK_000_D0   1    1   ..   ..   ..   ..    1    1   
  inst_CLK_000_D1  ..   ..   ..   ..   ..   ..    1    1   
@@ -72,19 +82,19 @@ inst_AS_030_000_SYNC   1    1   ..   ..   ..   ..    1    1
      SM_AMIGA_5_  ..   ..   ..   ..   ..   ..    1    1   
      SM_AMIGA_6_   1    1   ..   ..   ..   ..    1    1   
  inst_CLK_000_D3  ..   ..   ..   ..   ..   ..    1    1   
-     SM_AMIGA_4_  ..   ..   ..   ..   ..   ..    1    1   
  inst_CLK_000_D5  ..   ..   ..   ..   ..   ..    1    1   
-     SM_AMIGA_7_   1    1   ..   ..   ..   ..    1    1   
      SM_AMIGA_3_  ..   ..   ..   ..   ..   ..    1    1   
+     SM_AMIGA_0_  ..   ..   ..   ..   ..   ..    1    1   
      SM_AMIGA_1_  ..   ..   ..   ..   ..   ..    1    1   
     CLK_CNT_N_0_  ..   ..   ..   ..   ..   ..    1    1   
     CLK_CNT_N_1_  ..   ..   ..   ..   ..   ..    1    1   
     CLK_CNT_P_0_  ..   ..   ..   ..   ..   ..    1    1   
     CLK_CNT_P_1_  ..   ..   ..   ..   ..   ..    1    1   
-     SM_AMIGA_2_  ..   ..   ..   ..   ..   ..    1    1   
-     SM_AMIGA_0_  ..   ..   ..   ..   ..   ..    1    1   
  inst_CLK_000_D4  ..   ..   ..   ..   ..   ..    1    1   
+     SM_AMIGA_7_   1    1   ..   ..   ..   ..    1    1   
+     SM_AMIGA_4_  ..   ..   ..   ..   ..   ..    1    1   
 inst_CLK_OUT_PRE  ..   ..   ..   ..   ..   ..    1    1   
+     SM_AMIGA_2_  ..   ..   ..   ..   ..   ..    1    1   
       cpu_est_0_  ..   ..   ..   ..   ..   ..    1    1   
       cpu_est_1_  ..   ..   ..   ..   ..   ..    1    1   
       cpu_est_2_  ..   ..   ..   ..   ..   ..    1    1   

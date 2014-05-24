@@ -1,12 +1,7 @@
 @N: CD630 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Synthesizing work.bus68030.behavioral 
-@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":113:7:113:15|Signal clk_030_d is undriven 
 Post processing for work.bus68030.behavioral
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":221:2:221:3|Pruning register CLK_REF(1 downto 0)  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":112:31:112:33|Pruning register cpu_est_d(3 downto 0)  
-@A: CL282 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":110:52:110:55|Feedback mux created for signal AMIGA_BUS_ENABLE -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
-@W: CL190 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":110:52:110:55|Optimizing register bit DSACK_INT(0) to a constant 1
-@W: CL260 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":110:52:110:55|Pruning register bit 0 of DSACK_INT(1 downto 0)  
-@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":221:2:221:3|Trying to extract state machine for register SM_AMIGA
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":219:2:219:3|Pruning register CLK_REF(1 downto 0)  
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":219:2:219:3|Trying to extract state machine for register SM_AMIGA
 Extracted state machine for register SM_AMIGA
 State machine has 8 reachable states with original encodings of:
    000
@@ -17,8 +12,7 @@ State machine has 8 reachable states with original encodings of:
    101
    110
    111
-@W: CL249 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":221:2:221:3|Initial value is not supported on state machine SM_AMIGA
-@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":112:31:112:33|Trying to extract state machine for register cpu_est
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":115:34:115:36|Trying to extract state machine for register cpu_est
 Extracted state machine for register cpu_est
 State machine has 11 reachable states with original encodings of:
    0000
@@ -32,4 +26,3 @@ State machine has 11 reachable states with original encodings of:
    1011
    1100
    1111
-@W: CL249 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":112:31:112:33|Initial value is not supported on state machine cpu_est

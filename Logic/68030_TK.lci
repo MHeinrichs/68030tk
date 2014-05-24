@@ -12,8 +12,8 @@ EN_PinMacrocell = Yes;
 
 [Revision]
 Parent = m4a5.lci;
-DATE = 05/15/2014;
-TIME = 12:30:11;
+DATE = 05/24/2014;
+TIME = 21:28:20;
 Source_Format = Pure_VHDL;
 Synthesis = Synplify;
 
@@ -25,7 +25,7 @@ Synthesis = Synplify;
 
 [Global Constraints]
 Spread_placement = Yes;
-Zero_hold_time = Yes;
+Zero_hold_time = No;
 
 [Location Assignments]
 layer = OFF;
@@ -88,6 +88,8 @@ A_31_ = Pin, 4, -, B, -;
 DS_030 = Pin, 98, -, A, -;
 AVEC_EXP = Pin, 22, -, C, -;
 BERR = Pin, 41, -, E, -;
+nEXP_SPACE = Pin, 14, -, -, -;
+A0 = Pin, 69, -, G, -;
 
 [Group Assignments]
 layer = OFF;
