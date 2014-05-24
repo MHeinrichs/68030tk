@@ -6,7 +6,7 @@
 #Implementation: logic
 
 $ Start of Compile
-#Sat May 24 16:11:44 2014
+#Sat May 24 19:56:13 2014
 
 Synopsys VHDL Compiler, version comp201209rcp1, Build 283R, built Mar 19 2013
 @N|Running in 64-bit mode
@@ -21,7 +21,6 @@ File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed -
 @W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":113:7:113:15|Signal clk_030_d is undriven 
 Post processing for work.bus68030.behavioral
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":221:2:221:3|Pruning register CLK_REF(1 downto 0)  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":119:32:119:34|Pruning register CLK_000_D6  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":112:31:112:33|Pruning register cpu_est_d(3 downto 0)  
 @A: CL282 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":110:52:110:55|Feedback mux created for signal AMIGA_BUS_ENABLE -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
 @W: CL190 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":110:52:110:55|Optimizing register bit DSACK_INT(0) to a constant 1
@@ -55,7 +54,7 @@ State machine has 11 reachable states with original encodings of:
 @W: CL249 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":112:31:112:33|Initial value is not supported on state machine cpu_est
 @END
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sat May 24 16:11:44 2014
+# Sat May 24 19:56:13 2014
 
 ###########################################################]
 Map & Optimize Report
@@ -91,16 +90,16 @@ original code -> new code
 Resource Usage Report
 
 Simple gate primitives:
-DFFRH           18 uses
-DFFSH           23 uses
+DFFRH           17 uses
+DFFSH           25 uses
 DFF             1 use
 IBUF            35 uses
 BUFTH           7 uses
 OBUF            15 uses
 BI_DIR          2 uses
-AND2            146 uses
-INV             129 uses
-OR2             18 uses
+AND2            148 uses
+INV             131 uses
+OR2             19 uses
 XOR2            2 uses
 
 
@@ -111,6 +110,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 95MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sat May 24 16:11:46 2014
+# Sat May 24 19:56:15 2014
 
 ###########################################################]

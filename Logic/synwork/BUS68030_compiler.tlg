@@ -2,7 +2,6 @@
 @W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":113:7:113:15|Signal clk_030_d is undriven 
 Post processing for work.bus68030.behavioral
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":221:2:221:3|Pruning register CLK_REF(1 downto 0)  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":119:32:119:34|Pruning register CLK_000_D6  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":112:31:112:33|Pruning register cpu_est_d(3 downto 0)  
 @A: CL282 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":110:52:110:55|Feedback mux created for signal AMIGA_BUS_ENABLE -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
 @W: CL190 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":110:52:110:55|Optimizing register bit DSACK_INT(0) to a constant 1

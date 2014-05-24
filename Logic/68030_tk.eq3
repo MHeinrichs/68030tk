@@ -2,7 +2,7 @@
 Copyright(C), 1992-2013, Lattice Semiconductor Corp.
 All Rights Reserved.
 
-Design bus68030 created  Sat May 24 16:11:50 2014
+Design bus68030 created  Sat May 24 19:56:20 2014
 
 
  P-Terms   Fan-in  Fan-out  Type  Name (attributes)
@@ -12,9 +12,6 @@ Design bus68030 created  Sat May 24 16:11:50 2014
    1          1        1    Pin   CLK_DIV_OUT.AR 
    1          1        1    Pin   CLK_DIV_OUT.D 
    1          1        1    Pin   CLK_DIV_OUT.C 
-   1          1        1    Pin   CLK_EXP.AR 
-   1          1        1    Pin   CLK_EXP.D 
-   1          1        1    Pin   CLK_EXP.C 
    1          0        1    Pin   AVEC 
    0          0        1    Pin   AVEC_EXP 
    1          1        1    Pin   AVEC_EXP.OE 
@@ -43,16 +40,19 @@ Design bus68030 created  Sat May 24 16:11:50 2014
    8          9        1    Pin   LDS_000.D 
    1          1        1    Pin   LDS_000.AP 
    1          1        1    Pin   LDS_000.C 
-   1          7        1    Pin   BG_000.D- 
+   2          6        1    Pin   BG_000.D- 
    1          1        1    Pin   BG_000.AP 
    1          1        1    Pin   BG_000.C 
    2          4        1    Pin   BGACK_030.D 
    1          1        1    Pin   BGACK_030.AP 
    1          1        1    Pin   BGACK_030.C 
+   1          1        1    Pin   CLK_EXP.AR 
+   1          1        1    Pin   CLK_EXP.D 
+   1          1        1    Pin   CLK_EXP.C 
    2         10        1    Pin   FPU_CS.D- 
    1          1        1    Pin   FPU_CS.AP 
    1          1        1    Pin   FPU_CS.C 
-   1          1        1    Pin   DTACK.OE 
+   1          2        1    Pin   DTACK.OE 
    1          2        1    Pin   DTACK.D- 
    1          1        1    Pin   DTACK.AP 
    1          1        1    Pin   DTACK.C 
@@ -75,9 +75,6 @@ Design bus68030 created  Sat May 24 16:11:50 2014
    3          4        1    Pin   IPL_030_0_.D 
    1          1        1    Pin   IPL_030_0_.AP 
    1          1        1    Pin   IPL_030_0_.C 
-   1          1        1    Node  CLK_OUT_INTreg.AR 
-   1          1        1    Node  CLK_OUT_INTreg.D 
-   1          1        1    Node  CLK_OUT_INTreg.C 
    7         16        1    Node  inst_AS_030_000_SYNC.D 
    1          1        1    Node  inst_AS_030_000_SYNC.AP 
    1          1        1    Node  inst_AS_030_000_SYNC.C 
@@ -99,9 +96,9 @@ Design bus68030 created  Sat May 24 16:11:50 2014
    1          1        1    Node  inst_CLK_000_D2.D 
    1          1        1    Node  inst_CLK_000_D2.AP 
    1          1        1    Node  inst_CLK_000_D2.C 
-   1          1        1    Node  inst_CLK_000_D5.D 
-   1          1        1    Node  inst_CLK_000_D5.AP 
-   1          1        1    Node  inst_CLK_000_D5.C 
+   1          1        1    Node  inst_CLK_000_D6.D 
+   1          1        1    Node  inst_CLK_000_D6.AP 
+   1          1        1    Node  inst_CLK_000_D6.C 
    1          1        1    Node  SM_AMIGA_5_.AR 
    2          3        1    Node  SM_AMIGA_5_.D 
    1          1        1    Node  SM_AMIGA_5_.C 
@@ -114,9 +111,9 @@ Design bus68030 created  Sat May 24 16:11:50 2014
    1          1        1    Node  SM_AMIGA_4_.AR 
    2          3        1    Node  SM_AMIGA_4_.D 
    1          1        1    Node  SM_AMIGA_4_.C 
-   1          1        1    Node  inst_CLK_000_D4.D 
-   1          1        1    Node  inst_CLK_000_D4.AP 
-   1          1        1    Node  inst_CLK_000_D4.C 
+   1          1        1    Node  inst_CLK_000_D5.D 
+   1          1        1    Node  inst_CLK_000_D5.AP 
+   1          1        1    Node  inst_CLK_000_D5.C 
    5          9        1    Node  SM_AMIGA_7_.D 
    1          1        1    Node  SM_AMIGA_7_.AP 
    1          1        1    Node  SM_AMIGA_7_.C 
@@ -129,8 +126,8 @@ Design bus68030 created  Sat May 24 16:11:50 2014
    1          1        1    Node  CLK_CNT_N_0_.AR 
    2          2        1    Node  CLK_CNT_N_0_.D 
    1          1        1    Node  CLK_CNT_N_0_.C 
-   1          1        1    Node  CLK_CNT_N_1_.AR 
    1          1        1    Node  CLK_CNT_N_1_.D 
+   1          1        1    Node  CLK_CNT_N_1_.AP 
    1          1        1    Node  CLK_CNT_N_1_.C 
    1          1        1    Node  CLK_CNT_P_0_.AR 
    2          2        1    Node  CLK_CNT_P_0_.D 
@@ -144,6 +141,9 @@ Design bus68030 created  Sat May 24 16:11:50 2014
    1          1        1    Node  SM_AMIGA_0_.AR 
    4          6        1    Node  SM_AMIGA_0_.D 
    1          1        1    Node  SM_AMIGA_0_.C 
+   1          1        1    Node  inst_CLK_000_D4.D 
+   1          1        1    Node  inst_CLK_000_D4.AP 
+   1          1        1    Node  inst_CLK_000_D4.C 
    1          1        1    Node  inst_CLK_OUT_PRE.AR 
    4          4        1    Node  inst_CLK_OUT_PRE.D 
    1          1        1    Node  inst_CLK_OUT_PRE.C 
@@ -158,7 +158,7 @@ Design bus68030 created  Sat May 24 16:11:50 2014
    1          1        1    Node  cpu_est_2_.AR 
    1          1        1    Node  cpu_est_2_.C 
 =========
- 210                 P-Term Total: 210
+ 211                 P-Term Total: 211
                        Total Pins: 59
                       Total Nodes: 27
             Average P-Term/Output: 2
@@ -175,12 +175,6 @@ CLK_DIV_OUT.AR = (!RST);
 CLK_DIV_OUT.D = (inst_CLK_OUT_PRE.Q);
 
 CLK_DIV_OUT.C = (CLK_OSZI);
-
-CLK_EXP.AR = (!RST);
-
-CLK_EXP.D = (inst_CLK_OUT_PRE.Q);
-
-CLK_EXP.C = (CLK_OSZI);
 
 AVEC = (1);
 
@@ -211,7 +205,7 @@ IPL_030_2_.C = (CLK_OSZI);
 DSACK_1_.OE = (nEXP_SPACE);
 
 !DSACK_1_.D = (!AS_030 & !DSACK_1_.Q
-     # !inst_CLK_000_D5.Q & inst_CLK_000_D4.Q & SM_AMIGA_1_.Q);
+     # !inst_CLK_000_D6.Q & inst_CLK_000_D5.Q & SM_AMIGA_1_.Q);
 
 DSACK_1_.AP = (!RST);
 
@@ -253,7 +247,8 @@ LDS_000.AP = (!RST);
 
 LDS_000.C = (CLK_OSZI);
 
-!BG_000.D = (AS_030 & nEXP_SPACE & !BG_030 & CLK_OUT_INTreg.Q & inst_CLK_000_D0.Q & !inst_CLK_000_D1.Q & SM_AMIGA_7_.Q);
+!BG_000.D = (!BG_030 & !BG_000.Q
+     # AS_030 & nEXP_SPACE & !BG_030 & CLK_000 & SM_AMIGA_7_.Q);
 
 BG_000.AP = (!RST);
 
@@ -266,6 +261,12 @@ BGACK_030.AP = (!RST);
 
 BGACK_030.C = (CLK_OSZI);
 
+CLK_EXP.AR = (!RST);
+
+CLK_EXP.D = (inst_CLK_OUT_PRE.Q);
+
+CLK_EXP.C = (CLK_OSZI);
+
 !FPU_CS.D = (!AS_030 & !FPU_CS.Q
      # FC_1_ & !AS_030 & BGACK_000 & CLK_030 & !A_19_ & !A_18_ & A_17_ & !A_16_ & FC_0_);
 
@@ -273,7 +274,7 @@ FPU_CS.AP = (!RST);
 
 FPU_CS.C = (CLK_OSZI);
 
-DTACK.OE = (!BGACK_030.Q);
+DTACK.OE = (!nEXP_SPACE & !BGACK_030.Q);
 
 !DTACK.D = (!AS_000.Q & !DSACK_1_.PIN);
 
@@ -328,18 +329,12 @@ IPL_030_0_.AP = (!RST);
 
 IPL_030_0_.C = (CLK_OSZI);
 
-CLK_OUT_INTreg.AR = (!RST);
-
-CLK_OUT_INTreg.D = (inst_CLK_OUT_PRE.Q);
-
-CLK_OUT_INTreg.C = (CLK_OSZI);
-
 inst_AS_030_000_SYNC.D = (AS_030
      # !nEXP_SPACE & inst_AS_030_000_SYNC.Q
      # !CLK_030 & inst_AS_030_000_SYNC.Q
      # !nEXP_SPACE & SM_AMIGA_6_.Q
      # inst_AS_030_000_SYNC.Q & !SM_AMIGA_7_.Q
-     # !inst_CLK_000_D5.Q & inst_CLK_000_D4.Q & SM_AMIGA_1_.Q
+     # !inst_CLK_000_D6.Q & inst_CLK_000_D5.Q & SM_AMIGA_1_.Q
      # FC_1_ & BGACK_000 & !A_19_ & !A_18_ & A_17_ & !A_16_ & FC_0_ & inst_AS_030_000_SYNC.Q);
 
 inst_AS_030_000_SYNC.AP = (!RST);
@@ -384,11 +379,11 @@ inst_CLK_000_D2.AP = (!RST);
 
 inst_CLK_000_D2.C = (CLK_OSZI);
 
-inst_CLK_000_D5.D = (inst_CLK_000_D4.Q);
+inst_CLK_000_D6.D = (inst_CLK_000_D5.Q);
 
-inst_CLK_000_D5.AP = (!RST);
+inst_CLK_000_D6.AP = (!RST);
 
-inst_CLK_000_D5.C = (CLK_OSZI);
+inst_CLK_000_D6.C = (CLK_OSZI);
 
 SM_AMIGA_5_.AR = (!RST);
 
@@ -417,11 +412,11 @@ SM_AMIGA_4_.D = (!inst_CLK_000_D0.Q & SM_AMIGA_5_.Q
 
 SM_AMIGA_4_.C = (CLK_OSZI);
 
-inst_CLK_000_D4.D = (inst_CLK_000_D3.Q);
+inst_CLK_000_D5.D = (inst_CLK_000_D4.Q);
 
-inst_CLK_000_D4.AP = (!RST);
+inst_CLK_000_D5.AP = (!RST);
 
-inst_CLK_000_D4.C = (CLK_OSZI);
+inst_CLK_000_D5.C = (CLK_OSZI);
 
 SM_AMIGA_7_.D = (inst_AS_030_000_SYNC.Q & SM_AMIGA_7_.Q
      # inst_CLK_000_D2.Q & SM_AMIGA_7_.Q
@@ -445,7 +440,7 @@ SM_AMIGA_1_.AR = (!RST);
 
 SM_AMIGA_1_.D = (inst_CLK_000_D0.Q & SM_AMIGA_1_.Q
      # inst_CLK_000_D0.Q & SM_AMIGA_2_.Q
-     # !inst_CLK_000_D5.Q & inst_CLK_000_D4.Q & SM_AMIGA_1_.Q);
+     # !inst_CLK_000_D6.Q & inst_CLK_000_D5.Q & SM_AMIGA_1_.Q);
 
 SM_AMIGA_1_.C = (CLK_OSZI);
 
@@ -456,9 +451,9 @@ CLK_CNT_N_0_.D = (CLK_CNT_N_0_.Q & CLK_CNT_N_1_.Q
 
 CLK_CNT_N_0_.C = (!CLK_OSZI);
 
-CLK_CNT_N_1_.AR = (!RST);
-
 CLK_CNT_N_1_.D = (CLK_CNT_N_0_.Q);
+
+CLK_CNT_N_1_.AP = (!RST);
 
 CLK_CNT_N_1_.C = (!CLK_OSZI);
 
@@ -487,10 +482,16 @@ SM_AMIGA_0_.AR = (!RST);
 
 SM_AMIGA_0_.D = (!AS_000.Q & SM_AMIGA_0_.Q
      # !inst_CLK_000_D0.Q & SM_AMIGA_0_.Q
-     # !inst_CLK_000_D0.Q & inst_CLK_000_D5.Q & SM_AMIGA_1_.Q
-     # !inst_CLK_000_D0.Q & !inst_CLK_000_D4.Q & SM_AMIGA_1_.Q);
+     # !inst_CLK_000_D0.Q & inst_CLK_000_D6.Q & SM_AMIGA_1_.Q
+     # !inst_CLK_000_D0.Q & !inst_CLK_000_D5.Q & SM_AMIGA_1_.Q);
 
 SM_AMIGA_0_.C = (CLK_OSZI);
+
+inst_CLK_000_D4.D = (inst_CLK_000_D3.Q);
+
+inst_CLK_000_D4.AP = (!RST);
+
+inst_CLK_000_D4.C = (CLK_OSZI);
 
 inst_CLK_OUT_PRE.AR = (!RST);
 

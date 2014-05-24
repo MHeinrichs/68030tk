@@ -126,7 +126,7 @@ begin
 	neg_clk: process(RST, CLK_OSZI)
 	begin
 		if(RST = '0' ) then
-			CLK_CNT_N	<= "00";	
+			CLK_CNT_N	<= "10";	
 		elsif(falling_edge(CLK_OSZI)) then
 			--clk generation : up to now just half the clock
 			if(CLK_CNT_N = "10") then
@@ -250,11 +250,8 @@ begin
 				BG_000	<= '1';
 			elsif(	BG_030= '0' AND (SM_AMIGA 	= IDLE_P)
 					and nEXP_SPACE = '1' and AS_030='1'
-					and CLK_OUT_INT ='1'
-					and CLK_000_D0='1' AND CLK_000_D1='0') then --bus granted no local access and no AS_030 running!
+					and CLK_000='1' ) then --bus granted no local access and no AS_030 running!
 					BG_000 	<= '0';
-			else
-					BG_000	<= '1'; 			
 			end if;
 
 		
@@ -365,7 +362,7 @@ begin
 						SM_AMIGA<=DATA_FETCH_P;
 					end if;
 				when DATA_FETCH_P => --68000:S6: READ: here comes the data on the bus!
-					if( CLK_000_D4 ='1' AND CLK_000_D5 = '0' ) then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
+					if( CLK_000_D5 ='1' AND CLK_000_D6 = '0' ) then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
 						DSACK_INT<="01"; 
 						AS_030_000_SYNC 	<= '1'; --cycle end
 					elsif( CLK_000_D0 ='0') then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
@@ -397,7 +394,7 @@ begin
 	AVEC_EXP	<= 'Z' when FPU_CS_INT ='1' else '0';
 	
 	--dtack for dma
-	DTACK    	<= 	'Z' when BGACK_030_INT ='1' else
+	DTACK    	<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE = '1' else
 					DTACK_DMA;
 
 	--fpu
