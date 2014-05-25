@@ -16,7 +16,7 @@ RCS = "$Revision: 1.2 $";
 Parent = m4a5.lci;
 SDS_File = m4a5.sds;
 DATE = 05/25/2014;
-TIME = 14:46:10;
+TIME = 21:04:55;
 Source_Format = Pure_VHDL;
 Type = TT2;
 Pre_Fit_Time = 1;
@@ -53,8 +53,8 @@ Pin_Macrocell_Block = No;
 Routing = No;
 
 [GLOBAL PROJECT OPTIMIZATION]
-Balanced_Partitioning = Yes;
-Spread_Placement = Yes;
+Balanced_Partitioning = No;
+Spread_Placement = No;
 Max_Pin_Percent = 100;
 Max_Macrocell_Percent = 100;
 Max_Blk_In_Percent = 100;
@@ -101,10 +101,10 @@ Routing_Attempts = 2;
 Conf_Unused_IOs = Out_Low;
 
 [HARDWARE DEVICE OPTIONS]
-Zero_Hold_Time = No;
+Zero_Hold_Time = Yes;
 Signature_Word = 0;
 Pull_up = Yes;
-Out_Slew_Rate = FAST,SLOW,0;
+Out_Slew_Rate = SLOW,FAST,0;
 Device_max_fanin = 33;
 Device_max_pterms = 20;
 Usercode_Format = Hex;
@@ -203,7 +203,7 @@ Page_Break = Yes;
 
 [POWER]
 Powerlevel =  Low,High;
-Default = High;
+Default = Low;
 Type = GLB;
 
 [SOURCE CONSTRAINT OPTION]

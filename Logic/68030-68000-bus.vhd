@@ -98,7 +98,6 @@ signal	AS_030_000_SYNC:STD_LOGIC	:= '1';
 signal	BGACK_030_INT:STD_LOGIC		:= '1';
 signal	BGACK_030_INT_D:STD_LOGIC	:= '1';
 signal	DTACK_SYNC:STD_LOGIC		:= '1';
-signal	DTACK_DMA:STD_LOGIC			:= '1';
 signal	AS_000_DMA:STD_LOGIC		:= '1';
 signal	DS_000_DMA:STD_LOGIC		:= '1';
 signal  SIZE_DMA: STD_LOGIC_VECTOR ( 1 downto 0 ) 	:= "11";
@@ -116,7 +115,6 @@ signal	CLK_REF: STD_LOGIC_VECTOR ( 1 downto 0 ) 	:= "10";
 signal	CLK_OUT_PRE: STD_LOGIC		:= '1';
 signal	CLK_OUT_INT: STD_LOGIC		:= '1';
 signal	CLK_000_D0: STD_LOGIC 		:= '1';
-signal	CLK_000_D0a: STD_LOGIC 		:= '1';
 signal	CLK_000_D1: STD_LOGIC 		:= '1';
 signal	CLK_000_D2: STD_LOGIC 		:= '1';
 signal	CLK_000_D3: STD_LOGIC 		:= '1';
@@ -150,7 +148,6 @@ begin
 			CLK_OUT_INT	<= '0';
 			cpu_est		<= E20;
 			CLK_000_D0	<= '1';
-			CLK_000_D0a	<= '1';
 			CLK_000_D1	<= '1';
 			CLK_000_D2	<= '1';
 			CLK_000_D3	<= '1';
@@ -175,11 +172,11 @@ begin
 			--else 
 			--	CLK_OUT_PRE <= '1';
 			--end if;
+			
 			-- the external clock to the processor is generated here
 			CLK_OUT_INT	<= CLK_OUT_PRE; --this way we know the clock of the next state: Its like looking in the future, cool!
 			--delayed Clocks for edge detection
 			CLK_000_D0 <= CLK_000;
-			CLK_000_D0a <= CLK_000; -- too many signals depend on D0!
 			CLK_000_D1 <= CLK_000_D0;
 			CLK_000_D2 <= CLK_000_D1;
 			CLK_000_D3 <= CLK_000_D2;
@@ -238,7 +235,6 @@ begin
 			VPA_SYNC		<= '1';
 			IPL_030			<= "111";
 			AMIGA_BUS_ENABLE <= '1' ;
-			DTACK_DMA 		<= '1';
 			AS_000_DMA		<= '1';
 			DS_000_DMA		<= '1';
 			SIZE_DMA		<= "11";
@@ -304,7 +300,6 @@ begin
 			if(BGACK_030_INT='1') then
 				if(BGACK_030_INT_D='0')then
 					AMIGA_BUS_ENABLE <= '1' ; --end of DMA cycle
-					DTACK_DMA 		<= '1';
 					AS_000_DMA		<= '1';
 					DS_000_DMA		<= '1';
 					SIZE_DMA		<= "11";
@@ -319,7 +314,7 @@ begin
 						end if;
 					when IDLE_N 	 => --68000:S1 place Adress on bus and wait for rising edge, on a rising CLK_000 look for a amiga adressrobe
 						if(nEXP_SPACE ='1')then 
-							AMIGA_BUS_ENABLE <= '0' ;--for now: allways on for amiga
+							AMIGA_BUS_ENABLE <= CLK_000_D4 ;--for now: allways on for amiga
 						else  -- if this a delayed expansion space detection, aboard this cycle!
 							AS_030_000_SYNC	 <= '1';
 							SM_AMIGA		 <= IDLE_P; --aboard
@@ -329,20 +324,21 @@ begin
 							SM_AMIGA <= AS_SET_P; --as for amiga set! 
 						end if;
 					when AS_SET_P	 => --68000:S2 Amiga cycle starts here: since AS is asserted during transition to this state we simply wait here
-						AS_000_INT <= '0';
-						if (RW='1' and DS_030 = '0') then --read: set udl/lds 	
-							if(A0='0') then
-								UDS_000_INT <= '0';
-							else
-								UDS_000_INT <= '1';
-							end if;
-							if((A0='1' OR SIZE(0)='0' OR SIZE(1)='1')) then
-								LDS_000_INT <= '0';
-							else
-								LDS_000_INT <= '1';
+						if(CLK_000_D4='1')then
+							AS_000_INT <= '0';						
+							if (RW='1' and DS_030 = '0') then --read: set udl/lds 	
+								if(A0='0') then
+									UDS_000_INT <= '0';
+								else
+									UDS_000_INT <= '1';
+								end if;
+								if((A0='1' OR SIZE(0)='0' OR SIZE(1)='1')) then
+									LDS_000_INT <= '0';
+								else
+									LDS_000_INT <= '1';
+								end if;
 							end if;
 						end if;
-	
 	
 						if(CLK_000_D0='0')then --go to s3
 							SM_AMIGA<=AS_SET_N; 
@@ -380,7 +376,7 @@ begin
 							SM_AMIGA<=DATA_FETCH_P;
 						end if;
 					when DATA_FETCH_P => --68000:S6: READ: here comes the data on the bus!
-						if( CLK_000_D5 ='1' AND CLK_000_D6 = '0' ) then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
+						if( CLK_000_D4 ='1' AND CLK_000_D5 = '0' ) then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
 							DSACK1_INT <='0'; 
 							AS_030_000_SYNC 	<= '1'; --cycle end						
 						elsif( CLK_000_D0 ='0') then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
@@ -408,10 +404,6 @@ begin
 				if(BGACK_030_INT_D='1' )then
 					AMIGA_BUS_ENABLE <= '0' ;
 				end if;
-				--DTACK for DMA cycles
-				--if(DSACK(1) ='0' or DSACK(0) ='0') then
-				--	DTACK_DMA 	<= 	'0';
-				--end if;			
 				--as can only be done if we know the uds/lds!
 				if(AS_000='0' and CLK_030='0' and (UDS_000='0' or LDS_000='0'))then --sampled on rising edges!
 
@@ -438,7 +430,6 @@ begin
 					
 					--A1 is set by the amiga side													
 				else
-					DTACK_DMA 		<= '1';
 					AS_000_DMA		<= '1';
 					DS_000_DMA		<= '1';
 					SIZE_DMA		<= "11";

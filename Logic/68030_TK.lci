@@ -13,7 +13,7 @@ EN_PinMacrocell = Yes;
 [Revision]
 Parent = m4a5.lci;
 DATE = 05/25/2014;
-TIME = 14:46:10;
+TIME = 21:04:55;
 Source_Format = Pure_VHDL;
 Synthesis = Synplify;
 
@@ -24,13 +24,14 @@ Synthesis = Synplify;
 [Backannotate Assignments]
 
 [Global Constraints]
-Spread_placement = Yes;
-Zero_hold_time = No;
+Spread_placement = No;
+Zero_hold_time = Yes;
 Max_pterm_split = 16;
 Max_pterm_collapse = 16;
 Nodes_collapsing_mode = Speed;
 Max_fanin = 32;
 Set_reset_dont_care = Yes;
+Balanced_partitioning = No;
 
 [Location Assignments]
 layer = OFF;
@@ -105,6 +106,7 @@ layer = OFF;
 [Fitter Report Format]
 
 [Power]
+Default = Low;
 
 [Source Constraint Option]
 
@@ -124,6 +126,7 @@ layer = OFF;
 Default = UP;
 
 [Slewrate]
+Default = SLOW;
 
 [Region]
 

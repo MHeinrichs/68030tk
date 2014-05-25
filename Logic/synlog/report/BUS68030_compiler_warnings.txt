@@ -1,7 +1,6 @@
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":99:36:99:38|Pruning register DTACK_DMA  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":224:2:224:3|Pruning register CLK_REF(1 downto 0)  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":118:34:118:36|Pruning register CLK_000_D0a  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":133:2:133:3|Pruning register CLK_CNT_N(1 downto 0)  
-@W: CL190 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":146:2:146:3|Optimizing register bit CLK_CNT_P(1) to a constant 0
-@W: CL260 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":146:2:146:3|Pruning register bit 1 of CLK_CNT_P(1 downto 0)  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":221:2:221:3|Pruning register CLK_REF(1 downto 0)  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":122:34:122:36|Pruning register CLK_000_D6  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:2:131:3|Pruning register CLK_CNT_N(1 downto 0)  
+@W: CL190 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":144:2:144:3|Optimizing register bit CLK_CNT_P(1) to a constant 0
+@W: CL260 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":144:2:144:3|Pruning register bit 1 of CLK_CNT_P(1 downto 0)  
 
