@@ -15,8 +15,8 @@ Voltage = 5.0;
 RCS = "$Revision: 1.2 $";
 Parent = m4a5.lci;
 SDS_File = m4a5.sds;
-DATE = 05/24/2014;
-TIME = 21:28:20;
+DATE = 05/25/2014;
+TIME = 14:46:10;
 Source_Format = Pure_VHDL;
 Type = TT2;
 Pre_Fit_Time = 1;
@@ -90,7 +90,7 @@ Max_Symbols = 32;
 
 [FITTER GLOBAL OPTIONS]
 Run_Time = 0;
-Set_Reset_Dont_Care = No;
+Set_Reset_Dont_Care = Yes;
 EN_Set_Reset_Dont_Care = Yes;
 In_Reg_Optimize = Yes;
 EN_In_Reg_Optimize = No;
