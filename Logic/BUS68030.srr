@@ -6,7 +6,7 @@
 #Implementation: logic
 
 $ Start of Compile
-#Sun May 25 21:18:44 2014
+#Wed May 28 21:24:48 2014
 
 Synopsys VHDL Compiler, version comp201209rcp1, Build 283R, built Mar 19 2013
 @N|Running in 64-bit mode
@@ -19,12 +19,14 @@ VHDL syntax check successful!
 File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed - recompiling
 @N: CD630 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Synthesizing work.bus68030.behavioral 
 Post processing for work.bus68030.behavioral
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":221:2:221:3|Pruning register CLK_REF(1 downto 0)  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":122:34:122:36|Pruning register CLK_000_D6  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:2:131:3|Pruning register CLK_CNT_N(1 downto 0)  
-@W: CL190 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":144:2:144:3|Optimizing register bit CLK_CNT_P(1) to a constant 0
-@W: CL260 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":144:2:144:3|Pruning register bit 1 of CLK_CNT_P(1 downto 0)  
-@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":221:2:221:3|Trying to extract state machine for register SM_AMIGA
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":233:2:233:3|Pruning register CLK_REF(1 downto 0)  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":124:34:124:36|Pruning register CLK_000_D6  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":123:34:123:36|Pruning register CLK_000_D5  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":114:38:114:40|Pruning register CLK_OUT_PRE_33  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":146:2:146:3|Pruning register CLK_CNT_P(1 downto 0)  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":133:2:133:3|Pruning register CLK_CNT_N(1 downto 0)  
+@A: CL282 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":99:36:99:38|Feedback mux created for signal CLK_030_H -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":233:2:233:3|Trying to extract state machine for register SM_AMIGA
 Extracted state machine for register SM_AMIGA
 State machine has 8 reachable states with original encodings of:
    000
@@ -35,7 +37,7 @@ State machine has 8 reachable states with original encodings of:
    101
    110
    111
-@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":116:34:116:36|Trying to extract state machine for register cpu_est
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":117:34:117:36|Trying to extract state machine for register cpu_est
 Extracted state machine for register cpu_est
 State machine has 11 reachable states with original encodings of:
    0000
@@ -51,7 +53,7 @@ State machine has 11 reachable states with original encodings of:
    1111
 @END
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sun May 25 21:18:44 2014
+# Wed May 28 21:24:49 2014
 
 ###########################################################]
 Map & Optimize Report
@@ -87,16 +89,17 @@ original code -> new code
 Resource Usage Report
 
 Simple gate primitives:
-DFFRH           15 uses
-DFFSH           29 uses
+DFFRH           16 uses
+DFFSH           27 uses
+DFF             1 use
 BI_DIR          10 uses
 IBUF            30 uses
 BUFTH           4 uses
 OBUF            15 uses
-AND2            192 uses
-INV             157 uses
-OR2             25 uses
-XOR2            3 uses
+AND2            181 uses
+INV             151 uses
+OR2             20 uses
+XOR2            1 use
 
 
 @N: FC100 |Timing Report not generated for this device, please use place and route tools for timing analysis.
@@ -106,6 +109,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 95MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sun May 25 21:18:46 2014
+# Wed May 28 21:24:50 2014
 
 ###########################################################]

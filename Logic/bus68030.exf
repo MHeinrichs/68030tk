@@ -39,7 +39,7 @@ Section Member   Rename                   Array-Notation          Array Number  
         Port      FC_0_                       FC[0]                       3            1            
 End
 Section Cross Reference File
-Design 'BUS68030' created Sun May 25 21:18:50 2014
+Design 'BUS68030' created Wed May 28 21:24:55 2014
    Type              New Name                               Original Name
 // ----------------------------------------------------------------------
    Inst                i_z2O2O                                  AS_030
@@ -52,414 +52,449 @@ Design 'BUS68030' created Sun May 25 21:18:50 2014
    Inst                i_z4444                                   DTACK
    Inst                i_z4646                                AVEC_EXP
    Inst                i_z4I4I                                    CIIN
-   Inst         DTACK_SYNC_0_m                            DTACK_SYNC_0.m
-   Inst         DTACK_SYNC_0_n                            DTACK_SYNC_0.n
-   Inst   state_machine_DS_000_DMA_5_iv_0_i         state_machine.DS_000_DMA_5_iv_0_i
-   Inst         DTACK_SYNC_0_p                            DTACK_SYNC_0.p
-   Inst             A0_DMA_0_r                                A0_DMA_0.r
-   Inst             A0_DMA_0_m                                A0_DMA_0.m
-   Inst             A0_DMA_0_n                                A0_DMA_0.n
-   Inst             A0_DMA_0_p                                A0_DMA_0.p
-   Inst             BG_000_0_r                                BG_000_0.r
-   Inst             BG_000_0_m                                BG_000_0.m
-   Inst             BG_000_0_n                                BG_000_0.n
-   Inst    cpu_est_ns_0_0_i_1_                       cpu_est_ns_0_0_i[1]
-   Inst             BG_000_0_p                                BG_000_0.p
+   Inst   SM_AMIGA_ns_i_i_i_6_                      SM_AMIGA_ns_i_i_i[6]
+   Inst     SM_AMIGA_ns_0_i_5_                        SM_AMIGA_ns_0_i[5]
+   Inst   SM_AMIGA_ns_i_o2_i_4_                     SM_AMIGA_ns_i_o2_i[4]
+   Inst     SM_AMIGA_ns_0_i_0_                        SM_AMIGA_ns_0_i[0]
    Inst    cpu_est_ns_0_0_i_2_                       cpu_est_ns_0_0_i[2]
+   Inst   SM_AMIGA_ns_i_i_o2_i_6_                   SM_AMIGA_ns_i_i_o2_i[6]
    Inst   clk_un3_clk_000_d1_0_o2_i                 clk.un3_clk_000_d1_0_o2_i
-   Inst          SM_AMIGA_i_1_                             SM_AMIGA_i[1]
-   Inst   state_machine_LDS_000_INT_7_0_o2_i        state_machine.LDS_000_INT_7_0_o2_i
+   Inst   SM_AMIGA_ns_i_o2_i_1_                     SM_AMIGA_ns_i_o2_i[1]
+   Inst   SM_AMIGA_ns_i_o2_0_i_4_                   SM_AMIGA_ns_i_o2_0_i[4]
+   Inst    cpu_est_ns_0_0_i_1_                       cpu_est_ns_0_0_i[1]
+   Inst   state_machine_CLK_030_H_2_f0_i_o2_i       state_machine.CLK_030_H_2_f0_i_o2_i
    Inst             cpu_est_0_                                cpu_est[0]
+   Inst   SM_AMIGA_ns_i_o2_0_i_1_                   SM_AMIGA_ns_i_o2_0_i[1]
    Inst             cpu_est_1_                                cpu_est[1]
    Inst             cpu_est_2_                                cpu_est[2]
    Inst             cpu_est_3_                                cpu_est[3]
-   Inst            SM_AMIGA_1_                               SM_AMIGA[1]
-   Inst            SM_AMIGA_0_                               SM_AMIGA[0]
-   Inst        IPL_030DFFSH_0_                           IPL_030DFFSH[0]
    Inst   cpu_est_ns_i_0_o2_i_3_                    cpu_est_ns_i_0_o2_i[3]
+   Inst            SM_AMIGA_0_                               SM_AMIGA[0]
+   Inst          SM_AMIGA_i_1_                             SM_AMIGA_i[1]
+   Inst            SIZE_DMA_1_                               SIZE_DMA[1]
+   Inst   SM_AMIGA_ns_i_o2_i_7_                     SM_AMIGA_ns_i_o2_i[7]
+   Inst        IPL_030DFFSH_0_                           IPL_030DFFSH[0]
    Inst        IPL_030DFFSH_1_                           IPL_030DFFSH[1]
    Inst        IPL_030DFFSH_2_                           IPL_030DFFSH[2]
    Inst            SM_AMIGA_7_                               SM_AMIGA[7]
-   Inst           cpu_est_i_0_                              cpu_est_i[0]
    Inst            SM_AMIGA_6_                               SM_AMIGA[6]
-   Inst   cpu_est_ns_0_0_m3_2__r                    cpu_est_ns_0_0_m3_2_.r
+   Inst   state_machine_UDS_000_INT_7_0_m3_r        state_machine.UDS_000_INT_7_0_m3.r
    Inst            SM_AMIGA_5_                               SM_AMIGA[5]
-   Inst   cpu_est_ns_0_0_m3_2__m                    cpu_est_ns_0_0_m3_2_.m
+   Inst   state_machine_UDS_000_INT_7_0_m3_m        state_machine.UDS_000_INT_7_0_m3.m
    Inst            SM_AMIGA_4_                               SM_AMIGA[4]
-   Inst   cpu_est_ns_0_0_m3_2__n                    cpu_est_ns_0_0_m3_2_.n
+   Inst   state_machine_UDS_000_INT_7_0_m3_n        state_machine.UDS_000_INT_7_0_m3.n
    Inst            SM_AMIGA_3_                               SM_AMIGA[3]
-   Inst   cpu_est_ns_0_0_m3_2__p                    cpu_est_ns_0_0_m3_2_.p
+   Inst   state_machine_UDS_000_INT_7_0_m3_p        state_machine.UDS_000_INT_7_0_m3.p
    Inst            SM_AMIGA_2_                               SM_AMIGA[2]
-   Inst   state_machine_un10_bg_030_0_a3_1          state_machine.un10_bg_030_0_a3_1
-   Inst            SIZE_DMA_0_                               SIZE_DMA[0]
+   Inst          SM_AMIGA_i_6_                             SM_AMIGA_i[6]
+   Inst            SM_AMIGA_1_                               SM_AMIGA[1]
    Inst   clk_un3_clk_000_d1_0_o2                   clk.un3_clk_000_d1_0_o2
-   Inst            SIZE_DMA_1_                               SIZE_DMA[1]
-   Inst   state_machine_LDS_000_INT_7_0_o3          state_machine.LDS_000_INT_7_0_o3
+   Inst   SM_AMIGA_ns_i_i_o2_6_                     SM_AMIGA_ns_i_i_o2[6]
+   Inst    SM_AMIGA_ns_i_o2_7_                       SM_AMIGA_ns_i_o2[7]
+   Inst            SIZE_DMA_0_                               SIZE_DMA[0]
    Inst           cpu_est_i_3_                              cpu_est_i[3]
    Inst   cpu_est_ns_i_0_o2_3_                      cpu_est_ns_i_0_o2[3]
-   Inst          SM_AMIGA_i_5_                             SM_AMIGA_i[5]
-   Inst          SM_AMIGA_i_4_                             SM_AMIGA_i[4]
-   Inst   cpu_est_ns_0_0_x2_1_                      cpu_est_ns_0_0_x2[1]
-   Inst           CLK_CNT_P_0_                              CLK_CNT_P[0]
+   Inst   SM_AMIGA_ns_i_o2_0_1_                     SM_AMIGA_ns_i_o2_0[1]
+   Inst   state_machine_CLK_030_H_2_f0_i_o2         state_machine.CLK_030_H_2_f0_i_o2
+   Inst     SM_AMIGA_ns_i_0_2_                        SM_AMIGA_ns_i_0[2]
+   Inst     SM_AMIGA_ns_i_0_3_                        SM_AMIGA_ns_i_0[3]
+   Inst       SM_AMIGA_ns_i_4_                          SM_AMIGA_ns_i[4]
+   Inst       SM_AMIGA_ns_0_5_                          SM_AMIGA_ns_0[5]
+   Inst     SM_AMIGA_ns_i_i_6_                        SM_AMIGA_ns_i_i[6]
    Inst      cpu_est_ns_i_0_3_                         cpu_est_ns_i_0[3]
-   Inst   state_machine_DS_000_DMA_5_iv_0           state_machine.DS_000_DMA_5_iv_0
-   Inst   state_machine_AMIGA_BUS_ENABLE_6_iv_0     state_machine.AMIGA_BUS_ENABLE_6_iv_0
-   Inst      cpu_est_ns_0_0_2_                         cpu_est_ns_0_0[2]
-   Inst   state_machine_LDS_000_INT_7_0_o2          state_machine.LDS_000_INT_7_0_o2
-   Inst   state_machine_LDS_000_INT_7_0_m3_r        state_machine.LDS_000_INT_7_0_m3.r
-   Inst   state_machine_LDS_000_INT_7_0_m3_m        state_machine.LDS_000_INT_7_0_m3.m
+   Inst   state_machine_CLK_030_H_2_f0_i            state_machine.CLK_030_H_2_f0_i
+   Inst   state_machine_AMIGA_BUS_ENABLE_4_iv_0     state_machine.AMIGA_BUS_ENABLE_4_iv_0
+   Inst    SM_AMIGA_ns_i_o2_4_                       SM_AMIGA_ns_i_o2[4]
+   Inst          SM_AMIGA_i_4_                             SM_AMIGA_i[4]
+   Inst   SM_AMIGA_ns_i_o2_0_4_                     SM_AMIGA_ns_i_o2_0[4]
+   Inst          SM_AMIGA_i_5_                             SM_AMIGA_i[5]
+   Inst   state_machine_SIZE_DMA_4_0_a2_1_          state_machine.SIZE_DMA_4_0_a2[1]
+   Inst   state_machine_A0_DMA_2_0_a2               state_machine.A0_DMA_2_0_a2
+   Inst   state_machine_un6_bgack_000_0             state_machine.un6_bgack_000_0
+   Inst   state_machine_un15_clk_000_d0_0           state_machine.un15_clk_000_d0_0
    Inst                SIZE_0_                                   SIZE[0]
-   Inst   state_machine_LDS_000_INT_7_0_m3_n        state_machine.LDS_000_INT_7_0_m3.n
    Inst                SIZE_1_                                   SIZE[1]
-   Inst   state_machine_LDS_000_INT_7_0_m3_p        state_machine.LDS_000_INT_7_0_m3.p
+   Inst   state_machine_un10_bg_030_0               state_machine.un10_bg_030_0
    Inst                  A_16_                                     A[16]
    Inst                  A_17_                                     A[17]
    Inst                  A_18_                                     A[18]
+   Inst   state_machine_DS_000_DMA_3_0              state_machine.DS_000_DMA_3_0
    Inst                  A_19_                                     A[19]
+   Inst   state_machine_SIZE_DMA_4_0_1_             state_machine.SIZE_DMA_4_0[1]
    Inst                  A_20_                                     A[20]
-   Inst   state_machine_un6_bgack_000_0             state_machine.un6_bgack_000_0
+   Inst       SM_AMIGA_ns_i_1_                          SM_AMIGA_ns_i[1]
    Inst                  A_21_                                     A[21]
    Inst                  A_22_                                     A[22]
    Inst                  A_23_                                     A[23]
    Inst                  A_24_                                     A[24]
-   Inst   state_machine_un10_bg_030_0               state_machine.un10_bg_030_0
    Inst                  A_25_                                     A[25]
    Inst                  A_26_                                     A[26]
    Inst                  A_27_                                     A[27]
+   Inst   SM_AMIGA_ns_i_a2_0_4_                     SM_AMIGA_ns_i_a2_0[4]
    Inst                  A_28_                                     A[28]
+   Inst    SM_AMIGA_ns_i_a2_7_                       SM_AMIGA_ns_i_a2[7]
    Inst                  A_29_                                     A[29]
+   Inst           cpu_est_i_0_                              cpu_est_i[0]
    Inst                  A_30_                                     A[30]
-   Inst                  A_31_                                     A[31]
    Inst   cpu_est_ns_0_0_a2_1_                      cpu_est_ns_0_0_a2[1]
-   Inst             IPL_030_0_                                IPL_030[0]
+   Inst                  A_31_                                     A[31]
+   Inst   cpu_est_ns_i_0_a2_3_                      cpu_est_ns_i_0_a2[3]
    Inst           cpu_est_i_1_                              cpu_est_i[1]
-   Inst             IPL_030_1_                                IPL_030[1]
    Inst   cpu_est_ns_0_0_a2_0_1_                    cpu_est_ns_0_0_a2_0[1]
+   Inst    SM_AMIGA_ns_0_a2_0_                       SM_AMIGA_ns_0_a2[0]
+   Inst           cpu_est_i_2_                              cpu_est_i[2]
+   Inst   cpu_est_ns_0_0_a3_0_1_                    cpu_est_ns_0_0_a3_0[1]
+   Inst   cpu_est_ns_i_0_a3_3_                      cpu_est_ns_i_0_a3[3]
+   Inst   state_machine_CLK_030_H_2_f0_i_a3         state_machine.CLK_030_H_2_f0_i_a3
+   Inst             IPL_030_0_                                IPL_030[0]
+   Inst   cpu_est_ns_0_0_a3_2_                      cpu_est_ns_0_0_a3[2]
+   Inst             IPL_030_1_                                IPL_030[1]
+   Inst   cpu_est_ns_0_0_a3_0_2_                    cpu_est_ns_0_0_a3_0[2]
    Inst             IPL_030_2_                                IPL_030[2]
+   Inst   cpu_est_ns_0_0_a3_1_2_                    cpu_est_ns_0_0_a3_1[2]
    Inst                 IPL_0_                                    IPL[0]
+   Inst    SM_AMIGA_ns_0_a3_0_                       SM_AMIGA_ns_0_a3[0]
    Inst                 IPL_1_                                    IPL[1]
+   Inst   SM_AMIGA_ns_0_a3_0_0_                     SM_AMIGA_ns_0_a3_0[0]
    Inst                 IPL_2_                                    IPL[2]
    Inst               DSACK_0_                                  DSACK[0]
-   Inst   cpu_est_ns_i_0_a3_3_                      cpu_est_ns_i_0_a3[3]
    Inst               DSACK_1_                                  DSACK[1]
-   Inst   cpu_est_ns_i_0_a3_0_3_                    cpu_est_ns_i_0_a3_0[3]
-   Inst   state_machine_DS_000_DMA_5_iv_0_a3        state_machine.DS_000_DMA_5_iv_0_a3
-   Inst   state_machine_AMIGA_BUS_ENABLE_6_iv_0_a3  state_machine.AMIGA_BUS_ENABLE_6_iv_0_a3
-   Inst   cpu_est_ns_0_0_a3_2_                      cpu_est_ns_0_0_a3[2]
-   Inst                  FC_0_                                     FC[0]
-   Inst                  FC_1_                                     FC[1]
-   Inst                A_i_31_                                   A_i[31]
-   Inst          SM_AMIGA_i_0_                             SM_AMIGA_i[0]
-   Inst   state_machine_LDS_000_INT_7_0_a3_1        state_machine.LDS_000_INT_7_0_a3_1
+   Inst   state_machine_SIZE_DMA_4_i_a3_0_          state_machine.SIZE_DMA_4_i_a3[0]
+   Inst          SM_AMIGA_i_7_                             SM_AMIGA_i[7]
+   Inst    SM_AMIGA_ns_i_a3_1_                       SM_AMIGA_ns_i_a3[1]
+   Inst   SM_AMIGA_ns_i_a3_0_1_                     SM_AMIGA_ns_i_a3_0[1]
+   Inst   SM_AMIGA_ns_i_0_a3_2_                     SM_AMIGA_ns_i_0_a3[2]
+   Inst   SM_AMIGA_ns_i_0_a3_3_                     SM_AMIGA_ns_i_0_a3[3]
    Inst          SM_AMIGA_i_3_                             SM_AMIGA_i[3]
-   Inst   state_machine_LDS_000_INT_7_0_a3          state_machine.LDS_000_INT_7_0_a3
-   Inst                A_i_16_                                   A_i[16]
-   Inst                A_i_18_                                   A_i[18]
-   Inst                A_i_19_                                   A_i[19]
-   Inst                A_i_24_                                   A_i[24]
+   Inst    SM_AMIGA_ns_i_a3_4_                       SM_AMIGA_ns_i_a3[4]
+   Inst   SM_AMIGA_ns_0_a3_0_5_                     SM_AMIGA_ns_0_a3_0[5]
+   Inst   SM_AMIGA_ns_i_i_a3_6_                     SM_AMIGA_ns_i_i_a3[6]
+   Inst                  FC_0_                                     FC[0]
+   Inst   SM_AMIGA_ns_i_i_a3_0_6_                   SM_AMIGA_ns_i_i_a3_0[6]
+   Inst                  FC_1_                                     FC[1]
+   Inst          SM_AMIGA_i_0_                             SM_AMIGA_i[0]
+   Inst    SM_AMIGA_ns_i_a3_7_                       SM_AMIGA_ns_i_a3[7]
+   Inst   cpu_est_ns_0_0_a3_1_                      cpu_est_ns_0_0_a3[1]
    Inst                A_i_25_                                   A_i[25]
    Inst                A_i_26_                                   A_i[26]
+   Inst   state_machine_A0_DMA_2_0_a3_1             state_machine.A0_DMA_2_0_a3_1
    Inst                A_i_27_                                   A_i[27]
+   Inst   state_machine_A0_DMA_2_0_a3               state_machine.A0_DMA_2_0_a3
    Inst                A_i_28_                                   A_i[28]
    Inst                A_i_29_                                   A_i[29]
    Inst                A_i_30_                                   A_i[30]
-   Inst    cpu_est_ns_0_0_1_1_                       cpu_est_ns_0_0_1[1]
-   Inst         CLK_CNT_P_i_0_                            CLK_CNT_P_i[0]
-   Inst      cpu_est_ns_0_0_1_                         cpu_est_ns_0_0[1]
-   Inst          cpu_estse_0_r                             cpu_estse_0.r
-   Inst          cpu_estse_0_m                             cpu_estse_0.m
-   Inst          cpu_estse_0_n                             cpu_estse_0.n
-   Inst   state_machine_UDS_000_INT_7_0_1           state_machine.UDS_000_INT_7_0_1
-   Inst          cpu_estse_0_p                             cpu_estse_0.p
+   Inst                A_i_31_                                   A_i[31]
+   Inst                A_i_16_                                   A_i[16]
+   Inst   state_machine_un15_clk_000_d0_0_a3_0_1    state_machine.un15_clk_000_d0_0_a3_0_1
+   Inst                A_i_18_                                   A_i[18]
+   Inst   state_machine_un15_clk_000_d0_0_a3_0      state_machine.un15_clk_000_d0_0_a3_0
+   Inst                A_i_19_                                   A_i[19]
+   Inst   state_machine_un15_clk_000_d0_0_a3_1      state_machine.un15_clk_000_d0_0_a3_1
+   Inst   state_machine_un15_clk_000_d0_0_a3        state_machine.un15_clk_000_d0_0_a3
    Inst   state_machine_UDS_000_INT_7_0             state_machine.UDS_000_INT_7_0
-   Inst          cpu_estse_1_r                             cpu_estse_1.r
-   Inst   state_machine_LDS_000_INT_7_0_1           state_machine.LDS_000_INT_7_0_1
-   Inst          cpu_estse_1_m                             cpu_estse_1.m
-   Inst   state_machine_LDS_000_INT_7_0             state_machine.LDS_000_INT_7_0
-   Inst          cpu_estse_1_n                             cpu_estse_1.n
-   Inst          cpu_estse_1_p                             cpu_estse_1.p
-   Inst          cpu_estse_2_r                             cpu_estse_2.r
-   Inst          cpu_estse_2_m                             cpu_estse_2.m
-   Inst          cpu_estse_2_n                             cpu_estse_2.n
-   Inst          cpu_estse_2_p                             cpu_estse_2.p
-   Inst   state_machine_A0_DMA_4_0_a3_2             state_machine.A0_DMA_4_0_a3_2
+   Inst   SM_AMIGA_ns_i_a2_1_4_                     SM_AMIGA_ns_i_a2_1[4]
+   Inst    SM_AMIGA_ns_i_a2_4_                       SM_AMIGA_ns_i_a2[4]
+   Inst                A_i_24_                                   A_i[24]
+   Inst   state_machine_AMIGA_BUS_ENABLE_4_iv_0_a3_1  state_machine.AMIGA_BUS_ENABLE_4_iv_0_a3_1
+   Inst   state_machine_AMIGA_BUS_ENABLE_4_iv_0_a3  state_machine.AMIGA_BUS_ENABLE_4_iv_0_a3
    Inst         DSACK1_INT_0_r                            DSACK1_INT_0.r
-   Inst   state_machine_A0_DMA_4_0_a3               state_machine.A0_DMA_4_0_a3
    Inst         DSACK1_INT_0_m                            DSACK1_INT_0.m
    Inst         DSACK1_INT_0_n                            DSACK1_INT_0.n
+   Inst   SM_AMIGA_ns_i_a3_0_1_4_                   SM_AMIGA_ns_i_a3_0_1[4]
    Inst         DSACK1_INT_0_p                            DSACK1_INT_0.p
-   Inst         AS_000_DMA_0_r                            AS_000_DMA_0.r
-   Inst         AS_000_DMA_0_m                            AS_000_DMA_0.m
-   Inst         AS_000_DMA_0_n                            AS_000_DMA_0.n
-   Inst   state_machine_un10_bg_030_0_a3_1_0        state_machine.un10_bg_030_0_a3_1_0
-   Inst         AS_000_DMA_0_p                            AS_000_DMA_0.p
-   Inst   state_machine_un10_bg_030_0_a3            state_machine.un10_bg_030_0_a3
-   Inst         AS_000_INT_0_r                            AS_000_INT_0.r
-   Inst         AS_000_INT_0_m                            AS_000_INT_0.m
-   Inst         AS_000_INT_0_n                            AS_000_INT_0.n
-   Inst         AS_000_INT_0_p                            AS_000_INT_0.p
-   Inst           VPA_SYNC_0_r                              VPA_SYNC_0.r
-   Inst           VPA_SYNC_0_m                              VPA_SYNC_0.m
-   Inst           VPA_SYNC_0_n                              VPA_SYNC_0.n
-   Inst           VPA_SYNC_0_p                              VPA_SYNC_0.p
+   Inst   SM_AMIGA_ns_i_a3_0_4_                     SM_AMIGA_ns_i_a3_0[4]
    Inst            VMA_INT_0_r                               VMA_INT_0.r
+   Inst   state_machine_LDS_000_INT_7_0_a3_1        state_machine.LDS_000_INT_7_0_a3_1
    Inst            VMA_INT_0_m                               VMA_INT_0.m
+   Inst   state_machine_LDS_000_INT_7_0_a3          state_machine.LDS_000_INT_7_0_a3
    Inst            VMA_INT_0_n                               VMA_INT_0.n
    Inst            VMA_INT_0_p                               VMA_INT_0.p
+   Inst   state_machine_un10_bg_030_0_a3_1          state_machine.un10_bg_030_0_a3_1
    Inst      BGACK_030_INT_0_r                         BGACK_030_INT_0.r
+   Inst   state_machine_un10_bg_030_0_a3_2          state_machine.un10_bg_030_0_a3_2
    Inst      BGACK_030_INT_0_m                         BGACK_030_INT_0.m
+   Inst   state_machine_un10_bg_030_0_a3            state_machine.un10_bg_030_0_a3
    Inst      BGACK_030_INT_0_n                         BGACK_030_INT_0.n
+   Inst     SM_AMIGA_ns_0_1_0_                        SM_AMIGA_ns_0_1[0]
    Inst      BGACK_030_INT_0_p                         BGACK_030_INT_0.p
-   Inst        SIZE_DMA_0_0__r                           SIZE_DMA_0_0_.r
-   Inst        SIZE_DMA_0_0__m                           SIZE_DMA_0_0_.m
-   Inst   state_machine_A0_DMA_4_0_a3_1             state_machine.A0_DMA_4_0_a3_1
-   Inst        SIZE_DMA_0_0__n                           SIZE_DMA_0_0_.n
-   Inst        SIZE_DMA_0_0__p                           SIZE_DMA_0_0_.p
-   Inst        SIZE_DMA_0_1__r                           SIZE_DMA_0_1_.r
-   Inst        SIZE_DMA_0_1__m                           SIZE_DMA_0_1_.m
-   Inst        SIZE_DMA_0_1__n                           SIZE_DMA_0_1_.n
-   Inst   state_machine_un6_bgack_000_0_i           state_machine.un6_bgack_000_0_i
-   Inst        SIZE_DMA_0_1__p                           SIZE_DMA_0_1_.p
+   Inst       SM_AMIGA_ns_0_0_                          SM_AMIGA_ns_0[0]
    Inst         IPL_030_0_0__r                            IPL_030_0_0_.r
+   Inst    cpu_est_ns_0_0_1_2_                       cpu_est_ns_0_0_1[2]
    Inst         IPL_030_0_0__m                            IPL_030_0_0_.m
-   Inst   state_machine_un59_bgack_030_int_i        state_machine.un59_bgack_030_int_i
+   Inst      cpu_est_ns_0_0_2_                         cpu_est_ns_0_0[2]
    Inst         IPL_030_0_0__n                            IPL_030_0_0_.n
    Inst         IPL_030_0_0__p                            IPL_030_0_0_.p
    Inst         IPL_030_0_1__r                            IPL_030_0_1_.r
+   Inst     SM_AMIGA_ns_i_1_7_                        SM_AMIGA_ns_i_1[7]
    Inst         IPL_030_0_1__m                            IPL_030_0_1_.m
+   Inst       SM_AMIGA_ns_i_7_                          SM_AMIGA_ns_i[7]
    Inst         IPL_030_0_1__n                            IPL_030_0_1_.n
+   Inst   state_machine_LDS_000_INT_7_0_1           state_machine.LDS_000_INT_7_0_1
    Inst         IPL_030_0_1__p                            IPL_030_0_1_.p
+   Inst   state_machine_LDS_000_INT_7_0             state_machine.LDS_000_INT_7_0
    Inst         IPL_030_0_2__r                            IPL_030_0_2_.r
+   Inst   state_machine_UDS_000_INT_7_0_1           state_machine.UDS_000_INT_7_0_1
    Inst         IPL_030_0_2__m                            IPL_030_0_2_.m
    Inst         IPL_030_0_2__n                            IPL_030_0_2_.n
+   Inst   SM_AMIGA_ns_i_o2_1_1_                     SM_AMIGA_ns_i_o2_1[1]
    Inst         IPL_030_0_2__p                            IPL_030_0_2_.p
-   Inst   state_machine_un59_bgack_030_int          state_machine.un59_bgack_030_int
+   Inst    SM_AMIGA_ns_i_o2_1_                       SM_AMIGA_ns_i_o2[1]
+   Inst          cpu_estse_0_r                             cpu_estse_0.r
+   Inst          cpu_estse_0_m                             cpu_estse_0.m
+   Inst          cpu_estse_0_n                             cpu_estse_0.n
+   Inst          cpu_estse_0_p                             cpu_estse_0.p
+   Inst    cpu_est_ns_0_0_1_1_                       cpu_est_ns_0_0_1[1]
+   Inst          cpu_estse_1_r                             cpu_estse_1.r
+   Inst    cpu_est_ns_0_0_2_1_                       cpu_est_ns_0_0_2[1]
+   Inst          cpu_estse_1_m                             cpu_estse_1.m
+   Inst      cpu_est_ns_0_0_1_                         cpu_est_ns_0_0[1]
+   Inst          cpu_estse_1_n                             cpu_estse_1.n
+   Inst   SM_AMIGA_ns_0_a3_1_5_                     SM_AMIGA_ns_0_a3_1[5]
+   Inst          cpu_estse_1_p                             cpu_estse_1.p
+   Inst   SM_AMIGA_ns_0_a3_2_5_                     SM_AMIGA_ns_0_a3_2[5]
+   Inst          cpu_estse_2_r                             cpu_estse_2.r
+   Inst    SM_AMIGA_ns_0_a3_5_                       SM_AMIGA_ns_0_a3[5]
+   Inst          cpu_estse_2_m                             cpu_estse_2.m
+   Inst          cpu_estse_2_n                             cpu_estse_2.n
+   Inst          cpu_estse_2_p                             cpu_estse_2.p
+   Inst   clk_un3_clk_out_pre_50                    clk.un3_clk_out_pre_50
    Inst   AMIGA_BUS_ENABLE_0_r                      AMIGA_BUS_ENABLE_0.r
    Inst   AMIGA_BUS_ENABLE_0_m                      AMIGA_BUS_ENABLE_0.m
    Inst   AMIGA_BUS_ENABLE_0_n                      AMIGA_BUS_ENABLE_0.n
    Inst   AMIGA_BUS_ENABLE_0_p                      AMIGA_BUS_ENABLE_0.p
+   Inst    AS_030_000_SYNC_0_r                       AS_030_000_SYNC_0.r
+   Inst    AS_030_000_SYNC_0_m                       AS_030_000_SYNC_0.m
+   Inst    AS_030_000_SYNC_0_n                       AS_030_000_SYNC_0.n
+   Inst    AS_030_000_SYNC_0_p                       AS_030_000_SYNC_0.p
+   Inst          CLK_030_H_0_r                             CLK_030_H_0.r
+   Inst          CLK_030_H_0_m                             CLK_030_H_0.m
+   Inst          CLK_030_H_0_n                             CLK_030_H_0.n
+   Inst          CLK_030_H_0_p                             CLK_030_H_0.p
    Inst        UDS_000_INT_0_r                           UDS_000_INT_0.r
    Inst        UDS_000_INT_0_m                           UDS_000_INT_0.m
    Inst        UDS_000_INT_0_n                           UDS_000_INT_0.n
    Inst        UDS_000_INT_0_p                           UDS_000_INT_0.p
    Inst        LDS_000_INT_0_r                           LDS_000_INT_0.r
-   Inst   state_machine_un10_bg_030_0_i             state_machine.un10_bg_030_0_i
    Inst        LDS_000_INT_0_m                           LDS_000_INT_0.m
    Inst        LDS_000_INT_0_n                           LDS_000_INT_0.n
+   Inst   state_machine_un10_bg_030_0_i             state_machine.un10_bg_030_0_i
    Inst        LDS_000_INT_0_p                           LDS_000_INT_0.p
-   Inst    AS_030_000_SYNC_0_r                       AS_030_000_SYNC_0.r
-   Inst    AS_030_000_SYNC_0_m                       AS_030_000_SYNC_0.m
-   Inst    AS_030_000_SYNC_0_n                       AS_030_000_SYNC_0.n
-   Inst    AS_030_000_SYNC_0_p                       AS_030_000_SYNC_0.p
+   Inst         FPU_CS_INT_0_r                            FPU_CS_INT_0.r
+   Inst         FPU_CS_INT_0_m                            FPU_CS_INT_0.m
+   Inst         FPU_CS_INT_0_n                            FPU_CS_INT_0.n
+   Inst   state_machine_un13_clk_000_d0_i           state_machine.un13_clk_000_d0_i
+   Inst         FPU_CS_INT_0_p                            FPU_CS_INT_0.p
+   Inst   state_machine_un15_clk_000_d0_0_i         state_machine.un15_clk_000_d0_0_i
+   Inst             BG_000_0_r                                BG_000_0.r
+   Inst   state_machine_un6_bgack_000_0_i           state_machine.un6_bgack_000_0_i
+   Inst             BG_000_0_m                                BG_000_0.m
+   Inst             BG_000_0_n                                BG_000_0.n
+   Inst             BG_000_0_p                                BG_000_0.p
    Inst         DS_000_DMA_0_r                            DS_000_DMA_0.r
    Inst         DS_000_DMA_0_m                            DS_000_DMA_0.m
    Inst         DS_000_DMA_0_n                            DS_000_DMA_0.n
    Inst         DS_000_DMA_0_p                            DS_000_DMA_0.p
-   Inst   state_machine_UDS_000_INT_7_0_i           state_machine.UDS_000_INT_7_0_i
-   Inst         FPU_CS_INT_0_r                            FPU_CS_INT_0.r
-   Inst         FPU_CS_INT_0_m                            FPU_CS_INT_0.m
+   Inst         AS_000_DMA_0_r                            AS_000_DMA_0.r
+   Inst         AS_000_DMA_0_m                            AS_000_DMA_0.m
+   Inst   state_machine_SIZE_DMA_4_0_i_1_           state_machine.SIZE_DMA_4_0_i[1]
+   Inst         AS_000_DMA_0_n                            AS_000_DMA_0.n
+   Inst   state_machine_DS_000_DMA_3_0_i            state_machine.DS_000_DMA_3_0_i
+   Inst         AS_000_DMA_0_p                            AS_000_DMA_0.p
+   Inst         AS_000_INT_0_r                            AS_000_INT_0.r
+   Inst         AS_000_INT_0_m                            AS_000_INT_0.m
    Inst   state_machine_LDS_000_INT_7_0_i           state_machine.LDS_000_INT_7_0_i
-   Inst         FPU_CS_INT_0_n                            FPU_CS_INT_0.n
-   Inst         FPU_CS_INT_0_p                            FPU_CS_INT_0.p
-   Inst         DTACK_SYNC_0_r                            DTACK_SYNC_0.r
-   Net    as_030_000_sync_0_un1_n                     AS_030_000_SYNC_0.un1
-   Net    as_030_000_sync_0_un0_n                     AS_030_000_SYNC_0.un0
-   Net      ds_000_dma_0_un3_n                          DS_000_DMA_0.un3
-   Net      ds_000_dma_0_un1_n                          DS_000_DMA_0.un1
-   Net      ds_000_dma_0_un0_n                          DS_000_DMA_0.un0
-   Net      fpu_cs_int_0_un3_n                          FPU_CS_INT_0.un3
-   Net      fpu_cs_int_0_un1_n                          FPU_CS_INT_0.un1
-   Net      fpu_cs_int_0_un0_n                          FPU_CS_INT_0.un0
-   Net      dtack_sync_0_un3_n                          DTACK_SYNC_0.un3
-   Net      dtack_sync_0_un1_n                          DTACK_SYNC_0.un1
-   Net      dtack_sync_0_un0_n                          DTACK_SYNC_0.un0
-   Net          a0_dma_0_un3_n                              A0_DMA_0.un3
-   Net          a0_dma_0_un1_n                              A0_DMA_0.un1
-   Net          a0_dma_0_un0_n                              A0_DMA_0.un0
-   Net          bg_000_0_un3_n                              BG_000_0.un3
-   Net          bg_000_0_un1_n                              BG_000_0.un1
-   Net          bg_000_0_un0_n                              BG_000_0.un0
+   Inst         AS_000_INT_0_n                            AS_000_INT_0.n
+   Inst   state_machine_UDS_000_INT_7_0_i           state_machine.UDS_000_INT_7_0_i
+   Inst         AS_000_INT_0_p                            AS_000_INT_0.p
    Net          ipl_030_c_0__n                              IPL_030_c[0]
    Net            ipl_030_0__n                                IPL_030[0]
    Net          ipl_030_c_1__n                              IPL_030_c[1]
-   Net                 vcc_n_n                                       VCC
    Net            ipl_030_1__n                                IPL_030[1]
-   Net                 gnd_n_n                                       GND
    Net          ipl_030_c_2__n                              IPL_030_c[2]
-   Net          clk_cnt_p_0__n                              CLK_CNT_P[0]
-   Net           sm_amiga_5__n                               SM_AMIGA[5]
    Net              ipl_c_0__n                                  IPL_c[0]
    Net                ipl_0__n                                    IPL[0]
-   Net           sm_amiga_7__n                               SM_AMIGA[7]
    Net              ipl_c_1__n                                  IPL_c[1]
-   Net           sm_amiga_1__n                               SM_AMIGA[1]
    Net                ipl_1__n                                    IPL[1]
-   Net           sm_amiga_0__n                               SM_AMIGA[0]
    Net              ipl_c_2__n                                  IPL_c[2]
-   Net           sm_amiga_6__n                               SM_AMIGA[6]
+   Net                 vcc_n_n                                       VCC
    Net              dsack_0__n                                  DSACK[0]
+   Net                 gnd_n_n                                       GND
    Net            dsack_c_1__n                                DSACK_c[1]
-   Net    state_machine_un59_bgack_030_int_n          state_machine.un59_bgack_030_int
-   Net           sm_amiga_3__n                               SM_AMIGA[3]
+   Net    state_machine_un13_clk_000_d0_n             state_machine.un13_clk_000_d0
+   Net           sm_amiga_1__n                               SM_AMIGA[1]
+   Net           sm_amiga_0__n                               SM_AMIGA[0]
+   Net           sm_amiga_6__n                               SM_AMIGA[6]
+   Net           sm_amiga_5__n                               SM_AMIGA[5]
+   Net    clk_un3_clk_out_pre_50_n                    clk.un3_clk_out_pre_50
    Net    state_machine_un6_bgack_000_n               state_machine.un6_bgack_000
+   Net    state_machine_un15_clk_000_d0_n             state_machine.un15_clk_000_d0
    Net           size_dma_0__n                               SIZE_DMA[0]
-   Net           size_dma_1__n                               SIZE_DMA[1]
-   Net           sm_amiga_4__n                               SM_AMIGA[4]
-   Net           sm_amiga_2__n                               SM_AMIGA[2]
-   Net    state_machine_un10_bg_030_n                 state_machine.un10_bg_030
    Net               fc_c_0__n                                   FC_c[0]
-   Net    state_machine_a0_dma_4_n                    state_machine.A0_DMA_4
+   Net           size_dma_1__n                               SIZE_DMA[1]
    Net                 fc_0__n                                     FC[0]
-   Net    state_machine_ds_000_dma_5_n                state_machine.DS_000_DMA_5
    Net               fc_c_1__n                                   FC_c[1]
+   Net           sm_amiga_7__n                               SM_AMIGA[7]
+   Net           sm_amiga_4__n                               SM_AMIGA[4]
+   Net    state_machine_a0_dma_2_n                    state_machine.A0_DMA_2
+   Net    state_machine_ds_000_dma_3_n                state_machine.DS_000_DMA_3
+   Net    state_machine_size_dma_4_1__n               state_machine.SIZE_DMA_4[1]
+   Net           sm_amiga_3__n                               SM_AMIGA[3]
+   Net           sm_amiga_2__n                               SM_AMIGA[2]
+   Net       cpu_est_ns_0_1__n                           cpu_est_ns_0[1]
+   Net    state_machine_un10_bg_030_n                 state_machine.un10_bg_030
    Net    state_machine_lds_000_int_7_n               state_machine.LDS_000_INT_7
    Net    state_machine_uds_000_int_7_n               state_machine.UDS_000_INT_7
-   Net      sm_amiga_ns_e_0__n                          SM_AMIGA_ns_e[0]
-   Net      sm_amiga_ns_e_1__n                          SM_AMIGA_ns_e[1]
-   Net      sm_amiga_ns_e_5__n                          SM_AMIGA_ns_e[5]
    Net         sm_amiga_i_1__n                             SM_AMIGA_i[1]
+   Net        sm_amiga_ns_0__n                            SM_AMIGA_ns[0]
+   Net        sm_amiga_ns_5__n                            SM_AMIGA_ns[5]
+   Net    state_machine_un8_bgack_030_int_i_0_0_n     state_machine.un8_bgack_030_int_i_0_0
    Net            cpu_est_0__n                                cpu_est[0]
    Net            cpu_est_1__n                                cpu_est[1]
    Net            cpu_est_2__n                                cpu_est[2]
    Net            cpu_est_3__n                                cpu_est[3]
-   Net       cpu_est_ns_e_0__n                           cpu_est_ns_e[0]
    Net       cpu_est_ns_e_1__n                           cpu_est_ns_e[1]
    Net       cpu_est_ns_e_2__n                           cpu_est_ns_e[2]
    Net       cpu_est_ns_e_3__n                           cpu_est_ns_e[3]
    Net         cpu_est_ns_1__n                             cpu_est_ns[1]
    Net         cpu_est_ns_2__n                             cpu_est_ns[2]
-   Net     cpu_est_ns_e_0_0__n                         cpu_est_ns_e_0[0]
-   Net    sm_amiga_ns_e_0_0__n                        SM_AMIGA_ns_e_0[0]
-   Net    sm_amiga_ns_e_0_1__n                        SM_AMIGA_ns_e_0[1]
+   Net    state_machine_un8_bgack_030_int_i_0_n       state_machine.un8_bgack_030_int_i_0
+   Net      sm_amiga_ns_0_0__n                          SM_AMIGA_ns_0[0]
    Net       cpu_est_ns_0_2__n                           cpu_est_ns_0[2]
-   Net    state_machine_amiga_bus_enable_6_iv_i_n     state_machine.AMIGA_BUS_ENABLE_6_iv_i
-   Net    state_machine_ds_000_dma_5_0_n              state_machine.DS_000_DMA_5_0
-   Net       cpu_est_ns_0_1__n                           cpu_est_ns_0[1]
-   Net    sm_amiga_ns_e_0_5__n                        SM_AMIGA_ns_e_0[5]
-   Net    state_machine_uds_000_int_7_0_n             state_machine.UDS_000_INT_7_0
+   Net    state_machine_amiga_bus_enable_4_iv_i_n     state_machine.AMIGA_BUS_ENABLE_4_iv_i
+   Net      sm_amiga_ns_0_5__n                          SM_AMIGA_ns_0[5]
+   Net    state_machine_size_dma_4_0_1__n             state_machine.SIZE_DMA_4_0[1]
+   Net    state_machine_ds_000_dma_3_0_n              state_machine.DS_000_DMA_3_0
    Net    state_machine_lds_000_int_7_0_n             state_machine.LDS_000_INT_7_0
+   Net    state_machine_uds_000_int_7_0_n             state_machine.UDS_000_INT_7_0
    Net    state_machine_un10_bg_030_0_n               state_machine.un10_bg_030_0
+   Net    state_machine_un13_clk_000_d0_i_n           state_machine.un13_clk_000_d0_i
+   Net    state_machine_un15_clk_000_d0_0_n           state_machine.un15_clk_000_d0_0
    Net    state_machine_un6_bgack_000_0_n             state_machine.un6_bgack_000_0
-   Net    state_machine_un59_bgack_030_int_0_n        state_machine.un59_bgack_030_int_0
-   Net          cpu_est_i_0__n                              cpu_est_i[0]
-   Net         sm_amiga_i_4__n                             SM_AMIGA_i[4]
-   Net    state_machine_a0_dma_4_1_n                  state_machine.A0_DMA_4_1
-   Net         sm_amiga_i_5__n                             SM_AMIGA_i[5]
-   Net    state_machine_a0_dma_4_2_n                  state_machine.A0_DMA_4_2
    Net          cpu_est_i_3__n                              cpu_est_i[3]
-   Net          cpu_est_i_1__n                              cpu_est_i[1]
-   Net    sm_amiga_ns_e_0_1_0__n                      SM_AMIGA_ns_e_0_1[0]
-   Net    sm_amiga_ns_e_0_1_1__n                      SM_AMIGA_ns_e_0_1[1]
-   Net         sm_amiga_i_3__n                             SM_AMIGA_i[3]
+   Net         sm_amiga_i_6__n                             SM_AMIGA_i[6]
+   Net    state_machine_un8_bgack_030_int_i_0_0_1_n   state_machine.un8_bgack_030_int_i_0_0_1
+   Net         sm_amiga_i_5__n                             SM_AMIGA_i[5]
+   Net         sm_amiga_i_4__n                             SM_AMIGA_i[4]
    Net     cpu_est_ns_0_1_1__n                         cpu_est_ns_0_1[1]
+   Net     cpu_est_ns_0_2_1__n                         cpu_est_ns_0_2[1]
+   Net          cpu_est_i_1__n                              cpu_est_i[1]
+   Net          cpu_est_i_0__n                              cpu_est_i[0]
+   Net    sm_amiga_ns_0_1_0__n                        SM_AMIGA_ns_0_1[0]
+   Net     cpu_est_ns_0_1_2__n                         cpu_est_ns_0_1[2]
+   Net          cpu_est_i_2__n                              cpu_est_i[2]
    Net         sm_amiga_i_0__n                             SM_AMIGA_i[0]
-   Net    state_machine_uds_000_int_7_0_1_n           state_machine.UDS_000_INT_7_0_1
-   Net             size_i_1__n                                 SIZE_i[1]
    Net    state_machine_lds_000_int_7_0_1_n           state_machine.LDS_000_INT_7_0_1
-   Net               a_i_30__n                                   A_i[30]
-   Net               a_i_31__n                                   A_i[31]
-   Net               a_i_28__n                                   A_i[28]
-   Net               a_i_29__n                                   A_i[29]
-   Net               a_i_26__n                                   A_i[26]
-   Net               a_i_27__n                                   A_i[27]
-   Net               a_i_24__n                                   A_i[24]
-   Net               a_i_25__n                                   A_i[25]
+   Net         sm_amiga_i_3__n                             SM_AMIGA_i[3]
+   Net    state_machine_uds_000_int_7_0_1_n           state_machine.UDS_000_INT_7_0_1
+   Net         sm_amiga_i_7__n                             SM_AMIGA_i[7]
+   Net             size_i_1__n                                 SIZE_i[1]
    Net               a_i_19__n                                   A_i[19]
    Net               a_i_16__n                                   A_i[16]
    Net               a_i_18__n                                   A_i[18]
-   Net        clk_cnt_p_i_0__n                            CLK_CNT_P_i[0]
-   Net    cpu_est_ns_0_0_m3_2__un3_n                  cpu_est_ns_0_0_m3_2_.un3
-   Net    cpu_est_ns_0_0_m3_2__un1_n                  cpu_est_ns_0_0_m3_2_.un1
-   Net    cpu_est_ns_0_0_m3_2__un0_n                  cpu_est_ns_0_0_m3_2_.un0
-   Net    state_machine_lds_000_int_7_0_m3_un3_n      state_machine.LDS_000_INT_7_0_m3.un3
-   Net    state_machine_lds_000_int_7_0_m3_un1_n      state_machine.LDS_000_INT_7_0_m3.un1
-   Net    state_machine_lds_000_int_7_0_m3_un0_n      state_machine.LDS_000_INT_7_0_m3.un0
-   Net       cpu_estse_0_un3_n                           cpu_estse_0.un3
-   Net       cpu_estse_0_un1_n                           cpu_estse_0.un1
-   Net       cpu_estse_0_un0_n                           cpu_estse_0.un0
-   Net       cpu_estse_1_un3_n                           cpu_estse_1.un3
-   Net       cpu_estse_1_un1_n                           cpu_estse_1.un1
-   Net       cpu_estse_1_un0_n                           cpu_estse_1.un0
-   Net       cpu_estse_2_un3_n                           cpu_estse_2.un3
-   Net       cpu_estse_2_un1_n                           cpu_estse_2.un1
-   Net       cpu_estse_2_un0_n                           cpu_estse_2.un0
+   Net               a_i_30__n                                   A_i[30]
+   Net    state_machine_a0_dma_2_1_n                  state_machine.A0_DMA_2_1
+   Net               a_i_31__n                                   A_i[31]
+   Net               a_i_28__n                                   A_i[28]
+   Net               a_i_29__n                                   A_i[29]
+   Net    state_machine_un13_clk_000_d0_1_n           state_machine.un13_clk_000_d0_1
+   Net               a_i_26__n                                   A_i[26]
+   Net               a_i_27__n                                   A_i[27]
+   Net    state_machine_uds_000_int_7_0_m3_un3_n      state_machine.UDS_000_INT_7_0_m3.un3
+   Net               a_i_24__n                                   A_i[24]
+   Net    state_machine_uds_000_int_7_0_m3_un1_n      state_machine.UDS_000_INT_7_0_m3.un1
+   Net               a_i_25__n                                   A_i[25]
+   Net    state_machine_uds_000_int_7_0_m3_un0_n      state_machine.UDS_000_INT_7_0_m3.un0
    Net      dsack1_int_0_un3_n                          DSACK1_INT_0.un3
    Net      dsack1_int_0_un1_n                          DSACK1_INT_0.un1
-   Net             size_c_0__n                                 SIZE_c[0]
    Net      dsack1_int_0_un0_n                          DSACK1_INT_0.un0
+   Net         vma_int_0_un3_n                             VMA_INT_0.un3
+   Net         vma_int_0_un1_n                             VMA_INT_0.un1
+   Net         vma_int_0_un0_n                             VMA_INT_0.un0
+   Net    bgack_030_int_0_un3_n                       BGACK_030_INT_0.un3
+   Net    bgack_030_int_0_un1_n                       BGACK_030_INT_0.un1
+   Net    bgack_030_int_0_un0_n                       BGACK_030_INT_0.un0
+   Net      ipl_030_0_0__un3_n                          IPL_030_0_0_.un3
+   Net      ipl_030_0_0__un1_n                          IPL_030_0_0_.un1
+   Net      ipl_030_0_0__un0_n                          IPL_030_0_0_.un0
+   Net      ipl_030_0_1__un3_n                          IPL_030_0_1_.un3
+   Net      ipl_030_0_1__un1_n                          IPL_030_0_1_.un1
+   Net      ipl_030_0_1__un0_n                          IPL_030_0_1_.un0
+   Net      ipl_030_0_2__un3_n                          IPL_030_0_2_.un3
+   Net             size_c_0__n                                 SIZE_c[0]
+   Net      ipl_030_0_2__un1_n                          IPL_030_0_2_.un1
    Net               size_0__n                                   SIZE[0]
-   Net      as_000_dma_0_un3_n                          AS_000_DMA_0.un3
+   Net      ipl_030_0_2__un0_n                          IPL_030_0_2_.un0
    Net             size_c_1__n                                 SIZE_c[1]
+   Net       cpu_estse_0_un3_n                           cpu_estse_0.un3
+   Net       cpu_estse_0_un1_n                           cpu_estse_0.un1
+   Net               a_c_16__n                                   A_c[16]
+   Net       cpu_estse_0_un0_n                           cpu_estse_0.un0
+   Net                 a_16__n                                     A[16]
+   Net       cpu_estse_1_un3_n                           cpu_estse_1.un3
+   Net               a_c_17__n                                   A_c[17]
+   Net       cpu_estse_1_un1_n                           cpu_estse_1.un1
+   Net                 a_17__n                                     A[17]
+   Net       cpu_estse_1_un0_n                           cpu_estse_1.un0
+   Net               a_c_18__n                                   A_c[18]
+   Net       cpu_estse_2_un3_n                           cpu_estse_2.un3
+   Net                 a_18__n                                     A[18]
+   Net       cpu_estse_2_un1_n                           cpu_estse_2.un1
+   Net               a_c_19__n                                   A_c[19]
+   Net       cpu_estse_2_un0_n                           cpu_estse_2.un0
+   Net                 a_19__n                                     A[19]
+   Net    amiga_bus_enable_0_un3_n                    AMIGA_BUS_ENABLE_0.un3
+   Net               a_c_20__n                                   A_c[20]
+   Net    amiga_bus_enable_0_un1_n                    AMIGA_BUS_ENABLE_0.un1
+   Net                 a_20__n                                     A[20]
+   Net    amiga_bus_enable_0_un0_n                    AMIGA_BUS_ENABLE_0.un0
+   Net               a_c_21__n                                   A_c[21]
+   Net    as_030_000_sync_0_un3_n                     AS_030_000_SYNC_0.un3
+   Net                 a_21__n                                     A[21]
+   Net    as_030_000_sync_0_un1_n                     AS_030_000_SYNC_0.un1
+   Net               a_c_22__n                                   A_c[22]
+   Net    as_030_000_sync_0_un0_n                     AS_030_000_SYNC_0.un0
+   Net                 a_22__n                                     A[22]
+   Net       clk_030_h_0_un3_n                           CLK_030_H_0.un3
+   Net               a_c_23__n                                   A_c[23]
+   Net       clk_030_h_0_un1_n                           CLK_030_H_0.un1
+   Net                 a_23__n                                     A[23]
+   Net       clk_030_h_0_un0_n                           CLK_030_H_0.un0
+   Net               a_c_24__n                                   A_c[24]
+   Net     uds_000_int_0_un3_n                         UDS_000_INT_0.un3
+   Net                 a_24__n                                     A[24]
+   Net     uds_000_int_0_un1_n                         UDS_000_INT_0.un1
+   Net               a_c_25__n                                   A_c[25]
+   Net     uds_000_int_0_un0_n                         UDS_000_INT_0.un0
+   Net                 a_25__n                                     A[25]
+   Net     lds_000_int_0_un3_n                         LDS_000_INT_0.un3
+   Net               a_c_26__n                                   A_c[26]
+   Net     lds_000_int_0_un1_n                         LDS_000_INT_0.un1
+   Net                 a_26__n                                     A[26]
+   Net     lds_000_int_0_un0_n                         LDS_000_INT_0.un0
+   Net               a_c_27__n                                   A_c[27]
+   Net      fpu_cs_int_0_un3_n                          FPU_CS_INT_0.un3
+   Net                 a_27__n                                     A[27]
+   Net      fpu_cs_int_0_un1_n                          FPU_CS_INT_0.un1
+   Net               a_c_28__n                                   A_c[28]
+   Net      fpu_cs_int_0_un0_n                          FPU_CS_INT_0.un0
+   Net                 a_28__n                                     A[28]
+   Net          bg_000_0_un3_n                              BG_000_0.un3
+   Net               a_c_29__n                                   A_c[29]
+   Net          bg_000_0_un1_n                              BG_000_0.un1
+   Net                 a_29__n                                     A[29]
+   Net          bg_000_0_un0_n                              BG_000_0.un0
+   Net               a_c_30__n                                   A_c[30]
+   Net      ds_000_dma_0_un3_n                          DS_000_DMA_0.un3
+   Net                 a_30__n                                     A[30]
+   Net      ds_000_dma_0_un1_n                          DS_000_DMA_0.un1
+   Net               a_c_31__n                                   A_c[31]
+   Net      ds_000_dma_0_un0_n                          DS_000_DMA_0.un0
+   Net      as_000_dma_0_un3_n                          AS_000_DMA_0.un3
    Net      as_000_dma_0_un1_n                          AS_000_DMA_0.un1
    Net      as_000_dma_0_un0_n                          AS_000_DMA_0.un0
-   Net               a_c_16__n                                   A_c[16]
    Net      as_000_int_0_un3_n                          AS_000_INT_0.un3
-   Net                 a_16__n                                     A[16]
    Net      as_000_int_0_un1_n                          AS_000_INT_0.un1
-   Net               a_c_17__n                                   A_c[17]
    Net      as_000_int_0_un0_n                          AS_000_INT_0.un0
-   Net                 a_17__n                                     A[17]
-   Net        vpa_sync_0_un3_n                            VPA_SYNC_0.un3
-   Net               a_c_18__n                                   A_c[18]
-   Net        vpa_sync_0_un1_n                            VPA_SYNC_0.un1
-   Net                 a_18__n                                     A[18]
-   Net        vpa_sync_0_un0_n                            VPA_SYNC_0.un0
-   Net               a_c_19__n                                   A_c[19]
-   Net         vma_int_0_un3_n                             VMA_INT_0.un3
-   Net                 a_19__n                                     A[19]
-   Net         vma_int_0_un1_n                             VMA_INT_0.un1
-   Net               a_c_20__n                                   A_c[20]
-   Net         vma_int_0_un0_n                             VMA_INT_0.un0
-   Net                 a_20__n                                     A[20]
-   Net    bgack_030_int_0_un3_n                       BGACK_030_INT_0.un3
-   Net               a_c_21__n                                   A_c[21]
-   Net    bgack_030_int_0_un1_n                       BGACK_030_INT_0.un1
-   Net                 a_21__n                                     A[21]
-   Net    bgack_030_int_0_un0_n                       BGACK_030_INT_0.un0
-   Net               a_c_22__n                                   A_c[22]
-   Net     size_dma_0_0__un3_n                         SIZE_DMA_0_0_.un3
-   Net                 a_22__n                                     A[22]
-   Net     size_dma_0_0__un1_n                         SIZE_DMA_0_0_.un1
-   Net               a_c_23__n                                   A_c[23]
-   Net     size_dma_0_0__un0_n                         SIZE_DMA_0_0_.un0
-   Net                 a_23__n                                     A[23]
-   Net     size_dma_0_1__un3_n                         SIZE_DMA_0_1_.un3
-   Net               a_c_24__n                                   A_c[24]
-   Net     size_dma_0_1__un1_n                         SIZE_DMA_0_1_.un1
-   Net                 a_24__n                                     A[24]
-   Net     size_dma_0_1__un0_n                         SIZE_DMA_0_1_.un0
-   Net               a_c_25__n                                   A_c[25]
-   Net      ipl_030_0_0__un3_n                          IPL_030_0_0_.un3
-   Net                 a_25__n                                     A[25]
-   Net      ipl_030_0_0__un1_n                          IPL_030_0_0_.un1
-   Net               a_c_26__n                                   A_c[26]
-   Net      ipl_030_0_0__un0_n                          IPL_030_0_0_.un0
-   Net                 a_26__n                                     A[26]
-   Net      ipl_030_0_1__un3_n                          IPL_030_0_1_.un3
-   Net               a_c_27__n                                   A_c[27]
-   Net      ipl_030_0_1__un1_n                          IPL_030_0_1_.un1
-   Net                 a_27__n                                     A[27]
-   Net      ipl_030_0_1__un0_n                          IPL_030_0_1_.un0
-   Net               a_c_28__n                                   A_c[28]
-   Net      ipl_030_0_2__un3_n                          IPL_030_0_2_.un3
-   Net                 a_28__n                                     A[28]
-   Net      ipl_030_0_2__un1_n                          IPL_030_0_2_.un1
-   Net               a_c_29__n                                   A_c[29]
-   Net      ipl_030_0_2__un0_n                          IPL_030_0_2_.un0
-   Net                 a_29__n                                     A[29]
-   Net    amiga_bus_enable_0_un3_n                    AMIGA_BUS_ENABLE_0.un3
-   Net               a_c_30__n                                   A_c[30]
-   Net    amiga_bus_enable_0_un1_n                    AMIGA_BUS_ENABLE_0.un1
-   Net                 a_30__n                                     A[30]
-   Net    amiga_bus_enable_0_un0_n                    AMIGA_BUS_ENABLE_0.un0
-   Net               a_c_31__n                                   A_c[31]
-   Net     uds_000_int_0_un3_n                         UDS_000_INT_0.un3
-   Net     uds_000_int_0_un1_n                         UDS_000_INT_0.un1
-   Net     uds_000_int_0_un0_n                         UDS_000_INT_0.un0
-   Net     lds_000_int_0_un3_n                         LDS_000_INT_0.un3
-   Net     lds_000_int_0_un1_n                         LDS_000_INT_0.un1
-   Net     lds_000_int_0_un0_n                         LDS_000_INT_0.un0
-   Net    as_030_000_sync_0_un3_n                     AS_030_000_SYNC_0.un3
 End
 Section Type      Name
 // ----------------------------------------------------------------------
