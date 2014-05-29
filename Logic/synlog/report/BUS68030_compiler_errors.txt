@@ -1,3 +1,4 @@
-@E: CG119 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":367:34:367:35|Expecting closing )
-@E|Parse errors encountered - exiting
+@E: CD371 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":381:9:381:23|No matching overload for "="
+@E: CD308 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":381:29:381:44|Unable to evaluate expression type
+@E: CD676 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":381:29:381:44|Can't implement expression (no function signature?)
 

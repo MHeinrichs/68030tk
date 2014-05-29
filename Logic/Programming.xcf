@@ -19,8 +19,8 @@
 				<BScanVal>0</BScanVal>
 			</Bypass>
 			<File>C:\Users\Matze\Documents\GitHub\68030tk\Logic\68030_tk.jed</File>
-			<FileTime>05/17/14 14:58:17</FileTime>
-			<JedecChecksum>0x7C8A</JedecChecksum>
+			<FileTime>05/29/14 11:52:27</FileTime>
+			<JedecChecksum>0x8531</JedecChecksum>
 			<Operation>Erase,Program,Verify</Operation>
 			<Option>
 				<SVFVendor>JTAG STANDARD</SVFVendor>

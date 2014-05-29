@@ -10116,7 +10116,6 @@ Source: RS Component / Phycomp</description>
 <part name="R11" library="rcl" deviceset="R-EU_" device="R0603"/>
 <part name="R14" library="rcl" deviceset="R-EU_" device="R0603"/>
 <part name="R16" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R17" library="rcl" deviceset="R-EU_" device="R0603" value="4,7k"/>
 </parts>
 <sheets>
 <sheet>
@@ -10165,7 +10164,6 @@ Source: RS Component / Phycomp</description>
 <instance part="RN3" gate="D" x="-2.54" y="132.08"/>
 <instance part="R8" gate="G$1" x="-2.54" y="121.92"/>
 <instance part="R9" gate="G$1" x="-2.54" y="116.84"/>
-<instance part="R17" gate="G$1" x="-2.54" y="93.98"/>
 </instances>
 <busses>
 <bus name="A[0..31]">
@@ -10916,11 +10914,6 @@ Source: RS Component / Phycomp</description>
 <wire x1="96.52" y1="124.46" x2="91.44" y2="124.46" width="0.1524" layer="91"/>
 <label x="91.44" y="124.46" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
-<segment>
-<pinref part="R17" gate="G$1" pin="2"/>
-<wire x1="2.54" y1="93.98" x2="10.16" y2="93.98" width="0.1524" layer="91"/>
-<label x="10.16" y="93.98" size="1.778" layer="95"/>
-</segment>
 </net>
 <net name="CIIN" class="0">
 <segment>
@@ -11382,12 +11375,8 @@ Source: RS Component / Phycomp</description>
 <pinref part="R9" gate="G$1" pin="1"/>
 <wire x1="-7.62" y1="116.84" x2="-20.32" y2="116.84" width="0.1524" layer="91"/>
 <pinref part="R2" gate="G$1" pin="2"/>
-<wire x1="-20.32" y1="91.44" x2="-20.32" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="-20.32" y1="91.44" x2="-20.32" y2="101.6" width="0.1524" layer="91"/>
 <junction x="-20.32" y="101.6"/>
-<pinref part="R17" gate="G$1" pin="1"/>
-<wire x1="-20.32" y1="93.98" x2="-20.32" y2="101.6" width="0.1524" layer="91"/>
-<wire x1="-7.62" y1="93.98" x2="-20.32" y2="93.98" width="0.1524" layer="91"/>
-<junction x="-20.32" y="93.98"/>
 </segment>
 <segment>
 <pinref part="C19" gate="G$1" pin="1"/>
@@ -12571,9 +12560,9 @@ Source: RS Component / Phycomp</description>
 </net>
 <net name="AS_00" class="0">
 <segment>
-<pinref part="IC7" gate="G$1" pin="IO1"/>
-<wire x1="104.14" y1="116.84" x2="104.14" y2="121.92" width="0.1524" layer="91"/>
-<label x="104.14" y="121.92" size="1.27" layer="95" rot="R90"/>
+<pinref part="IC7" gate="G$1" pin="IO29"/>
+<wire x1="101.6" y1="25.4" x2="101.6" y2="30.48" width="0.1524" layer="91"/>
+<label x="101.6" y="25.4" size="1.27" layer="95" rot="R270"/>
 </segment>
 </net>
 <net name="CS_FPU" class="0">
@@ -12608,6 +12597,11 @@ Source: RS Component / Phycomp</description>
 </segment>
 </net>
 <net name="AVEC" class="0">
+<segment>
+<pinref part="IC7" gate="G$1" pin="IO1"/>
+<wire x1="104.14" y1="116.84" x2="104.14" y2="121.92" width="0.1524" layer="91"/>
+<label x="104.14" y="121.92" size="1.27" layer="95" rot="R90"/>
+</segment>
 <segment>
 <label x="238.76" y="76.2" size="1.27" layer="95" xref="yes"/>
 <pinref part="X1" gate="-A13" pin="B"/>
@@ -13168,9 +13162,9 @@ Source: RS Component / Phycomp</description>
 <wire x1="180.34" y1="33.02" x2="182.88" y2="33.02" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="IC7" gate="G$1" pin="IO23"/>
-<wire x1="71.12" y1="50.8" x2="66.04" y2="50.8" width="0.1524" layer="91"/>
-<label x="66.04" y="50.8" size="1.27" layer="95" rot="R180"/>
+<pinref part="IC7" gate="G$1" pin="IO33"/>
+<wire x1="124.46" y1="30.48" x2="124.46" y2="27.94" width="0.1524" layer="91"/>
+<label x="124.46" y="27.94" size="1.27" layer="95" rot="R270"/>
 </segment>
 </net>
 <net name="A3" class="0">
@@ -13412,16 +13406,9 @@ Source: RS Component / Phycomp</description>
 </net>
 <net name="RW_OUT" class="0">
 <segment>
-<pinref part="IC7" gate="G$1" pin="IO33"/>
-<wire x1="124.46" y1="30.48" x2="124.46" y2="27.94" width="0.1524" layer="91"/>
-<label x="124.46" y="27.94" size="1.27" layer="95" rot="R270"/>
-</segment>
-</net>
-<net name="AMIGA_ADR_ENABLE" class="0">
-<segment>
-<pinref part="IC7" gate="G$1" pin="IO29"/>
-<wire x1="101.6" y1="25.4" x2="101.6" y2="30.48" width="0.1524" layer="91"/>
-<label x="101.6" y="25.4" size="1.27" layer="95" rot="R270"/>
+<pinref part="IC7" gate="G$1" pin="IO23"/>
+<wire x1="71.12" y1="50.8" x2="66.04" y2="50.8" width="0.1524" layer="91"/>
+<label x="66.04" y="50.8" size="1.27" layer="95" rot="R180"/>
 </segment>
 </net>
 </nets>
@@ -13760,6 +13747,21 @@ Source: RS Component / Phycomp</description>
 <pinref part="C24" gate="G$1" pin="2"/>
 <wire x1="111.76" y1="15.24" x2="111.76" y2="12.7" width="0.1524" layer="91"/>
 <junction x="111.76" y="12.7"/>
+</segment>
+<segment>
+<pinref part="IC4" gate="A" pin="G"/>
+<wire x1="40.64" y1="139.7" x2="45.72" y2="139.7" width="0.1524" layer="91"/>
+<label x="45.72" y="139.7" size="1.27" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC8" gate="A" pin="G"/>
+<wire x1="40.64" y1="99.06" x2="45.72" y2="99.06" width="0.1524" layer="91"/>
+<label x="45.72" y="99.06" size="1.27" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC9" gate="A" pin="G"/>
+<wire x1="40.64" y1="60.96" x2="45.72" y2="60.96" width="0.1524" layer="91"/>
+<label x="45.72" y="60.96" size="1.27" layer="95"/>
 </segment>
 </net>
 <net name="VCC" class="0">
@@ -14389,23 +14391,6 @@ Source: RS Component / Phycomp</description>
 <pinref part="IC9" gate="A" pin="A1"/>
 <wire x1="40.64" y1="86.36" x2="45.72" y2="86.36" width="0.1524" layer="91"/>
 <label x="45.72" y="86.36" size="1.27" layer="95"/>
-</segment>
-</net>
-<net name="AMIGA_ADR_ENABLE" class="0">
-<segment>
-<pinref part="IC4" gate="A" pin="G"/>
-<wire x1="40.64" y1="139.7" x2="45.72" y2="139.7" width="0.1524" layer="91"/>
-<label x="45.72" y="139.7" size="1.27" layer="95"/>
-</segment>
-<segment>
-<pinref part="IC8" gate="A" pin="G"/>
-<wire x1="40.64" y1="99.06" x2="45.72" y2="99.06" width="0.1524" layer="91"/>
-<label x="45.72" y="99.06" size="1.27" layer="95"/>
-</segment>
-<segment>
-<pinref part="IC9" gate="A" pin="G"/>
-<wire x1="40.64" y1="60.96" x2="45.72" y2="60.96" width="0.1524" layer="91"/>
-<label x="45.72" y="60.96" size="1.27" layer="95"/>
 </segment>
 </net>
 </nets>

@@ -1,7 +1,7 @@
 -- Copyright: Matthias Heinrichs 2014
 -- Free for non-comercial use
 -- No warranty just for fun
--- I you want to earn money with this code, ask me first!
+-- If you want to earn money with this code, ask me first!
 
 
 
@@ -508,4 +508,3 @@ begin
 					'1';
 	BGACK_030	<= BGACK_030_INT;	
 end Behavioral;
-

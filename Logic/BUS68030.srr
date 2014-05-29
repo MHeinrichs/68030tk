@@ -6,7 +6,7 @@
 #Implementation: logic
 
 $ Start of Compile
-#Wed May 28 21:24:48 2014
+#Thu May 29 22:04:21 2014
 
 Synopsys VHDL Compiler, version comp201209rcp1, Build 283R, built Mar 19 2013
 @N|Running in 64-bit mode
@@ -53,7 +53,7 @@ State machine has 11 reachable states with original encodings of:
    1111
 @END
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Wed May 28 21:24:49 2014
+# Thu May 29 22:04:21 2014
 
 ###########################################################]
 Map & Optimize Report
@@ -109,6 +109,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 95MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Wed May 28 21:24:50 2014
+# Thu May 29 22:04:22 2014
 
 ###########################################################]
