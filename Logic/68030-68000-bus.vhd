@@ -15,6 +15,7 @@ entity BUS68030 is
 port( 
 	AS_030: inout std_logic ;
 	AS_000: inout std_logic ;
+	RW_000: inout std_logic ;
 	DS_030: inout std_logic ;
 	UDS_000: inout std_logic;
 	LDS_000: inout std_logic;
@@ -35,7 +36,7 @@ port(
 	FPU_CS: out std_logic ;
 	IPL_030: out std_logic_vector ( 2 downto 0 );
 	IPL: in std_logic_vector ( 2 downto 0 );
-	DSACK: inout std_logic_vector ( 1 downto 0 );
+	DSACK1: inout std_logic;
 	DTACK: inout std_logic ;
 	AVEC: out std_logic ;
 	AVEC_EXP: inout std_logic ; --this is a "free pin"
@@ -44,7 +45,7 @@ port(
 	VMA: out std_logic ;
 	RST: in std_logic ;
 	RESET: out std_logic ;
-	RW: in std_logic ;
+	RW: inout std_logic ;
 --	D: inout std_logic_vector ( 31 downto 28 );
 	FC: in std_logic_vector ( 1 downto 0 );
 	AMIGA_BUS_ENABLE: out std_logic ;
@@ -94,6 +95,8 @@ signal SM_AMIGA : AMIGA_STATE;
   
 --signal	Dout:STD_LOGIC_VECTOR(3 downto 0) := "0000";
 signal	AS_000_INT:STD_LOGIC		:= '1';
+signal	RW_000_INT:STD_LOGIC		:= '1';
+signal	AMIGA_BUS_ENABLE_INT:STD_LOGIC		:= '1';
 signal	AS_030_000_SYNC:STD_LOGIC	:= '1';
 signal	BGACK_030_INT:STD_LOGIC		:= '1';
 signal	BGACK_030_INT_D:STD_LOGIC	:= '1';
@@ -140,8 +143,8 @@ begin
 			end if;
 		end if;
 	end process neg_clk;
-	--the clocks
-	clk: process(RST, CLK_OSZI)
+	--the state machine
+	state_machine: process(RST, CLK_OSZI)
 	begin
 		if(RST = '0' ) then
 			CLK_CNT_P	<= "00";	
@@ -161,6 +164,25 @@ begin
 			CLK_000_D6	<= '1';
 			VPA_D		<= '1';
 			DTACK_D0		<= '1';
+			SM_AMIGA		<= IDLE_P;
+			AS_000_INT 		<= '1';
+			RW_000_INT		<= '1';
+			AS_030_000_SYNC <= '1';
+			UDS_000_INT		<= '1';
+			LDS_000_INT		<= '1';
+			CLK_REF			<= "00";
+			VMA_INT			<= '1';
+			FPU_CS_INT		<= '1';
+			BG_000			<= '1';
+			BGACK_030_INT	<= '1';
+			BGACK_030_INT_D <= '1';
+			DSACK1_INT		<= '1';
+			IPL_030			<= "111";
+			AS_000_DMA		<= '1';
+			DS_000_DMA		<= '1';
+			SIZE_DMA		<= "11";
+			A0_DMA			<= '1';
+			AMIGA_BUS_ENABLE_INT <= '1';
 		elsif(rising_edge(CLK_OSZI)) then
 			--reset buffer
 			RESET <= '1';
@@ -187,7 +209,7 @@ begin
 			
 			-- the external clock to the processor is generated here
 			CLK_OUT_INT	<= CLK_OUT_PRE_25; --this way we know the clock of the next state: Its like looking in the future, cool!
-			--delayed Clocks for edge detection
+			--delayed Clocks and signals for edge detection
 			CLK_000_D0 	<= CLK_000;
 			CLK_000_D1 	<= CLK_000_D0;
 			CLK_000_D2 	<= CLK_000_D1;
@@ -198,7 +220,8 @@ begin
 			DTACK_D0	<= DTACK;
 			VPA_D 		<= VPA;
 
-
+			--now: 68000 state machine and signals
+			
 			-- e-clock
 			if(CLK_000_D1 = '0' and CLK_000_D0 = '1') then
 				case (cpu_est) is
@@ -223,34 +246,7 @@ begin
 						null;
 				end case;
 			end if;
-		end if;
-	end process clk;
 
-
-	--the state process
-	state_machine: process(RST, CLK_OSZI)
-	begin
-		if(RST = '0' ) then
-			SM_AMIGA		<= IDLE_P;
-			AS_000_INT 		<= '1';
-			AS_030_000_SYNC <= '1';
-			UDS_000_INT		<= '1';
-			LDS_000_INT		<= '1';
-			CLK_REF			<= "00";
-			VMA_INT			<= '1';
-			FPU_CS_INT		<= '1';
-			BG_000			<= '1';
-			BGACK_030_INT	<= '1';
-			BGACK_030_INT_D <= '1';
-			DSACK1_INT		<= '1';
-			IPL_030			<= "111";
-			AMIGA_BUS_ENABLE <= '1' ;
-			AS_000_DMA		<= '1';
-			DS_000_DMA		<= '1';
-			SIZE_DMA		<= "11";
-			A0_DMA			<= '1';
-		
-		elsif(rising_edge(CLK_OSZI)) then
 
 
 
@@ -313,24 +309,27 @@ begin
 			--Amiga statemachine
 			case (SM_AMIGA) is
 				when IDLE_P 	 => --68000:S0 wait for a falling edge
-					--VMA_INT <= '1';
+					AMIGA_BUS_ENABLE_INT <= '1';
+		
+					
 					if( CLK_000_D2='0' and CLK_000_D3= '1' and AS_030_000_SYNC = '0')then
-						SM_AMIGA<=IDLE_N;  --go to s1
+						
+						if(nEXP_SPACE ='1')then 
+							AMIGA_BUS_ENABLE_INT <= '0' ;--for now: allways on for amiga
+							SM_AMIGA<=IDLE_N;  --go to s1
+						else  -- if this a delayed expansion space detection, aboard this cycle!
+							AS_030_000_SYNC	 <= '1';
+						end if;
 					end if;
 				when IDLE_N 	 => --68000:S1 place Adress on bus and wait for rising edge, on a rising CLK_000 look for a amiga adressrobe
-					if(nEXP_SPACE ='1')then 
-						AMIGA_BUS_ENABLE <= CLK_000_D4 ;--for now: allways on for amiga
-					else  -- if this a delayed expansion space detection, aboard this cycle!
-						AS_030_000_SYNC	 <= '1';
-						SM_AMIGA		 <= IDLE_P; --aboard
-					end if; 
-
 					if(CLK_000_D0='1')then --go to s2
 						SM_AMIGA <= AS_SET_P; --as for amiga set! 
+						RW_000_INT <= RW;
 					end if;
 				when AS_SET_P	 => --68000:S2 Amiga cycle starts here: since AS is asserted during transition to this state we simply wait here
-					if(CLK_000_D4='1')then
-						AS_000_INT <= '0';						
+					if(CLK_000_D2='1')then
+						AS_000_INT <= '0';
+												
 						if (RW='1' and DS_030 = '0') then --read: set udl/lds 	
 							if(A0='0') then
 								UDS_000_INT <= '0';
@@ -374,33 +373,28 @@ begin
 				when DATA_FETCH_N=> --68000:S5 nothing happens here just wait for positive clock
 					if(CLK_000_D0='1')then --go to s6
 						SM_AMIGA<=DATA_FETCH_P;
+						DSACK1_INT <='0'; 
+						AS_030_000_SYNC 	<= '1'; --cycle end
 					end if;
 				when DATA_FETCH_P => --68000:S6: READ: here comes the data on the bus!
-					if( CLK_000_D3 ='1' AND CLK_000_D4 = '0' ) then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
-						DSACK1_INT <='0'; 
-						AS_030_000_SYNC 	<= '1'; --cycle end						
-					elsif( CLK_000_D0 ='0') then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
-						--DSACK1_INT<='0'; 
+					--if( CLK_000_D2 ='1' AND CLK_000_D3 = '0' ) then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
+												
+					--els
+					if( CLK_000_D0 ='0') then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
 						SM_AMIGA<=END_CYCLE_N;
-						--AS_030_000_SYNC 	<= '1'; --cycle end
-					end if;
-					if(AS_030 	= '1' )then 
-						AMIGA_BUS_ENABLE <= '1';
 					end if;
 				when END_CYCLE_N =>--68000:S7: Latch/Store data. Wait here for new cycle and go to IDLE on high clock
-					if(AS_030 	= '1' )then 
-						AMIGA_BUS_ENABLE <= '1';
-					end if;
-					if(CLK_000_D0='1' and AS_000_INT 	= '1' )then --go to s0							
+					if(CLK_000_D0='1')then --go to s0							
+						RW_000_INT		<= '1';
 						SM_AMIGA<=IDLE_P;
 					end if;
 			end case;
 
 			if(BGACK_030_INT='0')then			
 				--switch amiga bus on for DMA-Cycles
-				AMIGA_BUS_ENABLE <= '0' ;
+				AMIGA_BUS_ENABLE_INT <= '0' ;
 			elsif(BGACK_030_INT_D='0' and BGACK_030_INT='1')then			
-				AMIGA_BUS_ENABLE <= '1' ;
+				AMIGA_BUS_ENABLE_INT <= '1' ;
 			end if;
 			
 			--dma stuff
@@ -409,14 +403,15 @@ begin
 
 				--set AS_000
 				if( CLK_030='0') then
-					AS_000_DMA <= '0';
+					AS_000_DMA 	<= '0';
+					RW_000_INT	<= RW_000;
 				elsif(AS_000_DMA = '0' and CLK_030='1')then
 					CLK_030_H		<= '1';
 				end if;
 				
-				if(RW='1') then
+				if(RW_000='1') then
 					DS_000_DMA	<=AS_000_DMA;
-				elsif(RW='0' and CLK_030_H = '1' and CLK_030='0')then
+				elsif(RW_000='0' and CLK_030_H = '1' and CLK_030='0')then
 					DS_000_DMA	<=AS_000_DMA; -- write: one clock delayed!
 				end if;
 				-- now determine the size: if both uds and lds is set its 16 bit else 8 bit!
@@ -447,11 +442,11 @@ begin
 	--output clock assignment
 	CLK_DIV_OUT	<= CLK_OUT_INT;
 	CLK_EXP		<= CLK_OUT_INT;
-	AVEC_EXP	<= 'Z' when FPU_CS_INT ='1' else '0';
-	
+	AVEC_EXP	<= AMIGA_BUS_ENABLE_INT;
+	AMIGA_BUS_ENABLE <= AMIGA_BUS_ENABLE_INT;
 	--dma stuff
 	DTACK	<= 'Z' when BGACK_030_INT ='1' OR nEXP_SPACE = '1' OR AS_000_DMA ='1' else
-					DSACK(1);
+					DSACK1;
 	AS_030	<= 'Z' when BGACK_030_INT ='1' OR nEXP_SPACE = '1' OR AS_000_DMA ='1' else
 					AS_000_DMA;
 	DS_030	<= 'Z' when BGACK_030_INT ='1' OR nEXP_SPACE = '1' OR AS_000_DMA ='1' else
@@ -494,7 +489,8 @@ begin
 	--as and uds/lds
 	AS_000	<= 'Z' when BGACK_030_INT ='0' else
 					AS_000_INT;
-	
+	RW_000	<= 'Z' when BGACK_030_INT ='0' else
+					RW_000_INT;
 
 	UDS_000	<= 'Z' when BGACK_030_INT ='0' else -- output on cpu cycle
 					UDS_000_INT;
@@ -502,9 +498,11 @@ begin
 					LDS_000_INT;
 
 	--dsack
-	DSACK(1)		<= 'Z' when nEXP_SPACE = '0' else -- output on amiga cycle
-					DSACK1_INT;
-	DSACK(0)		<= 'Z' when nEXP_SPACE = '0' else -- output on amiga cycle
-					'1';
+	DSACK1	<= 'Z' when nEXP_SPACE = '0' else -- output on amiga cycle
+			DSACK1_INT;
+	--rw
+	RW		<= 'Z' when BGACK_030_INT ='1' else
+					RW_000_INT;
+	
 	BGACK_030	<= BGACK_030_INT;	
 end Behavioral;

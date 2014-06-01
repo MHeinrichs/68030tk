@@ -15,8 +15,8 @@ Voltage = 5.0;
 RCS = "$Revision: 1.2 $";
 Parent = m4a5.lci;
 SDS_File = m4a5.sds;
-DATE = 05/25/2014;
-TIME = 21:04:55;
+DATE = 06/01/2014;
+TIME = 00:00:40;
 Source_Format = Pure_VHDL;
 Type = TT2;
 Pre_Fit_Time = 1;
@@ -115,7 +115,6 @@ Layer = OFF;
 [LOCATION ASSIGNMENT]
 Layer = OFF;
 AS_030 = input,82,H,-;
-A_0_ = input,69,G,-;
 A_16_ = input,96,A,-;
 A_17_ = input,59,F,-;
 A_18_ = input,95,A,-;
@@ -125,7 +124,6 @@ BG_030 = input,21,C,-;
 CLK_000 = input,11,-,-;
 CLK_030 = input,64,-,-;
 CLK_OSZI = input,61,-,-;
-CPU_SPACE = input,14,-,-;
 FC_0_ = input,57,F,-;
 FC_1_ = input,58,F,-;
 IPL_0_ = input,67,G,-;
@@ -141,7 +139,6 @@ BGACK_030 = input,83,H,-;
 BG_000 = input,29,D,-;
 CLK_DIV_OUT = input,65,G,-;
 CLK_EXP = input,10,B,-;
-DSACK_0_ = input,80,H,-;
 E = input,66,G,-;
 FPU_CS = input,78,H,-;
 IPL_030_0_ = input,8,B,-;
@@ -151,7 +148,6 @@ LDS_000 = input,31,D,-;
 UDS_000 = input,32,D,-;
 VMA = input,35,D,-;
 AS_000 = input,33,D,-;
-DSACK_1_ = input,81,H,-;
 DTACK = input,30,D,-;
 RESET = input,3,B,-;
 AMIGA_BUS_DATA_DIR = input,48,E,-;
@@ -175,6 +171,8 @@ AVEC_EXP = input,22,C,-;
 BERR = input,41,E,-;
 nEXP_SPACE = input,14,-,-;
 A0 = input,69,G,-;
+DSACK1 = input,81,H,-;
+RW_000 = input,80,H,-;
 
 [GROUP ASSIGNMENT]
 Layer = OFF;
@@ -203,7 +201,7 @@ Page_Break = Yes;
 
 [POWER]
 Powerlevel =  Low,High;
-Default = Low;
+Default = High;
 Type = GLB;
 
 [SOURCE CONSTRAINT OPTION]

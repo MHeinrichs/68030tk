@@ -1,4 +1,3 @@
-@E: CD371 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":381:9:381:23|No matching overload for "="
-@E: CD308 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":381:29:381:44|Unable to evaluate expression type
-@E: CD676 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":381:29:381:44|Can't implement expression (no function signature?)
+@E: CL219 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":51:1:51:16|Multiple non-tristate drivers for net AMIGA_BUS_ENABLE in BUS68030
+@E: CL229 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":51:1:51:16|Unresolved tristate drivers for net AMIGA_BUS_ENABLE in BUS68030
 

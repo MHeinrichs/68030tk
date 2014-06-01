@@ -12,8 +12,8 @@ EN_PinMacrocell = Yes;
 
 [Revision]
 Parent = m4a5.lci;
-DATE = 05/25/2014;
-TIME = 21:04:55;
+DATE = 06/01/2014;
+TIME = 00:00:40;
 Source_Format = Pure_VHDL;
 Synthesis = Synplify;
 
@@ -36,7 +36,6 @@ Balanced_partitioning = No;
 [Location Assignments]
 layer = OFF;
 AS_030 = Pin, 82, -, H, -;
-A_0_ = Pin, 69, -, G, -;
 A_16_ = Pin, 96, -, A, -;
 A_17_ = Pin, 59, -, F, -;
 A_18_ = Pin, 95, -, A, -;
@@ -46,7 +45,6 @@ BG_030 = Pin, 21, -, C, -;
 CLK_000 = Pin, 11, -, -, -;
 CLK_030 = Pin, 64, -, -, -;
 CLK_OSZI = Pin, 61, -, -, -;
-CPU_SPACE = Pin, 14, -, -, -;
 FC_0_ = Pin, 57, -, F, -;
 FC_1_ = Pin, 58, -, F, -;
 IPL_0_ = Pin, 67, -, G, -;
@@ -62,7 +60,6 @@ BGACK_030 = Pin, 83, -, H, -;
 BG_000 = Pin, 29, -, D, -;
 CLK_DIV_OUT = Pin, 65, -, G, -;
 CLK_EXP = Pin, 10, -, B, -;
-DSACK_0_ = Pin, 80, -, H, -;
 E = Pin, 66, -, G, -;
 FPU_CS = Pin, 78, -, H, -;
 IPL_030_0_ = Pin, 8, -, B, -;
@@ -72,7 +69,6 @@ LDS_000 = Pin, 31, -, D, -;
 UDS_000 = Pin, 32, -, D, -;
 VMA = Pin, 35, -, D, -;
 AS_000 = Pin, 33, -, D, -;
-DSACK_1_ = Pin, 81, -, H, -;
 DTACK = Pin, 30, -, D, -;
 RESET = Pin, 3, -, B, -;
 AMIGA_BUS_DATA_DIR = Pin, 48, -, E, -;
@@ -96,6 +92,8 @@ AVEC_EXP = Pin, 22, -, C, -;
 BERR = Pin, 41, -, E, -;
 nEXP_SPACE = Pin, 14, -, -, -;
 A0 = Pin, 69, -, G, -;
+DSACK1 = Pin, 81, -, H, -;
+RW_000 = Pin, 80, -, H, -;
 
 [Group Assignments]
 layer = OFF;
@@ -106,7 +104,7 @@ layer = OFF;
 [Fitter Report Format]
 
 [Power]
-Default = Low;
+Default = High;
 
 [Source Constraint Option]
 
@@ -126,7 +124,7 @@ layer = OFF;
 Default = UP;
 
 [Slewrate]
-Default = SLOW;
+Default = Slow;
 
 [Region]
 

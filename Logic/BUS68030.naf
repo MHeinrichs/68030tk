@@ -1,5 +1,6 @@
 AS_030  b
 AS_000  b
+RW_000  b
 DS_030  b
 UDS_000  b
 LDS_000  b
@@ -40,8 +41,7 @@ IPL_030[0]  o
 IPL[2]  i
 IPL[1]  i
 IPL[0]  i
-DSACK[1]  b
-DSACK[0]  b
+DSACK1  b
 DTACK  b
 AVEC  o
 AVEC_EXP  b
@@ -50,7 +50,7 @@ VPA  i
 VMA  o
 RST  i
 RESET  o
-RW  i
+RW  b
 FC[1]  i
 FC[0]  i
 AMIGA_BUS_ENABLE  o
