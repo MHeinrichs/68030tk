@@ -6,7 +6,7 @@
 #Implementation: logic
 
 $ Start of Compile
-#Sun Jun 01 01:03:18 2014
+#Sat Jun 07 23:03:13 2014
 
 Synopsys VHDL Compiler, version comp201209rcp1, Build 283R, built Mar 19 2013
 @N|Running in 64-bit mode
@@ -23,6 +23,7 @@ Post processing for work.bus68030.behavioral
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":127:34:127:36|Pruning register CLK_000_D6  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":126:34:126:36|Pruning register CLK_000_D5  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":125:34:125:36|Pruning register CLK_000_D4  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":124:34:124:36|Pruning register CLK_000_D3  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":117:38:117:40|Pruning register CLK_OUT_PRE_33  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":149:2:149:3|Pruning register CLK_CNT_P(1 downto 0)  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":136:2:136:3|Pruning register CLK_CNT_N(1 downto 0)  
@@ -54,7 +55,7 @@ State machine has 11 reachable states with original encodings of:
    1111
 @END
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sun Jun 01 01:03:18 2014
+# Sat Jun 07 23:03:13 2014
 
 ###########################################################]
 Map & Optimize Report
@@ -91,16 +92,16 @@ Resource Usage Report
 
 Simple gate primitives:
 DFFRH           16 uses
-DFFSH           27 uses
+DFFSH           26 uses
 DFF             1 use
 BI_DIR          12 uses
 IBUF            29 uses
 BUFTH           2 uses
 OBUF            16 uses
 AND2            185 uses
-INV             151 uses
-OR2             21 uses
-XOR2            1 use
+INV             148 uses
+OR2             20 uses
+XOR2            2 uses
 
 
 @N: FC100 |Timing Report not generated for this device, please use place and route tools for timing analysis.
@@ -110,6 +111,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 95MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sun Jun 01 01:03:19 2014
+# Sat Jun 07 23:03:15 2014
 
 ###########################################################]
