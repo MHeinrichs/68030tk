@@ -2,6 +2,6 @@
 @N: CD720 :"C:\Program Files (x86)\ispLever\synpbase\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
 @N:"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Top entity is set to BUS68030.
 @N: CD630 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Synthesizing work.bus68030.behavioral 
-@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":129:32:129:34|Trying to extract state machine for register SM_AMIGA
-@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":120:34:120:36|Trying to extract state machine for register cpu_est
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":135:32:135:34|Trying to extract state machine for register SM_AMIGA
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":125:34:125:36|Trying to extract state machine for register cpu_est
 

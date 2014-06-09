@@ -15,8 +15,8 @@ Voltage = 5.0;
 RCS = "$Revision: 1.2 $";
 Parent = m4a5.lci;
 SDS_File = m4a5.sds;
-DATE = 06/01/2014;
-TIME = 00:00:40;
+DATE = 06/08/2014;
+TIME = 11:30:13;
 Source_Format = Pure_VHDL;
 Type = TT2;
 Pre_Fit_Time = 1;
@@ -53,8 +53,8 @@ Pin_Macrocell_Block = No;
 Routing = No;
 
 [GLOBAL PROJECT OPTIMIZATION]
-Balanced_Partitioning = No;
-Spread_Placement = No;
+Balanced_Partitioning = Yes;
+Spread_Placement = Yes;
 Max_Pin_Percent = 100;
 Max_Macrocell_Percent = 100;
 Max_Blk_In_Percent = 100;

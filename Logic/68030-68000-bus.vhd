@@ -102,6 +102,7 @@ signal	BGACK_030_INT:STD_LOGIC		:= '1';
 signal	BGACK_030_INT_D:STD_LOGIC	:= '1';
 signal	AS_000_DMA:STD_LOGIC		:= '1';
 signal	DS_000_DMA:STD_LOGIC		:= '1';
+signal	RW_000_DMA:STD_LOGIC		:= '1';
 signal  SIZE_DMA: STD_LOGIC_VECTOR ( 1 downto 0 ) 	:= "11";
 signal	A0_DMA: STD_LOGIC			:= '1';
 signal	FPU_CS_INT:STD_LOGIC		:= '1';
@@ -109,6 +110,7 @@ signal	VMA_INT: STD_LOGIC			:= '1';
 signal	VPA_D: STD_LOGIC			:= '1';
 signal	UDS_000_INT: STD_LOGIC		:= '1';
 signal	LDS_000_INT: STD_LOGIC		:= '1';
+signal	DS_000_ENABLE: STD_LOGIC	:= '0';
 signal  DSACK1_INT: STD_LOGIC		:= '1';
 signal	CLK_CNT_P: STD_LOGIC_VECTOR ( 1 downto 0 ) 	:= "00";
 signal	CLK_CNT_N: STD_LOGIC_VECTOR ( 1 downto 0 ) 	:= "00";
@@ -117,15 +119,19 @@ signal	CLK_OUT_PRE_50: STD_LOGIC	:= '1';
 signal	CLK_OUT_PRE_50_D: STD_LOGIC	:= '1';
 signal	CLK_OUT_PRE_25: STD_LOGIC	:= '1';
 signal	CLK_OUT_PRE_33: STD_LOGIC	:= '1';
+signal	CLK_OUT_PRE: STD_LOGIC		:= '1';
+signal	CLK_OUT_PRE_D: STD_LOGIC	:= '1';
+signal	CLK_OUT_NE: STD_LOGIC		:= '1';
 signal	CLK_OUT_INT: STD_LOGIC		:= '1';
 signal	CLK_030_H: STD_LOGIC		:= '1';
 signal	CLK_000_D0: STD_LOGIC 		:= '1';
 signal	CLK_000_D1: STD_LOGIC 		:= '1';
 signal	CLK_000_D2: STD_LOGIC 		:= '1';
 signal	CLK_000_D3: STD_LOGIC 		:= '1';
-signal	CLK_000_D4: STD_LOGIC 		:= '1';
-signal	CLK_000_D5: STD_LOGIC 		:= '1';
-signal	CLK_000_D6: STD_LOGIC 		:= '1';
+signal	CLK_000_P_SYNC: STD_LOGIC_VECTOR ( 12 downto 0 ) 	:= "0000000000000";
+signal	CLK_000_N_SYNC: STD_LOGIC_VECTOR ( 12 downto 0 ) 	:= "0000000000000";
+signal	CLK_000_PE: STD_LOGIC 		:= '0';
+signal	CLK_000_NE: STD_LOGIC 		:= '0';
 signal	DTACK_D0: STD_LOGIC 		:= '1';
 begin
 
@@ -147,29 +153,31 @@ begin
 	state_machine: process(RST, CLK_OSZI)
 	begin
 		if(RST = '0' ) then
-			CLK_CNT_P	<= "00";	
-			RESET 		<= '0';
-			CLK_OUT_PRE_50 <= '0';
+			CLK_CNT_P		<= "00";	
+			RESET 			<= '0';
+			CLK_OUT_PRE_50 	<= '0';
 			CLK_OUT_PRE_50_D <= '0';
-			CLK_OUT_PRE_33 <= '0';
-			CLK_OUT_PRE_25 <= '0';
-			CLK_OUT_INT	<= '0';
-			cpu_est		<= E20;
-			CLK_000_D0	<= '1';
-			CLK_000_D1	<= '1';
-			CLK_000_D2	<= '1';
-			CLK_000_D3	<= '1';
-			CLK_000_D4	<= '1';
-			CLK_000_D5	<= '1';
-			CLK_000_D6	<= '1';
-			VPA_D		<= '1';
+			CLK_OUT_PRE_33 	<= '0';
+			CLK_OUT_PRE_25 	<= '0';
+			CLK_OUT_PRE 	<= '0';
+			CLK_OUT_PRE_D 	<= '0';
+			CLK_OUT_NE		<= '0';
+			CLK_OUT_INT		<= '0';
+			cpu_est			<= E20;
+			CLK_000_D0		<= '1';
+			CLK_000_D1		<= '1';
+			CLK_000_D2		<= '1';
+			CLK_000_D3		<= '1';
+			VPA_D			<= '1';
 			DTACK_D0		<= '1';
 			SM_AMIGA		<= IDLE_P;
 			AS_000_INT 		<= '1';
 			RW_000_INT		<= '1';
+			RW_000_DMA		<= '1';
 			AS_030_000_SYNC <= '1';
 			UDS_000_INT		<= '1';
 			LDS_000_INT		<= '1';
+			DS_000_ENABLE	<= '0';
 			CLK_REF			<= "00";
 			VMA_INT			<= '1';
 			FPU_CS_INT		<= '1';
@@ -178,6 +186,10 @@ begin
 			BGACK_030_INT_D <= '1';
 			DSACK1_INT		<= '1';
 			IPL_030			<= "111";
+			CLK_000_P_SYNC	<= "0000000000000";
+			CLK_000_N_SYNC	<= "0000000000000";
+			CLK_000_PE		<= '0';
+			CLK_000_NE		<= '0';
 			AS_000_DMA		<= '1';
 			DS_000_DMA		<= '1';
 			SIZE_DMA		<= "11";
@@ -207,23 +219,42 @@ begin
 				CLK_OUT_PRE_25	<=	not CLK_OUT_PRE_25;
 			end if;
 			
+			--here the clock is selected
+			CLK_OUT_PRE 	<= CLK_OUT_PRE_25;
+			CLK_OUT_PRE_D 	<= CLK_OUT_PRE;
+			
+			--a negative edge is comming next cycle
+			if(CLK_OUT_PRE_D='1' and CLK_OUT_PRE='0' )then
+				CLK_OUT_NE <= '1';
+			else
+				CLK_OUT_NE <= '0';
+			end if;
 			-- the external clock to the processor is generated here
-			CLK_OUT_INT	<= CLK_OUT_PRE_25; --this way we know the clock of the next state: Its like looking in the future, cool!
+			CLK_OUT_INT	<= CLK_OUT_PRE_D; --this way we know the clock of the next state: Its like looking in the future, cool!
 			--delayed Clocks and signals for edge detection
 			CLK_000_D0 	<= CLK_000;
 			CLK_000_D1 	<= CLK_000_D0;
 			CLK_000_D2 	<= CLK_000_D1;
 			CLK_000_D3 	<= CLK_000_D2;
-			CLK_000_D4 	<= CLK_000_D3;
-			CLK_000_D5 	<= CLK_000_D4;
-			CLK_000_D6 	<= CLK_000_D5;
+
+			--shift registers for edge detection
+			CLK_000_P_SYNC( 12 downto 1 ) 	<= CLK_000_P_SYNC( 11 downto 0 );
+			CLK_000_P_SYNC(0)				<= CLK_000_D0 AND NOT CLK_000_D1 AND NOT CLK_000_D2 AND NOT CLK_000_D3;
+			CLK_000_N_SYNC( 12 downto 1 ) 	<= CLK_000_N_SYNC( 11 downto 0 );
+			CLK_000_N_SYNC(0)				<= NOT CLK_000_D0 AND CLK_000_D1 AND CLK_000_D2 AND CLK_000_D3;
+			
+			-- values are determined empiracally for 7.09 MHz Clock
+			-- since the clock is not symmetrically these values differ!
+			CLK_000_PE <= CLK_000_P_SYNC(9);
+			CLK_000_NE <= CLK_000_N_SYNC(11);
+
 			DTACK_D0	<= DTACK;
 			VPA_D 		<= VPA;
 
 			--now: 68000 state machine and signals
 			
 			-- e-clock
-			if(CLK_000_D1 = '0' and CLK_000_D0 = '1') then
+			if(CLK_000_PE = '1') then
 				case (cpu_est) is
 					when E1 => cpu_est <= E2 ; 
 					when E2 => cpu_est <= E3 ;
@@ -281,11 +312,8 @@ begin
 				FPU_CS_INT		<= '1';
 				DSACK1_INT		<= '1';
 				AS_000_INT  	<= '1';
-				UDS_000_INT 	<= '1';
-				LDS_000_INT 	<= '1';
-				--AMIGA_BUS_ENABLE <= '1';
-			elsif(	CLK_030  		= '1'  AND --68030 has a valid AS on high clocks
-					
+				DS_000_ENABLE	<= '0';
+			elsif(	--CLK_030  		= '1'  AND --68030 has a valid AS on high clocks					
 					AS_030 			= '0') then
 				if(FC(1)='1' and FC(0)='1' and A(19)='0' and A(18)='0' and A(17)='1' and A(16)='0' AND BGACK_000='1') then
 					FPU_CS_INT	<= '0';
@@ -305,77 +333,70 @@ begin
 			elsif(CLK_000_D0='1' AND AS_000_INT='1' AND cpu_est=E1)then --deassert
 				VMA_INT <= '1';
 			end if;
+			
+			--uds/lds precalculation
+			if (DS_030 = '0') then --DS: set udl/lds 	
+				if(A0='0') then
+					UDS_000_INT <= '0';
+				else
+					UDS_000_INT <= '1';
+				end if;
+				if((A0='1' OR SIZE(0)='0' OR SIZE(1)='1')) then
+					LDS_000_INT <= '0';
+				else
+					LDS_000_INT <= '1';
+				end if;
+			end if;
 
 			--Amiga statemachine
 			case (SM_AMIGA) is
 				when IDLE_P 	 => --68000:S0 wait for a falling edge
 					AMIGA_BUS_ENABLE_INT <= '1';
-		
+					RW_000_INT		<= '1';
 					
 					if( CLK_000_D1='0' and CLK_000_D2= '1' and AS_030_000_SYNC = '0')then
 						
-						if(nEXP_SPACE ='1')then 
+						if(nEXP_SPACE ='1')then -- if this a delayed expansion space detection, do not start an amiga cycle!
 							AMIGA_BUS_ENABLE_INT <= '0' ;--for now: allways on for amiga
 							SM_AMIGA<=IDLE_N;  --go to s1
-						else  -- if this a delayed expansion space detection, aboard this cycle!
-							AS_030_000_SYNC	 <= '1';
 						end if;
 					end if;
 				when IDLE_N 	 => --68000:S1 place Adress on bus and wait for rising edge, on a rising CLK_000 look for a amiga adressrobe
-					if(CLK_000_D0='1')then --go to s2
+					if(CLK_000_PE='1')then --go to s2
 						SM_AMIGA <= AS_SET_P; --as for amiga set! 
 						AS_000_INT <= '0';
 						RW_000_INT <= RW;						
-						if (RW='1' and DS_030 = '0') then --read: set udl/lds 	
-							if(A0='0') then
-								UDS_000_INT <= '0';
-							else
-								UDS_000_INT <= '1';
-							end if;
-							if((A0='1' OR SIZE(0)='0' OR SIZE(1)='1')) then
-								LDS_000_INT <= '0';
-							else
-								LDS_000_INT <= '1';
-							end if;
+						if (RW='1' ) then --read: set udl/lds 	
+							DS_000_ENABLE	<= '1';
 						end if;
 					end if;
 				when AS_SET_P	 => --68000:S2 Amiga cycle starts here: since AS is asserted during transition to this state we simply wait here
-					if(CLK_000_D0='0')then --go to s3
+					if(CLK_000_NE='1')then --go to s3
 						SM_AMIGA<=AS_SET_N; 
-						if (RW='0' and DS_030 = '0') then --write: set udl/lds earlier than in the specs. this does not seem to harm anything and is saver, than sampling uds/lds too late 				 
-							if(A0='0') then
-								UDS_000_INT <= '0';
-							else
-								UDS_000_INT <= '1';
-							end if;
-							if((A0='1' OR SIZE(0)='0' OR SIZE(1)='1')) then
-								LDS_000_INT <= '0';
-							else
-								LDS_000_INT <= '1';
-							end if;
-						end if;
 					end if;
 				when AS_SET_N	 => --68000:S3: nothing happens here; on a transition to s4: assert uds/lds on write 
-					if(CLK_000_D0='1')then --go to s4
+					
+					if(CLK_000_PE='1')then --go to s4
+						DS_000_ENABLE	<= '1';--write: set udl/lds earlier than in the specs. this does not seem to harm anything and is saver, than sampling uds/lds too late 				 
+						-- set DS-Enable without respect to rw: this simplifies the life for the syntesizer
 						SM_AMIGA <= SAMPLE_DTACK_P; 
 					end if;
 				when SAMPLE_DTACK_P=> --68000:S4 wait for dtack or VMA
-					if(	CLK_000_D0 = '0' and CLK_000_D1='1' and --falling edge
-						((VPA_D = '1' AND DTACK_D0='0') OR --DTACK end cycle
+					if(	CLK_000_NE='1' and --falling edge
+						((VPA_D = '1' AND DTACK='0') OR --DTACK end cycle
 						(VPA_D='0' AND cpu_est=E9 AND VMA_INT='0')) --VPA end cycle
 						)then --go to s5
 							SM_AMIGA<=DATA_FETCH_N;
 					end if;
 				when DATA_FETCH_N=> --68000:S5 nothing happens here just wait for positive clock
-					if(CLK_000_D0 = '1')then --go to s6
+					if(CLK_000_PE = '1')then --go to s6
 						SM_AMIGA<=DATA_FETCH_P;
 					end if;
 				when DATA_FETCH_P => --68000:S6: READ: here comes the data on the bus!
-					--if( CLK_000_D2 ='1' AND CLK_000_D3 = '0' ) then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
+					if( CLK_000_D1='1' and CLK_OUT_NE = '0') then --go to s7 next 030-clock is not a falling edge: dsack is sampled at the falling edge
 						DSACK1_INT <='0'; 
-						AS_030_000_SYNC 	<= '1'; --cycle end												
-					--els
-					if( CLK_000_D0 ='0') then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
+					end if;
+					if( CLK_000_NE ='1') then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
 						SM_AMIGA<=END_CYCLE_N;
 						if(AS_030 ='1') then
 							AMIGA_BUS_ENABLE_INT <= '1';
@@ -386,9 +407,8 @@ begin
 						AMIGA_BUS_ENABLE_INT <= '1';
 					end if;
 
-					if(CLK_000_D0='1')then --go to s0											
-						SM_AMIGA<=IDLE_P;
-						RW_000_INT		<= '1';
+					if(CLK_000_PE='1')then --go to s0											
+						SM_AMIGA<=IDLE_P;						
 					end if;
 			end case;
 
@@ -406,7 +426,7 @@ begin
 				--set AS_000
 				if( CLK_030='0') then
 					AS_000_DMA 	<= '0';
-					RW_000_INT	<= RW_000;
+					RW_000_DMA	<= RW_000;
 				elsif(AS_000_DMA = '0' and CLK_030='1')then
 					CLK_030_H		<= '1';
 				end if;
@@ -436,6 +456,7 @@ begin
 				DS_000_DMA		<= '1';
 				SIZE_DMA		<= "11";
 				A0_DMA			<= '0';	
+				RW_000_DMA		<= '1';	
 				CLK_030_H		<= '0';						
 			end if;
 		end if;		
@@ -444,7 +465,7 @@ begin
 	--output clock assignment
 	CLK_DIV_OUT	<= CLK_OUT_INT;
 	CLK_EXP		<= CLK_OUT_INT;
-	AVEC_EXP	<= AMIGA_BUS_ENABLE_INT;
+	AVEC_EXP	<= CLK_000_PE;
 	AMIGA_BUS_ENABLE <= AMIGA_BUS_ENABLE_INT;
 	--dma stuff
 	DTACK	<= 'Z' when BGACK_030_INT ='1' OR nEXP_SPACE = '1' OR AS_000_DMA ='1' else
@@ -459,10 +480,13 @@ begin
 					SIZE_DMA;
 	
 	--fpu
-	FPU_CS		<=	FPU_CS_INT;
+	FPU_CS		<=	'0' when AS_030 ='0' and FC(1)='1' and FC(0)='1' and A(19)='0' and A(18)='0' and A(17)='1' and A(16)='0' AND BGACK_000='1'
+					else '1';
 	
 	--if no copro is installed:
-	BERR		<=	'Z' when FPU_CS_INT ='1' else '0';
+	--BERR		<=	'Z' when FPU_CS_INT ='1' else '0';
+	BERR		<=	'0' when AS_030 ='0' and FC(1)='1' and FC(0)='1' and A(19)='0' and A(18)='0' and A(17)='1' and A(16)='0' AND BGACK_000='1'
+					else 'Z';
 
 
 
@@ -478,7 +502,7 @@ begin
 							'1' WHEN (RW='1' AND BGACK_030_INT ='0' AND nEXP_SPACE = '0' AND AS_000 = '0') ELSE --DMA READ to expansion space
 							'0' WHEN (RW='0' AND BGACK_030_INT ='0' AND nEXP_SPACE = '0' AND AS_000 = '0') ELSE --DMA WRITE to expansion space
 							'0'; --Point towarts TK
-	AMIGA_BUS_ENABLE_LOW <= '1'; --for now: allways off
+	AMIGA_BUS_ENABLE_LOW <= CLK_OUT_NE; --for now: allways off
 		
 	--e and VMA		
 	E		<= cpu_est(3);
@@ -495,8 +519,10 @@ begin
 					RW_000_INT;
 
 	UDS_000	<= 'Z' when BGACK_030_INT ='0' else -- output on cpu cycle
+			   '1' when DS_000_ENABLE ='0' else -- datastrobe not ready jet
 					UDS_000_INT;
 	LDS_000	<= 'Z' when BGACK_030_INT ='0' else -- output on cpu cycle
+			   '1' when DS_000_ENABLE ='0' else -- datastrobe not ready jet
 					LDS_000_INT;
 
 	--dsack
@@ -504,7 +530,7 @@ begin
 			DSACK1_INT;
 	--rw
 	RW		<= 'Z' when BGACK_030_INT ='1' else
-					RW_000_INT;
+					RW_000_DMA;
 	
 	BGACK_030	<= BGACK_030_INT;	
 end Behavioral;

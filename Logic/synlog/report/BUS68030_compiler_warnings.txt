@@ -1,9 +1,9 @@
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":129:32:129:34|Pruning register CLK_REF(1 downto 0)  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":127:34:127:36|Pruning register CLK_000_D6  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":126:34:126:36|Pruning register CLK_000_D5  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":125:34:125:36|Pruning register CLK_000_D4  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":124:34:124:36|Pruning register CLK_000_D3  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":117:38:117:40|Pruning register CLK_OUT_PRE_33  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":149:2:149:3|Pruning register CLK_CNT_P(1 downto 0)  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":136:2:136:3|Pruning register CLK_CNT_N(1 downto 0)  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":117:53:117:56|Pruning register FPU_CS_INT  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":135:32:135:34|Pruning register CLK_REF(1 downto 0)  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":110:29:110:31|Pruning register DTACK_D0  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":119:38:119:40|Pruning register CLK_OUT_PRE_33  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":155:2:155:3|Pruning register CLK_CNT_P(1 downto 0)  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":142:2:142:3|Pruning register CLK_CNT_N(1 downto 0)  
+@W: CL265 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:61:131:75|Pruning bit 12 of CLK_000_N_SYNC(12 downto 0) -- not in use ... 
+@W: CL271 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":102:36:102:38|Pruning bits 12 to 10 of CLK_000_P_SYNC(12 downto 0) -- not in use ... 
 

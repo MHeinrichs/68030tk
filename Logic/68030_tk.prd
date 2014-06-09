@@ -5,13 +5,13 @@
 |--------------------------------------------|
 
 
-Start: Sat Jun 07 23:03:24 2014
-End  : Sat Jun 07 23:03:24 2014    $$$ Elapsed time: 00:00:00
+Start: Mon Jun 09 10:27:29 2014
+End  : Mon Jun 09 10:27:29 2014    $$$ Elapsed time: 00:00:00
 ===========================================================================
 Part [C:/Program Files (x86)/ispLever/ispcpld/dat/mach4a/mach447a] Design [68030_tk.tt4]
 
-* Place/Route options (keycode = 16386)
-	= Spread Placement:			     OFF
+* Place/Route options (keycode = 540674)
+	= Spread Placement:			      ON
 	= No. Routing Attempts/Placement	       2
 
 * Placement Completion
@@ -21,16 +21,16 @@ Part [C:/Program Files (x86)/ispLever/ispcpld/dat/mach4a/mach447a] Design [68030
  |    |    +- Signals to Place  |    |             +----- Logic Array Inputs
  |    |    |    +- Placed       |    |             |   +- Array Inputs Used
 _|____|____|____|_______________|____|_____________|___|________________
- 0 | 16 |  6 |  6 => 100% |     8 |  7 =>  87% |  33 | 23    =>  69%
- 1 | 16 | 10 | 10 => 100% |     8 |  8 => 100% |  33 | 22    =>  66%
- 2 | 16 |  2 |  2 => 100% |     8 |  8 => 100% |  33 |  1    =>   3%
- 3 | 16 | 12 | 12 => 100% |     8 |  8 => 100% |  33 | 29    =>  87%
- 4 | 16 |  3 |  3 => 100% |     8 |  3 =>  37% |  33 | 17    =>  51%
- 5 | 16 |  0 |  0 =>  n/a |     8 |  4 =>  50% |  33 |  0    =>   0%
- 6 | 16 |  8 |  8 => 100% |     8 |  7 =>  87% |  33 | 27    =>  81%
- 7 | 16 | 13 | 13 => 100% |     8 |  8 => 100% |  33 | 28    =>  84%
+ 0 | 16 | 11 | 11 => 100% |     8 |  7 =>  87% |  33 | 19    =>  57%
+ 1 | 16 | 11 | 11 => 100% |     8 |  8 => 100% |  33 | 21    =>  63%
+ 2 | 16 | 11 | 11 => 100% |     8 |  8 => 100% |  33 | 18    =>  54%
+ 3 | 16 | 10 | 10 => 100% |     8 |  8 => 100% |  33 | 31    =>  93%
+ 4 | 16 |  7 |  7 => 100% |     8 |  3 =>  37% |  33 | 29    =>  87%
+ 5 | 16 | 10 | 10 => 100% |     8 |  4 =>  50% |  33 | 21    =>  63%
+ 6 | 16 | 10 | 10 => 100% |     8 |  7 =>  87% |  33 | 23    =>  69%
+ 7 | 16 | 10 | 10 => 100% |     8 |  8 => 100% |  33 | 28    =>  84%
 ---|----|----|------------|-------|------------|-----|------------------
-        | Avg number of array inputs in used blocks :  21.00 =>  63%
+        | Avg number of array inputs in used blocks :  23.75 =>  71%
 
 * Input/Clock Signal count:  29 -> placed:  29 = 100%
 
@@ -40,14 +40,14 @@ _|____|____|____|_______________|____|_____________|___|________________
 	I/O Pins              :  64       53    =>  82%
 	Clock Only Pins       :   0        0    =>   0%
 	Clock/Input Pins      :   4        4    => 100%
-	Logic Blocks          :   8        7    =>  87%
-	Macrocells            : 128       54    =>  42%
-	PT Clusters           : 128       40    =>  31%
-	 - Single PT Clusters : 128       22    =>  17%
+	Logic Blocks          :   8        8    => 100%
+	Macrocells            : 128       80    =>  62%
+	PT Clusters           : 128       35    =>  27%
+	 - Single PT Clusters : 128       47    =>  36%
 	Input Registers       :            0
 
 * Routing Completion: 100%
-* Attempts: Place [      97] Route [       0]
+* Attempts: Place [     550] Route [       0]
 ===========================================================================
 	Signal Fanout Table
 ===========================================================================
@@ -57,20 +57,23 @@ _|____|____|____|_______________|____|_____________|___|________________
    |  |  |    +- Signal-to-Pin Assignment
    |  |  |    |    Fanout to Logic Blocks               Signal Name
 ___|__|__|____|____________________________________________________________
-   1| 6| IO|  69|=> ...3|....| A0
+   1| 6| IO|  69|=> ..2.|....| A0
    2| 4|OUT|  48|=> ....|....| AMIGA_BUS_DATA_DIR
-   3| 3|OUT|  34|=> ....|....| AMIGA_BUS_ENABLE
-   4| 2|OUT|  20|=> ....|....| AMIGA_BUS_ENABLE_LOW
-   5| 3| IO|  33|=> 01..|4.67| AS_000
+   3| 3| IO|  34|=> ....|....| AMIGA_BUS_ENABLE
+		|=> Paired w/: RN_AMIGA_BUS_ENABLE
+   4| 2| IO|  20|=> ....|....| AMIGA_BUS_ENABLE_LOW
+		|=> Paired w/: RN_AMIGA_BUS_ENABLE_LOW
+   5| 3| IO|  33|=> 0...|4.67| AS_000
 		|=> Paired w/: RN_AS_000
-   6| 7| IO|  82|=> ...3|..67| AS_030
+   6| 7| IO|  82|=> .1.3|4..7| AS_030
 		|=> Paired w/: RN_AS_030
    7| 0|OUT|  92|=> ....|....| AVEC
-   8| 2|OUT|  22|=> ....|....| AVEC_EXP
-   9| 0|INP|  96|=> ....|...7| A_16_
-  10| 5|INP|  59|=> ....|...7| A_17_
-  11| 0|INP|  95|=> ....|...7| A_18_
-  12| 0|INP|  97|=> ....|...7| A_19_
+   8| 2| IO|  22|=> ....|....| AVEC_EXP
+		|=> Paired w/: RN_AVEC_EXP
+   9| 0|INP|  96|=> ....|4..7| A_16_
+  10| 5|INP|  59|=> ....|4..7| A_17_
+  11| 0|INP|  95|=> ....|4..7| A_18_
+  12| 0|INP|  97|=> ....|4..7| A_19_
   13| 0|INP|  93|=> ....|4...| A_20_
   14| 0|INP|  94|=> ....|4...| A_21_
   15| 7|INP|  85|=> ....|4...| A_22_
@@ -84,104 +87,133 @@ ___|__|__|____|____________________________________________________________
   23| 1|INP|   5|=> ....|4...| A_30_
   24| 1|INP|   4|=> ....|4...| A_31_
   25| 4|OUT|  41|=> ....|....| BERR
-  26| 3|INP|  28|=> ....|...7| BGACK_000
+  26| 3|INP|  28|=> ....|4..7| BGACK_000
   27| 7| IO|  83|=> ....|....| BGACK_030
 		|=> Paired w/: RN_BGACK_030
   28| 3| IO|  29|=> ....|....| BG_000
 		|=> Paired w/: RN_BG_000
   29| 2|INP|  21|=> ...3|....| BG_030
   30| 4|OUT|  47|=> ....|....| CIIN
-  31| +|INP|  11|=> ...3|...7| CLK_000
-  32| +|INP|  64|=> 01..|..67| CLK_030
-  33| 6|OUT|  65|=> ....|....| CLK_DIV_OUT
-  34| 1|OUT|  10|=> ....|....| CLK_EXP
-  35| +|Cin|  61|=> ....|....| CLK_OSZI
-  36| 7| IO|  81|=> ...3|....| DSACK1
+  31| +|INP|  11|=> ...3|.5..| CLK_000
+  32| 5|NOD|  . |=> 0...|....| CLK_000_N_SYNC_0_
+  33| 0|NOD|  . |=> 0...|....| CLK_000_N_SYNC_10_
+  34| 0|NOD|  . |=> 0...|....| CLK_000_N_SYNC_11_
+  35| 0|NOD|  . |=> ....|4...| CLK_000_N_SYNC_1_
+  36| 4|NOD|  . |=> ..2.|....| CLK_000_N_SYNC_2_
+  37| 2|NOD|  . |=> 0...|....| CLK_000_N_SYNC_3_
+  38| 0|NOD|  . |=> 0...|....| CLK_000_N_SYNC_4_
+  39| 0|NOD|  . |=> ....|.5..| CLK_000_N_SYNC_5_
+  40| 5|NOD|  . |=> ....|4...| CLK_000_N_SYNC_6_
+  41| 4|NOD|  . |=> ..2.|....| CLK_000_N_SYNC_7_
+  42| 2|NOD|  . |=> ....|.5..| CLK_000_N_SYNC_8_
+  43| 5|NOD|  . |=> 0...|....| CLK_000_N_SYNC_9_
+  44| 5|NOD|  . |=> .1..|....| CLK_000_P_SYNC_0_
+  45| 1|NOD|  . |=> ..2.|....| CLK_000_P_SYNC_1_
+  46| 2|NOD|  . |=> 0...|....| CLK_000_P_SYNC_2_
+  47| 0|NOD|  . |=> ....|..6.| CLK_000_P_SYNC_3_
+  48| 6|NOD|  . |=> ..2.|....| CLK_000_P_SYNC_4_
+  49| 2|NOD|  . |=> ..2.|....| CLK_000_P_SYNC_5_
+  50| 2|NOD|  . |=> 0...|....| CLK_000_P_SYNC_6_
+  51| 0|NOD|  . |=> ....|.5..| CLK_000_P_SYNC_7_
+  52| 5|NOD|  . |=> .1..|....| CLK_000_P_SYNC_8_
+  53| 1|NOD|  . |=> ..2.|....| CLK_000_P_SYNC_9_
+  54| +|INP|  64|=> 0...|..67| CLK_030
+  55| 6|OUT|  65|=> ....|....| CLK_DIV_OUT
+  56| 1|OUT|  10|=> ....|....| CLK_EXP
+  57| +|Cin|  61|=> ....|....| CLK_OSZI
+  58| 7| IO|  81|=> ...3|....| DSACK1
 		|=> Paired w/: RN_DSACK1
-  37| 0| IO|  98|=> ...3|....| DS_030
+  59| 0| IO|  98|=> ..2.|....| DS_030
 		|=> Paired w/: RN_DS_030
-  38| 3| IO|  30|=> .1..|....| DTACK
-  39| 6| IO|  66|=> ....|....| E
+  60| 3| IO|  30|=> ....|.5..| DTACK
+  61| 6| IO|  66|=> ....|....| E
 		|=> Paired w/: RN_E
-  40| 5|INP|  57|=> ....|...7| FC_0_
-  41| 5|INP|  58|=> ....|...7| FC_1_
-  42| 7| IO|  78|=> ....|....| FPU_CS
-		|=> Paired w/: RN_FPU_CS
-  43| 1| IO|   8|=> ....|....| IPL_030_0_
+  62| 5|INP|  57|=> ....|4..7| FC_0_
+  63| 5|INP|  58|=> ....|4..7| FC_1_
+  64| 7|OUT|  78|=> ....|....| FPU_CS
+  65| 1| IO|   8|=> ....|....| IPL_030_0_
 		|=> Paired w/: RN_IPL_030_0_
-  44| 1| IO|   7|=> ....|....| IPL_030_1_
+  66| 1| IO|   7|=> ....|....| IPL_030_1_
 		|=> Paired w/: RN_IPL_030_1_
-  45| 1| IO|   9|=> ....|....| IPL_030_2_
+  67| 1| IO|   9|=> ....|....| IPL_030_2_
 		|=> Paired w/: RN_IPL_030_2_
-  46| 6|INP|  67|=> .1..|....| IPL_0_
-  47| 5|INP|  56|=> .1..|....| IPL_1_
-  48| 6|INP|  68|=> .1..|....| IPL_2_
-  49| 3| IO|  31|=> 01..|..67| LDS_000
-		|=> Paired w/: RN_LDS_000
-  50| 1|OUT|   3|=> ....|....| RESET
-  51| 3|NOD|  . |=> ...3|....| RN_AS_000
+  68| 6|INP|  67|=> .1..|....| IPL_0_
+  69| 5|INP|  56|=> .1..|....| IPL_1_
+  70| 6|INP|  68|=> .1..|....| IPL_2_
+  71| 3| IO|  31|=> 0...|..67| LDS_000
+  72| 1|OUT|   3|=> ....|....| RESET
+  73| 3|NOD|  . |=> ...3|....| RN_AMIGA_BUS_ENABLE
+		|=> Paired w/: AMIGA_BUS_ENABLE
+  74| 2|NOD|  . |=> ....|...7| RN_AMIGA_BUS_ENABLE_LOW
+		|=> Paired w/: AMIGA_BUS_ENABLE_LOW
+  75| 3|NOD|  . |=> ...3|....| RN_AS_000
 		|=> Paired w/: AS_000
-  52| 7|NOD|  . |=> 01.3|..67| RN_AS_030
+  76| 7|NOD|  . |=> 0..3|..67| RN_AS_030
 		|=> Paired w/: AS_030
-  53| 7|NOD|  . |=> 01.3|4.67| RN_BGACK_030
+  77| 2|NOD|  . |=> .1.3|.567| RN_AVEC_EXP
+		|=> Paired w/: AVEC_EXP
+  78| 7|NOD|  . |=> 0..3|4.67| RN_BGACK_030
 		|=> Paired w/: BGACK_030
-  54| 3|NOD|  . |=> ...3|....| RN_BG_000
+  79| 3|NOD|  . |=> ...3|....| RN_BG_000
 		|=> Paired w/: BG_000
-  55| 7|NOD|  . |=> ....|...7| RN_DSACK1
+  80| 7|NOD|  . |=> ....|...7| RN_DSACK1
 		|=> Paired w/: DSACK1
-  56| 0|NOD|  . |=> 0...|....| RN_DS_030
+  81| 0|NOD|  . |=> 0...|....| RN_DS_030
 		|=> Paired w/: DS_030
-  57| 6|NOD|  . |=> 0..3|..6.| RN_E
+  82| 6|NOD|  . |=> ...3|.56.| RN_E
 		|=> Paired w/: E
-  58| 7|NOD|  . |=> ....|4..7| RN_FPU_CS
-		|=> Paired w/: FPU_CS
-  59| 1|NOD|  . |=> .1..|....| RN_IPL_030_0_
+  83| 1|NOD|  . |=> .1..|....| RN_IPL_030_0_
 		|=> Paired w/: IPL_030_0_
-  60| 1|NOD|  . |=> .1..|....| RN_IPL_030_1_
+  84| 1|NOD|  . |=> .1..|....| RN_IPL_030_1_
 		|=> Paired w/: IPL_030_1_
-  61| 1|NOD|  . |=> .1..|....| RN_IPL_030_2_
+  85| 1|NOD|  . |=> .1..|....| RN_IPL_030_2_
 		|=> Paired w/: IPL_030_2_
-  62| 3|NOD|  . |=> ...3|....| RN_LDS_000
-		|=> Paired w/: LDS_000
-  63| 3|NOD|  . |=> ...3|....| RN_UDS_000
-		|=> Paired w/: UDS_000
-  64| 3|NOD|  . |=> 0..3|....| RN_VMA
+  86| 6|NOD|  . |=> ....|..6.| RN_RW
+		|=> Paired w/: RW
+  87| 7|NOD|  . |=> ....|...7| RN_RW_000
+		|=> Paired w/: RW_000
+  88| 3|NOD|  . |=> ...3|.5..| RN_VMA
 		|=> Paired w/: VMA
-  65| +|INP|  86|=> 01.3|..67| RST
-  66| 6| IO|  71|=> ...3|4.6.| RW
-  67| 7| IO|  80|=> 0...|..6.| RW_000
-  68| 6| IO|  70|=> ...3|....| SIZE_0_
-  69| 7| IO|  79|=> ...3|....| SIZE_1_
-  70| 7|NOD|  . |=> ....|..67| SM_AMIGA_0_
-  71| 1|NOD|  . |=> .1..|..67| SM_AMIGA_1_
-  72| 0|NOD|  . |=> 01..|....| SM_AMIGA_2_
-  73| 0|NOD|  . |=> 0...|....| SM_AMIGA_3_
-  74| 0|NOD|  . |=> 0...|....| SM_AMIGA_4_
-  75| 3|NOD|  . |=> 0..3|....| SM_AMIGA_5_
-  76| 6|NOD|  . |=> ...3|..6.| SM_AMIGA_6_
-  77| 7|NOD|  . |=> ...3|..67| SM_AMIGA_7_
-  78| 3| IO|  32|=> 01..|..67| UDS_000
-		|=> Paired w/: RN_UDS_000
-  79| 3| IO|  35|=> ....|....| VMA
+  89| +|INP|  86|=> 0123|4567| RST
+  90| 6| IO|  71|=> .1..|4..7| RW
+		|=> Paired w/: RN_RW
+  91| 7| IO|  80|=> 0...|..6.| RW_000
+		|=> Paired w/: RN_RW_000
+  92| 6| IO|  70|=> ..2.|....| SIZE_0_
+  93| 7| IO|  79|=> ..2.|....| SIZE_1_
+  94| 3|NOD|  . |=> ...3|....| SM_AMIGA_0_
+  95| 5|NOD|  . |=> ...3|.5.7| SM_AMIGA_1_
+  96| 5|NOD|  . |=> ....|.5..| SM_AMIGA_2_
+  97| 5|NOD|  . |=> ....|.5..| SM_AMIGA_3_
+  98| 1|NOD|  . |=> .1..|.5..| SM_AMIGA_4_
+  99| 1|NOD|  . |=> .1..|....| SM_AMIGA_5_
+ 100| 6|NOD|  . |=> .1.3|..67| SM_AMIGA_6_
+ 101| 3|NOD|  . |=> ...3|..67| SM_AMIGA_7_
+ 102| 3| IO|  32|=> 0...|..67| UDS_000
+ 103| 3| IO|  35|=> ....|....| VMA
 		|=> Paired w/: RN_VMA
-  80| +|INP|  36|=> 0...|....| VPA
-  81| 3|NOD|  . |=> ...3|..6.| cpu_est_0_
-  82| 3|NOD|  . |=> 0..3|..6.| cpu_est_1_
-  83| 3|NOD|  . |=> ...3|..6.| cpu_est_2_
-  84| 7|NOD|  . |=> ....|..67| inst_AS_030_000_SYNC
-  85| 1|NOD|  . |=> ....|..6.| inst_BGACK_030_INT_D
-  86| 7|NOD|  . |=> 01.3|..67| inst_CLK_000_D0
-  87| 3|NOD|  . |=> 01.3|..67| inst_CLK_000_D1
-  88| 7|NOD|  . |=> ....|..67| inst_CLK_000_D2
-  89| 1|NOD|  . |=> 01..|....| inst_CLK_030_H
-  90| 1|NOD|  . |=> .1..|..6.| inst_CLK_OUT_PRE_25
-  91| 7|NOD|  . |=> .1..|...7| inst_CLK_OUT_PRE_50
-  92| 7|NOD|  . |=> .1..|....| inst_CLK_OUT_PRE_50_D
-  93| 1|NOD|  . |=> 0...|....| inst_DTACK_D0
-  94| 6|NOD|  . |=> ....|..67| inst_RW_000_INT
-  95| 0|NOD|  . |=> 0..3|....| inst_VPA_D
-  96| 6|NOD|  . |=> ..23|..6.| inst_avec_expreg
-  97| +|INP|  14|=> 0..3|4.67| nEXP_SPACE
+ 104| +|INP|  36|=> ....|..6.| VPA
+ 105| 5|NOD|  . |=> ...3|.56.| cpu_est_0_
+ 106| 6|NOD|  . |=> ...3|.56.| cpu_est_1_
+ 107| 6|NOD|  . |=> ...3|..6.| cpu_est_2_
+ 108| 7|NOD|  . |=> ...3|..67| inst_AS_030_000_SYNC
+ 109| 7|NOD|  . |=> ...3|....| inst_BGACK_030_INT_D
+ 110| 5|NOD|  . |=> .1.3|.5.7| inst_CLK_000_D0
+ 111| 7|NOD|  . |=> .1.3|.567| inst_CLK_000_D1
+ 112| 3|NOD|  . |=> ...3|456.| inst_CLK_000_D2
+ 113| 4|NOD|  . |=> ....|.5..| inst_CLK_000_D3
+ 114| 0|NOD|  . |=> .1.3|.5..| inst_CLK_000_NE
+ 115| 0|NOD|  . |=> 0...|....| inst_CLK_030_H
+ 116| 1|NOD|  . |=> ..2.|....| inst_CLK_OUT_PRE
+ 117| 2|NOD|  . |=> .12.|....| inst_CLK_OUT_PRE_25
+ 118| 4|NOD|  . |=> ..2.|4..7| inst_CLK_OUT_PRE_50
+ 119| 7|NOD|  . |=> ..2.|....| inst_CLK_OUT_PRE_50_D
+ 120| 2|NOD|  . |=> .12.|..6.| inst_CLK_OUT_PRE_D
+ 121| 1|NOD|  . |=> .1.3|....| inst_DS_000_ENABLE
+ 122| 2|NOD|  . |=> ..23|....| inst_LDS_000_INT
+ 123| 2|NOD|  . |=> ..23|....| inst_UDS_000_INT
+ 124| 6|NOD|  . |=> ...3|.5..| inst_VPA_D
+ 125| +|INP|  14|=> 0..3|4.67| nEXP_SPACE
 ---------------------------------------------------------------------------
 ===========================================================================
 	< C:/Program Files (x86)/ispLever/ispcpld/dat/mach4a/mach447a Device Pin Assignments >
@@ -302,19 +334,19 @@ ____|_____|_________|______________________________________________________
  |  Signal Name    |  |  |   |     |  |      |   |          |
 _|_________________|__|__|___|_____|__|______|___|__________|______________
  0|        DS_030| IO| | S | 7      | 4 to [ 0]| 1 XOR to [ 0] as logic PT
- 1|   SM_AMIGA_2_|NOD| | S | 3      | 4 to [ 1]| 1 XOR free
- 2|          AVEC|OUT| | S | 1      | 4 to [ 0]| 1 XOR to [ 2] for 1 PT sig
- 3|    inst_VPA_D|NOD| | S | 1      | 4 free   | 1 XOR to [ 3] for 1 PT sig
- 4|   SM_AMIGA_3_|NOD| | S | 4      | 4 to [ 4]| 1 XOR free
- 5|   SM_AMIGA_4_|NOD| | S | 2      | 4 to [ 5]| 1 XOR free
- 6|              | ? | | S |        | 4 free   | 1 XOR free
+ 1|CLK_000_P_SYNC_7_|NOD| | S | 1      | 4 to [ 0]| 1 XOR to [ 1] for 1 PT sig
+ 2|CLK_000_N_SYNC_4_|NOD| | S | 1      | 4 free   | 1 XOR to [ 2] for 1 PT sig
+ 3|              | ? | | S |        | 4 free   | 1 XOR free
+ 4|          AVEC|OUT| | S | 1      | 4 free   | 1 XOR to [ 4] for 1 PT sig
+ 5|CLK_000_P_SYNC_3_|NOD| | S | 1      | 4 free   | 1 XOR to [ 5] for 1 PT sig
+ 6|CLK_000_N_SYNC_1_|NOD| | S | 1      | 4 free   | 1 XOR to [ 6] for 1 PT sig
  7|              | ? | | S |        | 4 free   | 1 XOR free
- 8|              | ? | | S |        | 4 free   | 1 XOR free
- 9|              | ? | | S |        | 4 free   | 1 XOR free
-10|              | ? | | S |        | 4 free   | 1 XOR free
+ 8|inst_CLK_000_NE|NOD| | S | 1      | 4 free   | 1 XOR to [ 8] for 1 PT sig
+ 9|CLK_000_N_SYNC_10_|NOD| | S | 1      | 4 free   | 1 XOR to [ 9] for 1 PT sig
+10|CLK_000_N_SYNC_11_|NOD| | S | 1      | 4 free   | 1 XOR to [10] for 1 PT sig
 11|              | ? | | S |        | 4 free   | 1 XOR free
-12|              | ? | | S |        | 4 free   | 1 XOR free
-13|              | ? | | S |        | 4 free   | 1 XOR free
+12|inst_CLK_030_H|NOD| | S | 5      | 4 to [12]| 1 XOR to [12] as logic PT
+13|CLK_000_N_SYNC_5_|NOD| | S | 1      | 4 free   | 1 XOR to [13] for 1 PT sig
 14|              | ? | | S |        | 4 free   | 1 XOR free
 15|              | ? | | S |        | 4 free   | 1 XOR free
 ---------------------------------------------------------------------------
@@ -328,21 +360,21 @@ _|_________________|__|__|___|_____|__|______|___|__________|______________
  |        Sig Type-+  |  |   |     |
  |  Signal Name    |  |  |   |     |     Maximum PT Capacity
 _|_________________|__|__|___|_____|_______________________________________
- 0|        DS_030| IO| | S | 7      |=> can support up to [  9] logic PT(s)
- 1|   SM_AMIGA_2_|NOD| | S | 3      |=> can support up to [  9] logic PT(s)
- 2|          AVEC|OUT| | S | 1      |=> can support up to [  5] logic PT(s)
- 3|    inst_VPA_D|NOD| | S | 1      |=> can support up to [  5] logic PT(s)
- 4|   SM_AMIGA_3_|NOD| | S | 4      |=> can support up to [ 14] logic PT(s)
- 5|   SM_AMIGA_4_|NOD| | S | 2      |=> can support up to [ 15] logic PT(s)
- 6|              | ? | | S |        |=> can support up to [ 15] logic PT(s)
- 7|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
- 8|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
- 9|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
-10|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
-11|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
-12|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
-13|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
-14|              | ? | | S |        |=> can support up to [ 15] logic PT(s)
+ 0|        DS_030| IO| | S | 7      |=> can support up to [ 13] logic PT(s)
+ 1|CLK_000_P_SYNC_7_|NOD| | S | 1      |=> can support up to [ 10] logic PT(s)
+ 2|CLK_000_N_SYNC_4_|NOD| | S | 1      |=> can support up to [ 14] logic PT(s)
+ 3|              | ? | | S |        |=> can support up to [ 17] logic PT(s)
+ 4|          AVEC|OUT| | S | 1      |=> can support up to [ 18] logic PT(s)
+ 5|CLK_000_P_SYNC_3_|NOD| | S | 1      |=> can support up to [ 18] logic PT(s)
+ 6|CLK_000_N_SYNC_1_|NOD| | S | 1      |=> can support up to [ 18] logic PT(s)
+ 7|              | ? | | S |        |=> can support up to [ 17] logic PT(s)
+ 8|inst_CLK_000_NE|NOD| | S | 1      |=> can support up to [ 18] logic PT(s)
+ 9|CLK_000_N_SYNC_10_|NOD| | S | 1      |=> can support up to [ 18] logic PT(s)
+10|CLK_000_N_SYNC_11_|NOD| | S | 1      |=> can support up to [ 14] logic PT(s)
+11|              | ? | | S |        |=> can support up to [ 13] logic PT(s)
+12|inst_CLK_030_H|NOD| | S | 5      |=> can support up to [ 19] logic PT(s)
+13|CLK_000_N_SYNC_5_|NOD| | S | 1      |=> can support up to [ 15] logic PT(s)
+14|              | ? | | S |        |=> can support up to [ 14] logic PT(s)
 15|              | ? | | S |        |=> can support up to [ 10] logic PT(s)
 ---------------------------------------------------------------------------
 ===========================================================================
@@ -354,19 +386,19 @@ _|_________________|__|__|___|_____|_______________________________________
  |  Signal Name    |  | pin |      Numbers       |     Numbers
 _|_________________|__|_____|____________________|________________________
  0|        DS_030| IO| | => |   5    6 (  7)   0 |  96   97 ( 98)  91 
- 1|   SM_AMIGA_2_|NOD| | => |   5    6    7    0 |  96   97   98   91 
- 2|          AVEC|OUT| | => |   6    7    0 (  1)|  97   98   91 ( 92)
- 3|    inst_VPA_D|NOD| | => |   6    7    0    1 |  97   98   91   92 
- 4|   SM_AMIGA_3_|NOD| | => |   7    0    1    2 |  98   91   92   93 
- 5|   SM_AMIGA_4_|NOD| | => |   7    0    1    2 |  98   91   92   93 
- 6|              |   | | => |   0    1    2    3 |  91   92   93   94 
+ 1|CLK_000_P_SYNC_7_|NOD| | => |   5    6    7    0 |  96   97   98   91 
+ 2|CLK_000_N_SYNC_4_|NOD| | => |   6    7    0    1 |  97   98   91   92 
+ 3|              |   | | => |   6    7    0    1 |  97   98   91   92 
+ 4|          AVEC|OUT| | => |   7    0 (  1)   2 |  98   91 ( 92)  93 
+ 5|CLK_000_P_SYNC_3_|NOD| | => |   7    0    1    2 |  98   91   92   93 
+ 6|CLK_000_N_SYNC_1_|NOD| | => |   0    1    2    3 |  91   92   93   94 
  7|              |   | | => |   0    1    2    3 |  91   92   93   94 
- 8|              |   | | => |   1    2    3    4 |  92   93   94   95 
- 9|              |   | | => |   1    2    3    4 |  92   93   94   95 
-10|              |   | | => |   2    3    4    5 |  93   94   95   96 
+ 8|inst_CLK_000_NE|NOD| | => |   1    2    3    4 |  92   93   94   95 
+ 9|CLK_000_N_SYNC_10_|NOD| | => |   1    2    3    4 |  92   93   94   95 
+10|CLK_000_N_SYNC_11_|NOD| | => |   2    3    4    5 |  93   94   95   96 
 11|              |   | | => |   2    3    4    5 |  93   94   95   96 
-12|              |   | | => |   3    4    5    6 |  94   95   96   97 
-13|              |   | | => |   3    4    5    6 |  94   95   96   97 
+12|inst_CLK_030_H|NOD| | => |   3    4    5    6 |  94   95   96   97 
+13|CLK_000_N_SYNC_5_|NOD| | => |   3    4    5    6 |  94   95   96   97 
 14|              |   | | => |   4    5    6    7 |  95   96   97   98 
 15|              |   | | => |   4    5    6    7 |  95   96   97   98 
 ---------------------------------------------------------------------------
@@ -380,7 +412,7 @@ _|_________________|__|_____|____________________|________________________
  |     Signal Name |  |   |     |  Node Destinations Via Output Matrix
 _|_________________|__|___|_____|___________________________________________
  0|              |   | | 91| => |   0    1    2    3    4    5    6    7 
- 1|          AVEC|OUT|*| 92| => | ( 2)   3    4    5    6    7    8    9 
+ 1|          AVEC|OUT|*| 92| => |   2    3  ( 4)   5    6    7    8    9 
  2|         A_20_|INP|*| 93| => |   4    5    6    7    8    9   10   11 
  3|         A_21_|INP|*| 94| => |   6    7    8    9   10   11   12   13 
  4|         A_18_|INP|*| 95| => |   8    9   10   11   12   13   14   15 
@@ -419,37 +451,37 @@ IMX No.    |    +---- Block IO Pin or Macrocell Number
    0	[IOpin  0 | 91|                 -| | ]
 	[RegIn  0 |102|                 -| | ]
 	[MCell  0 |101|NOD      RN_DS_030| |*] paired w/[        DS_030]
-	[MCell  1 |103|NOD    SM_AMIGA_2_| |*]
+	[MCell  1 |103|NOD CLK_000_P_SYNC_7_| |*]
 
    1	[IOpin  1 | 92|OUT           AVEC|*| ]
 	[RegIn  1 |105|                 -| | ]
-	[MCell  2 |104|OUT           AVEC| | ]
-	[MCell  3 |106|NOD     inst_VPA_D| |*]
+	[MCell  2 |104|NOD CLK_000_N_SYNC_4_| |*]
+	[MCell  3 |106|                 -| | ]
 
    2	[IOpin  2 | 93|INP          A_20_|*|*]
 	[RegIn  2 |108|                 -| | ]
-	[MCell  4 |107|NOD    SM_AMIGA_3_| |*]
-	[MCell  5 |109|NOD    SM_AMIGA_4_| |*]
+	[MCell  4 |107|OUT           AVEC| | ]
+	[MCell  5 |109|NOD CLK_000_P_SYNC_3_| |*]
 
    3	[IOpin  3 | 94|INP          A_21_|*|*]
 	[RegIn  3 |111|                 -| | ]
-	[MCell  6 |110|                 -| | ]
+	[MCell  6 |110|NOD CLK_000_N_SYNC_1_| |*]
 	[MCell  7 |112|                 -| | ]
 
    4	[IOpin  4 | 95|INP          A_18_|*|*]
 	[RegIn  4 |114|                 -| | ]
-	[MCell  8 |113|                 -| | ]
-	[MCell  9 |115|                 -| | ]
+	[MCell  8 |113|NOD inst_CLK_000_NE| |*]
+	[MCell  9 |115|NOD CLK_000_N_SYNC_10_| |*]
 
    5	[IOpin  5 | 96|INP          A_16_|*|*]
 	[RegIn  5 |117|                 -| | ]
-	[MCell 10 |116|                 -| | ]
+	[MCell 10 |116|NOD CLK_000_N_SYNC_11_| |*]
 	[MCell 11 |118|                 -| | ]
 
    6	[IOpin  6 | 97|INP          A_19_|*|*]
 	[RegIn  6 |120|                 -| | ]
-	[MCell 12 |119|                 -| | ]
-	[MCell 13 |121|                 -| | ]
+	[MCell 12 |119|NOD inst_CLK_030_H| |*]
+	[MCell 13 |121|NOD CLK_000_N_SYNC_5_| |*]
 
    7	[IOpin  7 | 98| IO         DS_030|*|*] paired w/[     RN_DS_030]
 	[RegIn  7 |123|                 -| | ]
@@ -463,35 +495,35 @@ IMX No.    |    +---- Block IO Pin or Macrocell Number
   |   Src (ABEL Node/Pin#)   Signal
 --|--|--------------------|---------------------------------------------------
 Mux00|  Input Pin   (  86)|   RST
-Mux01|  Mcel  0  4  ( 107)|   SM_AMIGA_3_
-Mux02|  Mcel  0  5  ( 109)|   SM_AMIGA_4_
-Mux03|  Mcel  3 11  ( 190)|   SM_AMIGA_5_
+Mux01|  Mcel  5  6  ( 230)|   CLK_000_N_SYNC_0_
+Mux02|  Mcel  0  9  ( 115)|   CLK_000_N_SYNC_10_
+Mux03|          ...       |      ...
 Mux04|  Input Pin   (  64)|   CLK_030
 Mux05|  Input Pin   (  14)|   nEXP_SPACE
-Mux06| IOPin  7  5  (  80)|   RW_000
-Mux07|  Mcel  3  5  ( 181)|   inst_CLK_000_D1
-Mux08|  Mcel  1  8  ( 137)|   inst_DTACK_D0
-Mux09|  Mcel  0  1  ( 103)|   SM_AMIGA_2_
-Mux10|  Input Pin   (  36)|   VPA
-Mux11|  Mcel  7  3  ( 274)|   inst_CLK_000_D0
+Mux06|  Mcel  5 13  ( 241)|   CLK_000_N_SYNC_9_
+Mux07|  Mcel  2 14  ( 170)|   CLK_000_N_SYNC_3_
+Mux08|  Mcel  0 10  ( 116)|   CLK_000_N_SYNC_11_
+Mux09|  Mcel  2  6  ( 158)|   CLK_000_P_SYNC_2_
+Mux10|          ...       |      ...
+Mux11|  Mcel  2 13  ( 169)|   CLK_000_P_SYNC_6_
 Mux12| IOPin  3  3  (  32)|   UDS_000
-Mux13|  Mcel  3  7  ( 184)|   cpu_est_1_
+Mux13|  Mcel  7  5  ( 277)|   RN_BGACK_030
 Mux14|          ...       |      ...
-Mux15|  Mcel  0  0  ( 101)|   RN_DS_030
+Mux15|  Mcel  0 12  ( 119)|   inst_CLK_030_H
 Mux16|          ...       |      ...
-Mux17|  Mcel  3  1  ( 175)|   RN_VMA
+Mux17|          ...       |      ...
 Mux18|          ...       |      ...
 Mux19|          ...       |      ...
-Mux20|  Mcel  7  4  ( 275)|   RN_BGACK_030
+Mux20|          ...       |      ...
 Mux21|  Mcel  7  6  ( 278)|   RN_AS_030
-Mux22|          ...       |      ...
-Mux23|  Mcel  6  2  ( 248)|   RN_E
+Mux22|  Mcel  0  2  ( 104)|   CLK_000_N_SYNC_4_
+Mux23| IOPin  3  2  (  33)|   AS_000
 Mux24| IOPin  3  4  (  31)|   LDS_000
-Mux25|  Mcel  0  3  ( 106)|   inst_VPA_D
-Mux26| IOPin  3  2  (  33)|   AS_000
+Mux25|          ...       |      ...
+Mux26|          ...       |      ...
 Mux27|          ...       |      ...
-Mux28|  Mcel  1  5  ( 133)|   inst_CLK_030_H
-Mux29|          ...       |      ...
+Mux28| IOPin  7  5  (  80)|   RW_000
+Mux29|  Mcel  0  0  ( 101)|   RN_DS_030
 Mux30|          ...       |      ...
 Mux31|          ...       |      ...
 Mux32|          ...       |      ...
@@ -508,18 +540,18 @@ Mux32|          ...       |      ...
 _|_________________|__|__|___|_____|__|______|___|__________|______________
  0|       CLK_EXP|OUT| | S | 1      | 4 free   | 1 XOR to [ 0] for 1 PT sig
  1|         RESET|OUT| | S | 1      | 4 free   | 1 XOR to [ 1] for 1 PT sig
- 2|    IPL_030_2_| IO| | S | 3      | 4 to [ 2]| 1 XOR free
- 3|   SM_AMIGA_1_|NOD| | S | 2      | 4 to [ 3]| 1 XOR free
- 4|    IPL_030_0_| IO| | S | 3      | 4 to [ 4]| 1 XOR free
- 5|inst_CLK_030_H|NOD| | S | 5      | 4 to [ 5]| 1 XOR to [ 5] as logic PT
- 6|    IPL_030_1_| IO| | S | 3      | 4 to [ 6]| 1 XOR free
- 7|inst_CLK_OUT_PRE_25|NOD| | S | 3      | 4 to [ 7]| 1 XOR free
- 8| inst_DTACK_D0|NOD| | S | 1      | 4 free   | 1 XOR to [ 8] for 1 PT sig
- 9|inst_BGACK_030_INT_D|NOD| | S | 1      | 4 free   | 1 XOR to [ 9] for 1 PT sig
-10|              | ? | | S |        | 4 free   | 1 XOR free
+ 2|CLK_000_P_SYNC_1_|NOD| | S | 1      | 4 free   | 1 XOR to [ 2] for 1 PT sig
+ 3|              | ? | | S |        | 4 free   | 1 XOR free
+ 4|    IPL_030_2_| IO| | S | 3      | 4 to [ 4]| 1 XOR free
+ 5|inst_DS_000_ENABLE|NOD| | S | 3      | 4 to [ 5]| 1 XOR free
+ 6|CLK_000_P_SYNC_9_|NOD| | S | 1      | 4 free   | 1 XOR to [ 6] for 1 PT sig
+ 7|              | ? | | S |        | 4 free   | 1 XOR free
+ 8|    IPL_030_0_| IO| | S | 3      | 4 to [ 8]| 1 XOR free
+ 9|   SM_AMIGA_4_|NOD| | S | 2      | 4 to [ 9]| 1 XOR free
+10|inst_CLK_OUT_PRE|NOD| | S | 1      | 4 free   | 1 XOR to [10] for 1 PT sig
 11|              | ? | | S |        | 4 free   | 1 XOR free
-12|              | ? | | S |        | 4 free   | 1 XOR free
-13|              | ? | | S |        | 4 free   | 1 XOR free
+12|    IPL_030_1_| IO| | S | 3      | 4 to [12]| 1 XOR free
+13|   SM_AMIGA_5_|NOD| | S | 2      | 4 to [13]| 1 XOR free
 14|              | ? | | S |        | 4 free   | 1 XOR free
 15|              | ? | | S |        | 4 free   | 1 XOR free
 ---------------------------------------------------------------------------
@@ -533,21 +565,21 @@ _|_________________|__|__|___|_____|__|______|___|__________|______________
  |        Sig Type-+  |  |   |     |
  |  Signal Name    |  |  |   |     |     Maximum PT Capacity
 _|_________________|__|__|___|_____|_______________________________________
- 0|       CLK_EXP|OUT| | S | 1      |=> can support up to [  9] logic PT(s)
- 1|         RESET|OUT| | S | 1      |=> can support up to [  9] logic PT(s)
- 2|    IPL_030_2_| IO| | S | 3      |=> can support up to [  9] logic PT(s)
- 3|   SM_AMIGA_1_|NOD| | S | 2      |=> can support up to [  5] logic PT(s)
- 4|    IPL_030_0_| IO| | S | 3      |=> can support up to [  5] logic PT(s)
- 5|inst_CLK_030_H|NOD| | S | 5      |=> can support up to [  5] logic PT(s)
- 6|    IPL_030_1_| IO| | S | 3      |=> can support up to [  9] logic PT(s)
- 7|inst_CLK_OUT_PRE_25|NOD| | S | 3      |=> can support up to [ 13] logic PT(s)
- 8| inst_DTACK_D0|NOD| | S | 1      |=> can support up to [ 14] logic PT(s)
- 9|inst_BGACK_030_INT_D|NOD| | S | 1      |=> can support up to [ 19] logic PT(s)
-10|              | ? | | S |        |=> can support up to [ 19] logic PT(s)
-11|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
-12|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
-13|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
-14|              | ? | | S |        |=> can support up to [ 15] logic PT(s)
+ 0|       CLK_EXP|OUT| | S | 1      |=> can support up to [ 13] logic PT(s)
+ 1|         RESET|OUT| | S | 1      |=> can support up to [ 18] logic PT(s)
+ 2|CLK_000_P_SYNC_1_|NOD| | S | 1      |=> can support up to [ 14] logic PT(s)
+ 3|              | ? | | S |        |=> can support up to [  9] logic PT(s)
+ 4|    IPL_030_2_| IO| | S | 3      |=> can support up to [ 14] logic PT(s)
+ 5|inst_DS_000_ENABLE|NOD| | S | 3      |=> can support up to [ 14] logic PT(s)
+ 6|CLK_000_P_SYNC_9_|NOD| | S | 1      |=> can support up to [ 10] logic PT(s)
+ 7|              | ? | | S |        |=> can support up to [  9] logic PT(s)
+ 8|    IPL_030_0_| IO| | S | 3      |=> can support up to [ 14] logic PT(s)
+ 9|   SM_AMIGA_4_|NOD| | S | 2      |=> can support up to [ 14] logic PT(s)
+10|inst_CLK_OUT_PRE|NOD| | S | 1      |=> can support up to [ 10] logic PT(s)
+11|              | ? | | S |        |=> can support up to [  9] logic PT(s)
+12|    IPL_030_1_| IO| | S | 3      |=> can support up to [ 15] logic PT(s)
+13|   SM_AMIGA_5_|NOD| | S | 2      |=> can support up to [ 15] logic PT(s)
+14|              | ? | | S |        |=> can support up to [ 10] logic PT(s)
 15|              | ? | | S |        |=> can support up to [ 10] logic PT(s)
 ---------------------------------------------------------------------------
 ===========================================================================
@@ -560,18 +592,18 @@ _|_________________|__|__|___|_____|_______________________________________
 _|_________________|__|_____|____________________|________________________
  0|       CLK_EXP|OUT| | => |   5    6    7 (  0)|   5    4    3 ( 10)
  1|         RESET|OUT| | => |   5    6 (  7)   0 |   5    4 (  3)  10 
- 2|    IPL_030_2_| IO| | => |   6    7    0 (  1)|   4    3   10 (  9)
- 3|   SM_AMIGA_1_|NOD| | => |   6    7    0    1 |   4    3   10    9 
- 4|    IPL_030_0_| IO| | => |   7    0    1 (  2)|   3   10    9 (  8)
- 5|inst_CLK_030_H|NOD| | => |   7    0    1    2 |   3   10    9    8 
- 6|    IPL_030_1_| IO| | => |   0    1    2 (  3)|  10    9    8 (  7)
- 7|inst_CLK_OUT_PRE_25|NOD| | => |   0    1    2    3 |  10    9    8    7 
- 8| inst_DTACK_D0|NOD| | => |   1    2    3    4 |   9    8    7    6 
- 9|inst_BGACK_030_INT_D|NOD| | => |   1    2    3    4 |   9    8    7    6 
-10|              |   | | => |   2    3    4    5 |   8    7    6    5 
+ 2|CLK_000_P_SYNC_1_|NOD| | => |   6    7    0    1 |   4    3   10    9 
+ 3|              |   | | => |   6    7    0    1 |   4    3   10    9 
+ 4|    IPL_030_2_| IO| | => |   7    0 (  1)   2 |   3   10 (  9)   8 
+ 5|inst_DS_000_ENABLE|NOD| | => |   7    0    1    2 |   3   10    9    8 
+ 6|CLK_000_P_SYNC_9_|NOD| | => |   0    1    2    3 |  10    9    8    7 
+ 7|              |   | | => |   0    1    2    3 |  10    9    8    7 
+ 8|    IPL_030_0_| IO| | => |   1 (  2)   3    4 |   9 (  8)   7    6 
+ 9|   SM_AMIGA_4_|NOD| | => |   1    2    3    4 |   9    8    7    6 
+10|inst_CLK_OUT_PRE|NOD| | => |   2    3    4    5 |   8    7    6    5 
 11|              |   | | => |   2    3    4    5 |   8    7    6    5 
-12|              |   | | => |   3    4    5    6 |   7    6    5    4 
-13|              |   | | => |   3    4    5    6 |   7    6    5    4 
+12|    IPL_030_1_| IO| | => |(  3)   4    5    6 |(  7)   6    5    4 
+13|   SM_AMIGA_5_|NOD| | => |   3    4    5    6 |   7    6    5    4 
 14|              |   | | => |   4    5    6    7 |   6    5    4    3 
 15|              |   | | => |   4    5    6    7 |   6    5    4    3 
 ---------------------------------------------------------------------------
@@ -585,9 +617,9 @@ _|_________________|__|_____|____________________|________________________
  |     Signal Name |  |   |     |  Node Destinations Via Output Matrix
 _|_________________|__|___|_____|___________________________________________
  0|       CLK_EXP|OUT|*| 10| => | ( 0)   1    2    3    4    5    6    7 
- 1|    IPL_030_2_| IO|*|  9| => | ( 2)   3    4    5    6    7    8    9 
- 2|    IPL_030_0_| IO|*|  8| => | ( 4)   5    6    7    8    9   10   11 
- 3|    IPL_030_1_| IO|*|  7| => | ( 6)   7    8    9   10   11   12   13 
+ 1|    IPL_030_2_| IO|*|  9| => |   2    3  ( 4)   5    6    7    8    9 
+ 2|    IPL_030_0_| IO|*|  8| => |   4    5    6    7  ( 8)   9   10   11 
+ 3|    IPL_030_1_| IO|*|  7| => |   6    7    8    9   10   11  (12)  13 
  4|         A_29_|INP|*|  6| => |   8    9   10   11   12   13   14   15 
  5|         A_30_|INP|*|  5| => |  10   11   12   13   14   15    0    1 
  6|         A_31_|INP|*|  4| => |  12   13   14   15    0    1    2    3 
@@ -630,33 +662,33 @@ IMX No.    |    +---- Block IO Pin or Macrocell Number
 
    1	[IOpin  1 |  9| IO     IPL_030_2_|*| ] paired w/[ RN_IPL_030_2_]
 	[RegIn  1 |129|                 -| | ]
-	[MCell  2 |128|NOD  RN_IPL_030_2_| |*] paired w/[    IPL_030_2_]
-	[MCell  3 |130|NOD    SM_AMIGA_1_| |*]
+	[MCell  2 |128|NOD CLK_000_P_SYNC_1_| |*]
+	[MCell  3 |130|                 -| | ]
 
    2	[IOpin  2 |  8| IO     IPL_030_0_|*| ] paired w/[ RN_IPL_030_0_]
 	[RegIn  2 |132|                 -| | ]
-	[MCell  4 |131|NOD  RN_IPL_030_0_| |*] paired w/[    IPL_030_0_]
-	[MCell  5 |133|NOD inst_CLK_030_H| |*]
+	[MCell  4 |131|NOD  RN_IPL_030_2_| |*] paired w/[    IPL_030_2_]
+	[MCell  5 |133|NOD inst_DS_000_ENABLE| |*]
 
    3	[IOpin  3 |  7| IO     IPL_030_1_|*| ] paired w/[ RN_IPL_030_1_]
 	[RegIn  3 |135|                 -| | ]
-	[MCell  6 |134|NOD  RN_IPL_030_1_| |*] paired w/[    IPL_030_1_]
-	[MCell  7 |136|NOD inst_CLK_OUT_PRE_25| |*]
+	[MCell  6 |134|NOD CLK_000_P_SYNC_9_| |*]
+	[MCell  7 |136|                 -| | ]
 
    4	[IOpin  4 |  6|INP          A_29_|*|*]
 	[RegIn  4 |138|                 -| | ]
-	[MCell  8 |137|NOD  inst_DTACK_D0| |*]
-	[MCell  9 |139|NOD inst_BGACK_030_INT_D| |*]
+	[MCell  8 |137|NOD  RN_IPL_030_0_| |*] paired w/[    IPL_030_0_]
+	[MCell  9 |139|NOD    SM_AMIGA_4_| |*]
 
    5	[IOpin  5 |  5|INP          A_30_|*|*]
 	[RegIn  5 |141|                 -| | ]
-	[MCell 10 |140|                 -| | ]
+	[MCell 10 |140|NOD inst_CLK_OUT_PRE| |*]
 	[MCell 11 |142|                 -| | ]
 
    6	[IOpin  6 |  4|INP          A_31_|*|*]
 	[RegIn  6 |144|                 -| | ]
-	[MCell 12 |143|                 -| | ]
-	[MCell 13 |145|                 -| | ]
+	[MCell 12 |143|NOD  RN_IPL_030_1_| |*] paired w/[    IPL_030_1_]
+	[MCell 13 |145|NOD    SM_AMIGA_5_| |*]
 
    7	[IOpin  7 |  3|OUT          RESET|*| ]
 	[RegIn  7 |147|                 -| | ]
@@ -669,39 +701,39 @@ IMX No.    |    +---- Block IO Pin or Macrocell Number
   +- Central Switch Matrix No.
   |   Src (ABEL Node/Pin#)   Signal
 --|--|--------------------|---------------------------------------------------
-Mux00| IOPin  3  4  (  31)|   LDS_000
-Mux01|  Mcel  7 11  ( 286)|   inst_CLK_OUT_PRE_50
-Mux02|  Mcel  1  6  ( 134)|   RN_IPL_030_1_
+Mux00| IOPin  6  2  (  67)|   IPL_0_
+Mux01|  Mcel  5  9  ( 235)|   CLK_000_P_SYNC_0_
+Mux02|          ...       |      ...
 Mux03| IOPin  5  4  (  56)|   IPL_1_
 Mux04| IOPin  6  3  (  68)|   IPL_2_
-Mux05|  Mcel  1  3  ( 130)|   SM_AMIGA_1_
-Mux06|          ...       |      ...
-Mux07|  Mcel  3  5  ( 181)|   inst_CLK_000_D1
-Mux08|  Mcel  7 12  ( 287)|   inst_CLK_OUT_PRE_50_D
-Mux09|  Mcel  0  1  ( 103)|   SM_AMIGA_2_
-Mux10|  Mcel  1  2  ( 128)|   RN_IPL_030_2_
-Mux11|  Mcel  7  3  ( 274)|   inst_CLK_000_D0
-Mux12| IOPin  3  3  (  32)|   UDS_000
+Mux05|  Mcel  5  0  ( 221)|   inst_CLK_000_D0
+Mux06|  Mcel  1  9  ( 139)|   SM_AMIGA_4_
+Mux07|  Mcel  2  8  ( 161)|   inst_CLK_OUT_PRE_D
+Mux08|  Mcel  1  8  ( 137)|   RN_IPL_030_0_
+Mux09|  Mcel  5  5  ( 229)|   CLK_000_P_SYNC_8_
+Mux10|  Mcel  1 13  ( 145)|   SM_AMIGA_5_
+Mux11|  Mcel  7  9  ( 283)|   inst_CLK_000_D1
+Mux12|  Mcel  1 12  ( 143)|   RN_IPL_030_1_
 Mux13|          ...       |      ...
-Mux14| IOPin  3  5  (  30)|   DTACK
+Mux14|  Mcel  2  4  ( 155)|   RN_AVEC_EXP
 Mux15|          ...       |      ...
-Mux16| IOPin  6  2  (  67)|   IPL_0_
+Mux16|          ...       |      ...
 Mux17|          ...       |      ...
-Mux18|          ...       |      ...
-Mux19|          ...       |      ...
-Mux20|  Input Pin   (  64)|   CLK_030
+Mux18|  Mcel  0  8  ( 113)|   inst_CLK_000_NE
+Mux19| IOPin  7  3  (  82)|   AS_030
+Mux20|          ...       |      ...
 Mux21|  Input Pin   (  86)|   RST
-Mux22|          ...       |      ...
-Mux23|  Mcel  7  4  ( 275)|   RN_BGACK_030
-Mux24|  Mcel  1  7  ( 136)|   inst_CLK_OUT_PRE_25
-Mux25|          ...       |      ...
-Mux26| IOPin  3  2  (  33)|   AS_000
-Mux27|  Mcel  1  4  ( 131)|   RN_IPL_030_0_
-Mux28|  Mcel  1  5  ( 133)|   inst_CLK_030_H
+Mux22|  Mcel  2  1  ( 151)|   inst_CLK_OUT_PRE_25
+Mux23|          ...       |      ...
+Mux24|          ...       |      ...
+Mux25| IOPin  6  6  (  71)|   RW
+Mux26|          ...       |      ...
+Mux27|  Mcel  1  4  ( 131)|   RN_IPL_030_2_
+Mux28|  Mcel  1  5  ( 133)|   inst_DS_000_ENABLE
 Mux29|          ...       |      ...
-Mux30|  Mcel  7  6  ( 278)|   RN_AS_030
+Mux30|          ...       |      ...
 Mux31|          ...       |      ...
-Mux32|          ...       |      ...
+Mux32|  Mcel  6  5  ( 253)|   SM_AMIGA_6_
 ---------------------------------------------------------------------------
 ===========================================================================
 	< Block [ 2] >	Macrocell (MCell) Cluster Assignments
@@ -713,21 +745,21 @@ Mux32|          ...       |      ...
  |        Sig Type-+  |  |   |     |  |      |   |  XOR to Mcell Assignment
  |  Signal Name    |  |  |   |     |  |      |   |          |
 _|_________________|__|__|___|_____|__|______|___|__________|______________
- 0|      AVEC_EXP|OUT| | S | 1      | 4 free   | 1 XOR to [ 0] for 1 PT sig
- 1|AMIGA_BUS_ENABLE_LOW|OUT| | S | 1      | 4 free   | 1 XOR to [ 1] for 1 PT sig
- 2|              | ? | | S |        | 4 free   | 1 XOR free
+ 0|              | ? | | S |        | 4 free   | 1 XOR free
+ 1|inst_CLK_OUT_PRE_25|NOD| | S | 3      | 4 to [ 1]| 1 XOR free
+ 2|CLK_000_P_SYNC_5_|NOD| | S | 1      | 4 free   | 1 XOR to [ 2] for 1 PT sig
  3|              | ? | | S |        | 4 free   | 1 XOR free
- 4|              | ? | | S |        | 4 free   | 1 XOR free
- 5|              | ? | | S |        | 4 free   | 1 XOR free
- 6|              | ? | | S |        | 4 free   | 1 XOR free
+ 4|      AVEC_EXP| IO| | S | 1      | 4 free   | 1 XOR to [ 4] for 1 PT sig
+ 5|inst_UDS_000_INT|NOD| | S | 2      | 4 to [ 5]| 1 XOR free
+ 6|CLK_000_P_SYNC_2_|NOD| | S | 1      | 4 free   | 1 XOR to [ 6] for 1 PT sig
  7|              | ? | | S |        | 4 free   | 1 XOR free
- 8|              | ? | | S |        | 4 free   | 1 XOR free
- 9|              | ? | | S |        | 4 free   | 1 XOR free
-10|              | ? | | S |        | 4 free   | 1 XOR free
+ 8|inst_CLK_OUT_PRE_D|NOD| | S | 1      | 4 free   | 1 XOR to [ 8] for 1 PT sig
+ 9|inst_LDS_000_INT|NOD| | S | 2      | 4 to [ 9]| 1 XOR free
+10|CLK_000_N_SYNC_8_|NOD| | S | 1      | 4 free   | 1 XOR to [10] for 1 PT sig
 11|              | ? | | S |        | 4 free   | 1 XOR free
-12|              | ? | | S |        | 4 free   | 1 XOR free
-13|              | ? | | S |        | 4 free   | 1 XOR free
-14|              | ? | | S |        | 4 free   | 1 XOR free
+12|AMIGA_BUS_ENABLE_LOW| IO| | S | 1      | 4 free   | 1 XOR to [12] for 1 PT sig
+13|CLK_000_P_SYNC_6_|NOD| | S | 1      | 4 free   | 1 XOR to [13] for 1 PT sig
+14|CLK_000_N_SYNC_3_|NOD| | S | 1      | 4 free   | 1 XOR to [14] for 1 PT sig
 15|              | ? | | S |        | 4 free   | 1 XOR free
 ---------------------------------------------------------------------------
 ===========================================================================
@@ -740,22 +772,22 @@ _|_________________|__|__|___|_____|__|______|___|__________|______________
  |        Sig Type-+  |  |   |     |
  |  Signal Name    |  |  |   |     |     Maximum PT Capacity
 _|_________________|__|__|___|_____|_______________________________________
- 0|      AVEC_EXP|OUT| | S | 1      |=> can support up to [ 14] logic PT(s)
- 1|AMIGA_BUS_ENABLE_LOW|OUT| | S | 1      |=> can support up to [ 19] logic PT(s)
- 2|              | ? | | S |        |=> can support up to [ 19] logic PT(s)
- 3|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
- 4|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
- 5|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
- 6|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
- 7|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
- 8|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
- 9|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
-10|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
-11|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
-12|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
-13|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
-14|              | ? | | S |        |=> can support up to [ 15] logic PT(s)
-15|              | ? | | S |        |=> can support up to [ 10] logic PT(s)
+ 0|              | ? | | S |        |=> can support up to [  9] logic PT(s)
+ 1|inst_CLK_OUT_PRE_25|NOD| | S | 3      |=> can support up to [ 19] logic PT(s)
+ 2|CLK_000_P_SYNC_5_|NOD| | S | 1      |=> can support up to [ 14] logic PT(s)
+ 3|              | ? | | S |        |=> can support up to [ 13] logic PT(s)
+ 4|      AVEC_EXP| IO| | S | 1      |=> can support up to [ 14] logic PT(s)
+ 5|inst_UDS_000_INT|NOD| | S | 2      |=> can support up to [ 18] logic PT(s)
+ 6|CLK_000_P_SYNC_2_|NOD| | S | 1      |=> can support up to [ 14] logic PT(s)
+ 7|              | ? | | S |        |=> can support up to [ 13] logic PT(s)
+ 8|inst_CLK_OUT_PRE_D|NOD| | S | 1      |=> can support up to [ 14] logic PT(s)
+ 9|inst_LDS_000_INT|NOD| | S | 2      |=> can support up to [ 18] logic PT(s)
+10|CLK_000_N_SYNC_8_|NOD| | S | 1      |=> can support up to [ 14] logic PT(s)
+11|              | ? | | S |        |=> can support up to [ 17] logic PT(s)
+12|AMIGA_BUS_ENABLE_LOW| IO| | S | 1      |=> can support up to [ 18] logic PT(s)
+13|CLK_000_P_SYNC_6_|NOD| | S | 1      |=> can support up to [ 18] logic PT(s)
+14|CLK_000_N_SYNC_3_|NOD| | S | 1      |=> can support up to [ 14] logic PT(s)
+15|              | ? | | S |        |=> can support up to [  9] logic PT(s)
 ---------------------------------------------------------------------------
 ===========================================================================
 	< Block [ 2] >	Node-Pin Assignments
@@ -765,21 +797,21 @@ _|_________________|__|__|___|_____|_______________________________________
  |      Sig Type---+  |  to | Block [ 2] IO Pin  |   Device Pin
  |  Signal Name    |  | pin |      Numbers       |     Numbers
 _|_________________|__|_____|____________________|________________________
- 0|      AVEC_EXP|OUT| | => |   5    6 (  7)   0 |  20   21 ( 22)  15 
- 1|AMIGA_BUS_ENABLE_LOW|OUT| | => |(  5)   6    7    0 |( 20)  21   22   15 
- 2|              |   | | => |   6    7    0    1 |  21   22   15   16 
+ 0|              |   | | => |   5    6    7    0 |  20   21   22   15 
+ 1|inst_CLK_OUT_PRE_25|NOD| | => |   5    6    7    0 |  20   21   22   15 
+ 2|CLK_000_P_SYNC_5_|NOD| | => |   6    7    0    1 |  21   22   15   16 
  3|              |   | | => |   6    7    0    1 |  21   22   15   16 
- 4|              |   | | => |   7    0    1    2 |  22   15   16   17 
- 5|              |   | | => |   7    0    1    2 |  22   15   16   17 
- 6|              |   | | => |   0    1    2    3 |  15   16   17   18 
+ 4|      AVEC_EXP| IO| | => |(  7)   0    1    2 |( 22)  15   16   17 
+ 5|inst_UDS_000_INT|NOD| | => |   7    0    1    2 |  22   15   16   17 
+ 6|CLK_000_P_SYNC_2_|NOD| | => |   0    1    2    3 |  15   16   17   18 
  7|              |   | | => |   0    1    2    3 |  15   16   17   18 
- 8|              |   | | => |   1    2    3    4 |  16   17   18   19 
- 9|              |   | | => |   1    2    3    4 |  16   17   18   19 
-10|              |   | | => |   2    3    4    5 |  17   18   19   20 
+ 8|inst_CLK_OUT_PRE_D|NOD| | => |   1    2    3    4 |  16   17   18   19 
+ 9|inst_LDS_000_INT|NOD| | => |   1    2    3    4 |  16   17   18   19 
+10|CLK_000_N_SYNC_8_|NOD| | => |   2    3    4    5 |  17   18   19   20 
 11|              |   | | => |   2    3    4    5 |  17   18   19   20 
-12|              |   | | => |   3    4    5    6 |  18   19   20   21 
-13|              |   | | => |   3    4    5    6 |  18   19   20   21 
-14|              |   | | => |   4    5    6    7 |  19   20   21   22 
+12|AMIGA_BUS_ENABLE_LOW| IO| | => |   3    4 (  5)   6 |  18   19 ( 20)  21 
+13|CLK_000_P_SYNC_6_|NOD| | => |   3    4    5    6 |  18   19   20   21 
+14|CLK_000_N_SYNC_3_|NOD| | => |   4    5    6    7 |  19   20   21   22 
 15|              |   | | => |   4    5    6    7 |  19   20   21   22 
 ---------------------------------------------------------------------------
 ===========================================================================
@@ -796,9 +828,9 @@ _|_________________|__|___|_____|___________________________________________
  2|         A_26_|INP|*| 17| => |   4    5    6    7    8    9   10   11 
  3|         A_25_|INP|*| 18| => |   6    7    8    9   10   11   12   13 
  4|         A_24_|INP|*| 19| => |   8    9   10   11   12   13   14   15 
- 5|AMIGA_BUS_ENABLE_LOW|OUT|*| 20| => |  10   11   12   13   14   15    0  ( 1)
+ 5|AMIGA_BUS_ENABLE_LOW| IO|*| 20| => |  10   11  (12)  13   14   15    0    1 
  6|        BG_030|INP|*| 21| => |  12   13   14   15    0    1    2    3 
- 7|      AVEC_EXP|OUT|*| 22| => |  14   15  ( 0)   1    2    3    4    5 
+ 7|      AVEC_EXP| IO|*| 22| => |  14   15    0    1    2    3  ( 4)   5 
 ---------------------------------------------------------------------------
 ===========================================================================
 	< Block [ 2] >	IO/Node and IO/Input Macrocell Pairing Table
@@ -814,9 +846,11 @@ _|_________________|__|___|_____|__________________________________________
  2|         A_26_|INP|*| 17| => | Input macrocell   [             -]
  3|         A_25_|INP|*| 18| => | Input macrocell   [             -]
  4|         A_24_|INP|*| 19| => | Input macrocell   [             -]
- 5|AMIGA_BUS_ENABLE_LOW|OUT|*| 20| => | Input macrocell   [             -]
+ 5|AMIGA_BUS_ENABLE_LOW| IO|*| 20| => | Input macrocell   [             -]
+  |              |   | |   |    | IO paired w/ node [RN_AMIGA_BUS_ENABLE_LOW]
  6|        BG_030|INP|*| 21| => | Input macrocell   [             -]
- 7|      AVEC_EXP|OUT|*| 22| => | Input macrocell   [             -]
+ 7|      AVEC_EXP| IO|*| 22| => | Input macrocell   [             -]
+  |              |   | |   |    | IO paired w/ node [   RN_AVEC_EXP]
 ---------------------------------------------------------------------------
 ===========================================================================
 	< Block [ 2] >	Input Multiplexer (IMX) Assignments
@@ -829,42 +863,42 @@ IMX No.    |    +---- Block IO Pin or Macrocell Number
 ---|-------|----|---|---|----------|------|-|------------------------------
    0	[IOpin  0 | 15|INP          A_28_|*|*]
 	[RegIn  0 |150|                 -| | ]
-	[MCell  0 |149|OUT       AVEC_EXP| | ]
-	[MCell  1 |151|OUT AMIGA_BUS_ENABLE_LOW| | ]
+	[MCell  0 |149|                 -| | ]
+	[MCell  1 |151|NOD inst_CLK_OUT_PRE_25| |*]
 
    1	[IOpin  1 | 16|INP          A_27_|*|*]
 	[RegIn  1 |153|                 -| | ]
-	[MCell  2 |152|                 -| | ]
+	[MCell  2 |152|NOD CLK_000_P_SYNC_5_| |*]
 	[MCell  3 |154|                 -| | ]
 
    2	[IOpin  2 | 17|INP          A_26_|*|*]
 	[RegIn  2 |156|                 -| | ]
-	[MCell  4 |155|                 -| | ]
-	[MCell  5 |157|                 -| | ]
+	[MCell  4 |155|NOD    RN_AVEC_EXP| |*] paired w/[      AVEC_EXP]
+	[MCell  5 |157|NOD inst_UDS_000_INT| |*]
 
    3	[IOpin  3 | 18|INP          A_25_|*|*]
 	[RegIn  3 |159|                 -| | ]
-	[MCell  6 |158|                 -| | ]
+	[MCell  6 |158|NOD CLK_000_P_SYNC_2_| |*]
 	[MCell  7 |160|                 -| | ]
 
    4	[IOpin  4 | 19|INP          A_24_|*|*]
 	[RegIn  4 |162|                 -| | ]
-	[MCell  8 |161|                 -| | ]
-	[MCell  9 |163|                 -| | ]
+	[MCell  8 |161|NOD inst_CLK_OUT_PRE_D| |*]
+	[MCell  9 |163|NOD inst_LDS_000_INT| |*]
 
-   5	[IOpin  5 | 20|OUT AMIGA_BUS_ENABLE_LOW|*| ]
+   5	[IOpin  5 | 20| IO AMIGA_BUS_ENABLE_LOW|*| ] paired w/[RN_AMIGA_BUS_ENABLE_LOW]
 	[RegIn  5 |165|                 -| | ]
-	[MCell 10 |164|                 -| | ]
+	[MCell 10 |164|NOD CLK_000_N_SYNC_8_| |*]
 	[MCell 11 |166|                 -| | ]
 
    6	[IOpin  6 | 21|INP         BG_030|*|*]
 	[RegIn  6 |168|                 -| | ]
-	[MCell 12 |167|                 -| | ]
-	[MCell 13 |169|                 -| | ]
+	[MCell 12 |167|NOD RN_AMIGA_BUS_ENABLE_LOW| |*] paired w/[AMIGA_BUS_ENABLE_LOW]
+	[MCell 13 |169|NOD CLK_000_P_SYNC_6_| |*]
 
-   7	[IOpin  7 | 22|OUT       AVEC_EXP|*| ]
+   7	[IOpin  7 | 22| IO       AVEC_EXP|*| ] paired w/[   RN_AVEC_EXP]
 	[RegIn  7 |171|                 -| | ]
-	[MCell 14 |170|                 -| | ]
+	[MCell 14 |170|NOD CLK_000_N_SYNC_3_| |*]
 	[MCell 15 |172|                 -| | ]
 ---------------------------------------------------------------------------
 ===========================================================================
@@ -873,30 +907,30 @@ IMX No.    |    +---- Block IO Pin or Macrocell Number
   +- Central Switch Matrix No.
   |   Src (ABEL Node/Pin#)   Signal
 --|--|--------------------|---------------------------------------------------
-Mux00|          ...       |      ...
-Mux01|          ...       |      ...
-Mux02|  Mcel  6  4  ( 251)|   inst_avec_expreg
-Mux03|          ...       |      ...
+Mux00|  Input Pin   (  86)|   RST
+Mux01|  Mcel  2  1  ( 151)|   inst_CLK_OUT_PRE_25
+Mux02|  Mcel  1 10  ( 140)|   inst_CLK_OUT_PRE
+Mux03|  Mcel  4  5  ( 205)|   CLK_000_N_SYNC_2_
 Mux04|          ...       |      ...
-Mux05|          ...       |      ...
-Mux06|          ...       |      ...
-Mux07|          ...       |      ...
-Mux08|          ...       |      ...
+Mux05|  Mcel  4  1  ( 199)|   CLK_000_N_SYNC_7_
+Mux06| IOPin  7  6  (  79)|   SIZE_1_
+Mux07|  Mcel  7 13  ( 289)|   inst_CLK_OUT_PRE_50_D
+Mux08|  Mcel  4  8  ( 209)|   inst_CLK_OUT_PRE_50
 Mux09|          ...       |      ...
-Mux10|          ...       |      ...
-Mux11|          ...       |      ...
-Mux12|          ...       |      ...
-Mux13|          ...       |      ...
-Mux14|          ...       |      ...
-Mux15|          ...       |      ...
-Mux16|          ...       |      ...
+Mux10|  Mcel  1  2  ( 128)|   CLK_000_P_SYNC_1_
+Mux11|  Mcel  1  6  ( 134)|   CLK_000_P_SYNC_9_
+Mux12| IOPin  0  7  (  98)|   DS_030
+Mux13|  Mcel  2  9  ( 163)|   inst_LDS_000_INT
+Mux14| IOPin  6  5  (  70)|   SIZE_0_
+Mux15|  Mcel  2  5  ( 157)|   inst_UDS_000_INT
+Mux16|  Mcel  2  8  ( 161)|   inst_CLK_OUT_PRE_D
 Mux17|          ...       |      ...
-Mux18|          ...       |      ...
+Mux18| IOPin  6  4  (  69)|   A0
 Mux19|          ...       |      ...
 Mux20|          ...       |      ...
 Mux21|          ...       |      ...
-Mux22|          ...       |      ...
-Mux23|          ...       |      ...
+Mux22|  Mcel  2  2  ( 152)|   CLK_000_P_SYNC_5_
+Mux23|  Mcel  6  6  ( 254)|   CLK_000_P_SYNC_4_
 Mux24|          ...       |      ...
 Mux25|          ...       |      ...
 Mux26|          ...       |      ...
@@ -919,18 +953,18 @@ Mux32|          ...       |      ...
 _|_________________|__|__|___|_____|__|______|___|__________|______________
  0|         DTACK| IO| | S | 1      | 4 free   | 1 XOR to [ 0] for 1 PT sig
  1|           VMA| IO| | S | 2 :+: 1| 4 to [ 1]| 1 XOR to [ 1]
- 2|        BG_000| IO| | S | 2      | 4 to [ 2]| 1 XOR free
- 3|AMIGA_BUS_ENABLE|OUT| | S | 1      | 4 free   | 1 XOR to [ 3] for 1 PT sig
+ 2|   SM_AMIGA_7_|NOD| | S | 4      | 4 to [ 2]| 1 XOR free
+ 3|              | ? | | S |        | 4 free   | 1 XOR free
  4|        AS_000| IO| | S | 2      | 4 to [ 4]| 1 XOR free
- 5|inst_CLK_000_D1|NOD| | S | 1      | 4 to [ 6]| 1 XOR to [ 5] for 1 PT sig
- 6|       UDS_000| IO| | S | 7      | 4 to [ 6]| 1 XOR to [ 6] as logic PT
- 7|    cpu_est_1_|NOD| | S | 4      | 4 to [ 8]| 1 XOR free
- 8|       LDS_000| IO| | S |11      | 4 to [ 8]| 1 XOR to [ 8] as logic PT
- 9|    cpu_est_2_|NOD| | S | 3 :+: 1| 4 to [ 7]| 1 XOR to [ 9]
-10|    cpu_est_0_|NOD| | S | 3      | 4 to [ 8]| 1 XOR free
-11|   SM_AMIGA_5_|NOD| | S | 2      | 4 to [ 9]| 1 XOR free
-12|              | ? | | S |        | 4 to [10]| 1 XOR free
-13|              | ? | | S |        | 4 to [11]| 1 XOR free
+ 5|AMIGA_BUS_ENABLE| IO| | S | 6      | 4 to [ 5]| 1 XOR to [ 5] as logic PT
+ 6|   SM_AMIGA_0_|NOD| | S | 2      | 4 to [ 6]| 1 XOR free
+ 7|              | ? | | S |        | 4 to [ 5]| 1 XOR free
+ 8|       UDS_000| IO| | S | 1      | 4 free   | 1 XOR to [ 8] for 1 PT sig
+ 9|inst_CLK_000_D2|NOD| | S | 1      | 4 free   | 1 XOR to [ 9] for 1 PT sig
+10|              | ? | | S |        | 4 free   | 1 XOR free
+11|              | ? | | S |        | 4 free   | 1 XOR free
+12|       LDS_000| IO| | S | 1      | 4 free   | 1 XOR to [12] for 1 PT sig
+13|        BG_000| IO| | S | 2      | 4 to [13]| 1 XOR free
 14|              | ? | | S |        | 4 free   | 1 XOR free
 15|              | ? | | S |        | 4 free   | 1 XOR free
 ---------------------------------------------------------------------------
@@ -945,19 +979,19 @@ _|_________________|__|__|___|_____|__|______|___|__________|______________
  |  Signal Name    |  |  |   |     |     Maximum PT Capacity
 _|_________________|__|__|___|_____|_______________________________________
  0|         DTACK| IO| | S | 1      |=> can support up to [  5] logic PT(s)
- 1|           VMA| IO| | S | 2 :+: 1|=> can support up to [ 12] logic PT(s)
- 2|        BG_000| IO| | S | 2      |=> can support up to [  9] logic PT(s)
- 3|AMIGA_BUS_ENABLE|OUT| | S | 1      |=> can support up to [  5] logic PT(s)
- 4|        AS_000| IO| | S | 2      |=> can support up to [  9] logic PT(s)
- 5|inst_CLK_000_D1|NOD| | S | 1      |=> can support up to [  1] logic PT(s)
- 6|       UDS_000| IO| | S | 7      |=> can support up to [  9] logic PT(s)
- 7|    cpu_est_1_|NOD| | S | 4      |=> can support up to [  4] logic PT(s)
- 8|       LDS_000| IO| | S |11      |=> can support up to [ 15] logic PT(s)
- 9|    cpu_est_2_|NOD| | S | 3 :+: 1|=> can support up to [  5] logic PT(s)
-10|    cpu_est_0_|NOD| | S | 3      |=> can support up to [  5] logic PT(s)
-11|   SM_AMIGA_5_|NOD| | S | 2      |=> can support up to [  5] logic PT(s)
-12|              | ? | | S |        |=> can support up to [  6] logic PT(s)
-13|              | ? | | S |        |=> can support up to [ 11] logic PT(s)
+ 1|           VMA| IO| | S | 2 :+: 1|=> can support up to [ 13] logic PT(s)
+ 2|   SM_AMIGA_7_|NOD| | S | 4      |=> can support up to [ 10] logic PT(s)
+ 3|              | ? | | S |        |=> can support up to [  5] logic PT(s)
+ 4|        AS_000| IO| | S | 2      |=> can support up to [ 10] logic PT(s)
+ 5|AMIGA_BUS_ENABLE| IO| | S | 6      |=> can support up to [ 10] logic PT(s)
+ 6|   SM_AMIGA_0_|NOD| | S | 2      |=> can support up to [  9] logic PT(s)
+ 7|              | ? | | S |        |=> can support up to [  9] logic PT(s)
+ 8|       UDS_000| IO| | S | 1      |=> can support up to [ 14] logic PT(s)
+ 9|inst_CLK_000_D2|NOD| | S | 1      |=> can support up to [ 19] logic PT(s)
+10|              | ? | | S |        |=> can support up to [ 18] logic PT(s)
+11|              | ? | | S |        |=> can support up to [ 14] logic PT(s)
+12|       LDS_000| IO| | S | 1      |=> can support up to [ 15] logic PT(s)
+13|        BG_000| IO| | S | 2      |=> can support up to [ 19] logic PT(s)
 14|              | ? | | S |        |=> can support up to [ 10] logic PT(s)
 15|              | ? | | S |        |=> can support up to [ 10] logic PT(s)
 ---------------------------------------------------------------------------
@@ -971,18 +1005,18 @@ _|_________________|__|__|___|_____|_______________________________________
 _|_________________|__|_____|____________________|________________________
  0|         DTACK| IO| | => |(  5)   6    7    0 |( 30)  29   28   35 
  1|           VMA| IO| | => |   5    6    7 (  0)|  30   29   28 ( 35)
- 2|        BG_000| IO| | => |(  6)   7    0    1 |( 29)  28   35   34 
- 3|AMIGA_BUS_ENABLE|OUT| | => |   6    7    0 (  1)|  29   28   35 ( 34)
+ 2|   SM_AMIGA_7_|NOD| | => |   6    7    0    1 |  29   28   35   34 
+ 3|              |   | | => |   6    7    0    1 |  29   28   35   34 
  4|        AS_000| IO| | => |   7    0    1 (  2)|  28   35   34 ( 33)
- 5|inst_CLK_000_D1|NOD| | => |   7    0    1    2 |  28   35   34   33 
- 6|       UDS_000| IO| | => |   0    1    2 (  3)|  35   34   33 ( 32)
- 7|    cpu_est_1_|NOD| | => |   0    1    2    3 |  35   34   33   32 
- 8|       LDS_000| IO| | => |   1    2    3 (  4)|  34   33   32 ( 31)
- 9|    cpu_est_2_|NOD| | => |   1    2    3    4 |  34   33   32   31 
-10|    cpu_est_0_|NOD| | => |   2    3    4    5 |  33   32   31   30 
-11|   SM_AMIGA_5_|NOD| | => |   2    3    4    5 |  33   32   31   30 
-12|              |   | | => |   3    4    5    6 |  32   31   30   29 
-13|              |   | | => |   3    4    5    6 |  32   31   30   29 
+ 5|AMIGA_BUS_ENABLE| IO| | => |   7    0 (  1)   2 |  28   35 ( 34)  33 
+ 6|   SM_AMIGA_0_|NOD| | => |   0    1    2    3 |  35   34   33   32 
+ 7|              |   | | => |   0    1    2    3 |  35   34   33   32 
+ 8|       UDS_000| IO| | => |   1    2 (  3)   4 |  34   33 ( 32)  31 
+ 9|inst_CLK_000_D2|NOD| | => |   1    2    3    4 |  34   33   32   31 
+10|              |   | | => |   2    3    4    5 |  33   32   31   30 
+11|              |   | | => |   2    3    4    5 |  33   32   31   30 
+12|       LDS_000| IO| | => |   3 (  4)   5    6 |  32 ( 31)  30   29 
+13|        BG_000| IO| | => |   3    4    5 (  6)|  32   31   30 ( 29)
 14|              |   | | => |   4    5    6    7 |  31   30   29   28 
 15|              |   | | => |   4    5    6    7 |  31   30   29   28 
 ---------------------------------------------------------------------------
@@ -996,12 +1030,12 @@ _|_________________|__|_____|____________________|________________________
  |     Signal Name |  |   |     |  Node Destinations Via Output Matrix
 _|_________________|__|___|_____|___________________________________________
  0|           VMA| IO|*| 35| => |   0  ( 1)   2    3    4    5    6    7 
- 1|AMIGA_BUS_ENABLE|OUT|*| 34| => |   2  ( 3)   4    5    6    7    8    9 
+ 1|AMIGA_BUS_ENABLE| IO|*| 34| => |   2    3    4  ( 5)   6    7    8    9 
  2|        AS_000| IO|*| 33| => | ( 4)   5    6    7    8    9   10   11 
- 3|       UDS_000| IO|*| 32| => | ( 6)   7    8    9   10   11   12   13 
- 4|       LDS_000| IO|*| 31| => | ( 8)   9   10   11   12   13   14   15 
+ 3|       UDS_000| IO|*| 32| => |   6    7  ( 8)   9   10   11   12   13 
+ 4|       LDS_000| IO|*| 31| => |   8    9   10   11  (12)  13   14   15 
  5|         DTACK| IO|*| 30| => |  10   11   12   13   14   15  ( 0)   1 
- 6|        BG_000| IO|*| 29| => |  12   13   14   15    0    1  ( 2)   3 
+ 6|        BG_000| IO|*| 29| => |  12  (13)  14   15    0    1    2    3 
  7|     BGACK_000|INP|*| 28| => |  14   15    0    1    2    3    4    5 
 ---------------------------------------------------------------------------
 ===========================================================================
@@ -1015,13 +1049,12 @@ _|_________________|__|___|_____|___________________________________________
 _|_________________|__|___|_____|__________________________________________
  0|           VMA| IO|*| 35| => | Input macrocell   [             -]
   |              |   | |   |    | IO paired w/ node [        RN_VMA]
- 1|AMIGA_BUS_ENABLE|OUT|*| 34| => | Input macrocell   [             -]
+ 1|AMIGA_BUS_ENABLE| IO|*| 34| => | Input macrocell   [             -]
+  |              |   | |   |    | IO paired w/ node [RN_AMIGA_BUS_ENABLE]
  2|        AS_000| IO|*| 33| => | Input macrocell   [             -]
   |              |   | |   |    | IO paired w/ node [     RN_AS_000]
  3|       UDS_000| IO|*| 32| => | Input macrocell   [             -]
-  |              |   | |   |    | IO paired w/ node [    RN_UDS_000]
  4|       LDS_000| IO|*| 31| => | Input macrocell   [             -]
-  |              |   | |   |    | IO paired w/ node [    RN_LDS_000]
  5|         DTACK| IO|*| 30| => | Input macrocell   [             -]
  6|        BG_000| IO|*| 29| => | Input macrocell   [             -]
   |              |   | |   |    | IO paired w/ node [     RN_BG_000]
@@ -1041,35 +1074,35 @@ IMX No.    |    +---- Block IO Pin or Macrocell Number
 	[MCell  0 |173| IO          DTACK| | ]
 	[MCell  1 |175|NOD         RN_VMA| |*] paired w/[           VMA]
 
-   1	[IOpin  1 | 34|OUT AMIGA_BUS_ENABLE|*| ]
+   1	[IOpin  1 | 34| IO AMIGA_BUS_ENABLE|*| ] paired w/[RN_AMIGA_BUS_ENABLE]
 	[RegIn  1 |177|                 -| | ]
-	[MCell  2 |176|NOD      RN_BG_000| |*] paired w/[        BG_000]
-	[MCell  3 |178|OUT AMIGA_BUS_ENABLE| | ]
+	[MCell  2 |176|NOD    SM_AMIGA_7_| |*]
+	[MCell  3 |178|                 -| | ]
 
    2	[IOpin  2 | 33| IO         AS_000|*|*] paired w/[     RN_AS_000]
 	[RegIn  2 |180|                 -| | ]
 	[MCell  4 |179|NOD      RN_AS_000| |*] paired w/[        AS_000]
-	[MCell  5 |181|NOD inst_CLK_000_D1| |*]
+	[MCell  5 |181|NOD RN_AMIGA_BUS_ENABLE| |*] paired w/[AMIGA_BUS_ENABLE]
 
-   3	[IOpin  3 | 32| IO        UDS_000|*|*] paired w/[    RN_UDS_000]
+   3	[IOpin  3 | 32| IO        UDS_000|*|*]
 	[RegIn  3 |183|                 -| | ]
-	[MCell  6 |182|NOD     RN_UDS_000| |*] paired w/[       UDS_000]
-	[MCell  7 |184|NOD     cpu_est_1_| |*]
+	[MCell  6 |182|NOD    SM_AMIGA_0_| |*]
+	[MCell  7 |184|                 -| | ]
 
-   4	[IOpin  4 | 31| IO        LDS_000|*|*] paired w/[    RN_LDS_000]
+   4	[IOpin  4 | 31| IO        LDS_000|*|*]
 	[RegIn  4 |186|                 -| | ]
-	[MCell  8 |185|NOD     RN_LDS_000| |*] paired w/[       LDS_000]
-	[MCell  9 |187|NOD     cpu_est_2_| |*]
+	[MCell  8 |185| IO        UDS_000| | ]
+	[MCell  9 |187|NOD inst_CLK_000_D2| |*]
 
    5	[IOpin  5 | 30| IO          DTACK|*|*]
 	[RegIn  5 |189|                 -| | ]
-	[MCell 10 |188|NOD     cpu_est_0_| |*]
-	[MCell 11 |190|NOD    SM_AMIGA_5_| |*]
+	[MCell 10 |188|                 -| | ]
+	[MCell 11 |190|                 -| | ]
 
    6	[IOpin  6 | 29| IO         BG_000|*| ] paired w/[     RN_BG_000]
 	[RegIn  6 |192|                 -| | ]
-	[MCell 12 |191|                 -| | ]
-	[MCell 13 |193|                 -| | ]
+	[MCell 12 |191| IO        LDS_000| | ]
+	[MCell 13 |193|NOD      RN_BG_000| |*] paired w/[        BG_000]
 
    7	[IOpin  7 | 28|INP      BGACK_000|*|*]
 	[RegIn  7 |195|                 -| | ]
@@ -1082,39 +1115,39 @@ IMX No.    |    +---- Block IO Pin or Macrocell Number
   +- Central Switch Matrix No.
   |   Src (ABEL Node/Pin#)   Signal
 --|--|--------------------|---------------------------------------------------
-Mux00|  Mcel  7  4  ( 275)|   RN_BGACK_030
-Mux01|          ...       |      ...
-Mux02|  Mcel  6  4  ( 251)|   inst_avec_expreg
-Mux03|  Mcel  3  2  ( 176)|   RN_BG_000
-Mux04|  Mcel  7  5  ( 277)|   SM_AMIGA_7_
-Mux05| IOPin  0  7  (  98)|   DS_030
-Mux06| IOPin  7  6  (  79)|   SIZE_1_
+Mux00|  Mcel  7  4  ( 275)|   inst_AS_030_000_SYNC
+Mux01|  Mcel  3 13  ( 193)|   RN_BG_000
+Mux02|  Mcel  3  1  ( 175)|   RN_VMA
+Mux03|  Mcel  3  2  ( 176)|   SM_AMIGA_7_
+Mux04|  Mcel  7  5  ( 277)|   RN_BGACK_030
+Mux05|  Mcel  7  9  ( 283)|   inst_CLK_000_D1
+Mux06|  Mcel  2  4  ( 155)|   RN_AVEC_EXP
 Mux07|  Mcel  7  6  ( 278)|   RN_AS_030
-Mux08| IOPin  6  6  (  71)|   RW
-Mux09| IOPin  7  3  (  82)|   AS_030
-Mux10|  Mcel  7  3  ( 274)|   inst_CLK_000_D0
-Mux11|  Mcel  3  5  ( 181)|   inst_CLK_000_D1
-Mux12|  Mcel  3  9  ( 187)|   cpu_est_2_
-Mux13|  Mcel  3  7  ( 184)|   cpu_est_1_
-Mux14|  Mcel  3  4  ( 179)|   RN_AS_000
+Mux08|          ...       |      ...
+Mux09|  Mcel  6 13  ( 265)|   cpu_est_2_
+Mux10|  Mcel  3  4  ( 179)|   RN_AS_000
+Mux11|  Mcel  6  4  ( 251)|   RN_E
+Mux12|  Mcel  3  9  ( 187)|   inst_CLK_000_D2
+Mux13|  Mcel  2  9  ( 163)|   inst_LDS_000_INT
+Mux14|  Input Pin   (  11)|   CLK_000
 Mux15|  Input Pin   (  14)|   nEXP_SPACE
-Mux16|  Mcel  3  8  ( 185)|   RN_LDS_000
-Mux17| IOPin  6  5  (  70)|   SIZE_0_
-Mux18| IOPin  6  4  (  69)|   A0
-Mux19|  Mcel  3 11  ( 190)|   SM_AMIGA_5_
-Mux20|  Mcel  3 10  ( 188)|   cpu_est_0_
+Mux16|  Mcel  3  6  ( 182)|   SM_AMIGA_0_
+Mux17| IOPin  7  4  (  81)|   DSACK1
+Mux18|  Mcel  7 10  ( 284)|   inst_BGACK_030_INT_D
+Mux19| IOPin  7  3  (  82)|   AS_030
+Mux20|  Mcel  5  8  ( 233)|   SM_AMIGA_1_
 Mux21|  Input Pin   (  86)|   RST
 Mux22| IOPin  2  6  (  21)|   BG_030
-Mux23|  Mcel  6  6  ( 254)|   SM_AMIGA_6_
-Mux24|  Input Pin   (  11)|   CLK_000
-Mux25|  Mcel  0  3  ( 106)|   inst_VPA_D
+Mux23|  Mcel  6  2  ( 248)|   inst_VPA_D
+Mux24|  Mcel  3  5  ( 181)|   RN_AMIGA_BUS_ENABLE
+Mux25|  Mcel  5  0  ( 221)|   inst_CLK_000_D0
 Mux26|          ...       |      ...
-Mux27|  Mcel  3  1  ( 175)|   RN_VMA
-Mux28|          ...       |      ...
-Mux29|          ...       |      ...
-Mux30|  Mcel  3  6  ( 182)|   RN_UDS_000
-Mux31|  Mcel  6  2  ( 248)|   RN_E
-Mux32| IOPin  7  4  (  81)|   DSACK1
+Mux27|  Mcel  6  9  ( 259)|   cpu_est_1_
+Mux28|  Mcel  2  5  ( 157)|   inst_UDS_000_INT
+Mux29|  Mcel  5  4  ( 227)|   cpu_est_0_
+Mux30|  Mcel  0  8  ( 113)|   inst_CLK_000_NE
+Mux31|  Mcel  1  5  ( 133)|   inst_DS_000_ENABLE
+Mux32|  Mcel  6  5  ( 253)|   SM_AMIGA_6_
 ---------------------------------------------------------------------------
 ===========================================================================
 	< Block [ 4] >	Macrocell (MCell) Cluster Assignments
@@ -1127,18 +1160,18 @@ Mux32| IOPin  7  4  (  81)|   DSACK1
  |  Signal Name    |  |  |   |     |  |      |   |          |
 _|_________________|__|__|___|_____|__|______|___|__________|______________
  0|AMIGA_BUS_DATA_DIR|OUT| | S | 2      | 4 to [ 0]| 1 XOR free
- 1|          CIIN|OUT| | S | 1      | 4 free   | 1 XOR to [ 1] for 1 PT sig
- 2|          BERR|OUT| | S | 1      | 4 free   | 1 XOR to [ 2] for 1 PT sig
+ 1|CLK_000_N_SYNC_7_|NOD| | S | 1      | 4 free   | 1 XOR to [ 1] for 1 PT sig
+ 2|              | ? | | S |        | 4 free   | 1 XOR free
  3|              | ? | | S |        | 4 free   | 1 XOR free
- 4|              | ? | | S |        | 4 free   | 1 XOR free
- 5|              | ? | | S |        | 4 free   | 1 XOR free
+ 4|          BERR|OUT| | S | 1      | 4 free   | 1 XOR to [ 4] for 1 PT sig
+ 5|CLK_000_N_SYNC_2_|NOD| | S | 1      | 4 free   | 1 XOR to [ 5] for 1 PT sig
  6|              | ? | | S |        | 4 free   | 1 XOR free
  7|              | ? | | S |        | 4 free   | 1 XOR free
- 8|              | ? | | S |        | 4 free   | 1 XOR free
- 9|              | ? | | S |        | 4 free   | 1 XOR free
+ 8|inst_CLK_OUT_PRE_50|NOD| | S | 1      | 4 free   | 1 XOR to [ 8] for 1 PT sig
+ 9|inst_CLK_000_D3|NOD| | S | 1      | 4 free   | 1 XOR to [ 9] for 1 PT sig
 10|              | ? | | S |        | 4 free   | 1 XOR free
 11|              | ? | | S |        | 4 free   | 1 XOR free
-12|              | ? | | S |        | 4 free   | 1 XOR free
+12|          CIIN|OUT| | S | 1      | 4 free   | 1 XOR to [12] for 1 PT sig
 13|              | ? | | S |        | 4 free   | 1 XOR free
 14|              | ? | | S |        | 4 free   | 1 XOR free
 15|              | ? | | S |        | 4 free   | 1 XOR free
@@ -1153,20 +1186,20 @@ _|_________________|__|__|___|_____|__|______|___|__________|______________
  |        Sig Type-+  |  |   |     |
  |  Signal Name    |  |  |   |     |     Maximum PT Capacity
 _|_________________|__|__|___|_____|_______________________________________
- 0|AMIGA_BUS_DATA_DIR|OUT| | S | 2      |=> can support up to [ 13] logic PT(s)
- 1|          CIIN|OUT| | S | 1      |=> can support up to [ 14] logic PT(s)
- 2|          BERR|OUT| | S | 1      |=> can support up to [ 19] logic PT(s)
- 3|              | ? | | S |        |=> can support up to [ 19] logic PT(s)
- 4|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
- 5|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
- 6|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
- 7|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
- 8|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
- 9|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
-10|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
-11|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
-12|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
-13|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
+ 0|AMIGA_BUS_DATA_DIR|OUT| | S | 2      |=> can support up to [ 14] logic PT(s)
+ 1|CLK_000_N_SYNC_7_|NOD| | S | 1      |=> can support up to [ 15] logic PT(s)
+ 2|              | ? | | S |        |=> can support up to [ 18] logic PT(s)
+ 3|              | ? | | S |        |=> can support up to [ 18] logic PT(s)
+ 4|          BERR|OUT| | S | 1      |=> can support up to [ 19] logic PT(s)
+ 5|CLK_000_N_SYNC_2_|NOD| | S | 1      |=> can support up to [ 19] logic PT(s)
+ 6|              | ? | | S |        |=> can support up to [ 18] logic PT(s)
+ 7|              | ? | | S |        |=> can support up to [ 18] logic PT(s)
+ 8|inst_CLK_OUT_PRE_50|NOD| | S | 1      |=> can support up to [ 19] logic PT(s)
+ 9|inst_CLK_000_D3|NOD| | S | 1      |=> can support up to [ 19] logic PT(s)
+10|              | ? | | S |        |=> can support up to [ 18] logic PT(s)
+11|              | ? | | S |        |=> can support up to [ 19] logic PT(s)
+12|          CIIN|OUT| | S | 1      |=> can support up to [ 20] logic PT(s)
+13|              | ? | | S |        |=> can support up to [ 19] logic PT(s)
 14|              | ? | | S |        |=> can support up to [ 15] logic PT(s)
 15|              | ? | | S |        |=> can support up to [ 10] logic PT(s)
 ---------------------------------------------------------------------------
@@ -1179,18 +1212,18 @@ _|_________________|__|__|___|_____|_______________________________________
  |  Signal Name    |  | pin |      Numbers       |     Numbers
 _|_________________|__|_____|____________________|________________________
  0|AMIGA_BUS_DATA_DIR|OUT| | => |   5    6 (  7)   0 |  46   47 ( 48)  41 
- 1|          CIIN|OUT| | => |   5 (  6)   7    0 |  46 ( 47)  48   41 
- 2|          BERR|OUT| | => |   6    7 (  0)   1 |  47   48 ( 41)  42 
+ 1|CLK_000_N_SYNC_7_|NOD| | => |   5    6    7    0 |  46   47   48   41 
+ 2|              |   | | => |   6    7    0    1 |  47   48   41   42 
  3|              |   | | => |   6    7    0    1 |  47   48   41   42 
- 4|              |   | | => |   7    0    1    2 |  48   41   42   43 
- 5|              |   | | => |   7    0    1    2 |  48   41   42   43 
+ 4|          BERR|OUT| | => |   7 (  0)   1    2 |  48 ( 41)  42   43 
+ 5|CLK_000_N_SYNC_2_|NOD| | => |   7    0    1    2 |  48   41   42   43 
  6|              |   | | => |   0    1    2    3 |  41   42   43   44 
  7|              |   | | => |   0    1    2    3 |  41   42   43   44 
- 8|              |   | | => |   1    2    3    4 |  42   43   44   45 
- 9|              |   | | => |   1    2    3    4 |  42   43   44   45 
+ 8|inst_CLK_OUT_PRE_50|NOD| | => |   1    2    3    4 |  42   43   44   45 
+ 9|inst_CLK_000_D3|NOD| | => |   1    2    3    4 |  42   43   44   45 
 10|              |   | | => |   2    3    4    5 |  43   44   45   46 
 11|              |   | | => |   2    3    4    5 |  43   44   45   46 
-12|              |   | | => |   3    4    5    6 |  44   45   46   47 
+12|          CIIN|OUT| | => |   3    4    5 (  6)|  44   45   46 ( 47)
 13|              |   | | => |   3    4    5    6 |  44   45   46   47 
 14|              |   | | => |   4    5    6    7 |  45   46   47   48 
 15|              |   | | => |   4    5    6    7 |  45   46   47   48 
@@ -1204,13 +1237,13 @@ _|_________________|__|_____|____________________|________________________
  |       Sig Type--+  |   |     |
  |     Signal Name |  |   |     |  Node Destinations Via Output Matrix
 _|_________________|__|___|_____|___________________________________________
- 0|          BERR|OUT|*| 41| => |   0    1  ( 2)   3    4    5    6    7 
+ 0|          BERR|OUT|*| 41| => |   0    1    2    3  ( 4)   5    6    7 
  1|              |   | | 42| => |   2    3    4    5    6    7    8    9 
  2|              |   | | 43| => |   4    5    6    7    8    9   10   11 
  3|              |   | | 44| => |   6    7    8    9   10   11   12   13 
  4|              |   | | 45| => |   8    9   10   11   12   13   14   15 
  5|              |   | | 46| => |  10   11   12   13   14   15    0    1 
- 6|          CIIN|OUT|*| 47| => |  12   13   14   15    0  ( 1)   2    3 
+ 6|          CIIN|OUT|*| 47| => | (12)  13   14   15    0    1    2    3 
  7|AMIGA_BUS_DATA_DIR|OUT|*| 48| => |  14   15  ( 0)   1    2    3    4    5 
 ---------------------------------------------------------------------------
 ===========================================================================
@@ -1243,17 +1276,17 @@ IMX No.    |    +---- Block IO Pin or Macrocell Number
    0	[IOpin  0 | 41|OUT           BERR|*| ]
 	[RegIn  0 |198|                 -| | ]
 	[MCell  0 |197|OUT AMIGA_BUS_DATA_DIR| | ]
-	[MCell  1 |199|OUT           CIIN| | ]
+	[MCell  1 |199|NOD CLK_000_N_SYNC_7_| |*]
 
    1	[IOpin  1 | 42|                 -| | ]
 	[RegIn  1 |201|                 -| | ]
-	[MCell  2 |200|OUT           BERR| | ]
+	[MCell  2 |200|                 -| | ]
 	[MCell  3 |202|                 -| | ]
 
    2	[IOpin  2 | 43|                 -| | ]
 	[RegIn  2 |204|                 -| | ]
-	[MCell  4 |203|                 -| | ]
-	[MCell  5 |205|                 -| | ]
+	[MCell  4 |203|OUT           BERR| | ]
+	[MCell  5 |205|NOD CLK_000_N_SYNC_2_| |*]
 
    3	[IOpin  3 | 44|                 -| | ]
 	[RegIn  3 |207|                 -| | ]
@@ -1262,8 +1295,8 @@ IMX No.    |    +---- Block IO Pin or Macrocell Number
 
    4	[IOpin  4 | 45|                 -| | ]
 	[RegIn  4 |210|                 -| | ]
-	[MCell  8 |209|                 -| | ]
-	[MCell  9 |211|                 -| | ]
+	[MCell  8 |209|NOD inst_CLK_OUT_PRE_50| |*]
+	[MCell  9 |211|NOD inst_CLK_000_D3| |*]
 
    5	[IOpin  5 | 46|                 -| | ]
 	[RegIn  5 |213|                 -| | ]
@@ -1272,7 +1305,7 @@ IMX No.    |    +---- Block IO Pin or Macrocell Number
 
    6	[IOpin  6 | 47|OUT           CIIN|*| ]
 	[RegIn  6 |216|                 -| | ]
-	[MCell 12 |215|                 -| | ]
+	[MCell 12 |215|OUT           CIIN| | ]
 	[MCell 13 |217|                 -| | ]
 
    7	[IOpin  7 | 48|OUT AMIGA_BUS_DATA_DIR|*| ]
@@ -1286,39 +1319,118 @@ IMX No.    |    +---- Block IO Pin or Macrocell Number
   +- Central Switch Matrix No.
   |   Src (ABEL Node/Pin#)   Signal
 --|--|--------------------|---------------------------------------------------
-Mux00|  Mcel  7  4  ( 275)|   RN_BGACK_030
+Mux00|  Input Pin   (  86)|   RST
 Mux01| IOPin  1  6  (   4)|   A_31_
 Mux02|          ...       |      ...
 Mux03| IOPin  2  1  (  16)|   A_27_
 Mux04| IOPin  1  4  (   6)|   A_29_
-Mux05| IOPin  2  4  (  19)|   A_24_
-Mux06|          ...       |      ...
+Mux05| IOPin  0  3  (  94)|   A_21_
+Mux06| IOPin  0  6  (  97)|   A_19_
 Mux07| IOPin  2  0  (  15)|   A_28_
-Mux08| IOPin  7  0  (  85)|   A_22_
-Mux09| IOPin  1  5  (   5)|   A_30_
-Mux10|          ...       |      ...
+Mux08| IOPin  6  6  (  71)|   RW
+Mux09| IOPin  2  2  (  17)|   A_26_
+Mux10|  Mcel  0  6  ( 110)|   CLK_000_N_SYNC_1_
 Mux11| IOPin  7  1  (  84)|   A_23_
 Mux12| IOPin  2  3  (  18)|   A_25_
-Mux13|          ...       |      ...
-Mux14|  Mcel  7  2  ( 272)|   RN_FPU_CS
-Mux15| IOPin  0  3  (  94)|   A_21_
-Mux16|          ...       |      ...
-Mux17| IOPin  2  2  (  17)|   A_26_
-Mux18|          ...       |      ...
-Mux19|          ...       |      ...
-Mux20|          ...       |      ...
+Mux13| IOPin  5  1  (  59)|   A_17_
+Mux14| IOPin  2  4  (  19)|   A_24_
+Mux15|  Mcel  5  2  ( 224)|   CLK_000_N_SYNC_6_
+Mux16|  Mcel  4  8  ( 209)|   inst_CLK_OUT_PRE_50
+Mux17| IOPin  5  3  (  57)|   FC_0_
+Mux18| IOPin  7  0  (  85)|   A_22_
+Mux19| IOPin  7  3  (  82)|   AS_030
+Mux20| IOPin  5  2  (  58)|   FC_1_
 Mux21|  Input Pin   (  14)|   nEXP_SPACE
 Mux22|          ...       |      ...
 Mux23| IOPin  3  2  (  33)|   AS_000
 Mux24|          ...       |      ...
-Mux25| IOPin  6  6  (  71)|   RW
-Mux26|          ...       |      ...
-Mux27|          ...       |      ...
-Mux28|          ...       |      ...
+Mux25|  Mcel  3  9  ( 187)|   inst_CLK_000_D2
+Mux26| IOPin  0  5  (  96)|   A_16_
+Mux27|  Mcel  7  5  ( 277)|   RN_BGACK_030
+Mux28| IOPin  1  5  (   5)|   A_30_
 Mux29| IOPin  0  2  (  93)|   A_20_
 Mux30|          ...       |      ...
-Mux31|          ...       |      ...
-Mux32|          ...       |      ...
+Mux31| IOPin  0  4  (  95)|   A_18_
+Mux32| IOPin  3  7  (  28)|   BGACK_000
+---------------------------------------------------------------------------
+===========================================================================
+	< Block [ 5] >	Macrocell (MCell) Cluster Assignments
+===========================================================================
+ + Macrocell Number
+ | PT Requirements------ Logic  XOR+  +--- Macrocell PT Cluster Size
+ |      Sync/Async-------+   |     |  |    Cluster to Mcell Assignment
+ |   Node Fixed(*)----+  |   |     |  |      |   +- XOR PT Size
+ |        Sig Type-+  |  |   |     |  |      |   |  XOR to Mcell Assignment
+ |  Signal Name    |  |  |   |     |  |      |   |          |
+_|_________________|__|__|___|_____|__|______|___|__________|______________
+ 0|inst_CLK_000_D0|NOD| | S | 1      | 4 free   | 1 XOR to [ 0] for 1 PT sig
+ 1|   SM_AMIGA_2_|NOD| | S | 3      | 4 to [ 1]| 1 XOR free
+ 2|CLK_000_N_SYNC_6_|NOD| | S | 1      | 4 free   | 1 XOR to [ 2] for 1 PT sig
+ 3|              | ? | | S |        | 4 free   | 1 XOR free
+ 4|    cpu_est_0_|NOD| | S | 2      | 4 to [ 4]| 1 XOR free
+ 5|CLK_000_P_SYNC_8_|NOD| | S | 1      | 4 free   | 1 XOR to [ 5] for 1 PT sig
+ 6|CLK_000_N_SYNC_0_|NOD| | S | 1      | 4 free   | 1 XOR to [ 6] for 1 PT sig
+ 7|              | ? | | S |        | 4 free   | 1 XOR free
+ 8|   SM_AMIGA_1_|NOD| | S | 2      | 4 to [ 8]| 1 XOR free
+ 9|CLK_000_P_SYNC_0_|NOD| | S | 1      | 4 free   | 1 XOR to [ 9] for 1 PT sig
+10|              | ? | | S |        | 4 free   | 1 XOR free
+11|              | ? | | S |        | 4 free   | 1 XOR free
+12|   SM_AMIGA_3_|NOD| | S | 5      | 4 to [12]| 1 XOR to [12] as logic PT
+13|CLK_000_N_SYNC_9_|NOD| | S | 1      | 4 free   | 1 XOR to [13] for 1 PT sig
+14|              | ? | | S |        | 4 free   | 1 XOR free
+15|              | ? | | S |        | 4 free   | 1 XOR free
+---------------------------------------------------------------------------
+===========================================================================
+	< Block [ 5] >	Maximum PT Capacity
+===========================================================================
+ + Macrocell Number
+ | PT Requirements------ Logic  XOR+
+ |      Sync/Async-------+   |     |
+ |   Node Fixed(*)----+  |   |     |
+ |        Sig Type-+  |  |   |     |
+ |  Signal Name    |  |  |   |     |     Maximum PT Capacity
+_|_________________|__|__|___|_____|_______________________________________
+ 0|inst_CLK_000_D0|NOD| | S | 1      |=> can support up to [  9] logic PT(s)
+ 1|   SM_AMIGA_2_|NOD| | S | 3      |=> can support up to [ 18] logic PT(s)
+ 2|CLK_000_N_SYNC_6_|NOD| | S | 1      |=> can support up to [ 10] logic PT(s)
+ 3|              | ? | | S |        |=> can support up to [ 13] logic PT(s)
+ 4|    cpu_est_0_|NOD| | S | 2      |=> can support up to [ 18] logic PT(s)
+ 5|CLK_000_P_SYNC_8_|NOD| | S | 1      |=> can support up to [ 14] logic PT(s)
+ 6|CLK_000_N_SYNC_0_|NOD| | S | 1      |=> can support up to [ 14] logic PT(s)
+ 7|              | ? | | S |        |=> can support up to [ 13] logic PT(s)
+ 8|   SM_AMIGA_1_|NOD| | S | 2      |=> can support up to [ 19] logic PT(s)
+ 9|CLK_000_P_SYNC_0_|NOD| | S | 1      |=> can support up to [ 15] logic PT(s)
+10|              | ? | | S |        |=> can support up to [ 14] logic PT(s)
+11|              | ? | | S |        |=> can support up to [ 14] logic PT(s)
+12|   SM_AMIGA_3_|NOD| | S | 5      |=> can support up to [ 19] logic PT(s)
+13|CLK_000_N_SYNC_9_|NOD| | S | 1      |=> can support up to [ 15] logic PT(s)
+14|              | ? | | S |        |=> can support up to [ 14] logic PT(s)
+15|              | ? | | S |        |=> can support up to [ 10] logic PT(s)
+---------------------------------------------------------------------------
+===========================================================================
+	< Block [ 5] >	Node-Pin Assignments
+===========================================================================
+ + Macrocell Number
+ | Node Fixed(*)------+
+ |      Sig Type---+  |  to | Block [ 5] IO Pin  |   Device Pin
+ |  Signal Name    |  | pin |      Numbers       |     Numbers
+_|_________________|__|_____|____________________|________________________
+ 0|inst_CLK_000_D0|NOD| | => |   5    6    7    0 |  55   54   53   60 
+ 1|   SM_AMIGA_2_|NOD| | => |   5    6    7    0 |  55   54   53   60 
+ 2|CLK_000_N_SYNC_6_|NOD| | => |   6    7    0    1 |  54   53   60   59 
+ 3|              |   | | => |   6    7    0    1 |  54   53   60   59 
+ 4|    cpu_est_0_|NOD| | => |   7    0    1    2 |  53   60   59   58 
+ 5|CLK_000_P_SYNC_8_|NOD| | => |   7    0    1    2 |  53   60   59   58 
+ 6|CLK_000_N_SYNC_0_|NOD| | => |   0    1    2    3 |  60   59   58   57 
+ 7|              |   | | => |   0    1    2    3 |  60   59   58   57 
+ 8|   SM_AMIGA_1_|NOD| | => |   1    2    3    4 |  59   58   57   56 
+ 9|CLK_000_P_SYNC_0_|NOD| | => |   1    2    3    4 |  59   58   57   56 
+10|              |   | | => |   2    3    4    5 |  58   57   56   55 
+11|              |   | | => |   2    3    4    5 |  58   57   56   55 
+12|   SM_AMIGA_3_|NOD| | => |   3    4    5    6 |  57   56   55   54 
+13|CLK_000_N_SYNC_9_|NOD| | => |   3    4    5    6 |  57   56   55   54 
+14|              |   | | => |   4    5    6    7 |  56   55   54   53 
+15|              |   | | => |   4    5    6    7 |  56   55   54   53 
 ---------------------------------------------------------------------------
 ===========================================================================
 	< Block [ 5] >	IO-to-Node Pin Mapping
@@ -1367,28 +1479,28 @@ IMX No.    |    +---- Block IO Pin or Macrocell Number
 ---|-------|----|---|---|----------|------|-|------------------------------
    0	[IOpin  0 | 60|                 -| | ]
 	[RegIn  0 |222|                 -| | ]
-	[MCell  0 |221|                 -| | ]
-	[MCell  1 |223|                 -| | ]
+	[MCell  0 |221|NOD inst_CLK_000_D0| |*]
+	[MCell  1 |223|NOD    SM_AMIGA_2_| |*]
 
    1	[IOpin  1 | 59|INP          A_17_|*|*]
 	[RegIn  1 |225|                 -| | ]
-	[MCell  2 |224|                 -| | ]
+	[MCell  2 |224|NOD CLK_000_N_SYNC_6_| |*]
 	[MCell  3 |226|                 -| | ]
 
    2	[IOpin  2 | 58|INP          FC_1_|*|*]
 	[RegIn  2 |228|                 -| | ]
-	[MCell  4 |227|                 -| | ]
-	[MCell  5 |229|                 -| | ]
+	[MCell  4 |227|NOD     cpu_est_0_| |*]
+	[MCell  5 |229|NOD CLK_000_P_SYNC_8_| |*]
 
    3	[IOpin  3 | 57|INP          FC_0_|*|*]
 	[RegIn  3 |231|                 -| | ]
-	[MCell  6 |230|                 -| | ]
+	[MCell  6 |230|NOD CLK_000_N_SYNC_0_| |*]
 	[MCell  7 |232|                 -| | ]
 
    4	[IOpin  4 | 56|INP         IPL_1_|*|*]
 	[RegIn  4 |234|                 -| | ]
-	[MCell  8 |233|                 -| | ]
-	[MCell  9 |235|                 -| | ]
+	[MCell  8 |233|NOD    SM_AMIGA_1_| |*]
+	[MCell  9 |235|NOD CLK_000_P_SYNC_0_| |*]
 
    5	[IOpin  5 | 55|                 -| | ]
 	[RegIn  5 |237|                 -| | ]
@@ -1397,13 +1509,53 @@ IMX No.    |    +---- Block IO Pin or Macrocell Number
 
    6	[IOpin  6 | 54|                 -| | ]
 	[RegIn  6 |240|                 -| | ]
-	[MCell 12 |239|                 -| | ]
-	[MCell 13 |241|                 -| | ]
+	[MCell 12 |239|NOD    SM_AMIGA_3_| |*]
+	[MCell 13 |241|NOD CLK_000_N_SYNC_9_| |*]
 
    7	[IOpin  7 | 53|                 -| | ]
 	[RegIn  7 |243|                 -| | ]
 	[MCell 14 |242|                 -| | ]
 	[MCell 15 |244|                 -| | ]
+---------------------------------------------------------------------------
+===========================================================================
+	< Block [ 5] >	Logic Array Fan-in
+===========================================================================
+  +- Central Switch Matrix No.
+  |   Src (ABEL Node/Pin#)   Signal
+--|--|--------------------|---------------------------------------------------
+Mux00|  Input Pin   (  86)|   RST
+Mux01|  Mcel  5 12  ( 239)|   SM_AMIGA_3_
+Mux02|  Mcel  4  9  ( 211)|   inst_CLK_000_D3
+Mux03|  Input Pin   (  11)|   CLK_000
+Mux04|  Mcel  6  2  ( 248)|   inst_VPA_D
+Mux05|  Mcel  5  0  ( 221)|   inst_CLK_000_D0
+Mux06|  Mcel  1  9  ( 139)|   SM_AMIGA_4_
+Mux07|  Mcel  3  9  ( 187)|   inst_CLK_000_D2
+Mux08|  Mcel  2 10  ( 164)|   CLK_000_N_SYNC_8_
+Mux09|  Mcel  0  1  ( 103)|   CLK_000_P_SYNC_7_
+Mux10|  Mcel  5  1  ( 223)|   SM_AMIGA_2_
+Mux11|  Mcel  6  4  ( 251)|   RN_E
+Mux12|  Mcel  6  9  ( 259)|   cpu_est_1_
+Mux13|          ...       |      ...
+Mux14|  Mcel  5  4  ( 227)|   cpu_est_0_
+Mux15|          ...       |      ...
+Mux16|          ...       |      ...
+Mux17|  Mcel  3  1  ( 175)|   RN_VMA
+Mux18|  Mcel  0  8  ( 113)|   inst_CLK_000_NE
+Mux19|          ...       |      ...
+Mux20|  Mcel  5  8  ( 233)|   SM_AMIGA_1_
+Mux21|          ...       |      ...
+Mux22|          ...       |      ...
+Mux23| IOPin  3  5  (  30)|   DTACK
+Mux24|          ...       |      ...
+Mux25|  Mcel  0 13  ( 121)|   CLK_000_N_SYNC_5_
+Mux26|          ...       |      ...
+Mux27|  Mcel  7  9  ( 283)|   inst_CLK_000_D1
+Mux28|          ...       |      ...
+Mux29|  Mcel  2  4  ( 155)|   RN_AVEC_EXP
+Mux30|          ...       |      ...
+Mux31|          ...       |      ...
+Mux32|          ...       |      ...
 ---------------------------------------------------------------------------
 ===========================================================================
 	< Block [ 6] >	Macrocell (MCell) Cluster Assignments
@@ -1415,20 +1567,20 @@ IMX No.    |    +---- Block IO Pin or Macrocell Number
  |        Sig Type-+  |  |   |     |  |      |   |  XOR to Mcell Assignment
  |  Signal Name    |  |  |   |     |  |      |   |          |
 _|_________________|__|__|___|_____|__|______|___|__________|______________
- 0|            RW| IO| | S | 1      | 4 free   | 1 XOR to [ 0] for 1 PT sig
- 1|       SIZE_0_| IO| | S | 1      | 4 free   | 1 XOR to [ 1] for 1 PT sig
- 2|             E| IO| | S | 3 :+: 1| 4 to [ 2]| 1 XOR to [ 2]
- 3|   CLK_DIV_OUT|OUT| | S | 1      | 4 to [ 4]| 1 XOR to [ 3] for 1 PT sig
- 4|inst_avec_expreg|NOD| | S | 6      | 4 to [ 4]| 1 XOR to [ 4] as logic PT
- 5|inst_RW_000_INT|NOD| | S |14      | 4 to [ 5]| 1 XOR to [ 5] as logic PT
- 6|   SM_AMIGA_6_|NOD| | S | 2      | 4 to [ 5]| 1 XOR to [ 5] as logic PT
- 7|              | ? | | S |        | 4 to [ 5]| 1 XOR free
- 8|            A0| IO| | S | 1      | 4 to [ 6]| 1 XOR to [ 8] for 1 PT sig
- 9|              | ? | | S |        | 4 free   | 1 XOR free
+ 0|            RW| IO| | S | 4      | 4 to [ 0]| 1 XOR free
+ 1|   CLK_DIV_OUT|OUT| | S | 1      | 4 free   | 1 XOR to [ 1] for 1 PT sig
+ 2|    inst_VPA_D|NOD| | S | 1      | 4 free   | 1 XOR to [ 2] for 1 PT sig
+ 3|              | ? | | S |        | 4 free   | 1 XOR free
+ 4|             E| IO| | S | 4      | 4 to [ 4]| 1 XOR free
+ 5|   SM_AMIGA_6_|NOD| | S | 2      | 4 to [ 5]| 1 XOR free
+ 6|CLK_000_P_SYNC_4_|NOD| | S | 1      | 4 free   | 1 XOR to [ 6] for 1 PT sig
+ 7|              | ? | | S |        | 4 free   | 1 XOR free
+ 8|            A0| IO| | S | 1      | 4 free   | 1 XOR to [ 8] for 1 PT sig
+ 9|    cpu_est_1_|NOD| | S | 5      | 4 to [ 9]| 1 XOR to [ 9] as logic PT
 10|              | ? | | S |        | 4 free   | 1 XOR free
 11|              | ? | | S |        | 4 free   | 1 XOR free
-12|              | ? | | S |        | 4 free   | 1 XOR free
-13|              | ? | | S |        | 4 free   | 1 XOR free
+12|       SIZE_0_| IO| | S | 1      | 4 free   | 1 XOR to [12] for 1 PT sig
+13|    cpu_est_2_|NOD| | S | 4      | 4 to [13]| 1 XOR free
 14|              | ? | | S |        | 4 free   | 1 XOR free
 15|              | ? | | S |        | 4 free   | 1 XOR free
 ---------------------------------------------------------------------------
@@ -1442,21 +1594,21 @@ _|_________________|__|__|___|_____|__|______|___|__________|______________
  |        Sig Type-+  |  |   |     |
  |  Signal Name    |  |  |   |     |     Maximum PT Capacity
 _|_________________|__|__|___|_____|_______________________________________
- 0|            RW| IO| | S | 1      |=> can support up to [  9] logic PT(s)
- 1|       SIZE_0_| IO| | S | 1      |=> can support up to [  9] logic PT(s)
- 2|             E| IO| | S | 3 :+: 1|=> can support up to [  8] logic PT(s)
- 3|   CLK_DIV_OUT|OUT| | S | 1      |=> can support up to [  1] logic PT(s)
- 4|inst_avec_expreg|NOD| | S | 6      |=> can support up to [  9] logic PT(s)
- 5|inst_RW_000_INT|NOD| | S |14      |=> can support up to [ 15] logic PT(s)
- 6|   SM_AMIGA_6_|NOD| | S | 2      |=> can support up to [  4] logic PT(s)
- 7|              | ? | | S |        |=> can support up to [  6] logic PT(s)
- 8|            A0| IO| | S | 1      |=> can support up to [ 11] logic PT(s)
- 9|              | ? | | S |        |=> can support up to [ 15] logic PT(s)
-10|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
-11|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
-12|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
-13|              | ? | | S |        |=> can support up to [ 20] logic PT(s)
-14|              | ? | | S |        |=> can support up to [ 15] logic PT(s)
+ 0|            RW| IO| | S | 4      |=> can support up to [ 13] logic PT(s)
+ 1|   CLK_DIV_OUT|OUT| | S | 1      |=> can support up to [ 14] logic PT(s)
+ 2|    inst_VPA_D|NOD| | S | 1      |=> can support up to [ 14] logic PT(s)
+ 3|              | ? | | S |        |=> can support up to [  9] logic PT(s)
+ 4|             E| IO| | S | 4      |=> can support up to [ 14] logic PT(s)
+ 5|   SM_AMIGA_6_|NOD| | S | 2      |=> can support up to [ 14] logic PT(s)
+ 6|CLK_000_P_SYNC_4_|NOD| | S | 1      |=> can support up to [ 14] logic PT(s)
+ 7|              | ? | | S |        |=> can support up to [ 13] logic PT(s)
+ 8|            A0| IO| | S | 1      |=> can support up to [ 15] logic PT(s)
+ 9|    cpu_est_1_|NOD| | S | 5      |=> can support up to [ 19] logic PT(s)
+10|              | ? | | S |        |=> can support up to [ 14] logic PT(s)
+11|              | ? | | S |        |=> can support up to [ 14] logic PT(s)
+12|       SIZE_0_| IO| | S | 1      |=> can support up to [ 15] logic PT(s)
+13|    cpu_est_2_|NOD| | S | 4      |=> can support up to [ 19] logic PT(s)
+14|              | ? | | S |        |=> can support up to [ 10] logic PT(s)
 15|              | ? | | S |        |=> can support up to [ 10] logic PT(s)
 ---------------------------------------------------------------------------
 ===========================================================================
@@ -1468,19 +1620,19 @@ _|_________________|__|__|___|_____|_______________________________________
  |  Signal Name    |  | pin |      Numbers       |     Numbers
 _|_________________|__|_____|____________________|________________________
  0|            RW| IO| | => |   5 (  6)   7    0 |  70 ( 71)  72   65 
- 1|       SIZE_0_| IO| | => |(  5)   6    7    0 |( 70)  71   72   65 
- 2|             E| IO| | => |   6    7    0 (  1)|  71   72   65 ( 66)
- 3|   CLK_DIV_OUT|OUT| | => |   6    7 (  0)   1 |  71   72 ( 65)  66 
- 4|inst_avec_expreg|NOD| | => |   7    0    1    2 |  72   65   66   67 
- 5|inst_RW_000_INT|NOD| | => |   7    0    1    2 |  72   65   66   67 
- 6|   SM_AMIGA_6_|NOD| | => |   0    1    2    3 |  65   66   67   68 
+ 1|   CLK_DIV_OUT|OUT| | => |   5    6    7 (  0)|  70   71   72 ( 65)
+ 2|    inst_VPA_D|NOD| | => |   6    7    0    1 |  71   72   65   66 
+ 3|              |   | | => |   6    7    0    1 |  71   72   65   66 
+ 4|             E| IO| | => |   7    0 (  1)   2 |  72   65 ( 66)  67 
+ 5|   SM_AMIGA_6_|NOD| | => |   7    0    1    2 |  72   65   66   67 
+ 6|CLK_000_P_SYNC_4_|NOD| | => |   0    1    2    3 |  65   66   67   68 
  7|              |   | | => |   0    1    2    3 |  65   66   67   68 
  8|            A0| IO| | => |   1    2    3 (  4)|  66   67   68 ( 69)
- 9|              |   | | => |   1    2    3    4 |  66   67   68   69 
+ 9|    cpu_est_1_|NOD| | => |   1    2    3    4 |  66   67   68   69 
 10|              |   | | => |   2    3    4    5 |  67   68   69   70 
 11|              |   | | => |   2    3    4    5 |  67   68   69   70 
-12|              |   | | => |   3    4    5    6 |  68   69   70   71 
-13|              |   | | => |   3    4    5    6 |  68   69   70   71 
+12|       SIZE_0_| IO| | => |   3    4 (  5)   6 |  68   69 ( 70)  71 
+13|    cpu_est_2_|NOD| | => |   3    4    5    6 |  68   69   70   71 
 14|              |   | | => |   4    5    6    7 |  69   70   71   72 
 15|              |   | | => |   4    5    6    7 |  69   70   71   72 
 ---------------------------------------------------------------------------
@@ -1493,12 +1645,12 @@ _|_________________|__|_____|____________________|________________________
  |       Sig Type--+  |   |     |
  |     Signal Name |  |   |     |  Node Destinations Via Output Matrix
 _|_________________|__|___|_____|___________________________________________
- 0|   CLK_DIV_OUT|OUT|*| 65| => |   0    1    2  ( 3)   4    5    6    7 
- 1|             E| IO|*| 66| => | ( 2)   3    4    5    6    7    8    9 
+ 0|   CLK_DIV_OUT|OUT|*| 65| => |   0  ( 1)   2    3    4    5    6    7 
+ 1|             E| IO|*| 66| => |   2    3  ( 4)   5    6    7    8    9 
  2|        IPL_0_|INP|*| 67| => |   4    5    6    7    8    9   10   11 
  3|        IPL_2_|INP|*| 68| => |   6    7    8    9   10   11   12   13 
  4|            A0| IO|*| 69| => | ( 8)   9   10   11   12   13   14   15 
- 5|       SIZE_0_| IO|*| 70| => |  10   11   12   13   14   15    0  ( 1)
+ 5|       SIZE_0_| IO|*| 70| => |  10   11  (12)  13   14   15    0    1 
  6|            RW| IO|*| 71| => |  12   13   14   15  ( 0)   1    2    3 
  7|              |   | | 72| => |  14   15    0    1    2    3    4    5 
 ---------------------------------------------------------------------------
@@ -1519,6 +1671,7 @@ _|_________________|__|___|_____|__________________________________________
  4|            A0| IO|*| 69| => | Input macrocell   [             -]
  5|       SIZE_0_| IO|*| 70| => | Input macrocell   [             -]
  6|            RW| IO|*| 71| => | Input macrocell   [             -]
+  |              |   | |   |    | IO paired w/ node [         RN_RW]
  7|              |   | | 72| => | Input macrocell   [             -]
 ---------------------------------------------------------------------------
 ===========================================================================
@@ -1532,38 +1685,38 @@ IMX No.    |    +---- Block IO Pin or Macrocell Number
 ---|-------|----|---|---|----------|------|-|------------------------------
    0	[IOpin  0 | 65|OUT    CLK_DIV_OUT|*| ]
 	[RegIn  0 |246|                 -| | ]
-	[MCell  0 |245| IO             RW| | ]
-	[MCell  1 |247| IO        SIZE_0_| | ]
+	[MCell  0 |245|NOD          RN_RW| |*] paired w/[            RW]
+	[MCell  1 |247|OUT    CLK_DIV_OUT| | ]
 
    1	[IOpin  1 | 66| IO              E|*| ] paired w/[          RN_E]
 	[RegIn  1 |249|                 -| | ]
-	[MCell  2 |248|NOD           RN_E| |*] paired w/[             E]
-	[MCell  3 |250|OUT    CLK_DIV_OUT| | ]
+	[MCell  2 |248|NOD     inst_VPA_D| |*]
+	[MCell  3 |250|                 -| | ]
 
    2	[IOpin  2 | 67|INP         IPL_0_|*|*]
 	[RegIn  2 |252|                 -| | ]
-	[MCell  4 |251|NOD inst_avec_expreg| |*]
-	[MCell  5 |253|NOD inst_RW_000_INT| |*]
+	[MCell  4 |251|NOD           RN_E| |*] paired w/[             E]
+	[MCell  5 |253|NOD    SM_AMIGA_6_| |*]
 
    3	[IOpin  3 | 68|INP         IPL_2_|*|*]
 	[RegIn  3 |255|                 -| | ]
-	[MCell  6 |254|NOD    SM_AMIGA_6_| |*]
+	[MCell  6 |254|NOD CLK_000_P_SYNC_4_| |*]
 	[MCell  7 |256|                 -| | ]
 
    4	[IOpin  4 | 69| IO             A0|*|*]
 	[RegIn  4 |258|                 -| | ]
 	[MCell  8 |257| IO             A0| | ]
-	[MCell  9 |259|                 -| | ]
+	[MCell  9 |259|NOD     cpu_est_1_| |*]
 
    5	[IOpin  5 | 70| IO        SIZE_0_|*|*]
 	[RegIn  5 |261|                 -| | ]
 	[MCell 10 |260|                 -| | ]
 	[MCell 11 |262|                 -| | ]
 
-   6	[IOpin  6 | 71| IO             RW|*|*]
+   6	[IOpin  6 | 71| IO             RW|*|*] paired w/[         RN_RW]
 	[RegIn  6 |264|                 -| | ]
-	[MCell 12 |263|                 -| | ]
-	[MCell 13 |265|                 -| | ]
+	[MCell 12 |263| IO        SIZE_0_| | ]
+	[MCell 13 |265|NOD     cpu_est_2_| |*]
 
    7	[IOpin  7 | 72|                 -| | ]
 	[RegIn  7 |267|                 -| | ]
@@ -1576,38 +1729,38 @@ IMX No.    |    +---- Block IO Pin or Macrocell Number
   +- Central Switch Matrix No.
   |   Src (ABEL Node/Pin#)   Signal
 --|--|--------------------|---------------------------------------------------
-Mux00| IOPin  3  4  (  31)|   LDS_000
-Mux01|  Mcel  1  7  ( 136)|   inst_CLK_OUT_PRE_25
-Mux02|  Mcel  3 10  ( 188)|   cpu_est_0_
-Mux03|  Mcel  6  5  ( 253)|   inst_RW_000_INT
+Mux00|  Input Pin   (  86)|   RST
+Mux01|          ...       |      ...
+Mux02|  Mcel  0  5  ( 109)|   CLK_000_P_SYNC_3_
+Mux03|  Mcel  3  2  ( 176)|   SM_AMIGA_7_
 Mux04|  Input Pin   (  64)|   CLK_030
-Mux05|  Mcel  7  9  ( 283)|   SM_AMIGA_0_
-Mux06|  Mcel  1  9  ( 139)|   inst_BGACK_030_INT_D
-Mux07|  Mcel  3  9  ( 187)|   cpu_est_2_
-Mux08|  Mcel  3  7  ( 184)|   cpu_est_1_
-Mux09| IOPin  7  3  (  82)|   AS_030
-Mux10|  Mcel  7  3  ( 274)|   inst_CLK_000_D0
-Mux11|  Mcel  6  4  ( 251)|   inst_avec_expreg
-Mux12| IOPin  3  3  (  32)|   UDS_000
-Mux13|  Mcel  1  3  ( 130)|   SM_AMIGA_1_
-Mux14|          ...       |      ...
-Mux15|  Input Pin   (  14)|   nEXP_SPACE
+Mux05|  Input Pin   (  14)|   nEXP_SPACE
+Mux06|  Mcel  2  4  ( 155)|   RN_AVEC_EXP
+Mux07|  Mcel  2  8  ( 161)|   inst_CLK_OUT_PRE_D
+Mux08| IOPin  3  3  (  32)|   UDS_000
+Mux09|  Mcel  6 13  ( 265)|   cpu_est_2_
+Mux10|  Input Pin   (  36)|   VPA
+Mux11|  Mcel  6  4  ( 251)|   RN_E
+Mux12|  Mcel  6  9  ( 259)|   cpu_est_1_
+Mux13|  Mcel  7  5  ( 277)|   RN_BGACK_030
+Mux14|  Mcel  5  4  ( 227)|   cpu_est_0_
+Mux15|          ...       |      ...
 Mux16|          ...       |      ...
-Mux17|          ...       |      ...
-Mux18|  Mcel  7 10  ( 284)|   inst_CLK_000_D2
+Mux17|  Mcel  6  0  ( 245)|   RN_RW
+Mux18|          ...       |      ...
 Mux19|          ...       |      ...
-Mux20|  Mcel  7  4  ( 275)|   RN_BGACK_030
-Mux21|  Input Pin   (  86)|   RST
-Mux22|          ...       |      ...
-Mux23|  Mcel  6  6  ( 254)|   SM_AMIGA_6_
-Mux24|  Mcel  3  5  ( 181)|   inst_CLK_000_D1
-Mux25| IOPin  6  6  (  71)|   RW
-Mux26| IOPin  3  2  (  33)|   AS_000
-Mux27|  Mcel  7  5  ( 277)|   SM_AMIGA_7_
+Mux20|  Mcel  7  4  ( 275)|   inst_AS_030_000_SYNC
+Mux21|  Mcel  7  6  ( 278)|   RN_AS_030
+Mux22|  Mcel  6  5  ( 253)|   SM_AMIGA_6_
+Mux23| IOPin  3  2  (  33)|   AS_000
+Mux24| IOPin  3  4  (  31)|   LDS_000
+Mux25|  Mcel  3  9  ( 187)|   inst_CLK_000_D2
+Mux26|          ...       |      ...
+Mux27|  Mcel  7  9  ( 283)|   inst_CLK_000_D1
 Mux28| IOPin  7  5  (  80)|   RW_000
-Mux29|  Mcel  7  7  ( 280)|   inst_AS_030_000_SYNC
-Mux30|  Mcel  7  6  ( 278)|   RN_AS_030
-Mux31|  Mcel  6  2  ( 248)|   RN_E
+Mux29|          ...       |      ...
+Mux30|          ...       |      ...
+Mux31|          ...       |      ...
 Mux32|          ...       |      ...
 ---------------------------------------------------------------------------
 ===========================================================================
@@ -1620,20 +1773,20 @@ Mux32|          ...       |      ...
  |        Sig Type-+  |  |   |     |  |      |   |  XOR to Mcell Assignment
  |  Signal Name    |  |  |   |     |  |      |   |          |
 _|_________________|__|__|___|_____|__|______|___|__________|______________
- 0|        RW_000| IO| | S | 1      | 4 free   | 1 XOR to [ 0] for 1 PT sig
+ 0|        RW_000| IO| | S | 3      | 4 to [ 0]| 1 XOR free
  1|       SIZE_1_| IO| | S | 2      | 4 to [ 1]| 1 XOR free
- 2|        FPU_CS| IO| | S | 2      | 4 to [ 2]| 1 XOR free
- 3|inst_CLK_000_D0|NOD| | S | 1      | 4 to [ 4]| 1 XOR to [ 3] for 1 PT sig
- 4|     BGACK_030| IO| | S | 2      | 4 to [ 5]| 1 XOR free
- 5|   SM_AMIGA_7_|NOD| | S | 4      | 4 to [ 6]| 1 XOR free
- 6|        AS_030| IO| | S | 4      | 4 to [ 7]| 1 XOR free
- 7|inst_AS_030_000_SYNC|NOD| | S | 8      | 4 to [ 7]| 1 XOR to [ 7] as logic PT
- 8|        DSACK1| IO| | S | 2      | 4 to [ 8]| 1 XOR free
- 9|   SM_AMIGA_0_|NOD| | S | 2      | 4 to [ 9]| 1 XOR free
-10|inst_CLK_000_D2|NOD| | S | 1      | 4 free   | 1 XOR to [10] for 1 PT sig
-11|inst_CLK_OUT_PRE_50|NOD| | S | 1      | 4 free   | 1 XOR to [11] for 1 PT sig
-12|inst_CLK_OUT_PRE_50_D|NOD| | S | 1      | 4 free   | 1 XOR to [12] for 1 PT sig
-13|              | ? | | S |        | 4 free   | 1 XOR free
+ 2|        FPU_CS|OUT| | S | 1      | 4 free   | 1 XOR to [ 2] for 1 PT sig
+ 3|              | ? | | S |        | 4 free   | 1 XOR free
+ 4|inst_AS_030_000_SYNC|NOD| | S | 5      | 4 to [ 4]| 1 XOR to [ 4] as logic PT
+ 5|     BGACK_030| IO| | S | 2      | 4 to [ 5]| 1 XOR free
+ 6|        AS_030| IO| | S | 4      | 4 to [ 6]| 1 XOR free
+ 7|              | ? | | S |        | 4 free   | 1 XOR free
+ 8|              | ? | | S |        | 4 free   | 1 XOR free
+ 9|inst_CLK_000_D1|NOD| | S | 1      | 4 free   | 1 XOR to [ 9] for 1 PT sig
+10|inst_BGACK_030_INT_D|NOD| | S | 1      | 4 free   | 1 XOR to [10] for 1 PT sig
+11|              | ? | | S |        | 4 free   | 1 XOR free
+12|        DSACK1| IO| | S | 2      | 4 to [12]| 1 XOR free
+13|inst_CLK_OUT_PRE_50_D|NOD| | S | 1      | 4 free   | 1 XOR to [13] for 1 PT sig
 14|              | ? | | S |        | 4 free   | 1 XOR free
 15|              | ? | | S |        | 4 free   | 1 XOR free
 ---------------------------------------------------------------------------
@@ -1647,21 +1800,21 @@ _|_________________|__|__|___|_____|__|______|___|__________|______________
  |        Sig Type-+  |  |   |     |
  |  Signal Name    |  |  |   |     |     Maximum PT Capacity
 _|_________________|__|__|___|_____|_______________________________________
- 0|        RW_000| IO| | S | 1      |=> can support up to [  5] logic PT(s)
- 1|       SIZE_1_| IO| | S | 2      |=> can support up to [  9] logic PT(s)
- 2|        FPU_CS| IO| | S | 2      |=> can support up to [  5] logic PT(s)
- 3|inst_CLK_000_D0|NOD| | S | 1      |=> can support up to [  1] logic PT(s)
- 4|     BGACK_030| IO| | S | 2      |=> can support up to [  4] logic PT(s)
- 5|   SM_AMIGA_7_|NOD| | S | 4      |=> can support up to [  5] logic PT(s)
- 6|        AS_030| IO| | S | 4      |=> can support up to [  5] logic PT(s)
- 7|inst_AS_030_000_SYNC|NOD| | S | 8      |=> can support up to [ 10] logic PT(s)
- 8|        DSACK1| IO| | S | 2      |=> can support up to [  9] logic PT(s)
- 9|   SM_AMIGA_0_|NOD| | S | 2      |=> can support up to [ 13] logic PT(s)
-10|inst_CLK_000_D2|NOD| | S | 1      |=> can support up to [ 13] logic PT(s)
-11|inst_CLK_OUT_PRE_50|NOD| | S | 1      |=> can support up to [ 18] logic PT(s)
-12|inst_CLK_OUT_PRE_50_D|NOD| | S | 1      |=> can support up to [ 19] logic PT(s)
-13|              | ? | | S |        |=> can support up to [ 19] logic PT(s)
-14|              | ? | | S |        |=> can support up to [ 15] logic PT(s)
+ 0|        RW_000| IO| | S | 3      |=> can support up to [  9] logic PT(s)
+ 1|       SIZE_1_| IO| | S | 2      |=> can support up to [ 14] logic PT(s)
+ 2|        FPU_CS|OUT| | S | 1      |=> can support up to [ 10] logic PT(s)
+ 3|              | ? | | S |        |=> can support up to [  9] logic PT(s)
+ 4|inst_AS_030_000_SYNC|NOD| | S | 5      |=> can support up to [ 10] logic PT(s)
+ 5|     BGACK_030| IO| | S | 2      |=> can support up to [ 10] logic PT(s)
+ 6|        AS_030| IO| | S | 4      |=> can support up to [ 15] logic PT(s)
+ 7|              | ? | | S |        |=> can support up to [ 14] logic PT(s)
+ 8|              | ? | | S |        |=> can support up to [ 18] logic PT(s)
+ 9|inst_CLK_000_D1|NOD| | S | 1      |=> can support up to [ 19] logic PT(s)
+10|inst_BGACK_030_INT_D|NOD| | S | 1      |=> can support up to [ 14] logic PT(s)
+11|              | ? | | S |        |=> can support up to [ 13] logic PT(s)
+12|        DSACK1| IO| | S | 2      |=> can support up to [ 19] logic PT(s)
+13|inst_CLK_OUT_PRE_50_D|NOD| | S | 1      |=> can support up to [ 15] logic PT(s)
+14|              | ? | | S |        |=> can support up to [ 14] logic PT(s)
 15|              | ? | | S |        |=> can support up to [ 10] logic PT(s)
 ---------------------------------------------------------------------------
 ===========================================================================
@@ -1674,18 +1827,18 @@ _|_________________|__|__|___|_____|_______________________________________
 _|_________________|__|_____|____________________|________________________
  0|        RW_000| IO| | => |(  5)   6    7    0 |( 80)  79   78   85 
  1|       SIZE_1_| IO| | => |   5 (  6)   7    0 |  80 ( 79)  78   85 
- 2|        FPU_CS| IO| | => |   6 (  7)   0    1 |  79 ( 78)  85   84 
- 3|inst_CLK_000_D0|NOD| | => |   6    7    0    1 |  79   78   85   84 
- 4|     BGACK_030| IO| | => |   7    0    1 (  2)|  78   85   84 ( 83)
- 5|   SM_AMIGA_7_|NOD| | => |   7    0    1    2 |  78   85   84   83 
+ 2|        FPU_CS|OUT| | => |   6 (  7)   0    1 |  79 ( 78)  85   84 
+ 3|              |   | | => |   6    7    0    1 |  79   78   85   84 
+ 4|inst_AS_030_000_SYNC|NOD| | => |   7    0    1    2 |  78   85   84   83 
+ 5|     BGACK_030| IO| | => |   7    0    1 (  2)|  78   85   84 ( 83)
  6|        AS_030| IO| | => |   0    1    2 (  3)|  85   84   83 ( 82)
- 7|inst_AS_030_000_SYNC|NOD| | => |   0    1    2    3 |  85   84   83   82 
- 8|        DSACK1| IO| | => |   1    2    3 (  4)|  84   83   82 ( 81)
- 9|   SM_AMIGA_0_|NOD| | => |   1    2    3    4 |  84   83   82   81 
-10|inst_CLK_000_D2|NOD| | => |   2    3    4    5 |  83   82   81   80 
-11|inst_CLK_OUT_PRE_50|NOD| | => |   2    3    4    5 |  83   82   81   80 
-12|inst_CLK_OUT_PRE_50_D|NOD| | => |   3    4    5    6 |  82   81   80   79 
-13|              |   | | => |   3    4    5    6 |  82   81   80   79 
+ 7|              |   | | => |   0    1    2    3 |  85   84   83   82 
+ 8|              |   | | => |   1    2    3    4 |  84   83   82   81 
+ 9|inst_CLK_000_D1|NOD| | => |   1    2    3    4 |  84   83   82   81 
+10|inst_BGACK_030_INT_D|NOD| | => |   2    3    4    5 |  83   82   81   80 
+11|              |   | | => |   2    3    4    5 |  83   82   81   80 
+12|        DSACK1| IO| | => |   3 (  4)   5    6 |  82 ( 81)  80   79 
+13|inst_CLK_OUT_PRE_50_D|NOD| | => |   3    4    5    6 |  82   81   80   79 
 14|              |   | | => |   4    5    6    7 |  81   80   79   78 
 15|              |   | | => |   4    5    6    7 |  81   80   79   78 
 ---------------------------------------------------------------------------
@@ -1700,12 +1853,12 @@ _|_________________|__|_____|____________________|________________________
 _|_________________|__|___|_____|___________________________________________
  0|         A_22_|INP|*| 85| => |   0    1    2    3    4    5    6    7 
  1|         A_23_|INP|*| 84| => |   2    3    4    5    6    7    8    9 
- 2|     BGACK_030| IO|*| 83| => | ( 4)   5    6    7    8    9   10   11 
+ 2|     BGACK_030| IO|*| 83| => |   4  ( 5)   6    7    8    9   10   11 
  3|        AS_030| IO|*| 82| => | ( 6)   7    8    9   10   11   12   13 
- 4|        DSACK1| IO|*| 81| => | ( 8)   9   10   11   12   13   14   15 
+ 4|        DSACK1| IO|*| 81| => |   8    9   10   11  (12)  13   14   15 
  5|        RW_000| IO|*| 80| => |  10   11   12   13   14   15  ( 0)   1 
  6|       SIZE_1_| IO|*| 79| => |  12   13   14   15    0  ( 1)   2    3 
- 7|        FPU_CS| IO|*| 78| => |  14   15    0    1  ( 2)   3    4    5 
+ 7|        FPU_CS|OUT|*| 78| => |  14   15    0    1  ( 2)   3    4    5 
 ---------------------------------------------------------------------------
 ===========================================================================
 	< Block [ 7] >	IO/Node and IO/Input Macrocell Pairing Table
@@ -1725,9 +1878,9 @@ _|_________________|__|___|_____|__________________________________________
  4|        DSACK1| IO|*| 81| => | Input macrocell   [             -]
   |              |   | |   |    | IO paired w/ node [     RN_DSACK1]
  5|        RW_000| IO|*| 80| => | Input macrocell   [             -]
+  |              |   | |   |    | IO paired w/ node [     RN_RW_000]
  6|       SIZE_1_| IO|*| 79| => | Input macrocell   [             -]
- 7|        FPU_CS| IO|*| 78| => | Input macrocell   [             -]
-  |              |   | |   |    | IO paired w/ node [     RN_FPU_CS]
+ 7|        FPU_CS|OUT|*| 78| => | Input macrocell   [             -]
 ---------------------------------------------------------------------------
 ===========================================================================
 	< Block [ 7] >	Input Multiplexer (IMX) Assignments
@@ -1740,40 +1893,40 @@ IMX No.    |    +---- Block IO Pin or Macrocell Number
 ---|-------|----|---|---|----------|------|-|------------------------------
    0	[IOpin  0 | 85|INP          A_22_|*|*]
 	[RegIn  0 |270|                 -| | ]
-	[MCell  0 |269| IO         RW_000| | ]
+	[MCell  0 |269|NOD      RN_RW_000| |*] paired w/[        RW_000]
 	[MCell  1 |271| IO        SIZE_1_| | ]
 
    1	[IOpin  1 | 84|INP          A_23_|*|*]
 	[RegIn  1 |273|                 -| | ]
-	[MCell  2 |272|NOD      RN_FPU_CS| |*] paired w/[        FPU_CS]
-	[MCell  3 |274|NOD inst_CLK_000_D0| |*]
+	[MCell  2 |272|OUT         FPU_CS| | ]
+	[MCell  3 |274|                 -| | ]
 
    2	[IOpin  2 | 83| IO      BGACK_030|*| ] paired w/[  RN_BGACK_030]
 	[RegIn  2 |276|                 -| | ]
-	[MCell  4 |275|NOD   RN_BGACK_030| |*] paired w/[     BGACK_030]
-	[MCell  5 |277|NOD    SM_AMIGA_7_| |*]
+	[MCell  4 |275|NOD inst_AS_030_000_SYNC| |*]
+	[MCell  5 |277|NOD   RN_BGACK_030| |*] paired w/[     BGACK_030]
 
    3	[IOpin  3 | 82| IO         AS_030|*|*] paired w/[     RN_AS_030]
 	[RegIn  3 |279|                 -| | ]
 	[MCell  6 |278|NOD      RN_AS_030| |*] paired w/[        AS_030]
-	[MCell  7 |280|NOD inst_AS_030_000_SYNC| |*]
+	[MCell  7 |280|                 -| | ]
 
    4	[IOpin  4 | 81| IO         DSACK1|*|*] paired w/[     RN_DSACK1]
 	[RegIn  4 |282|                 -| | ]
-	[MCell  8 |281|NOD      RN_DSACK1| |*] paired w/[        DSACK1]
-	[MCell  9 |283|NOD    SM_AMIGA_0_| |*]
+	[MCell  8 |281|                 -| | ]
+	[MCell  9 |283|NOD inst_CLK_000_D1| |*]
 
-   5	[IOpin  5 | 80| IO         RW_000|*|*]
+   5	[IOpin  5 | 80| IO         RW_000|*|*] paired w/[     RN_RW_000]
 	[RegIn  5 |285|                 -| | ]
-	[MCell 10 |284|NOD inst_CLK_000_D2| |*]
-	[MCell 11 |286|NOD inst_CLK_OUT_PRE_50| |*]
+	[MCell 10 |284|NOD inst_BGACK_030_INT_D| |*]
+	[MCell 11 |286|                 -| | ]
 
    6	[IOpin  6 | 79| IO        SIZE_1_|*|*]
 	[RegIn  6 |288|                 -| | ]
-	[MCell 12 |287|NOD inst_CLK_OUT_PRE_50_D| |*]
-	[MCell 13 |289|                 -| | ]
+	[MCell 12 |287|NOD      RN_DSACK1| |*] paired w/[        DSACK1]
+	[MCell 13 |289|NOD inst_CLK_OUT_PRE_50_D| |*]
 
-   7	[IOpin  7 | 78| IO         FPU_CS|*| ] paired w/[     RN_FPU_CS]
+   7	[IOpin  7 | 78|OUT         FPU_CS|*| ]
 	[RegIn  7 |291|                 -| | ]
 	[MCell 14 |290|                 -| | ]
 	[MCell 15 |292|                 -| | ]
@@ -1784,37 +1937,37 @@ IMX No.    |    +---- Block IO Pin or Macrocell Number
   +- Central Switch Matrix No.
   |   Src (ABEL Node/Pin#)   Signal
 --|--|--------------------|---------------------------------------------------
-Mux00| IOPin  3  4  (  31)|   LDS_000
+Mux00|  Mcel  7  4  ( 275)|   inst_AS_030_000_SYNC
 Mux01| IOPin  5  2  (  58)|   FC_1_
-Mux02|          ...       |      ...
-Mux03|  Input Pin   (  11)|   CLK_000
-Mux04| IOPin  3  7  (  28)|   BGACK_000
-Mux05|  Mcel  7  9  ( 283)|   SM_AMIGA_0_
+Mux02|  Mcel  5  8  ( 233)|   SM_AMIGA_1_
+Mux03|  Mcel  3  2  ( 176)|   SM_AMIGA_7_
+Mux04| IOPin  0  4  (  95)|   A_18_
+Mux05|  Mcel  7  9  ( 283)|   inst_CLK_000_D1
 Mux06| IOPin  0  6  (  97)|   A_19_
 Mux07|  Mcel  7  6  ( 278)|   RN_AS_030
-Mux08| IOPin  5  1  (  59)|   A_17_
+Mux08| IOPin  6  6  (  71)|   RW
 Mux09| IOPin  7  3  (  82)|   AS_030
-Mux10|  Mcel  7  3  ( 274)|   inst_CLK_000_D0
+Mux10|          ...       |      ...
 Mux11| IOPin  0  5  (  96)|   A_16_
 Mux12| IOPin  3  3  (  32)|   UDS_000
-Mux13|  Mcel  7  8  ( 281)|   RN_DSACK1
-Mux14|  Mcel  7  2  ( 272)|   RN_FPU_CS
+Mux13|  Mcel  7  5  ( 277)|   RN_BGACK_030
+Mux14|  Mcel  2  4  ( 155)|   RN_AVEC_EXP
 Mux15|  Input Pin   (  14)|   nEXP_SPACE
-Mux16|          ...       |      ...
+Mux16|  Mcel  4  8  ( 209)|   inst_CLK_OUT_PRE_50
 Mux17| IOPin  5  3  (  57)|   FC_0_
-Mux18|  Mcel  7 10  ( 284)|   inst_CLK_000_D2
-Mux19|  Mcel  1  3  ( 130)|   SM_AMIGA_1_
-Mux20|  Mcel  7  7  ( 280)|   inst_AS_030_000_SYNC
+Mux18| IOPin  3  7  (  28)|   BGACK_000
+Mux19|          ...       |      ...
+Mux20|  Input Pin   (  64)|   CLK_030
 Mux21|  Input Pin   (  86)|   RST
-Mux22|  Mcel  7 11  ( 286)|   inst_CLK_OUT_PRE_50
-Mux23|  Mcel  7  4  ( 275)|   RN_BGACK_030
-Mux24|  Mcel  3  5  ( 181)|   inst_CLK_000_D1
-Mux25|          ...       |      ...
+Mux22|  Mcel  6  5  ( 253)|   SM_AMIGA_6_
+Mux23|  Mcel  2 12  ( 167)|   RN_AMIGA_BUS_ENABLE_LOW
+Mux24| IOPin  3  4  (  31)|   LDS_000
+Mux25|  Mcel  5  0  ( 221)|   inst_CLK_000_D0
 Mux26| IOPin  3  2  (  33)|   AS_000
-Mux27|  Mcel  7  5  ( 277)|   SM_AMIGA_7_
-Mux28|  Input Pin   (  64)|   CLK_030
-Mux29|          ...       |      ...
-Mux30|          ...       |      ...
-Mux31| IOPin  0  4  (  95)|   A_18_
-Mux32|  Mcel  6  5  ( 253)|   inst_RW_000_INT
+Mux27| IOPin  5  1  (  59)|   A_17_
+Mux28|          ...       |      ...
+Mux29|  Mcel  7 12  ( 287)|   RN_DSACK1
+Mux30|  Mcel  7  0  ( 269)|   RN_RW_000
+Mux31|          ...       |      ...
+Mux32|          ...       |      ...
 ---------------------------------------------------------------------------
