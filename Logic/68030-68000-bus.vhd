@@ -129,6 +129,7 @@ signal	CLK_000_D0: STD_LOGIC 		:= '1';
 signal	CLK_000_D1: STD_LOGIC 		:= '1';
 signal	CLK_000_D2: STD_LOGIC 		:= '1';
 signal	CLK_000_D3: STD_LOGIC 		:= '1';
+signal	CLK_000_D4: STD_LOGIC 		:= '1';
 signal	CLK_000_P_SYNC: STD_LOGIC_VECTOR ( 12 downto 0 ) 	:= "0000000000000";
 signal	CLK_000_N_SYNC: STD_LOGIC_VECTOR ( 12 downto 0 ) 	:= "0000000000000";
 signal	CLK_000_PE: STD_LOGIC 		:= '0';
@@ -170,6 +171,7 @@ begin
 			CLK_000_D1		<= '1';
 			CLK_000_D2		<= '1';
 			CLK_000_D3		<= '1';
+			CLK_000_D4		<= '1';
 			VPA_D			<= '1';
 			DTACK_D0		<= '1';
 			SM_AMIGA		<= IDLE_P;
@@ -239,6 +241,7 @@ begin
 			CLK_000_D1 	<= CLK_000_D0;
 			CLK_000_D2 	<= CLK_000_D1;
 			CLK_000_D3 	<= CLK_000_D2;
+			CLK_000_D4 	<= CLK_000_D3;
 
 			--shift registers for edge detection
 			CLK_000_P_SYNC( 12 downto 1 ) 	<= CLK_000_P_SYNC( 11 downto 0 );
@@ -257,7 +260,8 @@ begin
 			--now: 68000 state machine and signals
 			
 			-- e-clock
-			if(CLK_000_PE = '1') then
+			--if(CLK_000_PE = '1') then
+			if(CLK_000_D1 = '0' and CLK_000_D0 = '1') then
 				case (cpu_est) is
 					when E1 => cpu_est <= E2 ; 
 					when E2 => cpu_est <= E3 ;
@@ -287,7 +291,10 @@ begin
 			--bgack is simple: assert as soon as Amiga asserts but hold bg_ack for one amiga-clock 
 			if(BGACK_000='0') then
 				BGACK_030_INT	<= '0';
-			elsif (BGACK_000='1' AND CLK_000_PE='1') then -- BGACK_000 is high here!
+			elsif (	BGACK_000='1' 
+					--AND CLK_000_PE='1'
+					AND CLK_000_D1='0' and CLK_000_D0='1'
+					) then -- BGACK_000 is high here!
 				BGACK_030_INT 	<= '1'; --hold this signal high until 7m clock goes high
 			end if;
 			BGACK_030_INT_D <= BGACK_030_INT;
@@ -295,15 +302,18 @@ begin
 			--bus grant only in idle state
 			if(BG_030= '1')then
 				BG_000	<= '1';
-			elsif(	BG_030= '0' AND (SM_AMIGA 	= IDLE_P)
+			elsif(	BG_030= '0' --AND (SM_AMIGA 	= IDLE_P)
 					and nEXP_SPACE = '1' and AS_030='1'
-					and CLK_000='1' ) then --bus granted no local access and no AS_030 running!
+					--and CLK_000_PE='1' 
+					and CLK_000_D0='1' AND CLK_000_D1='0'  
+					) then --bus granted no local access and no AS_030 running!
 					BG_000 	<= '0';
 			end if;
 
 		
 			--interrupt buffering to avoid ghost interrupts
-			if(CLK_000_PE='1')then
+			--if(CLK_000_PE='1')then
+			if(CLK_000_D1='0' and CLK_000_D0='1')then
 				IPL_030<=IPL;			
 			end if;
 		
@@ -370,7 +380,8 @@ begin
 						end if;
 					end if;
 				when IDLE_N 	 => --68000:S1 place Adress on bus and wait for rising edge, on a rising CLK_000 look for a amiga adressrobe
-					if(CLK_000_PE='1')then --go to s2
+					--if(CLK_000_PE='1')then --go to s2
+					if(CLK_000_D0='1')then --go to s2
 						SM_AMIGA <= AS_SET_P; --as for amiga set! 
 						AS_000_INT <= '0';
 						RW_000_INT <= RW;						
@@ -379,32 +390,40 @@ begin
 						end if;
 					end if;
 				when AS_SET_P	 => --68000:S2 Amiga cycle starts here: since AS is asserted during transition to this state we simply wait here
-					if(CLK_000_NE='1')then --go to s3
+					--if(CLK_000_NE='1')then --go to s3
+					if(CLK_000_D0='0')then --go to s3
 						SM_AMIGA<=AS_SET_N; 
 					end if;
 				when AS_SET_N	 => --68000:S3: nothing happens here; on a transition to s4: assert uds/lds on write 
 					
-					if(CLK_000_PE='1')then --go to s4
+					--if(CLK_000_PE='1')then --go to s4
+					if(CLK_000_D0='1')then --go to s4
 						DS_000_ENABLE	<= '1';--write: set udl/lds earlier than in the specs. this does not seem to harm anything and is saver, than sampling uds/lds too late 				 
 						-- set DS-Enable without respect to rw: this simplifies the life for the syntesizer
 						SM_AMIGA <= SAMPLE_DTACK_P; 
 					end if;
 				when SAMPLE_DTACK_P=> --68000:S4 wait for dtack or VMA
-					if(	CLK_000_NE='1' and --falling edge
+					--if(	CLK_000_NE='1' and --falling edge
+					if(	CLK_000_D0 = '0' and CLK_000_D1='1' and --falling edge
 						((VPA = '1' AND DTACK='0') OR --DTACK end cycle
 						(VPA='0' AND cpu_est=E9 AND VMA_INT='0')) --VPA end cycle
 						)then --go to s5
 						SM_AMIGA<=DATA_FETCH_N;
 					end if;
 				when DATA_FETCH_N=> --68000:S5 nothing happens here just wait for positive clock
-					if(CLK_000_PE = '1')then --go to s6
+					--if(CLK_000_PE = '1')then --go to s6
+					if(CLK_000_D0='1')then --go to s6
 						SM_AMIGA<=DATA_FETCH_P;
 					end if;
 				when DATA_FETCH_P => --68000:S6: READ: here comes the data on the bus!
-					if( CLK_000_N_SYNC(6)='1') then --go to s7 next 030-clock is not a falling edge: dsack is sampled at the falling edge
+					--if( CLK_000_N_SYNC(6)='1') then --go to s7 next 030-clock is not a falling edge: dsack is sampled at the falling edge
+					--	DSACK1_INT <='0'; 
+					--end if;
+					if( CLK_000_D3 ='1' AND CLK_000_D4 = '0' ) then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
 						DSACK1_INT <='0'; 
 					end if;
-					if( CLK_000_NE ='1') then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
+					--if( CLK_000_NE ='1') then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
+					if( CLK_000_D0 ='0') then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
 						SM_AMIGA<=END_CYCLE_N;
 						if(AS_030 ='1') then
 							AMIGA_BUS_ENABLE_INT <= '1';
@@ -415,7 +434,8 @@ begin
 						AMIGA_BUS_ENABLE_INT <= '1';
 					end if;
 
-					if(CLK_000_PE='1')then --go to s0											
+					--if(CLK_000_PE='1')then --go to s0	
+					if(CLK_000_D0='1')then --go to s0																	
 						SM_AMIGA<=IDLE_P;						
 					end if;
 			end case;
@@ -429,19 +449,19 @@ begin
 			
 			--dma stuff
 			--as can only be done if we know the uds/lds!
-			if(BGACK_030_INT='0' and AS_000='0' and (UDS_000='0' or LDS_000='0'))then --sampled on rising edges!
+			if(BGACK_030_INT='0' and AS_000='0' and (UDS_000='0' or LDS_000='0'))then 
 
 				--set AS_000
-				if( CLK_030='0') then
-					AS_000_DMA 	<= '0';
+				if( CLK_030='1') then 
+					AS_000_DMA 	<= '0'; --sampled on rising edges!
 					RW_000_DMA	<= RW_000;
-				elsif(AS_000_DMA = '0' and CLK_030='1')then
+				elsif(AS_000_DMA = '0' and CLK_030='0')then
 					CLK_030_H		<= '1';
 				end if;
 				
 				if(RW_000='1') then
 					DS_000_DMA	<=AS_000_DMA;
-				elsif(RW_000='0' and CLK_030_H = '1' and CLK_030='0')then
+				elsif(RW_000='0' and CLK_030_H = '1' and CLK_030='1')then
 					DS_000_DMA	<=AS_000_DMA; -- write: one clock delayed!
 				end if;
 				-- now determine the size: if both uds and lds is set its 16 bit else 8 bit!
@@ -488,6 +508,8 @@ begin
 	--output clock assignment
 	CLK_DIV_OUT	<= CLK_OUT_INT;
 	CLK_EXP		<= CLK_OUT_INT;
+	--CLK_DIV_OUT	<= CLK_OUT_PRE_33;
+	--CLK_EXP		<= CLK_OUT_PRE_33;
 	AVEC_EXP	<= CLK_000_PE;
 	AMIGA_BUS_ENABLE <= AMIGA_BUS_ENABLE_INT;
 	--dma stuff
@@ -514,11 +536,10 @@ begin
 
 
 	--cache inhibit: For now: disable
-	CIIN <= '1' WHEN A(31 downto 20) = x"00F" ELSE
-			'1' WHEN A(31 downto 16) = x"00E0" ELSE
-			'1' WHEN A(31 downto 20) = x"002" ELSE
-			'1' WHEN A(31 downto 20) = x"004" ELSE
-			'Z' WHEN not(A(31 downto 24) = x"00")  ELSE
+	CIIN <= '1' WHEN A(31 downto 20) = x"00F" and AS_030 ='0' ELSE
+			--'1' WHEN A(31 downto 20) = x"002" ELSE
+			--'1' WHEN A(31 downto 20) = x"004" ELSE
+			'Z' WHEN (not(A(31 downto 24) = x"00") and AS_030 ='0') OR nEXP_SPACE = '0' ELSE
 			'0';
 
 	--bus buffers
