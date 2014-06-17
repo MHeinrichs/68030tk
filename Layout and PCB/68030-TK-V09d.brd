@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.4">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -18,7 +18,7 @@
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
@@ -71,9 +71,9 @@
 <dimension x1="0" y1="100" x2="0" y2="0" x3="-20.4216" y3="50" textsize="1.778" layer="20"/>
 <text x="2.794" y="90.2208" size="1.778" layer="1" ratio="20" rot="R90">TOP</text>
 <text x="1.016" y="90.3732" size="1.778" layer="16" ratio="20" rot="MR90">Bot</text>
-<text x="8.128" y="43.9928" size="1.016" layer="16" ratio="20" rot="MR90">a1k.org 68030-TK v0.9d
-(c) 2013 Matthias Heinrichs
-thx Buko Charly</text>
+<text x="8.128" y="43.9928" size="1.016" layer="16" ratio="20" distance="51" rot="MR90">a1k.org 68030-TK v0.9d
+(c) 2014 Matthias Heinrichs
+thx BukoCharly, Georg Braun, Herzi</text>
 <text x="22.9616" y="55.0672" size="1.016" layer="25" ratio="20" rot="R90">a1k.org 68030-TK V0.9
 (c)2013 Matthias Heinrichs
 Free for non commercial
@@ -2844,7 +2844,7 @@ minimale Strichstärke: &lt;b&gt;0.2 mm&lt;/b&gt;&lt;br&gt;&lt;br&gt;
 <attribute name="VALUE" x="29.591" y="79.4512" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="R11" library="rcl" package="R0603" value="" x="30.6832" y="81.8134" smashed="yes" rot="R270">
-<attribute name="NAME" x="28.575" y="83.2104" size="0.8128" layer="25" rot="R270"/>
+<attribute name="NAME" x="28.7274" y="82.9056" size="0.8128" layer="25" rot="R270"/>
 <attribute name="VALUE" x="28.7782" y="82.4484" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="R14" library="rcl" package="R0603" value="" x="58.674" y="85.6488" smashed="yes" rot="R180">
@@ -8002,16 +8002,6 @@ minimale Strichstärke: &lt;b&gt;0.2 mm&lt;/b&gt;&lt;br&gt;&lt;br&gt;
 <wire x1="6.5532" y1="72.6948" x2="6.096" y2="72.2376" width="0.1524" layer="1"/>
 </signal>
 </signals>
-<errors>
-<approved hash="18,30,4daddc4e8f67e619"/>
-<approved hash="18,30,f646dbc696e743f0"/>
-<approved hash="18,30,1b42dc4e8e6fb74c"/>
-<approved hash="18,30,933d5dc68ee6b8e9"/>
-<approved hash="18,30,c2185cc68efeee34"/>
-<approved hash="18,30,a5d25a4e8a6e8dce"/>
-<approved hash="18,30,a0a8a9f4a989a0d5"/>
-<approved hash="18,30,93e4923c922593fd"/>
-</errors>
 </board>
 </drawing>
 <compatibility>
