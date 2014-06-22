@@ -6,7 +6,7 @@
 #Implementation: logic
 
 $ Start of Compile
-#Sun Jun 15 16:36:37 2014
+#Sun Jun 22 21:24:14 2014
 
 Synopsys VHDL Compiler, version comp201209rcp1, Build 283R, built Mar 19 2013
 @N|Running in 64-bit mode
@@ -20,12 +20,12 @@ File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed -
 @N: CD630 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Synthesizing work.bus68030.behavioral 
 Post processing for work.bus68030.behavioral
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":136:34:136:36|Pruning register CLK_000_NE_D  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":135:34:135:36|Pruning register CLK_000_NE  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":133:61:133:75|Pruning register CLK_000_N_SYNC(12 downto 0)  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":117:53:117:56|Pruning register FPU_CS_INT  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":138:32:138:34|Pruning register CLK_REF(1 downto 0)  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":110:29:110:31|Pruning register DTACK_D0  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:34:131:36|Pruning register CLK_000_D4  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":124:35:124:37|Pruning register CLK_OUT_NE  
+@W: CL265 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":133:61:133:75|Pruning bit 12 of CLK_000_N_SYNC(12 downto 0) -- not in use ... 
 @W: CL271 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":102:36:102:38|Pruning bits 12 to 10 of CLK_000_P_SYNC(12 downto 0) -- not in use ... 
 @A: CL282 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":137:35:137:37|Feedback mux created for signal CLK_030_H -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
 @N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":138:32:138:34|Trying to extract state machine for register SM_AMIGA
@@ -55,7 +55,7 @@ State machine has 11 reachable states with original encodings of:
    1111
 @END
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sun Jun 15 16:36:37 2014
+# Sun Jun 22 21:24:14 2014
 
 ###########################################################]
 Map & Optimize Report
@@ -91,15 +91,15 @@ original code -> new code
 Resource Usage Report
 
 Simple gate primitives:
-DFFRH           34 uses
-DFFSH           28 uses
+DFFRH           47 uses
+DFFSH           27 uses
 DFF             1 use
 BI_DIR          12 uses
 IBUF            30 uses
 OBUF            16 uses
 BUFTH           1 use
-AND2            209 uses
-INV             172 uses
+AND2            212 uses
+INV             173 uses
 OR2             21 uses
 XOR2            4 uses
 
@@ -111,6 +111,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 96MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sun Jun 15 16:36:39 2014
+# Sun Jun 22 21:24:16 2014
 
 ###########################################################]
