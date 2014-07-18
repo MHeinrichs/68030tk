@@ -1,46 +1,46 @@
 
-fsm_encoding {7138321381} onehot
+fsm_encoding {7140321401} onehot
 
-fsm_state_encoding {7138321381} idle_p {00000001}
+fsm_state_encoding {7140321401} idle_p {00000001}
 
-fsm_state_encoding {7138321381} idle_n {00000010}
+fsm_state_encoding {7140321401} idle_n {00000010}
 
-fsm_state_encoding {7138321381} as_set_p {00000100}
+fsm_state_encoding {7140321401} as_set_p {00000100}
 
-fsm_state_encoding {7138321381} as_set_n {00001000}
+fsm_state_encoding {7140321401} as_set_n {00001000}
 
-fsm_state_encoding {7138321381} sample_dtack_p {00010000}
+fsm_state_encoding {7140321401} sample_dtack_p {00010000}
 
-fsm_state_encoding {7138321381} data_fetch_n {00100000}
+fsm_state_encoding {7140321401} data_fetch_n {00100000}
 
-fsm_state_encoding {7138321381} data_fetch_p {01000000}
+fsm_state_encoding {7140321401} data_fetch_p {01000000}
 
-fsm_state_encoding {7138321381} end_cycle_n {10000000}
+fsm_state_encoding {7140321401} end_cycle_n {10000000}
 
-fsm_registers {7138321381} {SM_AMIGA[0]}  {SM_AMIGA[1]}  {SM_AMIGA[2]}  {SM_AMIGA[3]}  {SM_AMIGA[4]}  {SM_AMIGA[5]}  {SM_AMIGA[6]}  {SM_AMIGA[7]} 
+fsm_registers {7140321401} {SM_AMIGA[0]}  {SM_AMIGA[1]}  {SM_AMIGA[2]}  {SM_AMIGA[3]}  {SM_AMIGA[4]}  {SM_AMIGA[5]}  {SM_AMIGA[6]}  {SM_AMIGA[7]} 
 
-fsm_encoding {7126341262} original
+fsm_encoding {7128341282} original
 
-fsm_state_encoding {7126341262} e20 {0000}
+fsm_state_encoding {7128341282} e20 {0000}
 
-fsm_state_encoding {7126341262} e5 {0010}
+fsm_state_encoding {7128341282} e5 {0010}
 
-fsm_state_encoding {7126341262} e6 {0011}
+fsm_state_encoding {7128341282} e6 {0011}
 
-fsm_state_encoding {7126341262} e3 {0100}
+fsm_state_encoding {7128341282} e3 {0100}
 
-fsm_state_encoding {7126341262} e4 {0101}
+fsm_state_encoding {7128341282} e4 {0101}
 
-fsm_state_encoding {7126341262} e1 {0110}
+fsm_state_encoding {7128341282} e1 {0110}
 
-fsm_state_encoding {7126341262} e2 {0111}
+fsm_state_encoding {7128341282} e2 {0111}
 
-fsm_state_encoding {7126341262} e7 {1010}
+fsm_state_encoding {7128341282} e7 {1010}
 
-fsm_state_encoding {7126341262} e8 {1011}
+fsm_state_encoding {7128341282} e8 {1011}
 
-fsm_state_encoding {7126341262} e9 {1100}
+fsm_state_encoding {7128341282} e9 {1100}
 
-fsm_state_encoding {7126341262} e10 {1111}
+fsm_state_encoding {7128341282} e10 {1111}
 
-fsm_registers {7126341262} {cpu_est[3]}  {cpu_est[2]}  {cpu_est[1]}  {cpu_est[0]} 
+fsm_registers {7128341282} {cpu_est[3]}  {cpu_est[2]}  {cpu_est[1]}  {cpu_est[0]} 

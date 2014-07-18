@@ -29,17 +29,17 @@ original code -> new code
 Resource Usage Report
 
 Simple gate primitives:
-DFFRH           47 uses
-DFFSH           27 uses
+DFFRH           44 uses
+DFFSH           26 uses
 DFF             1 use
-BI_DIR          12 uses
+BI_DIR          13 uses
 IBUF            30 uses
 OBUF            16 uses
 BUFTH           1 use
-AND2            212 uses
-INV             173 uses
+AND2            203 uses
+INV             161 uses
 OR2             21 uses
-XOR2            4 uses
+XOR2            2 uses
 
 
 @N: FC100 |Timing Report not generated for this device, please use place and route tools for timing analysis.
@@ -49,6 +49,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 96MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sun Jun 22 21:24:16 2014
+# Fri Jul 18 14:05:28 2014
 
 ###########################################################]

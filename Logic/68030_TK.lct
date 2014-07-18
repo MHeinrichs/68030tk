@@ -12,8 +12,8 @@ EN_PinMacrocell = Yes;
 
 [Revision]
 Parent = m4a5.lci;
-DATE = 06/08/2014;
-TIME = 11:30:13;
+DATE = 07/17/2014;
+TIME = 13:08:52;
 Source_Format = Pure_VHDL;
 Synthesis = Synplify;
 
@@ -69,17 +69,14 @@ IPL_030_2_ = Pin, 9, -, B, -;
 LDS_000 = Pin, 31, -, D, -;
 UDS_000 = Pin, 32, -, D, -;
 VMA = Pin, 35, -, D, -;
-AS_000 = Pin, 33, -, D, -;
 DTACK = Pin, 30, -, D, -;
 RESET = Pin, 3, -, B, -;
 AMIGA_BUS_DATA_DIR = Pin, 48, -, E, -;
-AMIGA_BUS_ENABLE = Pin, 34, -, D, -;
 AMIGA_BUS_ENABLE_LOW = Pin, 20, -, C, -;
 CIIN = Pin, 47, -, E, -;
 A_20_ = Pin, 93, -, A, -;
 A_21_ = Pin, 94, -, A, -;
-A_22_ = Pin, 85, -, H, -;
-A_23_ = Pin, 84, -, H, -;
+A_22_ = Pin, 84, -, H, -;
 A_24_ = Pin, 19, -, C, -;
 A_25_ = Pin, 18, -, C, -;
 A_26_ = Pin, 17, -, C, -;
@@ -89,12 +86,16 @@ A_29_ = Pin, 6, -, B, -;
 A_30_ = Pin, 5, -, B, -;
 A_31_ = Pin, 4, -, B, -;
 DS_030 = Pin, 98, -, A, -;
-AVEC_EXP = Pin, 22, -, C, -;
 BERR = Pin, 41, -, E, -;
 nEXP_SPACE = Pin, 14, -, -, -;
 A0 = Pin, 69, -, G, -;
 DSACK1 = Pin, 81, -, H, -;
 RW_000 = Pin, 80, -, H, -;
+AS_000 = Pin, 42, -, E, -;
+AMIGA_ADDR_ENABLE = Pin, 33, -, D, -;
+AMIGA_BUS_ENABLE_HIGH = Pin, 34, -, D, -;
+A_23_ = Pin, 85, -, H, -;
+FPU_SENSE = Pin, 91, -, A, -;
 
 [Group Assignments]
 layer = OFF;
