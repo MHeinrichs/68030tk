@@ -109,6 +109,7 @@ signal	RW_000_DMA:STD_LOGIC		:= '1';
 signal  SIZE_DMA: STD_LOGIC_VECTOR ( 1 downto 0 ) 	:= "11";
 signal	A0_DMA: STD_LOGIC			:= '1';
 signal	VMA_INT: STD_LOGIC			:= '1';
+signal	VMA_INT_D: STD_LOGIC			:= '1';
 signal	VPA_D: STD_LOGIC			:= '1';
 signal	UDS_000_INT: STD_LOGIC		:= '1';
 signal	LDS_000_INT: STD_LOGIC		:= '1';
@@ -187,6 +188,7 @@ begin
 			DS_000_ENABLE	<= '0';
 			CLK_REF			<= "00";
 			VMA_INT			<= '1';
+			VMA_INT_D		<= '1';
 			BG_000			<= '1';
 			BGACK_030_INT	<= '1';
 			BGACK_030_INT_D <= '1';
@@ -204,6 +206,8 @@ begin
 			AMIGA_BUS_ENABLE_INT <= '1';
 			AS_030_D0		<= '1';
 			DS_030_D0		<= '1';
+			IPL_030			<= "000";
+			CLK_030_H		<= '0';
 		elsif(rising_edge(CLK_OSZI)) then
 			--reset buffer
 			RESET <= '1';
@@ -260,7 +264,7 @@ begin
 			CLK_000_E_ADVANCE <= CLK_000_NE; 
 			DTACK_D0	<= DTACK;
 			VPA_D 		<= VPA;
-
+			VMA_INT_D	<= VMA_INT;
 			--now: 68000 state machine and signals
 			
 			-- e-clock is changed on the FALLING edge!
@@ -332,7 +336,7 @@ begin
 				DSACK1_INT		<= '1';
 				AS_000_INT  	<= '1';
 				DS_000_ENABLE	<= '0';
-				AMIGA_BUS_ENABLE_INT <= '1';
+				AMIGA_BUS_ENABLE_INT <= '1';								
 			elsif(	--CLK_030  		= '1'  AND --68030 has a valid AS on high clocks					
 					AS_030_D0			= '0'  AND --as set
 					BGACK_000='1' AND --no dma -cycle
@@ -432,7 +436,8 @@ begin
 					end if;
 				when END_CYCLE_N =>--68000:S7: Latch/Store data. Wait here for new cycle and go to IDLE on high clock
 					if(CLK_000_PE='1')then --go to s0	
-					--if(CLK_000_D0='1')then --go to s0																	
+					--if(CLK_000_D0='1')then --go to s0	
+						RW_000_INT 		<= '1';																		
 						SM_AMIGA<=IDLE_P;	
 						VMA_INT <= '1';					
 					end if;
@@ -548,7 +553,7 @@ begin
 		
 	--e and VMA		
 	E		<= cpu_est(3);
-	VMA		<= VMA_INT;
+	VMA		<= '1' WHEN VMA_INT = '1' AND VMA_INT_D ='1' ELSE '0';
 	
 	
 	--AVEC
