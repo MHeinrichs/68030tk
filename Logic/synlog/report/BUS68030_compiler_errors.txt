@@ -1,3 +1,3 @@
-@E: CG119 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":426:92:426:93|Expecting closing )
+@E: CD255 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":410:31:410:31|No identifier "dtack_d" in scope
 @E|Parse errors encountered - exiting
 

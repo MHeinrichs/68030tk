@@ -319,8 +319,8 @@ begin
 
 		
 			--interrupt buffering to avoid ghost interrupts
-			if(CLK_000_NE='1')then
-			--if(CLK_000_D1='0' and CLK_000_D0='1')then
+			--if(CLK_000_NE='1')then
+			if(CLK_000_D0='0' and CLK_000_D1='1')then
 				IPL_030<=IPL;			
 			end if;
 		
@@ -499,17 +499,24 @@ begin
 			CLK_OUT_PRE_33 <= not CLK_OUT_PRE_33;
 		end if;
 	end process process_33_clk; 
-	AMIGA_BUS_ENABLE_LOW <= '1';
 
 	
 
 	--output clock assignment
 	CLK_DIV_OUT	<= CLK_OUT_INT;
 	CLK_EXP		<= CLK_OUT_INT;
-	--CLK_DIV_OUT	<= CLK_OUT_PRE_33;
-	--CLK_EXP		<= CLK_OUT_PRE_33;
-	AMIGA_ADDR_ENABLE <= AMIGA_BUS_ENABLE_INT;
+
+	-- bus drivers
+	AMIGA_ADDR_ENABLE	<= AMIGA_BUS_ENABLE_INT;
 	AMIGA_BUS_ENABLE_HIGH <= AMIGA_BUS_ENABLE_INT;
+	AMIGA_BUS_ENABLE_LOW <= '1';
+	AMIGA_BUS_DATA_DIR 	 <= '1' WHEN (RW_000='0' AND BGACK_030_INT ='1') ELSE --Amiga WRITE
+							'0' WHEN (RW_000='1' AND BGACK_030_INT ='1') ELSE --Amiga READ
+							'1' WHEN (RW_000='1' AND BGACK_030_INT ='0' AND nEXP_SPACE = '0' AND AS_000 = '0') ELSE --DMA READ to expansion space
+							'0' WHEN (RW_000='0' AND BGACK_030_INT ='0' AND nEXP_SPACE = '0' AND AS_000 = '0') ELSE --DMA WRITE to expansion space
+							'0'; --Point towarts TK
+	
+	
 	--dma stuff
 	DTACK	<= 'Z' when BGACK_030_INT ='1' OR nEXP_SPACE = '1' OR AS_000_DMA ='1' else
 					DSACK1;
@@ -533,20 +540,11 @@ begin
 
 
 
-	--cache inhibit: For now: disable
-	CIIN <= '1' WHEN A(31 downto 20) = x"00F" and AS_030_D0 ='0' ELSE
-			--'1' WHEN A(31 downto 20) = x"002" ELSE
-			--'1' WHEN A(31 downto 20) = x"004" ELSE
-			'Z' WHEN (not(A(31 downto 24) = x"00") and AS_030 ='0') OR nEXP_SPACE = '0' ELSE
-			'0';
+	--cache inhibit:  Tristate for expansion (it decides) and off for the Amiga 
+	CIIN <= '1' WHEN A(31 downto 20) = x"00F" and AS_030_D0 ='0' ELSE -- Enable for Kick-rom
+			'Z' WHEN (not(A(31 downto 24) = x"00") and AS_030 ='0') OR nEXP_SPACE = '0' ELSE --Tristate for expansion (it decides)
+			'0'; --off for the Amiga
 
-	--bus buffers
-	AMIGA_BUS_DATA_DIR 	 <= '1' WHEN (RW_000='0' AND BGACK_030_INT ='1') ELSE --Amiga WRITE
-							'0' WHEN (RW_000='1' AND BGACK_030_INT ='1') ELSE --Amiga READ
-							'1' WHEN (RW_000='1' AND BGACK_030_INT ='0' AND nEXP_SPACE = '0' AND AS_000 = '0') ELSE --DMA READ to expansion space
-							'0' WHEN (RW_000='0' AND BGACK_030_INT ='0' AND nEXP_SPACE = '0' AND AS_000 = '0') ELSE --DMA WRITE to expansion space
-							'0'; --Point towarts TK
-	--AMIGA_BUS_ENABLE_LOW <= CLK_OUT_NE; --for now: allways off
 		
 	--e and VMA		
 	E		<= cpu_est(3);
