@@ -1,7 +1,7 @@
 #--  Synopsys, Inc.
 #--  Version G-2012.09LC-SP1 
 #--  Project file C:\users\matze\documents\github\68030tk\logic\run_options.txt
-#--  Written on Sat Aug 09 22:39:52 2014
+#--  Written on Sat Aug 09 23:50:20 2014
 
 
 #project files
