@@ -1,3 +1,3 @@
-@E: CG119 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":294:48:294:49|Expecting closing )
+@E: CD415 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":488:5:488:11|Expecting keyword if
 @E|Parse errors encountered - exiting
 

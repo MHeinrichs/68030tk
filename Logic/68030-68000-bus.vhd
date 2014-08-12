@@ -136,7 +136,7 @@ signal	CLK_000_P_SYNC: STD_LOGIC_VECTOR ( 12 downto 0 ) 	:= "0000000000000";
 signal	CLK_000_N_SYNC: STD_LOGIC_VECTOR ( 12 downto 0 ) 	:= "0000000000000";
 signal	CLK_000_PE: STD_LOGIC 		:= '0';
 signal	CLK_000_NE: STD_LOGIC 		:= '0';
-signal	CLK_000_E_ADVANCE: STD_LOGIC 	:= '0';
+signal	CLK_000_NE_D0: STD_LOGIC 		:= '0';
 signal	DTACK_D0: STD_LOGIC 		:= '1';
 
 begin
@@ -196,7 +196,7 @@ begin
 			CLK_000_N_SYNC	<= "0000000000000";
 			CLK_000_PE		<= '0';
 			CLK_000_NE		<= '0';
-			CLK_000_E_ADVANCE	<= '0';
+			CLK_000_NE_D0	<= '0';
 			AS_000_DMA		<= '1';
 			DS_000_DMA		<= '1';
 			SIZE_DMA		<= "11";
@@ -257,7 +257,7 @@ begin
 			-- since the clock is not symmetrically these values differ!
 			CLK_000_PE <= CLK_000_P_SYNC(9);
 			CLK_000_NE <= CLK_000_N_SYNC(11);
-			CLK_000_E_ADVANCE <= CLK_000_NE; 
+			CLK_000_NE_D0 <= CLK_000_NE;
 			DTACK_D0	<= DTACK;
 			VPA_D 		<= VPA;
 
@@ -265,7 +265,8 @@ begin
 			
 			-- e-clock is changed on the FALLING edge!
 
-			if(CLK_000_E_ADVANCE = '1' ) then
+			if(CLK_000_NE_D0 = '1' ) then
+			--if(CLK_000_D0='0' AND CLK_000_D1='1') then
 				case (cpu_est) is
 					when E1 => cpu_est <= E2 ; 
 					when E2 => cpu_est <= E3 ;
@@ -298,7 +299,7 @@ begin
 				BGACK_030_INT	<= '0';
 			elsif (	BGACK_000='1' 
 					AND CLK_000_PE='1'
-					--AND CLK_000_D1='0' and CLK_000_D0='1'
+					--AND CLK_000_D0='1' and CLK_000_D1='0'
 					) then -- BGACK_000 is high here!
 				BGACK_030_INT 	<= '1'; --hold this signal high until 7m clock goes high
 			end if;
@@ -319,8 +320,8 @@ begin
 
 		
 			--interrupt buffering to avoid ghost interrupts
-			--if(CLK_000_NE='1')then
-			if(CLK_000_D0='0' and CLK_000_D1='1')then
+			if(CLK_000_NE='1')then
+			--if(CLK_000_D0='0' and CLK_000_D1='1')then
 				IPL_030<=IPL;			
 			end if;
 		
@@ -346,9 +347,10 @@ begin
 
 			-- VMA generation
 			if(CLK_000_NE='1' AND VPA_D='0' AND cpu_est = E4)then --assert
+			--if(CLK_000_D0='0' AND CLK_000_D1='1' AND VPA_D='0' AND cpu_est = E4)then --assert
 				VMA_INT <= '0';
-			--elsif(CLK_000_PE='1' AND AS_000_INT='1' AND cpu_est=E1)then --deassert
-				
+			elsif(CLK_000_PE='1' AND cpu_est=E1)then --deassert
+				VMA_INT <= '1';										
 			end if;
 			
 			--uds/lds precalculation
@@ -374,7 +376,7 @@ begin
 
 			case (SM_AMIGA) is
 				when IDLE_P 	 => --68000:S0 wait for a falling edge
-					RW_000_INT		<= '1';							
+					RW_000_INT		<= '1';		
 					if( CLK_000_D0='0' and CLK_000_D1= '1' and AS_030_000_SYNC = '0')then						
 						if(nEXP_SPACE ='1')then -- if this a delayed expansion space detection, do not start an amiga cycle!
 							AMIGA_BUS_ENABLE_INT <= '0' ;--for now: allways on for amiga
@@ -407,8 +409,8 @@ begin
 				when SAMPLE_DTACK_P=> --68000:S4 wait for dtack or VMA
 					if(	CLK_000_NE='1' and --falling edge
 					--if(	CLK_000_D0 = '0' and CLK_000_D1='1' and --falling edge
-						((VPA = '1' AND DTACK='0') OR --DTACK end cycle
-						(VPA='0' AND cpu_est=E9 AND VMA_INT='0')) --VPA end cycle
+						((VPA_D = '1' AND DTACK_D0='0') OR --DTACK end cycle
+						(VPA_D='0' AND cpu_est=E9 AND VMA_INT='0')) --VPA end cycle
 						)then --go to s5
 						SM_AMIGA<=DATA_FETCH_N;
 					end if;
@@ -418,8 +420,8 @@ begin
 						SM_AMIGA<=DATA_FETCH_P;
 					end if;
 				when DATA_FETCH_P => --68000:S6: READ: here comes the data on the bus!
-					if( (CLK_000_N_SYNC( 5)='1' AND not (CLK_030 ='1' and CLK_OUT_PRE_D='0')) OR
-						(CLK_000_N_SYNC( 6)='1' )) then --go to s7 next 030-clock is not a falling edge: dsack is sampled at the falling edge
+					if( (CLK_000_N_SYNC( 4)='1' AND not (CLK_030 ='1' and CLK_OUT_PRE_D='0')) OR
+						(CLK_000_N_SYNC( 5)='1' )) then --go to s7 next 030-clock is not a falling edge: dsack is sampled at the falling edge
 						DSACK1_INT <='0'; 
 					end if;
 					--if( CLK_000_D3 ='1' AND CLK_000_D4 = '0' ) then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
@@ -434,7 +436,7 @@ begin
 					if(CLK_000_PE='1')then --go to s0	
 					--if(CLK_000_D0='1')then --go to s0																	
 						SM_AMIGA<=IDLE_P;	
-						VMA_INT <= '1';					
+						RW_000_INT		<= '1';						
 					end if;
 			end case;
 
