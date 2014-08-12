@@ -121,6 +121,7 @@ signal	CLK_OUT_PRE_50: STD_LOGIC	:= '1';
 signal	CLK_OUT_PRE_50_D: STD_LOGIC	:= '1';
 signal	CLK_OUT_PRE_25: STD_LOGIC	:= '1';
 signal	CLK_OUT_PRE_33: STD_LOGIC	:= '1';
+signal	CLK_OUT_PRE_33_D: STD_LOGIC	:= '1';
 signal  CLK_PRE_66:STD_LOGIC		:= '0';
 signal	CLK_OUT_PRE: STD_LOGIC		:= '1';
 signal	CLK_OUT_PRE_D: STD_LOGIC	:= '1';
@@ -143,87 +144,31 @@ begin
 
 
 	--the clocks
-	neg_clk: process(RST, CLK_OSZI)
+	neg_clk: process(CLK_OSZI)
 	begin
-		if(RST = '0' ) then
-			CLK_CNT_N	<= "10";	
-		elsif(falling_edge(CLK_OSZI)) then
-			if(CLK_CNT_N = "10") then
+		if(falling_edge(CLK_OSZI)) then
+			if(CLK_CNT_N = "10" or RST = '0') then
 				CLK_CNT_N	<= "00";	
 			else
 				CLK_CNT_N	<= CLK_CNT_N+1;					
 			end if;
 		end if;
 	end process neg_clk;
-	--the state machine
-	state_machine: process(RST, CLK_OSZI)
-	begin
-		if(RST = '0' ) then
-			CLK_CNT_P		<= "00";	
-			RESET 			<= '0';
-			CLK_OUT_PRE_50 	<= '0';
-			CLK_OUT_PRE_50_D <= '0';
-			--CLK_OUT_PRE_33 	<= '0';
-			CLK_OUT_PRE_25 	<= '0';
-			CLK_OUT_PRE 	<= '0';
-			CLK_OUT_PRE_D 	<= '0';
-			CLK_OUT_NE		<= '0';
-			CLK_OUT_INT		<= '0';
-			cpu_est			<= E20;
-			CLK_000_D0		<= '1';
-			CLK_000_D1		<= '1';
-			CLK_000_D2		<= '1';
-			CLK_000_D3		<= '1';
-			CLK_000_D4		<= '1';
-			VPA_D			<= '1';
-			DTACK_D0		<= '1';
-			SM_AMIGA		<= IDLE_P;
-			AS_000_INT 		<= '1';
-			RW_000_INT		<= '1';
-			RW_000_DMA		<= '1';
-			AS_030_000_SYNC <= '1';
-			UDS_000_INT		<= '1';
-			LDS_000_INT		<= '1';
-			DS_000_ENABLE	<= '0';
-			CLK_REF			<= "00";
-			VMA_INT			<= '1';
-			BG_000			<= '1';
-			BGACK_030_INT	<= '1';
-			BGACK_030_INT_D <= '1';
-			DSACK1_INT		<= '1';
-			IPL_030			<= "111";
-			CLK_000_P_SYNC	<= "0000000000000";
-			CLK_000_N_SYNC	<= "0000000000000";
-			CLK_000_PE		<= '0';
-			CLK_000_NE		<= '0';
-			CLK_000_NE_D0	<= '0';
-			AS_000_DMA		<= '1';
-			DS_000_DMA		<= '1';
-			SIZE_DMA		<= "11";
-			A0_DMA			<= '1';
-			AMIGA_BUS_ENABLE_INT <= '1';
-			AS_030_D0		<= '1';
-			DS_030_D0		<= '1';
-		elsif(rising_edge(CLK_OSZI)) then
-			--reset buffer
-			RESET <= '1';
 
+	--pos edge clock
+	pos_clk: process(CLK_OSZI)
+	begin
+		if(rising_edge(CLK_OSZI)) then
 			--clk generation :
 
 		    CLK_OUT_PRE_50	<=	not CLK_OUT_PRE_50;
 		    CLK_OUT_PRE_50_D<=	CLK_OUT_PRE_50;		    
-			if(CLK_CNT_P = "10") then				
+			if(CLK_CNT_P = "10" or RST = '0') then				
 				CLK_CNT_P	<= "00";	
 			else
 				CLK_CNT_P	<= CLK_CNT_P+1;					
 			end if;
-			
-			--if(CLK_CNT_P ="00" or CLK_CNT_N ="00")then --33MHz Clock
-			--	CLK_OUT_PRE_33 <= '0'; 
-			--else 
-			--	CLK_OUT_PRE_33 <= '1';
-			--end if;
-			
+						
 			if(CLK_OUT_PRE_50='1' and CLK_OUT_PRE_50_D='0')then
 				CLK_OUT_PRE_25	<=	not CLK_OUT_PRE_25;
 			end if;
@@ -258,10 +203,6 @@ begin
 			CLK_000_PE <= CLK_000_P_SYNC(9);
 			CLK_000_NE <= CLK_000_N_SYNC(11);
 			CLK_000_NE_D0 <= CLK_000_NE;
-			DTACK_D0	<= DTACK;
-			VPA_D 		<= VPA;
-
-			--now: 68000 state machine and signals
 			
 			-- e-clock is changed on the FALLING edge!
 
@@ -289,9 +230,66 @@ begin
 						null;
 				end case;
 			end if;
+		end if;
+	end process pos_clk;
 
+	CLK_PRE_66 <= (not CLK_CNT_N(0) and CLK_CNT_P(0)) or
+            (CLK_CNT_N(1) and CLK_CNT_P(1));
+
+    process_33_clk:process(CLK_PRE_66)
+	begin
+	if(rising_edge(CLK_PRE_66)) then
+			CLK_OUT_PRE_33 <= not CLK_OUT_PRE_33;
+			CLK_OUT_PRE_33_D <= CLK_OUT_PRE_33;
+		end if;
+	end process process_33_clk; 
+
+	--output clock assignment
+	CLK_DIV_OUT	<= CLK_OUT_PRE_D;
+	CLK_EXP		<= CLK_OUT_PRE_D;
+
+
+	--the state machine
+	state_machine: process(RST, CLK_OSZI)
+	begin
+		if(RST = '0' ) then
+			RESET 			<= '0';
+			VPA_D			<= '1';
+			DTACK_D0		<= '1';
+			SM_AMIGA		<= IDLE_P;
+			AS_000_INT 		<= '1';
+			RW_000_INT		<= '1';
+			RW_000_DMA		<= '1';
+			AS_030_000_SYNC <= '1';
+			UDS_000_INT		<= '1';
+			LDS_000_INT		<= '1';
+			DS_000_ENABLE	<= '0';
+			CLK_REF			<= "00";
+			VMA_INT			<= '1';
+			BG_000			<= '1';
+			BGACK_030_INT	<= '1';
+			BGACK_030_INT_D <= '1';
+			DSACK1_INT		<= '1';
+			IPL_030			<= "111";
+			AS_000_DMA		<= '1';
+			DS_000_DMA		<= '1';
+			SIZE_DMA		<= "11";
+			A0_DMA			<= '1';
+			AMIGA_BUS_ENABLE_INT <= '1';
+			AS_030_D0		<= '1';
+			DS_030_D0		<= '1';
+			CLK_030_H		<= '0';	
+		elsif(rising_edge(CLK_OSZI)) then
+			--reset buffer
+			RESET <= '1';
+
+			--now: 68000 state machine and signals
+			
+			--buffering signals
 			AS_030_D0 <= AS_030;
 			DS_030_D0 <= DS_030;
+			DTACK_D0	<= DTACK;
+			VPA_D 		<= VPA;
 
 
 			--bgack is simple: assert as soon as Amiga asserts but hold bg_ack for one amiga-clock 
@@ -333,7 +331,7 @@ begin
 				DSACK1_INT		<= '1';
 				AS_000_INT  	<= '1';
 				DS_000_ENABLE	<= '0';
-				AMIGA_BUS_ENABLE_INT <= '1';
+				
 			elsif(	--CLK_030  		= '1'  AND --68030 has a valid AS on high clocks					
 					AS_030_D0			= '0'  AND --as set
 					BGACK_000='1' AND --no dma -cycle
@@ -377,11 +375,11 @@ begin
 			case (SM_AMIGA) is
 				when IDLE_P 	 => --68000:S0 wait for a falling edge
 					RW_000_INT		<= '1';		
-					if( CLK_000_D0='0' and CLK_000_D1= '1' and AS_030_000_SYNC = '0')then						
-						if(nEXP_SPACE ='1')then -- if this a delayed expansion space detection, do not start an amiga cycle!
-							AMIGA_BUS_ENABLE_INT <= '0' ;--for now: allways on for amiga
-							SM_AMIGA<=IDLE_N;  --go to s1
-						end if;
+					if( CLK_000_D0='0' and CLK_000_D1= '1' and AS_030_000_SYNC = '0' and nEXP_SPACE ='1')then -- if this a delayed expansion space detection, do not start an amiga cycle!
+						AMIGA_BUS_ENABLE_INT <= '0' ;--for now: allways on for amiga
+						SM_AMIGA<=IDLE_N;  --go to s1
+					else
+						AMIGA_BUS_ENABLE_INT <= '1';
 					end if;
 				when IDLE_N 	 => --68000:S1 place Adress on bus and wait for rising edge, on a rising CLK_000 look for a amiga adressrobe
 					if(CLK_000_PE='1')then --go to s2
@@ -420,8 +418,8 @@ begin
 						SM_AMIGA<=DATA_FETCH_P;
 					end if;
 				when DATA_FETCH_P => --68000:S6: READ: here comes the data on the bus!
-					if( (CLK_000_N_SYNC( 4)='1' AND not (CLK_030 ='1' and CLK_OUT_PRE_D='0')) OR
-						(CLK_000_N_SYNC( 5)='1' )) then --go to s7 next 030-clock is not a falling edge: dsack is sampled at the falling edge
+					if( (CLK_000_N_SYNC( 5)='1' AND not (CLK_030 ='1' and CLK_OUT_PRE_D='0')) OR
+						(CLK_000_N_SYNC( 6)='1' )) then --go to s7 next 030-clock is not a falling edge: dsack is sampled at the falling edge
 						DSACK1_INT <='0'; 
 					end if;
 					--if( CLK_000_D3 ='1' AND CLK_000_D4 = '0' ) then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
@@ -490,23 +488,9 @@ begin
 		end if;		
 	end process	state_machine;
 
-	CLK_PRE_66 <= (not CLK_CNT_N(0) and CLK_CNT_P(0)) or
-            (CLK_CNT_N(1) and CLK_CNT_P(1));
-
-    process_33_clk:process(RST, CLK_PRE_66)
-	begin
-		if(RST = '0' ) then
-			CLK_OUT_PRE_33	<= '0';	
-		elsif(rising_edge(CLK_PRE_66)) then
-			CLK_OUT_PRE_33 <= not CLK_OUT_PRE_33;
-		end if;
-	end process process_33_clk; 
-
+	
 	
 
-	--output clock assignment
-	CLK_DIV_OUT	<= CLK_OUT_INT;
-	CLK_EXP		<= CLK_OUT_INT;
 
 	-- bus drivers
 	AMIGA_ADDR_ENABLE	<= AMIGA_BUS_ENABLE_INT;
