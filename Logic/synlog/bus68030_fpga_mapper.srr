@@ -19,24 +19,24 @@ Resource Usage Report
 Simple gate primitives:
 DFFSH           25 uses
 DFFRH           10 uses
-DFF             36 uses
+DFF             34 uses
 BI_DIR          13 uses
 IBUF            30 uses
 OBUF            16 uses
 BUFTH           1 use
-AND2            214 uses
+AND2            211 uses
 INV             165 uses
 OR2             21 uses
-XOR2            2 uses
+XOR2            1 use
 
 
 @N: FC100 |Timing Report not generated for this device, please use place and route tools for timing analysis.
 G-2012.09LC-SP1 
 Mapper successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 96MB)
+At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 95MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Tue Aug 12 21:21:09 2014
+# Tue Aug 26 20:07:10 2014
 
 ###########################################################]

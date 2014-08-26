@@ -6,7 +6,9 @@
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":132:34:132:36|Pruning register CLK_000_D2  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":127:35:127:37|Pruning register CLK_OUT_INT  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":127:35:127:37|Pruning register CLK_OUT_NE  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":121:38:121:40|Pruning register CLK_OUT_PRE_25  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":121:38:121:40|Pruning register CLK_CNT_P(1 downto 0)  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":120:36:120:38|Pruning register CLK_OUT_PRE_50_D  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":149:2:149:3|Pruning register CLK_CNT_N(1 downto 0)  
 @W: CL265 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":136:61:136:75|Pruning bit 12 of CLK_000_N_SYNC(12 downto 0) -- not in use ... 
 @W: CL271 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":135:34:135:36|Pruning bits 12 to 10 of CLK_000_P_SYNC(12 downto 0) -- not in use ... 

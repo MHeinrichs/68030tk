@@ -12,8 +12,8 @@ EN_PinMacrocell = Yes;
 
 [Revision]
 Parent = m4a5.lci;
-DATE = 07/17/2014;
-TIME = 13:08:52;
+DATE = 08/13/2014;
+TIME = 16:43:14;
 Source_Format = Pure_VHDL;
 Synthesis = Synplify;
 
@@ -107,6 +107,7 @@ layer = OFF;
 
 [Power]
 Default = High;
+Low = H, G, F, E, D, C, B, A;
 
 [Source Constraint Option]
 

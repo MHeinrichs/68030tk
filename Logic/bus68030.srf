@@ -6,7 +6,7 @@
 #Implementation: logic
 
 $ Start of Compile
-#Tue Aug 12 21:21:07 2014
+#Tue Aug 26 20:07:08 2014
 
 Synopsys VHDL Compiler, version comp201209rcp1, Build 283R, built Mar 19 2013
 @N|Running in 64-bit mode
@@ -27,7 +27,9 @@ Post processing for work.bus68030.behavioral
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":132:34:132:36|Pruning register CLK_000_D2  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":127:35:127:37|Pruning register CLK_OUT_INT  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":127:35:127:37|Pruning register CLK_OUT_NE  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":121:38:121:40|Pruning register CLK_OUT_PRE_25  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":121:38:121:40|Pruning register CLK_CNT_P(1 downto 0)  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":120:36:120:38|Pruning register CLK_OUT_PRE_50_D  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":149:2:149:3|Pruning register CLK_CNT_N(1 downto 0)  
 @W: CL265 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":136:61:136:75|Pruning bit 12 of CLK_000_N_SYNC(12 downto 0) -- not in use ... 
 @W: CL271 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":135:34:135:36|Pruning bits 12 to 10 of CLK_000_P_SYNC(12 downto 0) -- not in use ... 
@@ -45,7 +47,7 @@ State machine has 8 reachable states with original encodings of:
    111
 @END
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Tue Aug 12 21:21:07 2014
+# Tue Aug 26 20:07:08 2014
 
 ###########################################################]
 Map & Optimize Report
@@ -71,24 +73,24 @@ Resource Usage Report
 Simple gate primitives:
 DFFSH           25 uses
 DFFRH           10 uses
-DFF             36 uses
+DFF             34 uses
 BI_DIR          13 uses
 IBUF            30 uses
 OBUF            16 uses
 BUFTH           1 use
-AND2            214 uses
+AND2            211 uses
 INV             165 uses
 OR2             21 uses
-XOR2            2 uses
+XOR2            1 use
 
 
 @N: FC100 |Timing Report not generated for this device, please use place and route tools for timing analysis.
 G-2012.09LC-SP1 
 Mapper successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 96MB)
+At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 95MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Tue Aug 12 21:21:09 2014
+# Tue Aug 26 20:07:10 2014
 
 ###########################################################]

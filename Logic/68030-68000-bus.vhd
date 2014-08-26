@@ -174,7 +174,7 @@ begin
 			end if;
 			
 			--here the clock is selected
-			CLK_OUT_PRE 	<= CLK_OUT_PRE_25;
+			CLK_OUT_PRE 	<= CLK_OUT_PRE_50;
 			CLK_OUT_PRE_D 	<= CLK_OUT_PRE;
 			
 			--a negative edge is comming next cycle
@@ -352,7 +352,7 @@ begin
 			end if;
 			
 			--uds/lds precalculation
-			if (DS_030_D0 = '0') then --DS: set udl/lds 	
+			if (DS_030_D0 = '0' AND SM_AMIGA = IDLE_N) then --DS: set udl/lds 	
 				if(A0='0') then
 					UDS_000_INT <= '0';
 				else
@@ -418,8 +418,8 @@ begin
 						SM_AMIGA<=DATA_FETCH_P;
 					end if;
 				when DATA_FETCH_P => --68000:S6: READ: here comes the data on the bus!
-					if( (CLK_000_N_SYNC( 5)='1' AND not (CLK_030 ='1' and CLK_OUT_PRE_D='0')) OR
-						(CLK_000_N_SYNC( 6)='1' )) then --go to s7 next 030-clock is not a falling edge: dsack is sampled at the falling edge
+					if( (CLK_000_N_SYNC( 8)='1' AND not (CLK_030 ='1' and CLK_OUT_PRE_D='0')) OR
+						(CLK_000_N_SYNC( 9)='1' )) then --go to s7 next 030-clock is not a falling edge: dsack is sampled at the falling edge
 						DSACK1_INT <='0'; 
 					end if;
 					--if( CLK_000_D3 ='1' AND CLK_000_D4 = '0' ) then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
@@ -427,7 +427,7 @@ begin
 					--end if;
 					if( CLK_000_NE ='1') then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
 					--if( CLK_000_D0 ='0') then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
-						
+						--DSACK1_INT <='0'; 
 						SM_AMIGA<=END_CYCLE_N;
 					end if;
 				when END_CYCLE_N =>--68000:S7: Latch/Store data. Wait here for new cycle and go to IDLE on high clock
