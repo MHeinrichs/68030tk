@@ -22,6 +22,7 @@ port(
 	SIZE: inout std_logic_vector ( 1 downto 0 );
 	A: in std_logic_vector ( 31 downto 16 );
 	A0: inout std_logic;
+	A1: in std_logic;
 	nEXP_SPACE: in std_logic ;
 	BERR: inout std_logic ;
 	BG_030: in std_logic ;
@@ -98,7 +99,10 @@ signal SM_AMIGA : AMIGA_STATE;
 signal	AS_000_INT:STD_LOGIC		:= '1';
 signal	RW_000_INT:STD_LOGIC		:= '1';
 signal	AMIGA_BUS_ENABLE_INT:STD_LOGIC		:= '1';
+signal	AMIGA_BUS_ENABLE_DMA_HIGH:STD_LOGIC		:= '1';
+signal	AMIGA_BUS_ENABLE_DMA_LOW:STD_LOGIC		:= '1';
 signal	AS_030_D0:STD_LOGIC			:= '1';
+signal	nEXP_SPACE_D0:STD_LOGIC		:= '1';
 signal	DS_030_D0:STD_LOGIC			:= '1';
 signal	AS_030_000_SYNC:STD_LOGIC	:= '1';
 signal	BGACK_030_INT:STD_LOGIC		:= '1';
@@ -114,8 +118,6 @@ signal	UDS_000_INT: STD_LOGIC		:= '1';
 signal	LDS_000_INT: STD_LOGIC		:= '1';
 signal	DS_000_ENABLE: STD_LOGIC	:= '0';
 signal  DSACK1_INT: STD_LOGIC		:= '1';
-signal	CLK_CNT_P: STD_LOGIC_VECTOR ( 1 downto 0 ) 	:= "00";
-signal	CLK_CNT_N: STD_LOGIC_VECTOR ( 1 downto 0 ) 	:= "00";
 signal	CLK_REF: STD_LOGIC_VECTOR ( 1 downto 0 ) 	:= "10";
 signal	CLK_OUT_PRE_50: STD_LOGIC	:= '1';
 signal	CLK_OUT_PRE_50_D: STD_LOGIC	:= '1';
@@ -142,19 +144,6 @@ signal	DTACK_D0: STD_LOGIC 		:= '1';
 
 begin
 
-
-	--the clocks
-	neg_clk: process(CLK_OSZI)
-	begin
-		if(falling_edge(CLK_OSZI)) then
-			if(CLK_CNT_N = "10" or RST = '0') then
-				CLK_CNT_N	<= "00";	
-			else
-				CLK_CNT_N	<= CLK_CNT_N+1;					
-			end if;
-		end if;
-	end process neg_clk;
-
 	--pos edge clock
 	pos_clk: process(CLK_OSZI)
 	begin
@@ -163,11 +152,6 @@ begin
 
 		    CLK_OUT_PRE_50	<=	not CLK_OUT_PRE_50;
 		    CLK_OUT_PRE_50_D<=	CLK_OUT_PRE_50;		    
-			if(CLK_CNT_P = "10" or RST = '0') then				
-				CLK_CNT_P	<= "00";	
-			else
-				CLK_CNT_P	<= CLK_CNT_P+1;					
-			end if;
 						
 			if(CLK_OUT_PRE_50='1' and CLK_OUT_PRE_50_D='0')then
 				CLK_OUT_PRE_25	<=	not CLK_OUT_PRE_25;
@@ -233,17 +217,6 @@ begin
 		end if;
 	end process pos_clk;
 
-	CLK_PRE_66 <= (not CLK_CNT_N(0) and CLK_CNT_P(0)) or
-            (CLK_CNT_N(1) and CLK_CNT_P(1));
-
-    process_33_clk:process(CLK_PRE_66)
-	begin
-	if(rising_edge(CLK_PRE_66)) then
-			CLK_OUT_PRE_33 <= not CLK_OUT_PRE_33;
-			CLK_OUT_PRE_33_D <= CLK_OUT_PRE_33;
-		end if;
-	end process process_33_clk; 
-
 	--output clock assignment
 	CLK_DIV_OUT	<= CLK_OUT_PRE_D;
 	CLK_EXP		<= CLK_OUT_PRE_D;
@@ -276,7 +249,10 @@ begin
 			SIZE_DMA		<= "11";
 			A0_DMA			<= '1';
 			AMIGA_BUS_ENABLE_INT <= '1';
+			AMIGA_BUS_ENABLE_DMA_HIGH <= '1';
+			AMIGA_BUS_ENABLE_DMA_LOW <= '1';
 			AS_030_D0		<= '1';
+			nEXP_SPACE_D0	<= '1';
 			DS_030_D0		<= '1';
 			CLK_030_H		<= '0';	
 		elsif(rising_edge(CLK_OSZI)) then
@@ -287,6 +263,7 @@ begin
 			
 			--buffering signals
 			AS_030_D0 <= AS_030;
+			nEXP_SPACE_D0 <= nEXP_SPACE;
 			DS_030_D0 <= DS_030;
 			DTACK_D0	<= DTACK;
 			VPA_D 		<= VPA;
@@ -309,7 +286,7 @@ begin
 			if(BG_030= '1')then
 				BG_000	<= '1';
 			elsif(	BG_030= '0' --AND (SM_AMIGA 	= IDLE_P)
-					and nEXP_SPACE = '1' and AS_030_D0='1'
+					and nEXP_SPACE_D0 = '1' and AS_030_D0='1'
 					and CLK_000_D0='1' 
 					--and CLK_000_D0='1' AND CLK_000_D1='0'  
 					) then --bus granted no local access and no AS_030 running!
@@ -336,7 +313,7 @@ begin
 					AS_030_D0			= '0'  AND --as set
 					BGACK_000='1' AND --no dma -cycle
 					NOT (FC(1)='1' and FC(0)='1' and A(19)='0' and A(18)='0' and A(17)='1' and A(16)='0') AND --FPU-Select
-					nEXP_SPACE ='1' and --not an expansion space cycle
+					nEXP_SPACE_D0 ='1' and --not an expansion space cycle
 					SM_AMIGA = IDLE_P --last amiga cycle terminated
 					) then
 					AS_030_000_SYNC <= '0';					
@@ -375,7 +352,7 @@ begin
 			case (SM_AMIGA) is
 				when IDLE_P 	 => --68000:S0 wait for a falling edge
 					RW_000_INT		<= '1';		
-					if( CLK_000_D0='0' and CLK_000_D1= '1' and AS_030_000_SYNC = '0' and nEXP_SPACE ='1')then -- if this a delayed expansion space detection, do not start an amiga cycle!
+					if( CLK_000_D0='0' and CLK_000_D1= '1' and AS_030_000_SYNC = '0' and nEXP_SPACE_D0 ='1')then -- if this a delayed expansion space detection, do not start an amiga cycle!
 						AMIGA_BUS_ENABLE_INT <= '0' ;--for now: allways on for amiga
 						SM_AMIGA<=IDLE_N;  --go to s1
 					else
@@ -477,13 +454,18 @@ begin
 				A0_DMA <= UDS_000;		
 					
 				--A1 is set by the amiga side													
+				--here  we determine the upper or lower half of the databus
+				AMIGA_BUS_ENABLE_DMA_HIGH 	<= A1;
+				AMIGA_BUS_ENABLE_DMA_LOW 	<= not A1;				
 			else
 				AS_000_DMA		<= '1';
 				DS_000_DMA		<= '1';
 				SIZE_DMA		<= "11";
 				A0_DMA			<= '0';	
 				RW_000_DMA		<= '1';	
-				CLK_030_H		<= '0';						
+				CLK_030_H		<= '0';		
+				AMIGA_BUS_ENABLE_DMA_HIGH 	<= '1';
+				AMIGA_BUS_ENABLE_DMA_LOW 	<= '1';				
 			end if;
 		end if;		
 	end process	state_machine;
@@ -494,26 +476,37 @@ begin
 
 	-- bus drivers
 	AMIGA_ADDR_ENABLE	<= AMIGA_BUS_ENABLE_INT;
-	AMIGA_BUS_ENABLE_HIGH <= AMIGA_BUS_ENABLE_INT;
-	AMIGA_BUS_ENABLE_LOW <= '1';
+	AMIGA_BUS_ENABLE_HIGH <= '0' WHEN BGACK_030_INT ='1' AND AMIGA_BUS_ENABLE_INT ='0' ELSE 
+							 '0' WHEN BGACK_030_INT ='0' AND AMIGA_BUS_ENABLE_DMA_HIGH = '0' ELSE
+							 '1';
+	AMIGA_BUS_ENABLE_LOW <=  '0' WHEN BGACK_030_INT ='0' AND AMIGA_BUS_ENABLE_DMA_LOW = '0' ELSE
+							 '1';  
+	
+	
 	AMIGA_BUS_DATA_DIR 	 <= '1' WHEN (RW_000='0' AND BGACK_030_INT ='1') ELSE --Amiga WRITE
 							'0' WHEN (RW_000='1' AND BGACK_030_INT ='1') ELSE --Amiga READ
-							'1' WHEN (RW_000='1' AND BGACK_030_INT ='0' AND nEXP_SPACE = '0' AND AS_000 = '0') ELSE --DMA READ to expansion space
-							'0' WHEN (RW_000='0' AND BGACK_030_INT ='0' AND nEXP_SPACE = '0' AND AS_000 = '0') ELSE --DMA WRITE to expansion space
+							'1' WHEN (RW_000='1' AND BGACK_030_INT ='0' AND nEXP_SPACE_D0 = '0' AND AS_000 = '0') ELSE --DMA READ to expansion space
+							'0' WHEN (RW_000='0' AND BGACK_030_INT ='0' AND nEXP_SPACE_D0 = '0' AND AS_000 = '0') ELSE --DMA WRITE to expansion space
 							'0'; --Point towarts TK
 	
 	
 	--dma stuff
-	DTACK	<= 'Z' when BGACK_030_INT ='1' OR nEXP_SPACE = '1' OR AS_000_DMA ='1' else
-					DSACK1;
-	AS_030	<= 'Z' when BGACK_030_INT ='1' OR nEXP_SPACE = '1' OR AS_000_DMA ='1' else
-					AS_000_DMA;
-	DS_030	<= 'Z' when BGACK_030_INT ='1' OR nEXP_SPACE = '1' OR AS_000_DMA ='1' else
-					DS_000_DMA;
-	A0		<= 'Z' when BGACK_030_INT ='1' OR nEXP_SPACE = '1' OR AS_000_DMA ='1' else
-					A0_DMA;
-	SIZE	<= "ZZ" when BGACK_030_INT ='1' OR nEXP_SPACE = '1' OR AS_000_DMA ='1' else
-					SIZE_DMA;
+	DTACK	<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE_D0 = '1' OR AS_000_DMA ='1' else
+				'0' when DSACK1 ='0' else 
+			   	'1';
+	AS_030	<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE_D0 = '1' OR AS_000_DMA ='1' else
+			   	'0' when AS_000_DMA ='0' else 
+			   	'1';
+	DS_030	<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE_D0 = '1' OR AS_000_DMA ='1' else
+				'0' when DS_000_DMA ='0' else 
+			   	'1';
+	A0		<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE_D0 = '1' OR AS_000_DMA ='1' else
+				'0' when A0_DMA ='0' else 
+			   	'1';
+	SIZE	<= 	"ZZ" when BGACK_030_INT ='1' OR nEXP_SPACE_D0 = '1' OR AS_000_DMA ='1' else
+				"10" when SIZE_DMA ="10" else 
+			   	"01" when SIZE_DMA ="01" else
+			   	"11";
 	
 	--fpu
 	FPU_CS		<=	'0' when AS_030 ='0' and FC(1)='1' and FC(0)='1' and A(19)='0' and A(18)='0' and A(17)='1' and A(16)='0' AND BGACK_000='1' AND FPU_SENSE ='0'
@@ -528,7 +521,7 @@ begin
 
 	--cache inhibit:  Tristate for expansion (it decides) and off for the Amiga 
 	CIIN <= '1' WHEN A(31 downto 20) = x"00F" and AS_030_D0 ='0' ELSE -- Enable for Kick-rom
-			'Z' WHEN (not(A(31 downto 24) = x"00") and AS_030 ='0') OR nEXP_SPACE = '0' ELSE --Tristate for expansion (it decides)
+			'Z' WHEN (not(A(31 downto 24) = x"00") and AS_030 ='0') OR nEXP_SPACE_D0 = '0' ELSE --Tristate for expansion (it decides)
 			'0'; --off for the Amiga
 
 		
@@ -541,24 +534,31 @@ begin
 	AVEC <=	'1';
 		
 	--as and uds/lds
-	AS_000	<= 'Z' when BGACK_030_INT ='0' else
-					AS_000_INT;
-	RW_000	<= 'Z' when BGACK_030_INT ='0' else
-					RW_000_INT;
+	AS_000	<=  'Z' when BGACK_030_INT ='0' else
+				'0' when AS_000_INT ='0' and AS_030 ='0' else 
+			   	'1';
+	RW_000	<=  'Z' when BGACK_030_INT ='0' else
+				'0' when RW_000_INT ='0' else 
+			   	'1';
 
-	UDS_000	<= 'Z' when BGACK_030_INT ='0' else -- output on cpu cycle
-			   '1' when DS_000_ENABLE ='0' else -- datastrobe not ready jet
-					UDS_000_INT;
-	LDS_000	<= 'Z' when BGACK_030_INT ='0' else -- output on cpu cycle
-			   '1' when DS_000_ENABLE ='0' else -- datastrobe not ready jet
-					LDS_000_INT;
+	UDS_000	<=  'Z' when BGACK_030_INT ='0' else -- output on cpu cycle
+			    --'1' when DS_000_ENABLE ='0' else 
+				'0' when UDS_000_INT ='0' and DS_000_ENABLE ='1' and DS_030 ='0' else -- datastrobe not ready jet
+			   	'1';
+	LDS_000	<= 	'Z' when BGACK_030_INT ='0' else -- output on cpu cycle
+			   	--'1' when DS_000_ENABLE ='0' else 
+				'0' when LDS_000_INT ='0' and DS_000_ENABLE ='1' and DS_030 ='0' else -- datastrobe not ready jet
+			   	'1';
 
 	--dsack
-	DSACK1	<= 'Z' when nEXP_SPACE = '0' else -- output on amiga cycle
-			DSACK1_INT;
+	DSACK1	<= 	'Z' when nEXP_SPACE_D0 = '0' else -- output on amiga cycle
+				'0' when DSACK1_INT ='0' else 
+			   	'1';
+	
 	--rw
-	RW		<= 'Z' when BGACK_030_INT ='1' else
-					RW_000_DMA;
+	RW		<= 	'Z' when BGACK_030_INT ='1' else
+				'0' when RW_000_DMA ='0' else 
+			   	'1';
 	
 	BGACK_030	<= BGACK_030_INT;	
 end Behavioral;

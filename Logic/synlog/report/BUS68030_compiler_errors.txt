@@ -1,3 +1,4 @@
-@E: CD255 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":248:32:248:32|No identifier "clk_out_pre_25_d" in scope
+@E: CD492 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":457:4:457:4|character '_' is not allowed as the first character
+@E: CD492 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":457:5:457:5|character '_' is not allowed as the first character
 @E|Parse errors encountered - exiting
 
