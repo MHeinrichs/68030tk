@@ -6,7 +6,7 @@
 #Implementation: logic
 
 $ Start of Compile
-#Tue Sep 16 14:49:28 2014
+#Thu Oct 02 23:55:15 2014
 
 Synopsys VHDL Compiler, version comp201209rcp1, Build 283R, built Mar 19 2013
 @N|Running in 64-bit mode
@@ -18,6 +18,7 @@ File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed -
 VHDL syntax check successful!
 File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed - recompiling
 @N: CD630 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Synthesizing work.bus68030.behavioral 
+@W: CD604 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":217:5:217:18|OTHERS clause is not synthesized 
 @W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":125:7:125:20|Signal clk_out_pre_33 is undriven 
 @W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":126:7:126:22|Signal clk_out_pre_33_d is undriven 
 @W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":127:8:127:17|Signal clk_pre_66 is undriven 
@@ -46,7 +47,7 @@ State machine has 8 reachable states with original encodings of:
    111
 @END
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Tue Sep 16 14:49:28 2014
+# Thu Oct 02 23:55:15 2014
 
 ###########################################################]
 Map & Optimize Report
@@ -65,7 +66,7 @@ original code -> new code
    101 -> 00100000
    110 -> 01000000
    111 -> 10000000
-@N: MO106 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":195:4:195:7|Found ROM, 'pos_clk\.cpu_est_11[3:0]', 16 words by 4 bits 
+@N: MO106 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":199:4:199:7|Found ROM, 'pos_clk\.cpu_est_11[3:0]', 16 words by 4 bits 
 ---------------------------------------
 Resource Usage Report
 
@@ -90,6 +91,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 95MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Tue Sep 16 14:49:29 2014
+# Thu Oct 02 23:55:17 2014
 
 ###########################################################]

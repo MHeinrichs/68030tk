@@ -12,7 +12,7 @@ original code -> new code
    101 -> 00100000
    110 -> 01000000
    111 -> 10000000
-@N: MO106 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":195:4:195:7|Found ROM, 'pos_clk\.cpu_est_11[3:0]', 16 words by 4 bits 
+@N: MO106 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":199:4:199:7|Found ROM, 'pos_clk\.cpu_est_11[3:0]', 16 words by 4 bits 
 ---------------------------------------
 Resource Usage Report
 
@@ -37,6 +37,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 95MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Tue Sep 16 14:49:29 2014
+# Thu Oct 02 23:55:17 2014
 
 ###########################################################]

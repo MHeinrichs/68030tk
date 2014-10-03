@@ -141,8 +141,12 @@ signal	CLK_000_PE: STD_LOGIC 		:= '0';
 signal	CLK_000_NE: STD_LOGIC 		:= '0';
 signal	CLK_000_NE_D0: STD_LOGIC 		:= '0';
 signal	DTACK_D0: STD_LOGIC 		:= '1';
+	
 
 begin
+
+	
+	
 
 	--pos edge clock
 	pos_clk: process(CLK_OSZI)
@@ -211,7 +215,7 @@ begin
 					when E23 => cpu_est <= E9 ;
 					when E24 => cpu_est <= E10;
 					when others =>
-						null;
+						cpu_est <= E10;
 				end case;
 			end if;
 		end if;
