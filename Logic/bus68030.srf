@@ -6,7 +6,7 @@
 #Implementation: logic
 
 $ Start of Compile
-#Sun Oct 05 00:12:35 2014
+#Sun Oct 05 21:32:33 2014
 
 Synopsys VHDL Compiler, version comp201209rcp1, Build 283R, built Mar 19 2013
 @N|Running in 64-bit mode
@@ -15,7 +15,6 @@ Copyright (C) 1994-2012 Synopsys, Inc. This software the associated documentatio
 @N: CD720 :"C:\Program Files (x86)\ispLever\synpbase\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
 @N:"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Top entity is set to BUS68030.
 File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed - recompiling
-@W: CD266 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":235:47:235:51|reset is not readable.  This may cause a simulation mismatch.
 VHDL syntax check successful!
 @N: CD630 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Synthesizing work.bus68030.behavioral 
 @W: CD604 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":217:5:217:18|OTHERS clause is not synthesized 
@@ -47,7 +46,7 @@ State machine has 8 reachable states with original encodings of:
    111
 @END
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sun Oct 05 00:12:35 2014
+# Sun Oct 05 21:32:33 2014
 
 ###########################################################]
 Map & Optimize Report
@@ -71,16 +70,16 @@ original code -> new code
 Resource Usage Report
 
 Simple gate primitives:
+DFFSH           28 uses
 DFFRH           18 uses
 DFF             34 uses
-DFFSH           28 uses
 BI_DIR          13 uses
 IBUF            31 uses
 OBUF            16 uses
 BUFTH           1 use
-AND2            244 uses
-INV             186 uses
-OR2             21 uses
+AND2            231 uses
+INV             181 uses
+OR2             23 uses
 XOR2            9 uses
 
 
@@ -91,6 +90,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 96MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sun Oct 05 00:12:36 2014
+# Sun Oct 05 21:32:34 2014
 
 ###########################################################]
