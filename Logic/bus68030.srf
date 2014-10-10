@@ -6,7 +6,7 @@
 #Implementation: logic
 
 $ Start of Compile
-#Sun Oct 05 21:32:33 2014
+#Fri Oct 10 22:39:57 2014
 
 Synopsys VHDL Compiler, version comp201209rcp1, Build 283R, built Mar 19 2013
 @N|Running in 64-bit mode
@@ -16,6 +16,7 @@ Copyright (C) 1994-2012 Synopsys, Inc. This software the associated documentatio
 @N:"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Top entity is set to BUS68030.
 File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed - recompiling
 VHDL syntax check successful!
+File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed - recompiling
 @N: CD630 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Synthesizing work.bus68030.behavioral 
 @W: CD604 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":217:5:217:18|OTHERS clause is not synthesized 
 @W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":125:7:125:20|Signal clk_out_pre_33 is undriven 
@@ -46,7 +47,7 @@ State machine has 8 reachable states with original encodings of:
    111
 @END
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sun Oct 05 21:32:33 2014
+# Fri Oct 10 22:39:57 2014
 
 ###########################################################]
 Map & Optimize Report
@@ -70,17 +71,17 @@ original code -> new code
 Resource Usage Report
 
 Simple gate primitives:
-DFFSH           28 uses
 DFFRH           18 uses
+DFFSH           28 uses
 DFF             34 uses
 BI_DIR          13 uses
 IBUF            31 uses
 OBUF            16 uses
 BUFTH           1 use
-AND2            231 uses
-INV             181 uses
-OR2             23 uses
+AND2            228 uses
+INV             189 uses
 XOR2            9 uses
+OR2             21 uses
 
 
 @N: FC100 |Timing Report not generated for this device, please use place and route tools for timing analysis.
@@ -90,6 +91,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 96MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sun Oct 05 21:32:34 2014
+# Fri Oct 10 22:39:58 2014
 
 ###########################################################]

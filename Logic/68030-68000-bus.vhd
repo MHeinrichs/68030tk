@@ -326,7 +326,7 @@ begin
 				DSACK1_INT		<= '1';
 				AS_000_INT  	<= '1';
 				DS_000_ENABLE	<= '0';
-				
+				RW_000_INT		<= '1';	
 			elsif(	--CLK_030  		= '1'  AND --68030 has a valid AS on high clocks					
 					AS_030_D0			= '0'  AND --as set
 					BGACK_000='1' AND --no dma -cycle
@@ -494,7 +494,7 @@ begin
 
 	-- bus drivers
 	AMIGA_ADDR_ENABLE	<= AMIGA_BUS_ENABLE_INT;
-	AMIGA_BUS_ENABLE_HIGH <= '0' WHEN BGACK_030_INT ='1' AND AMIGA_BUS_ENABLE_INT ='0' ELSE 
+	AMIGA_BUS_ENABLE_HIGH <= '0' WHEN BGACK_030_INT ='1' ELSE 
 							 '0' WHEN BGACK_030_INT ='0' AND AMIGA_BUS_ENABLE_DMA_HIGH = '0' ELSE
 							 '1';
 	AMIGA_BUS_ENABLE_LOW <=  '0' WHEN BGACK_030_INT ='0' AND AMIGA_BUS_ENABLE_DMA_LOW = '0'   ELSE
