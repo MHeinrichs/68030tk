@@ -12,8 +12,8 @@ EN_PinMacrocell = Yes;
 
 [Revision]
 Parent = m4a5.lci;
-DATE = 10/02/2014;
-TIME = 23:53:03;
+DATE = 09/06/2014;
+TIME = 22:01:10;
 Source_Format = Pure_VHDL;
 Synthesis = Synplify;
 
@@ -69,6 +69,7 @@ IPL_030_1_ = Pin, 7, -, B, -;
 IPL_030_2_ = Pin, 9, -, B, -;
 LDS_000 = Pin, 31, -, D, -;
 UDS_000 = Pin, 32, -, D, -;
+VMA = Pin, 35, -, D, -;
 DTACK = Pin, 30, -, D, -;
 RESET = Pin, 3, -, B, -;
 AMIGA_BUS_DATA_DIR = Pin, 48, -, E, -;
@@ -97,7 +98,6 @@ AMIGA_BUS_ENABLE_HIGH = Pin, 34, -, D, -;
 A_23_ = Pin, 85, -, H, -;
 FPU_SENSE = Pin, 91, -, A, -;
 A1 = Pin, 60, -, F, -;
-VMA = Pin, 35, -, D, -;
 
 [Group Assignments]
 layer = OFF;
@@ -129,11 +129,8 @@ layer = OFF;
 Default = UP;
 
 [Slewrate]
-SLOW = E, VMA;
-FAST = AMIGA_BUS_DATA_DIR, AMIGA_BUS_ENABLE_LOW, AMIGA_ADDR_ENABLE, AMIGA_BUS_ENABLE_HIGH, 
-	AVEC, BG_000, LDS_000, UDS_000, DTACK, RW_000, AS_000, CLK_DIV_OUT, CLK_EXP, 
-	FPU_CS, AS_030, RW, SIZE_1_, SIZE_0_, BGACK_030, IPL_030_0_, IPL_030_1_, 
-	IPL_030_2_, RESET, CIIN, DS_030, BERR, A0, DSACK1;
+FAST = CLK_DIV_OUT, CLK_EXP, FPU_CS, AMIGA_BUS_DATA_DIR, AMIGA_BUS_ENABLE_LOW, 
+	AMIGA_ADDR_ENABLE, AMIGA_BUS_ENABLE_HIGH;
 Default = Slow;
 
 [Region]

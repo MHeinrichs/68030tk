@@ -1,4 +1,3 @@
-@W: CD604 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":217:5:217:18|OTHERS clause is not synthesized 
 @W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":125:7:125:20|Signal clk_out_pre_33 is undriven 
 @W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":126:7:126:22|Signal clk_out_pre_33_d is undriven 
 @W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":127:8:127:17|Signal clk_pre_66 is undriven 

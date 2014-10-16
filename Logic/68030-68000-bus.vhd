@@ -145,9 +145,6 @@ signal	RESET_DLY:	STD_LOGIC_VECTOR ( 7 downto 0 ) 	:= "00000000";
 
 begin
 
-	
-	
-
 	--pos edge clock
 	pos_clk: process(CLK_OSZI)
 	begin
@@ -215,7 +212,7 @@ begin
 					when E23 => cpu_est <= E9 ;
 					when E24 => cpu_est <= E10;
 					when others =>
-						cpu_est <= E10;
+						null;
 				end case;
 			end if;
 		end if;
@@ -380,13 +377,13 @@ begin
 					if(CLK_000_PE='1')then --go to s2
 					--if(CLK_000_D0='1')then --go to s2
 						SM_AMIGA <= AS_SET_P; --as for amiga set! 
-						AS_000_INT <= '0';
-						RW_000_INT <= RW;						
-						if (RW='1' ) then --read: set udl/lds 	
-							DS_000_ENABLE	<= '1';
-						end if;
 					end if;
 				when AS_SET_P	 => --68000:S2 Amiga cycle starts here: since AS is asserted during transition to this state we simply wait here
+					RW_000_INT <= RW;						
+					AS_000_INT <= '0';
+					if (RW='1' ) then --read: set udl/lds 	
+						DS_000_ENABLE	<= '1';
+					end if;
 					if(CLK_000_NE='1')then --go to s3
 					--if(CLK_000_D0='0')then --go to s3
 						SM_AMIGA<=AS_SET_N; 
@@ -395,11 +392,11 @@ begin
 					
 					if(CLK_000_PE='1')then --go to s4
 					--if(CLK_000_D0='1')then --go to s4
-						DS_000_ENABLE	<= '1';--write: set udl/lds earlier than in the specs. this does not seem to harm anything and is saver, than sampling uds/lds too late 				 
 						-- set DS-Enable without respect to rw: this simplifies the life for the syntesizer
 						SM_AMIGA <= SAMPLE_DTACK_P; 
 					end if;
 				when SAMPLE_DTACK_P=> --68000:S4 wait for dtack or VMA
+					DS_000_ENABLE	<= '1';--write: set udl/lds earlier than in the specs. this does not seem to harm anything and is saver, than sampling uds/lds too late 				 
 					if(	CLK_000_NE='1' and --falling edge
 					--if(	CLK_000_D0 = '0' and CLK_000_D1='1' and --falling edge
 						((VPA_D = '1' AND DTACK_D0='0') OR --DTACK end cycle
@@ -494,7 +491,7 @@ begin
 
 	-- bus drivers
 	AMIGA_ADDR_ENABLE	<= AMIGA_BUS_ENABLE_INT;
-	AMIGA_BUS_ENABLE_HIGH <= '0' WHEN BGACK_030_INT ='1' ELSE 
+	AMIGA_BUS_ENABLE_HIGH <= '0' WHEN BGACK_030_INT ='1' and not (SM_AMIGA = IDLE_P) ELSE 
 							 '0' WHEN BGACK_030_INT ='0' AND AMIGA_BUS_ENABLE_DMA_HIGH = '0' ELSE
 							 '1';
 	AMIGA_BUS_ENABLE_LOW <=  '0' WHEN BGACK_030_INT ='0' AND AMIGA_BUS_ENABLE_DMA_LOW = '0'   ELSE
