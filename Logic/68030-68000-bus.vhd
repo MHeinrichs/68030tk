@@ -440,17 +440,19 @@ begin
 			--dma stuff
 			--as can only be done if we know the uds/lds!
 			if(BGACK_030_INT='0' and AS_000='0' and (UDS_000='0' or LDS_000='0'))then 
-
+				RW_000_DMA	<= RW_000;
 				--set AS_000
 				if( CLK_030='1') then 
-					AS_000_DMA 	<= '0'; --sampled on rising edges!
-					RW_000_DMA	<= RW_000;
-				elsif(AS_000_DMA = '0' and CLK_030='0')then
+					AS_000_DMA 	<= '0'; --sampled on rising edges!					
+				end if;
+				
+				--delayed clock for write cycle
+				if(AS_000_DMA = '0' and CLK_030='0')then
 					CLK_030_H		<= '1';
 				end if;
 				
 				if(RW_000='1') then
-					DS_000_DMA	<=AS_000_DMA;
+					DS_000_DMA	<='0';
 				elsif(RW_000='0' and CLK_030_H = '1' and CLK_030='1')then
 					DS_000_DMA	<=AS_000_DMA; -- write: one clock delayed!
 				end if;
@@ -475,7 +477,7 @@ begin
 			else
 				AS_000_DMA		<= '1';
 				DS_000_DMA		<= '1';
-				SIZE_DMA		<= "11";
+				SIZE_DMA		<= "00";
 				A0_DMA			<= '0';	
 				RW_000_DMA		<= '1';	
 				CLK_030_H		<= '0';		
@@ -501,27 +503,28 @@ begin
 	AMIGA_BUS_DATA_DIR 	 <= '1' WHEN (RW_000='0' AND BGACK_030_INT ='1') ELSE --Amiga WRITE
 							'0' WHEN (RW_000='1' AND BGACK_030_INT ='1') ELSE --Amiga READ
 							'1' WHEN (RW_000='1' AND BGACK_030_INT ='0' AND nEXP_SPACE_D0 = '0' AND AS_000 = '0') ELSE --DMA READ to expansion space
-							'0' WHEN (RW_000='0' AND BGACK_030_INT ='0' AND nEXP_SPACE_D0 = '0' AND AS_000 = '0') ELSE --DMA WRITE to expansion space
+							'0' WHEN (RW_000='0' AND BGACK_030_INT ='0' AND AS_000 = '0') ELSE --DMA WRITE to expansion space
 							'0'; --Point towarts TK
 	
 	
 	--dma stuff
-	DTACK	<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE_D0 = '1' OR AS_000_DMA ='1' else
-				'0' when DSACK1 ='0' else 
-			   	'1';
-	AS_030	<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE_D0 = '1' OR AS_000_DMA ='1' else
+	DTACK	<= 	'Z';
+	--DTACK	<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE_D0 = '1' else
+	--			'0' when DSACK1 ='0' else 
+	--		   	'1';
+	AS_030	<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE_D0 = '1' else
 			   	'0' when AS_000_DMA ='0' else 
 			   	'1';
-	DS_030	<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE_D0 = '1' OR AS_000_DMA ='1' else
+	DS_030	<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE_D0 = '1' else
 				'0' when DS_000_DMA ='0' else 
 			   	'1';
-	A0		<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE_D0 = '1' OR AS_000_DMA ='1' else
+	A0		<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE_D0 = '1' else
 				'0' when A0_DMA ='0' else 
 			   	'1';
-	SIZE	<= 	"ZZ" when BGACK_030_INT ='1' OR nEXP_SPACE_D0 = '1' OR AS_000_DMA ='1' else
+	SIZE	<= 	"ZZ" when BGACK_030_INT ='1' OR nEXP_SPACE_D0 = '1' else
 				"10" when SIZE_DMA ="10" else 
 			   	"01" when SIZE_DMA ="01" else
-			   	"11";
+			   	"00";
 	
 	--fpu
 	FPU_CS		<=	'0' when AS_030 ='0' and FC(1)='1' and FC(0)='1' and A(19)='0' and A(18)='0' and A(17)='1' and A(16)='0' AND BGACK_000='1' AND FPU_SENSE ='0'

@@ -6,7 +6,7 @@
 #Implementation: logic
 
 $ Start of Compile
-#Thu Oct 16 21:59:04 2014
+#Mon Jan 12 22:00:32 2015
 
 Synopsys VHDL Compiler, version comp201209rcp1, Build 283R, built Mar 19 2013
 @N|Running in 64-bit mode
@@ -46,7 +46,7 @@ State machine has 8 reachable states with original encodings of:
    111
 @END
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Thu Oct 16 21:59:04 2014
+# Mon Jan 12 22:00:32 2015
 
 ###########################################################]
 Map & Optimize Report
@@ -70,16 +70,16 @@ original code -> new code
 Resource Usage Report
 
 Simple gate primitives:
-DFFRH           18 uses
 DFFSH           28 uses
+DFFRH           18 uses
 DFF             34 uses
-BI_DIR          13 uses
-IBUF            31 uses
+BI_DIR          11 uses
+IBUF            32 uses
 OBUF            16 uses
-BUFTH           1 use
-AND2            238 uses
-INV             181 uses
-OR2             22 uses
+BUFTH           2 uses
+AND2            237 uses
+INV             177 uses
+OR2             21 uses
 XOR2            9 uses
 
 
@@ -90,6 +90,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 96MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Thu Oct 16 21:59:06 2014
+# Mon Jan 12 22:00:34 2015
 
 ###########################################################]

@@ -12,8 +12,8 @@ EN_PinMacrocell = Yes;
 
 [Revision]
 Parent = m4a5.lci;
-DATE = 09/06/2014;
-TIME = 22:01:10;
+DATE = 01/11/2015;
+TIME = 22:30:39;
 Source_Format = Pure_VHDL;
 Synthesis = Synplify;
 
