@@ -142,13 +142,31 @@ signal	CLK_000_NE: STD_LOGIC 		:= '0';
 signal	CLK_000_NE_D0: STD_LOGIC 		:= '0';
 signal	DTACK_D0: STD_LOGIC 		:= '1';
 signal	RESET_DLY:	STD_LOGIC_VECTOR ( 7 downto 0 ) 	:= "00000000";
+signal  NO_RESET: STD_LOGIC 		:= '0';
 
 begin
 
 	--pos edge clock
-	pos_clk: process(CLK_OSZI)
+	pos_clk: process(CLK_OSZI, NO_RESET)
 	begin
-		if(rising_edge(CLK_OSZI)) then
+		if(NO_RESET = '0' ) then
+			CLK_OUT_PRE_50	<= '0';
+			CLK_OUT_PRE_50_D<= '0';
+			CLK_OUT_PRE_25	<= '0';
+			CLK_OUT_PRE		<= '0';
+			CLK_OUT_PRE_D	<= '0';
+			CLK_OUT_NE		<= '0';
+			CLK_OUT_INT		<= '0';
+			CLK_000_D0 		<= '0';
+			CLK_000_D1 		<= '0';
+			CLK_000_D2 		<= '0';
+			CLK_000_D3 		<= '0';
+			CLK_000_D4 		<= '0';
+			CLK_000_P_SYNC	<= "0000000000000";
+			CLK_000_N_SYNC	<= "0000000000000";
+			CLK_000_NE_D0	<= '0';
+			cpu_est			<= E20;
+		elsif(rising_edge(CLK_OSZI)) then
 			--clk generation :
 
 		    CLK_OUT_PRE_50	<=	not CLK_OUT_PRE_50;
@@ -221,6 +239,7 @@ begin
 	--output clock assignment
 	CLK_DIV_OUT	<= CLK_OUT_PRE_D;
 	CLK_EXP		<= CLK_OUT_PRE_D;
+	NO_RESET		<= '1';
 
 	-- i need to delay the board reset by some eclocks, so everything is synced fine afeter a soft reset!
 	reset_delay_machine: process(RST, CLK_OSZI)
@@ -228,7 +247,7 @@ begin
 		if(RST = '0' ) then
 			RESET_DLY		<= "00000000";	
 		elsif(rising_edge(CLK_OSZI)) then
-			--reset delay: wait 128 E-Clocks!
+			--reset delay: wait 512 E-Clocks!
 			if(CLK_000_NE_D0 = '1' and cpu_est = E1) then
 				RESET_DLY <= RESET_DLY +1;
 			end if;
@@ -270,7 +289,7 @@ begin
 			CLK_030_H		<= '0';	
 		elsif(rising_edge(CLK_OSZI)) then
 			--reset buffer 
-			if(RESET_DLY="01111111")then
+			if(RESET_DLY="11111111")then
 				RESET <= '1';
 			end if;
 
@@ -410,8 +429,8 @@ begin
 						SM_AMIGA<=DATA_FETCH_P;
 					end if;
 				when DATA_FETCH_P => --68000:S6: READ: here comes the data on the bus!
-					if( (CLK_000_N_SYNC( 8)='1' AND not (CLK_030 ='1' and CLK_OUT_PRE_D='0')) OR
-						(CLK_000_N_SYNC( 9)='1' )) then --go to s7 next 030-clock is not a falling edge: dsack is sampled at the falling edge
+					if( (CLK_000_N_SYNC( 9)='1' AND not (CLK_030 ='1' and CLK_OUT_PRE_D='0')) OR
+						(CLK_000_N_SYNC(10)='1' )) then --go to s7 next 030-clock is not a falling edge: dsack is sampled at the falling edge
 						DSACK1_INT <='0'; 
 					end if;
 					--if( CLK_000_D3 ='1' AND CLK_000_D4 = '0' ) then --go to s7 next 030-clock is high: dsack is sampled at the falling edge

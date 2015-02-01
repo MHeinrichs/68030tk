@@ -12,8 +12,8 @@ EN_PinMacrocell = Yes;
 
 [Revision]
 Parent = m4a5.lci;
-DATE = 01/11/2015;
-TIME = 22:30:39;
+DATE = 02/01/2015;
+TIME = 21:17:58;
 Source_Format = Pure_VHDL;
 Synthesis = Synplify;
 
@@ -33,7 +33,7 @@ Max_fanin = 32;
 Set_reset_dont_care = Yes;
 Balanced_partitioning = Yes;
 Max_macrocell_percent = 100;
-Dt_synthesis = No;
+Dt_synthesis = Yes;
 
 [Location Assignments]
 layer = OFF;

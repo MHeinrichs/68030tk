@@ -1,0 +1,219 @@
+[DEVICE]
+Family = M4A5;
+PartType = M4A5-128/64;
+Package = 100TQFP;
+PartNumber = M4A5-128/64-10VC;
+Speed = -10;
+Operating_condition = COM;
+EN_Segment = No;
+Pin_MC_1to1 = No;
+EN_PinReserve_IO = Yes;
+EN_PinReserve_BIDIR = Yes;
+Voltage = 5.0;
+
+[REVISION]
+RCS = "$Revision: 1.2 $";
+Parent = m4a5.lci;
+SDS_File = m4a5.sds;
+DATE = 02/01/2015;
+TIME = 21:17:58;
+Source_Format = Pure_VHDL;
+Type = TT2;
+Pre_Fit_Time = 1;
+
+[IGNORE ASSIGNMENTS]
+Pin_Assignments = No;
+Pin_Keep_Block = No;
+Pin_Keep_Segment = No;
+Group_Assignments = No;
+Macrocell_Assignments = No;
+Macrocell_Keep_Block = No;
+Macrocell_Keep_Segment = No;
+Pin_Reservation = No;
+Block_Reservation = No;
+Segment_Reservation = No;
+Timing_Constraints = No;
+
+[CLEAR ASSIGNMENTS]
+Pin_Assignments = No;
+Pin_Keep_Block = No;
+Pin_Keep_Segment = No;
+Group_Assignments = No;
+Macrocell_Assignments = No;
+Macrocell_Keep_Block = No;
+Macrocell_Keep_Segment = No;
+Pin_Reservation = No;
+Block_Reservation = No;
+Segment_Reservation = No;
+Timing_Constraints = No;
+
+[BACKANNOTATE ASSIGNMENTS]
+Pin_Block = No;
+Pin_Macrocell_Block = No;
+Routing = No;
+
+[GLOBAL PROJECT OPTIMIZATION]
+Balanced_Partitioning = Yes;
+Spread_Placement = Yes;
+Max_Pin_Percent = 100;
+Max_Macrocell_Percent = 100;
+Max_Blk_In_Percent = 100;
+
+[OPTIMIZATION OPTIONS]
+Logic_Reduction = Yes;
+Max_PTerm_Split = 16;
+Max_PTerm_Collapse = 16;
+XOR_Synthesis = Yes;
+EN_XOR_Synthesis = Yes;
+XOR_Gate = Yes;
+Node_Collapse = Yes;
+Keep_XOR = Yes;
+DT_Synthesis = Yes;
+Clock_PTerm = Min;
+Reset_PTerm = On;
+Preset_PTerm = On;
+Clock_Enable_PTerm = On;
+Output_Enable_PTerm = On;
+EN_DT_Synthesis = Yes;
+Cluster_PTerm = 5;
+FF_inv = No;
+EN_Use_CE = No;
+Use_CE = No;
+Use_Internal_COM_FB = Yes;
+EN_use_Internal_COM_FB = Yes;
+Set_Reset_Swap = No;
+EN_Set_Reset_Swap = No;
+Density = No;
+DeMorgan = Yes;
+T_FF = Yes;
+Max_Symbols = 32;
+
+[FITTER GLOBAL OPTIONS]
+Run_Time = 0;
+Set_Reset_Dont_Care = Yes;
+EN_Set_Reset_Dont_Care = Yes;
+In_Reg_Optimize = Yes;
+EN_In_Reg_Optimize = No;
+Clock_Optimize = No;
+Global_Clock_As_Pterm = No;
+Show_Iterations = No;
+Routing_Attempts = 2;
+Conf_Unused_IOs = Out_Low;
+
+[HARDWARE DEVICE OPTIONS]
+Zero_Hold_Time = Yes;
+Signature_Word = 0;
+Pull_up = Yes;
+Out_Slew_Rate = SLOW,FAST,7,CLK_DIV_OUT,CLK_EXP,FPU_CS,AMIGA_BUS_DATA_DIR,AMIGA_BUS_ENABLE_LOW,AMIGA_ADDR_ENABLE,AMIGA_BUS_ENABLE_HIGH;
+Device_max_fanin = 33;
+Device_max_pterms = 20;
+Usercode_Format = Hex;
+
+[PIN RESERVATIONS]
+Layer = OFF;
+
+[LOCATION ASSIGNMENT]
+Layer = OFF;
+AS_030 = input,82,H,-;
+A_16_ = input,96,A,-;
+A_17_ = input,59,F,-;
+A_18_ = input,95,A,-;
+A_19_ = input,97,A,-;
+BGACK_000 = input,28,D,-;
+BG_030 = input,21,C,-;
+CLK_000 = input,11,-,-;
+CLK_030 = input,64,-,-;
+CLK_OSZI = input,61,-,-;
+FC_0_ = input,57,F,-;
+FC_1_ = input,58,F,-;
+IPL_0_ = input,67,G,-;
+IPL_1_ = input,56,F,-;
+IPL_2_ = input,68,G,-;
+RST = input,86,-,-;
+RW = input,71,G,-;
+SIZE_1_ = input,79,H,-;
+SIZE_0_ = input,70,G,-;
+VPA = input,36,-,-;
+AVEC = input,92,A,-;
+BGACK_030 = input,83,H,-;
+BG_000 = input,29,D,-;
+CLK_DIV_OUT = input,65,G,-;
+CLK_EXP = input,10,B,-;
+E = input,66,G,-;
+FPU_CS = input,78,H,-;
+IPL_030_0_ = input,8,B,-;
+IPL_030_1_ = input,7,B,-;
+IPL_030_2_ = input,9,B,-;
+LDS_000 = input,31,D,-;
+UDS_000 = input,32,D,-;
+VMA = input,35,D,-;
+DTACK = input,30,D,-;
+RESET = input,3,B,-;
+AMIGA_BUS_DATA_DIR = input,48,E,-;
+AMIGA_BUS_ENABLE_LOW = input,20,C,-;
+CIIN = input,47,E,-;
+A_20_ = input,93,A,-;
+A_21_ = input,94,A,-;
+A_22_ = input,84,H,-;
+A_24_ = input,19,C,-;
+A_25_ = input,18,C,-;
+A_26_ = input,17,C,-;
+A_27_ = input,16,C,-;
+A_28_ = input,15,C,-;
+A_29_ = input,6,B,-;
+A_30_ = input,5,B,-;
+A_31_ = input,4,B,-;
+DS_030 = input,98,A,-;
+BERR = input,41,E,-;
+nEXP_SPACE = input,14,-,-;
+A0 = input,69,G,-;
+DSACK1 = input,81,H,-;
+RW_000 = input,80,H,-;
+AS_000 = input,42,E,-;
+AMIGA_ADDR_ENABLE = input,33,D,-;
+AMIGA_BUS_ENABLE_HIGH = input,34,D,-;
+A_23_ = input,85,H,-;
+FPU_SENSE = input,91,A,-;
+A1 = input,60,F,-;
+
+[GROUP ASSIGNMENT]
+Layer = OFF;
+
+[SPACE RESERVATIONS]
+Layer = OFF;
+
+[BACKANNOTATE NETLIST]
+Delay_File = SDF;
+Netlist = VHDL;
+VCC_GND = Cell;
+
+[FITTER REPORT FORMAT]
+Fitter_Options = Yes;
+Pinout_Diagram = No;
+Pinout_Listing = Yes;
+Detailed_Block_Segment_Summary = Yes;
+Input_Signal_List = Yes;
+Output_Signal_List = Yes;
+Bidir_Signal_List = Yes;
+Node_Signal_List = Yes;
+Signal_Fanout_List = Yes;
+Block_Segment_Fanin_List = Yes;
+Postfit_Eqn = Yes;
+Page_Break = Yes;
+
+[POWER]
+Powerlevel =  Low,High;
+Default = High;
+Low = 8,H,G,F,E,D,C,B,A;
+Type = GLB;
+
+[SOURCE CONSTRAINT OPTION]
+Import_source_constraint = Yes;
+Disable_warning_message = No;
+
+[TIMING ANALYZER]
+Last_source=;
+Last_source_type=Fmax;
+
+[INPUT REGISTERS]
+

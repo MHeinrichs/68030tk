@@ -19,15 +19,14 @@
 				<BScanVal>0</BScanVal>
 			</Bypass>
 			<File>C:\Users\Matze\Documents\GitHub\68030tk\Logic\68030_tk.jed</File>
-			<FileTime>01/12/15 22:00:44</FileTime>
-			<JedecChecksum>0x34AF</JedecChecksum>
+			<FileTime>02/01/15 21:36:01</FileTime>
+			<JedecChecksum>0x7298</JedecChecksum>
 			<Operation>Erase,Program,Verify</Operation>
 			<Option>
 				<SVFVendor>JTAG STANDARD</SVFVendor>
 				<IOState>HighZ</IOState>
 				<PreloadLength>198</PreloadLength>
 				<IOVectorData>0x00000000000000000000000000000000000000000000000000</IOVectorData>
-				<Reinitialize value="TRUE"/>
 				<OverideUES value="TRUE"/>
 				<TCKFrequency>1.000000 MHz</TCKFrequency>
 				<SVFProcessor>ispVM</SVFProcessor>
@@ -50,7 +49,6 @@
 			TDO	LOW;
 			CableEN	HIGH;
 			ISPEN	LOW;
-			TRST	HIGH;
 		</PinSetting>
 	</ProjectOptions>
 </ispXCF>

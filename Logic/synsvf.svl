@@ -1,0 +1,4 @@
+Part Number: M4A5-128/64-10VC
+C:\Program Files (x86)\ispLever\ispvmsystem/ispufw -dev M4A5-128/64-XXV -if 68030_tk.jed -oft -isc -lever
+Invoke process : C:\Program Files (x86)\ispLever\ispvmsystem/ispufw -dev M4A5-128/64-XXV -if 68030_tk.jed -oft -isc -lever
+ISC file is generated successfully
