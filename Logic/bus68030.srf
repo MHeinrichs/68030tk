@@ -6,7 +6,7 @@
 #Implementation: logic
 
 $ Start of Compile
-#Sun Feb 01 21:36:43 2015
+#Tue Feb 03 09:23:39 2015
 
 Synopsys VHDL Compiler, version comp201209rcp1, Build 283R, built Mar 19 2013
 @N|Running in 64-bit mode
@@ -18,23 +18,24 @@ File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed -
 VHDL syntax check successful!
 File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed - recompiling
 @N: CD630 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Synthesizing work.bus68030.behavioral 
-@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":125:7:125:20|Signal clk_out_pre_33 is undriven 
-@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":126:7:126:22|Signal clk_out_pre_33_d is undriven 
-@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":127:8:127:17|Signal clk_pre_66 is undriven 
+@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":125:7:125:20|Signal clk_out_pre_25 is undriven 
+@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":126:7:126:20|Signal clk_out_pre_33 is undriven 
+@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":127:7:127:22|Signal clk_out_pre_33_d is undriven 
+@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":128:8:128:17|Signal clk_pre_66 is undriven 
+@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":129:7:129:17|Signal clk_out_pre is undriven 
+@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:7:131:16|Signal clk_out_ne is undriven 
+@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":132:7:132:17|Signal clk_out_int is undriven 
 Post processing for work.bus68030.behavioral
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":143:32:143:34|Pruning register CLK_REF(1 downto 0)  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":136:34:136:36|Pruning register CLK_000_D4  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":135:34:135:36|Pruning register CLK_000_D3  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":134:34:134:36|Pruning register CLK_000_D2  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":129:35:129:37|Pruning register CLK_OUT_INT  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":129:35:129:37|Pruning register CLK_OUT_NE  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":123:38:123:40|Pruning register CLK_OUT_PRE_25  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":122:36:122:38|Pruning register CLK_OUT_PRE_50_D  
-@W: CL265 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":138:61:138:75|Pruning bit 12 of CLK_000_N_SYNC(12 downto 0) -- not in use ... 
-@W: CL271 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":137:34:137:36|Pruning bits 12 to 10 of CLK_000_P_SYNC(12 downto 0) -- not in use ... 
-@A: CL282 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":142:37:142:39|Feedback mux created for signal CLK_000_PE -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
-@A: CL282 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":140:34:140:36|Feedback mux created for signal CLK_000_NE -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
-@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":143:32:143:34|Trying to extract state machine for register SM_AMIGA
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":144:32:144:34|Pruning register CLK_REF(1 downto 0)  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":248:2:248:3|Pruning register RESET_DLY(5 downto 0)  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":137:34:137:36|Pruning register CLK_000_D4  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":136:34:136:36|Pruning register CLK_000_D3  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":135:34:135:36|Pruning register CLK_000_D2  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":123:36:123:38|Pruning register CLK_OUT_PRE_50_D  
+@W: CL265 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":139:61:139:75|Pruning bit 12 of CLK_000_N_SYNC(12 downto 0) -- not in use ... 
+@W: CL271 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":138:34:138:36|Pruning bits 12 to 10 of CLK_000_P_SYNC(12 downto 0) -- not in use ... 
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":143:37:143:39|Trying to extract state machine for register cpu_est
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":144:32:144:34|Trying to extract state machine for register SM_AMIGA
 Extracted state machine for register SM_AMIGA
 State machine has 8 reachable states with original encodings of:
    000
@@ -45,10 +46,9 @@ State machine has 8 reachable states with original encodings of:
    101
    110
    111
-@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":142:37:142:39|Trying to extract state machine for register cpu_est
 @END
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sun Feb 01 21:36:43 2015
+# Tue Feb 03 09:23:39 2015
 
 ###########################################################]
 Map & Optimize Report
@@ -67,22 +67,22 @@ original code -> new code
    101 -> 00100000
    110 -> 01000000
    111 -> 10000000
-@N: MO106 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":214:4:214:7|Found ROM, 'pos_clk\.cpu_est_12[3:0]', 16 words by 4 bits 
+@N: MO106 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":215:4:215:7|Found ROM, 'pos_clk\.cpu_est_11[3:0]', 16 words by 4 bits 
 ---------------------------------------
 Resource Usage Report
 
 Simple gate primitives:
+DFFRH           12 uses
+DFF             33 uses
 DFFSH           28 uses
-DFFRH           18 uses
-DFF             34 uses
 BI_DIR          11 uses
 IBUF            32 uses
 OBUF            16 uses
 BUFTH           2 uses
-AND2            237 uses
-INV             176 uses
+AND2            215 uses
+INV             181 uses
+XOR2            4 uses
 OR2             21 uses
-XOR2            9 uses
 
 
 @N: FC100 |Timing Report not generated for this device, please use place and route tools for timing analysis.
@@ -92,6 +92,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 96MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sun Feb 01 21:36:45 2015
+# Tue Feb 03 09:23:41 2015
 
 ###########################################################]

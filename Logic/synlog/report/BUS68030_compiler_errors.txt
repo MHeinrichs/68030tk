@@ -1,3 +1,4 @@
-@E: CD415 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":237:5:237:11|Expecting keyword if
-@E|Parse errors encountered - exiting
+@E: CD371 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":471:18:471:43|No matching overload for "or"
+@E: CD308 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":471:18:471:43|Unable to evaluate expression type
+@E: CD676 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":471:18:471:43|Can't implement expression (no function signature?)
 

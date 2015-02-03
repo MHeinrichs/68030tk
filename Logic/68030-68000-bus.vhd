@@ -110,6 +110,7 @@ signal	BGACK_030_INT_D:STD_LOGIC	:= '1';
 signal	AS_000_DMA:STD_LOGIC		:= '1';
 signal	DS_000_DMA:STD_LOGIC		:= '1';
 signal	RW_000_DMA:STD_LOGIC		:= '1';
+signal  CYCLE_DMA: STD_LOGIC_VECTOR ( 1 downto 0 ) 	:= "00";
 signal  SIZE_DMA: STD_LOGIC_VECTOR ( 1 downto 0 ) 	:= "11";
 signal	A0_DMA: STD_LOGIC			:= '1';
 signal	VMA_INT: STD_LOGIC			:= '1';
@@ -141,22 +142,22 @@ signal	CLK_000_PE: STD_LOGIC 		:= '0';
 signal	CLK_000_NE: STD_LOGIC 		:= '0';
 signal	CLK_000_NE_D0: STD_LOGIC 		:= '0';
 signal	DTACK_D0: STD_LOGIC 		:= '1';
-signal	RESET_DLY:	STD_LOGIC_VECTOR ( 7 downto 0 ) 	:= "00000000";
-signal  NO_RESET: STD_LOGIC 		:= '0';
+signal	RESET_DLY:	STD_LOGIC_VECTOR ( 5 downto 0 ) 	:= "000000";
+--signal  NO_RESET: STD_LOGIC 		:= '0';
 
 begin
 
 	--pos edge clock
-	pos_clk: process(CLK_OSZI, NO_RESET)
+	pos_clk: process(CLK_OSZI)
 	begin
-		if(NO_RESET = '0' ) then
+		if(false ) then
 			CLK_OUT_PRE_50	<= '0';
 			CLK_OUT_PRE_50_D<= '0';
-			CLK_OUT_PRE_25	<= '0';
-			CLK_OUT_PRE		<= '0';
+			--CLK_OUT_PRE_25	<= '0';
+			--CLK_OUT_PRE		<= '0';
 			CLK_OUT_PRE_D	<= '0';
-			CLK_OUT_NE		<= '0';
-			CLK_OUT_INT		<= '0';
+			--CLK_OUT_NE		<= '0';
+			--CLK_OUT_INT		<= '0';
 			CLK_000_D0 		<= '0';
 			CLK_000_D1 		<= '0';
 			CLK_000_D2 		<= '0';
@@ -172,22 +173,22 @@ begin
 		    CLK_OUT_PRE_50	<=	not CLK_OUT_PRE_50;
 		    CLK_OUT_PRE_50_D<=	CLK_OUT_PRE_50;		    
 						
-			if(CLK_OUT_PRE_50='1' and CLK_OUT_PRE_50_D='0')then
-				CLK_OUT_PRE_25	<=	not CLK_OUT_PRE_25;
-			end if;
+			--if(CLK_OUT_PRE_50='1' and CLK_OUT_PRE_50_D='0')then
+			--	CLK_OUT_PRE_25	<=	not CLK_OUT_PRE_25;
+			--end if;
 			
 			--here the clock is selected
-			CLK_OUT_PRE 	<= CLK_OUT_PRE_50;
-			CLK_OUT_PRE_D 	<= CLK_OUT_PRE;
+			--CLK_OUT_PRE 	<= CLK_OUT_PRE_50;
+			CLK_OUT_PRE_D 	<= CLK_OUT_PRE_50;
 			
 			--a negative edge is comming next cycle
-			if(CLK_OUT_PRE_D='1' and CLK_OUT_PRE='0' )then
-				CLK_OUT_NE <= '1';
-			else
-				CLK_OUT_NE <= '0';
-			end if;
+			--if(CLK_OUT_PRE_D='1' and CLK_OUT_PRE='0' )then
+			--	CLK_OUT_NE <= '1';
+			--else
+			--	CLK_OUT_NE <= '0';
+			--end if;
 			-- the external clock to the processor is generated here
-			CLK_OUT_INT	<= CLK_OUT_PRE_D; --this way we know the clock of the next state: Its like looking in the future, cool!
+			--CLK_OUT_INT	<= CLK_OUT_PRE_D; --this way we know the clock of the next state: Its like looking in the future, cool!
 			--delayed Clocks and signals for edge detection
 			CLK_000_D0 	<= CLK_000;
 			CLK_000_D1 	<= CLK_000_D0;
@@ -239,16 +240,16 @@ begin
 	--output clock assignment
 	CLK_DIV_OUT	<= CLK_OUT_PRE_D;
 	CLK_EXP		<= CLK_OUT_PRE_D;
-	NO_RESET		<= '1';
+	--NO_RESET		<= '1';
 
 	-- i need to delay the board reset by some eclocks, so everything is synced fine afeter a soft reset!
 	reset_delay_machine: process(RST, CLK_OSZI)
 	begin
 		if(RST = '0' ) then
-			RESET_DLY		<= "00000000";	
+			RESET_DLY		<= "000000";	
 		elsif(rising_edge(CLK_OSZI)) then
-			--reset delay: wait 512 E-Clocks!
-			if(CLK_000_NE_D0 = '1' and cpu_est = E1) then
+			--reset delay: wait 128 E-Clocks!
+			if(CLK_000_NE = '1' and cpu_est = E1) then
 				RESET_DLY <= RESET_DLY +1;
 			end if;
 		end if;
@@ -287,11 +288,12 @@ begin
 			nEXP_SPACE_D0	<= '1';
 			DS_030_D0		<= '1';
 			CLK_030_H		<= '0';	
+			CYCLE_DMA		<= "00";
 		elsif(rising_edge(CLK_OSZI)) then
 			--reset buffer 
-			if(RESET_DLY="11111111")then
+			--if(RESET_DLY="111111")then
 				RESET <= '1';
-			end if;
+			--end if;
 
 			--now: 68000 state machine and signals
 			
@@ -456,9 +458,21 @@ begin
 				AMIGA_BUS_ENABLE_INT <= '1' ;
 			end if;
 			
+
+			if(BGACK_030_INT='0' and AS_000='0')then 
+				-- an 68000-memory cycle is three positive edges long!
+				if(CLK_000_PE='1')then
+					CYCLE_DMA <= CYCLE_DMA+1;
+				end if;
+			else
+				CYCLE_DMA		<= "00";
+			end if;
+				
 			--dma stuff
 			--as can only be done if we know the uds/lds!
-			if(BGACK_030_INT='0' and AS_000='0' and (UDS_000='0' or LDS_000='0'))then 
+			if(BGACK_030_INT='0' and AS_000='0' and (UDS_000='0' or LDS_000='0') and not(CYCLE_DMA = "11"))then 
+						
+					
 				RW_000_DMA	<= RW_000;
 				--set AS_000
 				if( CLK_030='1') then 
@@ -481,7 +495,7 @@ begin
 				else
 					SIZE_DMA		<= "01"; --8 bit
 				end if;
-					
+						
 				--now calculate the offset: 
 				--if uds is set low, a0 is so too.
 				--if only lds is set a1 is high
