@@ -143,6 +143,7 @@ signal	CLK_000_NE: STD_LOGIC 		:= '0';
 signal	CLK_000_NE_D0: STD_LOGIC 		:= '0';
 signal	DTACK_D0: STD_LOGIC 		:= '1';
 signal	RESET_DLY:	STD_LOGIC_VECTOR ( 5 downto 0 ) 	:= "000000";
+signal  RESET_OUT: STD_LOGIC 		:= '0';
 --signal  NO_RESET: STD_LOGIC 		:= '0';
 
 begin
@@ -247,19 +248,23 @@ begin
 	begin
 		if(RST = '0' ) then
 			RESET_DLY		<= "000000";	
+			RESET_OUT 			<= '0';
 		elsif(rising_edge(CLK_OSZI)) then
 			--reset delay: wait 128 E-Clocks!
 			if(CLK_000_NE = '1' and cpu_est = E1) then
 				RESET_DLY <= RESET_DLY +1;
 			end if;
 		end if;
+		--reset buffer 
+		if(RESET_DLY="111111")then
+			RESET_OUT <= '1';
+		end if;
 	end process reset_delay_machine;
 
 	--the state machine
-	state_machine: process(RST, CLK_OSZI)
+	state_machine: process(RESET_OUT, CLK_OSZI)
 	begin
-		if(RST = '0' ) then
-			RESET 			<= '0';
+		if(RESET_OUT = '0' ) then
 			VPA_D			<= '1';
 			DTACK_D0		<= '1';
 			SM_AMIGA		<= IDLE_P;
@@ -290,10 +295,7 @@ begin
 			CLK_030_H		<= '0';	
 			CYCLE_DMA		<= "00";
 		elsif(rising_edge(CLK_OSZI)) then
-			--reset buffer 
-			--if(RESET_DLY="111111")then
-				RESET <= '1';
-			--end if;
+
 
 			--now: 68000 state machine and signals
 			
@@ -309,8 +311,8 @@ begin
 			if(BGACK_000='0') then
 				BGACK_030_INT	<= '0';
 			elsif (	BGACK_000='1' 
-					AND CLK_000_PE='1'
-					--AND CLK_000_D0='1' and CLK_000_D1='0'
+					--AND CLK_000_PE='1'
+					AND CLK_000_D0='1' and CLK_000_D1='0'
 					) then -- BGACK_000 is high here!
 				BGACK_030_INT 	<= '1'; --hold this signal high until 7m clock goes high
 			end if;
@@ -323,8 +325,8 @@ begin
 				BG_000	<= '1';
 			elsif(	BG_030= '0' --AND (SM_AMIGA 	= IDLE_P)
 					and nEXP_SPACE_D0 = '1' and AS_030_D0='1'
-					and CLK_000_D0='1' 
-					--and CLK_000_D0='1' AND CLK_000_D1='0'  
+					--and CLK_000_D0='1' 
+					and CLK_000_D0='0' AND CLK_000_D1='1'  
 					) then --bus granted no local access and no AS_030 running!
 					BG_000 	<= '0';
 			end if;
@@ -461,7 +463,7 @@ begin
 
 			if(BGACK_030_INT='0' and AS_000='0')then 
 				-- an 68000-memory cycle is three positive edges long!
-				if(CLK_000_PE='1')then
+				if(CLK_000_P_SYNC(10)='1')then
 					CYCLE_DMA <= CYCLE_DMA+1;
 				end if;
 			else
@@ -470,7 +472,11 @@ begin
 				
 			--dma stuff
 			--as can only be done if we know the uds/lds!
-			if(BGACK_030_INT='0' and AS_000='0' and (UDS_000='0' or LDS_000='0') and not(CYCLE_DMA = "11"))then 
+			if(	BGACK_030_INT='0' 
+				and AS_000='0' 
+				and (UDS_000='0' or LDS_000='0') 
+				and (CYCLE_DMA = "10" or CYCLE_DMA ="01")
+				)then 
 						
 					
 				RW_000_DMA	<= RW_000;
@@ -521,8 +527,8 @@ begin
 	end process	state_machine;
 
 	
-	
-
+	--RESET	<= 'Z' when RESET_OUT ='1' else '0';
+	RESET	<=  RESET_OUT;
 
 	-- bus drivers
 	AMIGA_ADDR_ENABLE	<= AMIGA_BUS_ENABLE_INT;

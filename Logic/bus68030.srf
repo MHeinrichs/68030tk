@@ -6,7 +6,7 @@
 #Implementation: logic
 
 $ Start of Compile
-#Tue Feb 03 09:23:39 2015
+#Tue Feb 03 20:27:43 2015
 
 Synopsys VHDL Compiler, version comp201209rcp1, Build 283R, built Mar 19 2013
 @N|Running in 64-bit mode
@@ -27,13 +27,13 @@ File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed -
 @W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":132:7:132:17|Signal clk_out_int is undriven 
 Post processing for work.bus68030.behavioral
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":144:32:144:34|Pruning register CLK_REF(1 downto 0)  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":248:2:248:3|Pruning register RESET_DLY(5 downto 0)  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":137:34:137:36|Pruning register CLK_000_D4  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":136:34:136:36|Pruning register CLK_000_D3  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":135:34:135:36|Pruning register CLK_000_D2  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":123:36:123:38|Pruning register CLK_OUT_PRE_50_D  
 @W: CL265 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":139:61:139:75|Pruning bit 12 of CLK_000_N_SYNC(12 downto 0) -- not in use ... 
-@W: CL271 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":138:34:138:36|Pruning bits 12 to 10 of CLK_000_P_SYNC(12 downto 0) -- not in use ... 
+@W: CL271 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":138:34:138:36|Pruning bits 12 to 11 of CLK_000_P_SYNC(12 downto 0) -- not in use ... 
+@W: CL117 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":259:2:259:3|Latch generated from process for signal RESET_OUT; possible missing assignment in an if or case statement.
 @N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":143:37:143:39|Trying to extract state machine for register cpu_est
 @N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":144:32:144:34|Trying to extract state machine for register SM_AMIGA
 Extracted state machine for register SM_AMIGA
@@ -48,7 +48,7 @@ State machine has 8 reachable states with original encodings of:
    111
 @END
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Tue Feb 03 09:23:39 2015
+# Tue Feb 03 20:27:43 2015
 
 ###########################################################]
 Map & Optimize Report
@@ -67,22 +67,25 @@ original code -> new code
    101 -> 00100000
    110 -> 01000000
    111 -> 10000000
-@N: MO106 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":215:4:215:7|Found ROM, 'pos_clk\.cpu_est_11[3:0]', 16 words by 4 bits 
+@N: MO106 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":216:4:216:7|Found ROM, 'pos_clk\.cpu_est_11[3:0]', 16 words by 4 bits 
+@W: BN132 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":138:34:138:36|Removing instance CLK_000_P_SYNC[10],  because it is equivalent to instance CLK_000_PE
+@W: MT462 :|Net RST_c appears to be an unidentified clock source. Assuming default frequency. 
 ---------------------------------------
 Resource Usage Report
 
 Simple gate primitives:
-DFFRH           12 uses
+DFFRH           17 uses
 DFF             33 uses
 DFFSH           28 uses
 BI_DIR          11 uses
 IBUF            32 uses
 OBUF            16 uses
 BUFTH           2 uses
-AND2            215 uses
-INV             181 uses
-XOR2            4 uses
-OR2             21 uses
+AND2            230 uses
+INV             180 uses
+DLATRH          1 use
+OR2             20 uses
+XOR2            9 uses
 
 
 @N: FC100 |Timing Report not generated for this device, please use place and route tools for timing analysis.
@@ -92,6 +95,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 96MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Tue Feb 03 09:23:41 2015
+# Tue Feb 03 20:27:45 2015
 
 ###########################################################]

@@ -6,11 +6,11 @@
 @W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:7:131:16|Signal clk_out_ne is undriven 
 @W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":132:7:132:17|Signal clk_out_int is undriven 
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":144:32:144:34|Pruning register CLK_REF(1 downto 0)  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":248:2:248:3|Pruning register RESET_DLY(5 downto 0)  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":137:34:137:36|Pruning register CLK_000_D4  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":136:34:136:36|Pruning register CLK_000_D3  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":135:34:135:36|Pruning register CLK_000_D2  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":123:36:123:38|Pruning register CLK_OUT_PRE_50_D  
 @W: CL265 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":139:61:139:75|Pruning bit 12 of CLK_000_N_SYNC(12 downto 0) -- not in use ... 
-@W: CL271 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":138:34:138:36|Pruning bits 12 to 10 of CLK_000_P_SYNC(12 downto 0) -- not in use ... 
+@W: CL271 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":138:34:138:36|Pruning bits 12 to 11 of CLK_000_P_SYNC(12 downto 0) -- not in use ... 
+@W: CL117 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":259:2:259:3|Latch generated from process for signal RESET_OUT; possible missing assignment in an if or case statement.
 

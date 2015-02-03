@@ -1,4 +1,5 @@
-@E: CD371 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":471:18:471:43|No matching overload for "or"
-@E: CD308 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":471:18:471:43|Unable to evaluate expression type
-@E: CD676 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":471:18:471:43|Can't implement expression (no function signature?)
+@E: CD371 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":483:21:483:36|No matching overload for "<"
+@E: CD371 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":492:19:492:38|No matching overload for "not"
+@E: CD308 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":483:21:483:36|Unable to evaluate expression type
+@E: CD676 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":483:21:483:36|Can't implement expression (no function signature?)
 
