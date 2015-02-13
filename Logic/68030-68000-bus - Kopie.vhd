@@ -144,6 +144,7 @@ signal	CLK_000_NE_D0: STD_LOGIC 		:= '0';
 signal	DTACK_D0: STD_LOGIC 		:= '1';
 signal	RESET_DLY:	STD_LOGIC_VECTOR ( 5 downto 0 ) 	:= "000000";
 signal  RESET_OUT: STD_LOGIC 		:= '0';
+signal  DS_DMA: STD_LOGIC 			:= '0';
 signal	CLK_030_D0: STD_LOGIC 		:= '0';
 --signal  NO_RESET: STD_LOGIC 		:= '0';
 
@@ -296,6 +297,7 @@ begin
 			DS_030_D0		<= '1';
 			CLK_030_H		<= '0';	
 			CYCLE_DMA		<= "00";
+			DS_DMA			<= '1';
 		elsif(rising_edge(CLK_OSZI)) then
 
 
@@ -455,11 +457,11 @@ begin
 					end if;
 			end case;
 
-			--dma stuff
+			--DMA-Bus handling
 			if(BGACK_030_INT='0')then			
 				--switch amiga bus on for DMA-Cycles
 				AMIGA_BUS_ENABLE_INT <= '0' ;
-				--set some signals NOT linked to AS_000='0'
+				-- set some signals continuesly
 				RW_000_DMA	<= RW_000;
 				-- now determine the size: if both uds and lds is set its 16 bit else 8 bit!
 				if(UDS_000='0' and LDS_000='0') then
@@ -467,26 +469,36 @@ begin
 				else
 					SIZE_DMA		<= "01"; --8 bit
 				end if;
+						
 				--now calculate the offset: 
 				--if uds is set low, a0 is so too.
 				--if only lds is set a1 is high
 				--therefore a1 = uds 
 				--great! life is simple here!
 				A0_DMA <= UDS_000;		
+					
 				--A1 is set by the amiga side													
 				--here  we determine the upper or lower half of the databus
 				AMIGA_BUS_ENABLE_DMA_HIGH 	<= A1;
 				AMIGA_BUS_ENABLE_DMA_LOW 	<= not A1;				
 
+				
 			elsif(BGACK_030_INT_D='0' and BGACK_030_INT='1')then			
 				AMIGA_BUS_ENABLE_INT <= '1' ;
-				RW_000_DMA		<= '1';	
+				RW_000_DMA	<= '1';
 				SIZE_DMA		<= "00";
 				A0_DMA			<= '0';	
 				AMIGA_BUS_ENABLE_DMA_HIGH 	<= '1';
 				AMIGA_BUS_ENABLE_DMA_LOW 	<= '1';				
 			end if;
-					
+
+			if((UDS_000='0' or LDS_000='0') and BGACK_030_INT='0')then
+				DS_DMA			<= '0';
+			else
+				DS_DMA			<= '1';
+			end if;				
+			
+
 			if(BGACK_030_INT='0' and AS_000='0')then 
 				-- an 68000-memory cycle is three positive edges long!
 				if(CLK_000_P_SYNC(10)='1')then
@@ -494,43 +506,40 @@ begin
 				end if;
 			else
 				CYCLE_DMA		<= "00";
-			end if;		
-										
+			end if;
+				
+			--dma stuff
 			--as can only be done if we know the uds/lds!
-			if(	BGACK_030_INT='0'
-				and AS_000='0' 
-				and(UDS_000='0' or LDS_000='0')
-				and (					
+			if(	BGACK_030_INT='0' 
+				--and AS_000='0' 
+				and DS_DMA ='0'
+				--and (UDS_000='0' or LDS_000='0')
+				and (
+					
 					--CYCLE_DMA ="00" or
-					CYCLE_DMA ="01"
-					or CYCLE_DMA ="10"
-					--or CYCLE_DMA ="11"
-					)				
+					--CYCLE_DMA ="01" or
+					CYCLE_DMA ="10" or
+					CYCLE_DMA ="11"
+					)
 				)then 
+						
+					
 				--set AS_000
-				if( CLK_030='1') then 
-					AS_000_DMA 	<= '0'; --sampled on rising edges!					
+				if( CLK_030='0' and CLK_030_D0='1') then 
+					AS_000_DMA 	<= '0'; --sampled on rising edges!			
+					if(RW_000='1') then
+						DS_000_DMA	<='0';		
+					else
+						DS_000_DMA	<= AS_000_DMA;
+					end if;
 				end if;
 				
-				--delayed clock for write cycle
-				if(AS_000_DMA = '0' and CLK_030='0')then
-					CLK_030_H		<= '1';
-				end if;
-				
-				if(RW_000='1') then
-					DS_000_DMA	<='0';
-				elsif(RW_000='0' and CLK_030_H = '1' and CLK_030='1')then
-					DS_000_DMA	<=AS_000_DMA; -- write: one clock delayed!
-				end if;					
 			else
 				AS_000_DMA		<= '1';
 				DS_000_DMA		<= '1';
-				CLK_030_H		<= '0';		
-			end if;		
+			end if;
 		end if;		
 	end process	state_machine;
-
-
 
 	
 	--RESET	<= 'Z' when RESET_OUT ='1' else '0';

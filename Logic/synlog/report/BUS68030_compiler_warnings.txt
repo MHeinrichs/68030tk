@@ -10,7 +10,8 @@
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":136:34:136:36|Pruning register CLK_000_D3  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":135:34:135:36|Pruning register CLK_000_D2  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":123:36:123:38|Pruning register CLK_OUT_PRE_50_D  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":155:2:155:3|Pruning register CLK_030_D0  
 @W: CL265 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":139:61:139:75|Pruning bit 12 of CLK_000_N_SYNC(12 downto 0) -- not in use ... 
 @W: CL271 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":138:34:138:36|Pruning bits 12 to 11 of CLK_000_P_SYNC(12 downto 0) -- not in use ... 
-@W: CL117 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":259:2:259:3|Latch generated from process for signal RESET_OUT; possible missing assignment in an if or case statement.
+@W: CL117 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":261:2:261:3|Latch generated from process for signal RESET_OUT; possible missing assignment in an if or case statement.
 
