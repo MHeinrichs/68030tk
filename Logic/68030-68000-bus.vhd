@@ -351,7 +351,8 @@ begin
 				RW_000_INT		<= '1';	
 			elsif(	--CLK_030  		= '1'  AND --68030 has a valid AS on high clocks					
 					AS_030_D0			= '0'  AND --as set
-					BGACK_000='1' AND --no dma -cycle
+					BGACK_030_INT='1' AND 
+					BGACK_030_INT_D='1' AND --no dma -cycle
 					NOT (FC(1)='1' and FC(0)='1' and A(19)='0' and A(18)='0' and A(17)='1' and A(16)='0') AND --FPU-Select
 					nEXP_SPACE_D0 ='1' and --not an expansion space cycle
 					SM_AMIGA = IDLE_P --last amiga cycle terminated
@@ -392,13 +393,12 @@ begin
 			case (SM_AMIGA) is
 				when IDLE_P 	 => --68000:S0 wait for a falling edge
 					RW_000_INT		<= '1';		
+					AMIGA_BUS_ENABLE_INT <= CLK_000_D1;
 					if( CLK_000_D0='0' and CLK_000_D1= '1' and AS_030_000_SYNC = '0' and nEXP_SPACE_D0 ='1')then -- if this a delayed expansion space detection, do not start an amiga cycle!
-						AMIGA_BUS_ENABLE_INT <= '0' ;--for now: allways on for amiga
 						SM_AMIGA<=IDLE_N;  --go to s1
-					else
-						AMIGA_BUS_ENABLE_INT <= '1';
 					end if;
 				when IDLE_N 	 => --68000:S1 place Adress on bus and wait for rising edge, on a rising CLK_000 look for a amiga adressrobe
+					AMIGA_BUS_ENABLE_INT <= '0' ;--for now: allways on for amiga
 					if(CLK_000_PE='1')then --go to s2
 					--if(CLK_000_D0='1')then --go to s2
 						SM_AMIGA <= AS_SET_P; --as for amiga set! 
@@ -451,7 +451,8 @@ begin
 					if(CLK_000_PE='1')then --go to s0	
 					--if(CLK_000_D0='1')then --go to s0																	
 						SM_AMIGA<=IDLE_P;	
-						RW_000_INT		<= '1';						
+						RW_000_INT		<= '1';	
+						--AMIGA_BUS_ENABLE_INT <= '1';					
 					end if;
 			end case;
 
@@ -537,7 +538,8 @@ begin
 	RESET	<=  RESET_OUT;
 
 	-- bus drivers
-	AMIGA_ADDR_ENABLE	<= AMIGA_BUS_ENABLE_INT;
+	--AMIGA_ADDR_ENABLE	<= AMIGA_BUS_ENABLE_INT;
+	AMIGA_ADDR_ENABLE	<= '0';
 	AMIGA_BUS_ENABLE_HIGH <= '0' WHEN BGACK_030_INT ='1' and not (SM_AMIGA = IDLE_P) ELSE 
 							 '0' WHEN BGACK_030_INT ='0' AND AMIGA_BUS_ENABLE_DMA_HIGH = '0' ELSE
 							 '1';

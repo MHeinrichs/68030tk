@@ -6,7 +6,7 @@
 #Implementation: logic
 
 $ Start of Compile
-#Fri Feb 13 14:39:10 2015
+#Thu Feb 19 14:38:39 2015
 
 Synopsys VHDL Compiler, version comp201209rcp1, Build 283R, built Mar 19 2013
 @N|Running in 64-bit mode
@@ -16,6 +16,7 @@ Copyright (C) 1994-2012 Synopsys, Inc. This software the associated documentatio
 @N:"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Top entity is set to BUS68030.
 File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed - recompiling
 VHDL syntax check successful!
+File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed - recompiling
 @N: CD630 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Synthesizing work.bus68030.behavioral 
 @W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":125:7:125:20|Signal clk_out_pre_25 is undriven 
 @W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":126:7:126:20|Signal clk_out_pre_33 is undriven 
@@ -25,6 +26,7 @@ VHDL syntax check successful!
 @W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:7:131:16|Signal clk_out_ne is undriven 
 @W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":132:7:132:17|Signal clk_out_int is undriven 
 Post processing for work.bus68030.behavioral
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":109:36:109:38|Pruning register AMIGA_BUS_ENABLE_INT  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":144:32:144:34|Pruning register CLK_REF(1 downto 0)  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":137:34:137:36|Pruning register CLK_000_D4  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":136:34:136:36|Pruning register CLK_000_D3  
@@ -48,7 +50,7 @@ State machine has 8 reachable states with original encodings of:
    111
 @END
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Fri Feb 13 14:39:10 2015
+# Thu Feb 19 14:38:39 2015
 
 ###########################################################]
 Map & Optimize Report
@@ -74,15 +76,15 @@ original code -> new code
 Resource Usage Report
 
 Simple gate primitives:
+DFFSH           27 uses
 DFFRH           17 uses
 DFF             33 uses
-DFFSH           28 uses
 BI_DIR          11 uses
 IBUF            32 uses
 OBUF            16 uses
 BUFTH           2 uses
-AND2            241 uses
-INV             181 uses
+AND2            237 uses
+INV             187 uses
 DLATRH          1 use
 XOR2            10 uses
 OR2             28 uses
@@ -95,6 +97,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 96MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Fri Feb 13 14:39:11 2015
+# Thu Feb 19 14:38:41 2015
 
 ###########################################################]
