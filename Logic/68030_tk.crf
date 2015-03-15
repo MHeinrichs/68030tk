@@ -1,7 +1,7 @@
 // Signal Name Cross Reference File
-// ispLEVER Classic 1.7.00.05.28.13
+// ispLEVER Classic 1.8.00.04.29.14
 
-// Design '68030_tk' created Thu Feb 19 14:38:45 2015
+// Design '68030_tk' created Sun Mar 15 13:42:37 2015
 
 
 // LEGEND:  '>'  Functional Block Port Separator
@@ -10,4 +10,5 @@
 
 
 // Hierarchical Name                    Short Name
-state_machine_un22_bgack_030_int_i_0_i_n  	U0_achine_un22_bgack_030_int_i_0
+
+// *** Shortened names not required for this design. ***

@@ -1,9 +1,10 @@
 #--  Synopsys, Inc.
-#--  Version G-2012.09LC-SP1 
+#--  Version I-2014.03LC 
 #--  Project file C:\users\matze\documents\github\68030tk\logic\scratchproject.prs
 
 #project files
 add_file -vhdl -lib work "C:/users/matze/documents/github/68030tk/logic/68030-68000-bus.vhd"
+
 
 
 #implementation: "logic"
@@ -38,6 +39,9 @@ set_option -symbolic_fsm_compiler 1
 # Compiler Options
 set_option -compiler_compatible 0
 set_option -resource_sharing 1
+
+# Compiler Options
+set_option -auto_infer_blackbox 0
 
 #automatic place and route (vendor) options
 set_option -write_apr_constraint 1

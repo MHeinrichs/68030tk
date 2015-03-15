@@ -11018,9 +11018,9 @@ Source: RS Component / Phycomp</description>
 <label x="76.2" y="134.62" size="1.27" layer="95"/>
 </segment>
 <segment>
-<pinref part="RN3" gate="D" pin="2"/>
-<wire x1="2.54" y1="132.08" x2="7.62" y2="132.08" width="0.1524" layer="91"/>
-<label x="7.62" y="132.08" size="1.27" layer="95"/>
+<pinref part="RN3" gate="B" pin="2"/>
+<wire x1="2.54" y1="142.24" x2="7.62" y2="142.24" width="0.1524" layer="91"/>
+<label x="7.62" y="142.24" size="1.27" layer="95"/>
 </segment>
 </net>
 <net name="DSACK0" class="0">
@@ -11035,9 +11035,9 @@ Source: RS Component / Phycomp</description>
 <label x="76.2" y="139.7" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="RN3" gate="C" pin="2"/>
-<wire x1="2.54" y1="137.16" x2="7.62" y2="137.16" width="0.1524" layer="91"/>
-<label x="7.62" y="137.16" size="1.27" layer="95"/>
+<pinref part="RN3" gate="D" pin="2"/>
+<wire x1="2.54" y1="132.08" x2="7.62" y2="132.08" width="0.1524" layer="91"/>
+<label x="7.62" y="132.08" size="1.27" layer="95"/>
 </segment>
 </net>
 <net name="SIZ0" class="0">
@@ -11092,9 +11092,9 @@ Source: RS Component / Phycomp</description>
 <label x="33.02" y="124.46" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<pinref part="RN3" gate="B" pin="2"/>
-<wire x1="2.54" y1="142.24" x2="7.62" y2="142.24" width="0.1524" layer="91"/>
-<label x="7.62" y="142.24" size="1.27" layer="95"/>
+<pinref part="RN3" gate="C" pin="2"/>
+<wire x1="2.54" y1="137.16" x2="7.62" y2="137.16" width="0.1524" layer="91"/>
+<label x="7.62" y="137.16" size="1.27" layer="95"/>
 </segment>
 </net>
 <net name="DS_30" class="0">
@@ -12680,11 +12680,6 @@ Source: RS Component / Phycomp</description>
 <pinref part="X1" gate="-A9" pin="B"/>
 <wire x1="236.22" y1="86.36" x2="238.76" y2="86.36" width="0.1524" layer="91"/>
 </segment>
-<segment>
-<pinref part="IC7" gate="G$1" pin="IO58"/>
-<wire x1="134.62" y1="116.84" x2="134.62" y2="121.92" width="0.1524" layer="91"/>
-<label x="134.62" y="121.92" size="1.016" layer="95" rot="R90"/>
-</segment>
 </net>
 <net name="BR_30" class="0">
 <segment>
@@ -13338,6 +13333,13 @@ Source: RS Component / Phycomp</description>
 <label x="124.46" y="27.94" size="1.27" layer="95" rot="R270"/>
 </segment>
 </net>
+<net name="R/W_00" class="0">
+<segment>
+<pinref part="IC7" gate="G$1" pin="IO58"/>
+<wire x1="134.62" y1="116.84" x2="134.62" y2="121.92" width="0.1524" layer="91"/>
+<label x="134.62" y="121.92" size="1.016" layer="95" rot="R90"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>
@@ -13808,6 +13810,11 @@ Source: RS Component / Phycomp</description>
 <wire x1="101.6" y1="162.56" x2="101.6" y2="167.64" width="0.1524" layer="91"/>
 <junction x="101.6" y="162.56"/>
 </segment>
+<segment>
+<pinref part="IC9" gate="A" pin="A1"/>
+<wire x1="40.64" y1="86.36" x2="43.18" y2="86.36" width="0.1524" layer="91"/>
+<label x="43.18" y="86.36" size="1.27" layer="95"/>
+</segment>
 </net>
 <net name="VCC" class="0">
 <segment>
@@ -13992,13 +13999,6 @@ Source: RS Component / Phycomp</description>
 <pinref part="RN6" gate="A" pin="1"/>
 <wire x1="91.44" y1="106.68" x2="86.36" y2="106.68" width="0.1524" layer="91"/>
 <label x="88.9" y="106.68" size="1.27" layer="95" rot="R180"/>
-</segment>
-</net>
-<net name="R/W_00" class="0">
-<segment>
-<pinref part="IC9" gate="A" pin="B1"/>
-<wire x1="15.24" y1="86.36" x2="12.7" y2="86.36" width="0.1524" layer="91"/>
-<label x="12.7" y="86.36" size="1.27" layer="95" rot="R180"/>
 </segment>
 </net>
 <net name="AMIGA_A23" class="0">
@@ -14561,13 +14561,6 @@ Source: RS Component / Phycomp</description>
 <pinref part="IC9" gate="A" pin="G"/>
 <wire x1="40.64" y1="60.96" x2="45.72" y2="60.96" width="0.1524" layer="91"/>
 <label x="45.72" y="60.96" size="1.27" layer="95"/>
-</segment>
-</net>
-<net name="R/W" class="0">
-<segment>
-<pinref part="IC9" gate="A" pin="A1"/>
-<wire x1="40.64" y1="86.36" x2="45.72" y2="86.36" width="0.1524" layer="91"/>
-<label x="45.72" y="86.36" size="1.27" layer="95"/>
 </segment>
 </net>
 <net name="A0" class="0">

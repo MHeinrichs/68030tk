@@ -1,2 +1,1 @@
-@W: BN132 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":138:34:138:36|Removing instance CLK_000_P_SYNC[10],  because it is equivalent to instance CLK_000_PE
-@W: MT462 :|Net RST_c appears to be an unidentified clock source. Assuming default frequency. 
+@W: BN132 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":132:34:132:36|Removing instance CLK_000_P_SYNC[10],  because it is equivalent to instance CLK_000_PE

@@ -12,8 +12,8 @@ EN_PinMacrocell = Yes;
 
 [Revision]
 Parent = m4a5.lci;
-DATE = 02/03/2015;
-TIME = 11:56:06;
+DATE = 03/15/2015;
+TIME = 13:42:54;
 Source_Format = Pure_VHDL;
 Synthesis = Synplify;
 
@@ -28,9 +28,9 @@ Spread_placement = Yes;
 Zero_hold_time = Yes;
 Max_pterm_split = 16;
 Max_pterm_collapse = 16;
-Nodes_collapsing_mode = Area;
+Nodes_collapsing_mode = Speed;
 Max_fanin = 32;
-Set_reset_dont_care = Yes;
+Set_reset_dont_care = No;
 Balanced_partitioning = Yes;
 Max_macrocell_percent = 100;
 Dt_synthesis = Yes;

@@ -10124,6 +10124,7 @@ Source: RS Component / Phycomp</description>
 <part name="R9" library="rcl" deviceset="R-EU_" device="R0603" value="4,7k"/>
 <part name="R22" library="rcl" deviceset="R-EU_" device="R0603" value="4,7k"/>
 <part name="R23" library="rcl" deviceset="R-EU_" device="R0603" value="4,7k"/>
+<part name="R24" library="rcl" deviceset="R-EU_" device="R0603" value="4,7k"/>
 </parts>
 <sheets>
 <sheet>
@@ -10163,6 +10164,7 @@ Source: RS Component / Phycomp</description>
 <instance part="R9" gate="G$1" x="-2.54" y="137.16"/>
 <instance part="R22" gate="G$1" x="-2.54" y="132.08"/>
 <instance part="R23" gate="G$1" x="-2.54" y="142.24"/>
+<instance part="R24" gate="G$1" x="-25.4" y="83.82"/>
 </instances>
 <busses>
 <bus name="A[0..31]">
@@ -10994,6 +10996,11 @@ Source: RS Component / Phycomp</description>
 <wire x1="132.08" y1="111.76" x2="137.16" y2="111.76" width="0.1524" layer="91"/>
 <label x="137.16" y="111.76" size="1.27" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="R24" gate="G$1" pin="1"/>
+<wire x1="-30.48" y1="83.82" x2="-33.02" y2="83.82" width="0.1524" layer="91"/>
+<label x="-33.02" y="83.82" size="1.27" layer="95" rot="R180"/>
+</segment>
 </net>
 <net name="STATUS" class="0">
 <segment>
@@ -11529,6 +11536,12 @@ Source: RS Component / Phycomp</description>
 <pinref part="C23" gate="G$1" pin="2"/>
 <wire x1="-7.62" y1="66.04" x2="7.62" y2="66.04" width="0.1524" layer="91"/>
 <label x="7.62" y="66.04" size="1.27" layer="95"/>
+</segment>
+<segment>
+<pinref part="R24" gate="G$1" pin="2"/>
+<wire x1="-20.32" y1="83.82" x2="-15.24" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="83.82" x2="-15.24" y2="81.28" width="0.1524" layer="91"/>
+<label x="-15.24" y="81.28" size="1.27" layer="95"/>
 </segment>
 </net>
 <net name="A27" class="0">

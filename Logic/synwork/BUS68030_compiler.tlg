@@ -16,7 +16,7 @@ Post processing for work.bus68030.behavioral
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":155:2:155:3|Pruning register CLK_030_D0  
 @W: CL265 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":139:61:139:75|Pruning bit 12 of CLK_000_N_SYNC(12 downto 0) -- not in use ... 
 @W: CL271 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":138:34:138:36|Pruning bits 12 to 11 of CLK_000_P_SYNC(12 downto 0) -- not in use ... 
-@W: CL117 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":261:2:261:3|Latch generated from process for signal RESET_OUT; possible missing assignment in an if or case statement.
+@W: CL117 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":263:2:263:3|Latch generated from process for signal RESET_OUT; possible missing assignment in an if or case statement.
 @N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":143:37:143:39|Trying to extract state machine for register cpu_est
 @N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":144:32:144:34|Trying to extract state machine for register SM_AMIGA
 Extracted state machine for register SM_AMIGA

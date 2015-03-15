@@ -7,7 +7,7 @@ The file contains the job information from compiler to be displayed as part of t
 <job_run_status name="compiler"> 
   <report_link name="Detailed report">
     <data>C:\users\matze\documents\github\68030tk\logic\BUS68030.srr</data>
-    <title>$ Start of Compile</title>
+    <title>Start of Compile</title>
   </report_link> 
   <job_status>
     <data>Completed    </data>
@@ -18,7 +18,7 @@ The file contains the job information from compiler to be displayed as part of t
   <report_link name="more"><data>C:\users\matze\documents\github\68030tk\logic\synlog\report\BUS68030_compiler_notes.txt</data></report_link>
   </info>
 			<info name="Warnings">
-  <data>17</data>
+  <data>9</data>
   <report_link name="more"><data>C:\users\matze\documents\github\68030tk\logic\synlog\report\BUS68030_compiler_warnings.txt</data></report_link>
   </info>
 			<info name="Errors">
@@ -29,13 +29,13 @@ The file contains the job information from compiler to be displayed as part of t
   <data>-</data>
   </info>
 			<info name="Real Time">
-  <data>0h:00m:00s</data>
+  <data>0h:00m:01s</data>
   </info>
 			<info name="Peak Memory">
   <data>-</data>
   </info>
 			<info name="Date &amp;Time">
-  <data type="timestamp">1424353119</data>
+  <data type="timestamp">1426423350</data>
   </info>
 			</job_info>
 </job_run_status>

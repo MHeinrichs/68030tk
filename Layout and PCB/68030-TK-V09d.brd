@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.4">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -2839,19 +2839,19 @@ minimale Strichstärke: &lt;b&gt;0.2 mm&lt;/b&gt;&lt;br&gt;&lt;br&gt;
 <element name="C28" library="rcl" package="C0603K" value="100nF" x="6.096" y="69.0372" smashed="yes">
 <attribute name="NAME" x="7.8868" y="68.6204" size="0.8128" layer="25"/>
 </element>
-<element name="R10" library="rcl" package="R0603" value="" x="31.496" y="78.8162" smashed="yes" rot="R270">
+<element name="R10" library="rcl" package="R0603" value="68" x="31.496" y="78.8162" smashed="yes" rot="R270">
 <attribute name="NAME" x="29.3878" y="79.2988" size="0.8128" layer="25" rot="R270"/>
 <attribute name="VALUE" x="29.591" y="79.4512" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="R11" library="rcl" package="R0603" value="" x="30.6832" y="81.8134" smashed="yes" rot="R270">
+<element name="R11" library="rcl" package="R0603" value="68" x="30.6832" y="81.8134" smashed="yes" rot="R270">
 <attribute name="NAME" x="28.7274" y="82.9056" size="0.8128" layer="25" rot="R270"/>
 <attribute name="VALUE" x="28.7782" y="82.4484" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="R14" library="rcl" package="R0603" value="" x="58.674" y="85.6488" smashed="yes" rot="R180">
+<element name="R14" library="rcl" package="R0603" value="68" x="58.674" y="85.6488" smashed="yes" rot="R180">
 <attribute name="NAME" x="59.309" y="85.0138" size="0.8128" layer="25" rot="R180"/>
 <attribute name="VALUE" x="59.309" y="87.5538" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="R16" library="rcl" package="R0603" value="" x="25.4508" y="89.3064" smashed="yes" rot="R90">
+<element name="R16" library="rcl" package="R0603" value="10" x="25.4508" y="89.3064" smashed="yes" rot="R90">
 <attribute name="NAME" x="27.559" y="88.9762" size="1.27" layer="25" rot="R90"/>
 <attribute name="VALUE" x="27.3558" y="88.6714" size="1.27" layer="27" rot="R90"/>
 </element>

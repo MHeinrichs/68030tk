@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -10109,10 +10109,10 @@ Source: RS Component / Phycomp</description>
 <part name="C26" library="rcl" deviceset="C-EU" device="C0603K" value="100nF"/>
 <part name="C27" library="rcl" deviceset="C-EU" device="C0603K" value="100nF"/>
 <part name="C28" library="rcl" deviceset="C-EU" device="C0603K" value="100nF"/>
-<part name="R10" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R11" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R14" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R16" library="rcl" deviceset="R-EU_" device="R0603"/>
+<part name="R10" library="rcl" deviceset="R-EU_" device="R0603" value="68"/>
+<part name="R11" library="rcl" deviceset="R-EU_" device="R0603" value="68"/>
+<part name="R14" library="rcl" deviceset="R-EU_" device="R0603" value="68"/>
+<part name="R16" library="rcl" deviceset="R-EU_" device="R0603" value="10"/>
 <part name="R17" library="rcl" deviceset="R-EU_" device="R0603" value="4,7k"/>
 <part name="RN3" library="resistor-dil" deviceset="4R-N" device="EXBV8V" value="4,7k"/>
 <part name="RN4" library="resistor-dil" deviceset="4R-N" device="EXBV8V" value="4,7k"/>

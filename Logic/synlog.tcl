@@ -1,2 +1,1 @@
-source "C:/Users/Matze/AppData/Local/Synplicity/scm_perforce.tcl"
-history clear
+project -load c:/users/matze/documents/github/68030tk/logic/BUS68030.prj

@@ -1,43 +1,32 @@
-#Build: Synplify Pro G-2012.09LC-SP1 , Build 035R, Mar 19 2013
-#install: C:\Program Files (x86)\ispLever\synpbase
+#Build: Synplify Pro I-2014.03LC , Build 063R, May 27 2014
+#install: C:\ispLever\synpbase
 #OS: Windows 7 6.1
 #Hostname: DEEPTHOUGHT
 
 #Implementation: logic
 
 $ Start of Compile
-#Thu Feb 19 14:38:39 2015
+#Sun Mar 15 13:42:30 2015
 
-Synopsys VHDL Compiler, version comp201209rcp1, Build 283R, built Mar 19 2013
+Synopsys VHDL Compiler, version comp201403rcp1, Build 060R, built May 27 2014
 @N|Running in 64-bit mode
-Copyright (C) 1994-2012 Synopsys, Inc. This software the associated documentation are confidential and proprietary to Synopsys, Inc. Your use or disclosure of this software subject to the terms and conditions of a written license agreement between you, or your company, and Synopsys, Inc.
+Copyright (C) 1994-2014 Synopsys, Inc. This software and the associated documentation are proprietary to Synopsys, Inc. This software may only be used in accordance with the terms and conditions of a written license agreement with Synopsys, Inc.  All other use, reproduction, or distribution of this software is strictly prohibited.
 
-@N: CD720 :"C:\Program Files (x86)\ispLever\synpbase\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
+@N: CD720 :"C:\ispLever\synpbase\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
 @N:"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Top entity is set to BUS68030.
-File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed - recompiling
 VHDL syntax check successful!
-File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed - recompiling
 @N: CD630 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Synthesizing work.bus68030.behavioral 
-@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":125:7:125:20|Signal clk_out_pre_25 is undriven 
-@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":126:7:126:20|Signal clk_out_pre_33 is undriven 
-@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":127:7:127:22|Signal clk_out_pre_33_d is undriven 
-@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":128:8:128:17|Signal clk_pre_66 is undriven 
-@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":129:7:129:17|Signal clk_out_pre is undriven 
-@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:7:131:16|Signal clk_out_ne is undriven 
-@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":132:7:132:17|Signal clk_out_int is undriven 
+@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":124:7:124:17|Signal clk_out_pre is undriven 
 Post processing for work.bus68030.behavioral
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":109:36:109:38|Pruning register AMIGA_BUS_ENABLE_INT  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":144:32:144:34|Pruning register CLK_REF(1 downto 0)  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":137:34:137:36|Pruning register CLK_000_D4  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":136:34:136:36|Pruning register CLK_000_D3  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":135:34:135:36|Pruning register CLK_000_D2  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":123:36:123:38|Pruning register CLK_OUT_PRE_50_D  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":155:2:155:3|Pruning register CLK_030_D0  
-@W: CL265 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":139:61:139:75|Pruning bit 12 of CLK_000_N_SYNC(12 downto 0) -- not in use ... 
-@W: CL271 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":138:34:138:36|Pruning bits 12 to 11 of CLK_000_P_SYNC(12 downto 0) -- not in use ... 
-@W: CL117 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":261:2:261:3|Latch generated from process for signal RESET_OUT; possible missing assignment in an if or case statement.
-@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":143:37:143:39|Trying to extract state machine for register cpu_est
-@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":144:32:144:34|Trying to extract state machine for register SM_AMIGA
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":137:37:137:39|Pruning register AMIGA_BUS_ENABLE_INT_4  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:34:131:36|Pruning register CLK_000_D4_2  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":130:34:130:36|Pruning register CLK_000_D3_2  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":129:34:129:36|Pruning register CLK_000_D2_2  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":122:36:122:38|Pruning register CLK_OUT_PRE_50_D_2  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":148:2:148:3|Pruning register CLK_030_D0_2  
+@W: CL265 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":133:61:133:75|Pruning bit 12 of CLK_000_N_SYNC_3(12 downto 0) -- not in use ... 
+@W: CL271 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":132:34:132:36|Pruning bits 12 to 11 of CLK_000_P_SYNC_3(12 downto 0) -- not in use ... 
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":137:37:137:39|Trying to extract state machine for register SM_AMIGA
 Extracted state machine for register SM_AMIGA
 State machine has 8 reachable states with original encodings of:
    000
@@ -48,55 +37,21 @@ State machine has 8 reachable states with original encodings of:
    101
    110
    111
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":137:37:137:39|Trying to extract state machine for register cpu_est
 @END
+
+At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 70MB peak: 71MB)
+
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Thu Feb 19 14:38:39 2015
+# Sun Mar 15 13:42:30 2015
 
 ###########################################################]
-Map & Optimize Report
+Synopsys Netlist Linker, version comp201403rcp1, Build 060R, built May 27 2014
+@N|Running in 64-bit mode
 
-Synopsys CPLD Technology Mapper, Version maplat, Build 621R, Built Mar 19 2013
-Copyright (C) 1994-2012, Synopsys Inc. This software the associated documentation are confidential and proprietary to Synopsys, Inc. Your use or disclosure of this software subject to the terms and conditions of a written license agreement between you, or your company, and Synopsys, Inc.
-Product Version G-2012.09LC-SP1 
-@N: MF248 |Running in 64-bit mode.
-Encoding state machine SM_AMIGA[0:7] (view:work.BUS68030(behavioral))
-original code -> new code
-   000 -> 00000001
-   001 -> 00000010
-   010 -> 00000100
-   011 -> 00001000
-   100 -> 00010000
-   101 -> 00100000
-   110 -> 01000000
-   111 -> 10000000
-@N: MO106 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":218:4:218:7|Found ROM, 'pos_clk\.cpu_est_11[3:0]', 16 words by 4 bits 
-@W: BN132 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":138:34:138:36|Removing instance CLK_000_P_SYNC[10],  because it is equivalent to instance CLK_000_PE
-@W: MT462 :|Net RST_c appears to be an unidentified clock source. Assuming default frequency. 
----------------------------------------
-Resource Usage Report
-
-Simple gate primitives:
-DFFSH           27 uses
-DFFRH           17 uses
-DFF             33 uses
-BI_DIR          11 uses
-IBUF            32 uses
-OBUF            16 uses
-BUFTH           2 uses
-AND2            237 uses
-INV             187 uses
-DLATRH          1 use
-XOR2            10 uses
-OR2             28 uses
-
-
-@N: FC100 |Timing Report not generated for this device, please use place and route tools for timing analysis.
-G-2012.09LC-SP1 
-Mapper successful!
-
-At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 31MB peak: 96MB)
+At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 67MB peak: 68MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Thu Feb 19 14:38:41 2015
+# Sun Mar 15 13:42:32 2015
 
 ###########################################################]

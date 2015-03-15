@@ -9,7 +9,7 @@ Remember_Setting=1
 Open_PV_Opt=2
 Open_PV=0
 PV_IS_ACTIVE=0
-ACTIVE_SHEET=Global Constraints
+ACTIVE_SHEET=Pin Attributes
 Show_Def_Opt=2
 Show_Def_Val=1
 Expand_All_Column=0
@@ -40,9 +40,9 @@ State=43,no
 Constraint Name=162,no
 Constraint Value=115,no
 [OPT WINDOWS]
-MAIN_WINDOW_POSITION=0,0,1928,1168
+MAIN_WINDOW_POSITION=0,0,1920,1200
 CHILD_FRAME_STATE=Maximal
-CHILD_WINDOW_SIZE=1928,942
+CHILD_WINDOW_SIZE=1920,974
 CHILD_WINDOW_POS=-8,-30
 [OPT GUI SETTING]
 Remember_Setting=1
