@@ -20,7 +20,7 @@ port(
 	UDS_000: inout std_logic;
 	LDS_000: inout std_logic;
 	SIZE: inout std_logic_vector ( 1 downto 0 );
-	A: in std_logic_vector ( 31 downto 16 );
+	A: in std_logic_vector ( 31 downto 2 );
 	A0: inout std_logic;
 	A1: in std_logic;
 	nEXP_SPACE: in std_logic ;
@@ -241,6 +241,7 @@ begin
 			else 
 	
 				RESET_OUT 		<= '1';
+
 				--now: 68000 state machine and signals
 				
 				--buffering signals
@@ -250,7 +251,7 @@ begin
 				DTACK_D0	<= DTACK;
 				VPA_D 		<= VPA;
 	
-	
+
 				--bgack is simple: assert as soon as Amiga asserts but hold bg_ack for one amiga-clock 
 				if(BGACK_000='0') then
 					BGACK_030_INT	<= '0';
@@ -364,7 +365,7 @@ begin
 						end if;
 					when SAMPLE_DTACK_P=> --68000:S4 wait for dtack or VMA
 						DS_000_ENABLE	<= '1';--write: set udl/lds earlier than in the specs. this does not seem to harm anything and is saver, than sampling uds/lds too late 				 
-						if(	CLK_000_NE='1' and --falling edge
+						if(	CLK_000_NE_D0='1' and --falling edge
 						--if(	CLK_000_D0 = '0' and CLK_000_D1='1' and --falling edge
 							((VPA_D = '1' AND DTACK_D0='0') OR --DTACK end cycle
 							(VPA_D='0' AND cpu_est=E9 AND VMA_INT='0')) --VPA end cycle
@@ -540,7 +541,7 @@ begin
 
 	--cache inhibit:  Tristate for expansion (it decides) and off for the Amiga 
 	CIIN <= '1' WHEN A(31 downto 20) = x"00F" and AS_030_D0 ='0' ELSE -- Enable for Kick-rom
-			'Z' WHEN (not(A(31 downto 24) = x"00") and AS_030 ='0') OR nEXP_SPACE_D0 = '0' ELSE --Tristate for expansion (it decides)
+			'Z' WHEN nEXP_SPACE_D0 = '0' ELSE --Tristate for expansion (it decides)
 			'0'; --off for the Amiga
 
 		

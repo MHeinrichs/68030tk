@@ -12,8 +12,8 @@ EN_PinMacrocell = Yes;
 
 [Revision]
 Parent = m4a5.lci;
-DATE = 03/15/2015;
-TIME = 13:42:54;
+DATE = 03/16/2015;
+TIME = 21:53:52;
 Source_Format = Pure_VHDL;
 Synthesis = Synplify;
 
@@ -98,6 +98,8 @@ AMIGA_BUS_ENABLE_HIGH = Pin, 34, -, D, -;
 A_23_ = Pin, 85, -, H, -;
 FPU_SENSE = Pin, 91, -, A, -;
 A1 = Pin, 60, -, F, -;
+A_3_ = Pin, 44, -, E, -;
+A_2_ = Pin, 43, -, E, -;
 
 [Group Assignments]
 layer = OFF;

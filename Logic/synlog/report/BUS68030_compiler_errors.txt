@@ -1,4 +1,3 @@
-@E: CD371 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":508:5:508:16|No matching overload for "or"
-@E: CD308 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":508:5:508:22|Unable to evaluate expression type
-@E: CD676 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":508:5:508:22|Can't implement expression (no function signature?)
+@E: CD255 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":543:65:543:65|No identifier "a2" in scope
+@E|Parse errors encountered - exiting
 

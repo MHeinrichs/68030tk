@@ -6,7 +6,7 @@
 #Implementation: logic
 
 $ Start of Compile
-#Sun Mar 15 13:42:30 2015
+#Sat Mar 28 22:02:40 2015
 
 Synopsys VHDL Compiler, version comp201403rcp1, Build 060R, built May 27 2014
 @N|Running in 64-bit mode
@@ -14,7 +14,9 @@ Copyright (C) 1994-2014 Synopsys, Inc. This software and the associated document
 
 @N: CD720 :"C:\ispLever\synpbase\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
 @N:"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Top entity is set to BUS68030.
+File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed - recompiling
 VHDL syntax check successful!
+File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed - recompiling
 @N: CD630 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Synthesizing work.bus68030.behavioral 
 @W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":124:7:124:17|Signal clk_out_pre is undriven 
 Post processing for work.bus68030.behavioral
@@ -23,7 +25,7 @@ Post processing for work.bus68030.behavioral
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":130:34:130:36|Pruning register CLK_000_D3_2  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":129:34:129:36|Pruning register CLK_000_D2_2  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":122:36:122:38|Pruning register CLK_OUT_PRE_50_D_2  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":148:2:148:3|Pruning register CLK_030_D0_2  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":152:2:152:3|Pruning register CLK_030_D0_2  
 @W: CL265 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":133:61:133:75|Pruning bit 12 of CLK_000_N_SYNC_3(12 downto 0) -- not in use ... 
 @W: CL271 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":132:34:132:36|Pruning bits 12 to 11 of CLK_000_P_SYNC_3(12 downto 0) -- not in use ... 
 @N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":137:37:137:39|Trying to extract state machine for register SM_AMIGA
@@ -38,20 +40,22 @@ State machine has 8 reachable states with original encodings of:
    110
    111
 @N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":137:37:137:39|Trying to extract state machine for register cpu_est
+@W: CL246 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":23:1:23:1|Input port bits 15 to 2 of a(31 downto 2) are unused 
 @END
 
 At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 70MB peak: 71MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sun Mar 15 13:42:30 2015
+# Sat Mar 28 22:02:41 2015
 
 ###########################################################]
 Synopsys Netlist Linker, version comp201403rcp1, Build 060R, built May 27 2014
 @N|Running in 64-bit mode
+File C:\users\matze\documents\github\68030tk\logic\synwork\BUS68030_comp.srs changed - recompiling
 
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 67MB peak: 68MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sun Mar 15 13:42:32 2015
+# Sat Mar 28 22:02:43 2015
 
 ###########################################################]

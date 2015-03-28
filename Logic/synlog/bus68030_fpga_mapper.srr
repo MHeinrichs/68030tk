@@ -12,7 +12,7 @@ original code -> new code
    101 -> 00100001
    110 -> 01000001
    111 -> 10000001
-@N: MO106 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":183:4:183:7|Found ROM, 'pos_clk\.cpu_est_11[3:0]', 16 words by 4 bits 
+@N: MO106 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":187:4:187:7|Found ROM, 'pos_clk\.cpu_est_11[3:0]', 16 words by 4 bits 
 @W: BN132 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":132:34:132:36|Removing instance CLK_000_P_SYNC[10],  because it is equivalent to instance CLK_000_PE
 ---------------------------------------
 Resource Usage Report
@@ -20,13 +20,13 @@ Resource Usage Report
 Simple gate primitives:
 DFF             73 uses
 BI_DIR          11 uses
-IBUF            32 uses
+IBUF            46 uses
 OBUF            16 uses
 BUFTH           2 uses
-AND2            269 uses
-INV             240 uses
-OR2             28 uses
-XOR2            5 uses
+AND2            270 uses
+INV             229 uses
+OR2             26 uses
+XOR2            4 uses
 
 
 @N: FC100 |Timing Report not generated for this device, please use place and route tools for timing analysis.
@@ -36,6 +36,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 39MB peak: 105MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sun Mar 15 13:42:32 2015
+# Sat Mar 28 22:02:43 2015
 
 ###########################################################]
