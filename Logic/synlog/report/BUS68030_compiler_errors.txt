@@ -1,3 +1,2 @@
-@E: CD255 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":543:65:543:65|No identifier "a2" in scope
-@E|Parse errors encountered - exiting
+@E: CD395 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":144:53:144:62|Constant width 8 does not match context width 9
 

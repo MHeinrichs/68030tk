@@ -107,11 +107,13 @@ signal	DS_030_D0:STD_LOGIC			:= '1';
 signal	AS_030_000_SYNC:STD_LOGIC	:= '1';
 signal	BGACK_030_INT:STD_LOGIC		:= '1';
 signal	BGACK_030_INT_D:STD_LOGIC	:= '1';
+signal	BGACK_030_INT_PRE:STD_LOGIC	:= '1';
 signal	AS_000_DMA:STD_LOGIC		:= '1';
 signal	DS_000_DMA:STD_LOGIC		:= '1';
 signal	RW_000_DMA:STD_LOGIC		:= '1';
 signal  CYCLE_DMA: STD_LOGIC_VECTOR ( 1 downto 0 ) 	:= "00";
 signal  SIZE_DMA: STD_LOGIC_VECTOR ( 1 downto 0 ) 	:= "11";
+signal  IPL_D0: STD_LOGIC_VECTOR ( 2 downto 0 ) 	:= "111";
 signal	A0_DMA: STD_LOGIC			:= '1';
 signal	VMA_INT: STD_LOGIC			:= '1';
 signal	VPA_D: STD_LOGIC			:= '1';
@@ -139,6 +141,7 @@ signal	DTACK_D0: STD_LOGIC 		:= '1';
 signal  RESET_OUT: STD_LOGIC 		:= '0';
 signal	CLK_030_D0: STD_LOGIC 		:= '0';
 --signal  NO_RESET: STD_LOGIC 		:= '0';
+signal	RST_DLY: STD_LOGIC_VECTOR ( 7 downto 0 ) 	:= "00000000";
 
 begin
 
@@ -223,7 +226,9 @@ begin
 				BG_000			<= '1';
 				BGACK_030_INT	<= '1';
 				BGACK_030_INT_D <= '1';
+				BGACK_030_INT_PRE<= '1';
 				DSACK1_INT		<= '1';
+				IPL_D0			<= "111";
 				IPL_030			<= "111";
 				AS_000_DMA		<= '1';
 				DS_000_DMA		<= '1';
@@ -237,10 +242,17 @@ begin
 				DS_030_D0		<= '1';
 				CLK_030_H		<= '0';	
 				CYCLE_DMA		<= "00";
+				RST_DLY			<= "00000000";
 				RESET_OUT 		<= '0';
 			else 
-	
-				RESET_OUT 		<= '1';
+				
+				if(CLK_000_NE='1')then
+					if(RST_DLY="11111111")then
+						RESET_OUT 		<= '1';
+					else
+						RST_DLY <= RST_DLY+1;						
+					end if;
+				end if;
 
 				--now: 68000 state machine and signals
 				
@@ -259,7 +271,8 @@ begin
 						AND CLK_000_PE='1'
 						--AND CLK_000_D0='1' and CLK_000_D1='0'
 						) then -- BGACK_000 is high here!
-					BGACK_030_INT 	<= '1'; --hold this signal high until 7m clock goes high
+					BGACK_030_INT_PRE<= '1';
+					BGACK_030_INT 	<= BGACK_030_INT_PRE; --hold this signal high until 7m clock goes low
 				end if;
 				BGACK_030_INT_D <= BGACK_030_INT;
 	
@@ -278,10 +291,13 @@ begin
 	
 			
 				--interrupt buffering to avoid ghost interrupts
-				if(CLK_000_NE='1')then
+				--if(CLK_000_NE='1')then
 				--if(CLK_000_D0='0' and CLK_000_D1='1')then
-					IPL_030<=IPL;			
-				end if;
+					IPL_D0<=IPL;			
+					if(IPL = IPL_D0)then
+						IPL_030<=IPL;
+					end if;
+				--end if;
 			
 				-- as030-sampling and FPU-Select
 	
@@ -476,10 +492,10 @@ begin
 	end process pos_clk;
 
 	--output clock assignment
-	CLK_DIV_OUT	<= CLK_OUT_INT;
-	CLK_EXP		<= CLK_OUT_INT;
-	--CLK_DIV_OUT	<= 'Z';
-	--CLK_EXP		<= CLK_030;
+	--CLK_DIV_OUT	<= CLK_OUT_INT;
+	--CLK_EXP		<= CLK_OUT_INT;
+	CLK_DIV_OUT	<= 'Z';
+	CLK_EXP		<= CLK_030;
 
 
 	

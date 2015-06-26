@@ -1,0 +1,107 @@
+#Build: Synplify Pro I-2014.03LC , Build 063R, May 27 2014
+#install: C:\ispLever\synpbase
+#OS: Windows 7 6.1
+#Hostname: DEEPTHOUGHT
+
+#Implementation: logic
+
+$ Start of Compile
+#Wed May 13 22:59:14 2015
+
+Synopsys VHDL Compiler, version comp201403rcp1, Build 060R, built May 27 2014
+@N|Running in 64-bit mode
+Copyright (C) 1994-2014 Synopsys, Inc. This software and the associated documentation are proprietary to Synopsys, Inc. This software may only be used in accordance with the terms and conditions of a written license agreement with Synopsys, Inc.  All other use, reproduction, or distribution of this software is strictly prohibited.
+
+@N: CD720 :"C:\ispLever\synpbase\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
+@N:"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Top entity is set to BUS68030.
+File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed - recompiling
+VHDL syntax check successful!
+File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed - recompiling
+@N: CD630 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Synthesizing work.bus68030.behavioral 
+@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":126:7:126:17|Signal clk_out_pre is undriven 
+Post processing for work.bus68030.behavioral
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":139:37:139:39|Pruning register AMIGA_BUS_ENABLE_INT_4  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":133:34:133:36|Pruning register CLK_000_D4_2  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":132:34:132:36|Pruning register CLK_000_D3_2  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:34:131:36|Pruning register CLK_000_D2_2  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":127:35:127:37|Pruning register CLK_OUT_INT_2  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":124:36:124:38|Pruning register CLK_OUT_PRE_50_D_2  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":155:2:155:3|Pruning register CLK_030_D0_2  
+@W: CL265 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":135:61:135:75|Pruning bit 12 of CLK_000_N_SYNC_3(12 downto 0) -- not in use ... 
+@W: CL271 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":134:34:134:36|Pruning bits 12 to 11 of CLK_000_P_SYNC_3(12 downto 0) -- not in use ... 
+@W: CL189 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":139:37:139:39|Register bit BGACK_030_INT_PRE is always 1, optimizing ...
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":139:37:139:39|Trying to extract state machine for register SM_AMIGA
+Extracted state machine for register SM_AMIGA
+State machine has 8 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   100
+   101
+   110
+   111
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":139:37:139:39|Trying to extract state machine for register cpu_est
+@W: CL246 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":23:1:23:1|Input port bits 15 to 2 of a(31 downto 2) are unused 
+@END
+
+At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 71MB peak: 72MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Wed May 13 22:59:15 2015
+
+###########################################################]
+Synopsys Netlist Linker, version comp201403rcp1, Build 060R, built May 27 2014
+@N|Running in 64-bit mode
+File C:\users\matze\documents\github\68030tk\logic\synwork\BUS68030_comp.srs changed - recompiling
+
+At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 67MB peak: 68MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Wed May 13 22:59:16 2015
+
+###########################################################]
+Map & Optimize Report
+
+Synopsys CPLD Technology Mapper, Version maplat, Build 923R, Built May  6 2014
+Copyright (C) 1994-2013, Synopsys, Inc. This software and the associated documentation are proprietary to Synopsys, Inc. This software may only be used in accordance with the terms and conditions of a written license agreement with Synopsys, Inc.  All other use or distribution of the software is strictly prohibited.
+Product Version I-2014.03LC 
+@N: MF248 |Running in 64-bit mode.
+@W: MO111 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":497:16:497:18|Tristate driver CLK_DIV_OUT_1 on net CLK_DIV_OUT_1 has its enable tied to GND (module BUS68030) 
+Encoding state machine SM_AMIGA[0:7] (view:work.BUS68030(behavioral))
+original code -> new code
+   000 -> 00000000
+   001 -> 00000011
+   010 -> 00000101
+   011 -> 00001001
+   100 -> 00010001
+   101 -> 00100001
+   110 -> 01000001
+   111 -> 10000001
+@N: MO106 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":190:4:190:7|Found ROM, 'pos_clk\.cpu_est_11[3:0]', 16 words by 4 bits 
+@W: BN132 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":134:34:134:36|Removing instance CLK_000_P_SYNC[10],  because it is equivalent to instance CLK_000_PE
+---------------------------------------
+Resource Usage Report
+
+Simple gate primitives:
+DFF             83 uses
+BI_DIR          11 uses
+IBUF            46 uses
+OBUF            15 uses
+BUFTH           3 uses
+AND2            303 uses
+INV             263 uses
+XOR2            15 uses
+OR2             28 uses
+
+
+@N: FC100 |Timing Report not generated for this device, please use place and route tools for timing analysis.
+I-2014.03LC 
+Mapper successful!
+
+At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 39MB peak: 105MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Wed May 13 22:59:16 2015
+
+###########################################################]

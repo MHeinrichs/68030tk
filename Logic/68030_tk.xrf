@@ -1,0 +1,16 @@
+Signal Name Cross Reference File
+
+ispLEVER Classic 1.8.00.04.29.14
+
+Design '68030_tk' created Wed May 13 22:59:21 2015
+
+
+ LEGEND:  '>'  Functional Block Port Separator
+          '/'  Hierarchy Path Separator
+          '@'  Automatically Generated Node
+
+
+Short Name                              Hierarchical Name
+----------                              -----------------
+
+ *** Shortened names not required for this design. ***

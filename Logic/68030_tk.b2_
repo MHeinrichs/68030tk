@@ -1,0 +1,1 @@
+ -collapse all -pterms 16 -nmax 32 -clust 5 -reduce bypin choose -xorsyn -dev M4A5_clk
