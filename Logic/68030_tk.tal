@@ -47,7 +47,7 @@ SIGNAL NAME       min  max  min  max  min  max  min  max
           FPU_CS  ..   ..   ..   ..    1    2   ..   ..   
 AMIGA_BUS_DATA_DIR  ..   ..   ..   ..    1    2   ..   ..   
      SM_AMIGA_5_   1    1   ..   ..   ..   ..    1    2   
-  inst_AS_030_D0   1    2    1    1   ..   ..    1    1   
+  inst_AS_030_D0   1    2   ..   ..   ..   ..    1    1   
 inst_nEXP_SPACE_D0reg   1    1    1    1   ..   ..    1    2   
 inst_AS_030_000_SYNC   1    1   ..   ..   ..   ..    1    2   
     CYCLE_DMA_0_   1    2   ..   ..   ..   ..    1    1   
@@ -66,7 +66,6 @@ inst_DS_000_ENABLE   1    1    1    1   ..   ..    2    2
           AS_030  ..   ..   ..   ..    1    1   ..   ..   
           AS_000  ..   ..   ..   ..    1    1   ..   ..   
          CLK_EXP  ..   ..   ..   ..    1    1   ..   ..   
-            CIIN  ..   ..   ..   ..    1    1   ..   ..   
       IPL_030_2_   1    1    0    0   ..   ..    1    1   
    RN_IPL_030_2_   1    1    0    0   ..   ..    1    1   
           RW_000   1    1    0    0   ..   ..    1    1   
@@ -136,4 +135,3 @@ CLK_000_N_SYNC_8_  ..   ..   ..   ..   ..   ..    1    1
 CLK_000_N_SYNC_9_  ..   ..   ..   ..   ..   ..    1    1   
 CLK_000_N_SYNC_10_  ..   ..   ..   ..   ..   ..    1    1   
    SM_AMIGA_i_7_   1    1    1    1   ..   ..    1    1   
-          CIIN_0  ..   ..   ..   ..    1    1   ..   ..   

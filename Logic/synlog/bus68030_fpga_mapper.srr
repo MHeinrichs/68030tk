@@ -24,10 +24,10 @@ BI_DIR          11 uses
 IBUF            46 uses
 OBUF            15 uses
 BUFTH           3 uses
-AND2            303 uses
+AND2            304 uses
 INV             263 uses
-XOR2            15 uses
-OR2             28 uses
+OR2             27 uses
+XOR2            14 uses
 
 
 @N: FC100 |Timing Report not generated for this device, please use place and route tools for timing analysis.
@@ -37,6 +37,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 39MB peak: 105MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Wed May 13 22:59:16 2015
+# Thu Jul 09 18:48:54 2015
 
 ###########################################################]

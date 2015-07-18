@@ -556,9 +556,9 @@ begin
 
 
 	--cache inhibit:  Tristate for expansion (it decides) and off for the Amiga 
-	CIIN <= '1' WHEN A(31 downto 20) = x"00F" and AS_030_D0 ='0' ELSE -- Enable for Kick-rom
-			'Z' WHEN nEXP_SPACE_D0 = '0' ELSE --Tristate for expansion (it decides)
-			'0'; --off for the Amiga
+	CIIN <= 'Z' WHEN nEXP_SPACE_D0 = '0' ELSE --Tristate for expansion (it decides)
+			'1' WHEN A(31 downto 24) = x"00" and AS_030_D0 ='0' and nEXP_SPACE_D0 = '1' ELSE -- Enable for Kick-rom
+			'Z'; --off for the Amiga
 
 		
 	--e and VMA		
