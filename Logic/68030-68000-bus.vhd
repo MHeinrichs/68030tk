@@ -269,6 +269,7 @@ begin
 					BGACK_030_INT	<= '0';
 				elsif (	BGACK_000='1' 
 						AND CLK_000_PE='1'
+						AND AS_000 = '1' --the amiga AS can be still active while bgack is deasserted, so wait for this signal too!
 						--AND CLK_000_D0='1' and CLK_000_D1='0'
 						) then -- BGACK_000 is high here!
 					BGACK_030_INT_PRE<= '1';
@@ -492,10 +493,10 @@ begin
 	end process pos_clk;
 
 	--output clock assignment
-	--CLK_DIV_OUT	<= CLK_OUT_INT;
-	--CLK_EXP		<= CLK_OUT_INT;
-	CLK_DIV_OUT	<= 'Z';
-	CLK_EXP		<= CLK_030;
+	CLK_DIV_OUT	<= CLK_OUT_INT;
+	CLK_EXP		<= CLK_OUT_INT;
+	--CLK_DIV_OUT	<= 'Z';
+	--CLK_EXP		<= CLK_030;
 
 
 	
@@ -556,10 +557,9 @@ begin
 
 
 	--cache inhibit:  Tristate for expansion (it decides) and off for the Amiga 
-	CIIN <= 'Z' WHEN nEXP_SPACE_D0 = '0' ELSE --Tristate for expansion (it decides)
-			'1' WHEN A(31 downto 24) = x"00" and AS_030_D0 ='0' and nEXP_SPACE_D0 = '1' ELSE -- Enable for Kick-rom
-			'Z'; --off for the Amiga
-
+	CIIN <= '1' WHEN A(31 downto 20) = x"00F" and AS_030_D0 ='0' ELSE -- Enable for Kick-rom
+			'Z' WHEN nEXP_SPACE_D0 = '0' ELSE --Tristate for expansion (it decides)
+			'0'; --off for the Amiga
 		
 	--e and VMA		
 	E		<= cpu_est(3);

@@ -50,7 +50,7 @@ Section Member   Rename                   Array-Notation          Array Number  
         Port      FC_0_                       FC[0]                       3            1            
 End
 Section Cross Reference File
-Design 'BUS68030' created Thu Jul 09 18:48:59 2015
+Design 'BUS68030' created Thu Sep 24 16:20:59 2015
    Type              New Name                               Original Name
 // ----------------------------------------------------------------------
    Inst                i_z4141                                  AS_030
@@ -65,780 +65,765 @@ Design 'BUS68030' created Thu Jul 09 18:48:59 2015
    Inst                i_z5S5S                                  DSACK1
    Inst                i_z6464                                      RW
    Inst                i_z6B6B                                    CIIN
-   Inst   pos_clk_un6_bg_030_1                      pos_clk.un6_bg_030_1
+   Inst        SIZE_DMA_0_0__r                           SIZE_DMA_0_0_.r
+   Inst        LDS_000_INT_0_n                           LDS_000_INT_0.n
+   Inst        SIZE_DMA_0_0__m                           SIZE_DMA_0_0_.m
    Inst        LDS_000_INT_0_p                           LDS_000_INT_0.p
-   Inst     pos_clk_un6_bg_030                        pos_clk.un6_bg_030
-   Inst   pos_clk_un40_bgack_030_int_1              pos_clk.un40_bgack_030_int_1
+   Inst        SIZE_DMA_0_0__n                           SIZE_DMA_0_0_.n
+   Inst        SIZE_DMA_0_0__p                           SIZE_DMA_0_0_.p
    Inst         RW_000_INT_0_r                            RW_000_INT_0.r
-   Inst   pos_clk_un7_clk_000_d0_1                  pos_clk.un7_clk_000_d0_1
-   Inst          SM_AMIGA_i_2_                             SM_AMIGA_i[2]
    Inst         RW_000_INT_0_m                            RW_000_INT_0.m
-   Inst   pos_clk_un7_clk_000_d0                    pos_clk.un7_clk_000_d0
-   Inst   pos_clk_un29_clk_000_ne_d0_i              pos_clk.un29_clk_000_ne_d0_i
    Inst         RW_000_INT_0_n                            RW_000_INT_0.n
-   Inst   SM_AMIGA_srsts_i_a6_0_2_                  SM_AMIGA_srsts_i_a6_0[2]
    Inst         RW_000_INT_0_p                            RW_000_INT_0.p
-   Inst   SM_AMIGA_srsts_i_a6_2_                    SM_AMIGA_srsts_i_a6[2]
-   Inst   pos_clk_un29_clk_000_ne_d0                pos_clk.un29_clk_000_ne_d0
-   Inst         RW_000_DMA_0_r                            RW_000_DMA_0.r
-   Inst   pos_clk_un23_clk_000_ne_d0                pos_clk.un23_clk_000_ne_d0
-   Inst         RW_000_DMA_0_m                            RW_000_DMA_0.m
-   Inst   pos_clk_un7_clk_000_pe                    pos_clk.un7_clk_000_pe
-   Inst         RW_000_DMA_0_n                            RW_000_DMA_0.n
-   Inst         RW_000_DMA_0_p                            RW_000_DMA_0.p
-   Inst   pos_clk_un21_clk_000_ne_d0                pos_clk.un21_clk_000_ne_d0
    Inst        UDS_000_INT_0_r                           UDS_000_INT_0.r
-   Inst   pos_clk_un37_as_030_d0_i_a2_1_1           pos_clk.un37_as_030_d0_i_a2_1_1
-   Inst         cpu_est_0_3__r                            cpu_est_0_3_.r
    Inst        UDS_000_INT_0_m                           UDS_000_INT_0.m
-   Inst   pos_clk_un37_as_030_d0_i_a2_1_2           pos_clk.un37_as_030_d0_i_a2_1_2
-   Inst         cpu_est_0_3__m                            cpu_est_0_3_.m
    Inst        UDS_000_INT_0_n                           UDS_000_INT_0.n
-   Inst   pos_clk_un37_as_030_d0_i_a2_1_3           pos_clk.un37_as_030_d0_i_a2_1_3
-   Inst         cpu_est_0_3__n                            cpu_est_0_3_.n
    Inst        UDS_000_INT_0_p                           UDS_000_INT_0.p
-   Inst   pos_clk_un37_as_030_d0_i_a2_1_4           pos_clk.un37_as_030_d0_i_a2_1_4
-   Inst         cpu_est_0_3__p                            cpu_est_0_3_.p
-   Inst   pos_clk_un37_as_030_d0_i_a2_1             pos_clk.un37_as_030_d0_i_a2_1
-   Inst         cpu_est_0_2__r                            cpu_est_0_2_.r
-   Inst   AMIGA_BUS_ENABLE_DMA_LOW_0_r              AMIGA_BUS_ENABLE_DMA_LOW_0.r
-   Inst         cpu_est_0_2__m                            cpu_est_0_2_.m
-   Inst   AMIGA_BUS_ENABLE_DMA_LOW_0_m              AMIGA_BUS_ENABLE_DMA_LOW_0.m
-   Inst         cpu_est_0_2__n                            cpu_est_0_2_.n
-   Inst   AMIGA_BUS_ENABLE_DMA_LOW_0_n              AMIGA_BUS_ENABLE_DMA_LOW_0.n
-   Inst         cpu_est_0_2__p                            cpu_est_0_2_.p
-   Inst   AMIGA_BUS_ENABLE_DMA_LOW_0_p              AMIGA_BUS_ENABLE_DMA_LOW_0.p
-   Inst         cpu_est_0_1__r                            cpu_est_0_1_.r
-   Inst   SM_AMIGA_srsts_i_1_3_                     SM_AMIGA_srsts_i_1[3]
-   Inst         cpu_est_0_1__m                            cpu_est_0_1_.m
-   Inst   AMIGA_BUS_ENABLE_DMA_HIGH_0_r             AMIGA_BUS_ENABLE_DMA_HIGH_0.r
-   Inst   pos_clk_cpu_est_11_0_1_3_                 pos_clk.cpu_est_11_0_1[3]
-   Inst         cpu_est_0_1__n                            cpu_est_0_1_.n
-   Inst   AMIGA_BUS_ENABLE_DMA_HIGH_0_m             AMIGA_BUS_ENABLE_DMA_HIGH_0.m
-   Inst   pos_clk_cpu_est_11_0_3_                   pos_clk.cpu_est_11_0[3]
-   Inst         cpu_est_0_1__p                            cpu_est_0_1_.p
-   Inst   AMIGA_BUS_ENABLE_DMA_HIGH_0_n             AMIGA_BUS_ENABLE_DMA_HIGH_0.n
-   Inst   pos_clk_cpu_est_11_0_1_1_                 pos_clk.cpu_est_11_0_1[1]
-   Inst   AMIGA_BUS_ENABLE_DMA_HIGH_0_p             AMIGA_BUS_ENABLE_DMA_HIGH_0.p
-   Inst   pos_clk_cpu_est_11_0_2_1_                 pos_clk.cpu_est_11_0_2[1]
-   Inst             BG_000_0_r                                BG_000_0.r
-   Inst   pos_clk_cpu_est_11_0_1_                   pos_clk.cpu_est_11_0[1]
-   Inst      BGACK_030_INT_0_r                         BGACK_030_INT_0.r
-   Inst             BG_000_0_m                                BG_000_0.m
-   Inst   SM_AMIGA_nss_i_i_1_0_                     SM_AMIGA_nss_i_i_1[0]
-   Inst      BGACK_030_INT_0_m                         BGACK_030_INT_0.m
-   Inst             BG_000_0_n                                BG_000_0.n
-   Inst   SM_AMIGA_nss_i_i_2_0_                     SM_AMIGA_nss_i_i_2[0]
-   Inst      BGACK_030_INT_0_n                         BGACK_030_INT_0.n
-   Inst             BG_000_0_p                                BG_000_0.p
-   Inst   SM_AMIGA_nss_i_i_3_0_                     SM_AMIGA_nss_i_i_3[0]
-   Inst      BGACK_030_INT_0_p                         BGACK_030_INT_0.p
-   Inst    SM_AMIGA_nss_i_i_0_                       SM_AMIGA_nss_i_i[0]
-   Inst   pos_clk_cpu_est_11_0_o4_1_                pos_clk.cpu_est_11_0_o4[1]
-   Inst   pos_clk_un3_ds_030_d0                     pos_clk.un3_ds_030_d0
-   Inst   pos_clk_un11_ds_030_d0_1                  pos_clk.un11_ds_030_d0_1
-   Inst           cpu_est_i_1_                              cpu_est_i[1]
-   Inst   pos_clk_un11_ds_030_d0                    pos_clk.un11_ds_030_d0
-   Inst   pos_clk_cpu_est_11_i_o4_2_                pos_clk.cpu_est_11_i_o4[2]
-   Inst   pos_clk_cpu_est_11_i_2_                   pos_clk.cpu_est_11_i[2]
-   Inst     pos_clk_un8_bg_030                        pos_clk.un8_bg_030
-   Inst   pos_clk_cpu_est_11_0_a4_0_3_              pos_clk.cpu_est_11_0_a4_0[3]
-   Inst   pos_clk_cpu_est_11_0_a4_3_                pos_clk.cpu_est_11_0_a4[3]
-   Inst   pos_clk_cpu_est_11_0_a4_2_1_              pos_clk.cpu_est_11_0_a4_2[1]
-   Inst   pos_clk_cpu_est_11_0_a4_1_1_              pos_clk.cpu_est_11_0_a4_1[1]
-   Inst           cpu_est_i_3_                              cpu_est_i[3]
-   Inst           cpu_est_i_2_                              cpu_est_i[2]
-   Inst   pos_clk_cpu_est_11_0_a4_0_1_              pos_clk.cpu_est_11_0_a4_0[1]
-   Inst           cpu_est_i_0_                              cpu_est_i[0]
-   Inst             A0_DMA_0_r                                A0_DMA_0.r
-   Inst   pos_clk_cpu_est_11_0_a4_1_                pos_clk.cpu_est_11_0_a4[1]
-   Inst             A0_DMA_0_m                                A0_DMA_0.m
-   Inst   SM_AMIGA_srsts_i_o3_2_                    SM_AMIGA_srsts_i_o3[2]
-   Inst             A0_DMA_0_n                                A0_DMA_0.n
-   Inst   SM_AMIGA_srsts_i_o3_3_                    SM_AMIGA_srsts_i_o3[3]
-   Inst             A0_DMA_0_p                                A0_DMA_0.p
-   Inst   pos_clk_un6_bg_030_i                      pos_clk.un6_bg_030_i
-   Inst              IPL_D0_2_                                 IPL_D0[2]
-   Inst   pos_clk_un8_bg_030_i                      pos_clk.un8_bg_030_i
-   Inst          SM_AMIGA_i_7_                             SM_AMIGA_i[7]
-   Inst   pos_clk_un37_as_030_d0_i_o4_1             pos_clk.un37_as_030_d0_i_o4_1
-   Inst            SM_AMIGA_6_                               SM_AMIGA[6]
-   Inst   pos_clk_un37_as_030_d0_i_o4               pos_clk.un37_as_030_d0_i_o4
-   Inst            SM_AMIGA_5_                               SM_AMIGA[5]
-   Inst   SM_AMIGA_srsts_i_1_2_                     SM_AMIGA_srsts_i_1[2]
-   Inst   SM_AMIGA_srsts_i_0_a2_1_                  SM_AMIGA_srsts_i_0_a2[1]
-   Inst            SM_AMIGA_4_                               SM_AMIGA[4]
+   Inst   pos_clk_un9_clk_000_ne_1                  pos_clk.un9_clk_000_ne_1
+   Inst            VMA_INT_0_r                               VMA_INT_0.r
+   Inst   pos_clk_un9_clk_000_ne_2                  pos_clk.un9_clk_000_ne_2
+   Inst   pos_clk_un4_bgack_000_i_o2                pos_clk.un4_bgack_000_i_o2
+   Inst            VMA_INT_0_m                               VMA_INT_0.m
    Inst    SM_AMIGA_srsts_i_2_                       SM_AMIGA_srsts_i[2]
-   Inst   pos_clk_un4_bgack_000_i_a2                pos_clk.un4_bgack_000_i_a2
+   Inst        SM_AMIGA_i_i_7_                           SM_AMIGA_i_i[7]
+   Inst            VMA_INT_0_n                               VMA_INT_0.n
+   Inst   SM_AMIGA_srsts_i_1_3_                     SM_AMIGA_srsts_i_1[3]
+   Inst   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m2_0__r   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m2_0_.r
+   Inst            VMA_INT_0_p                               VMA_INT_0.p
+   Inst   SM_AMIGA_srsts_i_2_3_                     SM_AMIGA_srsts_i_2[3]
+   Inst   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m2_0__m   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m2_0_.m
+   Inst             BG_000_0_r                                BG_000_0.r
+   Inst    SM_AMIGA_srsts_i_3_                       SM_AMIGA_srsts_i[3]
+   Inst   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m2_0__n   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m2_0_.n
+   Inst             BG_000_0_m                                BG_000_0.m
+   Inst   SM_AMIGA_srsts_i_1_4_                     SM_AMIGA_srsts_i_1[4]
+   Inst   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m2_0__p   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m2_0_.p
+   Inst             BG_000_0_n                                BG_000_0.n
+   Inst    SM_AMIGA_srsts_i_4_                       SM_AMIGA_srsts_i[4]
+   Inst             BG_000_0_p                                BG_000_0.p
+   Inst   SM_AMIGA_srsts_i_1_6_                     SM_AMIGA_srsts_i_1[6]
+   Inst   pos_clk_un3_as_030_d0_i_a2                pos_clk.un3_as_030_d0_i_a2
+   Inst    SM_AMIGA_srsts_i_6_                       SM_AMIGA_srsts_i[6]
+   Inst   SM_AMIGA_nss_i_i_a6_1_0_0_                SM_AMIGA_nss_i_i_a6_1_0[0]
+   Inst   SM_AMIGA_nss_i_i_a6_0_                    SM_AMIGA_nss_i_i_a6[0]
+   Inst   SM_AMIGA_nss_i_i_a6_0_1_0_                SM_AMIGA_nss_i_i_a6_0_1[0]
+   Inst   pos_clk_CLK_000_N_SYNC_2_0_               pos_clk.CLK_000_N_SYNC_2[0]
+   Inst   SM_AMIGA_nss_i_i_a6_0_0_                  SM_AMIGA_nss_i_i_a6_0[0]
+   Inst   SM_AMIGA_nss_i_i_a6_2_1_0_                SM_AMIGA_nss_i_i_a6_2_1[0]
+   Inst   pos_clk_CLK_000_P_SYNC_2_0_               pos_clk.CLK_000_P_SYNC_2[0]
+   Inst   SM_AMIGA_nss_i_i_a6_2_2_0_                SM_AMIGA_nss_i_i_a6_2_2[0]
+   Inst   SM_AMIGA_nss_i_i_a6_2_3_0_                SM_AMIGA_nss_i_i_a6_2_3[0]
+   Inst   pos_clk_un3_ds_030_d0                     pos_clk.un3_ds_030_d0
+   Inst   pos_clk_cpu_est_11_0_1_                   pos_clk.cpu_est_11_0[1]
+   Inst   pos_clk_AMIGA_BUS_ENABLE_DMA_HIGH_3_i_a2  pos_clk.AMIGA_BUS_ENABLE_DMA_HIGH_3_i_a2
+   Inst     pos_clk_un8_bg_030                        pos_clk.un8_bg_030
+   Inst   pos_clk_cpu_est_11_0_1_3_                 pos_clk.cpu_est_11_0_1[3]
+   Inst   pos_clk_A0_DMA_3_0_a2                     pos_clk.A0_DMA_3_0_a2
+   Inst   pos_clk_cpu_est_11_0_3_                   pos_clk.cpu_est_11_0[3]
+   Inst   pos_clk_un37_as_030_d0_i_a2               pos_clk.un37_as_030_d0_i_a2
+   Inst   pos_clk_cpu_est_11_i_a4_1_2_              pos_clk.cpu_est_11_i_a4_1[2]
+   Inst   pos_clk_un37_as_030_d0_i_a2_0             pos_clk.un37_as_030_d0_i_a2_0
+   Inst   pos_clk_cpu_est_11_i_a4_2_                pos_clk.cpu_est_11_i_a4[2]
+   Inst   pos_clk_un24_bgack_030_int_i_0_a2         pos_clk.un24_bgack_030_int_i_0_a2
+   Inst   pos_clk_cpu_est_11_i_a4_0_1_2_            pos_clk.cpu_est_11_i_a4_0_1[2]
+   Inst   pos_clk_SIZE_DMA_6_0_0_1_                 pos_clk.SIZE_DMA_6_0_0[1]
+   Inst   pos_clk_cpu_est_11_i_a4_0_2_              pos_clk.cpu_est_11_i_a4_0[2]
+   Inst   pos_clk_SIZE_DMA_6_0_0_0_                 pos_clk.SIZE_DMA_6_0_0[0]
+   Inst   SM_AMIGA_nss_i_i_1_0_                     SM_AMIGA_nss_i_i_1[0]
+   Inst   pos_clk_un37_as_030_d0_i                  pos_clk.un37_as_030_d0_i
+   Inst   SM_AMIGA_nss_i_i_2_0_                     SM_AMIGA_nss_i_i_2[0]
+   Inst   pos_clk_un6_bgack_000_0                   pos_clk.un6_bgack_000_0
+   Inst   SM_AMIGA_nss_i_i_3_0_                     SM_AMIGA_nss_i_i_3[0]
+   Inst         DS_000_DMA_0_r                            DS_000_DMA_0.r
+   Inst    SM_AMIGA_nss_i_i_0_                       SM_AMIGA_nss_i_i[0]
+   Inst         DS_000_DMA_0_m                            DS_000_DMA_0.m
+   Inst   SM_AMIGA_srsts_i_1_1_                     SM_AMIGA_srsts_i_1[1]
+   Inst   pos_clk_un24_bgack_030_int_i_0_x2         pos_clk.un24_bgack_030_int_i_0_x2
+   Inst         DS_000_DMA_0_n                            DS_000_DMA_0.n
+   Inst   SM_AMIGA_srsts_i_2_1_                     SM_AMIGA_srsts_i_2[1]
+   Inst         DS_000_DMA_0_p                            DS_000_DMA_0.p
+   Inst    SM_AMIGA_srsts_i_1_                       SM_AMIGA_srsts_i[1]
+   Inst   pos_clk_SIZE_DMA_6_0_0_o2_0_              pos_clk.SIZE_DMA_6_0_0_o2[0]
+   Inst         AS_000_DMA_0_r                            AS_000_DMA_0.r
+   Inst   SM_AMIGA_srsts_i_1_2_                     SM_AMIGA_srsts_i_1[2]
+   Inst          SM_AMIGA_i_5_                             SM_AMIGA_i[5]
+   Inst         AS_000_DMA_0_m                            AS_000_DMA_0.m
+   Inst   SM_AMIGA_srsts_i_a6_1_5_                  SM_AMIGA_srsts_i_a6_1[5]
+   Inst         AS_000_DMA_0_n                            AS_000_DMA_0.n
+   Inst         AS_000_DMA_0_p                            AS_000_DMA_0.p
+   Inst   SM_AMIGA_srsts_i_a6_0_5_                  SM_AMIGA_srsts_i_a6_0[5]
+   Inst          IPL_030DFF_2_                             IPL_030DFF[2]
+   Inst          SM_AMIGA_i_6_                             SM_AMIGA_i[6]
+   Inst              IPL_D0_0_                                 IPL_D0[0]
+   Inst   pos_clk_un6_bg_030_i                      pos_clk.un6_bg_030_i
+   Inst   SM_AMIGA_srsts_i_a6_5_                    SM_AMIGA_srsts_i_a6[5]
+   Inst              IPL_D0_1_                                 IPL_D0[1]
+   Inst   pos_clk_un8_bg_030_i                      pos_clk.un8_bg_030_i
+   Inst              IPL_D0_2_                                 IPL_D0[2]
+   Inst   SM_AMIGA_srsts_i_1_5_                     SM_AMIGA_srsts_i_1[5]
+   Inst          SM_AMIGA_i_7_                             SM_AMIGA_i[7]
+   Inst   SM_AMIGA_srsts_i_2_5_                     SM_AMIGA_srsts_i_2[5]
+   Inst            SM_AMIGA_6_                               SM_AMIGA[6]
+   Inst    SM_AMIGA_srsts_i_5_                       SM_AMIGA_srsts_i[5]
+   Inst            SM_AMIGA_5_                               SM_AMIGA[5]
+   Inst   pos_clk_un11_ds_030_d0_1                  pos_clk.un11_ds_030_d0_1
+   Inst            SM_AMIGA_4_                               SM_AMIGA[4]
+   Inst   pos_clk_un11_ds_030_d0                    pos_clk.un11_ds_030_d0
+   Inst   pos_clk_SIZE_DMA_6_0_0_a2_1_              pos_clk.SIZE_DMA_6_0_0_a2[1]
    Inst            SM_AMIGA_3_                               SM_AMIGA[3]
-   Inst          SM_AMIGA_i_1_                             SM_AMIGA_i[1]
+   Inst   SM_AMIGA_nss_i_i_o3_0_1_0_                SM_AMIGA_nss_i_i_o3_0_1[0]
+   Inst   pos_clk_SIZE_DMA_6_0_0_a2_0_              pos_clk.SIZE_DMA_6_0_0_a2[0]
    Inst            SM_AMIGA_2_                               SM_AMIGA[2]
-   Inst   SM_AMIGA_srsts_i_0_o4_1_                  SM_AMIGA_srsts_i_0_o4[1]
+   Inst   SM_AMIGA_nss_i_i_o3_0_0_                  SM_AMIGA_nss_i_i_o3_0[0]
    Inst            SM_AMIGA_1_                               SM_AMIGA[1]
-   Inst           cpu_est_0_0_                              cpu_est_0[0]
+   Inst   pos_clk_cpu_est_11_0_1_1_                 pos_clk.cpu_est_11_0_1[1]
+   Inst   pos_clk_AMIGA_BUS_ENABLE_DMA_LOW_3_i_a2   pos_clk.AMIGA_BUS_ENABLE_DMA_LOW_3_i_a2
    Inst            SM_AMIGA_0_                               SM_AMIGA[0]
+   Inst   pos_clk_cpu_est_11_0_2_1_                 pos_clk.cpu_est_11_0_2[1]
    Inst             cpu_est_0_                                cpu_est[0]
-   Inst   pos_clk_un27_clk_000_ne_d0_2              pos_clk.un27_clk_000_ne_d0_2
    Inst             cpu_est_1_                                cpu_est[1]
    Inst             cpu_est_2_                                cpu_est[2]
-   Inst   pos_clk_cpu_est_11_0_a4_1_3_              pos_clk.cpu_est_11_0_a4_1[3]
    Inst             cpu_est_3_                                cpu_est[3]
-   Inst   pos_clk_cpu_est_11_0_o4_3_                pos_clk.cpu_est_11_0_o4[3]
    Inst          IPL_030DFF_0_                             IPL_030DFF[0]
-   Inst       un1_RST_DLY_i_4_                          un1_RST_DLY_i[4]
    Inst          IPL_030DFF_1_                             IPL_030DFF[1]
-   Inst     un1_RST_DLY_i_m_4_                        un1_RST_DLY_i_m[4]
-   Inst          IPL_030DFF_2_                             IPL_030DFF[2]
-   Inst   pos_clk_RST_DLY_5_iv_2_                   pos_clk.RST_DLY_5_iv[2]
-   Inst              IPL_D0_0_                                 IPL_D0[0]
-   Inst       un1_RST_DLY_i_3_                          un1_RST_DLY_i[3]
-   Inst              IPL_D0_1_                                 IPL_D0[1]
-   Inst     un1_RST_DLY_i_m_3_                        un1_RST_DLY_i_m[3]
-   Inst             RST_DLY_0_                                RST_DLY[0]
-   Inst   pos_clk_RST_DLY_5_iv_1_                   pos_clk.RST_DLY_5_iv[1]
-   Inst             RST_DLY_1_                                RST_DLY[1]
-   Inst       un1_RST_DLY_i_2_                          un1_RST_DLY_i[2]
-   Inst             RST_DLY_2_                                RST_DLY[2]
-   Inst         IPL_030_1_i_1_                            IPL_030_1_i[1]
-   Inst     un1_RST_DLY_i_m_2_                        un1_RST_DLY_i_m[2]
-   Inst             RST_DLY_3_                                RST_DLY[3]
-   Inst             RST_DLY_4_                                RST_DLY[4]
-   Inst         IPL_030_1_i_0_                            IPL_030_1_i[0]
-   Inst             RST_DLY_5_                                RST_DLY[5]
-   Inst             IPL_c_i_2_                                IPL_c_i[2]
-   Inst             RST_DLY_6_                                RST_DLY[6]
-   Inst          IPL_D0_0_i_2_                             IPL_D0_0_i[2]
-   Inst             RST_DLY_7_                                RST_DLY[7]
-   Inst             IPL_c_i_1_                                IPL_c_i[1]
-   Inst   pos_clk_RST_DLY_5_iv_0_a2_0_              pos_clk.RST_DLY_5_iv_0_a2[0]
-   Inst           CYCLE_DMA_0_                              CYCLE_DMA[0]
-   Inst          IPL_D0_0_i_1_                             IPL_D0_0_i[1]
-   Inst   pos_clk_RST_DLY_5_iv_0_0_                 pos_clk.RST_DLY_5_iv_0[0]
-   Inst           CYCLE_DMA_1_                              CYCLE_DMA[1]
-   Inst             IPL_c_i_0_                                IPL_c_i[0]
-   Inst   pos_clk_RST_DLY_5_iv_0_x2_0_              pos_clk.RST_DLY_5_iv_0_x2[0]
-   Inst            SIZE_DMA_0_                               SIZE_DMA[0]
-   Inst          IPL_D0_0_i_0_                             IPL_D0_0_i[0]
-   Inst            SIZE_DMA_1_                               SIZE_DMA[1]
-   Inst      CLK_000_P_SYNC_8_                         CLK_000_P_SYNC[8]
-   Inst   pos_clk_RST_DLY_5_iv_7_                   pos_clk.RST_DLY_5_iv[7]
-   Inst      CLK_000_P_SYNC_9_                         CLK_000_P_SYNC[9]
-   Inst       un1_RST_DLY_i_8_                          un1_RST_DLY_i[8]
-   Inst      CLK_000_N_SYNC_0_                         CLK_000_N_SYNC[0]
-   Inst     un1_RST_DLY_i_m_8_                        un1_RST_DLY_i_m[8]
-   Inst      CLK_000_N_SYNC_1_                         CLK_000_N_SYNC[1]
-   Inst   pos_clk_RST_DLY_5_iv_6_                   pos_clk.RST_DLY_5_iv[6]
-   Inst      CLK_000_N_SYNC_2_                         CLK_000_N_SYNC[2]
-   Inst       un1_RST_DLY_i_7_                          un1_RST_DLY_i[7]
-   Inst      CLK_000_N_SYNC_3_                         CLK_000_N_SYNC[3]
-   Inst     un1_RST_DLY_i_m_7_                        un1_RST_DLY_i_m[7]
-   Inst      CLK_000_N_SYNC_4_                         CLK_000_N_SYNC[4]
-   Inst   pos_clk_RST_DLY_5_iv_5_                   pos_clk.RST_DLY_5_iv[5]
-   Inst      CLK_000_N_SYNC_5_                         CLK_000_N_SYNC[5]
-   Inst       un1_RST_DLY_i_6_                          un1_RST_DLY_i[6]
-   Inst      CLK_000_N_SYNC_6_                         CLK_000_N_SYNC[6]
-   Inst     un1_RST_DLY_i_m_6_                        un1_RST_DLY_i_m[6]
-   Inst      CLK_000_N_SYNC_7_                         CLK_000_N_SYNC[7]
-   Inst   pos_clk_RST_DLY_5_iv_4_                   pos_clk.RST_DLY_5_iv[4]
-   Inst      CLK_000_N_SYNC_8_                         CLK_000_N_SYNC[8]
-   Inst       un1_RST_DLY_i_5_                          un1_RST_DLY_i[5]
    Inst      CLK_000_N_SYNC_9_                         CLK_000_N_SYNC[9]
-   Inst   SM_AMIGA_srsts_i_o3_i_6_                  SM_AMIGA_srsts_i_o3_i[6]
-   Inst     un1_RST_DLY_i_m_5_                        un1_RST_DLY_i_m[5]
    Inst     CLK_000_N_SYNC_10_                        CLK_000_N_SYNC[10]
-   Inst   SM_AMIGA_srsts_i_o3_i_4_                  SM_AMIGA_srsts_i_o3_i[4]
-   Inst   pos_clk_RST_DLY_5_iv_3_                   pos_clk.RST_DLY_5_iv[3]
+   Inst   pos_clk_CYCLE_DMA_5_1_i_o2                pos_clk.CYCLE_DMA_5_1_i_o2
    Inst     CLK_000_N_SYNC_11_                        CLK_000_N_SYNC[11]
-   Inst   SM_AMIGA_srsts_i_o3_i_5_                  SM_AMIGA_srsts_i_o3_i[5]
-   Inst      CLK_000_P_SYNC_0_                         CLK_000_P_SYNC[0]
-   Inst   SM_AMIGA_srsts_i_o3_0_i_0_                SM_AMIGA_srsts_i_o3_0_i[0]
-   Inst      CLK_000_P_SYNC_1_                         CLK_000_P_SYNC[1]
-   Inst   SM_AMIGA_srsts_i_0_a2_0_                  SM_AMIGA_srsts_i_0_a2[0]
-   Inst      CLK_000_P_SYNC_2_                         CLK_000_P_SYNC[2]
-   Inst            SIZE_c_i_1_                               SIZE_c_i[1]
-   Inst   pos_clk_SIZE_DMA_6_0_0_a2_0_              pos_clk.SIZE_DMA_6_0_0_a2[0]
-   Inst      CLK_000_P_SYNC_3_                         CLK_000_P_SYNC[3]
-   Inst   pos_clk_SIZE_DMA_6_0_0_a2_1_              pos_clk.SIZE_DMA_6_0_0_a2[1]
-   Inst      CLK_000_P_SYNC_4_                         CLK_000_P_SYNC[4]
-   Inst         IPL_030_1_i_2_                            IPL_030_1_i[2]
-   Inst      CLK_000_P_SYNC_5_                         CLK_000_P_SYNC[5]
-   Inst      CLK_000_P_SYNC_6_                         CLK_000_P_SYNC[6]
-   Inst      CLK_000_P_SYNC_7_                         CLK_000_P_SYNC[7]
-   Inst   pos_clk_un37_as_030_d0_i_i                pos_clk.un37_as_030_d0_i_i
-   Inst   pos_clk_un3_as_030_d0_0_o2_i              pos_clk.un3_as_030_d0_0_o2_i
-   Inst   pos_clk_SIZE_DMA_6_0_0_o4_i_0_            pos_clk.SIZE_DMA_6_0_0_o4_i[0]
-   Inst   pos_clk_un37_as_030_d0_i_o4_i             pos_clk.un37_as_030_d0_i_o4_i
-   Inst   SM_AMIGA_srsts_i_0_o4_i_0_                SM_AMIGA_srsts_i_0_o4_i[0]
-   Inst   SM_AMIGA_srsts_i_0_0_                     SM_AMIGA_srsts_i_0[0]
-   Inst   pos_clk_SIZE_DMA_6_0_0_0_                 pos_clk.SIZE_DMA_6_0_0[0]
-   Inst   pos_clk_SIZE_DMA_6_0_0_1_                 pos_clk.SIZE_DMA_6_0_0[1]
-   Inst        SM_AMIGA_i_i_7_                           SM_AMIGA_i_i[7]
-   Inst   pos_clk_CLK_000_P_SYNC_2_0_a2_0_          pos_clk.CLK_000_P_SYNC_2_0_a2[0]
-   Inst   un1_RST_DLY_i_m_i_6_                      un1_RST_DLY_i_m_i[6]
-   Inst   un1_RST_DLY_i_m_i_7_                      un1_RST_DLY_i_m_i[7]
-   Inst   un1_RST_DLY_i_m_i_8_                      un1_RST_DLY_i_m_i[8]
-   Inst   pos_clk_un37_as_030_d0_i_a2_0             pos_clk.un37_as_030_d0_i_a2_0
-   Inst   pos_clk_un37_as_030_d0_i_a2               pos_clk.un37_as_030_d0_i_a2
-   Inst   pos_clk_A0_DMA_3_0_a2                     pos_clk.A0_DMA_3_0_a2
-   Inst   pos_clk_AMIGA_BUS_ENABLE_DMA_HIGH_3_i_a2  pos_clk.AMIGA_BUS_ENABLE_DMA_HIGH_3_i_a2
-   Inst   pos_clk_AMIGA_BUS_ENABLE_DMA_LOW_3_i_a2   pos_clk.AMIGA_BUS_ENABLE_DMA_LOW_3_i_a2
-   Inst   pos_clk_SIZE_DMA_6_0_0_i_1_               pos_clk.SIZE_DMA_6_0_0_i[1]
-   Inst   SM_AMIGA_srsts_i_o6_0_a4_0_               SM_AMIGA_srsts_i_o6_0_a4[0]
-   Inst   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m4_0__r   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m4_0_.r
-   Inst   pos_clk_SIZE_DMA_6_0_0_i_0_               pos_clk.SIZE_DMA_6_0_0_i[0]
-   Inst   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m4_0__m   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m4_0_.m
-   Inst   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m4_0__n   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m4_0_.n
-   Inst   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m4_0__p   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m4_0_.p
-   Inst   SM_AMIGA_srsts_i_0_o4_0_                  SM_AMIGA_srsts_i_0_o4[0]
-   Inst   pos_clk_SIZE_DMA_6_0_0_o4_0_              pos_clk.SIZE_DMA_6_0_0_o4[0]
-   Inst   pos_clk_cpu_est_11_0_i_1_                 pos_clk.cpu_est_11_0_i[1]
-   Inst   DS_000_ENABLE_1_sqmuxa_1_i_m4_r           DS_000_ENABLE_1_sqmuxa_1_i_m4.r
-   Inst   DS_000_ENABLE_1_sqmuxa_1_i_m4_m           DS_000_ENABLE_1_sqmuxa_1_i_m4.m
-   Inst   pos_clk_cpu_est_11_0_i_3_                 pos_clk.cpu_est_11_0_i[3]
-   Inst   DS_000_ENABLE_1_sqmuxa_1_i_m4_n           DS_000_ENABLE_1_sqmuxa_1_i_m4.n
-   Inst   DS_000_ENABLE_1_sqmuxa_1_i_m4_p           DS_000_ENABLE_1_sqmuxa_1_i_m4.p
-   Inst   pos_clk_un3_as_030_d0_0_o2                pos_clk.un3_as_030_d0_0_o2
-   Inst   SM_AMIGA_nss_i_i_o3_0_i_0_                SM_AMIGA_nss_i_i_o3_0_i[0]
-   Inst   SM_AMIGA_srsts_i_0_o4_i_1_                SM_AMIGA_srsts_i_0_o4_i[1]
-   Inst          SM_AMIGA_i_5_                             SM_AMIGA_i[5]
-   Inst                SIZE_0_                                   SIZE[0]
-   Inst                SIZE_1_                                   SIZE[1]
-   Inst   pos_clk_un37_as_030_d0_i                  pos_clk.un37_as_030_d0_i
-   Inst   un1_RST_DLY_i_m_i_2_                      un1_RST_DLY_i_m_i[2]
-   Inst   un1_RST_DLY_i_m_i_3_                      un1_RST_DLY_i_m_i[3]
-   Inst   un1_RST_DLY_i_m_i_4_                      un1_RST_DLY_i_m_i[4]
-   Inst   un1_RST_DLY_i_m_i_5_                      un1_RST_DLY_i_m_i[5]
-   Inst   SM_AMIGA_srsts_i_a6_5_                    SM_AMIGA_srsts_i_a6[5]
-   Inst   pos_clk_un7_clk_000_pe_i                  pos_clk.un7_clk_000_pe_i
-   Inst   SM_AMIGA_srsts_i_a6_0_5_                  SM_AMIGA_srsts_i_a6_0[5]
-   Inst   pos_clk_un27_clk_000_ne_d0_i              pos_clk.un27_clk_000_ne_d0_i
-   Inst   SM_AMIGA_srsts_i_a6_1_5_                  SM_AMIGA_srsts_i_a6_1[5]
-   Inst   pos_clk_un21_clk_000_ne_d0_i              pos_clk.un21_clk_000_ne_d0_i
-   Inst   SM_AMIGA_srsts_i_a6_6_                    SM_AMIGA_srsts_i_a6[6]
-   Inst   pos_clk_un23_clk_000_ne_d0_i              pos_clk.un23_clk_000_ne_d0_i
-   Inst   SM_AMIGA_srsts_i_a6_0_6_                  SM_AMIGA_srsts_i_a6_0[6]
-   Inst   SM_AMIGA_srsts_i_o3_i_3_                  SM_AMIGA_srsts_i_o3_i[3]
-   Inst   SM_AMIGA_srsts_i_o3_0_0_                  SM_AMIGA_srsts_i_o3_0[0]
-   Inst   SM_AMIGA_srsts_i_o3_i_2_                  SM_AMIGA_srsts_i_o3_i[2]
+   Inst             RST_DLY_0_                                RST_DLY[0]
+   Inst   pos_clk_RST_DLY_5_iv_0_                   pos_clk.RST_DLY_5_iv[0]
+   Inst             RST_DLY_1_                                RST_DLY[1]
+   Inst             RST_DLY_2_                                RST_DLY[2]
+   Inst       un1_RST_DLY_i_1_                          un1_RST_DLY_i[1]
+   Inst             RST_DLY_3_                                RST_DLY[3]
+   Inst     un1_RST_DLY_i_m_1_                        un1_RST_DLY_i_m[1]
+   Inst             RST_DLY_4_                                RST_DLY[4]
    Inst   SM_AMIGA_srsts_i_o3_5_                    SM_AMIGA_srsts_i_o3[5]
-   Inst          SM_AMIGA_i_4_                             SM_AMIGA_i[4]
-   Inst   SM_AMIGA_srsts_i_o3_4_                    SM_AMIGA_srsts_i_o3[4]
-   Inst   pos_clk_cpu_est_11_i_o4_i_2_              pos_clk.cpu_est_11_i_o4_i[2]
-   Inst          SM_AMIGA_i_6_                             SM_AMIGA_i[6]
-   Inst   pos_clk_cpu_est_11_0_o4_i_1_              pos_clk.cpu_est_11_0_o4_i[1]
-   Inst   SM_AMIGA_srsts_i_o3_6_                    SM_AMIGA_srsts_i_o3[6]
-   Inst                  A_16_                                     A[16]
+   Inst             RST_DLY_5_                                RST_DLY[5]
+   Inst   pos_clk_RST_DLY_5_iv_5_                   pos_clk.RST_DLY_5_iv[5]
+   Inst             RST_DLY_6_                                RST_DLY[6]
+   Inst       un1_RST_DLY_i_6_                          un1_RST_DLY_i[6]
+   Inst             RST_DLY_7_                                RST_DLY[7]
+   Inst         IPL_030_1_i_0_                            IPL_030_1_i[0]
+   Inst     un1_RST_DLY_i_m_6_                        un1_RST_DLY_i_m[6]
+   Inst           CYCLE_DMA_0_                              CYCLE_DMA[0]
+   Inst             IPL_c_i_2_                                IPL_c_i[2]
+   Inst   pos_clk_RST_DLY_5_iv_4_                   pos_clk.RST_DLY_5_iv[4]
+   Inst           CYCLE_DMA_1_                              CYCLE_DMA[1]
+   Inst          IPL_D0_0_i_2_                             IPL_D0_0_i[2]
+   Inst       un1_RST_DLY_i_5_                          un1_RST_DLY_i[5]
+   Inst            SIZE_DMA_0_                               SIZE_DMA[0]
+   Inst             IPL_c_i_1_                                IPL_c_i[1]
+   Inst     un1_RST_DLY_i_m_5_                        un1_RST_DLY_i_m[5]
+   Inst            SIZE_DMA_1_                               SIZE_DMA[1]
+   Inst          IPL_D0_0_i_1_                             IPL_D0_0_i[1]
+   Inst   pos_clk_RST_DLY_5_iv_3_                   pos_clk.RST_DLY_5_iv[3]
+   Inst      CLK_000_P_SYNC_5_                         CLK_000_P_SYNC[5]
+   Inst             IPL_c_i_0_                                IPL_c_i[0]
+   Inst       un1_RST_DLY_i_4_                          un1_RST_DLY_i[4]
+   Inst      CLK_000_P_SYNC_6_                         CLK_000_P_SYNC[6]
+   Inst          IPL_D0_0_i_0_                             IPL_D0_0_i[0]
+   Inst     un1_RST_DLY_i_m_4_                        un1_RST_DLY_i_m[4]
+   Inst      CLK_000_P_SYNC_7_                         CLK_000_P_SYNC[7]
+   Inst   pos_clk_RST_DLY_5_iv_2_                   pos_clk.RST_DLY_5_iv[2]
+   Inst      CLK_000_P_SYNC_8_                         CLK_000_P_SYNC[8]
+   Inst       un1_RST_DLY_i_3_                          un1_RST_DLY_i[3]
+   Inst      CLK_000_P_SYNC_9_                         CLK_000_P_SYNC[9]
+   Inst     un1_RST_DLY_i_m_3_                        un1_RST_DLY_i_m[3]
+   Inst      CLK_000_N_SYNC_0_                         CLK_000_N_SYNC[0]
+   Inst   pos_clk_RST_DLY_5_iv_1_                   pos_clk.RST_DLY_5_iv[1]
+   Inst      CLK_000_N_SYNC_1_                         CLK_000_N_SYNC[1]
+   Inst       un1_RST_DLY_i_2_                          un1_RST_DLY_i[2]
+   Inst      CLK_000_N_SYNC_2_                         CLK_000_N_SYNC[2]
+   Inst     un1_RST_DLY_i_m_2_                        un1_RST_DLY_i_m[2]
+   Inst      CLK_000_N_SYNC_3_                         CLK_000_N_SYNC[3]
+   Inst      CLK_000_N_SYNC_4_                         CLK_000_N_SYNC[4]
+   Inst      CLK_000_N_SYNC_5_                         CLK_000_N_SYNC[5]
+   Inst      CLK_000_N_SYNC_6_                         CLK_000_N_SYNC[6]
+   Inst      CLK_000_N_SYNC_7_                         CLK_000_N_SYNC[7]
+   Inst   pos_clk_un21_clk_000_ne_d0_i              pos_clk.un21_clk_000_ne_d0_i
+   Inst      CLK_000_N_SYNC_8_                         CLK_000_N_SYNC[8]
+   Inst   pos_clk_un27_clk_000_ne_d0_i              pos_clk.un27_clk_000_ne_d0_i
+   Inst      CLK_000_P_SYNC_0_                         CLK_000_P_SYNC[0]
+   Inst   pos_clk_un23_clk_000_ne_d0_i              pos_clk.un23_clk_000_ne_d0_i
+   Inst      CLK_000_P_SYNC_1_                         CLK_000_P_SYNC[1]
+   Inst   pos_clk_un5_clk_000_pe_i                  pos_clk.un5_clk_000_pe_i
+   Inst      CLK_000_P_SYNC_2_                         CLK_000_P_SYNC[2]
+   Inst   pos_clk_un9_clk_000_ne_i                  pos_clk.un9_clk_000_ne_i
+   Inst      CLK_000_P_SYNC_3_                         CLK_000_P_SYNC[3]
+   Inst   pos_clk_un7_clk_000_pe_i                  pos_clk.un7_clk_000_pe_i
+   Inst   pos_clk_RST_DLY_5_iv_7_                   pos_clk.RST_DLY_5_iv[7]
+   Inst      CLK_000_P_SYNC_4_                         CLK_000_P_SYNC[4]
+   Inst       un1_RST_DLY_i_8_                          un1_RST_DLY_i[8]
+   Inst            SIZE_c_i_1_                               SIZE_c_i[1]
+   Inst     un1_RST_DLY_i_m_8_                        un1_RST_DLY_i_m[8]
+   Inst   pos_clk_RST_DLY_5_iv_6_                   pos_clk.RST_DLY_5_iv[6]
+   Inst         IPL_030_1_i_2_                            IPL_030_1_i[2]
+   Inst       un1_RST_DLY_i_7_                          un1_RST_DLY_i[7]
+   Inst     un1_RST_DLY_i_m_7_                        un1_RST_DLY_i_m[7]
+   Inst         IPL_030_1_i_1_                            IPL_030_1_i[1]
+   Inst   pos_clk_DS_000_DMA_4_f0_0                 pos_clk.DS_000_DMA_4_f0_0
    Inst   pos_clk_cpu_est_11_0_o4_i_3_              pos_clk.cpu_est_11_0_o4_i[3]
+   Inst   pos_clk_cpu_est_11_0_o4_i_1_              pos_clk.cpu_est_11_0_o4_i[1]
+   Inst   pos_clk_cpu_est_11_i_o4_i_2_              pos_clk.cpu_est_11_i_o4_i[2]
+   Inst   pos_clk_DS_000_DMA_4_f0_0_a2              pos_clk.DS_000_DMA_4_f0_0_a2
+   Inst   SM_AMIGA_srsts_i_o3_i_0_                  SM_AMIGA_srsts_i_o3_i[0]
+   Inst   SM_AMIGA_srsts_i_o3_i_6_                  SM_AMIGA_srsts_i_o3_i[6]
+   Inst   SM_AMIGA_srsts_i_o3_i_4_                  SM_AMIGA_srsts_i_o3_i[4]
+   Inst   pos_clk_un14_clk_000_n_sync               pos_clk.un14_clk_000_n_sync
+   Inst   SM_AMIGA_srsts_i_o3_i_2_                  SM_AMIGA_srsts_i_o3_i[2]
+   Inst   pos_clk_un11_clk_000_n_sync_i             pos_clk.un11_clk_000_n_sync_i
+   Inst   SM_AMIGA_srsts_i_o3_i_1_                  SM_AMIGA_srsts_i_o3_i[1]
+   Inst   pos_clk_un9_clk_000_n_sync                pos_clk.un9_clk_000_n_sync
+   Inst   SM_AMIGA_srsts_i_o3_i_3_                  SM_AMIGA_srsts_i_o3_i[3]
+   Inst   pos_clk_un11_clk_000_n_sync               pos_clk.un11_clk_000_n_sync
+   Inst   SM_AMIGA_nss_i_i_o3_i_0_                  SM_AMIGA_nss_i_i_o3_i[0]
+   Inst   SM_AMIGA_srsts_i_o3_0_i_0_                SM_AMIGA_srsts_i_o3_0_i[0]
+   Inst          SM_AMIGA_i_0_                             SM_AMIGA_i[0]
+   Inst          SM_AMIGA_i_3_                             SM_AMIGA_i[3]
+   Inst   pos_clk_un7_clk_000_d0_i                  pos_clk.un7_clk_000_d0_i
+   Inst                A_i_24_                                   A_i[24]
+   Inst           cpu_est_i_3_                              cpu_est_i[3]
+   Inst           cpu_est_i_0_                              cpu_est_i[0]
+   Inst   pos_clk_cpu_est_11_0_i_3_                 pos_clk.cpu_est_11_0_i[3]
+   Inst           cpu_est_i_1_                              cpu_est_i[1]
+   Inst   pos_clk_un27_clk_000_ne_d0_2              pos_clk.un27_clk_000_ne_d0_2
+   Inst   pos_clk_cpu_est_11_0_i_1_                 pos_clk.cpu_est_11_0_i[1]
+   Inst           cpu_est_0_0_                              cpu_est_0[0]
+   Inst   pos_clk_CYCLE_DMA_5_0_i_x2                pos_clk.CYCLE_DMA_5_0_i_x2
+   Inst   SM_AMIGA_nss_i_i_o3_0_i_0_                SM_AMIGA_nss_i_i_o3_0_i[0]
+   Inst   pos_clk_CYCLE_DMA_5_1_i_x2                pos_clk.CYCLE_DMA_5_1_i_x2
+   Inst   SM_AMIGA_srsts_i_o3_6_                    SM_AMIGA_srsts_i_o3[6]
+   Inst          SM_AMIGA_i_1_                             SM_AMIGA_i[1]
+   Inst   SM_AMIGA_srsts_i_o3_0_                    SM_AMIGA_srsts_i_o3[0]
+   Inst                SIZE_0_                                   SIZE[0]
+   Inst   pos_clk_DS_000_DMA_4_f0_0_i               pos_clk.DS_000_DMA_4_f0_0_i
+   Inst   pos_clk_cpu_est_11_0_a4_1_                pos_clk.cpu_est_11_0_a4[1]
+   Inst                SIZE_1_                                   SIZE[1]
+   Inst   pos_clk_cpu_est_11_0_a4_0_1_              pos_clk.cpu_est_11_0_a4_0[1]
+   Inst   pos_clk_cpu_est_11_0_a4_1_1_              pos_clk.cpu_est_11_0_a4_1[1]
+   Inst   pos_clk_cpu_est_11_0_a4_2_1_              pos_clk.cpu_est_11_0_a4_2[1]
+   Inst   pos_clk_cpu_est_11_0_a4_3_                pos_clk.cpu_est_11_0_a4[3]
+   Inst   pos_clk_cpu_est_11_0_a4_0_3_              pos_clk.cpu_est_11_0_a4_0[3]
+   Inst   pos_clk_cpu_est_11_i_2_                   pos_clk.cpu_est_11_i[2]
+   Inst   pos_clk_cpu_est_11_i_o4_2_                pos_clk.cpu_est_11_i_o4[2]
+   Inst   pos_clk_cpu_est_11_0_o4_1_                pos_clk.cpu_est_11_0_o4[1]
+   Inst   pos_clk_cpu_est_11_0_o4_3_                pos_clk.cpu_est_11_0_o4[3]
+   Inst           cpu_est_i_2_                              cpu_est_i[2]
+   Inst   pos_clk_cpu_est_11_0_a4_1_3_              pos_clk.cpu_est_11_0_a4_1[3]
+   Inst   SM_AMIGA_srsts_i_a6_0_4_                  SM_AMIGA_srsts_i_a6_0[4]
+   Inst   un1_RST_DLY_i_m_i_2_                      un1_RST_DLY_i_m_i[2]
+   Inst   SM_AMIGA_srsts_i_a6_6_                    SM_AMIGA_srsts_i_a6[6]
+   Inst   un1_RST_DLY_i_m_i_3_                      un1_RST_DLY_i_m_i[3]
+   Inst   SM_AMIGA_srsts_i_a6_0_6_                  SM_AMIGA_srsts_i_a6_0[6]
+   Inst   un1_RST_DLY_i_m_i_4_                      un1_RST_DLY_i_m_i[4]
+   Inst   SM_AMIGA_nss_i_i_a6_1_0_                  SM_AMIGA_nss_i_i_a6_1[0]
+   Inst                  A_16_                                     A[16]
+   Inst   un1_RST_DLY_i_m_i_5_                      un1_RST_DLY_i_m_i[5]
+   Inst   SM_AMIGA_srsts_i_a3_0_                    SM_AMIGA_srsts_i_a3[0]
    Inst                  A_17_                                     A[17]
+   Inst   un1_RST_DLY_i_m_i_6_                      un1_RST_DLY_i_m_i[6]
+   Inst    SM_AMIGA_srsts_i_0_                       SM_AMIGA_srsts_i[0]
    Inst                  A_18_                                     A[18]
-   Inst   pos_clk_CLK_000_N_SYNC_2_0_a4_0_          pos_clk.CLK_000_N_SYNC_2_0_a4[0]
+   Inst   un1_RST_DLY_i_m_i_7_                      un1_RST_DLY_i_m_i[7]
+   Inst   SM_AMIGA_srsts_i_o3_0_0_                  SM_AMIGA_srsts_i_o3_0[0]
    Inst                  A_19_                                     A[19]
-   Inst   SM_AMIGA_srsts_i_o6_0_o2_0_               SM_AMIGA_srsts_i_o6_0_o2[0]
-   Inst   pos_clk_DS_000_DMA_4_f1_i                 pos_clk.DS_000_DMA_4_f1_i
-   Inst                A_i_16_                                   A_i[16]
-   Inst          SIZE_DMA_i_1_                             SIZE_DMA_i[1]
-   Inst                  A_24_                                     A[24]
-   Inst          SIZE_DMA_i_0_                             SIZE_DMA_i[0]
-   Inst                  A_25_                                     A[25]
-   Inst                  A_26_                                     A[26]
-   Inst   pos_clk_un22_bgack_030_int_i              pos_clk.un22_bgack_030_int_i
-   Inst                  A_27_                                     A[27]
-   Inst   pos_clk_un9_clk_000_n_sync_i              pos_clk.un9_clk_000_n_sync_i
-   Inst                  A_28_                                     A[28]
+   Inst   un1_RST_DLY_i_m_i_8_                      un1_RST_DLY_i_m_i[8]
+   Inst   SM_AMIGA_nss_i_i_o3_0_                    SM_AMIGA_nss_i_i_o3[0]
+   Inst                  A_20_                                     A[20]
    Inst   CLK_000_N_SYNC_i_10_                      CLK_000_N_SYNC_i[10]
-   Inst                  A_29_                                     A[29]
+   Inst   SM_AMIGA_srsts_i_o3_3_                    SM_AMIGA_srsts_i_o3[3]
+   Inst                  A_21_                                     A[21]
+   Inst   pos_clk_un9_clk_000_n_sync_i              pos_clk.un9_clk_000_n_sync_i
+   Inst   SM_AMIGA_srsts_i_o6_0_                    SM_AMIGA_srsts_i_o6[0]
+   Inst                  A_22_                                     A[22]
    Inst   pos_clk_un14_clk_000_n_sync_i             pos_clk.un14_clk_000_n_sync_i
+   Inst   SM_AMIGA_srsts_i_o3_1_                    SM_AMIGA_srsts_i_o3[1]
+   Inst                  A_23_                                     A[23]
+   Inst          SM_AMIGA_i_2_                             SM_AMIGA_i[2]
+   Inst                  A_24_                                     A[24]
+   Inst   SM_AMIGA_srsts_i_o3_2_                    SM_AMIGA_srsts_i_o3[2]
+   Inst                  A_25_                                     A[25]
+   Inst          SM_AMIGA_i_4_                             SM_AMIGA_i[4]
+   Inst                  A_26_                                     A[26]
+   Inst   SM_AMIGA_srsts_i_o3_4_                    SM_AMIGA_srsts_i_o3[4]
+   Inst                  A_27_                                     A[27]
+   Inst                  A_28_                                     A[28]
+   Inst   pos_clk_un37_as_030_d0_i_i                pos_clk.un37_as_030_d0_i_i
+   Inst                  A_29_                                     A[29]
    Inst                  A_30_                                     A[30]
-   Inst   SM_AMIGA_srsts_i_a6_3_                    SM_AMIGA_srsts_i_a6[3]
+   Inst   pos_clk_SIZE_DMA_6_0_0_i_0_               pos_clk.SIZE_DMA_6_0_0_i[0]
    Inst                  A_31_                                     A[31]
+   Inst   SM_AMIGA_srsts_i_a6_0_                    SM_AMIGA_srsts_i_a6[0]
+   Inst   pos_clk_SIZE_DMA_6_0_0_i_1_               pos_clk.SIZE_DMA_6_0_0_i[1]
+   Inst   SM_AMIGA_srsts_i_a6_1_                    SM_AMIGA_srsts_i_a6[1]
+   Inst   SM_AMIGA_srsts_i_o3_i_5_                  SM_AMIGA_srsts_i_o3_i[5]
+   Inst   SM_AMIGA_srsts_i_a6_0_1_                  SM_AMIGA_srsts_i_a6_0[1]
+   Inst   un1_RST_DLY_i_m_i_1_                      un1_RST_DLY_i_m_i[1]
+   Inst   SM_AMIGA_srsts_i_a6_1_1_                  SM_AMIGA_srsts_i_a6_1[1]
+   Inst   SM_AMIGA_srsts_i_a6_2_                    SM_AMIGA_srsts_i_a6[2]
+   Inst   pos_clk_un29_clk_000_ne_d0_i              pos_clk.un29_clk_000_ne_d0_i
+   Inst   SM_AMIGA_srsts_i_a6_0_2_                  SM_AMIGA_srsts_i_a6_0[2]
+   Inst   pos_clk_CYCLE_DMA_5_1_i_o2_i              pos_clk.CYCLE_DMA_5_1_i_o2_i
+   Inst   SM_AMIGA_srsts_i_a6_3_                    SM_AMIGA_srsts_i_a6[3]
    Inst   SM_AMIGA_srsts_i_a6_0_3_                  SM_AMIGA_srsts_i_a6_0[3]
    Inst   SM_AMIGA_srsts_i_a6_1_3_                  SM_AMIGA_srsts_i_a6_1[3]
    Inst   SM_AMIGA_srsts_i_a6_4_                    SM_AMIGA_srsts_i_a6[4]
-   Inst   pos_clk_un9_clk_000_ne_i                  pos_clk.un9_clk_000_ne_i
-   Inst   SM_AMIGA_srsts_i_a6_0_4_                  SM_AMIGA_srsts_i_a6_0[4]
-   Inst   pos_clk_un5_clk_000_pe_i                  pos_clk.un5_clk_000_pe_i
-   Inst                A_i_24_                                   A_i[24]
-   Inst                A_i_25_                                   A_i[25]
-   Inst   pos_clk_un29_bgack_030_int_i              pos_clk.un29_bgack_030_int_i
-   Inst                A_i_26_                                   A_i[26]
-   Inst   pos_clk_un26_bgack_030_int_i              pos_clk.un26_bgack_030_int_i
-   Inst                A_i_27_                                   A_i[27]
-   Inst   pos_clk_un27_bgack_030_int_i              pos_clk.un27_bgack_030_int_i
-   Inst                A_i_28_                                   A_i[28]
-   Inst                A_i_29_                                   A_i[29]
-   Inst                A_i_30_                                   A_i[30]
    Inst                A_i_31_                                   A_i[31]
-   Inst   SM_AMIGA_nss_i_i_o3_i_0_                  SM_AMIGA_nss_i_i_o3_i[0]
-   Inst                A_i_18_                                   A_i[18]
+   Inst   pos_clk_un4_bgack_000_i_o2_i              pos_clk.un4_bgack_000_i_o2_i
+   Inst   pos_clk_un37_as_030_d0_i_o2_i             pos_clk.un37_as_030_d0_i_o2_i
    Inst             IPL_030_0_                                IPL_030[0]
-   Inst                A_i_19_                                   A_i[19]
+   Inst   pos_clk_un21_clk_000_ne_d0                pos_clk.un21_clk_000_ne_d0
    Inst             IPL_030_1_                                IPL_030[1]
+   Inst   pos_clk_un7_clk_000_pe                    pos_clk.un7_clk_000_pe
    Inst             IPL_030_2_                                IPL_030[2]
+   Inst   pos_clk_SIZE_DMA_6_0_0_o2_i_0_            pos_clk.SIZE_DMA_6_0_0_o2_i[0]
+   Inst   pos_clk_un23_clk_000_ne_d0                pos_clk.un23_clk_000_ne_d0
    Inst                 IPL_0_                                    IPL[0]
    Inst                 IPL_1_                                    IPL[1]
+   Inst   pos_clk_un24_bgack_030_int_i_0_o2_i       pos_clk.un24_bgack_030_int_i_0_o2_i
    Inst                 IPL_2_                                    IPL[2]
-   Inst         CYCLE_DMA_i_0_                            CYCLE_DMA_i[0]
-   Inst   pos_clk_un26_bgack_030_int                pos_clk.un26_bgack_030_int
-   Inst         CYCLE_DMA_i_1_                            CYCLE_DMA_i[1]
-   Inst   pos_clk_un29_bgack_030_int                pos_clk.un29_bgack_030_int
-   Inst   pos_clk_un24_bgack_030_int_i              pos_clk.un24_bgack_030_int_i
-   Inst         AS_000_DMA_0_r                            AS_000_DMA_0.r
-   Inst            IPL_D0_0_0_                               IPL_D0_0[0]
-   Inst         AS_000_DMA_0_m                            AS_000_DMA_0.m
-   Inst            IPL_D0_0_1_                               IPL_D0_0[1]
+   Inst   pos_clk_un29_clk_000_ne_d0                pos_clk.un29_clk_000_ne_d0
+   Inst   pos_clk_un6_bgack_000_0_i                 pos_clk.un6_bgack_000_0_i
    Inst                  FC_0_                                     FC[0]
-   Inst         AS_000_DMA_0_n                            AS_000_DMA_0.n
-   Inst            IPL_D0_0_2_                               IPL_D0_0[2]
    Inst                  FC_1_                                     FC[1]
-   Inst         AS_000_DMA_0_p                            AS_000_DMA_0.p
-   Inst           IPL_030_1_0_                              IPL_030_1[0]
-   Inst         DS_000_DMA_0_r                            DS_000_DMA_0.r
-   Inst           IPL_030_1_1_                              IPL_030_1[1]
-   Inst         DS_000_DMA_0_m                            DS_000_DMA_0.m
-   Inst           IPL_030_1_2_                              IPL_030_1[2]
-   Inst         DS_000_DMA_0_n                            DS_000_DMA_0.n
-   Inst        SIZE_DMA_0_0__r                           SIZE_DMA_0_0_.r
-   Inst         DS_000_DMA_0_p                            DS_000_DMA_0.p
-   Inst        SIZE_DMA_0_0__m                           SIZE_DMA_0_0_.m
-   Inst        SIZE_DMA_0_0__n                           SIZE_DMA_0_0_.n
-   Inst   SM_AMIGA_nss_i_i_a6_0_0_                  SM_AMIGA_nss_i_i_a6_0[0]
-   Inst        SIZE_DMA_0_0__p                           SIZE_DMA_0_0_.p
-   Inst   SM_AMIGA_nss_i_i_a6_1_0_0_                SM_AMIGA_nss_i_i_a6_1_0[0]
-   Inst        SIZE_DMA_0_1__r                           SIZE_DMA_0_1_.r
-   Inst   SM_AMIGA_nss_i_i_a6_0_                    SM_AMIGA_nss_i_i_a6[0]
-   Inst        SIZE_DMA_0_1__m                           SIZE_DMA_0_1_.m
-   Inst        SIZE_DMA_0_1__n                           SIZE_DMA_0_1_.n
-   Inst   SM_AMIGA_nss_i_i_o3_0_                    SM_AMIGA_nss_i_i_o3[0]
-   Inst        SIZE_DMA_0_1__p                           SIZE_DMA_0_1_.p
-   Inst         IPL_030_0_0__r                            IPL_030_0_0_.r
-   Inst   SM_AMIGA_nss_i_i_a6_1_0_                  SM_AMIGA_nss_i_i_a6_1[0]
-   Inst         IPL_030_0_0__m                            IPL_030_0_0_.m
-   Inst   SM_AMIGA_srsts_i_0_1_1_                   SM_AMIGA_srsts_i_0_1[1]
-   Inst         IPL_030_0_0__n                            IPL_030_0_0_.n
-   Inst   SM_AMIGA_srsts_i_0_1_                     SM_AMIGA_srsts_i_0[1]
-   Inst         IPL_030_0_0__p                            IPL_030_0_0_.p
-   Inst         IPL_030_0_1__r                            IPL_030_0_1_.r
-   Inst   pos_clk_CYCLE_DMA_5_1                     pos_clk.CYCLE_DMA_5_1
-   Inst         IPL_030_0_1__m                            IPL_030_0_1_.m
-   Inst   pos_clk_CYCLE_DMA_5_0                     pos_clk.CYCLE_DMA_5_0
-   Inst         IPL_030_0_1__n                            IPL_030_0_1_.n
-   Inst         IPL_030_0_1__p                            IPL_030_0_1_.p
-   Inst   pos_clk_un9_clk_000_ne_2                  pos_clk.un9_clk_000_ne_2
-   Inst         IPL_030_0_2__r                            IPL_030_0_2_.r
-   Inst   pos_clk_un9_clk_000_ne_3                  pos_clk.un9_clk_000_ne_3
-   Inst         IPL_030_0_2__m                            IPL_030_0_2_.m
-   Inst   pos_clk_un9_clk_000_ne_4                  pos_clk.un9_clk_000_ne_4
-   Inst         IPL_030_0_2__n                            IPL_030_0_2_.n
-   Inst   pos_clk_un9_clk_000_ne                    pos_clk.un9_clk_000_ne
-   Inst   pos_clk_un27_bgack_030_int                pos_clk.un27_bgack_030_int
-   Inst         IPL_030_0_2__p                            IPL_030_0_2_.p
-   Inst   pos_clk_cpu_est_11_i_a4_0_1_2_            pos_clk.cpu_est_11_i_a4_0_1[2]
-   Inst   pos_clk_cpu_est_11_i_a4_0_2_              pos_clk.cpu_est_11_i_a4_0[2]
-   Inst   pos_clk_cpu_est_11_i_a4_1_2_              pos_clk.cpu_est_11_i_a4_1[2]
-   Inst   pos_clk_un7_clk_000_d0_i                  pos_clk.un7_clk_000_d0_i
-   Inst   pos_clk_cpu_est_11_i_a4_2_                pos_clk.cpu_est_11_i_a4[2]
-   Inst          SM_AMIGA_i_3_                             SM_AMIGA_i[3]
-   Inst   pos_clk_un24_bgack_030_int_1              pos_clk.un24_bgack_030_int_1
-   Inst          SM_AMIGA_i_0_                             SM_AMIGA_i[0]
-   Inst   pos_clk_un24_bgack_030_int                pos_clk.un24_bgack_030_int
-   Inst   SM_AMIGA_nss_i_i_a6_2_1_0_                SM_AMIGA_nss_i_i_a6_2_1[0]
-   Inst   SM_AMIGA_nss_i_i_a6_2_2_0_                SM_AMIGA_nss_i_i_a6_2_2[0]
-   Inst   SM_AMIGA_nss_i_i_a6_2_3_0_                SM_AMIGA_nss_i_i_a6_2_3[0]
-   Inst   SM_AMIGA_nss_i_i_a6_2_0_                  SM_AMIGA_nss_i_i_a6_2[0]
-   Inst   SM_AMIGA_nss_i_i_a6_0_1_0_                SM_AMIGA_nss_i_i_a6_0_1[0]
-   Inst   pos_clk_un40_bgack_030_int_1_i            pos_clk.un40_bgack_030_int_1_i
-   Inst   pos_clk_DS_000_DMA_4_f0                   pos_clk.DS_000_DMA_4_f0
-   Inst   pos_clk_DS_000_DMA_4_f1                   pos_clk.DS_000_DMA_4_f1
-   Inst   SM_AMIGA_nss_i_i_o3_0_1_0_                SM_AMIGA_nss_i_i_o3_0_1[0]
-   Inst   SM_AMIGA_nss_i_i_o3_0_0_                  SM_AMIGA_nss_i_i_o3_0[0]
-   Inst            VMA_INT_0_r                               VMA_INT_0.r
-   Inst         DSACK1_INT_0_r                            DSACK1_INT_0.r
-   Inst   pos_clk_un27_clk_000_ne_d0_1              pos_clk.un27_clk_000_ne_d0_1
-   Inst            VMA_INT_0_m                               VMA_INT_0.m
-   Inst         DSACK1_INT_0_m                            DSACK1_INT_0.m
-   Inst   pos_clk_un27_clk_000_ne_d0_2_0            pos_clk.un27_clk_000_ne_d0_2_0
-   Inst            VMA_INT_0_n                               VMA_INT_0.n
-   Inst         DSACK1_INT_0_n                            DSACK1_INT_0.n
-   Inst   pos_clk_un27_clk_000_ne_d0_3              pos_clk.un27_clk_000_ne_d0_3
-   Inst            VMA_INT_0_p                               VMA_INT_0.p
-   Inst         DSACK1_INT_0_p                            DSACK1_INT_0.p
-   Inst   pos_clk_un27_clk_000_ne_d0                pos_clk.un27_clk_000_ne_d0
-   Inst         AS_000_INT_0_r                            AS_000_INT_0.r
-   Inst   pos_clk_un5_clk_000_pe_1                  pos_clk.un5_clk_000_pe_1
-   Inst   pos_clk_un11_clk_000_n_sync               pos_clk.un11_clk_000_n_sync
-   Inst         AS_000_INT_0_m                            AS_000_INT_0.m
-   Inst   pos_clk_un5_clk_000_pe_2                  pos_clk.un5_clk_000_pe_2
-   Inst   pos_clk_un11_clk_000_n_sync_i             pos_clk.un11_clk_000_n_sync_i
-   Inst         AS_000_INT_0_n                            AS_000_INT_0.n
-   Inst   pos_clk_un5_clk_000_pe_3                  pos_clk.un5_clk_000_pe_3
-   Inst   pos_clk_un9_clk_000_n_sync                pos_clk.un9_clk_000_n_sync
-   Inst         AS_000_INT_0_p                            AS_000_INT_0.p
-   Inst   pos_clk_un5_clk_000_pe                    pos_clk.un5_clk_000_pe
-   Inst   pos_clk_un14_clk_000_n_sync               pos_clk.un14_clk_000_n_sync
-   Inst      DS_000_ENABLE_0_r                         DS_000_ENABLE_0.r
-   Inst   pos_clk_un9_clk_000_ne_1                  pos_clk.un9_clk_000_ne_1
-   Inst      DS_000_ENABLE_0_m                         DS_000_ENABLE_0.m
-   Inst   SM_AMIGA_srsts_i_2_3_                     SM_AMIGA_srsts_i_2[3]
-   Inst      DS_000_ENABLE_0_n                         DS_000_ENABLE_0.n
-   Inst    SM_AMIGA_srsts_i_3_                       SM_AMIGA_srsts_i[3]
-   Inst   pos_clk_un22_bgack_030_int                pos_clk.un22_bgack_030_int
-   Inst      DS_000_ENABLE_0_p                         DS_000_ENABLE_0.p
-   Inst   SM_AMIGA_srsts_i_1_4_                     SM_AMIGA_srsts_i_1[4]
+   Inst                A_i_25_                                   A_i[25]
+   Inst                A_i_26_                                   A_i[26]
+   Inst                A_i_27_                                   A_i[27]
+   Inst   pos_clk_CYCLE_DMA_5_1_i                   pos_clk.CYCLE_DMA_5_1_i
+   Inst                A_i_28_                                   A_i[28]
+   Inst   pos_clk_CYCLE_DMA_5_0_i_1                 pos_clk.CYCLE_DMA_5_0_i_1
+   Inst                A_i_29_                                   A_i[29]
+   Inst   pos_clk_CYCLE_DMA_5_0_i                   pos_clk.CYCLE_DMA_5_0_i
+   Inst                A_i_30_                                   A_i[30]
+   Inst   pos_clk_un37_as_030_d0_i_a2_1_1           pos_clk.un37_as_030_d0_i_a2_1_1
+   Inst         cpu_est_0_1__r                            cpu_est_0_1_.r
+   Inst   pos_clk_un37_as_030_d0_i_a2_1_2           pos_clk.un37_as_030_d0_i_a2_1_2
+   Inst   AMIGA_BUS_ENABLE_DMA_HIGH_0_r             AMIGA_BUS_ENABLE_DMA_HIGH_0.r
+   Inst         cpu_est_0_1__m                            cpu_est_0_1_.m
+   Inst   pos_clk_un37_as_030_d0_i_a2_1_3           pos_clk.un37_as_030_d0_i_a2_1_3
+   Inst   AMIGA_BUS_ENABLE_DMA_HIGH_0_m             AMIGA_BUS_ENABLE_DMA_HIGH_0.m
+   Inst         cpu_est_0_1__n                            cpu_est_0_1_.n
+   Inst   pos_clk_un37_as_030_d0_i_a2_1_4           pos_clk.un37_as_030_d0_i_a2_1_4
+   Inst   AMIGA_BUS_ENABLE_DMA_HIGH_0_n             AMIGA_BUS_ENABLE_DMA_HIGH_0.n
+   Inst         cpu_est_0_1__p                            cpu_est_0_1_.p
+   Inst   pos_clk_un37_as_030_d0_i_a2_1             pos_clk.un37_as_030_d0_i_a2_1
+   Inst   AMIGA_BUS_ENABLE_DMA_HIGH_0_p             AMIGA_BUS_ENABLE_DMA_HIGH_0.p
+   Inst         cpu_est_0_2__r                            cpu_est_0_2_.r
+   Inst   pos_clk_un6_bg_030_0_a2_1                 pos_clk.un6_bg_030_0_a2_1
+   Inst         cpu_est_0_2__m                            cpu_est_0_2_.m
+   Inst   pos_clk_un6_bg_030_0_a2                   pos_clk.un6_bg_030_0_a2
+   Inst   AMIGA_BUS_ENABLE_DMA_LOW_0_r              AMIGA_BUS_ENABLE_DMA_LOW_0.r
+   Inst         cpu_est_0_2__n                            cpu_est_0_2_.n
+   Inst   AMIGA_BUS_ENABLE_DMA_LOW_0_m              AMIGA_BUS_ENABLE_DMA_LOW_0.m
+   Inst         cpu_est_0_2__p                            cpu_est_0_2_.p
+   Inst   AMIGA_BUS_ENABLE_DMA_LOW_0_n              AMIGA_BUS_ENABLE_DMA_LOW_0.n
+   Inst         cpu_est_0_3__r                            cpu_est_0_3_.r
+   Inst   AMIGA_BUS_ENABLE_DMA_LOW_0_p              AMIGA_BUS_ENABLE_DMA_LOW_0.p
+   Inst         cpu_est_0_3__m                            cpu_est_0_3_.m
+   Inst         RW_000_DMA_0_r                            RW_000_DMA_0.r
+   Inst         cpu_est_0_3__n                            cpu_est_0_3_.n
+   Inst         RW_000_DMA_0_m                            RW_000_DMA_0.m
+   Inst         cpu_est_0_3__p                            cpu_est_0_3_.p
+   Inst         RW_000_DMA_0_n                            RW_000_DMA_0.n
+   Inst   pos_clk_CYCLE_DMA_5_1_i_1                 pos_clk.CYCLE_DMA_5_1_i_1
+   Inst         RW_000_DMA_0_p                            RW_000_DMA_0.p
+   Inst      BGACK_030_INT_0_r                         BGACK_030_INT_0.r
+   Inst      BGACK_030_INT_0_m                         BGACK_030_INT_0.m
+   Inst      BGACK_030_INT_0_n                         BGACK_030_INT_0.n
+   Inst      BGACK_030_INT_0_p                         BGACK_030_INT_0.p
+   Inst            IPL_D0_0_0_                               IPL_D0_0[0]
+   Inst   pos_clk_un24_bgack_030_int_i_0_o2_1       pos_clk.un24_bgack_030_int_i_0_o2_1
    Inst    AS_030_000_SYNC_0_r                       AS_030_000_SYNC_0.r
-   Inst    SM_AMIGA_srsts_i_4_                       SM_AMIGA_srsts_i[4]
+   Inst            IPL_D0_0_1_                               IPL_D0_0[1]
+   Inst   pos_clk_un24_bgack_030_int_i_0_o2_2       pos_clk.un24_bgack_030_int_i_0_o2_2
    Inst    AS_030_000_SYNC_0_m                       AS_030_000_SYNC_0.m
-   Inst   SM_AMIGA_srsts_i_1_5_                     SM_AMIGA_srsts_i_1[5]
-   Inst   SM_AMIGA_srsts_i_0_m2_1__r                SM_AMIGA_srsts_i_0_m2_1_.r
+   Inst            IPL_D0_0_2_                               IPL_D0_0[2]
+   Inst   pos_clk_un24_bgack_030_int_i_0_o2         pos_clk.un24_bgack_030_int_i_0_o2
    Inst    AS_030_000_SYNC_0_n                       AS_030_000_SYNC_0.n
-   Inst   SM_AMIGA_srsts_i_2_5_                     SM_AMIGA_srsts_i_2[5]
-   Inst   SM_AMIGA_srsts_i_0_m2_1__m                SM_AMIGA_srsts_i_0_m2_1_.m
+   Inst           IPL_030_1_0_                              IPL_030_1[0]
+   Inst   pos_clk_un37_as_030_d0_i_o2_1             pos_clk.un37_as_030_d0_i_o2_1
    Inst    AS_030_000_SYNC_0_p                       AS_030_000_SYNC_0.p
-   Inst    SM_AMIGA_srsts_i_5_                       SM_AMIGA_srsts_i[5]
-   Inst   SM_AMIGA_srsts_i_0_m2_1__n                SM_AMIGA_srsts_i_0_m2_1_.n
+   Inst           IPL_030_1_1_                              IPL_030_1[1]
+   Inst   pos_clk_un37_as_030_d0_i_o2               pos_clk.un37_as_030_d0_i_o2
+   Inst      DS_000_ENABLE_0_r                         DS_000_ENABLE_0.r
+   Inst           IPL_030_1_2_                              IPL_030_1[2]
+   Inst   pos_clk_un7_clk_000_d0_1                  pos_clk.un7_clk_000_d0_1
+   Inst      DS_000_ENABLE_0_m                         DS_000_ENABLE_0.m
+   Inst         IPL_030_0_0__r                            IPL_030_0_0_.r
+   Inst   pos_clk_un7_clk_000_d0                    pos_clk.un7_clk_000_d0
+   Inst      DS_000_ENABLE_0_n                         DS_000_ENABLE_0.n
+   Inst         IPL_030_0_0__m                            IPL_030_0_0_.m
+   Inst      DS_000_ENABLE_0_p                         DS_000_ENABLE_0.p
+   Inst         IPL_030_0_0__n                            IPL_030_0_0_.n
+   Inst             A0_DMA_0_r                                A0_DMA_0.r
+   Inst         IPL_030_0_0__p                            IPL_030_0_0_.p
+   Inst             A0_DMA_0_m                                A0_DMA_0.m
+   Inst         IPL_030_0_1__r                            IPL_030_0_1_.r
+   Inst   pos_clk_un9_clk_000_ne_3                  pos_clk.un9_clk_000_ne_3
+   Inst             A0_DMA_0_n                                A0_DMA_0.n
+   Inst         IPL_030_0_1__m                            IPL_030_0_1_.m
+   Inst   pos_clk_un9_clk_000_ne_4                  pos_clk.un9_clk_000_ne_4
+   Inst             A0_DMA_0_p                                A0_DMA_0.p
+   Inst         IPL_030_0_1__n                            IPL_030_0_1_.n
+   Inst   pos_clk_un9_clk_000_ne                    pos_clk.un9_clk_000_ne
+   Inst         IPL_030_0_1__p                            IPL_030_0_1_.p
+   Inst   pos_clk_un5_clk_000_pe_1                  pos_clk.un5_clk_000_pe_1
+   Inst         IPL_030_0_2__r                            IPL_030_0_2_.r
+   Inst   pos_clk_un5_clk_000_pe_2                  pos_clk.un5_clk_000_pe_2
+   Inst         IPL_030_0_2__m                            IPL_030_0_2_.m
+   Inst   pos_clk_un5_clk_000_pe_3                  pos_clk.un5_clk_000_pe_3
+   Inst         IPL_030_0_2__n                            IPL_030_0_2_.n
+   Inst   pos_clk_un5_clk_000_pe                    pos_clk.un5_clk_000_pe
+   Inst          SIZE_DMA_i_0_                             SIZE_DMA_i[0]
+   Inst         IPL_030_0_2__p                            IPL_030_0_2_.p
+   Inst   pos_clk_un27_clk_000_ne_d0_1              pos_clk.un27_clk_000_ne_d0_1
+   Inst         DSACK1_INT_0_r                            DSACK1_INT_0.r
+   Inst   pos_clk_un27_clk_000_ne_d0_2_0            pos_clk.un27_clk_000_ne_d0_2_0
+   Inst          SIZE_DMA_i_1_                             SIZE_DMA_i[1]
+   Inst         DSACK1_INT_0_m                            DSACK1_INT_0.m
+   Inst   pos_clk_un27_clk_000_ne_d0_3              pos_clk.un27_clk_000_ne_d0_3
+   Inst         DSACK1_INT_0_n                            DSACK1_INT_0.n
+   Inst   pos_clk_un27_clk_000_ne_d0                pos_clk.un27_clk_000_ne_d0
+   Inst                A_i_16_                                   A_i[16]
+   Inst         DSACK1_INT_0_p                            DSACK1_INT_0.p
+   Inst                A_i_19_                                   A_i[19]
+   Inst         AS_000_INT_0_r                            AS_000_INT_0.r
+   Inst                A_i_18_                                   A_i[18]
+   Inst         AS_000_INT_0_m                            AS_000_INT_0.m
+   Inst        SIZE_DMA_0_1__r                           SIZE_DMA_0_1_.r
+   Inst         AS_000_INT_0_n                            AS_000_INT_0.n
+   Inst        SIZE_DMA_0_1__m                           SIZE_DMA_0_1_.m
+   Inst         AS_000_INT_0_p                            AS_000_INT_0.p
+   Inst   SM_AMIGA_nss_i_i_a6_2_0_                  SM_AMIGA_nss_i_i_a6_2[0]
+   Inst        SIZE_DMA_0_1__n                           SIZE_DMA_0_1_.n
    Inst        LDS_000_INT_0_r                           LDS_000_INT_0.r
-   Inst   SM_AMIGA_srsts_i_1_6_                     SM_AMIGA_srsts_i_1[6]
-   Inst   SM_AMIGA_srsts_i_0_m2_1__p                SM_AMIGA_srsts_i_0_m2_1_.p
+   Inst        SIZE_DMA_0_1__p                           SIZE_DMA_0_1_.p
    Inst        LDS_000_INT_0_m                           LDS_000_INT_0.m
-   Inst    SM_AMIGA_srsts_i_6_                       SM_AMIGA_srsts_i[6]
-   Inst        LDS_000_INT_0_n                           LDS_000_INT_0.n
+   Net    bgack_030_int_0_un0_n                       BGACK_030_INT_0.un0
+   Net    as_030_000_sync_0_un3_n                     AS_030_000_SYNC_0.un3
+   Net    as_030_000_sync_0_un1_n                     AS_030_000_SYNC_0.un1
+   Net    un1_rst_dly_i_m_1__n                        un1_RST_DLY_i_m[1]
+   Net    as_030_000_sync_0_un0_n                     AS_030_000_SYNC_0.un0
+   Net    ds_000_enable_0_un3_n                       DS_000_ENABLE_0.un3
+   Net    ds_000_enable_0_un1_n                       DS_000_ENABLE_0.un1
+   Net    ds_000_enable_0_un0_n                       DS_000_ENABLE_0.un0
+   Net                 vcc_n_n                                       VCC
+   Net          a0_dma_0_un3_n                              A0_DMA_0.un3
+   Net            cpu_est_3__n                                cpu_est[3]
+   Net          a0_dma_0_un1_n                              A0_DMA_0.un1
+   Net          a0_dma_0_un0_n                              A0_DMA_0.un0
+   Net      pos_clk_a0_dma_3_n                          pos_clk.A0_DMA_3
+   Net     size_dma_0_1__un3_n                         SIZE_DMA_0_1_.un3
+   Net                 gnd_n_n                                       GND
+   Net     size_dma_0_1__un1_n                         SIZE_DMA_0_1_.un1
+   Net     size_dma_0_1__un0_n                         SIZE_DMA_0_1_.un0
+   Net     size_dma_0_0__un3_n                         SIZE_DMA_0_0_.un3
+   Net     size_dma_0_0__un1_n                         SIZE_DMA_0_0_.un1
+   Net     size_dma_0_0__un0_n                         SIZE_DMA_0_0_.un0
+   Net    un1_amiga_bus_enable_dma_high_i_m2_0__un3_n  un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m2_0_.un3
+   Net    pos_clk_size_dma_6_1__n                     pos_clk.SIZE_DMA_6[1]
+   Net    pos_clk_un5_bgack_030_int_d_i_n             pos_clk.un5_bgack_030_int_d_i
+   Net    un1_amiga_bus_enable_dma_high_i_m2_0__un1_n  un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m2_0_.un1
+   Net    pos_clk_size_dma_6_0__n                     pos_clk.SIZE_DMA_6[0]
+   Net    pos_clk_un24_bgack_030_int_i_0_0_n          pos_clk.un24_bgack_030_int_i_0_0
+   Net    un1_amiga_bus_enable_dma_high_i_m2_0__un0_n  un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m2_0_.un0
    Net      cpu_est_0_1__un3_n                          cpu_est_0_1_.un3
+   Net    pos_clk_un6_bgack_000_n                     pos_clk.un6_bgack_000
    Net      cpu_est_0_1__un1_n                          cpu_est_0_1_.un1
    Net      cpu_est_0_1__un0_n                          cpu_est_0_1_.un0
-   Net               fc_c_0__n                                   FC_c[0]
-   Net    bgack_030_int_0_un3_n                       BGACK_030_INT_0.un3
-   Net    pos_clk_un29_clk_000_ne_d0_n                pos_clk.un29_clk_000_ne_d0
-   Net                 fc_0__n                                     FC[0]
-   Net    bgack_030_int_0_un1_n                       BGACK_030_INT_0.un1
-   Net    pos_clk_un23_clk_000_ne_d0_n                pos_clk.un23_clk_000_ne_d0
-   Net               fc_c_1__n                                   FC_c[1]
-   Net    bgack_030_int_0_un0_n                       BGACK_030_INT_0.un0
-   Net    pos_clk_un21_clk_000_ne_d0_n                pos_clk.un21_clk_000_ne_d0
-   Net    un1_amiga_bus_enable_dma_high_i_m4_0__un3_n  un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m4_0_.un3
-   Net                 vcc_n_n                                       VCC
-   Net    pos_clk_un7_clk_000_pe_n                    pos_clk.un7_clk_000_pe
-   Net    un1_amiga_bus_enable_dma_high_i_m4_0__un1_n  un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m4_0_.un1
-   Net            cpu_est_3__n                                cpu_est[3]
-   Net    un1_amiga_bus_enable_dma_high_i_m4_0__un0_n  un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m4_0_.un0
-   Net    ds_000_enable_1_sqmuxa_1_i_m4_un3_n         DS_000_ENABLE_1_sqmuxa_1_i_m4.un3
-   Net    pos_clk_un11_clk_000_n_sync_n               pos_clk.un11_clk_000_n_sync
-   Net    ds_000_enable_1_sqmuxa_1_i_m4_un1_n         DS_000_ENABLE_1_sqmuxa_1_i_m4.un1
-   Net                 gnd_n_n                                       GND
-   Net    pos_clk_un9_clk_000_n_sync_n                pos_clk.un9_clk_000_n_sync
-   Net    ds_000_enable_1_sqmuxa_1_i_m4_un0_n         DS_000_ENABLE_1_sqmuxa_1_i_m4.un0
-   Net    pos_clk_un14_clk_000_n_sync_n               pos_clk.un14_clk_000_n_sync
-   Net     size_dma_0_0__un3_n                         SIZE_DMA_0_0_.un3
-   Net    pos_clk_un22_bgack_030_int_n                pos_clk.un22_bgack_030_int
-   Net     size_dma_0_0__un1_n                         SIZE_DMA_0_0_.un1
-   Net    un1_cycle_dma_1_2__n                        un1_CYCLE_DMA_1[2]
-   Net     size_dma_0_0__un0_n                         SIZE_DMA_0_0_.un0
-   Net     size_dma_0_1__un3_n                         SIZE_DMA_0_1_.un3
-   Net    un1_cycle_dma_1_1__n                        un1_CYCLE_DMA_1[1]
-   Net     size_dma_0_1__un1_n                         SIZE_DMA_0_1_.un1
-   Net    pos_clk_un40_bgack_030_int_1_n              pos_clk.un40_bgack_030_int_1
-   Net    pos_clk_un29_bgack_030_int_i_n              pos_clk.un29_bgack_030_int_i
-   Net     size_dma_0_1__un0_n                         SIZE_DMA_0_1_.un0
-   Net    pos_clk_un26_bgack_030_int_i_n              pos_clk.un26_bgack_030_int_i
+   Net    pos_clk_un6_bgack_000_0_n                   pos_clk.un6_bgack_000_0
+   Net      cpu_est_0_2__un3_n                          cpu_est_0_2_.un3
+   Net    pos_clk_un5_bgack_030_int_d_n               pos_clk.un5_bgack_030_int_d
+   Net      cpu_est_0_2__un1_n                          cpu_est_0_2_.un1
+   Net      cpu_est_0_2__un0_n                          cpu_est_0_2_.un0
+   Net            cpu_est_0__n                                cpu_est[0]
+   Net      cpu_est_0_3__un3_n                          cpu_est_0_3_.un3
+   Net            cpu_est_1__n                                cpu_est[1]
+   Net      cpu_est_0_3__un1_n                          cpu_est_0_3_.un1
+   Net    pos_clk_size_dma_6_0_0__n                   pos_clk.SIZE_DMA_6_0[0]
+   Net      cpu_est_0_3__un0_n                          cpu_est_0_3_.un0
+   Net           sm_amiga_5__n                               SM_AMIGA[5]
    Net      ipl_030_0_0__un3_n                          IPL_030_0_0_.un3
-   Net    pos_clk_un27_bgack_030_int_0_n              pos_clk.un27_bgack_030_int_0
+   Net    pos_clk_size_dma_6_0_1__n                   pos_clk.SIZE_DMA_6_0[1]
    Net      ipl_030_0_0__un1_n                          IPL_030_0_0_.un1
-   Net    pos_clk_un24_bgack_030_int_n                pos_clk.un24_bgack_030_int
    Net      ipl_030_0_0__un0_n                          IPL_030_0_0_.un0
-   Net    pos_clk_un27_bgack_030_int_n                pos_clk.un27_bgack_030_int
+   Net    un1_rst_dly_i_m_i_1__n                      un1_RST_DLY_i_m_i[1]
    Net      ipl_030_0_1__un3_n                          IPL_030_0_1_.un3
+   Net    pos_clk_rst_dly_5_iv_i_0__n                 pos_clk.RST_DLY_5_iv_i[0]
    Net      ipl_030_0_1__un1_n                          IPL_030_0_1_.un1
    Net      ipl_030_0_1__un0_n                          IPL_030_0_1_.un0
-   Net            cpu_est_0__n                                cpu_est[0]
    Net      ipl_030_0_2__un3_n                          IPL_030_0_2_.un3
-   Net            cpu_est_1__n                                cpu_est[1]
    Net      ipl_030_0_2__un1_n                          IPL_030_0_2_.un1
    Net      ipl_030_0_2__un0_n                          IPL_030_0_2_.un0
-   Net           sm_amiga_5__n                               SM_AMIGA[5]
-   Net    pos_clk_ds_000_dma_4_f1_0_n                 pos_clk.DS_000_DMA_4_f1_0
+   Net          cycle_dma_0__n                              CYCLE_DMA[0]
    Net      dsack1_int_0_un3_n                          DSACK1_INT_0.un3
+   Net          cycle_dma_1__n                              CYCLE_DMA[1]
    Net      dsack1_int_0_un1_n                          DSACK1_INT_0.un1
+   Net           size_dma_0__n                               SIZE_DMA[0]
    Net      dsack1_int_0_un0_n                          DSACK1_INT_0.un0
-   Net    pos_clk_ds_000_dma_4_n                      pos_clk.DS_000_DMA_4
+   Net           size_dma_1__n                               SIZE_DMA[1]
    Net      as_000_int_0_un3_n                          AS_000_INT_0.un3
    Net      as_000_int_0_un1_n                          AS_000_INT_0.un1
-   Net    pos_clk_ds_000_dma_4_f1_n                   pos_clk.DS_000_DMA_4_f1
    Net      as_000_int_0_un0_n                          AS_000_INT_0.un0
-   Net    pos_clk_un22_bgack_030_int_0_n              pos_clk.un22_bgack_030_int_0
-   Net    ds_000_enable_0_un3_n                       DS_000_ENABLE_0.un3
-   Net    pos_clk_un9_clk_000_n_sync_i_n              pos_clk.un9_clk_000_n_sync_i
-   Net    ds_000_enable_0_un1_n                       DS_000_ENABLE_0.un1
-   Net    clk_000_n_sync_i_10__n                      CLK_000_N_SYNC_i[10]
-   Net    ds_000_enable_0_un0_n                       DS_000_ENABLE_0.un0
-   Net          cycle_dma_0__n                              CYCLE_DMA[0]
-   Net    pos_clk_un14_clk_000_n_sync_0_n             pos_clk.un14_clk_000_n_sync_0
-   Net    as_030_000_sync_0_un3_n                     AS_030_000_SYNC_0.un3
-   Net          cycle_dma_1__n                              CYCLE_DMA[1]
-   Net    pos_clk_un26_bgack_030_int_n                pos_clk.un26_bgack_030_int
-   Net    as_030_000_sync_0_un1_n                     AS_030_000_SYNC_0.un1
-   Net           size_dma_0__n                               SIZE_DMA[0]
-   Net    pos_clk_un29_bgack_030_int_n                pos_clk.un29_bgack_030_int
-   Net    as_030_000_sync_0_un0_n                     AS_030_000_SYNC_0.un0
-   Net           size_dma_1__n                               SIZE_DMA[1]
+   Net               a_i_19__n                                   A_i[19]
    Net     lds_000_int_0_un3_n                         LDS_000_INT_0.un3
+   Net               a_i_18__n                                   A_i[18]
+   Net    un1_rst_dly_i_m_i_2__n                      un1_RST_DLY_i_m_i[2]
    Net     lds_000_int_0_un1_n                         LDS_000_INT_0.un1
-   Net    pos_clk_un9_clk_000_ne_i_n                  pos_clk.un9_clk_000_ne_i
+   Net               a_i_16__n                                   A_i[16]
+   Net    pos_clk_rst_dly_5_iv_i_1__n                 pos_clk.RST_DLY_5_iv_i[1]
    Net     lds_000_int_0_un0_n                         LDS_000_INT_0.un0
-   Net    pos_clk_un5_clk_000_pe_i_n                  pos_clk.un5_clk_000_pe_i
+   Net         size_dma_i_1__n                             SIZE_DMA_i[1]
+   Net    un1_rst_dly_i_m_i_3__n                      un1_RST_DLY_i_m_i[3]
    Net      rw_000_int_0_un3_n                          RW_000_INT_0.un3
-   Net    pos_clk_un7_clk_000_pe_0_n                  pos_clk.un7_clk_000_pe_0
+   Net         size_dma_i_0__n                             SIZE_DMA_i[0]
+   Net    pos_clk_rst_dly_5_iv_i_2__n                 pos_clk.RST_DLY_5_iv_i[2]
    Net      rw_000_int_0_un1_n                          RW_000_INT_0.un1
-   Net    pos_clk_un27_clk_000_ne_d0_i_n              pos_clk.un27_clk_000_ne_d0_i
+   Net    un1_rst_dly_i_m_i_4__n                      un1_RST_DLY_i_m_i[4]
    Net      rw_000_int_0_un0_n                          RW_000_INT_0.un0
-   Net    pos_clk_un24_bgack_030_int_i_n              pos_clk.un24_bgack_030_int_i
-   Net    pos_clk_un21_clk_000_ne_d0_i_n              pos_clk.un21_clk_000_ne_d0_i
-   Net      rw_000_dma_0_un3_n                          RW_000_DMA_0.un3
-   Net        cycle_dma_i_1__n                            CYCLE_DMA_i[1]
-   Net    pos_clk_un23_clk_000_ne_d0_0_n              pos_clk.un23_clk_000_ne_d0_0
-   Net      rw_000_dma_0_un1_n                          RW_000_DMA_0.un1
-   Net        cycle_dma_i_0__n                            CYCLE_DMA_i[0]
-   Net      rw_000_dma_0_un0_n                          RW_000_DMA_0.un0
+   Net    pos_clk_rst_dly_5_iv_i_3__n                 pos_clk.RST_DLY_5_iv_i[3]
    Net     uds_000_int_0_un3_n                         UDS_000_INT_0.un3
    Net     clk_000_p_sync_9__n                         CLK_000_P_SYNC[9]
+   Net    un1_rst_dly_i_m_i_5__n                      un1_RST_DLY_i_m_i[5]
    Net     uds_000_int_0_un1_n                         UDS_000_INT_0.un1
+   Net    pos_clk_rst_dly_5_iv_i_4__n                 pos_clk.RST_DLY_5_iv_i[4]
    Net     uds_000_int_0_un0_n                         UDS_000_INT_0.un0
    Net    clk_000_n_sync_11__n                        CLK_000_N_SYNC[11]
-   Net    amiga_bus_enable_dma_low_0_un3_n            AMIGA_BUS_ENABLE_DMA_LOW_0.un3
-   Net            cpu_est_2__n                                cpu_est[2]
-   Net    amiga_bus_enable_dma_low_0_un1_n            AMIGA_BUS_ENABLE_DMA_LOW_0.un1
-   Net             ipl_d0_0__n                                 IPL_D0[0]
-   Net    pos_clk_un40_bgack_030_int_1_i_n            pos_clk.un40_bgack_030_int_1_i
-   Net    amiga_bus_enable_dma_low_0_un0_n            AMIGA_BUS_ENABLE_DMA_LOW_0.un0
-   Net             ipl_d0_1__n                                 IPL_D0[1]
-   Net    amiga_bus_enable_dma_high_0_un3_n           AMIGA_BUS_ENABLE_DMA_HIGH_0.un3
-   Net             ipl_d0_2__n                                 IPL_D0[2]
-   Net    amiga_bus_enable_dma_high_0_un1_n           AMIGA_BUS_ENABLE_DMA_HIGH_0.un1
-   Net           sm_amiga_3__n                               SM_AMIGA[3]
-   Net    amiga_bus_enable_dma_high_0_un0_n           AMIGA_BUS_ENABLE_DMA_HIGH_0.un0
-   Net          bg_000_0_un3_n                              BG_000_0.un3
-   Net    pos_clk_un6_bg_030_n                        pos_clk.un6_bg_030
-   Net         sm_amiga_i_3__n                             SM_AMIGA_i[3]
-   Net          bg_000_0_un1_n                              BG_000_0.un1
-   Net           sm_amiga_0__n                               SM_AMIGA[0]
-   Net         sm_amiga_i_0__n                             SM_AMIGA_i[0]
-   Net    pos_clk_cpu_est_11_0_1__n                   pos_clk.cpu_est_11_0[1]
-   Net          bg_000_0_un0_n                              BG_000_0.un0
-   Net    pos_clk_un7_clk_000_d0_i_n                  pos_clk.un7_clk_000_d0_i
-   Net          a0_dma_0_un3_n                              A0_DMA_0.un3
-   Net          a0_dma_0_un1_n                              A0_DMA_0.un1
-   Net    pos_clk_clk_000_p_sync_2_0__n               pos_clk.CLK_000_P_SYNC_2[0]
-   Net          a0_dma_0_un0_n                              A0_DMA_0.un0
-   Net    pos_clk_clk_000_n_sync_2_0__n               pos_clk.CLK_000_N_SYNC_2[0]
-   Net    pos_clk_un11_clk_000_n_sync_i_n             pos_clk.un11_clk_000_n_sync_i
-   Net    pos_clk_cpu_est_11_0_3__n                   pos_clk.cpu_est_11_0[3]
-   Net                 a_23__n                                     A[23]
-   Net           pos_clk_ipl_n                               pos_clk.ipl
-   Net    pos_clk_un3_ds_030_d0_n                     pos_clk.un3_ds_030_d0
-   Net                 a_22__n                                     A[22]
-   Net           sm_amiga_6__n                               SM_AMIGA[6]
-   Net         sm_amiga_i_2__n                             SM_AMIGA_i[2]
-   Net    pos_clk_un29_clk_000_ne_d0_i_n              pos_clk.un29_clk_000_ne_d0_i
-   Net                 a_21__n                                     A[21]
-   Net            rst_dly_0__n                                RST_DLY[0]
-   Net          cpu_est_i_0__n                              cpu_est_i[0]
-   Net            rst_dly_1__n                                RST_DLY[1]
-   Net          cpu_est_i_3__n                              cpu_est_i[3]
-   Net                 a_20__n                                     A[20]
-   Net            rst_dly_2__n                                RST_DLY[2]
-   Net          cpu_est_i_2__n                              cpu_est_i[2]
-   Net    pos_clk_rst_dly_5_iv_i_0__n                 pos_clk.RST_DLY_5_iv_i[0]
-   Net            rst_dly_3__n                                RST_DLY[3]
-   Net          cpu_est_i_1__n                              cpu_est_i[1]
-   Net                 a_15__n                                     A[15]
-   Net            rst_dly_4__n                                RST_DLY[4]
-   Net    un1_rst_dly_i_m_i_2__n                      un1_RST_DLY_i_m_i[2]
-   Net            rst_dly_5__n                                RST_DLY[5]
-   Net    pos_clk_rst_dly_5_iv_i_1__n                 pos_clk.RST_DLY_5_iv_i[1]
-   Net                 a_14__n                                     A[14]
-   Net            rst_dly_6__n                                RST_DLY[6]
-   Net         sm_amiga_i_1__n                             SM_AMIGA_i[1]
-   Net    un1_rst_dly_i_m_i_3__n                      un1_RST_DLY_i_m_i[3]
-   Net            rst_dly_7__n                                RST_DLY[7]
-   Net    pos_clk_rst_dly_5_iv_i_2__n                 pos_clk.RST_DLY_5_iv_i[2]
-   Net                 a_13__n                                     A[13]
-   Net    pos_clk_un8_bg_030_n                        pos_clk.un8_bg_030
-   Net    un1_rst_dly_i_m_i_4__n                      un1_RST_DLY_i_m_i[4]
-   Net     clk_000_p_sync_0__n                         CLK_000_P_SYNC[0]
-   Net      un1_rst_dly_i_2__n                          un1_RST_DLY_i[2]
-   Net    pos_clk_rst_dly_5_iv_i_3__n                 pos_clk.RST_DLY_5_iv_i[3]
-   Net                 a_12__n                                     A[12]
-   Net     clk_000_p_sync_1__n                         CLK_000_P_SYNC[1]
-   Net      un1_rst_dly_i_3__n                          un1_RST_DLY_i[3]
-   Net    un1_rst_dly_i_m_i_5__n                      un1_RST_DLY_i_m_i[5]
-   Net     clk_000_p_sync_2__n                         CLK_000_P_SYNC[2]
-   Net      un1_rst_dly_i_4__n                          un1_RST_DLY_i[4]
-   Net    pos_clk_rst_dly_5_iv_i_4__n                 pos_clk.RST_DLY_5_iv_i[4]
-   Net                 a_11__n                                     A[11]
-   Net     clk_000_p_sync_3__n                         CLK_000_P_SYNC[3]
-   Net      un1_rst_dly_i_5__n                          un1_RST_DLY_i[5]
    Net    un1_rst_dly_i_m_i_6__n                      un1_RST_DLY_i_m_i[6]
-   Net     clk_000_p_sync_4__n                         CLK_000_P_SYNC[4]
-   Net      un1_rst_dly_i_6__n                          un1_RST_DLY_i[6]
-   Net    pos_clk_rst_dly_5_iv_i_5__n                 pos_clk.RST_DLY_5_iv_i[5]
-   Net                 a_10__n                                     A[10]
-   Net     clk_000_p_sync_5__n                         CLK_000_P_SYNC[5]
-   Net      un1_rst_dly_i_7__n                          un1_RST_DLY_i[7]
-   Net    un1_rst_dly_i_m_i_7__n                      un1_RST_DLY_i_m_i[7]
-   Net     clk_000_p_sync_6__n                         CLK_000_P_SYNC[6]
-   Net      un1_rst_dly_i_8__n                          un1_RST_DLY_i[8]
-   Net    pos_clk_rst_dly_5_iv_i_6__n                 pos_clk.RST_DLY_5_iv_i[6]
-   Net                  a_9__n                                      A[9]
-   Net     clk_000_p_sync_7__n                         CLK_000_P_SYNC[7]
-   Net    un1_rst_dly_i_m_i_8__n                      un1_RST_DLY_i_m_i[8]
-   Net     clk_000_p_sync_8__n                         CLK_000_P_SYNC[8]
-   Net    pos_clk_rst_dly_5_iv_i_7__n                 pos_clk.RST_DLY_5_iv_i[7]
-   Net                  a_8__n                                      A[8]
-   Net     clk_000_n_sync_0__n                         CLK_000_N_SYNC[0]
-   Net     clk_000_n_sync_1__n                         CLK_000_N_SYNC[1]
-   Net                  a_7__n                                      A[7]
-   Net     clk_000_n_sync_2__n                         CLK_000_N_SYNC[2]
-   Net     clk_000_n_sync_3__n                         CLK_000_N_SYNC[3]
+   Net         vma_int_0_un3_n                             VMA_INT_0.un3
+   Net            cpu_est_2__n                                cpu_est[2]
    Net       sm_amiga_i_i_7__n                           SM_AMIGA_i_i[7]
-   Net                  a_6__n                                      A[6]
-   Net     clk_000_n_sync_4__n                         CLK_000_N_SYNC[4]
-   Net     clk_000_n_sync_5__n                         CLK_000_N_SYNC[5]
+   Net    pos_clk_rst_dly_5_iv_i_5__n                 pos_clk.RST_DLY_5_iv_i[5]
+   Net         vma_int_0_un1_n                             VMA_INT_0.un1
+   Net             ipl_d0_0__n                                 IPL_D0[0]
+   Net    un1_rst_dly_i_m_i_7__n                      un1_RST_DLY_i_m_i[7]
+   Net         vma_int_0_un0_n                             VMA_INT_0.un0
+   Net             ipl_d0_1__n                                 IPL_D0[1]
+   Net    pos_clk_rst_dly_5_iv_i_6__n                 pos_clk.RST_DLY_5_iv_i[6]
+   Net          bg_000_0_un3_n                              BG_000_0.un3
+   Net             ipl_d0_2__n                                 IPL_D0[2]
+   Net    un1_rst_dly_i_m_i_8__n                      un1_RST_DLY_i_m_i[8]
+   Net          bg_000_0_un1_n                              BG_000_0.un1
+   Net           sm_amiga_3__n                               SM_AMIGA[3]
+   Net    pos_clk_rst_dly_5_iv_i_7__n                 pos_clk.RST_DLY_5_iv_i[7]
+   Net          bg_000_0_un0_n                              BG_000_0.un0
+   Net         sm_amiga_i_6__n                             SM_AMIGA_i[6]
+   Net      ds_000_dma_0_un3_n                          DS_000_DMA_0.un3
+   Net    pos_clk_un6_bg_030_n                        pos_clk.un6_bg_030
+   Net      ds_000_dma_0_un1_n                          DS_000_DMA_0.un1
+   Net           sm_amiga_0__n                               SM_AMIGA[0]
    Net         sm_amiga_i_5__n                             SM_AMIGA_i[5]
+   Net    clk_000_n_sync_i_10__n                      CLK_000_N_SYNC_i[10]
+   Net      ds_000_dma_0_un0_n                          DS_000_DMA_0.un0
+   Net    pos_clk_un9_clk_000_n_sync_i_n              pos_clk.un9_clk_000_n_sync_i
+   Net      as_000_dma_0_un3_n                          AS_000_DMA_0.un3
+   Net      un1_rst_dly_i_1__n                          un1_RST_DLY_i[1]
+   Net    pos_clk_un14_clk_000_n_sync_0_n             pos_clk.un14_clk_000_n_sync_0
+   Net      as_000_dma_0_un1_n                          AS_000_DMA_0.un1
+   Net    pos_clk_clk_000_p_sync_2_0__n               pos_clk.CLK_000_P_SYNC_2[0]
+   Net      as_000_dma_0_un0_n                          AS_000_DMA_0.un0
+   Net    pos_clk_clk_000_n_sync_2_0__n               pos_clk.CLK_000_N_SYNC_2[0]
+   Net                 a_15__n                                     A[15]
+   Net           pos_clk_ipl_n                               pos_clk.ipl
+   Net      un1_rst_dly_i_2__n                          un1_RST_DLY_i[2]
+   Net    pos_clk_un3_ds_030_d0_n                     pos_clk.un3_ds_030_d0
+   Net      un1_rst_dly_i_3__n                          un1_RST_DLY_i[3]
+   Net                 a_14__n                                     A[14]
+   Net           sm_amiga_6__n                               SM_AMIGA[6]
+   Net      un1_rst_dly_i_4__n                          un1_RST_DLY_i[4]
+   Net            rst_dly_0__n                                RST_DLY[0]
+   Net      un1_rst_dly_i_5__n                          un1_RST_DLY_i[5]
+   Net                 a_13__n                                     A[13]
+   Net            rst_dly_1__n                                RST_DLY[1]
+   Net      un1_rst_dly_i_6__n                          un1_RST_DLY_i[6]
+   Net            rst_dly_2__n                                RST_DLY[2]
+   Net      un1_rst_dly_i_7__n                          un1_RST_DLY_i[7]
+   Net    pos_clk_ds_000_dma_4_0_n                    pos_clk.DS_000_DMA_4_0
+   Net                 a_12__n                                     A[12]
+   Net            rst_dly_3__n                                RST_DLY[3]
+   Net      un1_rst_dly_i_8__n                          un1_RST_DLY_i[8]
+   Net            rst_dly_4__n                                RST_DLY[4]
+   Net                 a_11__n                                     A[11]
+   Net            rst_dly_5__n                                RST_DLY[5]
+   Net    pos_clk_un11_clk_000_n_sync_i_n             pos_clk.un11_clk_000_n_sync_i
+   Net            rst_dly_6__n                                RST_DLY[6]
+   Net                 a_10__n                                     A[10]
+   Net            rst_dly_7__n                                RST_DLY[7]
+   Net    pos_clk_un8_bg_030_n                        pos_clk.un8_bg_030
+   Net                  a_9__n                                      A[9]
+   Net     clk_000_p_sync_0__n                         CLK_000_P_SYNC[0]
+   Net     clk_000_p_sync_1__n                         CLK_000_P_SYNC[1]
+   Net          cpu_est_i_0__n                              cpu_est_i[0]
+   Net                  a_8__n                                      A[8]
+   Net     clk_000_p_sync_2__n                         CLK_000_P_SYNC[2]
+   Net          cpu_est_i_1__n                              cpu_est_i[1]
+   Net     clk_000_p_sync_3__n                         CLK_000_P_SYNC[3]
+   Net          cpu_est_i_3__n                              cpu_est_i[3]
+   Net                  a_7__n                                      A[7]
+   Net     clk_000_p_sync_4__n                         CLK_000_P_SYNC[4]
+   Net               a_i_24__n                                   A_i[24]
+   Net     clk_000_p_sync_5__n                         CLK_000_P_SYNC[5]
+   Net    pos_clk_un7_clk_000_d0_i_n                  pos_clk.un7_clk_000_d0_i
+   Net                  a_6__n                                      A[6]
+   Net     clk_000_p_sync_6__n                         CLK_000_P_SYNC[6]
+   Net         sm_amiga_i_0__n                             SM_AMIGA_i[0]
+   Net     clk_000_p_sync_7__n                         CLK_000_P_SYNC[7]
+   Net         sm_amiga_i_3__n                             SM_AMIGA_i[3]
    Net                  a_5__n                                      A[5]
+   Net     clk_000_p_sync_8__n                         CLK_000_P_SYNC[8]
+   Net     clk_000_n_sync_0__n                         CLK_000_N_SYNC[0]
+   Net          cpu_est_i_2__n                              cpu_est_i[2]
+   Net                  a_4__n                                      A[4]
+   Net     clk_000_n_sync_1__n                         CLK_000_N_SYNC[1]
+   Net         sm_amiga_i_1__n                             SM_AMIGA_i[1]
+   Net     clk_000_n_sync_2__n                         CLK_000_N_SYNC[2]
+   Net         sm_amiga_i_4__n                             SM_AMIGA_i[4]
+   Net                  a_3__n                                      A[3]
+   Net     clk_000_n_sync_3__n                         CLK_000_N_SYNC[3]
+   Net         sm_amiga_i_2__n                             SM_AMIGA_i[2]
+   Net     clk_000_n_sync_4__n                         CLK_000_N_SYNC[4]
+   Net    pos_clk_un29_clk_000_ne_d0_i_n              pos_clk.un29_clk_000_ne_d0_i
+   Net                  a_2__n                                      A[2]
+   Net     clk_000_n_sync_5__n                         CLK_000_N_SYNC[5]
    Net     clk_000_n_sync_6__n                         CLK_000_N_SYNC[6]
    Net     clk_000_n_sync_7__n                         CLK_000_N_SYNC[7]
-   Net    pos_clk_size_dma_6_0_1__n                   pos_clk.SIZE_DMA_6_0[1]
-   Net                  a_4__n                                      A[4]
    Net     clk_000_n_sync_8__n                         CLK_000_N_SYNC[8]
    Net     clk_000_n_sync_9__n                         CLK_000_N_SYNC[9]
-   Net         sm_amiga_i_6__n                             SM_AMIGA_i[6]
-   Net    pos_clk_size_dma_6_0_0__n                   pos_clk.SIZE_DMA_6_0[0]
-   Net                  a_3__n                                      A[3]
-   Net    clk_000_n_sync_10__n                        CLK_000_N_SYNC[10]
-   Net         sm_amiga_i_4__n                             SM_AMIGA_i[4]
-   Net    pos_clk_un5_bgack_030_int_d_n               pos_clk.un5_bgack_030_int_d
-   Net                  a_2__n                                      A[2]
-   Net         size_dma_i_0__n                             SIZE_DMA_i[0]
-   Net         size_dma_i_1__n                             SIZE_DMA_i[1]
-   Net               a_i_16__n                                   A_i[16]
-   Net               a_i_18__n                                   A_i[18]
-   Net           sm_amiga_1__n                               SM_AMIGA[1]
-   Net               a_i_19__n                                   A_i[19]
-   Net           sm_amiga_4__n                               SM_AMIGA[4]
-   Net               a_i_30__n                                   A_i[30]
-   Net           sm_amiga_2__n                               SM_AMIGA[2]
    Net               a_i_31__n                                   A_i[31]
-   Net    pos_clk_un3_as_030_d0_n                     pos_clk.un3_as_030_d0
-   Net               a_i_28__n                                   A_i[28]
+   Net    clk_000_n_sync_10__n                        CLK_000_N_SYNC[10]
    Net               a_i_29__n                                   A_i[29]
-   Net    pos_clk_un3_as_030_d0_i_n                   pos_clk.un3_as_030_d0_i
-   Net    pos_clk_cycle_dma_5_0__n                    pos_clk.CYCLE_DMA_5[0]
-   Net               a_i_26__n                                   A_i[26]
-   Net    pos_clk_un5_bgack_030_int_d_i_n             pos_clk.un5_bgack_030_int_d_i
-   Net    pos_clk_cycle_dma_5_1__n                    pos_clk.CYCLE_DMA_5[1]
+   Net               a_i_30__n                                   A_i[30]
    Net               a_i_27__n                                   A_i[27]
-   Net      pos_clk_a0_dma_3_n                          pos_clk.A0_DMA_3
-   Net               a_i_24__n                                   A_i[24]
+   Net    pos_clk_cpu_est_11_0_3__n                   pos_clk.cpu_est_11_0[3]
+   Net    pos_clk_un7_clk_000_pe_n                    pos_clk.un7_clk_000_pe
+   Net               a_i_28__n                                   A_i[28]
    Net               a_i_25__n                                   A_i[25]
+   Net               a_i_26__n                                   A_i[26]
+   Net    pos_clk_cpu_est_11_0_1__n                   pos_clk.cpu_est_11_0[1]
+   Net           sm_amiga_1__n                               SM_AMIGA[1]
+   Net           sm_amiga_4__n                               SM_AMIGA[4]
+   Net           sm_amiga_2__n                               SM_AMIGA[2]
+   Net    pos_clk_ds_000_dma_4_n                      pos_clk.DS_000_DMA_4
+   Net    pos_clk_un21_clk_000_ne_d0_i_n              pos_clk.un21_clk_000_ne_d0_i
+   Net    pos_clk_un27_clk_000_ne_d0_i_n              pos_clk.un27_clk_000_ne_d0_i
+   Net    pos_clk_un23_clk_000_ne_d0_0_n              pos_clk.un23_clk_000_ne_d0_0
+   Net             size_c_0__n                                 SIZE_c[0]
+   Net    pos_clk_un5_clk_000_pe_i_n                  pos_clk.un5_clk_000_pe_i
+   Net               size_0__n                                   SIZE[0]
+   Net    pos_clk_un9_clk_000_ne_i_n                  pos_clk.un9_clk_000_ne_i
+   Net             size_c_1__n                                 SIZE_c[1]
+   Net    pos_clk_un7_clk_000_pe_0_n                  pos_clk.un7_clk_000_pe_0
    Net    pos_clk_un11_ds_030_d0_i_n                  pos_clk.un11_ds_030_d0_i
    Net           size_c_i_1__n                               SIZE_c_i[1]
    Net            ipl_c_i_2__n                                IPL_c_i[2]
    Net            ipl_c_i_1__n                                IPL_c_i[1]
-   Net             size_c_0__n                                 SIZE_c[0]
-   Net               size_0__n                                   SIZE[0]
    Net            ipl_c_i_0__n                                IPL_c_i[0]
-   Net             size_c_1__n                                 SIZE_c[1]
    Net         sm_amiga_i_7__n                             SM_AMIGA_i[7]
-   Net    pos_clk_size_dma_6_0__n                     pos_clk.SIZE_DMA_6[0]
-   Net    pos_clk_size_dma_6_1__n                     pos_clk.SIZE_DMA_6[1]
+   Net    pos_clk_cpu_est_11_1__n                     pos_clk.cpu_est_11[1]
+   Net    pos_clk_cpu_est_11_3__n                     pos_clk.cpu_est_11[3]
+   Net    pos_clk_un24_bgack_030_int_i_0_n            pos_clk.un24_bgack_030_int_i_0
    Net               a_c_16__n                                   A_c[16]
    Net                 a_16__n                                     A[16]
-   Net    pos_clk_un6_bg_030_i_n                      pos_clk.un6_bg_030_i
    Net               a_c_17__n                                   A_c[17]
-   Net    pos_clk_un8_bg_030_0_n                      pos_clk.un8_bg_030_0
    Net                 a_17__n                                     A[17]
    Net               a_c_18__n                                   A_c[18]
    Net                 a_18__n                                     A[18]
-   Net    pos_clk_cpu_est_11_0_1_3__n                 pos_clk.cpu_est_11_0_1[3]
    Net               a_c_19__n                                   A_c[19]
-   Net    pos_clk_cpu_est_11_0_1_1__n                 pos_clk.cpu_est_11_0_1[1]
    Net                 a_19__n                                     A[19]
-   Net    pos_clk_cpu_est_11_0_2_1__n                 pos_clk.cpu_est_11_0_2[1]
-   Net    pos_clk_un7_clk_000_d0_n                    pos_clk.un7_clk_000_d0
-   Net    pos_clk_un11_ds_030_d0_i_1_n                pos_clk.un11_ds_030_d0_i_1
+   Net    pos_clk_un11_clk_000_n_sync_n               pos_clk.un11_clk_000_n_sync
+   Net               a_c_20__n                                   A_c[20]
+   Net                 a_20__n                                     A[20]
+   Net               a_c_21__n                                   A_c[21]
+   Net                 a_21__n                                     A[21]
+   Net               a_c_22__n                                   A_c[22]
+   Net    pos_clk_un6_bg_030_i_n                      pos_clk.un6_bg_030_i
+   Net                 a_22__n                                     A[22]
+   Net    pos_clk_un8_bg_030_0_n                      pos_clk.un8_bg_030_0
+   Net               a_c_23__n                                   A_c[23]
+   Net                 a_23__n                                     A[23]
    Net               a_c_24__n                                   A_c[24]
+   Net    pos_clk_un11_ds_030_d0_i_1_n                pos_clk.un11_ds_030_d0_i_1
+   Net    pos_clk_un7_clk_000_d0_n                    pos_clk.un7_clk_000_d0
    Net                 a_24__n                                     A[24]
+   Net    pos_clk_un29_clk_000_ne_d0_n                pos_clk.un29_clk_000_ne_d0
    Net               a_c_25__n                                   A_c[25]
+   Net    pos_clk_cpu_est_11_0_1_1__n                 pos_clk.cpu_est_11_0_1[1]
    Net                 a_25__n                                     A[25]
+   Net    pos_clk_cpu_est_11_0_2_1__n                 pos_clk.cpu_est_11_0_2[1]
+   Net    pos_clk_un21_clk_000_ne_d0_n                pos_clk.un21_clk_000_ne_d0
    Net               a_c_26__n                                   A_c[26]
+   Net    pos_clk_cpu_est_11_0_1_3__n                 pos_clk.cpu_est_11_0_1[3]
+   Net    pos_clk_un5_clk_000_pe_n                    pos_clk.un5_clk_000_pe
    Net                 a_26__n                                     A[26]
+   Net    pos_clk_un9_clk_000_ne_n                    pos_clk.un9_clk_000_ne
    Net               a_c_27__n                                   A_c[27]
+   Net    pos_clk_un23_clk_000_ne_d0_n                pos_clk.un23_clk_000_ne_d0
    Net                 a_27__n                                     A[27]
+   Net    pos_clk_un27_clk_000_ne_d0_n                pos_clk.un27_clk_000_ne_d0
    Net               a_c_28__n                                   A_c[28]
+   Net    pos_clk_un14_clk_000_n_sync_n               pos_clk.un14_clk_000_n_sync
    Net                 a_28__n                                     A[28]
    Net               a_c_29__n                                   A_c[29]
    Net                 a_29__n                                     A[29]
    Net               a_c_30__n                                   A_c[30]
    Net                 a_30__n                                     A[30]
    Net               a_c_31__n                                   A_c[31]
-   Net    pos_clk_un6_bg_030_1_n                      pos_clk.un6_bg_030_1
-   Net    pos_clk_un7_clk_000_d0_1_n                  pos_clk.un7_clk_000_d0_1
-   Net        un1_rst_dly_8__n                            un1_RST_DLY[8]
-   Net        un1_rst_dly_7__n                            un1_RST_DLY[7]
-   Net        un1_rst_dly_6__n                            un1_RST_DLY[6]
-   Net    pos_clk_un27_clk_000_ne_d0_1_n              pos_clk.un27_clk_000_ne_d0_1
-   Net    pos_clk_un27_clk_000_ne_d0_2_n              pos_clk.un27_clk_000_ne_d0_2
-   Net        un1_rst_dly_5__n                            un1_RST_DLY[5]
-   Net    pos_clk_un27_clk_000_ne_d0_3_n              pos_clk.un27_clk_000_ne_d0_3
-   Net    pos_clk_un5_clk_000_pe_1_n                  pos_clk.un5_clk_000_pe_1
-   Net        un1_rst_dly_4__n                            un1_RST_DLY[4]
-   Net    pos_clk_un5_clk_000_pe_2_n                  pos_clk.un5_clk_000_pe_2
-   Net        un1_rst_dly_3__n                            un1_RST_DLY[3]
-   Net    pos_clk_un5_clk_000_pe_3_n                  pos_clk.un5_clk_000_pe_3
    Net    pos_clk_un9_clk_000_ne_1_n                  pos_clk.un9_clk_000_ne_1
-   Net        un1_rst_dly_2__n                            un1_RST_DLY[2]
    Net    pos_clk_un9_clk_000_ne_2_n                  pos_clk.un9_clk_000_ne_2
    Net    pos_clk_un9_clk_000_ne_3_n                  pos_clk.un9_clk_000_ne_3
    Net    pos_clk_un9_clk_000_ne_4_n                  pos_clk.un9_clk_000_ne_4
-   Net    un1_rst_dly_i_m_8__n                        un1_RST_DLY_i_m[8]
-   Net    pos_clk_un24_bgack_030_int_1_n              pos_clk.un24_bgack_030_int_1
-   Net    un1_rst_dly_i_m_7__n                        un1_RST_DLY_i_m[7]
-   Net    un1_rst_dly_i_m_6__n                        un1_RST_DLY_i_m[6]
-   Net    un1_rst_dly_i_m_5__n                        un1_RST_DLY_i_m[5]
-   Net    un1_rst_dly_i_m_4__n                        un1_RST_DLY_i_m[4]
-   Net    un1_rst_dly_i_m_3__n                        un1_RST_DLY_i_m[3]
-   Net    un1_rst_dly_i_m_2__n                        un1_RST_DLY_i_m[2]
+   Net    pos_clk_un5_clk_000_pe_1_n                  pos_clk.un5_clk_000_pe_1
+   Net    pos_clk_un5_clk_000_pe_2_n                  pos_clk.un5_clk_000_pe_2
+   Net    pos_clk_un5_clk_000_pe_3_n                  pos_clk.un5_clk_000_pe_3
+   Net    pos_clk_un27_clk_000_ne_d0_1_n              pos_clk.un27_clk_000_ne_d0_1
+   Net    pos_clk_un27_clk_000_ne_d0_2_n              pos_clk.un27_clk_000_ne_d0_2
    Net          ipl_030_c_0__n                              IPL_030_c[0]
+   Net    pos_clk_un27_clk_000_ne_d0_3_n              pos_clk.un27_clk_000_ne_d0_3
    Net            ipl_030_0__n                                IPL_030[0]
    Net          ipl_030_c_1__n                              IPL_030_c[1]
    Net            ipl_030_1__n                                IPL_030[1]
-   Net         pos_clk_ipl_1_n                             pos_clk.ipl_1
    Net          ipl_030_c_2__n                              IPL_030_c[2]
-   Net      as_000_dma_0_un3_n                          AS_000_DMA_0.un3
-   Net    pos_clk_un27_clk_000_ne_d0_n                pos_clk.un27_clk_000_ne_d0
-   Net      as_000_dma_0_un1_n                          AS_000_DMA_0.un1
    Net              ipl_c_0__n                                  IPL_c[0]
-   Net      as_000_dma_0_un0_n                          AS_000_DMA_0.un0
-   Net    pos_clk_un5_clk_000_pe_n                    pos_clk.un5_clk_000_pe
    Net                ipl_0__n                                    IPL[0]
-   Net      ds_000_dma_0_un3_n                          DS_000_DMA_0.un3
-   Net    pos_clk_un9_clk_000_ne_n                    pos_clk.un9_clk_000_ne
+   Net    pos_clk_un24_bgack_030_int_i_0_0_1_n        pos_clk.un24_bgack_030_int_i_0_0_1
+   Net    pos_clk_un9_clk_000_n_sync_n                pos_clk.un9_clk_000_n_sync
    Net              ipl_c_1__n                                  IPL_c[1]
-   Net      ds_000_dma_0_un1_n                          DS_000_DMA_0.un1
+   Net    pos_clk_un24_bgack_030_int_i_0_0_2_n        pos_clk.un24_bgack_030_int_i_0_0_2
+   Net        un1_rst_dly_8__n                            un1_RST_DLY[8]
    Net                ipl_1__n                                    IPL[1]
-   Net      ds_000_dma_0_un0_n                          DS_000_DMA_0.un0
+   Net        un1_rst_dly_7__n                            un1_RST_DLY[7]
    Net              ipl_c_2__n                                  IPL_c[2]
-   Net         vma_int_0_un3_n                             VMA_INT_0.un3
-   Net         vma_int_0_un1_n                             VMA_INT_0.un1
-   Net         vma_int_0_un0_n                             VMA_INT_0.un0
-   Net    sm_amiga_srsts_i_0_m2_1__un3_n              SM_AMIGA_srsts_i_0_m2_1_.un3
-   Net    sm_amiga_srsts_i_0_m2_1__un1_n              SM_AMIGA_srsts_i_0_m2_1_.un1
-   Net    pos_clk_cpu_est_11_3__n                     pos_clk.cpu_est_11[3]
-   Net    sm_amiga_srsts_i_0_m2_1__un0_n              SM_AMIGA_srsts_i_0_m2_1_.un0
-   Net      cpu_est_0_3__un3_n                          cpu_est_0_3_.un3
-   Net      cpu_est_0_3__un1_n                          cpu_est_0_3_.un1
-   Net    pos_clk_cpu_est_11_1__n                     pos_clk.cpu_est_11[1]
-   Net      cpu_est_0_3__un0_n                          cpu_est_0_3_.un0
-   Net      cpu_est_0_2__un3_n                          cpu_est_0_2_.un3
-   Net      cpu_est_0_2__un1_n                          cpu_est_0_2_.un1
-   Net      cpu_est_0_2__un0_n                          cpu_est_0_2_.un0
+   Net    pos_clk_un7_clk_000_d0_1_n                  pos_clk.un7_clk_000_d0_1
+   Net        un1_rst_dly_6__n                            un1_RST_DLY[6]
+   Net        un1_rst_dly_5__n                            un1_RST_DLY[5]
+   Net        un1_rst_dly_4__n                            un1_RST_DLY[4]
+   Net        un1_rst_dly_3__n                            un1_RST_DLY[3]
+   Net    pos_clk_un6_bg_030_1_n                      pos_clk.un6_bg_030_1
+   Net        un1_rst_dly_2__n                            un1_RST_DLY[2]
+   Net         pos_clk_ipl_1_n                             pos_clk.ipl_1
+   Net    un1_rst_dly_i_m_8__n                        un1_RST_DLY_i_m[8]
+   Net    amiga_bus_enable_dma_high_0_un3_n           AMIGA_BUS_ENABLE_DMA_HIGH_0.un3
+   Net    un1_rst_dly_i_m_7__n                        un1_RST_DLY_i_m[7]
+   Net               fc_c_0__n                                   FC_c[0]
+   Net    amiga_bus_enable_dma_high_0_un1_n           AMIGA_BUS_ENABLE_DMA_HIGH_0.un1
+   Net    un1_rst_dly_i_m_6__n                        un1_RST_DLY_i_m[6]
+   Net                 fc_0__n                                     FC[0]
+   Net    amiga_bus_enable_dma_high_0_un0_n           AMIGA_BUS_ENABLE_DMA_HIGH_0.un0
+   Net    un1_rst_dly_i_m_5__n                        un1_RST_DLY_i_m[5]
+   Net               fc_c_1__n                                   FC_c[1]
+   Net    amiga_bus_enable_dma_low_0_un3_n            AMIGA_BUS_ENABLE_DMA_LOW_0.un3
+   Net    un1_rst_dly_i_m_4__n                        un1_RST_DLY_i_m[4]
+   Net    amiga_bus_enable_dma_low_0_un1_n            AMIGA_BUS_ENABLE_DMA_LOW_0.un1
+   Net    un1_rst_dly_i_m_3__n                        un1_RST_DLY_i_m[3]
+   Net    amiga_bus_enable_dma_low_0_un0_n            AMIGA_BUS_ENABLE_DMA_LOW_0.un0
+   Net    un1_rst_dly_i_m_2__n                        un1_RST_DLY_i_m[2]
+   Net      rw_000_dma_0_un3_n                          RW_000_DMA_0.un3
+   Net      rw_000_dma_0_un1_n                          RW_000_DMA_0.un1
+   Net      rw_000_dma_0_un0_n                          RW_000_DMA_0.un0
+   Net    bgack_030_int_0_un3_n                       BGACK_030_INT_0.un3
+   Net        un1_rst_dly_1__n                            un1_RST_DLY[1]
+   Net    bgack_030_int_0_un1_n                       BGACK_030_INT_0.un1
 End
 Section Type      Name
 // ----------------------------------------------------------------------

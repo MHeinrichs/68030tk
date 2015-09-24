@@ -23,5 +23,4 @@ State machine has 8 reachable states with original encodings of:
    110
    111
 @N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":139:37:139:39|Trying to extract state machine for register cpu_est
-@W: CL246 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":23:1:23:1|Input port bits 23 to 20 of a(31 downto 2) are unused 
 @W: CL246 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":23:1:23:1|Input port bits 15 to 2 of a(31 downto 2) are unused 
