@@ -45,7 +45,7 @@ port(
 	VPA: in std_logic ;
 	VMA: out std_logic ;
 	RST: in std_logic ;
-	RESET: out std_logic ;
+	RESET: inout std_logic ;
 	RW: inout std_logic ;
 --	D: inout std_logic_vector ( 31 downto 28 );
 	FC: in std_logic_vector ( 1 downto 0 );
@@ -141,8 +141,9 @@ signal	DTACK_D0: STD_LOGIC 		:= '1';
 signal  RESET_OUT: STD_LOGIC 		:= '0';
 signal	CLK_030_D0: STD_LOGIC 		:= '0';
 --signal  NO_RESET: STD_LOGIC 		:= '0';
-signal	RST_DLY: STD_LOGIC_VECTOR ( 7 downto 0 ) 	:= "00000000";
-
+signal	RST_DLY: STD_LOGIC_VECTOR ( 2 downto 0 ) 	:= "000";
+--signal	RST_DLY_AMIGA: STD_LOGIC_VECTOR ( 7 downto 0 ) 	:= "00000000";
+--signal  RESET_OUT_AMIGA: STD_LOGIC 		:= '0';
 begin
 
 	--pos edge clock process
@@ -210,6 +211,20 @@ begin
 				end case;
 			end if;
 			
+			--this is a statemachine to propagate an internal reset to the amiga
+			--if(	(RESET = '0' and RESET_OUT = '1') or RST_DLY_AMIGA /= "11111111") then --reset condition from the tk-board
+			--	if(RST_DLY_AMIGA = "11111111") then --start of reset
+			--		RESET_OUT_AMIGA <= '1';
+			--		RST_DLY_AMIGA <= "00000000";
+			--	else
+			--		RST_DLY_AMIGA <= RST_DLY_AMIGA+1;
+			--	end if;					
+			--else
+			--	RST_DLY_AMIGA	<= "11111111";
+			--	RESET_OUT_AMIGA <= '0';
+			--end if;
+
+			
 			--the statemachine
 			if(RST = '0' ) then
 				VPA_D			<= '1';
@@ -242,12 +257,12 @@ begin
 				DS_030_D0		<= '1';
 				CLK_030_H		<= '0';	
 				CYCLE_DMA		<= "00";
-				RST_DLY			<= "00000000";
+				RST_DLY			<= "000";
 				RESET_OUT 		<= '0';
 			else 
 				
 				if(CLK_000_NE='1')then
-					if(RST_DLY="11111111")then
+					if(RST_DLY="111")then
 						RESET_OUT 		<= '1';
 					else
 						RST_DLY <= RST_DLY+1;						
@@ -493,15 +508,16 @@ begin
 	end process pos_clk;
 
 	--output clock assignment
-	CLK_DIV_OUT	<= CLK_OUT_INT;
-	CLK_EXP		<= CLK_OUT_INT;
-	--CLK_DIV_OUT	<= 'Z';
-	--CLK_EXP		<= CLK_030;
+	--CLK_DIV_OUT	<= CLK_OUT_INT;
+	--CLK_EXP		<= CLK_OUT_INT;
+	CLK_DIV_OUT	<= 'Z';
+	CLK_EXP		<= CLK_030;
 
 
 	
-	--RESET	<= 'Z' when RESET_OUT ='1' else '0';
-	RESET	<=  RESET_OUT;
+	RESET	<= 'Z' when RESET_OUT ='1' else '0';
+	--RST		<= '0' when RESET_OUT_AMIGA = '1' else 'Z';
+	--RESET	<=  RESET_OUT;
 
 	-- bus drivers
 	--AMIGA_ADDR_ENABLE	<= AMIGA_BUS_ENABLE_INT;

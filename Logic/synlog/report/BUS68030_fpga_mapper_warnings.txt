@@ -1,2 +1,2 @@
-@W: MO111 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":498:16:498:18|Tristate driver CLK_DIV_OUT_1 on net CLK_DIV_OUT_1 has its enable tied to GND (module BUS68030) 
+@W: MO111 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":513:16:513:18|Tristate driver CLK_DIV_OUT_1 on net CLK_DIV_OUT_1 has its enable tied to GND (module BUS68030) 
 @W: BN132 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":134:34:134:36|Removing instance CLK_000_P_SYNC[10],  because it is equivalent to instance CLK_000_PE
