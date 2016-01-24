@@ -60,40 +60,38 @@ end BUS68030;
 architecture Behavioral of BUS68030 is
 
 
-subtype ESTATE is std_logic_vector(3 downto 0);
-  
-constant E1  : ESTATE := "0110";
-constant E2  : ESTATE := "0111";  
-constant E3  : ESTATE := "0100";  
-constant E4  : ESTATE := "0101";  
-constant E5  : ESTATE := "0010";  
-constant E6  : ESTATE := "0011";  
-constant E7  : ESTATE := "1010";  
-constant E8  : ESTATE := "1011";  
-constant E9  : ESTATE := "1100";  
-constant E10 : ESTATE := "1111";
--- Illegal states  
-constant E20 : ESTATE := "0000";  
-constant E4a : ESTATE := "0001";  
-constant E21 : ESTATE := "1000";  
-constant E22 : ESTATE := "1001";  
-constant E23 : ESTATE := "1101";  
-constant E24 : ESTATE := "1110";  
 
-signal cpu_est : ESTATE;
 
-subtype AMIGA_STATE is std_logic_vector(2 downto 0);
-  
-constant IDLE_P		 : AMIGA_STATE := "000";
-constant IDLE_N		 : AMIGA_STATE := "001";
-constant AS_SET_P	 : AMIGA_STATE := "010";  
-constant AS_SET_N	 : AMIGA_STATE := "011";  
-constant SAMPLE_DTACK_P: AMIGA_STATE := "100";  
-constant DATA_FETCH_N: AMIGA_STATE := "101";  
-constant DATA_FETCH_P : AMIGA_STATE := "110";  
-constant END_CYCLE_N : AMIGA_STATE := "111";  
+TYPE SM_E IS (
+				E1,
+				E2,
+				E3,
+				E4,
+				E5,
+				E6,
+				E7,
+				E8,
+				E9,
+				E10
+				);
 
-signal SM_AMIGA : AMIGA_STATE;
+
+
+signal cpu_est : SM_E;
+
+TYPE SM_68000 IS (
+				IDLE_P,
+				IDLE_N,
+				AS_SET_P,
+				AS_SET_N,
+				SAMPLE_DTACK_P,
+				DATA_FETCH_N,
+				DATA_FETCH_P,
+				END_CYCLE_N
+				);
+
+
+signal SM_AMIGA : SM_68000;
   
 --signal	Dout:STD_LOGIC_VECTOR(3 downto 0) := "0000";
 signal	AS_000_INT:STD_LOGIC		:= '1';
@@ -122,10 +120,11 @@ signal	LDS_000_INT: STD_LOGIC		:= '1';
 signal	DS_000_ENABLE: STD_LOGIC	:= '0';
 signal  DSACK1_INT: STD_LOGIC		:= '1';
 signal	CLK_OUT_PRE_50: STD_LOGIC	:= '1';
-signal	CLK_OUT_PRE_50_D: STD_LOGIC	:= '1';
+signal	CLK_OUT_PRE_25: STD_LOGIC	:= '1';
 signal	CLK_OUT_PRE: STD_LOGIC		:= '1';
 signal	CLK_OUT_PRE_D: STD_LOGIC	:= '1';
 signal	CLK_OUT_INT: STD_LOGIC		:= '1';
+signal	CLK_OUT_EXP_INT: STD_LOGIC		:= '1';
 signal	CLK_030_H: STD_LOGIC		:= '1';
 signal	CLK_000_D0: STD_LOGIC 		:= '1';
 signal	CLK_000_D1: STD_LOGIC 		:= '1';
@@ -156,15 +155,18 @@ begin
 		if(rising_edge(CLK_OSZI)) then
 			--clk generation :
 			CLK_030_D0 <=CLK_030;
-		    CLK_OUT_PRE_50	<=	not CLK_OUT_PRE_50;
-		    CLK_OUT_PRE_50_D<=	CLK_OUT_PRE_50;		    
+		  CLK_OUT_PRE_50	<=	not CLK_OUT_PRE_50;		  
+		  if(CLK_OUT_PRE_50 = '1' )then
+		  	CLK_OUT_PRE_25<=	not CLK_OUT_PRE_25;		    
+		  end if;
 						
 			
 			--here the clock is selected
-			CLK_OUT_PRE_D 	<= CLK_OUT_PRE_50;
+			CLK_OUT_PRE_D 	<= CLK_OUT_PRE_25;
 			
 			-- the external clock to the processor is generated here
 			CLK_OUT_INT	<= CLK_OUT_PRE_D; --this way we know the clock of the next state: Its like looking in the future, cool!
+			CLK_OUT_EXP_INT <= CLK_OUT_PRE_50;
 			--delayed Clocks and signals for edge detection
 			CLK_000_D0 	<= CLK_000;
 			CLK_000_D1 	<= CLK_000_D0;
@@ -199,15 +201,6 @@ begin
 					when E8  => cpu_est <= E9 ;
 					when E9  => cpu_est <= E10;
 					when E10 => cpu_est <= E1 ;
-					-- Illegal states
-					when E4a => cpu_est <= E5 ;
-					when E20 => cpu_est <= E10;
-					when E21 => cpu_est <= E10;
-					when E22 => cpu_est <= E9 ;
-					when E23 => cpu_est <= E9 ;
-					when E24 => cpu_est <= E10;
-					when others =>
-						null;
 				end case;
 			end if;
 			
@@ -345,7 +338,7 @@ begin
 				end if;
 				
 				--uds/lds precalculation
-				if (DS_030_D0 = '0' AND SM_AMIGA = IDLE_N) then --DS: set udl/lds 	
+				if (SM_AMIGA = IDLE_N) then --DS: set udl/lds 	
 					if(A0='0') then
 						UDS_000_INT <= '0';
 					else
@@ -393,10 +386,11 @@ begin
 						if(CLK_000_PE='1')then --go to s4
 						--if(CLK_000_D0='1')then --go to s4
 							-- set DS-Enable without respect to rw: this simplifies the life for the syntesizer
+							DS_000_ENABLE	<= '1';--write: set udl/lds earlier than in the specs. this does not seem to harm anything and is saver, than sampling uds/lds too late 				 
 							SM_AMIGA <= SAMPLE_DTACK_P; 
 						end if;
 					when SAMPLE_DTACK_P=> --68000:S4 wait for dtack or VMA
-						DS_000_ENABLE	<= '1';--write: set udl/lds earlier than in the specs. this does not seem to harm anything and is saver, than sampling uds/lds too late 				 
+						DS_000_ENABLE	<= '1';
 						if(	CLK_000_NE_D0='1' and --falling edge
 						--if(	CLK_000_D0 = '0' and CLK_000_D1='1' and --falling edge
 							((VPA_D = '1' AND DTACK_D0='0') OR --DTACK end cycle
@@ -405,11 +399,13 @@ begin
 							SM_AMIGA<=DATA_FETCH_N;
 						end if;
 					when DATA_FETCH_N=> --68000:S5 nothing happens here just wait for positive clock
+						DS_000_ENABLE	<= '1';
 						if(CLK_000_PE = '1')then --go to s6
 						--if(CLK_000_D0='1')then --go to s6
 							SM_AMIGA<=DATA_FETCH_P;
 						end if;
 					when DATA_FETCH_P => --68000:S6: READ: here comes the data on the bus!
+						DS_000_ENABLE	<= '1';
 						if( (CLK_000_N_SYNC( 9)='1' AND not (CLK_030 ='1' and CLK_OUT_PRE_D='0')) OR
 							(CLK_000_N_SYNC(10)='1' )) then --go to s7 next 030-clock is not a falling edge: dsack is sampled at the falling edge
 							DSACK1_INT <='0'; 
@@ -508,10 +504,10 @@ begin
 	end process pos_clk;
 
 	--output clock assignment
-	--CLK_DIV_OUT	<= CLK_OUT_INT;
-	--CLK_EXP		<= CLK_OUT_INT;
-	CLK_DIV_OUT	<= 'Z';
-	CLK_EXP		<= CLK_030;
+	CLK_DIV_OUT	<= CLK_OUT_INT;
+	CLK_EXP		<= not CLK_OUT_EXP_INT;
+	--CLK_DIV_OUT	<= 'Z';
+	--CLK_EXP		<= CLK_030;
 
 
 	
@@ -578,7 +574,12 @@ begin
 			'0'; --off for the Amiga
 		
 	--e and VMA		
-	E		<= cpu_est(3);
+	E		<= '1' when 
+							cpu_est = E7 or
+							cpu_est = E8 or
+							cpu_est = E9 or
+							cpu_est = E10 						
+						else '0';
 	VMA		<= VMA_INT;
 	
 	
@@ -595,11 +596,11 @@ begin
 
 	UDS_000	<=  'Z' when BGACK_030_INT ='0' or RESET_OUT ='0' else -- output on cpu cycle
 			    --'1' when DS_000_ENABLE ='0' else 
-				'0' when UDS_000_INT ='0' and DS_000_ENABLE ='1' and DS_030 ='0' else -- datastrobe not ready jet
+				'0' when UDS_000_INT ='0' and DS_000_ENABLE ='1' else -- datastrobe not ready jet
 			   	'1';
 	LDS_000	<= 	'Z' when BGACK_030_INT ='0' or RESET_OUT ='0' else -- output on cpu cycle
 			   	--'1' when DS_000_ENABLE ='0' else 
-				'0' when LDS_000_INT ='0' and DS_000_ENABLE ='1' and DS_030 ='0' else -- datastrobe not ready jet
+				'0' when LDS_000_INT ='0' and DS_000_ENABLE ='1' else -- datastrobe not ready jet
 			   	'1';
 
 	--dsack

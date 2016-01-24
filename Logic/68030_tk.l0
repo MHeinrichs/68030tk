@@ -1,0 +1,1 @@
+ -ck Min -ce On -ar On -ap On -oe On -split 16 -clust 5 -xor on -speed -ifb yes -sr no -device M4A5
