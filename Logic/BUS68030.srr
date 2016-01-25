@@ -6,7 +6,7 @@
 #Implementation: logic
 
 $ Start of Compile
-#Sun Jan 24 16:20:47 2016
+#Mon Jan 25 07:24:12 2016
 
 Synopsys VHDL Compiler, version comp201403rcp1, Build 060R, built May 27 2014
 @N|Running in 64-bit mode
@@ -27,6 +27,8 @@ Post processing for work.bus68030.behavioral
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":132:34:132:36|Pruning register CLK_000_D4_2  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:34:131:36|Pruning register CLK_000_D3_2  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":130:34:130:36|Pruning register CLK_000_D2_2  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":126:34:126:36|Pruning register CLK_OUT_EXP_INT_1  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":122:36:122:38|Pruning register CLK_OUT_PRE_25_3  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":155:2:155:3|Pruning register CLK_030_D0_2  
 @W: CL265 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":134:61:134:75|Pruning bit 12 of CLK_000_N_SYNC_3(12 downto 0) -- not in use ... 
 @W: CL271 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":133:34:133:36|Pruning bits 12 to 11 of CLK_000_P_SYNC_3(12 downto 0) -- not in use ... 
@@ -46,10 +48,10 @@ State machine has 8 reachable states with original encodings of:
 @W: CL246 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":23:1:23:1|Input port bits 15 to 2 of a(31 downto 2) are unused 
 @END
 
-At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 71MB peak: 72MB)
+At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 71MB peak: 71MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sun Jan 24 16:20:47 2016
+# Mon Jan 25 07:24:12 2016
 
 ###########################################################]
 Synopsys Netlist Linker, version comp201403rcp1, Build 060R, built May 27 2014
@@ -59,7 +61,7 @@ File C:\users\matze\documents\github\68030tk\logic\synwork\BUS68030_comp.srs cha
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 67MB peak: 68MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sun Jan 24 16:20:48 2016
+# Mon Jan 25 07:24:13 2016
 
 ###########################################################]
 Map & Optimize Report
@@ -84,15 +86,15 @@ original code -> new code
 Resource Usage Report
 
 Simple gate primitives:
-DFF             80 uses
+DFF             78 uses
 BI_DIR          10 uses
 BUFTH           4 uses
 IBUF            46 uses
 OBUF            15 uses
-AND2            297 uses
+AND2            299 uses
 INV             261 uses
 OR2             27 uses
-XOR2            8 uses
+XOR2            7 uses
 
 
 @N: FC100 |Timing Report not generated for this device, please use place and route tools for timing analysis.
@@ -102,6 +104,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 39MB peak: 105MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sun Jan 24 16:20:49 2016
+# Mon Jan 25 07:24:14 2016
 
 ###########################################################]

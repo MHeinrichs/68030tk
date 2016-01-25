@@ -162,7 +162,8 @@ begin
 						
 			
 			--here the clock is selected
-			CLK_OUT_PRE_D 	<= CLK_OUT_PRE_25;
+			--CLK_OUT_PRE_D 	<= CLK_OUT_PRE_25;
+			CLK_OUT_PRE_D 	<= CLK_OUT_PRE_50;
 			
 			-- the external clock to the processor is generated here
 			CLK_OUT_INT	<= CLK_OUT_PRE_D; --this way we know the clock of the next state: Its like looking in the future, cool!
@@ -505,7 +506,7 @@ begin
 
 	--output clock assignment
 	CLK_DIV_OUT	<= CLK_OUT_INT;
-	CLK_EXP		<= not CLK_OUT_EXP_INT;
+	CLK_EXP		<= CLK_OUT_INT;--not CLK_OUT_EXP_INT;
 	--CLK_DIV_OUT	<= 'Z';
 	--CLK_EXP		<= CLK_030;
 
