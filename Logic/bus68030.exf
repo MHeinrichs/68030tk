@@ -50,7 +50,7 @@ Section Member   Rename                   Array-Notation          Array Number  
         Port      FC_0_                       FC[0]                       3            1            
 End
 Section Cross Reference File
-Design 'BUS68030' created Mon Jan 25 07:24:19 2016
+Design 'BUS68030' created Wed Jan 27 21:56:48 2016
    Type              New Name                               Original Name
 // ----------------------------------------------------------------------
    Inst                i_z3S3S                                  AS_030

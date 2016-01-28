@@ -6,7 +6,7 @@
 #Implementation: logic
 
 $ Start of Compile
-#Mon Jan 25 07:24:12 2016
+#Wed Jan 27 21:56:43 2016
 
 Synopsys VHDL Compiler, version comp201403rcp1, Build 060R, built May 27 2014
 @N|Running in 64-bit mode
@@ -51,7 +51,7 @@ State machine has 8 reachable states with original encodings of:
 At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 71MB peak: 71MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Mon Jan 25 07:24:12 2016
+# Wed Jan 27 21:56:44 2016
 
 ###########################################################]
 Synopsys Netlist Linker, version comp201403rcp1, Build 060R, built May 27 2014
@@ -61,49 +61,6 @@ File C:\users\matze\documents\github\68030tk\logic\synwork\BUS68030_comp.srs cha
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 67MB peak: 68MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Mon Jan 25 07:24:13 2016
-
-###########################################################]
-Map & Optimize Report
-
-Synopsys CPLD Technology Mapper, Version maplat, Build 923R, Built May  6 2014
-Copyright (C) 1994-2013, Synopsys, Inc. This software and the associated documentation are proprietary to Synopsys, Inc. This software may only be used in accordance with the terms and conditions of a written license agreement with Synopsys, Inc.  All other use or distribution of the software is strictly prohibited.
-Product Version I-2014.03LC 
-@N: MF248 |Running in 64-bit mode.
-@N:"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":138:37:138:39|Found counter in view:work.BUS68030(behavioral) inst RST_DLY[2:0]
-Encoding state machine SM_AMIGA[0:7] (view:work.BUS68030(behavioral))
-original code -> new code
-   000 -> 00000000
-   001 -> 00000011
-   010 -> 00000101
-   011 -> 00001001
-   100 -> 00010001
-   101 -> 00100001
-   110 -> 01000001
-   111 -> 10000001
-@W: BN132 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":133:34:133:36|Removing instance CLK_000_P_SYNC[10],  because it is equivalent to instance CLK_000_PE
----------------------------------------
-Resource Usage Report
-
-Simple gate primitives:
-DFF             78 uses
-BI_DIR          10 uses
-BUFTH           4 uses
-IBUF            46 uses
-OBUF            15 uses
-AND2            299 uses
-INV             261 uses
-OR2             27 uses
-XOR2            7 uses
-
-
-@N: FC100 |Timing Report not generated for this device, please use place and route tools for timing analysis.
-I-2014.03LC 
-Mapper successful!
-
-At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 39MB peak: 105MB)
-
-Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Mon Jan 25 07:24:14 2016
+# Wed Jan 27 21:56:45 2016
 
 ###########################################################]

@@ -8,7 +8,7 @@
 ; Source file 68030_tk.tt4
 ; FITTER-generated Placements.
 ; DEVICE   mach447a
-; DATE     Mon Jan 25 07:24:24 2016
+; DATE     Wed Jan 27 21:56:53 2016
 
 
 Pin   79  SIZE_1_ Comb ; S6=1  S9=1  Pair 287
