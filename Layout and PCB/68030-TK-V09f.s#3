@@ -10139,8 +10139,8 @@ Source: RS Component / Phycomp</description>
 <part name="C16" library="rcl" deviceset="C-EU" device="C0603K" value="100nF"/>
 <part name="C17" library="rcl" deviceset="C-EU" device="C0603K" value="100nF"/>
 <part name="SV1" library="con-harting-ml" deviceset="ML10" device=""/>
-<part name="QG1" library="crystal" deviceset="QG5860" device="" value="100Mhz"/>
-<part name="C7" library="rcl" deviceset="C-EU" device="C0805K" value="n.b."/>
+<part name="QG1" library="crystal" deviceset="QG5860" device=""/>
+<part name="C7" library="rcl" deviceset="C-EU" device="C0805K" value="15pF"/>
 <part name="R1" library="rcl" deviceset="R-EU_" device="R0805" value="10"/>
 <part name="IC5" library="74xx-eu" deviceset="74*245" device="DW" technology="HCT"/>
 <part name="IC6" library="74xx-eu" deviceset="74*245" device="DW" technology="HCT"/>
@@ -10164,7 +10164,7 @@ Source: RS Component / Phycomp</description>
 <part name="R4" library="rcl" deviceset="R-EU_" device="R0603" value="4,7k"/>
 <part name="R5" library="rcl" deviceset="R-EU_" device="R0603" value="4,7k"/>
 <part name="R6" library="rcl" deviceset="R-EU_" device="R0603" value="4,7k"/>
-<part name="R7" library="rcl" deviceset="R-EU_" device="R0603" value="47"/>
+<part name="R7" library="rcl" deviceset="R-EU_" device="R0603" value="10"/>
 <part name="C18" library="rcl" deviceset="C-EU" device="C1210" value="10µF"/>
 <part name="C19" library="rcl" deviceset="C-EU" device="C1210" value="10µF"/>
 <part name="C21" library="rcl" deviceset="C-EU" device="C0603K" value="100nF"/>
@@ -10183,10 +10183,10 @@ Source: RS Component / Phycomp</description>
 <part name="C26" library="rcl" deviceset="C-EU" device="C0603K" value="100nF"/>
 <part name="C27" library="rcl" deviceset="C-EU" device="C0603K" value="100nF"/>
 <part name="C28" library="rcl" deviceset="C-EU" device="C0603K" value="100nF"/>
-<part name="R10" library="rcl" deviceset="R-EU_" device="R0603" value="47"/>
-<part name="R11" library="rcl" deviceset="R-EU_" device="R0603" value="47"/>
-<part name="R14" library="rcl" deviceset="R-EU_" device="R0603" value="47"/>
-<part name="R16" library="rcl" deviceset="R-EU_" device="R0603" value="47"/>
+<part name="R10" library="rcl" deviceset="R-EU_" device="R0603"/>
+<part name="R11" library="rcl" deviceset="R-EU_" device="R0603"/>
+<part name="R14" library="rcl" deviceset="R-EU_" device="R0603"/>
+<part name="R16" library="rcl" deviceset="R-EU_" device="R0603"/>
 <part name="R17" library="rcl" deviceset="R-EU_" device="R0603" value="4,7k"/>
 <part name="RN3" library="resistor-dil" deviceset="4R-N" device="EXBV8V" value="4,7k"/>
 <part name="RN4" library="resistor-dil" deviceset="4R-N" device="EXBV8V" value="4,7k"/>
@@ -10202,7 +10202,7 @@ Source: RS Component / Phycomp</description>
 <part name="R25" library="rcl" deviceset="R-EU_" device="R0603" value="4,7k"/>
 <part name="R26" library="rcl" deviceset="R-EU_" device="R0603" value="4,7K"/>
 <part name="R27" library="rcl" deviceset="R-EU_" device="R0603" value="4,7K"/>
-<part name="IC12" library="SMD-Crystal" deviceset="CSX-750FC" device="FC(5V)" value="100Mhz"/>
+<part name="IC12" library="SMD-Crystal" deviceset="CSX-750FC" device="FC(5V)"/>
 </parts>
 <sheets>
 <sheet>

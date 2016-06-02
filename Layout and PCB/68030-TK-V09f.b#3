@@ -2714,7 +2714,7 @@ minimale Strichstärke: &lt;b&gt;0.2 mm&lt;/b&gt;&lt;br&gt;&lt;br&gt;
 <attribute name="OC_FARNELL" value="unknown" x="69.2404" y="95.5802" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="69.2404" y="90.5002" size="1.778" layer="27" ratio="10" rot="R180"/>
 </element>
-<element name="QG1" library="crystal" package="DIL14S" value="100Mhz" x="13.8176" y="92.3544" smashed="yes">
+<element name="QG1" library="crystal" package="DIL14S" value="" x="13.8176" y="92.3544" smashed="yes">
 <attribute name="OC_NEWARK" value="unknown" x="13.8176" y="92.3544" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="13.8176" y="92.3544" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="" x="13.8176" y="92.3544" size="1.778" layer="27" display="off"/>
@@ -2722,7 +2722,7 @@ minimale Strichstärke: &lt;b&gt;0.2 mm&lt;/b&gt;&lt;br&gt;&lt;br&gt;
 <attribute name="NAME" x="3.2004" y="86.0298" size="1.27" layer="25" ratio="10" rot="R90"/>
 <attribute name="VALUE" x="6.1976" y="91.5416" size="1.27" layer="27" ratio="10"/>
 </element>
-<element name="C7" library="rcl" package="C0805K" value="n.b." x="30.1498" y="96.1898" smashed="yes">
+<element name="C7" library="rcl" package="C0805K" value="15pF" x="30.1498" y="96.1898" smashed="yes">
 <attribute name="NAME" x="31.9946" y="95.744" size="0.8128" layer="25"/>
 </element>
 <element name="R1" library="rcl" package="R0805" value="10" x="26.3906" y="96.1898" smashed="yes">
@@ -2804,7 +2804,7 @@ minimale Strichstärke: &lt;b&gt;0.2 mm&lt;/b&gt;&lt;br&gt;&lt;br&gt;
 <element name="R6" library="rcl" package="R0603" value="4,7k" x="54.6354" y="95.758" smashed="yes" rot="R90">
 <attribute name="NAME" x="55.3974" y="91.9734" size="0.8128" layer="25" rot="R90"/>
 </element>
-<element name="R7" library="rcl" package="R0603" value="47" x="71.8566" y="89.5096" smashed="yes" rot="R270">
+<element name="R7" library="rcl" package="R0603" value="10" x="71.8566" y="89.5096" smashed="yes" rot="R270">
 <attribute name="NAME" x="73.1774" y="90.6018" size="0.8128" layer="25" rot="R270"/>
 </element>
 <element name="C18" library="rcl" package="C1210" value="10µF" x="57.1754" y="97.0788" smashed="yes" rot="R270">
@@ -2856,19 +2856,19 @@ minimale Strichstärke: &lt;b&gt;0.2 mm&lt;/b&gt;&lt;br&gt;&lt;br&gt;
 <element name="C28" library="rcl" package="C0603K" value="100nF" x="6.096" y="69.0372" smashed="yes">
 <attribute name="NAME" x="7.8868" y="68.6204" size="0.8128" layer="25"/>
 </element>
-<element name="R10" library="rcl" package="R0603" value="47" x="31.496" y="78.8162" smashed="yes" rot="R270">
+<element name="R10" library="rcl" package="R0603" value="" x="31.496" y="78.8162" smashed="yes" rot="R270">
 <attribute name="NAME" x="29.3878" y="79.2988" size="0.8128" layer="25" rot="R270"/>
 <attribute name="VALUE" x="29.591" y="79.4512" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="R11" library="rcl" package="R0603" value="47" x="30.6832" y="81.8134" smashed="yes" rot="R270">
+<element name="R11" library="rcl" package="R0603" value="" x="30.6832" y="81.8134" smashed="yes" rot="R270">
 <attribute name="NAME" x="28.7274" y="82.9056" size="0.8128" layer="25" rot="R270"/>
 <attribute name="VALUE" x="28.7782" y="82.4484" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="R14" library="rcl" package="R0603" value="47" x="58.674" y="85.6488" smashed="yes" rot="R180">
+<element name="R14" library="rcl" package="R0603" value="" x="58.674" y="85.6488" smashed="yes" rot="R180">
 <attribute name="NAME" x="59.309" y="85.0138" size="0.8128" layer="25" rot="R180"/>
 <attribute name="VALUE" x="59.309" y="87.5538" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="R16" library="rcl" package="R0603" value="47" x="25.4508" y="89.3064" smashed="yes" rot="R90">
+<element name="R16" library="rcl" package="R0603" value="" x="25.4508" y="89.3064" smashed="yes" rot="R90">
 <attribute name="NAME" x="27.559" y="88.9762" size="1.27" layer="25" rot="R90"/>
 <attribute name="VALUE" x="27.3558" y="88.6714" size="1.27" layer="27" rot="R90"/>
 </element>
@@ -2943,7 +2943,7 @@ minimale Strichstärke: &lt;b&gt;0.2 mm&lt;/b&gt;&lt;br&gt;&lt;br&gt;
 <attribute name="NAME" x="18.923" y="38.6842" size="0.8128" layer="25" rot="R180"/>
 <attribute name="VALUE" x="15.7226" y="40.1574" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="IC12" library="SMD-Crystal" package="7X5" value="100Mhz" x="10.0584" y="92.3544"/>
+<element name="IC12" library="SMD-Crystal" package="7X5" value="" x="10.0584" y="92.3544"/>
 </elements>
 <signals>
 <signal name="D0">

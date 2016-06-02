@@ -1,0 +1,22 @@
+Stückliste exportiert aus C:/Users/Matze/Documents/GitHub/68030tk/Layout and PCB/68030-TK-V09f.sch am 01.06.2016 22:51:44
+
+Qty Value      Device             Package Parts                                                                                                      Description                                                                                    
+1              iM4A5 128/63-10VNC TQFP100 IC7                                                                                                        AMD MACH SERIES                                                                                
+1              MC68000P           DIL64   IC2                                                                                                        68xxx PROCESSOR                                                                                
+1              MC68030RC          MPGA128 IC1                                                                                                        68xxx PROCESSOR                                                                                
+1              MC68881FN          PLCC68  IC3                                                                                                        68xxx PROCESSOR                                                                                
+1              ML10               ML10    SV1                                                                                                        HARTING                                                                                        
+1   FERRIT     R-EU_R0805         R0805   L1                                                                                                         RESISTOR, European symbol                                                                      
+1   10         R-EU_R0805         R0805   R1                                                                                                         RESISTOR, European symbol                                                                      
+1*  100Mhz     CSX-750FCFC(5V)    7X5     IC12                                                                                                       CITIZEN Crystal Clock Oscilator from http://cfm.citizen.co.jp/english/product/pdf/CSX-750F.pdf 
+1*  100Mhz     QG5860             DIL14S  QG1                                                                                                        CRYSTAL RESONATOR                                                                              
+23  100nF      C-EUC0603K         C0603K  C1, C2, C3, C4, C5, C6, C9, C10, C11, C12, C13, C14, C15, C16, C17, C21, C22, C23, C24, C25, C26, C27, C28 CAPACITOR, European symbol                                                                     
+3   47µF       C-EUC1210          C1210   C8, C18, C19                                                                                               CAPACITOR, European symbol                                                                     
+8   4,7k       4R-NEXBV8V         EXBV8V  RN1, RN2, RN3, RN4, RN5, RN6, RN7, RN8                                                                     Array Chip Resistor                                                                            
+21  4,7k       R-EU_R0603         R0603   R2, R3, R4, R5, R6, R8, R9, R12, R13, R15, R17, R18, R19, R20, R21, R22, R23, R24, R25 , R26, R27          RESISTOR, European symbol                                                                      
+5   47         R-EU_R0603         R0603   R7, R10, R11, R14, R16                                                                                     RESISTOR, European symbol                                                                      
+7   74HCT245DW 74HCT245DW         SO20W   IC4, IC5, IC6, IC8, IC9, IC10, IC11                                                                        Octal BUS TRANSCEIVER, 3-state                                                                 
+1   FABC96R    FABC96R            FABC96R X1                                                                                                         CONNECTOR female, 96 pins, type R, rows ABC, grid 2.54 mm                                      
+1   n.b.       C-EUC0805K         C0805K  C7                                                                                                         CAPACITOR, European symbol                                                                     
+
+*Alternativ

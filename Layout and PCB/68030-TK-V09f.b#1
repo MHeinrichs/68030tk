@@ -2714,7 +2714,7 @@ minimale Strichstärke: &lt;b&gt;0.2 mm&lt;/b&gt;&lt;br&gt;&lt;br&gt;
 <attribute name="OC_FARNELL" value="unknown" x="69.2404" y="95.5802" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="69.2404" y="90.5002" size="1.778" layer="27" ratio="10" rot="R180"/>
 </element>
-<element name="QG1" library="crystal" package="DIL14S" value="100Mhz" x="13.8176" y="92.3544" smashed="yes">
+<element name="QG1" library="crystal" package="DIL14S" value="" x="13.8176" y="92.3544" smashed="yes">
 <attribute name="OC_NEWARK" value="unknown" x="13.8176" y="92.3544" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="13.8176" y="92.3544" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="" x="13.8176" y="92.3544" size="1.778" layer="27" display="off"/>
@@ -2943,7 +2943,7 @@ minimale Strichstärke: &lt;b&gt;0.2 mm&lt;/b&gt;&lt;br&gt;&lt;br&gt;
 <attribute name="NAME" x="18.923" y="38.6842" size="0.8128" layer="25" rot="R180"/>
 <attribute name="VALUE" x="15.7226" y="40.1574" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="IC12" library="SMD-Crystal" package="7X5" value="100Mhz" x="10.0584" y="92.3544"/>
+<element name="IC12" library="SMD-Crystal" package="7X5" value="" x="10.0584" y="92.3544"/>
 </elements>
 <signals>
 <signal name="D0">
