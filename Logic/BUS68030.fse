@@ -1,20 +1,20 @@
 
-fsm_encoding {7139371391} onehot
+fsm_encoding {7130381301} onehot
 
-fsm_state_encoding {7139371391} idle_p {00000000}
+fsm_state_encoding {7130381301} idle_p {00000000}
 
-fsm_state_encoding {7139371391} idle_n {00000011}
+fsm_state_encoding {7130381301} idle_n {00000011}
 
-fsm_state_encoding {7139371391} as_set_p {00000101}
+fsm_state_encoding {7130381301} as_set_p {00000101}
 
-fsm_state_encoding {7139371391} as_set_n {00001001}
+fsm_state_encoding {7130381301} as_set_n {00001001}
 
-fsm_state_encoding {7139371391} sample_dtack_p {00010001}
+fsm_state_encoding {7130381301} sample_dtack_p {00010001}
 
-fsm_state_encoding {7139371391} data_fetch_n {00100001}
+fsm_state_encoding {7130381301} data_fetch_n {00100001}
 
-fsm_state_encoding {7139371391} data_fetch_p {01000001}
+fsm_state_encoding {7130381301} data_fetch_p {01000001}
 
-fsm_state_encoding {7139371391} end_cycle_n {10000001}
+fsm_state_encoding {7130381301} end_cycle_n {10000001}
 
-fsm_registers {7139371391} {SM_AMIGA[0]}  {SM_AMIGA[1]}  {SM_AMIGA[2]}  {SM_AMIGA[3]}  {SM_AMIGA[4]}  {SM_AMIGA[5]}  {SM_AMIGA[6]}  {SM_AMIGA_i[7]} 
+fsm_registers {7130381301} {SM_AMIGA[0]}  {SM_AMIGA[1]}  {SM_AMIGA[2]}  {SM_AMIGA[3]}  {SM_AMIGA[4]}  {SM_AMIGA[5]}  {SM_AMIGA[6]}  {SM_AMIGA_i[7]} 

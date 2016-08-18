@@ -61,10 +61,8 @@ end BUS68030;
 
 architecture Behavioral of BUS68030 is
 
--- values are determined empiracally for 7.09 MHz Clock with a base clock of 100Mhz
-constant PE_CLK : integer := 10;
-constant NE_CLK : integer := 12;
-constant DS_SAMPLE : integer := 12;
+-- values are determined empirically
+constant DS_SAMPLE : integer := 12; -- for 7.09 MHz Clock with a base clock of 100Mhz and CPU running at 50MHZ
 
 
 
@@ -132,25 +130,17 @@ signal	CLK_OUT_INT: STD_LOGIC		:= '1';
 signal	CLK_OUT_EXP_INT: STD_LOGIC		:= '1';
 signal	CLK_030_H: STD_LOGIC		:= '1';
 signal	CLK_000_D: STD_LOGIC_VECTOR ( DS_SAMPLE downto 0 );
-signal	CLK_000_P_SYNC: STD_LOGIC_VECTOR ( PE_CLK downto 0 );
-signal	CLK_000_N_SYNC: STD_LOGIC_VECTOR ( NE_CLK downto 0 );
 signal	CLK_000_PE: STD_LOGIC 		:= '0';
 signal	CLK_000_NE: STD_LOGIC 		:= '0';
-signal	CLK_000_NE_D0: STD_LOGIC 		:= '0';
 signal	DTACK_D0: STD_LOGIC 		:= '1';
 signal  RESET_OUT: STD_LOGIC 		:= '0';
 signal	CLK_030_D0: STD_LOGIC 		:= '0';
---signal  NO_RESET: STD_LOGIC 		:= '0';
 signal	RST_DLY: STD_LOGIC_VECTOR ( 2 downto 0 ) 	:= "000";
---signal	RST_DLY_AMIGA: STD_LOGIC_VECTOR ( 7 downto 0 ) 	:= "00000000";
---signal  RESET_OUT_AMIGA: STD_LOGIC 		:= '0';
 
 begin
 
-	CLK_000_PE <= CLK_000_P_SYNC(PE_CLK);
-	CLK_000_NE <= CLK_000_N_SYNC(NE_CLK);
-	--CLK_000_PE <= CLK_000_D(0) AND NOT CLK_000_D(1);
-	--CLK_000_NE <= NOT CLK_000_D(0) AND CLK_000_D(1) AND CLK_000_D(2);
+	CLK_000_PE <= CLK_000_D(0) AND NOT CLK_000_D(1);
+	CLK_000_NE <= NOT CLK_000_D(0) AND CLK_000_D(1);
 
 
 	--pos edge clock process
@@ -180,17 +170,9 @@ begin
 			CLK_000_D(0) 	<= CLK_000;
 			CLK_000_D(DS_SAMPLE downto 1) 	<= CLK_000_D((DS_SAMPLE-1) downto 0);
 
-			--shift registers for edge detection
-			CLK_000_P_SYNC( PE_CLK downto 1 ) 	<= CLK_000_P_SYNC( (PE_CLK-1) downto 0 );
-			CLK_000_P_SYNC(0)				<= CLK_000_D(0) AND NOT CLK_000_D(1);
-			CLK_000_N_SYNC( NE_CLK downto 1 ) 	<= CLK_000_N_SYNC( (NE_CLK-1) downto 0 );
-			CLK_000_N_SYNC(0)				<= NOT CLK_000_D(0) AND CLK_000_D(1);
-			
-			CLK_000_NE_D0 <= CLK_000_NE;
-			
 			-- e-clock is changed on the FALLING edge!
 
-			if(CLK_000_NE_D0 = '1' ) then
+			if(CLK_000_NE = '1' ) then
 				case (cpu_est) is
 					when E1 => cpu_est <= E2 ; 
 					when E2 => cpu_est <= E3 ;
@@ -363,13 +345,13 @@ begin
 					when IDLE_N 	 => --68000:S1 place Adress on bus and wait for rising edge, on a rising CLK_000 look for a amiga adressrobe
 						if(CLK_000_PE='1')then --go to s2
 							SM_AMIGA <= AS_SET_P; --as for amiga set! 
+							RW_000_INT <= RW;						
+							AS_000_INT <= '0';
+							if (RW='1' ) then --read: set udl/lds 	
+								DS_000_ENABLE	<= '1';
+							end if;
 						end if;
 					when AS_SET_P	 => --68000:S2 Amiga cycle starts here: since AS is asserted during transition to this state we simply wait here
-						RW_000_INT <= RW;						
-						AS_000_INT <= '0';
-						if (RW='1' ) then --read: set udl/lds 	
-							DS_000_ENABLE	<= '1';
-						end if;
 						if(CLK_000_NE='1')then --go to s3
 							SM_AMIGA<=AS_SET_N; 
 						end if;
@@ -382,7 +364,7 @@ begin
 						end if;
 					when SAMPLE_DTACK_P=> --68000:S4 wait for dtack or VMA
 						DS_000_ENABLE	<= '1';
-						if(	CLK_000_NE_D0='1' and --falling edge
+						if(	CLK_000_NE='1' and --falling edge
 							((VPA_D = '1' AND DTACK_D0='0') OR --DTACK end cycle
 							(VPA_D='0' AND cpu_est=E9 AND VMA_INT='0')) --VPA end cycle
 							)then --go to s5
@@ -496,7 +478,7 @@ begin
 
 	-- bus drivers
 	AMIGA_ADDR_ENABLE	<= '0';
-	AMIGA_BUS_ENABLE_HIGH <= '0' WHEN BGACK_030_INT ='1' and not (SM_AMIGA = IDLE_P or (SM_AMIGA = END_CYCLE_N and CLK_000 = '1')) ELSE 
+	AMIGA_BUS_ENABLE_HIGH <= '0' WHEN BGACK_030_INT ='1' and AS_030_000_SYNC='0' else --not (SM_AMIGA = IDLE_P or (SM_AMIGA = END_CYCLE_N and CLK_000 = '1')) ELSE 
 							 '0' WHEN BGACK_030_INT ='0' AND AMIGA_BUS_ENABLE_DMA_HIGH = '0' ELSE
 							 '1';
 	AMIGA_BUS_ENABLE_LOW <=  '0' WHEN BGACK_030_INT ='0' AND AMIGA_BUS_ENABLE_DMA_LOW = '0'   ELSE
