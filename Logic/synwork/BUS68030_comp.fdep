@@ -1,15 +1,15 @@
 #defaultlanguage:vhdl
 #OPTIONS:"|-top|BUS68030|-prodtype|synplify_pro|-nostructver|-dfltencoding|sequential|-encrypt|-pro|-lite|-ui|-fid2|-ram|-sharing|on|-ll|2000|-autosm|-ignore_undefined_lib|-lib|work"
-#CUR:"C:\\ispLever\\synpbase\\bin64\\c_vhdl.exe":1401224104
-#CUR:"C:\\ispLever\\synpbase\\lib\\vhd\\location.map":1310457374
-#CUR:"C:\\ispLever\\synpbase\\lib\\vhd\\std.vhd":1401223722
-#CUR:"C:\\ispLever\\synpbase\\lib\\vhd\\snps_haps_pkg.vhd":1401223722
-#CUR:"C:\\ispLever\\synpbase\\lib\\vhd\\std1164.vhd":1401223722
-#CUR:"C:\\ispLever\\synpbase\\lib\\vhd\\numeric.vhd":1401223722
-#CUR:"C:\\ispLever\\synpbase\\lib\\vhd\\umr_capim.vhd":1401223968
-#CUR:"C:\\ispLever\\synpbase\\lib\\vhd\\arith.vhd":1401223722
-#CUR:"C:\\ispLever\\synpbase\\lib\\vhd\\unsigned.vhd":1401223722
-#CUR:"C:\\users\\matze\\documents\\github\\68030tk\\logic\\68030-68000-bus.vhd":1453928190
+#CUR:"E:\\ispLEVER_Classic2_0\\synpbase\\bin64\\c_vhdl.exe":1401224104
+#CUR:"E:\\ispLEVER_Classic2_0\\synpbase\\lib\\vhd\\location.map":1310457374
+#CUR:"E:\\ispLEVER_Classic2_0\\synpbase\\lib\\vhd\\std.vhd":1401223722
+#CUR:"E:\\ispLEVER_Classic2_0\\synpbase\\lib\\vhd\\snps_haps_pkg.vhd":1401223722
+#CUR:"E:\\ispLEVER_Classic2_0\\synpbase\\lib\\vhd\\std1164.vhd":1401223722
+#CUR:"E:\\ispLEVER_Classic2_0\\synpbase\\lib\\vhd\\numeric.vhd":1401223722
+#CUR:"E:\\ispLEVER_Classic2_0\\synpbase\\lib\\vhd\\umr_capim.vhd":1401223968
+#CUR:"E:\\ispLEVER_Classic2_0\\synpbase\\lib\\vhd\\arith.vhd":1401223722
+#CUR:"E:\\ispLEVER_Classic2_0\\synpbase\\lib\\vhd\\unsigned.vhd":1401223722
+#CUR:"C:\\users\\matze\\documents\\github\\68030tk\\logic\\68030-68000-bus.vhd":1471448728
 0 "C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd" vhdl
 
 # Dependency Lists (Uses list)

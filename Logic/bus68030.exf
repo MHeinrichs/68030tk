@@ -50,7 +50,7 @@ Section Member   Rename                   Array-Notation          Array Number  
         Port      FC_0_                       FC[0]                       3            1            
 End
 Section Cross Reference File
-Design 'BUS68030' created Wed Jan 27 21:56:48 2016
+Design 'BUS68030' created Wed Aug 17 17:45:46 2016
    Type              New Name                               Original Name
 // ----------------------------------------------------------------------
    Inst                i_z3S3S                                  AS_030
@@ -66,7 +66,7 @@ Design 'BUS68030' created Wed Jan 27 21:56:48 2016
    Inst                i_z5V5V                                      RW
    Inst                i_z6666                                    CIIN
    Inst   SM_AMIGA_srsts_i_i_a3_0_2_                SM_AMIGA_srsts_i_i_a3_0[2]
-   Inst     pos_clk_un8_bg_030                        pos_clk.un8_bg_030
+   Inst     pos_clk_un9_bg_030                        pos_clk.un9_bg_030
    Inst          SIZE_DMA_i_1_                             SIZE_DMA_i[1]
    Inst                A_i_19_                                   A_i[19]
    Inst                A_i_18_                                   A_i[18]
@@ -113,10 +113,10 @@ Design 'BUS68030' created Wed Jan 27 21:56:48 2016
    Inst   pos_clk_SIZE_DMA_6_0_0_a3_0_              pos_clk.SIZE_DMA_6_0_0_a3[0]
    Inst   SM_AMIGA_nss_i_i_0_o2_0_                  SM_AMIGA_nss_i_i_0_o2[0]
    Inst   pos_clk_AMIGA_BUS_ENABLE_DMA_LOW_3_i_a3   pos_clk.AMIGA_BUS_ENABLE_DMA_LOW_3_i_a3
-   Inst   pos_clk_un24_bgack_030_int_i_i_a4_i_o3_1  pos_clk.un24_bgack_030_int_i_i_a4_i_o3_1
-   Inst   pos_clk_un24_bgack_030_int_i_i_a4_i_o3_2  pos_clk.un24_bgack_030_int_i_i_a4_i_o3_2
+   Inst   pos_clk_un23_bgack_030_int_i_i_a4_i_o3_1  pos_clk.un23_bgack_030_int_i_i_a4_i_o3_1
+   Inst   pos_clk_un23_bgack_030_int_i_i_a4_i_o3_2  pos_clk.un23_bgack_030_int_i_i_a4_i_o3_2
    Inst   pos_clk_un37_as_030_d0_i_a3_0             pos_clk.un37_as_030_d0_i_a3_0
-   Inst   pos_clk_un24_bgack_030_int_i_i_a4_i_o3    pos_clk.un24_bgack_030_int_i_i_a4_i_o3
+   Inst   pos_clk_un23_bgack_030_int_i_i_a4_i_o3    pos_clk.un23_bgack_030_int_i_i_a4_i_o3
    Inst   pos_clk_un37_as_030_d0_i_a3               pos_clk.un37_as_030_d0_i_a3
    Inst   SM_AMIGA_srsts_i_0_0_1_3_                 SM_AMIGA_srsts_i_0_0_1[3]
    Inst   SM_AMIGA_srsts_i_0_0_2_3_                 SM_AMIGA_srsts_i_0_0_2[3]
@@ -128,106 +128,108 @@ Design 'BUS68030' created Wed Jan 27 21:56:48 2016
    Inst   SM_AMIGA_nss_i_i_0_3_0_                   SM_AMIGA_nss_i_i_0_3[0]
    Inst   SM_AMIGA_nss_i_i_0_0_                     SM_AMIGA_nss_i_i_0[0]
    Inst   pos_clk_un6_bgack_000_0_0                 pos_clk.un6_bgack_000_0_0
-   Inst            SM_AMIGA_5_                               SM_AMIGA[5]
-   Inst   pos_clk_SIZE_DMA_6_0_0_1_                 pos_clk.SIZE_DMA_6_0_0[1]
    Inst            SM_AMIGA_4_                               SM_AMIGA[4]
+   Inst   pos_clk_SIZE_DMA_6_0_0_1_                 pos_clk.SIZE_DMA_6_0_0[1]
+   Inst            SM_AMIGA_3_                               SM_AMIGA[3]
    Inst   pos_clk_un6_bg_030_i                      pos_clk.un6_bg_030_i
    Inst   pos_clk_SIZE_DMA_6_0_0_0_                 pos_clk.SIZE_DMA_6_0_0[0]
-   Inst            SM_AMIGA_3_                               SM_AMIGA[3]
-   Inst   pos_clk_un8_bg_030_i                      pos_clk.un8_bg_030_i
    Inst            SM_AMIGA_2_                               SM_AMIGA[2]
-   Inst   pos_clk_un37_as_030_d0_i_o2_1             pos_clk.un37_as_030_d0_i_o2_1
+   Inst   pos_clk_un9_bg_030_i                      pos_clk.un9_bg_030_i
    Inst            SM_AMIGA_1_                               SM_AMIGA[1]
+   Inst   pos_clk_un37_as_030_d0_i_o2_1             pos_clk.un37_as_030_d0_i_o2_1
+   Inst            SM_AMIGA_0_                               SM_AMIGA[0]
    Inst   pos_clk_un37_as_030_d0_i_o2               pos_clk.un37_as_030_d0_i_o2
    Inst   pos_clk_un37_as_030_d0_i                  pos_clk.un37_as_030_d0_i
-   Inst            SM_AMIGA_0_                               SM_AMIGA[0]
-   Inst                A_i_16_                                   A_i[16]
    Inst          IPL_030DFF_0_                             IPL_030DFF[0]
-   Inst   pos_clk_un6_bgack_000_0_0_a2              pos_clk.un6_bgack_000_0_0_a2
+   Inst                A_i_16_                                   A_i[16]
    Inst          IPL_030DFF_1_                             IPL_030DFF[1]
+   Inst   pos_clk_un6_bgack_000_0_0_a2              pos_clk.un6_bgack_000_0_0_a2
    Inst          IPL_030DFF_2_                             IPL_030DFF[2]
-   Inst   pos_clk_un8_sm_amiga_1                    pos_clk.un8_sm_amiga_1
    Inst              IPL_D0_0_                                 IPL_D0[0]
+   Inst   pos_clk_un8_sm_amiga_1                    pos_clk.un8_sm_amiga_1
+   Inst              IPL_D0_1_                                 IPL_D0[1]
    Inst   pos_clk_un8_sm_amiga                      pos_clk.un8_sm_amiga
    Inst   SM_AMIGA_srsts_i_0_m2_1__r                SM_AMIGA_srsts_i_0_m2_1_.r
-   Inst              IPL_D0_1_                                 IPL_D0[1]
+   Inst              IPL_D0_2_                                 IPL_D0[2]
    Inst   SM_AMIGA_srsts_i_i_a2_1_2_                SM_AMIGA_srsts_i_i_a2_1[2]
    Inst   SM_AMIGA_srsts_i_0_m2_1__m                SM_AMIGA_srsts_i_0_m2_1_.m
-   Inst              IPL_D0_2_                                 IPL_D0[2]
-   Inst   SM_AMIGA_srsts_i_0_m2_1__n                SM_AMIGA_srsts_i_0_m2_1_.n
    Inst          SM_AMIGA_i_7_                             SM_AMIGA_i[7]
-   Inst   SM_AMIGA_srsts_i_0_m2_1__p                SM_AMIGA_srsts_i_0_m2_1_.p
+   Inst   SM_AMIGA_srsts_i_0_m2_1__n                SM_AMIGA_srsts_i_0_m2_1_.n
    Inst            SM_AMIGA_6_                               SM_AMIGA[6]
+   Inst   SM_AMIGA_srsts_i_0_m2_1__p                SM_AMIGA_srsts_i_0_m2_1_.p
+   Inst            SM_AMIGA_5_                               SM_AMIGA[5]
    Inst          SM_AMIGA_i_4_                             SM_AMIGA_i[4]
-   Inst      CLK_000_N_SYNC_9_                         CLK_000_N_SYNC[9]
-   Inst   SM_AMIGA_srsts_i_0_o2_4_                  SM_AMIGA_srsts_i_0_o2[4]
    Inst     CLK_000_N_SYNC_10_                        CLK_000_N_SYNC[10]
+   Inst   SM_AMIGA_srsts_i_0_o2_4_                  SM_AMIGA_srsts_i_0_o2[4]
    Inst     CLK_000_N_SYNC_11_                        CLK_000_N_SYNC[11]
-   Inst   pos_clk_CYCLE_DMA_5_0_i_o3                pos_clk.CYCLE_DMA_5_0_i_o3
    Inst           CYCLE_DMA_0_                              CYCLE_DMA[0]
-   Inst   SM_AMIGA_srsts_i_0_o3_0_                  SM_AMIGA_srsts_i_0_o3[0]
+   Inst   pos_clk_CYCLE_DMA_5_0_i_o3                pos_clk.CYCLE_DMA_5_0_i_o3
    Inst           CYCLE_DMA_1_                              CYCLE_DMA[1]
-   Inst   SM_AMIGA_srsts_i_i_o2_2_                  SM_AMIGA_srsts_i_i_o2[2]
+   Inst   SM_AMIGA_srsts_i_0_o3_0_                  SM_AMIGA_srsts_i_0_o3[0]
    Inst            SIZE_DMA_0_                               SIZE_DMA[0]
-   Inst   SM_AMIGA_srsts_i_i_0_o2_6_                SM_AMIGA_srsts_i_i_0_o2[6]
+   Inst   SM_AMIGA_srsts_i_i_o2_2_                  SM_AMIGA_srsts_i_i_o2[2]
    Inst            SIZE_DMA_1_                               SIZE_DMA[1]
-   Inst   pos_clk_SIZE_DMA_6_0_0_o2_0_              pos_clk.SIZE_DMA_6_0_0_o2[0]
+   Inst   SM_AMIGA_srsts_i_i_0_o2_6_                SM_AMIGA_srsts_i_i_0_o2[6]
    Inst             cpu_est_0_                                cpu_est[0]
-   Inst        SM_AMIGA_i_i_7_                           SM_AMIGA_i_i[7]
+   Inst   pos_clk_SIZE_DMA_6_0_0_o2_0_              pos_clk.SIZE_DMA_6_0_0_o2[0]
    Inst             cpu_est_1_                                cpu_est[1]
-   Inst   SM_AMIGA_nss_i_i_0_o2_4_0_                SM_AMIGA_nss_i_i_0_o2_4[0]
+   Inst        SM_AMIGA_i_i_7_                           SM_AMIGA_i_i[7]
    Inst             cpu_est_2_                                cpu_est[2]
-   Inst   SM_AMIGA_srsts_i_0_o2_0_0_                SM_AMIGA_srsts_i_0_o2_0[0]
+   Inst   SM_AMIGA_nss_i_i_0_o2_4_0_                SM_AMIGA_nss_i_i_0_o2_4[0]
    Inst             cpu_est_3_                                cpu_est[3]
+   Inst   SM_AMIGA_srsts_i_0_o2_0_0_                SM_AMIGA_srsts_i_0_o2_0[0]
    Inst      CLK_000_P_SYNC_5_                         CLK_000_P_SYNC[5]
    Inst      CLK_000_P_SYNC_6_                         CLK_000_P_SYNC[6]
-   Inst   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m2_0__r   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m2_0_.r
    Inst      CLK_000_P_SYNC_7_                         CLK_000_P_SYNC[7]
+   Inst   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m2_0__r   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m2_0_.r
+   Inst      CLK_000_P_SYNC_8_                         CLK_000_P_SYNC[8]
    Inst         IPL_030_1_i_1_                            IPL_030_1_i[1]
    Inst   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m2_0__m   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m2_0_.m
-   Inst      CLK_000_P_SYNC_8_                         CLK_000_P_SYNC[8]
-   Inst   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m2_0__n   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m2_0_.n
    Inst      CLK_000_P_SYNC_9_                         CLK_000_P_SYNC[9]
+   Inst   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m2_0__n   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m2_0_.n
+   Inst      CLK_000_N_SYNC_0_                         CLK_000_N_SYNC[0]
    Inst         IPL_030_1_i_0_                            IPL_030_1_i[0]
    Inst   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m2_0__p   un1_AMIGA_BUS_ENABLE_DMA_HIGH_i_m2_0_.p
-   Inst      CLK_000_N_SYNC_0_                         CLK_000_N_SYNC[0]
+   Inst      CLK_000_N_SYNC_1_                         CLK_000_N_SYNC[1]
    Inst             IPL_c_i_2_                                IPL_c_i[2]
    Inst   pos_clk_CYCLE_DMA_5_0_i_x2                pos_clk.CYCLE_DMA_5_0_i_x2
-   Inst      CLK_000_N_SYNC_1_                         CLK_000_N_SYNC[1]
+   Inst      CLK_000_N_SYNC_2_                         CLK_000_N_SYNC[2]
    Inst          IPL_D0_0_i_2_                             IPL_D0_0_i[2]
    Inst   SM_AMIGA_srsts_i_0_m2_5__r                SM_AMIGA_srsts_i_0_m2_5_.r
-   Inst      CLK_000_N_SYNC_2_                         CLK_000_N_SYNC[2]
+   Inst      CLK_000_N_SYNC_3_                         CLK_000_N_SYNC[3]
    Inst             IPL_c_i_1_                                IPL_c_i[1]
    Inst   SM_AMIGA_srsts_i_0_m2_5__m                SM_AMIGA_srsts_i_0_m2_5_.m
-   Inst      CLK_000_N_SYNC_3_                         CLK_000_N_SYNC[3]
+   Inst      CLK_000_N_SYNC_4_                         CLK_000_N_SYNC[4]
    Inst          IPL_D0_0_i_1_                             IPL_D0_0_i[1]
    Inst   SM_AMIGA_srsts_i_0_m2_5__n                SM_AMIGA_srsts_i_0_m2_5_.n
-   Inst      CLK_000_N_SYNC_4_                         CLK_000_N_SYNC[4]
+   Inst      CLK_000_N_SYNC_5_                         CLK_000_N_SYNC[5]
    Inst             IPL_c_i_0_                                IPL_c_i[0]
    Inst   SM_AMIGA_srsts_i_0_m2_5__p                SM_AMIGA_srsts_i_0_m2_5_.p
-   Inst      CLK_000_N_SYNC_5_                         CLK_000_N_SYNC[5]
+   Inst      CLK_000_N_SYNC_6_                         CLK_000_N_SYNC[6]
    Inst          IPL_D0_0_i_0_                             IPL_D0_0_i[0]
    Inst      cpu_est_0_0_x2_0_                         cpu_est_0_0_x2[0]
-   Inst      CLK_000_N_SYNC_6_                         CLK_000_N_SYNC[6]
-   Inst   pos_clk_CYCLE_DMA_5_1_i_x2                pos_clk.CYCLE_DMA_5_1_i_x2
    Inst      CLK_000_N_SYNC_7_                         CLK_000_N_SYNC[7]
+   Inst   pos_clk_CYCLE_DMA_5_1_i_x2                pos_clk.CYCLE_DMA_5_1_i_x2
    Inst      CLK_000_N_SYNC_8_                         CLK_000_N_SYNC[8]
+   Inst      CLK_000_N_SYNC_9_                         CLK_000_N_SYNC[9]
    Inst           cpu_est_i_2_                              cpu_est_i[2]
    Inst             RST_DLY_1_                                RST_DLY[1]
    Inst           cpu_est_i_1_                              cpu_est_i[1]
    Inst             RST_DLY_2_                                RST_DLY[2]
    Inst           cpu_est_i_0_                              cpu_est_i[0]
-   Inst      CLK_000_P_SYNC_0_                         CLK_000_P_SYNC[0]
+   Inst           CLK_000_D_0_                              CLK_000_D[0]
    Inst           cpu_est_i_3_                              cpu_est_i[3]
-   Inst      CLK_000_P_SYNC_1_                         CLK_000_P_SYNC[1]
+   Inst           CLK_000_D_1_                              CLK_000_D[1]
    Inst          SM_AMIGA_i_3_                             SM_AMIGA_i[3]
-   Inst      CLK_000_P_SYNC_2_                         CLK_000_P_SYNC[2]
-   Inst      CLK_000_P_SYNC_3_                         CLK_000_P_SYNC[3]
+   Inst      CLK_000_P_SYNC_0_                         CLK_000_P_SYNC[0]
+   Inst      CLK_000_P_SYNC_1_                         CLK_000_P_SYNC[1]
    Inst   SM_AMIGA_srsts_i_i_i_2_                   SM_AMIGA_srsts_i_i_i[2]
    Inst                A_i_24_                                   A_i[24]
+   Inst      CLK_000_P_SYNC_2_                         CLK_000_P_SYNC[2]
+   Inst      CLK_000_P_SYNC_3_                         CLK_000_P_SYNC[3]
    Inst      CLK_000_P_SYNC_4_                         CLK_000_P_SYNC[4]
-   Inst             RST_DLY_0_                                RST_DLY[0]
    Inst   pos_clk_un5_bgack_030_int_d_i_0_a4_i_o3   pos_clk.un5_bgack_030_int_d_i_0_a4_i_o3
+   Inst             RST_DLY_0_                                RST_DLY[0]
    Inst   SM_AMIGA_nss_i_i_0_o2_5_0_                SM_AMIGA_nss_i_i_0_o2_5[0]
    Inst   SM_AMIGA_nss_i_i_0_o2_0_0_                SM_AMIGA_nss_i_i_0_o2_0[0]
    Inst   SM_AMIGA_srsts_i_i_o2_0_2_                SM_AMIGA_srsts_i_i_o2_0[2]
@@ -242,7 +244,8 @@ Design 'BUS68030' created Wed Jan 27 21:56:48 2016
    Inst   SM_AMIGA_srsts_i_0_o2_0_                  SM_AMIGA_srsts_i_0_o2[0]
    Inst   SM_AMIGA_srsts_i_0_0_o2_3_                SM_AMIGA_srsts_i_0_0_o2[3]
    Inst   SM_AMIGA_srsts_i_i_0_i_6_                 SM_AMIGA_srsts_i_i_0_i[6]
-   Inst   pos_clk_un24_bgack_030_int_i_i_a4_i_x2    pos_clk.un24_bgack_030_int_i_i_a4_i_x2
+   Inst   pos_clk_un23_bgack_030_int_i_i_a4_i_x2    pos_clk.un23_bgack_030_int_i_i_a4_i_x2
+   Inst         CLK_000_D_i_1_                            CLK_000_D_i[1]
    Inst   pos_clk_CLK_000_N_SYNC_2_0_a4_0_o2_0_     pos_clk.CLK_000_N_SYNC_2_0_a4_0_o2[0]
    Inst           RST_DLY_i_0_                              RST_DLY_i[0]
    Inst           RST_DLY_i_1_                              RST_DLY_i[1]
@@ -267,10 +270,11 @@ Design 'BUS68030' created Wed Jan 27 21:56:48 2016
    Inst     cpu_est_2_i_0_i_3_                        cpu_est_2_i_0_i[3]
    Inst   SM_AMIGA_nss_i_i_0_o2_i_0_                SM_AMIGA_nss_i_i_0_o2_i[0]
    Inst   pos_clk_DS_000_DMA_4_f0_i_a2_i_a3         pos_clk.DS_000_DMA_4_f0_i_a2_i_a3
+   Inst         CLK_000_D_i_0_                            CLK_000_D_i[0]
    Inst   cpu_est_2_0_0_0_a3_1_                     cpu_est_2_0_0_0_a3[1]
    Inst   cpu_est_2_0_0_0_a3_2_                     cpu_est_2_0_0_0_a3[2]
    Inst   cpu_est_2_i_0_i_a3_3_                     cpu_est_2_i_0_i_a3[3]
-   Inst   pos_clk_un24_bgack_030_int_i_i_a4_i_a2    pos_clk.un24_bgack_030_int_i_i_a4_i_a2
+   Inst   pos_clk_un23_bgack_030_int_i_i_a4_i_a2    pos_clk.un23_bgack_030_int_i_i_a4_i_a2
    Inst                  A_16_                                     A[16]
    Inst   SM_AMIGA_srsts_i_0_0_a2_3_                SM_AMIGA_srsts_i_0_0_a2[3]
    Inst                  A_17_                                     A[17]
@@ -298,7 +302,7 @@ Design 'BUS68030' created Wed Jan 27 21:56:48 2016
    Inst   pos_clk_un5_bgack_030_int_d_i_0_a4_i_o3_i  pos_clk.un5_bgack_030_int_d_i_0_a4_i_o3_i
    Inst   SM_AMIGA_srsts_i_0_a3_0_4_                SM_AMIGA_srsts_i_0_a3_0[4]
    Inst                  A_28_                                     A[28]
-   Inst   pos_clk_un24_bgack_030_int_i_i_a4_i_o3_i  pos_clk.un24_bgack_030_int_i_i_a4_i_o3_i
+   Inst   pos_clk_un23_bgack_030_int_i_i_a4_i_o3_i  pos_clk.un23_bgack_030_int_i_i_a4_i_o3_i
    Inst          SM_AMIGA_i_6_                             SM_AMIGA_i[6]
    Inst                  A_29_                                     A[29]
    Inst   CLK_000_N_SYNC_i_10_                      CLK_000_N_SYNC_i[10]
@@ -325,15 +329,15 @@ Design 'BUS68030' created Wed Jan 27 21:56:48 2016
    Inst   SM_AMIGA_srsts_i_i_0_o2_i_6_              SM_AMIGA_srsts_i_i_0_o2_i[6]
    Inst   SM_AMIGA_srsts_i_i_o2_i_2_                SM_AMIGA_srsts_i_i_o2_i[2]
    Inst   pos_clk_CYCLE_DMA_5_0_i_o3_i              pos_clk.CYCLE_DMA_5_0_i_o3_i
-   Inst                A_i_25_                                   A_i[25]
    Inst   pos_clk_un37_as_030_d0_i_o2_i             pos_clk.un37_as_030_d0_i_o2_i
-   Inst                A_i_26_                                   A_i[26]
+   Inst                A_i_25_                                   A_i[25]
    Inst   SM_AMIGA_srsts_i_0_o2_i_4_                SM_AMIGA_srsts_i_0_o2_i[4]
+   Inst                A_i_26_                                   A_i[26]
    Inst                A_i_27_                                   A_i[27]
    Inst                A_i_28_                                   A_i[28]
    Inst                A_i_29_                                   A_i[29]
-   Inst                A_i_30_                                   A_i[30]
    Inst                  FC_0_                                     FC[0]
+   Inst                A_i_30_                                   A_i[30]
    Inst                  FC_1_                                     FC[1]
    Inst   pos_clk_un37_as_030_d0_i_i                pos_clk.un37_as_030_d0_i_i
    Inst            IPL_D0_0_0_                               IPL_D0_0[0]
@@ -517,7 +521,9 @@ Design 'BUS68030' created Wed Jan 27 21:56:48 2016
    Net      rw_000_dma_0_un0_n                          RW_000_DMA_0.un0
    Net          cpu_est_i_2__n                              cpu_est_i[2]
    Net                 a_15__n                                     A[15]
+   Net          clk_000_d_1__n                              CLK_000_D[1]
    Net          cpu_est_i_1__n                              cpu_est_i[1]
+   Net          clk_000_d_0__n                              CLK_000_D[0]
    Net                 a_14__n                                     A[14]
    Net     clk_000_p_sync_9__n                         CLK_000_P_SYNC[9]
    Net         sm_amiga_i_1__n                             SM_AMIGA_i[1]
@@ -529,8 +535,10 @@ Design 'BUS68030' created Wed Jan 27 21:56:48 2016
    Net          rst_dly_i_0__n                              RST_DLY_i[0]
    Net             ipl_d0_1__n                                 IPL_D0[1]
    Net          rst_dly_i_1__n                              RST_DLY_i[1]
+   Net        clk_000_d_i_0__n                            CLK_000_D_i[0]
    Net                 a_11__n                                     A[11]
    Net             ipl_d0_2__n                                 IPL_D0[2]
+   Net        clk_000_d_i_1__n                            CLK_000_D_i[1]
    Net                 a_10__n                                     A[10]
    Net    pos_clk_un6_bg_030_n                        pos_clk.un6_bg_030
    Net           sm_amiga_0__n                               SM_AMIGA[0]
@@ -552,7 +560,7 @@ Design 'BUS68030' created Wed Jan 27 21:56:48 2016
    Net                  a_5__n                                      A[5]
    Net            rst_dly_2__n                                RST_DLY[2]
    Net               a_i_27__n                                   A_i[27]
-   Net    pos_clk_un8_bg_030_n                        pos_clk.un8_bg_030
+   Net    pos_clk_un9_bg_030_n                        pos_clk.un9_bg_030
    Net               a_i_28__n                                   A_i[28]
    Net        cpu_est_2_0_2__n                            cpu_est_2_0[2]
    Net                  a_4__n                                      A[4]
@@ -629,7 +637,7 @@ Design 'BUS68030' created Wed Jan 27 21:56:48 2016
    Net                 a_29__n                                     A[29]
    Net    pos_clk_un6_bg_030_i_n                      pos_clk.un6_bg_030_i
    Net               a_c_30__n                                   A_c[30]
-   Net    pos_clk_un8_bg_030_0_n                      pos_clk.un8_bg_030_0
+   Net    pos_clk_un9_bg_030_0_n                      pos_clk.un9_bg_030_0
    Net                 a_30__n                                     A[30]
    Net               a_c_31__n                                   A_c[31]
    Net    pos_clk_un8_sm_amiga_i_1_n                  pos_clk.un8_sm_amiga_i_1

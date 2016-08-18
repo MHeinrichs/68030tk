@@ -1,8 +1,8 @@
- ispLEVER Classic 1.8.00.04.29.14 Linked Equations File
-Copyright(C), 1992-2014, Lattice Semiconductor Corp.
+ ispLEVER Classic 2.0.00.17.20.15 Linked Equations File
+Copyright(C), 1992-2015, Lattice Semiconductor Corp.
 All Rights Reserved.
 
-Design bus68030 created  Wed Jan 27 21:56:48 2016
+Design bus68030 created  Wed Aug 17 17:45:46 2016
 
 
  P-Terms   Fan-in  Fan-out  Type  Name (attributes)
@@ -111,10 +111,10 @@ Design bus68030 created  Wed Jan 27 21:56:48 2016
    1          1        1    Node  inst_RESET_OUT.C 
    1          1        1    Node  inst_CLK_OUT_PRE_50.D 
    1          1        1    Node  inst_CLK_OUT_PRE_50.C 
-   1          1        1    Node  inst_CLK_000_D1.D 
-   1          1        1    Node  inst_CLK_000_D1.C 
-   1          1        1    Node  inst_CLK_000_D0.D 
-   1          1        1    Node  inst_CLK_000_D0.C 
+   1          1        1    Node  CLK_000_D_1_.D 
+   1          1        1    Node  CLK_000_D_1_.C 
+   1          1        1    Node  CLK_000_D_0_.D 
+   1          1        1    Node  CLK_000_D_0_.C 
    1          1        1    Node  inst_CLK_000_PE.D 
    1          1        1    Node  inst_CLK_000_PE.C 
    1          1        1    Node  CLK_000_P_SYNC_9_.D 
@@ -324,7 +324,7 @@ A0.D = (!RST
 A0.C = (CLK_OSZI);
 
 !BG_000.D = (!BG_030 & RST & !BG_000.Q
-     # !BG_030 & RST & inst_AS_030_D0.Q & inst_nEXP_SPACE_D0reg.Q & inst_CLK_000_D0.Q);
+     # !BG_030 & RST & inst_AS_030_D0.Q & inst_nEXP_SPACE_D0reg.Q & CLK_000_D_0_.Q);
 
 BG_000.C = (CLK_OSZI);
 
@@ -362,8 +362,8 @@ RW.C = (CLK_OSZI);
 
 !N_317_i = (!SM_AMIGA_5_.Q & !inst_nEXP_SPACE_D0reg.Q & !SM_AMIGA_0_.Q & !SM_AMIGA_4_.Q & !SM_AMIGA_6_.Q & !SM_AMIGA_1_.Q & !SM_AMIGA_3_.Q & !SM_AMIGA_2_.Q
      # !SM_AMIGA_5_.Q & inst_AS_030_000_SYNC.Q & !SM_AMIGA_0_.Q & !SM_AMIGA_4_.Q & !SM_AMIGA_6_.Q & !SM_AMIGA_1_.Q & !SM_AMIGA_3_.Q & !SM_AMIGA_2_.Q
-     # !SM_AMIGA_5_.Q & !inst_CLK_000_D1.Q & !SM_AMIGA_0_.Q & !SM_AMIGA_4_.Q & !SM_AMIGA_6_.Q & !SM_AMIGA_1_.Q & !SM_AMIGA_3_.Q & !SM_AMIGA_2_.Q
-     # !SM_AMIGA_5_.Q & inst_CLK_000_D0.Q & !SM_AMIGA_0_.Q & !SM_AMIGA_4_.Q & !SM_AMIGA_6_.Q & !SM_AMIGA_1_.Q & !SM_AMIGA_3_.Q & !SM_AMIGA_2_.Q);
+     # !SM_AMIGA_5_.Q & !CLK_000_D_1_.Q & !SM_AMIGA_0_.Q & !SM_AMIGA_4_.Q & !SM_AMIGA_6_.Q & !SM_AMIGA_1_.Q & !SM_AMIGA_3_.Q & !SM_AMIGA_2_.Q
+     # !SM_AMIGA_5_.Q & CLK_000_D_0_.Q & !SM_AMIGA_0_.Q & !SM_AMIGA_4_.Q & !SM_AMIGA_6_.Q & !SM_AMIGA_1_.Q & !SM_AMIGA_3_.Q & !SM_AMIGA_2_.Q);
 
 cpu_est_2_.D = (cpu_est_2_.Q & !cpu_est_0_.Q
      # cpu_est_2_.Q & !cpu_est_1_.Q
@@ -504,13 +504,13 @@ inst_CLK_OUT_PRE_50.D = (!inst_CLK_OUT_PRE_50.Q);
 
 inst_CLK_OUT_PRE_50.C = (CLK_OSZI);
 
-inst_CLK_000_D1.D = (inst_CLK_000_D0.Q);
+CLK_000_D_1_.D = (CLK_000_D_0_.Q);
 
-inst_CLK_000_D1.C = (CLK_OSZI);
+CLK_000_D_1_.C = (CLK_OSZI);
 
-inst_CLK_000_D0.D = (CLK_000);
+CLK_000_D_0_.D = (CLK_000);
 
-inst_CLK_000_D0.C = (CLK_OSZI);
+CLK_000_D_0_.C = (CLK_OSZI);
 
 inst_CLK_000_PE.D = (CLK_000_P_SYNC_9_.Q);
 
@@ -586,7 +586,7 @@ RST_DLY_2_.D = (RST & RST_DLY_2_.Q
 
 RST_DLY_2_.C = (CLK_OSZI);
 
-CLK_000_P_SYNC_0_.D = (!inst_CLK_000_D1.Q & inst_CLK_000_D0.Q);
+CLK_000_P_SYNC_0_.D = (!CLK_000_D_1_.Q & CLK_000_D_0_.Q);
 
 CLK_000_P_SYNC_0_.C = (CLK_OSZI);
 
@@ -622,7 +622,7 @@ CLK_000_P_SYNC_8_.D = (CLK_000_P_SYNC_7_.Q);
 
 CLK_000_P_SYNC_8_.C = (CLK_OSZI);
 
-CLK_000_N_SYNC_0_.D = (inst_CLK_000_D1.Q & !inst_CLK_000_D0.Q);
+CLK_000_N_SYNC_0_.D = (CLK_000_D_1_.Q & !CLK_000_D_0_.Q);
 
 CLK_000_N_SYNC_0_.C = (CLK_OSZI);
 
@@ -668,7 +668,7 @@ CLK_000_N_SYNC_10_.C = (CLK_OSZI);
 
 SM_AMIGA_6_.D = (RST & SM_AMIGA_6_.Q & !SM_AMIGA_i_7_.Q
      # RST & !inst_CLK_000_PE.Q & SM_AMIGA_6_.Q & BERR.PIN
-     # RST & inst_nEXP_SPACE_D0reg.Q & !inst_AS_030_000_SYNC.Q & inst_CLK_000_D1.Q & !inst_CLK_000_D0.Q & !SM_AMIGA_i_7_.Q);
+     # RST & inst_nEXP_SPACE_D0reg.Q & !inst_AS_030_000_SYNC.Q & CLK_000_D_1_.Q & !CLK_000_D_0_.Q & !SM_AMIGA_i_7_.Q);
 
 SM_AMIGA_6_.C = (CLK_OSZI);
 

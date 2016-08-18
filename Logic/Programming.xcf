@@ -18,8 +18,8 @@
 				<BScanLen>1</BScanLen>
 				<BScanVal>0</BScanVal>
 			</Bypass>
-			<File>C:\Users\Matze\Documents\GitHub\68030tk\Logic\68030_tk-50.jed</File>
-			<FileTime>01/27/16 21:56:53</FileTime>
+			<File>C:\Users\Matze\Documents\GitHub\68030tk\Logic\68030_tk.jed</File>
+			<FileTime>08/17/16 17:45:51</FileTime>
 			<JedecChecksum>0x2728</JedecChecksum>
 			<Operation>Erase,Program,Verify</Operation>
 			<Option>

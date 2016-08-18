@@ -1,6 +1,6 @@
 |--------------------------------------------|
 |- ispLEVER Fitter Report File              -|
-|- Version 1.8.00.04.29.14                       -|
+|- Version 2.0.00.17.20.15                       -|
 |- (c)Copyright, Lattice Semiconductor 2002 -|
 |--------------------------------------------|
 
@@ -8,7 +8,7 @@
 ; Source file 68030_tk.tt4
 ; FITTER-generated Placements.
 ; DEVICE   mach447a
-; DATE     Wed Jan 27 21:56:53 2016
+; DATE     Wed Aug 17 17:45:51 2016
 
 
 Pin   79  SIZE_1_ Comb ; S6=1  S9=1  Pair 287
@@ -114,8 +114,8 @@ Node  119  inst_CLK_OUT_PRE_D Reg  ; S6=1  S9=1
 Node  148  inst_DTACK_D0 Reg  ; S6=1  S9=1 
 Node  187  inst_RESET_OUT Reg  ; S6=1  S9=1 
 Node  241  inst_CLK_OUT_PRE_50 Reg  ; S6=1  S9=1 
-Node  209  inst_CLK_000_D1 Reg  ; S6=1  S9=1 
-Node  139  inst_CLK_000_D0 Reg  ; S6=1  S9=1 
+Node  209  CLK_000_D_1_ Reg  ; S6=1  S9=1 
+Node  139  CLK_000_D_0_ Reg  ; S6=1  S9=1 
 Node  253  inst_CLK_000_PE Reg  ; S6=1  S9=1 
 Node  268  CLK_000_P_SYNC_9_ Reg  ; S6=1  S9=1 
 Node  248  inst_CLK_000_NE Reg  ; S6=1  S9=1 

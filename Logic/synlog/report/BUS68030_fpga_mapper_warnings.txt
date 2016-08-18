@@ -1,1 +1,0 @@
-@W: BN132 :"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":133:34:133:36|Removing instance CLK_000_P_SYNC[10],  because it is equivalent to instance CLK_000_PE
