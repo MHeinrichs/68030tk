@@ -12,8 +12,8 @@ EN_PinMacrocell = Yes;
 
 [Revision]
 Parent = m4a5.lci;
-DATE = 03/16/2015;
-TIME = 21:53:52;
+DATE = 08/18/2016;
+TIME = 23:26:14;
 Source_Format = Pure_VHDL;
 Synthesis = Synplify;
 
@@ -100,6 +100,24 @@ FPU_SENSE = Pin, 91, -, A, -;
 A1 = Pin, 60, -, F, -;
 A_3_ = Pin, 44, -, E, -;
 A_2_ = Pin, 43, -, E, -;
+AHIGH_24_ = Pin, 19, -, C, -;
+AHIGH_25_ = Pin, 18, -, C, -;
+AHIGH_26_ = Pin, 17, -, C, -;
+AHIGH_27_ = Pin, 16, -, C, -;
+AHIGH_28_ = Pin, 15, -, C, -;
+AHIGH_29_ = Pin, 6, -, B, -;
+AHIGH_30_ = Pin, 5, -, B, -;
+AHIGH_31_ = Pin, 4, -, B, -;
+A_1_ = Pin, 60, -, F, -;
+A_0_ = Pin, 69, -, G, -;
+A_DECODE_16_ = Pin, 96, -, A, -;
+A_DECODE_17_ = Pin, 59, -, F, -;
+A_DECODE_18_ = Pin, 95, -, A, -;
+A_DECODE_19_ = Pin, 97, -, A, -;
+A_DECODE_20_ = Pin, 93, -, A, -;
+A_DECODE_21_ = Pin, 94, -, A, -;
+A_DECODE_22_ = Pin, 84, -, H, -;
+A_DECODE_23_ = Pin, 85, -, H, -;
 
 [Group Assignments]
 layer = OFF;

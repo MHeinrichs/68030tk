@@ -20,9 +20,11 @@ port(
 	UDS_000: inout std_logic;
 	LDS_000: inout std_logic;
 	SIZE: inout std_logic_vector ( 1 downto 0 );
-	A: in std_logic_vector ( 31 downto 2 );
-	A0: inout std_logic;
-	A1: in std_logic;
+	AHIGH: inout std_logic_vector ( 31 downto 24 );
+	A_DECODE: in std_logic_vector ( 23 downto 2 );
+	A: inout std_logic_vector ( 1 downto 0 );
+	--A0: inout std_logic;
+	--A1: in std_logic;
 	nEXP_SPACE: in std_logic ;
 	BERR: inout std_logic ;
 	BG_030: in std_logic ;
@@ -59,6 +61,10 @@ end BUS68030;
 
 architecture Behavioral of BUS68030 is
 
+-- values are determined empiracally for 7.09 MHz Clock with a base clock of 100Mhz
+constant PE_CLK : integer := 10;
+constant NE_CLK : integer := 12;
+constant DS_SAMPLE : integer := 12;
 
 
 
@@ -96,7 +102,6 @@ signal SM_AMIGA : SM_68000;
 --signal	Dout:STD_LOGIC_VECTOR(3 downto 0) := "0000";
 signal	AS_000_INT:STD_LOGIC		:= '1';
 signal	RW_000_INT:STD_LOGIC		:= '1';
-signal	AMIGA_BUS_ENABLE_INT:STD_LOGIC		:= '1';
 signal	AMIGA_BUS_ENABLE_DMA_HIGH:STD_LOGIC		:= '1';
 signal	AMIGA_BUS_ENABLE_DMA_LOW:STD_LOGIC		:= '1';
 signal	AS_030_D0:STD_LOGIC			:= '1';
@@ -126,9 +131,9 @@ signal	CLK_OUT_PRE_D: STD_LOGIC	:= '1';
 signal	CLK_OUT_INT: STD_LOGIC		:= '1';
 signal	CLK_OUT_EXP_INT: STD_LOGIC		:= '1';
 signal	CLK_030_H: STD_LOGIC		:= '1';
-signal	CLK_000_D: STD_LOGIC_VECTOR ( 7 downto 0 ) 	:= "00000000";
-signal	CLK_000_P_SYNC: STD_LOGIC_VECTOR ( 12 downto 0 ) 	:= "0000000000000";
-signal	CLK_000_N_SYNC: STD_LOGIC_VECTOR ( 12 downto 0 ) 	:= "0000000000000";
+signal	CLK_000_D: STD_LOGIC_VECTOR ( DS_SAMPLE downto 0 );
+signal	CLK_000_P_SYNC: STD_LOGIC_VECTOR ( PE_CLK downto 0 );
+signal	CLK_000_N_SYNC: STD_LOGIC_VECTOR ( NE_CLK downto 0 );
 signal	CLK_000_PE: STD_LOGIC 		:= '0';
 signal	CLK_000_NE: STD_LOGIC 		:= '0';
 signal	CLK_000_NE_D0: STD_LOGIC 		:= '0';
@@ -139,7 +144,14 @@ signal	CLK_030_D0: STD_LOGIC 		:= '0';
 signal	RST_DLY: STD_LOGIC_VECTOR ( 2 downto 0 ) 	:= "000";
 --signal	RST_DLY_AMIGA: STD_LOGIC_VECTOR ( 7 downto 0 ) 	:= "00000000";
 --signal  RESET_OUT_AMIGA: STD_LOGIC 		:= '0';
+
 begin
+
+	CLK_000_PE <= CLK_000_P_SYNC(PE_CLK);
+	CLK_000_NE <= CLK_000_N_SYNC(NE_CLK);
+	--CLK_000_PE <= CLK_000_D(0) AND NOT CLK_000_D(1);
+	--CLK_000_NE <= NOT CLK_000_D(0) AND CLK_000_D(1) AND CLK_000_D(2);
+
 
 	--pos edge clock process
 	--no ansynchronious reset! the reset is sampled synchroniously
@@ -166,20 +178,14 @@ begin
 			CLK_OUT_EXP_INT <= CLK_OUT_PRE_50;
 			--delayed Clocks and signals for edge detection
 			CLK_000_D(0) 	<= CLK_000;
-			CLK_000_D(7 downto 1) 	<= CLK_000_D(6 downto 0);
+			CLK_000_D(DS_SAMPLE downto 1) 	<= CLK_000_D((DS_SAMPLE-1) downto 0);
 
 			--shift registers for edge detection
-			CLK_000_P_SYNC( 12 downto 1 ) 	<= CLK_000_P_SYNC( 11 downto 0 );
+			CLK_000_P_SYNC( PE_CLK downto 1 ) 	<= CLK_000_P_SYNC( (PE_CLK-1) downto 0 );
 			CLK_000_P_SYNC(0)				<= CLK_000_D(0) AND NOT CLK_000_D(1);
-			CLK_000_N_SYNC( 12 downto 1 ) 	<= CLK_000_N_SYNC( 11 downto 0 );
+			CLK_000_N_SYNC( NE_CLK downto 1 ) 	<= CLK_000_N_SYNC( (NE_CLK-1) downto 0 );
 			CLK_000_N_SYNC(0)				<= NOT CLK_000_D(0) AND CLK_000_D(1);
 			
-			-- values are determined empiracally for 7.09 MHz Clock
-			-- since the clock is not symmetrically these values differ!
-			CLK_000_PE <= CLK_000_P_SYNC(9);
-			CLK_000_NE <= CLK_000_N_SYNC(11);
-			--CLK_000_PE <= CLK_000_D(0) AND NOT CLK_000_D(1) AND NOT CLK_000_D(2);
-			--CLK_000_NE <= NOT CLK_000_D(0) AND CLK_000_D(1) AND CLK_000_D(2);
 			CLK_000_NE_D0 <= CLK_000_NE;
 			
 			-- e-clock is changed on the FALLING edge!
@@ -237,7 +243,6 @@ begin
 				DS_000_DMA		<= '1';
 				SIZE_DMA		<= "11";
 				A0_DMA			<= '1';
-				AMIGA_BUS_ENABLE_INT <= '1';
 				AMIGA_BUS_ENABLE_DMA_HIGH <= '1';
 				AMIGA_BUS_ENABLE_DMA_LOW <= '1';
 				AS_030_D0		<= '1';
@@ -285,7 +290,7 @@ begin
 				if(BG_030= '1')then
 					BG_000	<= '1';
 				elsif(	BG_030= '0' --AND (SM_AMIGA 	= IDLE_P)
-						and nEXP_SPACE_D0 = '1' and AS_030_D0='1'
+						and nEXP_SPACE = '1' and AS_030_D0='1'
 						and CLK_000_D(0)='1' 
 						) then --bus granted no local access and no AS_030 running!
 						BG_000 	<= '0';
@@ -313,8 +318,8 @@ begin
 						AS_030_D0			= '0'  AND --as set
 						BGACK_030_INT='1' AND 
 						BGACK_030_INT_D='1' AND --no dma -cycle
-						NOT (FC(1)='1' and FC(0)='1' and A(19)='0' and A(18)='0' and A(17)='1' and A(16)='0') AND --FPU-Select
-						nEXP_SPACE_D0 ='1' and --not an expansion space cycle
+						NOT (FC(1)='1' and FC(0)='1' and A_DECODE(19)='0' and A_DECODE(18)='0' and A_DECODE(17)='1' and A_DECODE(16)='0') AND --FPU-Select
+						nEXP_SPACE ='1' and --not an expansion space cycle
 						SM_AMIGA = IDLE_P --last amiga cycle terminated
 						) then
 						AS_030_000_SYNC <= '0';					
@@ -330,12 +335,12 @@ begin
 				
 				--uds/lds precalculation
 				if (SM_AMIGA = IDLE_N) then --DS: set udl/lds 	
-					if(A0='0') then
+					if(A(0)='0') then
 						UDS_000_INT <= '0';
 					else
 						UDS_000_INT <= '1';
 					end if;
-					if((A0='1' OR SIZE(0)='0' OR SIZE(1)='1')) then
+					if((A(0)='1' OR SIZE(0)='0' OR SIZE(1)='1')) then
 						LDS_000_INT <= '0';
 					else
 						LDS_000_INT <= '1';
@@ -352,12 +357,10 @@ begin
 				case (SM_AMIGA) is
 					when IDLE_P 	 => --68000:S0 wait for a falling edge
 						RW_000_INT		<= '1';		
-						AMIGA_BUS_ENABLE_INT <= CLK_000_D(1);
-						if( CLK_000_D(0)='0' and CLK_000_D(1)= '1' and AS_030_000_SYNC = '0' and nEXP_SPACE_D0 ='1')then -- if this a delayed expansion space detection, do not start an amiga cycle!
+						if( CLK_000_D(1)='0' and CLK_000_D(2)= '1' and AS_030_000_SYNC = '0' and nEXP_SPACE ='1')then -- if this a delayed expansion space detection, do not start an amiga cycle!
 							SM_AMIGA<=IDLE_N;  --go to s1
 						end if;
 					when IDLE_N 	 => --68000:S1 place Adress on bus and wait for rising edge, on a rising CLK_000 look for a amiga adressrobe
-						AMIGA_BUS_ENABLE_INT <= '0' ;--for now: allways on for amiga
 						if(CLK_000_PE='1')then --go to s2
 							SM_AMIGA <= AS_SET_P; --as for amiga set! 
 						end if;
@@ -392,8 +395,8 @@ begin
 						end if;
 					when DATA_FETCH_P => --68000:S6: READ: here comes the data on the bus!
 						DS_000_ENABLE	<= '1';
-						if( (CLK_000_N_SYNC( 9)='1' AND not (CLK_030 ='1' and CLK_OUT_PRE_D='0')) OR
-							(CLK_000_N_SYNC(10)='1' )) then --go to s7 next 030-clock is not a falling edge: dsack is sampled at the falling edge
+						if( (CLK_000_D(DS_SAMPLE-2)='0' AND CLK_000_D((DS_SAMPLE-1))='1' AND not (CLK_030 ='1' and CLK_OUT_PRE_D='0')) OR
+							  (CLK_000_D(DS_SAMPLE-1)='0' AND CLK_000_D((DS_SAMPLE-0))='1' )) then --go to s7 next 030-clock is not a falling edge: dsack is sampled at the falling edge
 							DSACK1_INT <='0'; 
 						end if;
 						if( CLK_000_NE ='1') then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
@@ -403,14 +406,11 @@ begin
 						if(CLK_000_PE='1')then --go to s0	
 							SM_AMIGA<=IDLE_P;	
 							RW_000_INT		<= '1';	
-							--AMIGA_BUS_ENABLE_INT <= '1';					
 						end if;
 				end case;
 	
 				--dma stuff
 				if(BGACK_030_INT='0')then			
-					--switch amiga bus on for DMA-Cycles
-					AMIGA_BUS_ENABLE_INT <= '0' ;
 					--set some signals NOT linked to AS_000='0'
 					RW_000_DMA	<= RW_000;
 					-- now determine the size: if both uds and lds is set its 16 bit else 8 bit!
@@ -427,11 +427,10 @@ begin
 					A0_DMA <= UDS_000;		
 					--A1 is set by the amiga side													
 					--here  we determine the upper or lower half of the databus
-					AMIGA_BUS_ENABLE_DMA_HIGH 	<= A1;
-					AMIGA_BUS_ENABLE_DMA_LOW 	<= not A1;				
+					AMIGA_BUS_ENABLE_DMA_HIGH 	<= A(1);
+					AMIGA_BUS_ENABLE_DMA_LOW 	<= not A(1);				
 	
 				elsif(BGACK_030_INT_D='0' and BGACK_030_INT='1')then			
-					AMIGA_BUS_ENABLE_INT <= '1' ;
 					RW_000_DMA		<= '1';	
 					SIZE_DMA		<= "00";
 					A0_DMA			<= '0';	
@@ -496,9 +495,8 @@ begin
 	--RESET	<=  RESET_OUT;
 
 	-- bus drivers
-	--AMIGA_ADDR_ENABLE	<= AMIGA_BUS_ENABLE_INT;
 	AMIGA_ADDR_ENABLE	<= '0';
-	AMIGA_BUS_ENABLE_HIGH <= '0' WHEN BGACK_030_INT ='1' and not (SM_AMIGA = IDLE_P) ELSE 
+	AMIGA_BUS_ENABLE_HIGH <= '0' WHEN BGACK_030_INT ='1' and not (SM_AMIGA = IDLE_P or (SM_AMIGA = END_CYCLE_N and CLK_000 = '1')) ELSE 
 							 '0' WHEN BGACK_030_INT ='0' AND AMIGA_BUS_ENABLE_DMA_HIGH = '0' ELSE
 							 '1';
 	AMIGA_BUS_ENABLE_LOW <=  '0' WHEN BGACK_030_INT ='0' AND AMIGA_BUS_ENABLE_DMA_LOW = '0'   ELSE
@@ -507,26 +505,26 @@ begin
 	
 	AMIGA_BUS_DATA_DIR 	 <= '1' WHEN (RW_000='0' AND BGACK_030_INT ='1') ELSE --Amiga WRITE
 							'0' WHEN (RW_000='1' AND BGACK_030_INT ='1') ELSE --Amiga READ
-							'1' WHEN (RW_000='1' AND BGACK_030_INT ='0' AND nEXP_SPACE_D0 = '0' AND AS_000 = '0') ELSE --DMA READ to expansion space
+							'1' WHEN (RW_000='1' AND BGACK_030_INT ='0' AND nEXP_SPACE = '0' AND AS_000 = '0') ELSE --DMA READ to expansion space
 							'0' WHEN (RW_000='0' AND BGACK_030_INT ='0' AND AS_000 = '0') ELSE --DMA WRITE to expansion space
 							'0'; --Point towarts TK
 	
 	
 	--dma stuff
-	DTACK	<= 	'Z';
-	--DTACK	<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE_D0 = '1' else
-	--			'0' when DSACK1 ='0' else 
-	--		   	'1';
-	AS_030	<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE_D0 = '1' or RESET_OUT ='0' else
+	DTACK	<= 	'Z'; --DTACK will be generated by GARY!
+	
+	AS_030	<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE = '1' or RESET_OUT ='0' else
 			   	'0' when AS_000_DMA ='0' and AS_000 ='0' else 
 			   	'1';
-	DS_030	<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE_D0 = '1' or RESET_OUT ='0' else
+	DS_030	<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE = '1' or RESET_OUT ='0' else
 				'0' when DS_000_DMA ='0' and AS_000 ='0' else 
 			   	'1';
-	A0		<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE_D0 = '1' or RESET_OUT ='0' else
+	A(0)		<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE = '1' or RESET_OUT ='0' else
 				'0' when A0_DMA ='0' else 
 			   	'1';
-	SIZE	<= 	"ZZ" when BGACK_030_INT ='1' OR nEXP_SPACE_D0 = '1' else
+	A(1)	<= 'Z';
+	AHIGH <= "ZZZZZZZZ" when BGACK_030_INT ='1' OR nEXP_SPACE = '1' or RESET_OUT ='0' else x"00";
+	SIZE	<= 	"ZZ" when BGACK_030_INT ='1' OR nEXP_SPACE = '1' else
 				"10" when SIZE_DMA ="10" else 
 			   	"01" when SIZE_DMA ="01" else
 			   	"00";
@@ -538,19 +536,17 @@ begin
 	BGACK_030	<= BGACK_030_INT;	
 
 	--fpu
-	FPU_CS		<=	'0' when AS_030 ='0' and FC(1)='1' and FC(0)='1' and A(19)='0' and A(18)='0' and A(17)='1' and A(16)='0' AND BGACK_000='1' AND FPU_SENSE ='0'
+	FPU_CS		<=	'0' when AS_030 ='0' and FC(1)='1' and FC(0)='1' and A_DECODE(19)='0' and A_DECODE(18)='0' and A_DECODE(17)='1' and A_DECODE(16)='0' AND BGACK_000='1' AND FPU_SENSE ='0'
 					else '1';
 	
 	--if no copro is installed:
-	BERR		<=	'0' when AS_030 ='0' and FC(1)='1' and FC(0)='1' and A(19)='0' and A(18)='0' and A(17)='1' and A(16)='0' AND BGACK_000='1' AND FPU_SENSE ='1'
+	BERR		<=	'0' when AS_030 ='0' and FC(1)='1' and FC(0)='1' and A_DECODE(19)='0' and A_DECODE(18)='0' and A_DECODE(17)='1' and A_DECODE(16)='0' AND BGACK_000='1' AND FPU_SENSE ='1'
 					else 'Z';
-	--BERR		<=	'Z';
-
 
 
 	--cache inhibit:  Tristate for expansion (it decides) and off for the Amiga 
-	CIIN <= '1' WHEN A(31 downto 20) = x"00F" and AS_030_D0 ='0' ELSE -- Enable for Kick-rom
-			'Z' WHEN nEXP_SPACE_D0 = '0' ELSE --Tristate for expansion (it decides)
+	CIIN <= '1' WHEN AHIGH(31 downto 24) = x"00" and A_DECODE(23 downto 20) = x"F" and AS_030_D0 ='0' ELSE -- Enable for Kick-rom
+			'Z' WHEN nEXP_SPACE = '0' ELSE --Tristate for expansion (it decides)
 			'0'; --off for the Amiga
 		
 	--e and VMA		
@@ -584,7 +580,7 @@ begin
 			   	'1';
 
 	--dsack
-	DSACK1	<= 	'Z' when nEXP_SPACE_D0 = '0' else -- output on amiga cycle
+	DSACK1	<= 	'Z' when nEXP_SPACE = '0' else -- output on amiga cycle
 				'0' when DSACK1_INT ='0' else 
 			   	'1';
 	
