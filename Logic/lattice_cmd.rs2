@@ -1,1 +1,1 @@
--src 68030_tk.tt4 -type PLA -devfile "E:/ispLEVER_Classic2_0/ispcpld/dat/mach4a/mach447ace.dev" -lci "68030_tk.lct" -touch "68030_tk.tt4"
+-src 68030_tk.tt4 -type PLA -devfile "E:/ispLEVER_Classic2_0/ispcpld/dat/mach4a/mach447ace.dev" -postfit -lci 68030_tk.lco

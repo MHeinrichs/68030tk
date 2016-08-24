@@ -1,9 +1,8 @@
-@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":127:7:127:17|Signal clk_out_pre is undriven 
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":130:38:130:40|Pruning register DS_030_D0_3  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":130:38:130:40|Pruning register nEXP_SPACE_D0_3  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":129:34:129:36|Pruning register CLK_OUT_EXP_INT_1  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":125:36:125:38|Pruning register CLK_OUT_PRE_25_3  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":153:2:153:3|Pruning register CLK_030_D0_2  
-@W: CL189 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":130:38:130:40|Register bit BGACK_030_INT_PRE is always 1, optimizing ...
+@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":128:7:128:17|Signal clk_out_pre is undriven 
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:38:131:40|Pruning register DS_030_D0_3  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:38:131:40|Pruning register nEXP_SPACE_D0_3  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:38:131:40|Pruning register BGACK_030_INT_PRE_2  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":130:34:130:36|Pruning register CLK_OUT_EXP_INT_2  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":154:2:154:3|Pruning register CLK_030_D0_2  
 @W: CL246 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":24:1:24:8|Input port bits 15 to 2 of a_decode(23 downto 2) are unused 
 

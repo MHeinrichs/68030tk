@@ -18,7 +18,7 @@ Note 18862: NODE name SM_AMIGA_i_7_bus.D.X1 being renamed to GATE_SM_AMIGA_i_7_b
 Note 18862: NODE name SM_AMIGA_i_7_bus.D.X2 being renamed to GATE_SM_AMIGA_i_7_bus_D_X2.
 Note 18862: NODE name CIIN_0 being renamed to GATE_CIIN_OE.
 Utilization Estimate
-    Combinational Macros:        520
-    Flip-Flop and Latch Macros:   64
+    Combinational Macros:        524
+    Flip-Flop and Latch Macros:   61
     I/O Pads:                     61
-Elapsed time: 2 seconds
+Elapsed time: 1 seconds

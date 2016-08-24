@@ -6,7 +6,7 @@
 #Implementation: logic
 
 $ Start of Compile
-#Fri Aug 19 00:39:28 2016
+#Wed Aug 24 22:17:42 2016
 
 Synopsys VHDL Compiler, version comp201403rcp1, Build 060R, built May 27 2014
 @N|Running in 64-bit mode
@@ -18,17 +18,16 @@ File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed -
 VHDL syntax check successful!
 File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed - recompiling
 @N: CD630 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Synthesizing work.bus68030.behavioral 
-@N: CD233 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":69:10:69:11|Using sequential encoding for type sm_e
-@N: CD233 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":86:14:86:15|Using sequential encoding for type sm_68000
-@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":127:7:127:17|Signal clk_out_pre is undriven 
+@N: CD233 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":70:10:70:11|Using sequential encoding for type sm_e
+@N: CD233 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":87:14:87:15|Using sequential encoding for type sm_68000
+@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":128:7:128:17|Signal clk_out_pre is undriven 
 Post processing for work.bus68030.behavioral
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":130:38:130:40|Pruning register DS_030_D0_3  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":130:38:130:40|Pruning register nEXP_SPACE_D0_3  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":129:34:129:36|Pruning register CLK_OUT_EXP_INT_1  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":125:36:125:38|Pruning register CLK_OUT_PRE_25_3  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":153:2:153:3|Pruning register CLK_030_D0_2  
-@W: CL189 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":130:38:130:40|Register bit BGACK_030_INT_PRE is always 1, optimizing ...
-@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":130:38:130:40|Trying to extract state machine for register SM_AMIGA
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:38:131:40|Pruning register DS_030_D0_3  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:38:131:40|Pruning register nEXP_SPACE_D0_3  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:38:131:40|Pruning register BGACK_030_INT_PRE_2  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":130:34:130:36|Pruning register CLK_OUT_EXP_INT_2  
+@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":154:2:154:3|Pruning register CLK_030_D0_2  
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:38:131:40|Trying to extract state machine for register SM_AMIGA
 Extracted state machine for register SM_AMIGA
 State machine has 8 reachable states with original encodings of:
    000
@@ -39,14 +38,14 @@ State machine has 8 reachable states with original encodings of:
    101
    110
    111
-@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":130:38:130:40|Trying to extract state machine for register cpu_est
+@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:38:131:40|Trying to extract state machine for register cpu_est
 @W: CL246 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":24:1:24:8|Input port bits 15 to 2 of a_decode(23 downto 2) are unused 
 @END
 
 At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 71MB peak: 72MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Fri Aug 19 00:39:28 2016
+# Wed Aug 24 22:17:43 2016
 
 ###########################################################]
 Synopsys Netlist Linker, version comp201403rcp1, Build 060R, built May 27 2014
@@ -56,7 +55,7 @@ File C:\users\matze\documents\github\68030tk\logic\synwork\BUS68030_comp.srs cha
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 67MB peak: 68MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Fri Aug 19 00:39:29 2016
+# Wed Aug 24 22:17:44 2016
 
 ###########################################################]
 Map & Optimize Report
@@ -65,7 +64,7 @@ Synopsys CPLD Technology Mapper, Version maplat, Build 923R, Built May  6 2014
 Copyright (C) 1994-2013, Synopsys, Inc. This software and the associated documentation are proprietary to Synopsys, Inc. This software may only be used in accordance with the terms and conditions of a written license agreement with Synopsys, Inc.  All other use or distribution of the software is strictly prohibited.
 Product Version I-2014.03LC 
 @N: MF248 |Running in 64-bit mode.
-@N:"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":130:38:130:40|Found counter in view:work.BUS68030(behavioral) inst RST_DLY[2:0]
+@N:"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:38:131:40|Found counter in view:work.BUS68030(behavioral) inst RST_DLY[2:0]
 Encoding state machine SM_AMIGA[0:7] (view:work.BUS68030(behavioral))
 original code -> new code
    000 -> 00000000
@@ -80,15 +79,15 @@ original code -> new code
 Resource Usage Report
 
 Simple gate primitives:
-DFF             63 uses
+DFF             62 uses
 BI_DIR          18 uses
 BUFTH           4 uses
 IBUF            38 uses
 OBUF            15 uses
-AND2            295 uses
-INV             265 uses
+AND2            289 uses
+INV             262 uses
 OR2             25 uses
-XOR2            5 uses
+XOR2            6 uses
 
 
 @N: FC100 |Timing Report not generated for this device, please use place and route tools for timing analysis.
@@ -98,6 +97,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 39MB peak: 105MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Fri Aug 19 00:39:30 2016
+# Wed Aug 24 22:17:44 2016
 
 ###########################################################]

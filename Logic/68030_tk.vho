@@ -67,34 +67,34 @@ architecture NetList of BUS68030 is
   signal LDS_000PIN : std_logic;
   signal LDS_000COM : std_logic;
   signal nEXP_SPACEPIN : std_logic;
-  signal BERRPIN : std_logic;
-  signal BG_030PIN : std_logic;
   signal SIZE_0XPIN : std_logic;
   signal SIZE_0XCOM : std_logic;
+  signal BERRPIN : std_logic;
   signal AHIGH_30XPIN : std_logic;
-  signal BGACK_000PIN : std_logic;
+  signal BG_030PIN : std_logic;
   signal AHIGH_29XPIN : std_logic;
-  signal CLK_030PIN : std_logic;
   signal AHIGH_28XPIN : std_logic;
-  signal CLK_000PIN : std_logic;
   signal AHIGH_27XPIN : std_logic;
-  signal CLK_OSZIPIN : std_logic;
+  signal BGACK_000PIN : std_logic;
   signal AHIGH_26XPIN : std_logic;
-  signal CLK_DIV_OUTQ : std_logic;
+  signal CLK_030PIN : std_logic;
   signal AHIGH_25XPIN : std_logic;
+  signal CLK_000PIN : std_logic;
   signal AHIGH_24XPIN : std_logic;
-  signal FPU_CSCOM : std_logic;
+  signal CLK_OSZIPIN : std_logic;
   signal A_DECODE_22XPIN : std_logic;
-  signal FPU_SENSEPIN : std_logic;
+  signal CLK_DIV_OUTQ : std_logic;
   signal A_DECODE_21XPIN : std_logic;
   signal A_DECODE_20XPIN : std_logic;
-  signal DTACKPIN : std_logic;
+  signal FPU_CSCOM : std_logic;
   signal A_DECODE_19XPIN : std_logic;
+  signal FPU_SENSEPIN : std_logic;
   signal A_DECODE_18XPIN : std_logic;
-  signal ECOM : std_logic;
   signal A_DECODE_17XPIN : std_logic;
-  signal VPAPIN : std_logic;
+  signal DTACKPIN : std_logic;
   signal A_DECODE_16XPIN : std_logic;
+  signal ECOM : std_logic;
+  signal VPAPIN : std_logic;
   signal RSTPIN : std_logic;
   signal AMIGA_BUS_DATA_DIRCOM : std_logic;
   signal AMIGA_BUS_ENABLE_LOWCOM : std_logic;
@@ -137,13 +137,14 @@ architecture NetList of BUS68030 is
   signal inst_UDS_000_INTQ : std_logic;
   signal inst_LDS_000_INTQ : std_logic;
   signal inst_CLK_OUT_PRE_DQ : std_logic;
-  signal CLK_000_D_1_busQ : std_logic;
-  signal CLK_000_D_10_busQ : std_logic;
-  signal CLK_000_D_11_busQ : std_logic;
+  signal CLK_000_D_6_busQ : std_logic;
+  signal CLK_000_D_7_busQ : std_logic;
   signal inst_DTACK_D0Q : std_logic;
   signal inst_RESET_OUTQ : std_logic;
+  signal CLK_000_D_1_busQ : std_logic;
   signal CLK_000_D_0_busQ : std_logic;
   signal inst_CLK_OUT_PRE_50Q : std_logic;
+  signal inst_CLK_OUT_PRE_25Q : std_logic;
   signal IPL_D0_0_busQ : std_logic;
   signal IPL_D0_1_busQ : std_logic;
   signal IPL_D0_2_busQ : std_logic;
@@ -151,11 +152,7 @@ architecture NetList of BUS68030 is
   signal CLK_000_D_3_busQ : std_logic;
   signal CLK_000_D_4_busQ : std_logic;
   signal CLK_000_D_5_busQ : std_logic;
-  signal CLK_000_D_6_busQ : std_logic;
-  signal CLK_000_D_7_busQ : std_logic;
   signal CLK_000_D_8_busQ : std_logic;
-  signal CLK_000_D_9_busQ : std_logic;
-  signal CLK_000_D_12_busQ : std_logic;
   signal inst_AMIGA_BUS_ENABLE_DMA_HIGHQ : std_logic;
   signal inst_DS_000_ENABLEQ : std_logic;
   signal SM_AMIGA_6_busQ : std_logic;
@@ -182,8 +179,8 @@ architecture NetList of BUS68030 is
   signal UDS_000_OE : std_logic;
   signal T_4 : std_logic;
   signal LDS_000_OE : std_logic;
-  signal BERR_OE : std_logic;
   signal SIZE_0X_OE : std_logic;
+  signal BERR_OE : std_logic;
   signal AHIGH_30X_OE : std_logic;
   signal AHIGH_29X_OE : std_logic;
   signal AHIGH_28X_OE : std_logic;
@@ -228,6 +225,7 @@ architecture NetList of BUS68030 is
   signal T_22 : std_logic;
   signal inst_RESET_OUT_D : std_logic;
   signal inst_CLK_OUT_PRE_50_D : std_logic;
+  signal inst_CLK_OUT_PRE_25_D : std_logic;
   signal T_23 : std_logic;
   signal T_24 : std_logic;
   signal T_25 : std_logic;
@@ -677,6 +675,9 @@ architecture NetList of BUS68030 is
   signal T_428 : std_logic;
   signal T_429 : std_logic;
   signal T_430 : std_logic;
+  signal T_431 : std_logic;
+  signal T_432 : std_logic;
+  signal T_433 : std_logic;
   signal VCC_net : std_logic;
   signal GND_net : std_logic;
   signal GATE_SIZE_1_XA : std_logic;
@@ -726,7 +727,6 @@ architecture NetList of BUS68030 is
   signal GATE_T_23_A : std_logic;
   signal GATE_T_24_A : std_logic;
   signal GATE_T_25_A : std_logic;
-  signal GATE_T_27_A : std_logic;
   signal GATE_T_34_A : std_logic;
   signal GATE_T_35_A : std_logic;
   signal GATE_T_36_A : std_logic;
@@ -831,17 +831,16 @@ architecture NetList of BUS68030 is
   signal GATE_T_164_A : std_logic;
   signal GATE_T_165_A : std_logic;
   signal GATE_T_166_A : std_logic;
-  signal GATE_T_169_A : std_logic;
-  signal GATE_T_169_B : std_logic;
+  signal GATE_T_167_A : std_logic;
   signal GATE_T_170_A : std_logic;
-  signal GATE_T_172_B : std_logic;
-  signal GATE_T_172_A : std_logic;
+  signal GATE_T_170_B : std_logic;
+  signal GATE_T_171_A : std_logic;
+  signal GATE_T_173_B : std_logic;
   signal GATE_T_173_A : std_logic;
   signal GATE_T_174_A : std_logic;
   signal GATE_T_175_A : std_logic;
   signal GATE_T_176_A : std_logic;
   signal GATE_T_177_A : std_logic;
-  signal GATE_T_178_B : std_logic;
   signal GATE_T_178_A : std_logic;
   signal GATE_T_179_B : std_logic;
   signal GATE_T_179_A : std_logic;
@@ -849,56 +848,54 @@ architecture NetList of BUS68030 is
   signal GATE_T_180_A : std_logic;
   signal GATE_T_181_B : std_logic;
   signal GATE_T_181_A : std_logic;
-  signal GATE_T_182_A : std_logic;
   signal GATE_T_182_B : std_logic;
+  signal GATE_T_182_A : std_logic;
   signal GATE_T_183_A : std_logic;
   signal GATE_T_183_B : std_logic;
   signal GATE_T_184_A : std_logic;
+  signal GATE_T_184_B : std_logic;
   signal GATE_T_185_A : std_logic;
-  signal GATE_T_187_DN : std_logic;
-  signal GATE_T_188_A : std_logic;
+  signal GATE_T_186_A : std_logic;
+  signal GATE_T_188_DN : std_logic;
   signal GATE_T_189_A : std_logic;
-  signal GATE_T_189_B : std_logic;
   signal GATE_T_190_A : std_logic;
-  signal GATE_T_195_A : std_logic;
-  signal GATE_T_197_A : std_logic;
+  signal GATE_T_190_B : std_logic;
+  signal GATE_T_191_A : std_logic;
+  signal GATE_T_196_A : std_logic;
   signal GATE_T_198_A : std_logic;
-  signal GATE_T_200_A : std_logic;
-  signal GATE_T_203_A : std_logic;
+  signal GATE_T_199_A : std_logic;
+  signal GATE_T_201_A : std_logic;
   signal GATE_T_204_A : std_logic;
   signal GATE_T_205_A : std_logic;
-  signal GATE_T_209_A : std_logic;
-  signal GATE_T_209_B : std_logic;
-  signal GATE_T_212_A : std_logic;
-  signal GATE_T_215_A : std_logic;
-  signal GATE_T_218_A : std_logic;
-  signal GATE_T_218_B : std_logic;
+  signal GATE_T_206_A : std_logic;
+  signal GATE_T_210_A : std_logic;
+  signal GATE_T_213_A : std_logic;
+  signal GATE_T_213_B : std_logic;
+  signal GATE_T_216_A : std_logic;
   signal GATE_T_219_A : std_logic;
-  signal GATE_T_221_A : std_logic;
-  signal GATE_T_221_B : std_logic;
+  signal GATE_T_219_B : std_logic;
   signal GATE_T_222_A : std_logic;
   signal GATE_T_223_A : std_logic;
   signal GATE_T_224_A : std_logic;
   signal GATE_T_224_B : std_logic;
   signal GATE_T_226_A : std_logic;
-  signal GATE_T_228_DN : std_logic;
-  signal GATE_T_229_B : std_logic;
   signal GATE_T_229_A : std_logic;
-  signal GATE_T_231_A : std_logic;
-  signal GATE_T_233_A : std_logic;
+  signal GATE_T_229_B : std_logic;
+  signal GATE_T_230_A : std_logic;
+  signal GATE_T_232_A : std_logic;
   signal GATE_T_234_A : std_logic;
   signal GATE_T_235_A : std_logic;
-  signal GATE_T_238_A : std_logic;
-  signal GATE_T_238_B : std_logic;
-  signal GATE_T_240_A : std_logic;
+  signal GATE_T_236_A : std_logic;
+  signal GATE_T_239_A : std_logic;
+  signal GATE_T_239_B : std_logic;
   signal GATE_T_241_A : std_logic;
-  signal GATE_T_243_A : std_logic;
-  signal GATE_T_245_A : std_logic;
+  signal GATE_T_242_A : std_logic;
+  signal GATE_T_244_A : std_logic;
   signal GATE_T_246_A : std_logic;
-  signal GATE_T_248_A : std_logic;
-  signal GATE_T_248_B : std_logic;
-  signal GATE_T_250_A : std_logic;
-  signal GATE_T_255_A : std_logic;
+  signal GATE_T_247_A : std_logic;
+  signal GATE_T_249_A : std_logic;
+  signal GATE_T_249_B : std_logic;
+  signal GATE_T_251_A : std_logic;
   signal GATE_T_256_A : std_logic;
   signal GATE_T_257_A : std_logic;
   signal GATE_T_258_A : std_logic;
@@ -910,97 +907,98 @@ architecture NetList of BUS68030 is
   signal GATE_T_264_A : std_logic;
   signal GATE_T_265_A : std_logic;
   signal GATE_T_266_A : std_logic;
-  signal GATE_T_268_A : std_logic;
-  signal GATE_T_270_A : std_logic;
-  signal GATE_T_272_A : std_logic;
-  signal GATE_T_274_A : std_logic;
-  signal GATE_T_276_A : std_logic;
-  signal GATE_T_278_A : std_logic;
-  signal GATE_T_280_A : std_logic;
-  signal GATE_T_282_A : std_logic;
+  signal GATE_T_267_A : std_logic;
+  signal GATE_T_269_A : std_logic;
+  signal GATE_T_271_A : std_logic;
+  signal GATE_T_273_A : std_logic;
+  signal GATE_T_275_A : std_logic;
+  signal GATE_T_277_A : std_logic;
+  signal GATE_T_279_A : std_logic;
+  signal GATE_T_281_A : std_logic;
   signal GATE_T_283_A : std_logic;
-  signal GATE_T_288_A : std_logic;
+  signal GATE_T_284_A : std_logic;
   signal GATE_T_289_A : std_logic;
-  signal GATE_T_292_A : std_logic;
-  signal GATE_T_294_A : std_logic;
-  signal GATE_T_296_A : std_logic;
+  signal GATE_T_291_A : std_logic;
+  signal GATE_T_293_A : std_logic;
+  signal GATE_T_295_A : std_logic;
   signal GATE_T_297_A : std_logic;
   signal GATE_T_298_A : std_logic;
   signal GATE_T_299_A : std_logic;
   signal GATE_T_300_A : std_logic;
-  signal GATE_T_302_A : std_logic;
-  signal GATE_T_304_A : std_logic;
+  signal GATE_T_301_A : std_logic;
+  signal GATE_T_303_A : std_logic;
   signal GATE_T_305_A : std_logic;
-  signal GATE_T_307_A : std_logic;
+  signal GATE_T_306_A : std_logic;
   signal GATE_T_308_A : std_logic;
   signal GATE_T_309_A : std_logic;
   signal GATE_T_310_A : std_logic;
   signal GATE_T_311_A : std_logic;
   signal GATE_T_312_A : std_logic;
-  signal GATE_T_314_A : std_logic;
+  signal GATE_T_313_A : std_logic;
   signal GATE_T_315_A : std_logic;
   signal GATE_T_316_A : std_logic;
   signal GATE_T_317_A : std_logic;
-  signal GATE_T_319_A : std_logic;
-  signal GATE_T_320_B : std_logic;
+  signal GATE_T_318_A : std_logic;
   signal GATE_T_320_A : std_logic;
-  signal GATE_T_329_A : std_logic;
+  signal GATE_T_321_B : std_logic;
+  signal GATE_T_321_A : std_logic;
   signal GATE_T_330_A : std_logic;
-  signal GATE_T_332_A : std_logic;
+  signal GATE_T_331_A : std_logic;
   signal GATE_T_333_A : std_logic;
   signal GATE_T_334_A : std_logic;
-  signal GATE_T_337_A : std_logic;
+  signal GATE_T_335_A : std_logic;
   signal GATE_T_338_A : std_logic;
-  signal GATE_T_341_A : std_logic;
+  signal GATE_T_339_A : std_logic;
   signal GATE_T_342_A : std_logic;
   signal GATE_T_343_A : std_logic;
-  signal GATE_T_345_A : std_logic;
+  signal GATE_T_344_A : std_logic;
   signal GATE_T_346_A : std_logic;
-  signal GATE_T_349_A : std_logic;
+  signal GATE_T_347_A : std_logic;
   signal GATE_T_350_A : std_logic;
   signal GATE_T_351_A : std_logic;
-  signal GATE_T_353_A : std_logic;
+  signal GATE_T_352_A : std_logic;
   signal GATE_T_354_A : std_logic;
-  signal GATE_T_360_A : std_logic;
+  signal GATE_T_355_A : std_logic;
   signal GATE_T_361_A : std_logic;
-  signal GATE_T_366_A : std_logic;
+  signal GATE_T_362_A : std_logic;
   signal GATE_T_367_A : std_logic;
   signal GATE_T_368_A : std_logic;
-  signal GATE_T_371_A : std_logic;
-  signal GATE_T_375_A : std_logic;
+  signal GATE_T_369_A : std_logic;
+  signal GATE_T_372_A : std_logic;
   signal GATE_T_376_A : std_logic;
-  signal GATE_T_381_A : std_logic;
+  signal GATE_T_377_A : std_logic;
   signal GATE_T_382_A : std_logic;
   signal GATE_T_383_A : std_logic;
-  signal GATE_T_386_A : std_logic;
-  signal GATE_T_390_A : std_logic;
-  signal GATE_T_390_B : std_logic;
+  signal GATE_T_384_A : std_logic;
+  signal GATE_T_387_A : std_logic;
   signal GATE_T_391_A : std_logic;
+  signal GATE_T_391_B : std_logic;
   signal GATE_T_392_A : std_logic;
   signal GATE_T_393_A : std_logic;
-  signal GATE_T_394_A : std_logic;
-  signal GATE_T_395_A : std_logic;
+  signal GATE_T_396_A : std_logic;
+  signal GATE_T_397_A : std_logic;
   signal GATE_T_398_A : std_logic;
-  signal GATE_T_400_A : std_logic;
   signal GATE_T_401_A : std_logic;
   signal GATE_T_403_A : std_logic;
-  signal GATE_T_409_A : std_logic;
-  signal GATE_T_410_A : std_logic;
-  signal GATE_T_411_A : std_logic;
+  signal GATE_T_404_A : std_logic;
+  signal GATE_T_406_A : std_logic;
   signal GATE_T_412_A : std_logic;
   signal GATE_T_413_A : std_logic;
   signal GATE_T_414_A : std_logic;
   signal GATE_T_415_A : std_logic;
+  signal GATE_T_416_A : std_logic;
+  signal GATE_T_417_A : std_logic;
   signal GATE_T_418_A : std_logic;
-  signal GATE_T_425_A : std_logic;
-  signal GATE_T_425_B : std_logic;
-  signal GATE_T_426_A : std_logic;
-  signal GATE_T_426_B : std_logic;
-  signal GATE_T_427_A : std_logic;
+  signal GATE_T_421_A : std_logic;
   signal GATE_T_428_A : std_logic;
   signal GATE_T_428_B : std_logic;
   signal GATE_T_429_A : std_logic;
   signal GATE_T_429_B : std_logic;
+  signal GATE_T_430_A : std_logic;
+  signal GATE_T_431_A : std_logic;
+  signal GATE_T_431_B : std_logic;
+  signal GATE_T_432_A : std_logic;
+  signal GATE_T_432_B : std_logic;
 
 begin
   VCC_I_I_1:   VCC port map ( X=>VCC_net );
@@ -1060,92 +1058,86 @@ begin
  generic map( PULL => "Up")
  port map ( O=>nEXP_SPACEPIN, 
             I0=>nEXP_SPACE );
-  OUT_BERR_I_1:   BI_DIR
- generic map( PULL => "Up")
- port map ( O=>BERRPIN, 
-            I0=>GND_net, 
-            IO=>BERR, 
-            OE=>BERR_OE );
-  IN_BG_030_I_1:   IBUF
- generic map( PULL => "Up")
- port map ( O=>BG_030PIN, 
-            I0=>BG_030 );
   OUT_SIZE_0_XI_1:   BI_DIR
  generic map( PULL => "Up")
  port map ( O=>SIZE_0XPIN, 
             I0=>SIZE_0XCOM, 
             IO=>SIZE(0), 
             OE=>SIZE_0X_OE );
+  OUT_BERR_I_1:   BI_DIR
+ generic map( PULL => "Up")
+ port map ( O=>BERRPIN, 
+            I0=>GND_net, 
+            IO=>BERR, 
+            OE=>BERR_OE );
   OUT_AHIGH_30_XI_1:   BI_DIR
  generic map( PULL => "Up")
  port map ( O=>AHIGH_30XPIN, 
             I0=>GND_net, 
             IO=>AHIGH(30), 
             OE=>AHIGH_30X_OE );
-  IN_BGACK_000_I_1:   IBUF
+  IN_BG_030_I_1:   IBUF
  generic map( PULL => "Up")
- port map ( O=>BGACK_000PIN, 
-            I0=>BGACK_000 );
+ port map ( O=>BG_030PIN, 
+            I0=>BG_030 );
   OUT_AHIGH_29_XI_1:   BI_DIR
  generic map( PULL => "Up")
  port map ( O=>AHIGH_29XPIN, 
             I0=>GND_net, 
             IO=>AHIGH(29), 
             OE=>AHIGH_29X_OE );
-  IN_CLK_030_I_1:   IBUF
- generic map( PULL => "Up")
- port map ( O=>CLK_030PIN, 
-            I0=>CLK_030 );
   OUT_AHIGH_28_XI_1:   BI_DIR
  generic map( PULL => "Up")
  port map ( O=>AHIGH_28XPIN, 
             I0=>GND_net, 
             IO=>AHIGH(28), 
             OE=>AHIGH_28X_OE );
-  IN_CLK_000_I_1:   IBUF
- generic map( PULL => "Up")
- port map ( O=>CLK_000PIN, 
-            I0=>CLK_000 );
   OUT_AHIGH_27_XI_1:   BI_DIR
  generic map( PULL => "Up")
  port map ( O=>AHIGH_27XPIN, 
             I0=>GND_net, 
             IO=>AHIGH(27), 
             OE=>AHIGH_27X_OE );
-  IN_CLK_OSZI_I_1:   IBUF
+  IN_BGACK_000_I_1:   IBUF
  generic map( PULL => "Up")
- port map ( O=>CLK_OSZIPIN, 
-            I0=>CLK_OSZI );
+ port map ( O=>BGACK_000PIN, 
+            I0=>BGACK_000 );
   OUT_AHIGH_26_XI_1:   BI_DIR
  generic map( PULL => "Up")
  port map ( O=>AHIGH_26XPIN, 
             I0=>GND_net, 
             IO=>AHIGH(26), 
             OE=>AHIGH_26X_OE );
-  OUT_CLK_DIV_OUT_I_1:   OBUF port map ( O=>CLK_DIV_OUT, 
-            I0=>CLK_DIV_OUTQ );
+  IN_CLK_030_I_1:   IBUF
+ generic map( PULL => "Up")
+ port map ( O=>CLK_030PIN, 
+            I0=>CLK_030 );
   OUT_AHIGH_25_XI_1:   BI_DIR
  generic map( PULL => "Up")
  port map ( O=>AHIGH_25XPIN, 
             I0=>GND_net, 
             IO=>AHIGH(25), 
             OE=>AHIGH_25X_OE );
+  IN_CLK_000_I_1:   IBUF
+ generic map( PULL => "Up")
+ port map ( O=>CLK_000PIN, 
+            I0=>CLK_000 );
   OUT_AHIGH_24_XI_1:   BI_DIR
  generic map( PULL => "Up")
  port map ( O=>AHIGH_24XPIN, 
             I0=>GND_net, 
             IO=>AHIGH(24), 
             OE=>AHIGH_24X_OE );
-  OUT_FPU_CS_I_1:   OBUF port map ( O=>FPU_CS, 
-            I0=>FPU_CSCOM );
+  IN_CLK_OSZI_I_1:   IBUF
+ generic map( PULL => "Up")
+ port map ( O=>CLK_OSZIPIN, 
+            I0=>CLK_OSZI );
   IN_A_DECODE_22_XI_1:   IBUF
  generic map( PULL => "Up")
  port map ( O=>A_DECODE_22XPIN, 
             I0=>A_DECODE(22) );
-  IN_FPU_SENSE_I_1:   IBUF
- generic map( PULL => "Up")
- port map ( O=>FPU_SENSEPIN, 
-            I0=>FPU_SENSE );
+  OUT_CLK_DIV_OUT_I_1:   OBUF port map ( O=>CLK_DIV_OUT, 
+            I0=>CLK_DIV_OUTQ );
   IN_A_DECODE_21_XI_1:   IBUF
  generic map( PULL => "Up")
  port map ( O=>A_DECODE_21XPIN, 
@@ -1154,34 +1146,40 @@ begin
  generic map( PULL => "Up")
  port map ( O=>A_DECODE_20XPIN, 
             I0=>A_DECODE(20) );
-  IN_DTACK_I_1:   IBUF
- generic map( PULL => "Up")
- port map ( O=>DTACKPIN, 
-            I0=>DTACK );
+  OUT_FPU_CS_I_1:   OBUF port map ( O=>FPU_CS, 
+            I0=>FPU_CSCOM );
   IN_A_DECODE_19_XI_1:   IBUF
  generic map( PULL => "Up")
  port map ( O=>A_DECODE_19XPIN, 
             I0=>A_DECODE(19) );
-  OUT_AVEC_I_1:   OBUF port map ( O=>AVEC, 
-            I0=>VCC_net );
+  IN_FPU_SENSE_I_1:   IBUF
+ generic map( PULL => "Up")
+ port map ( O=>FPU_SENSEPIN, 
+            I0=>FPU_SENSE );
   IN_A_DECODE_18_XI_1:   IBUF
  generic map( PULL => "Up")
  port map ( O=>A_DECODE_18XPIN, 
             I0=>A_DECODE(18) );
-  OUT_E_I_1:   OBUF port map ( O=>E, 
-            I0=>ECOM );
   IN_A_DECODE_17_XI_1:   IBUF
  generic map( PULL => "Up")
  port map ( O=>A_DECODE_17XPIN, 
             I0=>A_DECODE(17) );
-  IN_VPA_I_1:   IBUF
+  IN_DTACK_I_1:   IBUF
  generic map( PULL => "Up")
- port map ( O=>VPAPIN, 
-            I0=>VPA );
+ port map ( O=>DTACKPIN, 
+            I0=>DTACK );
   IN_A_DECODE_16_XI_1:   IBUF
  generic map( PULL => "Up")
  port map ( O=>A_DECODE_16XPIN, 
             I0=>A_DECODE(16) );
+  OUT_AVEC_I_1:   OBUF port map ( O=>AVEC, 
+            I0=>VCC_net );
+  OUT_E_I_1:   OBUF port map ( O=>E, 
+            I0=>ECOM );
+  IN_VPA_I_1:   IBUF
+ generic map( PULL => "Up")
+ port map ( O=>VPAPIN, 
+            I0=>VPA );
   IN_RST_I_1:   IBUF
  generic map( PULL => "Up")
  port map ( O=>RSTPIN, 
@@ -1341,17 +1339,14 @@ begin
   FF_inst_LDS_000_INT_I_1:   DFF port map ( D=>inst_LDS_000_INT_D, 
             Q=>inst_LDS_000_INTQ, 
             CLK=>CLK_OSZIPIN );
-  FF_inst_CLK_OUT_PRE_D_I_1:   DFF port map ( D=>inst_CLK_OUT_PRE_50Q, 
+  FF_inst_CLK_OUT_PRE_D_I_1:   DFF port map ( D=>inst_CLK_OUT_PRE_25Q, 
             Q=>inst_CLK_OUT_PRE_DQ, 
             CLK=>CLK_OSZIPIN );
-  FF_CLK_000_D_1_bus_I_1:   DFF port map ( D=>CLK_000_D_0_busQ, 
-            Q=>CLK_000_D_1_busQ, 
+  FF_CLK_000_D_6_bus_I_1:   DFF port map ( D=>CLK_000_D_5_busQ, 
+            Q=>CLK_000_D_6_busQ, 
             CLK=>CLK_OSZIPIN );
-  FF_CLK_000_D_10_bus_I_1:   DFF port map ( D=>CLK_000_D_9_busQ, 
-            Q=>CLK_000_D_10_busQ, 
-            CLK=>CLK_OSZIPIN );
-  FF_CLK_000_D_11_bus_I_1:   DFF port map ( D=>CLK_000_D_10_busQ, 
-            Q=>CLK_000_D_11_busQ, 
+  FF_CLK_000_D_7_bus_I_1:   DFF port map ( D=>CLK_000_D_6_busQ, 
+            Q=>CLK_000_D_7_busQ, 
             CLK=>CLK_OSZIPIN );
   FF_inst_DTACK_D0_I_1:   DFF port map ( D=>inst_DTACK_D0_D, 
             Q=>inst_DTACK_D0Q, 
@@ -1359,11 +1354,17 @@ begin
   FF_inst_RESET_OUT_I_1:   DFF port map ( D=>inst_RESET_OUT_D, 
             Q=>inst_RESET_OUTQ, 
             CLK=>CLK_OSZIPIN );
+  FF_CLK_000_D_1_bus_I_1:   DFF port map ( D=>CLK_000_D_0_busQ, 
+            Q=>CLK_000_D_1_busQ, 
+            CLK=>CLK_OSZIPIN );
   FF_CLK_000_D_0_bus_I_1:   DFF port map ( D=>CLK_000PIN, 
             Q=>CLK_000_D_0_busQ, 
             CLK=>CLK_OSZIPIN );
   FF_inst_CLK_OUT_PRE_50_I_1:   DFF port map ( D=>inst_CLK_OUT_PRE_50_D, 
             Q=>inst_CLK_OUT_PRE_50Q, 
+            CLK=>CLK_OSZIPIN );
+  FF_inst_CLK_OUT_PRE_25_I_1:   DFF port map ( D=>inst_CLK_OUT_PRE_25_D, 
+            Q=>inst_CLK_OUT_PRE_25Q, 
             CLK=>CLK_OSZIPIN );
   FF_IPL_D0_0_bus_I_1:   DFF port map ( D=>IPL_D0_0_bus_D, 
             Q=>IPL_D0_0_busQ, 
@@ -1386,20 +1387,8 @@ begin
   FF_CLK_000_D_5_bus_I_1:   DFF port map ( D=>CLK_000_D_4_busQ, 
             Q=>CLK_000_D_5_busQ, 
             CLK=>CLK_OSZIPIN );
-  FF_CLK_000_D_6_bus_I_1:   DFF port map ( D=>CLK_000_D_5_busQ, 
-            Q=>CLK_000_D_6_busQ, 
-            CLK=>CLK_OSZIPIN );
-  FF_CLK_000_D_7_bus_I_1:   DFF port map ( D=>CLK_000_D_6_busQ, 
-            Q=>CLK_000_D_7_busQ, 
-            CLK=>CLK_OSZIPIN );
   FF_CLK_000_D_8_bus_I_1:   DFF port map ( D=>CLK_000_D_7_busQ, 
             Q=>CLK_000_D_8_busQ, 
-            CLK=>CLK_OSZIPIN );
-  FF_CLK_000_D_9_bus_I_1:   DFF port map ( D=>CLK_000_D_8_busQ, 
-            Q=>CLK_000_D_9_busQ, 
-            CLK=>CLK_OSZIPIN );
-  FF_CLK_000_D_12_bus_I_1:   DFF port map ( D=>CLK_000_D_11_busQ, 
-            Q=>CLK_000_D_12_busQ, 
             CLK=>CLK_OSZIPIN );
   FF_inst_AMIGA_BUS_ENABLE_DMA_HIGH_I_1:   DFF port map ( D=>inst_AMIGA_BUS_ENABLE_DMA_HIGH_D, 
             Q=>inst_AMIGA_BUS_ENABLE_DMA_HIGHQ, 
@@ -1503,10 +1492,6 @@ begin
   GATE_LDS_000_OE_I_1:   AND2 port map ( O=>LDS_000_OE, 
             I1=>inst_RESET_OUTQ, 
             I0=>BGACK_030Q );
-  GATE_BERR_OE_I_1:   AND3 port map ( O=>BERR_OE, 
-            I2=>T_429, 
-            I1=>T_430, 
-            I0=>T_428 );
   GATE_SIZE_0_XI_1:   AND2 port map ( O=>SIZE_0XCOM, 
             I1=>SIZE_DMA_0_busQ, 
             I0=>GATE_SIZE_0_XA );
@@ -1515,6 +1500,10 @@ begin
   GATE_SIZE_0X_OE_I_1:   NOR2 port map ( O=>SIZE_0X_OE, 
             I1=>BGACK_030Q, 
             I0=>nEXP_SPACEPIN );
+  GATE_BERR_OE_I_1:   AND3 port map ( O=>BERR_OE, 
+            I2=>T_432, 
+            I1=>T_433, 
+            I0=>T_431 );
   GATE_AHIGH_30X_OE_I_1:   INV port map ( I0=>BGACK_030Q, 
             O=>GATE_AHIGH_30X_OE_A );
   GATE_AHIGH_30X_OE_I_2:   INV port map ( I0=>nEXP_SPACEPIN, 
@@ -1572,59 +1561,58 @@ begin
             I2=>GATE_AHIGH_24X_OE_A, 
             I1=>GATE_AHIGH_24X_OE_B );
   GATE_T_5_I_1:   AND3 port map ( O=>T_5, 
-            I2=>T_426, 
-            I1=>T_427, 
-            I0=>T_425 );
+            I2=>T_429, 
+            I1=>T_430, 
+            I0=>T_428 );
   GATE_E_I_1:   OR2 port map ( O=>ECOM, 
-            I1=>T_190, 
-            I0=>T_189 );
+            I1=>T_191, 
+            I0=>T_190 );
   GATE_RESET_OE_I_1:   INV port map ( I0=>inst_RESET_OUTQ, 
             O=>RESET_OE );
   GATE_AMIGA_BUS_DATA_DIR_I_1:   OR2 port map ( O=>AMIGA_BUS_DATA_DIRCOM, 
-            I1=>T_188, 
-            I0=>T_187 );
+            I1=>T_189, 
+            I0=>T_188 );
   GATE_T_6_I_1:   NOR2 port map ( O=>T_6, 
             I1=>inst_AMIGA_BUS_ENABLE_DMA_LOWQ, 
             I0=>BGACK_030Q );
   GATE_AMIGA_BUS_ENABLE_HIGH_I_1:   OR2 port map ( O=>AMIGA_BUS_ENABLE_HIGHCOM, 
-            I1=>T_186, 
-            I0=>T_185 );
+            I1=>T_187, 
+            I0=>T_186 );
   GATE_CIIN_I_1:   AND4 port map ( O=>CIINCOM, 
-            I3=>T_422, 
-            I2=>T_423, 
-            I1=>T_424, 
+            I3=>T_425, 
+            I2=>T_426, 
+            I1=>T_427, 
             I0=>GATE_CIIN_A );
   GATE_CIIN_I_2:   INV port map ( I0=>AHIGH_31XPIN, 
             O=>GATE_CIIN_A );
-  GATE_T_7_I_1:   OR4 port map ( I0=>T_183, 
-            I1=>T_406, 
+  GATE_T_7_I_1:   OR4 port map ( I0=>T_184, 
+            I1=>T_409, 
             O=>T_7, 
-            I2=>T_405, 
-            I3=>T_404 );
-  GATE_T_8_I_1:   OR4 port map ( I0=>T_170, 
-            I1=>T_171, 
+            I2=>T_408, 
+            I3=>T_407 );
+  GATE_T_8_I_1:   OR4 port map ( I0=>T_171, 
+            I1=>T_172, 
             O=>T_8, 
-            I2=>T_172, 
-            I3=>T_173 );
+            I2=>T_173, 
+            I3=>T_174 );
   GATE_RW_000_OE_I_1:   AND2 port map ( O=>RW_000_OE, 
             I1=>inst_RESET_OUTQ, 
             I0=>BGACK_030Q );
   GATE_T_9_I_1:   OR2 port map ( O=>T_9, 
-            I1=>T_169, 
-            I0=>T_168 );
+            I1=>T_170, 
+            I0=>T_169 );
   GATE_BGACK_030_D_I_3:   NAN3 port map ( O=>BGACK_030_D, 
             I2=>RSTPIN, 
             I1=>GATE_BGACK_030_D_B, 
             I0=>GATE_BGACK_030_D_A );
-  GATE_BGACK_030_D_I_2:   INV port map ( I0=>T_166, 
+  GATE_BGACK_030_D_I_2:   INV port map ( I0=>T_167, 
             O=>GATE_BGACK_030_D_B );
-  GATE_BGACK_030_D_I_1:   INV port map ( I0=>T_167, 
+  GATE_BGACK_030_D_I_1:   INV port map ( I0=>T_168, 
             O=>GATE_BGACK_030_D_A );
-  GATE_T_10_I_1:   OR4 port map ( I0=>T_162, 
-            I1=>T_163, 
-            O=>T_10, 
-            I2=>T_164, 
-            I3=>T_165 );
+  GATE_T_10_I_1:   OR3 port map ( O=>T_10, 
+            I2=>T_395, 
+            I1=>T_166, 
+            I0=>T_394 );
   GATE_VMA_T_I_1:   OR3 port map ( O=>VMA_T, 
             I2=>T_160, 
             I1=>T_159, 
@@ -1654,15 +1642,15 @@ begin
             I2=>GATE_A_0X_OE_A, 
             I1=>GATE_A_0X_OE_B );
   GATE_T_12_I_1:   OR4 port map ( I0=>T_154, 
-            I1=>T_374, 
+            I1=>T_375, 
             O=>T_12, 
-            I2=>T_373, 
-            I3=>T_372 );
+            I2=>T_374, 
+            I3=>T_373 );
   GATE_T_13_I_1:   OR4 port map ( I0=>T_144, 
-            I1=>T_359, 
+            I1=>T_360, 
             O=>T_13, 
-            I2=>T_358, 
-            I3=>T_357 );
+            I2=>T_359, 
+            I3=>T_358 );
   GATE_cpu_est_3_bus_D_I_1:   OR4 port map ( I0=>T_131, 
             I1=>T_132, 
             O=>cpu_est_3_bus_D, 
@@ -1696,10 +1684,10 @@ begin
   GATE_T_16_I_2:   INV port map ( O=>GATE_T_16_A, 
             I0=>AS_030PIN );
   GATE_T_17_I_1:   OR4 port map ( I0=>T_119, 
-            I1=>T_328, 
+            I1=>T_329, 
             O=>T_17, 
-            I2=>T_327, 
-            I3=>T_326 );
+            I2=>T_328, 
+            I3=>T_327 );
   GATE_T_18_I_1:   AND2 port map ( O=>T_18, 
             I1=>RSTPIN, 
             I0=>GATE_T_18_A );
@@ -1710,16 +1698,16 @@ begin
             I2=>GATE_inst_AS_000_DMA_D_C, 
             I1=>GATE_inst_AS_000_DMA_D_B, 
             I0=>GATE_inst_AS_000_DMA_D_A );
-  GATE_inst_AS_000_DMA_D_I_2:   INV port map ( I0=>T_324, 
+  GATE_inst_AS_000_DMA_D_I_2:   INV port map ( I0=>T_325, 
             O=>GATE_inst_AS_000_DMA_D_A );
-  GATE_inst_AS_000_DMA_D_I_3:   INV port map ( I0=>T_323, 
+  GATE_inst_AS_000_DMA_D_I_3:   INV port map ( I0=>T_324, 
             O=>GATE_inst_AS_000_DMA_D_B );
-  GATE_inst_AS_000_DMA_D_I_4:   INV port map ( I0=>T_325, 
+  GATE_inst_AS_000_DMA_D_I_4:   INV port map ( I0=>T_326, 
             O=>GATE_inst_AS_000_DMA_D_C );
   GATE_inst_DS_000_DMA_D_I_1:   OR3 port map ( O=>inst_DS_000_DMA_D, 
-            I2=>T_321, 
-            I1=>T_322, 
-            I0=>T_320 );
+            I2=>T_322, 
+            I1=>T_323, 
+            I0=>T_321 );
   GATE_CYCLE_DMA_0_bus_D_I_1:   OR3 port map ( O=>CYCLE_DMA_0_bus_D, 
             I2=>T_101, 
             I1=>T_100, 
@@ -1767,6 +1755,9 @@ begin
             I0=>T_85 );
   GATE_inst_CLK_OUT_PRE_50_D_I_1:   INV port map ( I0=>inst_CLK_OUT_PRE_50Q, 
             O=>inst_CLK_OUT_PRE_50_D );
+  GATE_inst_CLK_OUT_PRE_25_D_I_1:   XOR2 port map ( O=>inst_CLK_OUT_PRE_25_D, 
+            I1=>inst_CLK_OUT_PRE_25Q, 
+            I0=>inst_CLK_OUT_PRE_50Q );
   GATE_T_23_I_1:   AND2 port map ( O=>T_23, 
             I1=>RSTPIN, 
             I0=>GATE_T_23_A );
@@ -1816,11 +1807,11 @@ begin
   GATE_RST_DLY_2_bus_D_I_1:   OR2 port map ( O=>RST_DLY_2_bus_D, 
             I1=>T_65, 
             I0=>T_64 );
-  GATE_inst_CLK_030_H_D_I_1:   OR4 port map ( I0=>T_254, 
-            I1=>T_253, 
+  GATE_inst_CLK_030_H_D_I_1:   OR4 port map ( I0=>T_255, 
+            I1=>T_254, 
             O=>inst_CLK_030_H_D, 
-            I2=>T_252, 
-            I3=>T_251 );
+            I2=>T_253, 
+            I3=>T_252 );
   GATE_SM_AMIGA_1_bus_D_I_1:   OR3 port map ( O=>SM_AMIGA_1_bus_D, 
             I2=>T_54, 
             I1=>T_53, 
@@ -1844,15 +1835,15 @@ begin
             I2=>T_48, 
             I3=>T_49 );
   GATE_SM_AMIGA_i_7_bus_D_X1_I_1:   OR4 port map ( I0=>T_39, 
-            I1=>T_193, 
+            I1=>T_194, 
             O=>SM_AMIGA_i_7_bus_D_X1, 
-            I2=>T_192, 
-            I3=>T_191 );
+            I2=>T_193, 
+            I3=>T_192 );
   GATE_SM_AMIGA_i_7_bus_D_X2_I_1:   AND2 port map ( O=>SM_AMIGA_i_7_bus_D_X2, 
             I1=>BERRPIN, 
             I0=>RSTPIN );
   GATE_CIIN_OE_I_1:   OR2 port map ( O=>CIIN_OE, 
-            I1=>T_184, 
+            I1=>T_185, 
             I0=>nEXP_SPACEPIN );
   GATE_cpu_est_2_bus_D_I_1:   XOR2 port map ( O=>cpu_est_2_bus_D, 
             I1=>cpu_est_2_bus_D_X1, 
@@ -1924,119 +1915,117 @@ begin
             I3=>T_227, 
             I2=>T_228, 
             I1=>T_229, 
-            I0=>GATE_T_27_A );
-  GATE_T_27_I_2:   INV port map ( I0=>BERRPIN, 
-            O=>GATE_T_27_A );
+            I0=>T_230 );
   GATE_T_28_I_1:   AND4 port map ( O=>T_28, 
             I3=>T_223, 
             I2=>T_224, 
             I1=>T_225, 
             I0=>T_226 );
   GATE_T_29_I_1:   AND4 port map ( O=>T_29, 
-            I3=>T_219, 
-            I2=>T_220, 
-            I1=>T_221, 
-            I0=>T_222 );
+            I3=>T_220, 
+            I2=>T_221, 
+            I1=>T_222, 
+            I0=>BERRPIN );
   GATE_T_30_I_1:   AND4 port map ( O=>T_30, 
-            I3=>T_216, 
-            I2=>T_217, 
-            I1=>T_218, 
+            I3=>T_217, 
+            I2=>T_218, 
+            I1=>T_219, 
             I0=>BERRPIN );
   GATE_T_31_I_1:   AND4 port map ( O=>T_31, 
-            I3=>T_213, 
-            I2=>T_214, 
-            I1=>T_215, 
+            I3=>T_214, 
+            I2=>T_215, 
+            I1=>T_216, 
             I0=>BERRPIN );
   GATE_T_32_I_1:   AND4 port map ( O=>T_32, 
-            I3=>T_210, 
-            I2=>T_211, 
-            I1=>T_212, 
+            I3=>T_211, 
+            I2=>T_212, 
+            I1=>T_213, 
             I0=>BERRPIN );
   GATE_T_33_I_1:   AND4 port map ( O=>T_33, 
-            I3=>T_207, 
-            I2=>T_208, 
-            I1=>T_209, 
+            I3=>T_208, 
+            I2=>T_209, 
+            I1=>T_210, 
             I0=>BERRPIN );
   GATE_T_34_I_1:   AND4 port map ( O=>T_34, 
-            I3=>T_204, 
-            I2=>T_205, 
-            I1=>T_206, 
+            I3=>T_205, 
+            I2=>T_206, 
+            I1=>T_207, 
             I0=>GATE_T_34_A );
   GATE_T_34_I_2:   INV port map ( I0=>BERRPIN, 
             O=>GATE_T_34_A );
   GATE_T_35_I_1:   INV port map ( I0=>BERRPIN, 
             O=>GATE_T_35_A );
   GATE_T_35_I_2:   AND3 port map ( O=>T_35, 
-            I2=>T_203, 
-            I1=>T_202, 
+            I2=>T_204, 
+            I1=>T_203, 
             I0=>GATE_T_35_A );
   GATE_T_36_I_1:   INV port map ( I0=>BERRPIN, 
             O=>GATE_T_36_A );
   GATE_T_36_I_2:   AND3 port map ( O=>T_36, 
-            I2=>T_201, 
-            I1=>T_200, 
+            I2=>T_202, 
+            I1=>T_201, 
             I0=>GATE_T_36_A );
   GATE_T_37_I_1:   INV port map ( I0=>BERRPIN, 
             O=>GATE_T_37_A );
   GATE_T_37_I_2:   AND3 port map ( O=>T_37, 
-            I2=>T_199, 
-            I1=>T_198, 
+            I2=>T_200, 
+            I1=>T_199, 
             I0=>GATE_T_37_A );
   GATE_T_38_I_1:   INV port map ( I0=>BERRPIN, 
             O=>GATE_T_38_A );
   GATE_T_38_I_2:   AND3 port map ( O=>T_38, 
-            I2=>T_197, 
-            I1=>T_196, 
+            I2=>T_198, 
+            I1=>T_197, 
             I0=>GATE_T_38_A );
   GATE_T_39_I_1:   INV port map ( I0=>BERRPIN, 
             O=>GATE_T_39_A );
   GATE_T_39_I_2:   AND3 port map ( O=>T_39, 
-            I2=>T_195, 
-            I1=>T_194, 
+            I2=>T_196, 
+            I1=>T_195, 
             I0=>GATE_T_39_A );
   GATE_T_40_I_1:   AND4 port map ( O=>T_40, 
-            I3=>T_237, 
-            I2=>T_238, 
-            I1=>T_239, 
-            I0=>T_240 );
+            I3=>T_238, 
+            I2=>T_239, 
+            I1=>T_240, 
+            I0=>T_241 );
   GATE_T_41_I_1:   AND4 port map ( O=>T_41, 
-            I3=>T_234, 
-            I2=>T_235, 
-            I1=>T_236, 
+            I3=>T_235, 
+            I2=>T_236, 
+            I1=>T_237, 
             I0=>BERRPIN );
   GATE_T_42_I_1:   INV port map ( I0=>BERRPIN, 
             O=>GATE_T_42_A );
   GATE_T_42_I_2:   AND3 port map ( O=>T_42, 
-            I2=>T_233, 
-            I1=>T_232, 
+            I2=>T_234, 
+            I1=>T_233, 
             I0=>GATE_T_42_A );
   GATE_T_43_I_1:   INV port map ( I0=>SM_AMIGA_3_busQ, 
             O=>GATE_T_43_A );
   GATE_T_43_I_2:   AND3 port map ( O=>T_43, 
-            I2=>T_231, 
-            I1=>T_230, 
+            I2=>T_232, 
+            I1=>T_231, 
             I0=>GATE_T_43_A );
   GATE_T_44_I_1:   INV port map ( I0=>RST_DLY_2_busQ, 
             O=>GATE_T_44_A );
   GATE_T_44_I_2:   AND3 port map ( O=>T_44, 
-            I2=>T_244, 
-            I1=>T_243, 
+            I2=>T_245, 
+            I1=>T_244, 
             I0=>GATE_T_44_A );
   GATE_T_45_I_1:   INV port map ( I0=>RST_DLY_1_busQ, 
             O=>GATE_T_45_A );
   GATE_T_45_I_2:   AND3 port map ( O=>T_45, 
-            I2=>T_242, 
-            I1=>T_241, 
+            I2=>T_243, 
+            I1=>T_242, 
             I0=>GATE_T_45_A );
   GATE_T_46_I_1:   AND4 port map ( O=>T_46, 
-            I3=>T_248, 
-            I2=>T_249, 
-            I1=>T_250, 
+            I3=>T_249, 
+            I2=>T_250, 
+            I1=>T_251, 
             I0=>SM_AMIGA_3_busQ );
   GATE_T_47_I_1:   AND3 port map ( O=>T_47, 
-            I2=>T_246, 
-            I1=>T_247, 
-            I0=>T_245 );
+            I2=>T_247, 
+            I1=>T_248, 
+            I0=>T_246 );
   GATE_T_48_I_1:   AND4 port map ( O=>T_48, 
             I3=>BERRPIN, 
             I2=>SM_AMIGA_2_busQ, 
@@ -2088,57 +2077,57 @@ begin
   GATE_T_55_I_2:   INV port map ( I0=>CLK_000_D_1_busQ, 
             O=>GATE_T_55_A );
   GATE_T_56_I_1:   AND4 port map ( O=>T_56, 
-            I3=>T_279, 
-            I2=>T_280, 
-            I1=>T_281, 
-            I0=>T_282 );
+            I3=>T_280, 
+            I2=>T_281, 
+            I1=>T_282, 
+            I0=>T_283 );
   GATE_T_57_I_1:   AND4 port map ( O=>T_57, 
-            I3=>T_275, 
-            I2=>T_276, 
-            I1=>T_277, 
-            I0=>T_278 );
+            I3=>T_276, 
+            I2=>T_277, 
+            I1=>T_278, 
+            I0=>T_279 );
   GATE_T_58_I_1:   AND4 port map ( O=>T_58, 
-            I3=>T_271, 
-            I2=>T_272, 
-            I1=>T_273, 
-            I0=>T_274 );
+            I3=>T_272, 
+            I2=>T_273, 
+            I1=>T_274, 
+            I0=>T_275 );
   GATE_T_59_I_1:   AND4 port map ( O=>T_59, 
-            I3=>T_267, 
-            I2=>T_268, 
-            I1=>T_269, 
-            I0=>T_270 );
+            I3=>T_268, 
+            I2=>T_269, 
+            I1=>T_270, 
+            I0=>T_271 );
   GATE_T_60_I_1:   AND4 port map ( O=>T_60, 
-            I3=>T_264, 
-            I2=>T_265, 
-            I1=>T_266, 
+            I3=>T_265, 
+            I2=>T_266, 
+            I1=>T_267, 
             I0=>GATE_T_60_A );
   GATE_T_60_I_2:   INV port map ( I0=>LDS_000PIN, 
             O=>GATE_T_60_A );
   GATE_T_61_I_1:   AND4 port map ( O=>T_61, 
-            I3=>T_261, 
-            I2=>T_262, 
-            I1=>T_263, 
+            I3=>T_262, 
+            I2=>T_263, 
+            I1=>T_264, 
             I0=>GATE_T_61_A );
   GATE_T_61_I_2:   INV port map ( I0=>LDS_000PIN, 
             O=>GATE_T_61_A );
   GATE_T_62_I_1:   AND4 port map ( O=>T_62, 
-            I3=>T_258, 
-            I2=>T_259, 
-            I1=>T_260, 
+            I3=>T_259, 
+            I2=>T_260, 
+            I1=>T_261, 
             I0=>GATE_T_62_A );
   GATE_T_62_I_2:   INV port map ( I0=>UDS_000PIN, 
             O=>GATE_T_62_A );
   GATE_T_63_I_1:   AND4 port map ( O=>T_63, 
-            I3=>T_255, 
-            I2=>T_256, 
-            I1=>T_257, 
+            I3=>T_256, 
+            I2=>T_257, 
+            I1=>T_258, 
             I0=>GATE_T_63_A );
   GATE_T_63_I_2:   INV port map ( I0=>UDS_000PIN, 
             O=>GATE_T_63_A );
   GATE_T_64_I_1:   AND3 port map ( O=>T_64, 
-            I2=>T_284, 
+            I2=>T_285, 
             I1=>RST_DLY_1_busQ, 
-            I0=>T_283 );
+            I0=>T_284 );
   GATE_T_65_I_1:   AND2 port map ( O=>T_65, 
             I1=>RST_DLY_2_busQ, 
             I0=>RSTPIN );
@@ -2205,31 +2194,31 @@ begin
   GATE_T_75_I_2:   INV port map ( I0=>CLK_000_D_0_busQ, 
             O=>GATE_T_75_A );
   GATE_T_76_I_1:   AND3 port map ( O=>T_76, 
-            I2=>T_290, 
-            I1=>T_291, 
-            I0=>T_289 );
+            I2=>T_291, 
+            I1=>T_292, 
+            I0=>T_290 );
   GATE_T_77_I_1:   AND3 port map ( O=>T_77, 
-            I2=>T_288, 
+            I2=>T_289, 
             I1=>BERRPIN, 
-            I0=>T_287 );
+            I0=>T_288 );
   GATE_T_78_I_1:   AND3 port map ( O=>T_78, 
-            I2=>T_286, 
+            I2=>T_287, 
             I1=>BERRPIN, 
-            I0=>T_285 );
+            I0=>T_286 );
   GATE_T_79_I_1:   AND4 port map ( O=>T_79, 
-            I3=>T_298, 
-            I2=>T_299, 
-            I1=>T_300, 
+            I3=>T_299, 
+            I2=>T_300, 
+            I1=>T_301, 
             I0=>RWPIN );
   GATE_T_80_I_1:   AND4 port map ( O=>T_80, 
-            I3=>T_295, 
-            I2=>T_296, 
-            I1=>T_297, 
+            I3=>T_296, 
+            I2=>T_297, 
+            I1=>T_298, 
             I0=>SM_AMIGA_i_7_busQ );
   GATE_T_81_I_1:   AND3 port map ( O=>T_81, 
-            I2=>T_293, 
-            I1=>T_294, 
-            I0=>T_292 );
+            I2=>T_294, 
+            I1=>T_295, 
+            I0=>T_293 );
   GATE_T_82_I_1:   AND4 port map ( O=>T_82, 
             I3=>BERRPIN, 
             I2=>inst_DS_000_ENABLEQ, 
@@ -2253,9 +2242,9 @@ begin
             I2=>GATE_T_84_A, 
             I1=>GATE_T_84_B );
   GATE_T_85_I_1:   AND3 port map ( O=>T_85, 
-            I2=>T_302, 
-            I1=>T_303, 
-            I0=>T_301 );
+            I2=>T_303, 
+            I1=>T_304, 
+            I0=>T_302 );
   GATE_T_86_I_1:   AND2 port map ( O=>T_86, 
             I1=>inst_RESET_OUTQ, 
             I0=>RSTPIN );
@@ -2315,45 +2304,45 @@ begin
             I1=>RSTPIN, 
             I0=>GATE_T_95_A );
   GATE_T_96_I_1:   AND4 port map ( O=>T_96, 
-            I3=>T_310, 
-            I2=>T_311, 
-            I1=>T_312, 
+            I3=>T_311, 
+            I2=>T_312, 
+            I1=>T_313, 
             I0=>GATE_T_96_A );
   GATE_T_96_I_2:   INV port map ( I0=>AS_000PIN, 
             O=>GATE_T_96_A );
   GATE_T_97_I_1:   INV port map ( I0=>AS_000PIN, 
             O=>GATE_T_97_A );
   GATE_T_97_I_2:   AND3 port map ( O=>T_97, 
-            I2=>T_309, 
-            I1=>T_308, 
+            I2=>T_310, 
+            I1=>T_309, 
             I0=>GATE_T_97_A );
   GATE_T_98_I_1:   INV port map ( I0=>AS_000PIN, 
             O=>GATE_T_98_A );
   GATE_T_98_I_2:   AND3 port map ( O=>T_98, 
-            I2=>T_307, 
-            I1=>T_306, 
+            I2=>T_308, 
+            I1=>T_307, 
             I0=>GATE_T_98_A );
   GATE_T_99_I_1:   INV port map ( I0=>AS_000PIN, 
             O=>GATE_T_99_A );
   GATE_T_99_I_2:   AND3 port map ( O=>T_99, 
-            I2=>T_305, 
-            I1=>T_304, 
+            I2=>T_306, 
+            I1=>T_305, 
             I0=>GATE_T_99_A );
   GATE_T_100_I_1:   AND3 port map ( O=>T_100, 
-            I2=>T_318, 
-            I1=>T_319, 
-            I0=>T_317 );
+            I2=>T_319, 
+            I1=>T_320, 
+            I0=>T_318 );
   GATE_T_101_I_1:   INV port map ( I0=>AS_000PIN, 
             O=>GATE_T_101_A );
   GATE_T_101_I_2:   AND3 port map ( O=>T_101, 
-            I2=>T_316, 
-            I1=>T_315, 
+            I2=>T_317, 
+            I1=>T_316, 
             I0=>GATE_T_101_A );
   GATE_T_102_I_1:   INV port map ( I0=>AS_000PIN, 
             O=>GATE_T_102_A );
   GATE_T_102_I_2:   AND3 port map ( O=>T_102, 
-            I2=>T_314, 
-            I1=>T_313, 
+            I2=>T_315, 
+            I1=>T_314, 
             I0=>GATE_T_102_A );
   GATE_T_103_I_1:   AND4 port map ( O=>T_103, 
             I3=>inst_AS_000_DMAQ, 
@@ -2402,35 +2391,35 @@ begin
   GATE_T_112_I_2:   INV port map ( O=>GATE_T_112_A, 
             I0=>CLK_030PIN );
   GATE_T_113_I_1:   AND4 port map ( O=>T_113, 
-            I3=>T_349, 
-            I2=>T_350, 
-            I1=>T_351, 
-            I0=>T_352 );
+            I3=>T_350, 
+            I2=>T_351, 
+            I1=>T_352, 
+            I0=>T_353 );
   GATE_T_114_I_1:   AND4 port map ( O=>T_114, 
-            I3=>T_345, 
-            I2=>T_346, 
-            I1=>T_347, 
-            I0=>T_348 );
+            I3=>T_346, 
+            I2=>T_347, 
+            I1=>T_348, 
+            I0=>T_349 );
   GATE_T_115_I_1:   AND4 port map ( O=>T_115, 
-            I3=>T_341, 
-            I2=>T_342, 
-            I1=>T_343, 
-            I0=>T_344 );
+            I3=>T_342, 
+            I2=>T_343, 
+            I1=>T_344, 
+            I0=>T_345 );
   GATE_T_116_I_1:   AND4 port map ( O=>T_116, 
-            I3=>T_337, 
-            I2=>T_338, 
-            I1=>T_339, 
-            I0=>T_340 );
+            I3=>T_338, 
+            I2=>T_339, 
+            I1=>T_340, 
+            I0=>T_341 );
   GATE_T_117_I_1:   AND4 port map ( O=>T_117, 
-            I3=>T_333, 
-            I2=>T_334, 
-            I1=>T_335, 
-            I0=>T_336 );
+            I3=>T_334, 
+            I2=>T_335, 
+            I1=>T_336, 
+            I0=>T_337 );
   GATE_T_118_I_1:   AND4 port map ( O=>T_118, 
-            I3=>T_329, 
-            I2=>T_330, 
-            I1=>T_331, 
-            I0=>T_332 );
+            I3=>T_330, 
+            I2=>T_331, 
+            I1=>T_332, 
+            I0=>T_333 );
   GATE_T_119_I_3:   AND4 port map ( O=>T_119, 
             I3=>BERRPIN, 
             I2=>RSTPIN, 
@@ -2472,8 +2461,8 @@ begin
   GATE_T_124_I_1:   INV port map ( I0=>CLK_000_D_0_busQ, 
             O=>GATE_T_124_A );
   GATE_T_124_I_2:   AND3 port map ( O=>T_124, 
-            I2=>T_354, 
-            I1=>T_353, 
+            I2=>T_355, 
+            I1=>T_354, 
             I0=>GATE_T_124_A );
   GATE_T_125_I_1:   AND2 port map ( O=>T_125, 
             I1=>CLK_000_D_0_busQ, 
@@ -2507,8 +2496,8 @@ begin
   GATE_T_131_I_1:   INV port map ( I0=>CLK_000_D_0_busQ, 
             O=>GATE_T_131_A );
   GATE_T_131_I_2:   AND3 port map ( O=>T_131, 
-            I2=>T_356, 
-            I1=>T_355, 
+            I2=>T_357, 
+            I1=>T_356, 
             I0=>GATE_T_131_A );
   GATE_T_132_I_1:   INV port map ( I0=>cpu_est_2_busQ, 
             O=>GATE_T_132_A );
@@ -2527,28 +2516,28 @@ begin
   GATE_T_134_I_2:   INV port map ( O=>GATE_T_134_A, 
             I0=>CLK_000_D_1_busQ );
   GATE_T_135_I_1:   AND4 port map ( O=>T_135, 
-            I3=>T_369, 
-            I2=>T_370, 
-            I1=>T_371, 
+            I3=>T_370, 
+            I2=>T_371, 
+            I1=>T_372, 
             I0=>GATE_T_135_A );
   GATE_T_135_I_2:   INV port map ( I0=>IPL_D0_2_busQ, 
             O=>GATE_T_135_A );
   GATE_T_136_I_1:   AND4 port map ( O=>T_136, 
-            I3=>T_366, 
-            I2=>T_367, 
-            I1=>T_368, 
+            I3=>T_367, 
+            I2=>T_368, 
+            I1=>T_369, 
             I0=>GATE_T_136_A );
   GATE_T_136_I_2:   INV port map ( I0=>IPL_D0_2_busQ, 
             O=>GATE_T_136_A );
   GATE_T_137_I_1:   AND4 port map ( O=>T_137, 
-            I3=>T_363, 
-            I2=>T_364, 
-            I1=>T_365, 
+            I3=>T_364, 
+            I2=>T_365, 
+            I1=>T_366, 
             I0=>IPL_D0_2_busQ );
   GATE_T_138_I_1:   AND4 port map ( O=>T_138, 
-            I3=>T_360, 
-            I2=>T_361, 
-            I1=>T_362, 
+            I3=>T_361, 
+            I2=>T_362, 
+            I1=>T_363, 
             I0=>IPL_D0_2_busQ );
   GATE_T_139_I_3:   AND4 port map ( O=>T_139, 
             I3=>RSTPIN, 
@@ -2603,28 +2592,28 @@ begin
             I2=>GATE_T_144_A, 
             I1=>GATE_T_144_B );
   GATE_T_145_I_1:   AND4 port map ( O=>T_145, 
-            I3=>T_384, 
-            I2=>T_385, 
-            I1=>T_386, 
+            I3=>T_385, 
+            I2=>T_386, 
+            I1=>T_387, 
             I0=>GATE_T_145_A );
   GATE_T_145_I_2:   INV port map ( I0=>IPL_D0_2_busQ, 
             O=>GATE_T_145_A );
   GATE_T_146_I_1:   AND4 port map ( O=>T_146, 
-            I3=>T_381, 
-            I2=>T_382, 
-            I1=>T_383, 
+            I3=>T_382, 
+            I2=>T_383, 
+            I1=>T_384, 
             I0=>GATE_T_146_A );
   GATE_T_146_I_2:   INV port map ( I0=>IPL_D0_2_busQ, 
             O=>GATE_T_146_A );
   GATE_T_147_I_1:   AND4 port map ( O=>T_147, 
-            I3=>T_378, 
-            I2=>T_379, 
-            I1=>T_380, 
+            I3=>T_379, 
+            I2=>T_380, 
+            I1=>T_381, 
             I0=>IPL_D0_2_busQ );
   GATE_T_148_I_1:   AND4 port map ( O=>T_148, 
-            I3=>T_375, 
-            I2=>T_376, 
-            I1=>T_377, 
+            I3=>T_376, 
+            I2=>T_377, 
+            I1=>T_378, 
             I0=>IPL_D0_2_busQ );
   GATE_T_149_I_3:   AND4 port map ( O=>T_149, 
             I3=>RSTPIN, 
@@ -2703,25 +2692,25 @@ begin
             I2=>GATE_T_158_A, 
             I1=>GATE_T_158_B );
   GATE_T_159_I_1:   AND3 port map ( O=>T_159, 
-            I2=>T_391, 
-            I1=>T_392, 
-            I0=>T_390 );
+            I2=>T_392, 
+            I1=>T_393, 
+            I0=>T_391 );
   GATE_T_160_I_1:   AND4 port map ( O=>T_160, 
-            I3=>T_387, 
-            I2=>T_388, 
-            I1=>T_389, 
+            I3=>T_388, 
+            I2=>T_389, 
+            I1=>T_390, 
             I0=>CLK_000_D_0_busQ );
   GATE_T_161_I_1:   NOR2 port map ( O=>T_161, 
             I1=>VMAQ, 
             I0=>RSTPIN );
   GATE_T_162_I_1:   AND3 port map ( O=>T_162, 
-            I2=>T_396, 
+            I2=>T_399, 
             I1=>SM_AMIGA_1_busQ, 
-            I0=>T_395 );
+            I0=>T_398 );
   GATE_T_163_I_1:   AND3 port map ( O=>T_163, 
-            I2=>T_394, 
+            I2=>T_397, 
             I1=>SM_AMIGA_1_busQ, 
-            I0=>T_393 );
+            I0=>T_396 );
   GATE_T_164_I_3:   AND4 port map ( O=>T_164, 
             I3=>BERRPIN, 
             I2=>RSTPIN, 
@@ -2733,331 +2722,329 @@ begin
             O=>GATE_T_164_A );
   GATE_T_165_I_1:   AND4 port map ( O=>T_165, 
             I3=>SM_AMIGA_1_busQ, 
-            I2=>CLK_000_D_12_busQ, 
+            I2=>CLK_000_D_8_busQ, 
             I1=>RSTPIN, 
             I0=>GATE_T_165_A );
-  GATE_T_165_I_2:   INV port map ( I0=>CLK_000_D_11_busQ, 
+  GATE_T_165_I_2:   INV port map ( I0=>CLK_000_D_7_busQ, 
             O=>GATE_T_165_A );
   GATE_T_166_I_1:   AND4 port map ( O=>T_166, 
+            I3=>CLK_000_D_1_busQ, 
+            I2=>RSTPIN, 
+            I1=>SM_AMIGA_1_busQ, 
+            I0=>GATE_T_166_A );
+  GATE_T_166_I_2:   INV port map ( I0=>CLK_000_D_0_busQ, 
+            O=>GATE_T_166_A );
+  GATE_T_167_I_1:   AND4 port map ( O=>T_167, 
             I3=>AS_000PIN, 
             I2=>CLK_000_D_0_busQ, 
             I1=>BGACK_000PIN, 
-            I0=>GATE_T_166_A );
-  GATE_T_166_I_2:   INV port map ( I0=>CLK_000_D_1_busQ, 
-            O=>GATE_T_166_A );
-  GATE_T_167_I_1:   AND2 port map ( O=>T_167, 
+            I0=>GATE_T_167_A );
+  GATE_T_167_I_2:   INV port map ( I0=>CLK_000_D_1_busQ, 
+            O=>GATE_T_167_A );
+  GATE_T_168_I_1:   AND2 port map ( O=>T_168, 
             I1=>BGACK_030Q, 
             I0=>BGACK_000PIN );
-  GATE_T_168_I_1:   AND3 port map ( O=>T_168, 
-            I2=>T_398, 
+  GATE_T_169_I_1:   AND3 port map ( O=>T_169, 
+            I2=>T_401, 
             I1=>CLK_000_D_0_busQ, 
-            I0=>T_397 );
-  GATE_T_169_I_1:   INV port map ( I0=>BG_000Q, 
-            O=>GATE_T_169_A );
-  GATE_T_169_I_2:   INV port map ( I0=>BG_030PIN, 
-            O=>GATE_T_169_B );
-  GATE_T_169_I_3:   AND3 port map ( O=>T_169, 
-            I0=>RSTPIN, 
-            I2=>GATE_T_169_A, 
-            I1=>GATE_T_169_B );
-  GATE_T_170_I_1:   AND4 port map ( O=>T_170, 
-            I3=>T_401, 
-            I2=>T_402, 
-            I1=>T_403, 
-            I0=>GATE_T_170_A );
-  GATE_T_170_I_2:   INV port map ( I0=>RWPIN, 
+            I0=>T_400 );
+  GATE_T_170_I_1:   INV port map ( I0=>BG_000Q, 
             O=>GATE_T_170_A );
-  GATE_T_171_I_1:   AND3 port map ( O=>T_171, 
-            I2=>T_400, 
+  GATE_T_170_I_2:   INV port map ( I0=>BG_030PIN, 
+            O=>GATE_T_170_B );
+  GATE_T_170_I_3:   AND3 port map ( O=>T_170, 
+            I0=>RSTPIN, 
+            I2=>GATE_T_170_A, 
+            I1=>GATE_T_170_B );
+  GATE_T_171_I_1:   AND4 port map ( O=>T_171, 
+            I3=>T_404, 
+            I2=>T_405, 
+            I1=>T_406, 
+            I0=>GATE_T_171_A );
+  GATE_T_171_I_2:   INV port map ( I0=>RWPIN, 
+            O=>GATE_T_171_A );
+  GATE_T_172_I_1:   AND3 port map ( O=>T_172, 
+            I2=>T_403, 
             I1=>SM_AMIGA_i_7_busQ, 
-            I0=>T_399 );
-  GATE_T_172_I_3:   AND4 port map ( O=>T_172, 
+            I0=>T_402 );
+  GATE_T_173_I_3:   AND4 port map ( O=>T_173, 
             I3=>SM_AMIGA_i_7_busQ, 
             I2=>RSTPIN, 
-            I1=>GATE_T_172_B, 
-            I0=>GATE_T_172_A );
-  GATE_T_172_I_2:   INV port map ( I0=>RW_000Q, 
-            O=>GATE_T_172_B );
-  GATE_T_172_I_1:   INV port map ( I0=>CLK_000_D_0_busQ, 
-            O=>GATE_T_172_A );
-  GATE_T_173_I_1:   AND4 port map ( O=>T_173, 
+            I1=>GATE_T_173_B, 
+            I0=>GATE_T_173_A );
+  GATE_T_173_I_2:   INV port map ( I0=>RW_000Q, 
+            O=>GATE_T_173_B );
+  GATE_T_173_I_1:   INV port map ( I0=>CLK_000_D_0_busQ, 
+            O=>GATE_T_173_A );
+  GATE_T_174_I_1:   AND4 port map ( O=>T_174, 
             I3=>CLK_000_D_1_busQ, 
             I2=>RSTPIN, 
             I1=>SM_AMIGA_i_7_busQ, 
-            I0=>GATE_T_173_A );
-  GATE_T_173_I_2:   INV port map ( I0=>RW_000Q, 
-            O=>GATE_T_173_A );
-  GATE_T_174_I_1:   AND4 port map ( O=>T_174, 
-            I3=>T_416, 
-            I2=>T_417, 
-            I1=>T_418, 
             I0=>GATE_T_174_A );
-  GATE_T_174_I_2:   INV port map ( I0=>IPL_D0_2_busQ, 
+  GATE_T_174_I_2:   INV port map ( I0=>RW_000Q, 
             O=>GATE_T_174_A );
   GATE_T_175_I_1:   AND4 port map ( O=>T_175, 
-            I3=>T_413, 
-            I2=>T_414, 
-            I1=>T_415, 
+            I3=>T_419, 
+            I2=>T_420, 
+            I1=>T_421, 
             I0=>GATE_T_175_A );
   GATE_T_175_I_2:   INV port map ( I0=>IPL_D0_2_busQ, 
             O=>GATE_T_175_A );
   GATE_T_176_I_1:   AND4 port map ( O=>T_176, 
-            I3=>T_410, 
-            I2=>T_411, 
-            I1=>T_412, 
+            I3=>T_416, 
+            I2=>T_417, 
+            I1=>T_418, 
             I0=>GATE_T_176_A );
   GATE_T_176_I_2:   INV port map ( I0=>IPL_D0_2_busQ, 
             O=>GATE_T_176_A );
   GATE_T_177_I_1:   AND4 port map ( O=>T_177, 
-            I3=>T_407, 
-            I2=>T_408, 
-            I1=>T_409, 
+            I3=>T_413, 
+            I2=>T_414, 
+            I1=>T_415, 
             I0=>GATE_T_177_A );
   GATE_T_177_I_2:   INV port map ( I0=>IPL_D0_2_busQ, 
             O=>GATE_T_177_A );
-  GATE_T_178_I_3:   AND4 port map ( O=>T_178, 
-            I3=>IPL_1XPIN, 
-            I2=>RSTPIN, 
-            I1=>GATE_T_178_B, 
+  GATE_T_178_I_1:   AND4 port map ( O=>T_178, 
+            I3=>T_410, 
+            I2=>T_411, 
+            I1=>T_412, 
             I0=>GATE_T_178_A );
-  GATE_T_178_I_2:   INV port map ( I0=>IPL_030_2XQ, 
-            O=>GATE_T_178_B );
-  GATE_T_178_I_1:   INV port map ( I0=>IPL_D0_1_busQ, 
+  GATE_T_178_I_2:   INV port map ( I0=>IPL_D0_2_busQ, 
             O=>GATE_T_178_A );
   GATE_T_179_I_3:   AND4 port map ( O=>T_179, 
-            I3=>IPL_D0_1_busQ, 
+            I3=>IPL_1XPIN, 
             I2=>RSTPIN, 
             I1=>GATE_T_179_B, 
             I0=>GATE_T_179_A );
   GATE_T_179_I_2:   INV port map ( I0=>IPL_030_2XQ, 
             O=>GATE_T_179_B );
-  GATE_T_179_I_1:   INV port map ( I0=>IPL_1XPIN, 
+  GATE_T_179_I_1:   INV port map ( I0=>IPL_D0_1_busQ, 
             O=>GATE_T_179_A );
   GATE_T_180_I_3:   AND4 port map ( O=>T_180, 
-            I3=>IPL_0XPIN, 
+            I3=>IPL_D0_1_busQ, 
             I2=>RSTPIN, 
             I1=>GATE_T_180_B, 
             I0=>GATE_T_180_A );
   GATE_T_180_I_2:   INV port map ( I0=>IPL_030_2XQ, 
             O=>GATE_T_180_B );
-  GATE_T_180_I_1:   INV port map ( I0=>IPL_D0_0_busQ, 
+  GATE_T_180_I_1:   INV port map ( I0=>IPL_1XPIN, 
             O=>GATE_T_180_A );
   GATE_T_181_I_3:   AND4 port map ( O=>T_181, 
-            I3=>IPL_D0_0_busQ, 
+            I3=>IPL_0XPIN, 
             I2=>RSTPIN, 
             I1=>GATE_T_181_B, 
             I0=>GATE_T_181_A );
   GATE_T_181_I_2:   INV port map ( I0=>IPL_030_2XQ, 
             O=>GATE_T_181_B );
-  GATE_T_181_I_1:   INV port map ( I0=>IPL_0XPIN, 
+  GATE_T_181_I_1:   INV port map ( I0=>IPL_D0_0_busQ, 
             O=>GATE_T_181_A );
-  GATE_T_182_I_1:   INV port map ( I0=>IPL_030_2XQ, 
-            O=>GATE_T_182_A );
-  GATE_T_182_I_2:   INV port map ( I0=>IPL_D0_2_busQ, 
+  GATE_T_182_I_3:   AND4 port map ( O=>T_182, 
+            I3=>IPL_D0_0_busQ, 
+            I2=>RSTPIN, 
+            I1=>GATE_T_182_B, 
+            I0=>GATE_T_182_A );
+  GATE_T_182_I_2:   INV port map ( I0=>IPL_030_2XQ, 
             O=>GATE_T_182_B );
-  GATE_T_182_I_3:   AND3 port map ( O=>T_182, 
-            I0=>RSTPIN, 
-            I2=>GATE_T_182_A, 
-            I1=>GATE_T_182_B );
+  GATE_T_182_I_1:   INV port map ( I0=>IPL_0XPIN, 
+            O=>GATE_T_182_A );
   GATE_T_183_I_1:   INV port map ( I0=>IPL_030_2XQ, 
             O=>GATE_T_183_A );
-  GATE_T_183_I_2:   INV port map ( I0=>IPL_2XPIN, 
+  GATE_T_183_I_2:   INV port map ( I0=>IPL_D0_2_busQ, 
             O=>GATE_T_183_B );
   GATE_T_183_I_3:   AND3 port map ( O=>T_183, 
             I0=>RSTPIN, 
             I2=>GATE_T_183_A, 
             I1=>GATE_T_183_B );
-  GATE_T_184_I_1:   AND4 port map ( O=>T_184, 
-            I3=>T_419, 
-            I2=>T_420, 
-            I1=>T_421, 
-            I0=>GATE_T_184_A );
-  GATE_T_184_I_2:   INV port map ( I0=>AHIGH_31XPIN, 
+  GATE_T_184_I_1:   INV port map ( I0=>IPL_030_2XQ, 
             O=>GATE_T_184_A );
-  GATE_T_185_I_1:   AND2 port map ( O=>T_185, 
-            I1=>inst_AMIGA_BUS_ENABLE_DMA_HIGHQ, 
+  GATE_T_184_I_2:   INV port map ( I0=>IPL_2XPIN, 
+            O=>GATE_T_184_B );
+  GATE_T_184_I_3:   AND3 port map ( O=>T_184, 
+            I0=>RSTPIN, 
+            I2=>GATE_T_184_A, 
+            I1=>GATE_T_184_B );
+  GATE_T_185_I_1:   AND4 port map ( O=>T_185, 
+            I3=>T_422, 
+            I2=>T_423, 
+            I1=>T_424, 
             I0=>GATE_T_185_A );
-  GATE_T_185_I_2:   INV port map ( O=>GATE_T_185_A, 
-            I0=>BGACK_030Q );
+  GATE_T_185_I_2:   INV port map ( I0=>AHIGH_31XPIN, 
+            O=>GATE_T_185_A );
   GATE_T_186_I_1:   AND2 port map ( O=>T_186, 
+            I1=>inst_AMIGA_BUS_ENABLE_DMA_HIGHQ, 
+            I0=>GATE_T_186_A );
+  GATE_T_186_I_2:   INV port map ( O=>GATE_T_186_A, 
+            I0=>BGACK_030Q );
+  GATE_T_187_I_1:   AND2 port map ( O=>T_187, 
             I1=>inst_AS_030_000_SYNCQ, 
             I0=>BGACK_030Q );
-  GATE_T_187_I_1:   NOR4 port map ( I0=>nEXP_SPACEPIN, 
+  GATE_T_188_I_1:   NOR4 port map ( I0=>nEXP_SPACEPIN, 
             I1=>BGACK_030Q, 
-            O=>T_187, 
+            O=>T_188, 
             I2=>AS_000PIN, 
-            I3=>GATE_T_187_DN );
-  GATE_T_187_I_2:   INV port map ( I0=>RW_000PIN, 
-            O=>GATE_T_187_DN );
-  GATE_T_188_I_1:   AND2 port map ( O=>T_188, 
+            I3=>GATE_T_188_DN );
+  GATE_T_188_I_2:   INV port map ( I0=>RW_000PIN, 
+            O=>GATE_T_188_DN );
+  GATE_T_189_I_1:   AND2 port map ( O=>T_189, 
             I1=>BGACK_030Q, 
-            I0=>GATE_T_188_A );
-  GATE_T_188_I_2:   INV port map ( O=>GATE_T_188_A, 
+            I0=>GATE_T_189_A );
+  GATE_T_189_I_2:   INV port map ( O=>GATE_T_189_A, 
             I0=>RW_000PIN );
-  GATE_T_189_I_1:   INV port map ( I0=>cpu_est_2_busQ, 
-            O=>GATE_T_189_A );
-  GATE_T_189_I_2:   INV port map ( I0=>cpu_est_1_busQ, 
-            O=>GATE_T_189_B );
-  GATE_T_189_I_3:   AND3 port map ( O=>T_189, 
-            I0=>cpu_est_3_busQ, 
-            I2=>GATE_T_189_A, 
-            I1=>GATE_T_189_B );
-  GATE_T_190_I_1:   INV port map ( I0=>cpu_est_3_busQ, 
+  GATE_T_190_I_1:   INV port map ( I0=>cpu_est_2_busQ, 
             O=>GATE_T_190_A );
-  GATE_T_190_I_2:   AND3 port map ( O=>T_190, 
+  GATE_T_190_I_2:   INV port map ( I0=>cpu_est_1_busQ, 
+            O=>GATE_T_190_B );
+  GATE_T_190_I_3:   AND3 port map ( O=>T_190, 
+            I0=>cpu_est_3_busQ, 
+            I2=>GATE_T_190_A, 
+            I1=>GATE_T_190_B );
+  GATE_T_191_I_1:   INV port map ( I0=>cpu_est_3_busQ, 
+            O=>GATE_T_191_A );
+  GATE_T_191_I_2:   AND3 port map ( O=>T_191, 
             I2=>cpu_est_1_busQ, 
             I1=>cpu_est_2_busQ, 
-            I0=>GATE_T_190_A );
-  GATE_T_191_I_1:   OR4 port map ( I0=>T_35, 
+            I0=>GATE_T_191_A );
+  GATE_T_192_I_1:   OR4 port map ( I0=>T_35, 
             I1=>T_36, 
-            O=>T_191, 
+            O=>T_192, 
             I2=>T_37, 
             I3=>T_38 );
-  GATE_T_192_I_1:   OR4 port map ( I0=>T_31, 
+  GATE_T_193_I_1:   OR4 port map ( I0=>T_31, 
             I1=>T_32, 
-            O=>T_192, 
+            O=>T_193, 
             I2=>T_33, 
             I3=>T_34 );
-  GATE_T_193_I_1:   OR4 port map ( I0=>T_27, 
+  GATE_T_194_I_1:   OR4 port map ( I0=>T_27, 
             I1=>T_28, 
-            O=>T_193, 
+            O=>T_194, 
             I2=>T_29, 
             I3=>T_30 );
-  GATE_T_194_I_1:   AND2 port map ( O=>T_194, 
+  GATE_T_195_I_1:   AND2 port map ( O=>T_195, 
             I1=>SM_AMIGA_6_busQ, 
             I0=>CLK_000_D_0_busQ );
-  GATE_T_195_I_1:   AND2 port map ( O=>T_195, 
-            I1=>RSTPIN, 
-            I0=>GATE_T_195_A );
-  GATE_T_195_I_2:   INV port map ( O=>GATE_T_195_A, 
-            I0=>CLK_000_D_1_busQ );
   GATE_T_196_I_1:   AND2 port map ( O=>T_196, 
+            I1=>RSTPIN, 
+            I0=>GATE_T_196_A );
+  GATE_T_196_I_2:   INV port map ( O=>GATE_T_196_A, 
+            I0=>CLK_000_D_1_busQ );
+  GATE_T_197_I_1:   AND2 port map ( O=>T_197, 
             I1=>SM_AMIGA_4_busQ, 
             I0=>CLK_000_D_0_busQ );
-  GATE_T_197_I_1:   AND2 port map ( O=>T_197, 
-            I1=>RSTPIN, 
-            I0=>GATE_T_197_A );
-  GATE_T_197_I_2:   INV port map ( O=>GATE_T_197_A, 
-            I0=>CLK_000_D_1_busQ );
   GATE_T_198_I_1:   AND2 port map ( O=>T_198, 
-            I1=>SM_AMIGA_1_busQ, 
+            I1=>RSTPIN, 
             I0=>GATE_T_198_A );
   GATE_T_198_I_2:   INV port map ( O=>GATE_T_198_A, 
-            I0=>CLK_000_D_0_busQ );
+            I0=>CLK_000_D_1_busQ );
   GATE_T_199_I_1:   AND2 port map ( O=>T_199, 
-            I1=>CLK_000_D_1_busQ, 
-            I0=>RSTPIN );
-  GATE_T_200_I_1:   AND2 port map ( O=>T_200, 
-            I1=>SM_AMIGA_5_busQ, 
-            I0=>GATE_T_200_A );
-  GATE_T_200_I_2:   INV port map ( O=>GATE_T_200_A, 
+            I1=>SM_AMIGA_1_busQ, 
+            I0=>GATE_T_199_A );
+  GATE_T_199_I_2:   INV port map ( O=>GATE_T_199_A, 
             I0=>CLK_000_D_0_busQ );
-  GATE_T_201_I_1:   AND2 port map ( O=>T_201, 
+  GATE_T_200_I_1:   AND2 port map ( O=>T_200, 
             I1=>CLK_000_D_1_busQ, 
             I0=>RSTPIN );
+  GATE_T_201_I_1:   AND2 port map ( O=>T_201, 
+            I1=>SM_AMIGA_5_busQ, 
+            I0=>GATE_T_201_A );
+  GATE_T_201_I_2:   INV port map ( O=>GATE_T_201_A, 
+            I0=>CLK_000_D_0_busQ );
   GATE_T_202_I_1:   AND2 port map ( O=>T_202, 
+            I1=>CLK_000_D_1_busQ, 
+            I0=>RSTPIN );
+  GATE_T_203_I_1:   AND2 port map ( O=>T_203, 
             I1=>SM_AMIGA_2_busQ, 
             I0=>CLK_000_D_0_busQ );
-  GATE_T_203_I_1:   AND2 port map ( O=>T_203, 
-            I1=>RSTPIN, 
-            I0=>GATE_T_203_A );
-  GATE_T_203_I_2:   INV port map ( O=>GATE_T_203_A, 
-            I0=>CLK_000_D_1_busQ );
   GATE_T_204_I_1:   AND2 port map ( O=>T_204, 
-            I1=>SM_AMIGA_3_busQ, 
+            I1=>RSTPIN, 
             I0=>GATE_T_204_A );
   GATE_T_204_I_2:   INV port map ( O=>GATE_T_204_A, 
-            I0=>CLK_000_D_0_busQ );
+            I0=>CLK_000_D_1_busQ );
   GATE_T_205_I_1:   AND2 port map ( O=>T_205, 
-            I1=>CLK_000_D_1_busQ, 
+            I1=>SM_AMIGA_3_busQ, 
             I0=>GATE_T_205_A );
   GATE_T_205_I_2:   INV port map ( O=>GATE_T_205_A, 
-            I0=>inst_DTACK_D0Q );
+            I0=>CLK_000_D_0_busQ );
   GATE_T_206_I_1:   AND2 port map ( O=>T_206, 
+            I1=>CLK_000_D_1_busQ, 
+            I0=>GATE_T_206_A );
+  GATE_T_206_I_2:   INV port map ( O=>GATE_T_206_A, 
+            I0=>inst_DTACK_D0Q );
+  GATE_T_207_I_1:   AND2 port map ( O=>T_207, 
             I1=>inst_VPA_DQ, 
             I0=>RSTPIN );
-  GATE_T_207_I_1:   NOR3 port map ( O=>T_207, 
-            I2=>SM_AMIGA_3_busQ, 
-            I1=>SM_AMIGA_5_busQ, 
-            I0=>SM_AMIGA_2_busQ );
   GATE_T_208_I_1:   NOR3 port map ( O=>T_208, 
-            I2=>SM_AMIGA_4_busQ, 
-            I1=>SM_AMIGA_0_busQ, 
-            I0=>SM_AMIGA_1_busQ );
-  GATE_T_209_I_1:   INV port map ( I0=>SM_AMIGA_6_busQ, 
-            O=>GATE_T_209_A );
-  GATE_T_209_I_2:   INV port map ( I0=>nEXP_SPACEPIN, 
-            O=>GATE_T_209_B );
-  GATE_T_209_I_3:   AND3 port map ( O=>T_209, 
-            I0=>RSTPIN, 
-            I2=>GATE_T_209_A, 
-            I1=>GATE_T_209_B );
-  GATE_T_210_I_1:   NOR3 port map ( O=>T_210, 
             I2=>SM_AMIGA_3_busQ, 
             I1=>SM_AMIGA_5_busQ, 
             I0=>SM_AMIGA_2_busQ );
-  GATE_T_211_I_1:   NOR3 port map ( O=>T_211, 
+  GATE_T_209_I_1:   NOR3 port map ( O=>T_209, 
             I2=>SM_AMIGA_4_busQ, 
-            I1=>SM_AMIGA_0_busQ, 
+            I1=>SM_AMIGA_6_busQ, 
             I0=>SM_AMIGA_1_busQ );
-  GATE_T_212_I_1:   INV port map ( I0=>SM_AMIGA_6_busQ, 
-            O=>GATE_T_212_A );
-  GATE_T_212_I_2:   AND3 port map ( O=>T_212, 
-            I2=>inst_AS_030_000_SYNCQ, 
-            I1=>RSTPIN, 
-            I0=>GATE_T_212_A );
-  GATE_T_213_I_1:   NOR3 port map ( O=>T_213, 
-            I2=>SM_AMIGA_3_busQ, 
-            I1=>SM_AMIGA_5_busQ, 
-            I0=>SM_AMIGA_2_busQ );
-  GATE_T_214_I_1:   NOR3 port map ( O=>T_214, 
-            I2=>SM_AMIGA_4_busQ, 
-            I1=>SM_AMIGA_0_busQ, 
-            I0=>SM_AMIGA_1_busQ );
-  GATE_T_215_I_1:   INV port map ( I0=>SM_AMIGA_6_busQ, 
-            O=>GATE_T_215_A );
-  GATE_T_215_I_2:   AND3 port map ( O=>T_215, 
-            I2=>CLK_000_D_1_busQ, 
-            I1=>RSTPIN, 
-            I0=>GATE_T_215_A );
-  GATE_T_216_I_1:   NOR3 port map ( O=>T_216, 
-            I2=>SM_AMIGA_3_busQ, 
-            I1=>SM_AMIGA_5_busQ, 
-            I0=>SM_AMIGA_2_busQ );
-  GATE_T_217_I_1:   NOR3 port map ( O=>T_217, 
-            I2=>SM_AMIGA_4_busQ, 
-            I1=>SM_AMIGA_0_busQ, 
-            I0=>SM_AMIGA_1_busQ );
-  GATE_T_218_I_1:   INV port map ( I0=>SM_AMIGA_6_busQ, 
-            O=>GATE_T_218_A );
-  GATE_T_218_I_2:   INV port map ( I0=>CLK_000_D_2_busQ, 
-            O=>GATE_T_218_B );
-  GATE_T_218_I_3:   AND3 port map ( O=>T_218, 
-            I0=>RSTPIN, 
-            I2=>GATE_T_218_A, 
-            I1=>GATE_T_218_B );
-  GATE_T_219_I_1:   AND2 port map ( O=>T_219, 
-            I1=>BERRPIN, 
-            I0=>GATE_T_219_A );
-  GATE_T_219_I_2:   INV port map ( O=>GATE_T_219_A, 
-            I0=>SM_AMIGA_2_busQ );
-  GATE_T_220_I_1:   NOR3 port map ( O=>T_220, 
-            I2=>SM_AMIGA_5_busQ, 
-            I1=>SM_AMIGA_1_busQ, 
-            I0=>SM_AMIGA_3_busQ );
-  GATE_T_221_I_1:   INV port map ( I0=>SM_AMIGA_4_busQ, 
-            O=>GATE_T_221_A );
-  GATE_T_221_I_2:   INV port map ( I0=>SM_AMIGA_6_busQ, 
-            O=>GATE_T_221_B );
-  GATE_T_221_I_3:   AND3 port map ( O=>T_221, 
-            I0=>SM_AMIGA_0_busQ, 
-            I2=>GATE_T_221_A, 
-            I1=>GATE_T_221_B );
-  GATE_T_222_I_1:   INV port map ( I0=>CLK_000_D_1_busQ, 
-            O=>GATE_T_222_A );
-  GATE_T_222_I_2:   AND3 port map ( O=>T_222, 
+  GATE_T_210_I_1:   INV port map ( I0=>CLK_000_D_1_busQ, 
+            O=>GATE_T_210_A );
+  GATE_T_210_I_2:   AND3 port map ( O=>T_210, 
             I2=>RSTPIN, 
             I1=>CLK_000_D_0_busQ, 
+            I0=>GATE_T_210_A );
+  GATE_T_211_I_1:   NOR3 port map ( O=>T_211, 
+            I2=>SM_AMIGA_3_busQ, 
+            I1=>SM_AMIGA_5_busQ, 
+            I0=>SM_AMIGA_2_busQ );
+  GATE_T_212_I_1:   NOR3 port map ( O=>T_212, 
+            I2=>SM_AMIGA_4_busQ, 
+            I1=>SM_AMIGA_0_busQ, 
+            I0=>SM_AMIGA_1_busQ );
+  GATE_T_213_I_1:   INV port map ( I0=>SM_AMIGA_6_busQ, 
+            O=>GATE_T_213_A );
+  GATE_T_213_I_2:   INV port map ( I0=>nEXP_SPACEPIN, 
+            O=>GATE_T_213_B );
+  GATE_T_213_I_3:   AND3 port map ( O=>T_213, 
+            I0=>RSTPIN, 
+            I2=>GATE_T_213_A, 
+            I1=>GATE_T_213_B );
+  GATE_T_214_I_1:   NOR3 port map ( O=>T_214, 
+            I2=>SM_AMIGA_3_busQ, 
+            I1=>SM_AMIGA_5_busQ, 
+            I0=>SM_AMIGA_2_busQ );
+  GATE_T_215_I_1:   NOR3 port map ( O=>T_215, 
+            I2=>SM_AMIGA_4_busQ, 
+            I1=>SM_AMIGA_0_busQ, 
+            I0=>SM_AMIGA_1_busQ );
+  GATE_T_216_I_1:   INV port map ( I0=>SM_AMIGA_6_busQ, 
+            O=>GATE_T_216_A );
+  GATE_T_216_I_2:   AND3 port map ( O=>T_216, 
+            I2=>inst_AS_030_000_SYNCQ, 
+            I1=>RSTPIN, 
+            I0=>GATE_T_216_A );
+  GATE_T_217_I_1:   NOR3 port map ( O=>T_217, 
+            I2=>SM_AMIGA_3_busQ, 
+            I1=>SM_AMIGA_5_busQ, 
+            I0=>SM_AMIGA_2_busQ );
+  GATE_T_218_I_1:   NOR3 port map ( O=>T_218, 
+            I2=>SM_AMIGA_4_busQ, 
+            I1=>SM_AMIGA_0_busQ, 
+            I0=>SM_AMIGA_1_busQ );
+  GATE_T_219_I_1:   INV port map ( I0=>SM_AMIGA_6_busQ, 
+            O=>GATE_T_219_A );
+  GATE_T_219_I_2:   INV port map ( I0=>CLK_000_D_1_busQ, 
+            O=>GATE_T_219_B );
+  GATE_T_219_I_3:   AND3 port map ( O=>T_219, 
+            I0=>RSTPIN, 
+            I2=>GATE_T_219_A, 
+            I1=>GATE_T_219_B );
+  GATE_T_220_I_1:   NOR3 port map ( O=>T_220, 
+            I2=>SM_AMIGA_3_busQ, 
+            I1=>SM_AMIGA_5_busQ, 
+            I0=>SM_AMIGA_2_busQ );
+  GATE_T_221_I_1:   NOR3 port map ( O=>T_221, 
+            I2=>SM_AMIGA_4_busQ, 
+            I1=>SM_AMIGA_0_busQ, 
+            I0=>SM_AMIGA_1_busQ );
+  GATE_T_222_I_1:   INV port map ( I0=>SM_AMIGA_6_busQ, 
+            O=>GATE_T_222_A );
+  GATE_T_222_I_2:   AND3 port map ( O=>T_222, 
+            I2=>CLK_000_D_0_busQ, 
+            I1=>RSTPIN, 
             I0=>GATE_T_222_A );
   GATE_T_223_I_1:   AND2 port map ( O=>T_223, 
             I1=>SM_AMIGA_3_busQ, 
@@ -3082,846 +3069,837 @@ begin
             I2=>RSTPIN, 
             I1=>cpu_est_3_busQ, 
             I0=>GATE_T_226_A );
-  GATE_T_227_I_14:   NOR4 port map ( O=>T_227, 
-            I3=>SM_AMIGA_2_busQ, 
-            I2=>SM_AMIGA_3_busQ, 
-            I1=>SM_AMIGA_5_busQ, 
-            I0=>SM_AMIGA_1_busQ );
-  GATE_T_228_I_1:   NOR4 port map ( I0=>SM_AMIGA_0_busQ, 
-            I1=>SM_AMIGA_4_busQ, 
-            O=>T_228, 
-            I2=>SM_AMIGA_6_busQ, 
-            I3=>GATE_T_228_DN );
-  GATE_T_228_I_2:   INV port map ( I0=>CLK_000_D_2_busQ, 
-            O=>GATE_T_228_DN );
-  GATE_T_229_I_3:   AND4 port map ( O=>T_229, 
-            I3=>RSTPIN, 
-            I2=>nEXP_SPACEPIN, 
-            I1=>GATE_T_229_B, 
-            I0=>GATE_T_229_A );
-  GATE_T_229_I_2:   INV port map ( I0=>CLK_000_D_1_busQ, 
-            O=>GATE_T_229_B );
-  GATE_T_229_I_1:   INV port map ( I0=>inst_AS_030_000_SYNCQ, 
+  GATE_T_227_I_1:   NOR2 port map ( O=>T_227, 
+            I1=>BERRPIN, 
+            I0=>SM_AMIGA_2_busQ );
+  GATE_T_228_I_1:   NOR3 port map ( O=>T_228, 
+            I2=>SM_AMIGA_4_busQ, 
+            I1=>SM_AMIGA_0_busQ, 
+            I0=>SM_AMIGA_3_busQ );
+  GATE_T_229_I_1:   INV port map ( I0=>SM_AMIGA_6_busQ, 
             O=>GATE_T_229_A );
-  GATE_T_230_I_1:   AND2 port map ( O=>T_230, 
-            I1=>SM_AMIGA_4_busQ, 
-            I0=>CLK_000_D_0_busQ );
+  GATE_T_229_I_2:   INV port map ( I0=>CLK_000_D_0_busQ, 
+            O=>GATE_T_229_B );
+  GATE_T_229_I_3:   AND3 port map ( O=>T_229, 
+            I0=>CLK_000_D_1_busQ, 
+            I2=>GATE_T_229_A, 
+            I1=>GATE_T_229_B );
+  GATE_T_230_I_1:   INV port map ( I0=>inst_AS_030_000_SYNCQ, 
+            O=>GATE_T_230_A );
+  GATE_T_230_I_2:   AND3 port map ( O=>T_230, 
+            I2=>RSTPIN, 
+            I1=>nEXP_SPACEPIN, 
+            I0=>GATE_T_230_A );
   GATE_T_231_I_1:   AND2 port map ( O=>T_231, 
-            I1=>RSTPIN, 
-            I0=>GATE_T_231_A );
-  GATE_T_231_I_2:   INV port map ( O=>GATE_T_231_A, 
-            I0=>CLK_000_D_1_busQ );
-  GATE_T_232_I_1:   AND2 port map ( O=>T_232, 
             I1=>SM_AMIGA_4_busQ, 
             I0=>CLK_000_D_0_busQ );
-  GATE_T_233_I_1:   AND2 port map ( O=>T_233, 
+  GATE_T_232_I_1:   AND2 port map ( O=>T_232, 
             I1=>RSTPIN, 
-            I0=>GATE_T_233_A );
-  GATE_T_233_I_2:   INV port map ( O=>GATE_T_233_A, 
+            I0=>GATE_T_232_A );
+  GATE_T_232_I_2:   INV port map ( O=>GATE_T_232_A, 
             I0=>CLK_000_D_1_busQ );
+  GATE_T_233_I_1:   AND2 port map ( O=>T_233, 
+            I1=>SM_AMIGA_4_busQ, 
+            I0=>CLK_000_D_0_busQ );
   GATE_T_234_I_1:   AND2 port map ( O=>T_234, 
-            I1=>SM_AMIGA_3_busQ, 
+            I1=>RSTPIN, 
             I0=>GATE_T_234_A );
   GATE_T_234_I_2:   INV port map ( O=>GATE_T_234_A, 
-            I0=>CLK_000_D_0_busQ );
+            I0=>CLK_000_D_1_busQ );
   GATE_T_235_I_1:   AND2 port map ( O=>T_235, 
-            I1=>CLK_000_D_1_busQ, 
+            I1=>SM_AMIGA_3_busQ, 
             I0=>GATE_T_235_A );
   GATE_T_235_I_2:   INV port map ( O=>GATE_T_235_A, 
-            I0=>inst_DTACK_D0Q );
+            I0=>CLK_000_D_0_busQ );
   GATE_T_236_I_1:   AND2 port map ( O=>T_236, 
+            I1=>CLK_000_D_1_busQ, 
+            I0=>GATE_T_236_A );
+  GATE_T_236_I_2:   INV port map ( O=>GATE_T_236_A, 
+            I0=>inst_DTACK_D0Q );
+  GATE_T_237_I_1:   AND2 port map ( O=>T_237, 
             I1=>inst_VPA_DQ, 
             I0=>RSTPIN );
-  GATE_T_237_I_1:   AND2 port map ( O=>T_237, 
+  GATE_T_238_I_1:   AND2 port map ( O=>T_238, 
             I1=>BERRPIN, 
             I0=>SM_AMIGA_3_busQ );
-  GATE_T_238_I_1:   INV port map ( I0=>CLK_000_D_0_busQ, 
-            O=>GATE_T_238_A );
-  GATE_T_238_I_2:   INV port map ( I0=>inst_VPA_DQ, 
-            O=>GATE_T_238_B );
-  GATE_T_238_I_3:   AND3 port map ( O=>T_238, 
+  GATE_T_239_I_1:   INV port map ( I0=>CLK_000_D_0_busQ, 
+            O=>GATE_T_239_A );
+  GATE_T_239_I_2:   INV port map ( I0=>inst_VPA_DQ, 
+            O=>GATE_T_239_B );
+  GATE_T_239_I_3:   AND3 port map ( O=>T_239, 
             I0=>CLK_000_D_1_busQ, 
-            I2=>GATE_T_238_A, 
-            I1=>GATE_T_238_B );
-  GATE_T_239_I_1:   NOR3 port map ( O=>T_239, 
+            I2=>GATE_T_239_A, 
+            I1=>GATE_T_239_B );
+  GATE_T_240_I_1:   NOR3 port map ( O=>T_240, 
             I2=>cpu_est_1_busQ, 
             I1=>cpu_est_0_busQ, 
             I0=>cpu_est_2_busQ );
-  GATE_T_240_I_1:   INV port map ( I0=>VMAQ, 
-            O=>GATE_T_240_A );
-  GATE_T_240_I_2:   AND3 port map ( O=>T_240, 
+  GATE_T_241_I_1:   INV port map ( I0=>VMAQ, 
+            O=>GATE_T_241_A );
+  GATE_T_241_I_2:   AND3 port map ( O=>T_241, 
             I2=>RSTPIN, 
             I1=>cpu_est_3_busQ, 
-            I0=>GATE_T_240_A );
-  GATE_T_241_I_1:   AND2 port map ( O=>T_241, 
-            I1=>RST_DLY_0_busQ, 
             I0=>GATE_T_241_A );
-  GATE_T_241_I_2:   INV port map ( O=>GATE_T_241_A, 
-            I0=>CLK_000_D_0_busQ );
   GATE_T_242_I_1:   AND2 port map ( O=>T_242, 
-            I1=>CLK_000_D_1_busQ, 
-            I0=>RSTPIN );
-  GATE_T_243_I_1:   AND2 port map ( O=>T_243, 
             I1=>RST_DLY_0_busQ, 
-            I0=>GATE_T_243_A );
-  GATE_T_243_I_2:   INV port map ( O=>GATE_T_243_A, 
+            I0=>GATE_T_242_A );
+  GATE_T_242_I_2:   INV port map ( O=>GATE_T_242_A, 
             I0=>CLK_000_D_0_busQ );
-  GATE_T_244_I_1:   AND2 port map ( O=>T_244, 
+  GATE_T_243_I_1:   AND2 port map ( O=>T_243, 
             I1=>CLK_000_D_1_busQ, 
             I0=>RSTPIN );
-  GATE_T_245_I_1:   AND2 port map ( O=>T_245, 
-            I1=>SM_AMIGA_3_busQ, 
-            I0=>GATE_T_245_A );
-  GATE_T_245_I_2:   INV port map ( O=>GATE_T_245_A, 
+  GATE_T_244_I_1:   AND2 port map ( O=>T_244, 
+            I1=>RST_DLY_0_busQ, 
+            I0=>GATE_T_244_A );
+  GATE_T_244_I_2:   INV port map ( O=>GATE_T_244_A, 
             I0=>CLK_000_D_0_busQ );
-  GATE_T_246_I_1:   AND2 port map ( O=>T_246, 
+  GATE_T_245_I_1:   AND2 port map ( O=>T_245, 
             I1=>CLK_000_D_1_busQ, 
+            I0=>RSTPIN );
+  GATE_T_246_I_1:   AND2 port map ( O=>T_246, 
+            I1=>SM_AMIGA_3_busQ, 
             I0=>GATE_T_246_A );
   GATE_T_246_I_2:   INV port map ( O=>GATE_T_246_A, 
-            I0=>inst_DTACK_D0Q );
+            I0=>CLK_000_D_0_busQ );
   GATE_T_247_I_1:   AND2 port map ( O=>T_247, 
+            I1=>CLK_000_D_1_busQ, 
+            I0=>GATE_T_247_A );
+  GATE_T_247_I_2:   INV port map ( O=>GATE_T_247_A, 
+            I0=>inst_DTACK_D0Q );
+  GATE_T_248_I_1:   AND2 port map ( O=>T_248, 
             I1=>inst_VPA_DQ, 
             I0=>RSTPIN );
-  GATE_T_248_I_1:   INV port map ( I0=>CLK_000_D_0_busQ, 
-            O=>GATE_T_248_A );
-  GATE_T_248_I_2:   INV port map ( I0=>inst_VPA_DQ, 
-            O=>GATE_T_248_B );
-  GATE_T_248_I_3:   AND3 port map ( O=>T_248, 
+  GATE_T_249_I_1:   INV port map ( I0=>CLK_000_D_0_busQ, 
+            O=>GATE_T_249_A );
+  GATE_T_249_I_2:   INV port map ( I0=>inst_VPA_DQ, 
+            O=>GATE_T_249_B );
+  GATE_T_249_I_3:   AND3 port map ( O=>T_249, 
             I0=>CLK_000_D_1_busQ, 
-            I2=>GATE_T_248_A, 
-            I1=>GATE_T_248_B );
-  GATE_T_249_I_1:   NOR3 port map ( O=>T_249, 
+            I2=>GATE_T_249_A, 
+            I1=>GATE_T_249_B );
+  GATE_T_250_I_1:   NOR3 port map ( O=>T_250, 
             I2=>cpu_est_1_busQ, 
             I1=>cpu_est_0_busQ, 
             I0=>cpu_est_2_busQ );
-  GATE_T_250_I_1:   INV port map ( I0=>VMAQ, 
-            O=>GATE_T_250_A );
-  GATE_T_250_I_2:   AND3 port map ( O=>T_250, 
+  GATE_T_251_I_1:   INV port map ( I0=>VMAQ, 
+            O=>GATE_T_251_A );
+  GATE_T_251_I_2:   AND3 port map ( O=>T_251, 
             I2=>RSTPIN, 
             I1=>cpu_est_3_busQ, 
-            I0=>GATE_T_250_A );
-  GATE_T_251_I_1:   OR2 port map ( O=>T_251, 
+            I0=>GATE_T_251_A );
+  GATE_T_252_I_1:   OR2 port map ( O=>T_252, 
             I1=>T_63, 
             I0=>T_62 );
-  GATE_T_252_I_1:   OR2 port map ( O=>T_252, 
+  GATE_T_253_I_1:   OR2 port map ( O=>T_253, 
             I1=>T_61, 
             I0=>T_60 );
-  GATE_T_253_I_1:   OR2 port map ( O=>T_253, 
+  GATE_T_254_I_1:   OR2 port map ( O=>T_254, 
             I1=>T_59, 
             I0=>T_58 );
-  GATE_T_254_I_1:   OR2 port map ( O=>T_254, 
+  GATE_T_255_I_1:   OR2 port map ( O=>T_255, 
             I1=>T_57, 
             I0=>T_56 );
-  GATE_T_255_I_1:   AND2 port map ( O=>T_255, 
-            I1=>inst_CLK_030_HQ, 
-            I0=>GATE_T_255_A );
-  GATE_T_255_I_2:   INV port map ( O=>GATE_T_255_A, 
-            I0=>AS_000PIN );
   GATE_T_256_I_1:   AND2 port map ( O=>T_256, 
-            I1=>CYCLE_DMA_1_busQ, 
+            I1=>inst_CLK_030_HQ, 
             I0=>GATE_T_256_A );
   GATE_T_256_I_2:   INV port map ( O=>GATE_T_256_A, 
-            I0=>CYCLE_DMA_0_busQ );
+            I0=>AS_000PIN );
   GATE_T_257_I_1:   AND2 port map ( O=>T_257, 
-            I1=>RSTPIN, 
+            I1=>CYCLE_DMA_1_busQ, 
             I0=>GATE_T_257_A );
   GATE_T_257_I_2:   INV port map ( O=>GATE_T_257_A, 
-            I0=>BGACK_030Q );
+            I0=>CYCLE_DMA_0_busQ );
   GATE_T_258_I_1:   AND2 port map ( O=>T_258, 
-            I1=>inst_CLK_030_HQ, 
+            I1=>RSTPIN, 
             I0=>GATE_T_258_A );
   GATE_T_258_I_2:   INV port map ( O=>GATE_T_258_A, 
-            I0=>AS_000PIN );
+            I0=>BGACK_030Q );
   GATE_T_259_I_1:   AND2 port map ( O=>T_259, 
-            I1=>CYCLE_DMA_0_busQ, 
+            I1=>inst_CLK_030_HQ, 
             I0=>GATE_T_259_A );
   GATE_T_259_I_2:   INV port map ( O=>GATE_T_259_A, 
-            I0=>CYCLE_DMA_1_busQ );
+            I0=>AS_000PIN );
   GATE_T_260_I_1:   AND2 port map ( O=>T_260, 
-            I1=>RSTPIN, 
+            I1=>CYCLE_DMA_0_busQ, 
             I0=>GATE_T_260_A );
   GATE_T_260_I_2:   INV port map ( O=>GATE_T_260_A, 
-            I0=>BGACK_030Q );
+            I0=>CYCLE_DMA_1_busQ );
   GATE_T_261_I_1:   AND2 port map ( O=>T_261, 
-            I1=>inst_CLK_030_HQ, 
+            I1=>RSTPIN, 
             I0=>GATE_T_261_A );
   GATE_T_261_I_2:   INV port map ( O=>GATE_T_261_A, 
-            I0=>AS_000PIN );
+            I0=>BGACK_030Q );
   GATE_T_262_I_1:   AND2 port map ( O=>T_262, 
-            I1=>CYCLE_DMA_1_busQ, 
+            I1=>inst_CLK_030_HQ, 
             I0=>GATE_T_262_A );
   GATE_T_262_I_2:   INV port map ( O=>GATE_T_262_A, 
-            I0=>CYCLE_DMA_0_busQ );
+            I0=>AS_000PIN );
   GATE_T_263_I_1:   AND2 port map ( O=>T_263, 
-            I1=>RSTPIN, 
+            I1=>CYCLE_DMA_1_busQ, 
             I0=>GATE_T_263_A );
   GATE_T_263_I_2:   INV port map ( O=>GATE_T_263_A, 
-            I0=>BGACK_030Q );
+            I0=>CYCLE_DMA_0_busQ );
   GATE_T_264_I_1:   AND2 port map ( O=>T_264, 
-            I1=>inst_CLK_030_HQ, 
+            I1=>RSTPIN, 
             I0=>GATE_T_264_A );
   GATE_T_264_I_2:   INV port map ( O=>GATE_T_264_A, 
-            I0=>AS_000PIN );
+            I0=>BGACK_030Q );
   GATE_T_265_I_1:   AND2 port map ( O=>T_265, 
-            I1=>CYCLE_DMA_0_busQ, 
+            I1=>inst_CLK_030_HQ, 
             I0=>GATE_T_265_A );
   GATE_T_265_I_2:   INV port map ( O=>GATE_T_265_A, 
-            I0=>CYCLE_DMA_1_busQ );
+            I0=>AS_000PIN );
   GATE_T_266_I_1:   AND2 port map ( O=>T_266, 
-            I1=>RSTPIN, 
+            I1=>CYCLE_DMA_0_busQ, 
             I0=>GATE_T_266_A );
   GATE_T_266_I_2:   INV port map ( O=>GATE_T_266_A, 
+            I0=>CYCLE_DMA_1_busQ );
+  GATE_T_267_I_1:   AND2 port map ( O=>T_267, 
+            I1=>RSTPIN, 
+            I0=>GATE_T_267_A );
+  GATE_T_267_I_2:   INV port map ( O=>GATE_T_267_A, 
             I0=>BGACK_030Q );
-  GATE_T_267_I_1:   NOR2 port map ( O=>T_267, 
+  GATE_T_268_I_1:   NOR2 port map ( O=>T_268, 
             I1=>UDS_000PIN, 
             I0=>AS_000PIN );
-  GATE_T_268_I_1:   AND2 port map ( O=>T_268, 
+  GATE_T_269_I_1:   AND2 port map ( O=>T_269, 
             I1=>CYCLE_DMA_1_busQ, 
-            I0=>GATE_T_268_A );
-  GATE_T_268_I_2:   INV port map ( O=>GATE_T_268_A, 
+            I0=>GATE_T_269_A );
+  GATE_T_269_I_2:   INV port map ( O=>GATE_T_269_A, 
             I0=>CYCLE_DMA_0_busQ );
-  GATE_T_269_I_1:   NOR2 port map ( O=>T_269, 
+  GATE_T_270_I_1:   NOR2 port map ( O=>T_270, 
             I1=>inst_AS_000_DMAQ, 
             I0=>BGACK_030Q );
-  GATE_T_270_I_1:   AND2 port map ( O=>T_270, 
+  GATE_T_271_I_1:   AND2 port map ( O=>T_271, 
             I1=>RSTPIN, 
-            I0=>GATE_T_270_A );
-  GATE_T_270_I_2:   INV port map ( O=>GATE_T_270_A, 
+            I0=>GATE_T_271_A );
+  GATE_T_271_I_2:   INV port map ( O=>GATE_T_271_A, 
             I0=>CLK_030PIN );
-  GATE_T_271_I_1:   NOR2 port map ( O=>T_271, 
+  GATE_T_272_I_1:   NOR2 port map ( O=>T_272, 
             I1=>UDS_000PIN, 
             I0=>AS_000PIN );
-  GATE_T_272_I_1:   AND2 port map ( O=>T_272, 
+  GATE_T_273_I_1:   AND2 port map ( O=>T_273, 
             I1=>CYCLE_DMA_0_busQ, 
-            I0=>GATE_T_272_A );
-  GATE_T_272_I_2:   INV port map ( O=>GATE_T_272_A, 
+            I0=>GATE_T_273_A );
+  GATE_T_273_I_2:   INV port map ( O=>GATE_T_273_A, 
             I0=>CYCLE_DMA_1_busQ );
-  GATE_T_273_I_1:   NOR2 port map ( O=>T_273, 
+  GATE_T_274_I_1:   NOR2 port map ( O=>T_274, 
             I1=>inst_AS_000_DMAQ, 
             I0=>BGACK_030Q );
-  GATE_T_274_I_1:   AND2 port map ( O=>T_274, 
+  GATE_T_275_I_1:   AND2 port map ( O=>T_275, 
             I1=>RSTPIN, 
-            I0=>GATE_T_274_A );
-  GATE_T_274_I_2:   INV port map ( O=>GATE_T_274_A, 
+            I0=>GATE_T_275_A );
+  GATE_T_275_I_2:   INV port map ( O=>GATE_T_275_A, 
             I0=>CLK_030PIN );
-  GATE_T_275_I_1:   NOR2 port map ( O=>T_275, 
+  GATE_T_276_I_1:   NOR2 port map ( O=>T_276, 
             I1=>LDS_000PIN, 
             I0=>AS_000PIN );
-  GATE_T_276_I_1:   AND2 port map ( O=>T_276, 
+  GATE_T_277_I_1:   AND2 port map ( O=>T_277, 
             I1=>CYCLE_DMA_1_busQ, 
-            I0=>GATE_T_276_A );
-  GATE_T_276_I_2:   INV port map ( O=>GATE_T_276_A, 
+            I0=>GATE_T_277_A );
+  GATE_T_277_I_2:   INV port map ( O=>GATE_T_277_A, 
             I0=>CYCLE_DMA_0_busQ );
-  GATE_T_277_I_1:   NOR2 port map ( O=>T_277, 
+  GATE_T_278_I_1:   NOR2 port map ( O=>T_278, 
             I1=>inst_AS_000_DMAQ, 
             I0=>BGACK_030Q );
-  GATE_T_278_I_1:   AND2 port map ( O=>T_278, 
+  GATE_T_279_I_1:   AND2 port map ( O=>T_279, 
             I1=>RSTPIN, 
-            I0=>GATE_T_278_A );
-  GATE_T_278_I_2:   INV port map ( O=>GATE_T_278_A, 
+            I0=>GATE_T_279_A );
+  GATE_T_279_I_2:   INV port map ( O=>GATE_T_279_A, 
             I0=>CLK_030PIN );
-  GATE_T_279_I_1:   NOR2 port map ( O=>T_279, 
+  GATE_T_280_I_1:   NOR2 port map ( O=>T_280, 
             I1=>LDS_000PIN, 
             I0=>AS_000PIN );
-  GATE_T_280_I_1:   AND2 port map ( O=>T_280, 
+  GATE_T_281_I_1:   AND2 port map ( O=>T_281, 
             I1=>CYCLE_DMA_0_busQ, 
-            I0=>GATE_T_280_A );
-  GATE_T_280_I_2:   INV port map ( O=>GATE_T_280_A, 
+            I0=>GATE_T_281_A );
+  GATE_T_281_I_2:   INV port map ( O=>GATE_T_281_A, 
             I0=>CYCLE_DMA_1_busQ );
-  GATE_T_281_I_1:   NOR2 port map ( O=>T_281, 
+  GATE_T_282_I_1:   NOR2 port map ( O=>T_282, 
             I1=>inst_AS_000_DMAQ, 
             I0=>BGACK_030Q );
-  GATE_T_282_I_1:   AND2 port map ( O=>T_282, 
-            I1=>RSTPIN, 
-            I0=>GATE_T_282_A );
-  GATE_T_282_I_2:   INV port map ( O=>GATE_T_282_A, 
-            I0=>CLK_030PIN );
   GATE_T_283_I_1:   AND2 port map ( O=>T_283, 
-            I1=>RST_DLY_0_busQ, 
+            I1=>RSTPIN, 
             I0=>GATE_T_283_A );
   GATE_T_283_I_2:   INV port map ( O=>GATE_T_283_A, 
-            I0=>CLK_000_D_0_busQ );
+            I0=>CLK_030PIN );
   GATE_T_284_I_1:   AND2 port map ( O=>T_284, 
-            I1=>CLK_000_D_1_busQ, 
-            I0=>RSTPIN );
-  GATE_T_285_I_1:   AND2 port map ( O=>T_285, 
-            I1=>SM_AMIGA_i_7_busQ, 
-            I0=>SM_AMIGA_6_busQ );
-  GATE_T_286_I_1:   AND2 port map ( O=>T_286, 
-            I1=>CLK_000_D_1_busQ, 
-            I0=>RSTPIN );
-  GATE_T_287_I_1:   AND2 port map ( O=>T_287, 
-            I1=>SM_AMIGA_i_7_busQ, 
-            I0=>SM_AMIGA_6_busQ );
-  GATE_T_288_I_1:   AND2 port map ( O=>T_288, 
-            I1=>RSTPIN, 
-            I0=>GATE_T_288_A );
-  GATE_T_288_I_2:   INV port map ( O=>GATE_T_288_A, 
+            I1=>RST_DLY_0_busQ, 
+            I0=>GATE_T_284_A );
+  GATE_T_284_I_2:   INV port map ( O=>GATE_T_284_A, 
             I0=>CLK_000_D_0_busQ );
+  GATE_T_285_I_1:   AND2 port map ( O=>T_285, 
+            I1=>CLK_000_D_1_busQ, 
+            I0=>RSTPIN );
+  GATE_T_286_I_1:   AND2 port map ( O=>T_286, 
+            I1=>SM_AMIGA_i_7_busQ, 
+            I0=>SM_AMIGA_6_busQ );
+  GATE_T_287_I_1:   AND2 port map ( O=>T_287, 
+            I1=>CLK_000_D_1_busQ, 
+            I0=>RSTPIN );
+  GATE_T_288_I_1:   AND2 port map ( O=>T_288, 
+            I1=>SM_AMIGA_i_7_busQ, 
+            I0=>SM_AMIGA_6_busQ );
   GATE_T_289_I_1:   AND2 port map ( O=>T_289, 
-            I1=>CLK_000_D_2_busQ, 
+            I1=>RSTPIN, 
             I0=>GATE_T_289_A );
   GATE_T_289_I_2:   INV port map ( O=>GATE_T_289_A, 
-            I0=>SM_AMIGA_i_7_busQ );
+            I0=>CLK_000_D_0_busQ );
   GATE_T_290_I_1:   NOR2 port map ( O=>T_290, 
-            I1=>CLK_000_D_1_busQ, 
-            I0=>inst_AS_030_000_SYNCQ );
+            I1=>SM_AMIGA_i_7_busQ, 
+            I0=>CLK_000_D_0_busQ );
   GATE_T_291_I_1:   AND2 port map ( O=>T_291, 
+            I1=>CLK_000_D_1_busQ, 
+            I0=>GATE_T_291_A );
+  GATE_T_291_I_2:   INV port map ( O=>GATE_T_291_A, 
+            I0=>inst_AS_030_000_SYNCQ );
+  GATE_T_292_I_1:   AND2 port map ( O=>T_292, 
             I1=>RSTPIN, 
             I0=>nEXP_SPACEPIN );
-  GATE_T_292_I_1:   AND2 port map ( O=>T_292, 
+  GATE_T_293_I_1:   AND2 port map ( O=>T_293, 
             I1=>SM_AMIGA_i_7_busQ, 
-            I0=>GATE_T_292_A );
-  GATE_T_292_I_2:   INV port map ( O=>GATE_T_292_A, 
+            I0=>GATE_T_293_A );
+  GATE_T_293_I_2:   INV port map ( O=>GATE_T_293_A, 
             I0=>SM_AMIGA_5_busQ );
-  GATE_T_293_I_1:   NOR2 port map ( O=>T_293, 
+  GATE_T_294_I_1:   NOR2 port map ( O=>T_294, 
             I1=>SM_AMIGA_4_busQ, 
             I0=>SM_AMIGA_0_busQ );
-  GATE_T_294_I_1:   AND2 port map ( O=>T_294, 
+  GATE_T_295_I_1:   AND2 port map ( O=>T_295, 
             I1=>RSTPIN, 
-            I0=>GATE_T_294_A );
-  GATE_T_294_I_2:   INV port map ( O=>GATE_T_294_A, 
+            I0=>GATE_T_295_A );
+  GATE_T_295_I_2:   INV port map ( O=>GATE_T_295_A, 
             I0=>SM_AMIGA_6_busQ );
-  GATE_T_295_I_1:   NOR2 port map ( O=>T_295, 
+  GATE_T_296_I_1:   NOR2 port map ( O=>T_296, 
             I1=>SM_AMIGA_5_busQ, 
             I0=>SM_AMIGA_0_busQ );
-  GATE_T_296_I_1:   AND2 port map ( O=>T_296, 
-            I1=>CLK_000_D_0_busQ, 
-            I0=>GATE_T_296_A );
-  GATE_T_296_I_2:   INV port map ( O=>GATE_T_296_A, 
-            I0=>SM_AMIGA_6_busQ );
   GATE_T_297_I_1:   AND2 port map ( O=>T_297, 
-            I1=>RSTPIN, 
+            I1=>CLK_000_D_0_busQ, 
             I0=>GATE_T_297_A );
   GATE_T_297_I_2:   INV port map ( O=>GATE_T_297_A, 
-            I0=>CLK_000_D_1_busQ );
+            I0=>SM_AMIGA_6_busQ );
   GATE_T_298_I_1:   AND2 port map ( O=>T_298, 
-            I1=>SM_AMIGA_i_7_busQ, 
+            I1=>RSTPIN, 
             I0=>GATE_T_298_A );
   GATE_T_298_I_2:   INV port map ( O=>GATE_T_298_A, 
-            I0=>SM_AMIGA_5_busQ );
+            I0=>CLK_000_D_1_busQ );
   GATE_T_299_I_1:   AND2 port map ( O=>T_299, 
-            I1=>CLK_000_D_0_busQ, 
+            I1=>SM_AMIGA_i_7_busQ, 
             I0=>GATE_T_299_A );
   GATE_T_299_I_2:   INV port map ( O=>GATE_T_299_A, 
-            I0=>SM_AMIGA_0_busQ );
+            I0=>SM_AMIGA_5_busQ );
   GATE_T_300_I_1:   AND2 port map ( O=>T_300, 
-            I1=>RSTPIN, 
+            I1=>CLK_000_D_0_busQ, 
             I0=>GATE_T_300_A );
   GATE_T_300_I_2:   INV port map ( O=>GATE_T_300_A, 
-            I0=>CLK_000_D_1_busQ );
+            I0=>SM_AMIGA_0_busQ );
   GATE_T_301_I_1:   AND2 port map ( O=>T_301, 
+            I1=>RSTPIN, 
+            I0=>GATE_T_301_A );
+  GATE_T_301_I_2:   INV port map ( O=>GATE_T_301_A, 
+            I0=>CLK_000_D_1_busQ );
+  GATE_T_302_I_1:   AND2 port map ( O=>T_302, 
             I1=>RST_DLY_2_busQ, 
             I0=>RST_DLY_1_busQ );
-  GATE_T_302_I_1:   AND2 port map ( O=>T_302, 
-            I1=>RST_DLY_0_busQ, 
-            I0=>GATE_T_302_A );
-  GATE_T_302_I_2:   INV port map ( O=>GATE_T_302_A, 
-            I0=>CLK_000_D_0_busQ );
   GATE_T_303_I_1:   AND2 port map ( O=>T_303, 
+            I1=>RST_DLY_0_busQ, 
+            I0=>GATE_T_303_A );
+  GATE_T_303_I_2:   INV port map ( O=>GATE_T_303_A, 
+            I0=>CLK_000_D_0_busQ );
+  GATE_T_304_I_1:   AND2 port map ( O=>T_304, 
             I1=>CLK_000_D_1_busQ, 
             I0=>RSTPIN );
-  GATE_T_304_I_1:   AND2 port map ( O=>T_304, 
-            I1=>CYCLE_DMA_1_busQ, 
-            I0=>GATE_T_304_A );
-  GATE_T_304_I_2:   INV port map ( O=>GATE_T_304_A, 
-            I0=>CYCLE_DMA_0_busQ );
   GATE_T_305_I_1:   AND2 port map ( O=>T_305, 
-            I1=>RSTPIN, 
+            I1=>CYCLE_DMA_1_busQ, 
             I0=>GATE_T_305_A );
   GATE_T_305_I_2:   INV port map ( O=>GATE_T_305_A, 
-            I0=>BGACK_030Q );
+            I0=>CYCLE_DMA_0_busQ );
   GATE_T_306_I_1:   AND2 port map ( O=>T_306, 
+            I1=>RSTPIN, 
+            I0=>GATE_T_306_A );
+  GATE_T_306_I_2:   INV port map ( O=>GATE_T_306_A, 
+            I0=>BGACK_030Q );
+  GATE_T_307_I_1:   AND2 port map ( O=>T_307, 
             I1=>CLK_000_D_1_busQ, 
             I0=>CYCLE_DMA_1_busQ );
-  GATE_T_307_I_1:   AND2 port map ( O=>T_307, 
-            I1=>RSTPIN, 
-            I0=>GATE_T_307_A );
-  GATE_T_307_I_2:   INV port map ( O=>GATE_T_307_A, 
-            I0=>BGACK_030Q );
   GATE_T_308_I_1:   AND2 port map ( O=>T_308, 
-            I1=>CYCLE_DMA_1_busQ, 
+            I1=>RSTPIN, 
             I0=>GATE_T_308_A );
   GATE_T_308_I_2:   INV port map ( O=>GATE_T_308_A, 
-            I0=>CLK_000_D_0_busQ );
+            I0=>BGACK_030Q );
   GATE_T_309_I_1:   AND2 port map ( O=>T_309, 
-            I1=>RSTPIN, 
+            I1=>CYCLE_DMA_1_busQ, 
             I0=>GATE_T_309_A );
   GATE_T_309_I_2:   INV port map ( O=>GATE_T_309_A, 
-            I0=>BGACK_030Q );
+            I0=>CLK_000_D_0_busQ );
   GATE_T_310_I_1:   AND2 port map ( O=>T_310, 
-            I1=>CLK_000_D_0_busQ, 
+            I1=>RSTPIN, 
             I0=>GATE_T_310_A );
   GATE_T_310_I_2:   INV port map ( O=>GATE_T_310_A, 
-            I0=>CLK_000_D_1_busQ );
+            I0=>BGACK_030Q );
   GATE_T_311_I_1:   AND2 port map ( O=>T_311, 
-            I1=>CYCLE_DMA_0_busQ, 
+            I1=>CLK_000_D_0_busQ, 
             I0=>GATE_T_311_A );
   GATE_T_311_I_2:   INV port map ( O=>GATE_T_311_A, 
-            I0=>CYCLE_DMA_1_busQ );
+            I0=>CLK_000_D_1_busQ );
   GATE_T_312_I_1:   AND2 port map ( O=>T_312, 
-            I1=>RSTPIN, 
+            I1=>CYCLE_DMA_0_busQ, 
             I0=>GATE_T_312_A );
   GATE_T_312_I_2:   INV port map ( O=>GATE_T_312_A, 
-            I0=>BGACK_030Q );
+            I0=>CYCLE_DMA_1_busQ );
   GATE_T_313_I_1:   AND2 port map ( O=>T_313, 
+            I1=>RSTPIN, 
+            I0=>GATE_T_313_A );
+  GATE_T_313_I_2:   INV port map ( O=>GATE_T_313_A, 
+            I0=>BGACK_030Q );
+  GATE_T_314_I_1:   AND2 port map ( O=>T_314, 
             I1=>CLK_000_D_1_busQ, 
             I0=>CYCLE_DMA_0_busQ );
-  GATE_T_314_I_1:   AND2 port map ( O=>T_314, 
-            I1=>RSTPIN, 
-            I0=>GATE_T_314_A );
-  GATE_T_314_I_2:   INV port map ( O=>GATE_T_314_A, 
-            I0=>BGACK_030Q );
   GATE_T_315_I_1:   AND2 port map ( O=>T_315, 
-            I1=>CYCLE_DMA_0_busQ, 
+            I1=>RSTPIN, 
             I0=>GATE_T_315_A );
   GATE_T_315_I_2:   INV port map ( O=>GATE_T_315_A, 
-            I0=>CLK_000_D_0_busQ );
+            I0=>BGACK_030Q );
   GATE_T_316_I_1:   AND2 port map ( O=>T_316, 
-            I1=>RSTPIN, 
+            I1=>CYCLE_DMA_0_busQ, 
             I0=>GATE_T_316_A );
   GATE_T_316_I_2:   INV port map ( O=>GATE_T_316_A, 
-            I0=>BGACK_030Q );
+            I0=>CLK_000_D_0_busQ );
   GATE_T_317_I_1:   AND2 port map ( O=>T_317, 
-            I1=>CLK_000_D_0_busQ, 
+            I1=>RSTPIN, 
             I0=>GATE_T_317_A );
   GATE_T_317_I_2:   INV port map ( O=>GATE_T_317_A, 
+            I0=>BGACK_030Q );
+  GATE_T_318_I_1:   AND2 port map ( O=>T_318, 
+            I1=>CLK_000_D_0_busQ, 
+            I0=>GATE_T_318_A );
+  GATE_T_318_I_2:   INV port map ( O=>GATE_T_318_A, 
             I0=>AS_000PIN );
-  GATE_T_318_I_1:   NOR2 port map ( O=>T_318, 
+  GATE_T_319_I_1:   NOR2 port map ( O=>T_319, 
             I1=>CLK_000_D_1_busQ, 
             I0=>CYCLE_DMA_0_busQ );
-  GATE_T_319_I_1:   AND2 port map ( O=>T_319, 
+  GATE_T_320_I_1:   AND2 port map ( O=>T_320, 
             I1=>RSTPIN, 
-            I0=>GATE_T_319_A );
-  GATE_T_319_I_2:   INV port map ( O=>GATE_T_319_A, 
-            I0=>BGACK_030Q );
-  GATE_T_320_I_3:   NAN3 port map ( O=>T_320, 
-            I2=>RSTPIN, 
-            I1=>GATE_T_320_B, 
             I0=>GATE_T_320_A );
-  GATE_T_320_I_2:   INV port map ( I0=>BGACK_030Q, 
-            O=>GATE_T_320_B );
-  GATE_T_320_I_1:   INV port map ( I0=>AS_000PIN, 
-            O=>GATE_T_320_A );
-  GATE_T_321_I_1:   OR3 port map ( O=>T_321, 
+  GATE_T_320_I_2:   INV port map ( O=>GATE_T_320_A, 
+            I0=>BGACK_030Q );
+  GATE_T_321_I_3:   NAN3 port map ( O=>T_321, 
+            I2=>RSTPIN, 
+            I1=>GATE_T_321_B, 
+            I0=>GATE_T_321_A );
+  GATE_T_321_I_2:   INV port map ( I0=>BGACK_030Q, 
+            O=>GATE_T_321_B );
+  GATE_T_321_I_1:   INV port map ( I0=>AS_000PIN, 
+            O=>GATE_T_321_A );
+  GATE_T_322_I_1:   OR3 port map ( O=>T_322, 
             I2=>T_107, 
             I1=>T_106, 
             I0=>T_108 );
-  GATE_T_322_I_1:   OR3 port map ( O=>T_322, 
+  GATE_T_323_I_1:   OR3 port map ( O=>T_323, 
             I2=>T_104, 
             I1=>T_103, 
             I0=>T_105 );
-  GATE_T_323_I_1:   OR2 port map ( O=>T_323, 
+  GATE_T_324_I_1:   OR2 port map ( O=>T_324, 
             I1=>AS_000PIN, 
             I0=>BGACK_030Q );
-  GATE_T_324_I_1:   OR2 port map ( O=>T_324, 
+  GATE_T_325_I_1:   OR2 port map ( O=>T_325, 
             I1=>T_112, 
             I0=>T_111 );
-  GATE_T_325_I_1:   OR2 port map ( O=>T_325, 
+  GATE_T_326_I_1:   OR2 port map ( O=>T_326, 
             I1=>T_110, 
             I0=>T_109 );
-  GATE_T_326_I_1:   OR2 port map ( O=>T_326, 
+  GATE_T_327_I_1:   OR2 port map ( O=>T_327, 
             I1=>T_118, 
             I0=>T_117 );
-  GATE_T_327_I_1:   OR2 port map ( O=>T_327, 
+  GATE_T_328_I_1:   OR2 port map ( O=>T_328, 
             I1=>T_116, 
             I0=>T_115 );
-  GATE_T_328_I_1:   OR2 port map ( O=>T_328, 
+  GATE_T_329_I_1:   OR2 port map ( O=>T_329, 
             I1=>T_114, 
             I0=>T_113 );
-  GATE_T_329_I_1:   AND2 port map ( O=>T_329, 
-            I1=>BERRPIN, 
-            I0=>GATE_T_329_A );
-  GATE_T_329_I_2:   INV port map ( O=>GATE_T_329_A, 
-            I0=>SM_AMIGA_i_7_busQ );
   GATE_T_330_I_1:   AND2 port map ( O=>T_330, 
-            I1=>inst_BGACK_030_INT_DQ, 
+            I1=>BERRPIN, 
             I0=>GATE_T_330_A );
   GATE_T_330_I_2:   INV port map ( O=>GATE_T_330_A, 
-            I0=>inst_AS_030_D0Q );
+            I0=>SM_AMIGA_i_7_busQ );
   GATE_T_331_I_1:   AND2 port map ( O=>T_331, 
+            I1=>inst_BGACK_030_INT_DQ, 
+            I0=>GATE_T_331_A );
+  GATE_T_331_I_2:   INV port map ( O=>GATE_T_331_A, 
+            I0=>inst_AS_030_D0Q );
+  GATE_T_332_I_1:   AND2 port map ( O=>T_332, 
             I1=>BGACK_030Q, 
             I0=>RSTPIN );
-  GATE_T_332_I_1:   AND2 port map ( O=>T_332, 
-            I1=>nEXP_SPACEPIN, 
-            I0=>GATE_T_332_A );
-  GATE_T_332_I_2:   INV port map ( O=>GATE_T_332_A, 
-            I0=>FC_1XPIN );
   GATE_T_333_I_1:   AND2 port map ( O=>T_333, 
-            I1=>BERRPIN, 
+            I1=>nEXP_SPACEPIN, 
             I0=>GATE_T_333_A );
   GATE_T_333_I_2:   INV port map ( O=>GATE_T_333_A, 
-            I0=>SM_AMIGA_i_7_busQ );
+            I0=>FC_1XPIN );
   GATE_T_334_I_1:   AND2 port map ( O=>T_334, 
-            I1=>inst_BGACK_030_INT_DQ, 
+            I1=>BERRPIN, 
             I0=>GATE_T_334_A );
   GATE_T_334_I_2:   INV port map ( O=>GATE_T_334_A, 
-            I0=>inst_AS_030_D0Q );
+            I0=>SM_AMIGA_i_7_busQ );
   GATE_T_335_I_1:   AND2 port map ( O=>T_335, 
+            I1=>inst_BGACK_030_INT_DQ, 
+            I0=>GATE_T_335_A );
+  GATE_T_335_I_2:   INV port map ( O=>GATE_T_335_A, 
+            I0=>inst_AS_030_D0Q );
+  GATE_T_336_I_1:   AND2 port map ( O=>T_336, 
             I1=>BGACK_030Q, 
             I0=>A_DECODE_19XPIN );
-  GATE_T_336_I_1:   AND2 port map ( O=>T_336, 
+  GATE_T_337_I_1:   AND2 port map ( O=>T_337, 
             I1=>RSTPIN, 
             I0=>nEXP_SPACEPIN );
-  GATE_T_337_I_1:   AND2 port map ( O=>T_337, 
-            I1=>BERRPIN, 
-            I0=>GATE_T_337_A );
-  GATE_T_337_I_2:   INV port map ( O=>GATE_T_337_A, 
-            I0=>SM_AMIGA_i_7_busQ );
   GATE_T_338_I_1:   AND2 port map ( O=>T_338, 
-            I1=>inst_BGACK_030_INT_DQ, 
+            I1=>BERRPIN, 
             I0=>GATE_T_338_A );
   GATE_T_338_I_2:   INV port map ( O=>GATE_T_338_A, 
-            I0=>inst_AS_030_D0Q );
+            I0=>SM_AMIGA_i_7_busQ );
   GATE_T_339_I_1:   AND2 port map ( O=>T_339, 
+            I1=>inst_BGACK_030_INT_DQ, 
+            I0=>GATE_T_339_A );
+  GATE_T_339_I_2:   INV port map ( O=>GATE_T_339_A, 
+            I0=>inst_AS_030_D0Q );
+  GATE_T_340_I_1:   AND2 port map ( O=>T_340, 
             I1=>BGACK_030Q, 
             I0=>A_DECODE_18XPIN );
-  GATE_T_340_I_1:   AND2 port map ( O=>T_340, 
+  GATE_T_341_I_1:   AND2 port map ( O=>T_341, 
             I1=>RSTPIN, 
             I0=>nEXP_SPACEPIN );
-  GATE_T_341_I_1:   AND2 port map ( O=>T_341, 
-            I1=>BERRPIN, 
-            I0=>GATE_T_341_A );
-  GATE_T_341_I_2:   INV port map ( O=>GATE_T_341_A, 
-            I0=>SM_AMIGA_i_7_busQ );
   GATE_T_342_I_1:   AND2 port map ( O=>T_342, 
-            I1=>inst_BGACK_030_INT_DQ, 
+            I1=>BERRPIN, 
             I0=>GATE_T_342_A );
   GATE_T_342_I_2:   INV port map ( O=>GATE_T_342_A, 
-            I0=>inst_AS_030_D0Q );
+            I0=>SM_AMIGA_i_7_busQ );
   GATE_T_343_I_1:   AND2 port map ( O=>T_343, 
-            I1=>BGACK_030Q, 
+            I1=>inst_BGACK_030_INT_DQ, 
             I0=>GATE_T_343_A );
   GATE_T_343_I_2:   INV port map ( O=>GATE_T_343_A, 
-            I0=>A_DECODE_17XPIN );
+            I0=>inst_AS_030_D0Q );
   GATE_T_344_I_1:   AND2 port map ( O=>T_344, 
+            I1=>BGACK_030Q, 
+            I0=>GATE_T_344_A );
+  GATE_T_344_I_2:   INV port map ( O=>GATE_T_344_A, 
+            I0=>A_DECODE_17XPIN );
+  GATE_T_345_I_1:   AND2 port map ( O=>T_345, 
             I1=>RSTPIN, 
             I0=>nEXP_SPACEPIN );
-  GATE_T_345_I_1:   AND2 port map ( O=>T_345, 
-            I1=>BERRPIN, 
-            I0=>GATE_T_345_A );
-  GATE_T_345_I_2:   INV port map ( O=>GATE_T_345_A, 
-            I0=>SM_AMIGA_i_7_busQ );
   GATE_T_346_I_1:   AND2 port map ( O=>T_346, 
-            I1=>inst_BGACK_030_INT_DQ, 
+            I1=>BERRPIN, 
             I0=>GATE_T_346_A );
   GATE_T_346_I_2:   INV port map ( O=>GATE_T_346_A, 
-            I0=>inst_AS_030_D0Q );
+            I0=>SM_AMIGA_i_7_busQ );
   GATE_T_347_I_1:   AND2 port map ( O=>T_347, 
+            I1=>inst_BGACK_030_INT_DQ, 
+            I0=>GATE_T_347_A );
+  GATE_T_347_I_2:   INV port map ( O=>GATE_T_347_A, 
+            I0=>inst_AS_030_D0Q );
+  GATE_T_348_I_1:   AND2 port map ( O=>T_348, 
             I1=>BGACK_030Q, 
             I0=>A_DECODE_16XPIN );
-  GATE_T_348_I_1:   AND2 port map ( O=>T_348, 
+  GATE_T_349_I_1:   AND2 port map ( O=>T_349, 
             I1=>RSTPIN, 
             I0=>nEXP_SPACEPIN );
-  GATE_T_349_I_1:   AND2 port map ( O=>T_349, 
-            I1=>BERRPIN, 
-            I0=>GATE_T_349_A );
-  GATE_T_349_I_2:   INV port map ( O=>GATE_T_349_A, 
-            I0=>SM_AMIGA_i_7_busQ );
   GATE_T_350_I_1:   AND2 port map ( O=>T_350, 
-            I1=>inst_BGACK_030_INT_DQ, 
+            I1=>BERRPIN, 
             I0=>GATE_T_350_A );
   GATE_T_350_I_2:   INV port map ( O=>GATE_T_350_A, 
-            I0=>inst_AS_030_D0Q );
+            I0=>SM_AMIGA_i_7_busQ );
   GATE_T_351_I_1:   AND2 port map ( O=>T_351, 
-            I1=>BGACK_030Q, 
+            I1=>inst_BGACK_030_INT_DQ, 
             I0=>GATE_T_351_A );
   GATE_T_351_I_2:   INV port map ( O=>GATE_T_351_A, 
-            I0=>FC_0XPIN );
+            I0=>inst_AS_030_D0Q );
   GATE_T_352_I_1:   AND2 port map ( O=>T_352, 
+            I1=>BGACK_030Q, 
+            I0=>GATE_T_352_A );
+  GATE_T_352_I_2:   INV port map ( O=>GATE_T_352_A, 
+            I0=>FC_0XPIN );
+  GATE_T_353_I_1:   AND2 port map ( O=>T_353, 
             I1=>RSTPIN, 
             I0=>nEXP_SPACEPIN );
-  GATE_T_353_I_1:   AND2 port map ( O=>T_353, 
-            I1=>CLK_000_D_1_busQ, 
-            I0=>GATE_T_353_A );
-  GATE_T_353_I_2:   INV port map ( O=>GATE_T_353_A, 
-            I0=>cpu_est_1_busQ );
   GATE_T_354_I_1:   AND2 port map ( O=>T_354, 
-            I1=>cpu_est_0_busQ, 
+            I1=>CLK_000_D_1_busQ, 
             I0=>GATE_T_354_A );
   GATE_T_354_I_2:   INV port map ( O=>GATE_T_354_A, 
-            I0=>cpu_est_3_busQ );
+            I0=>cpu_est_1_busQ );
   GATE_T_355_I_1:   AND2 port map ( O=>T_355, 
+            I1=>cpu_est_0_busQ, 
+            I0=>GATE_T_355_A );
+  GATE_T_355_I_2:   INV port map ( O=>GATE_T_355_A, 
+            I0=>cpu_est_3_busQ );
+  GATE_T_356_I_1:   AND2 port map ( O=>T_356, 
             I1=>CLK_000_D_1_busQ, 
             I0=>cpu_est_2_busQ );
-  GATE_T_356_I_1:   AND2 port map ( O=>T_356, 
+  GATE_T_357_I_1:   AND2 port map ( O=>T_357, 
             I1=>cpu_est_1_busQ, 
             I0=>cpu_est_0_busQ );
-  GATE_T_357_I_1:   OR3 port map ( O=>T_357, 
+  GATE_T_358_I_1:   OR3 port map ( O=>T_358, 
             I2=>T_142, 
             I1=>T_141, 
             I0=>T_143 );
-  GATE_T_358_I_1:   OR3 port map ( O=>T_358, 
+  GATE_T_359_I_1:   OR3 port map ( O=>T_359, 
             I2=>T_139, 
             I1=>T_138, 
             I0=>T_140 );
-  GATE_T_359_I_1:   OR3 port map ( O=>T_359, 
+  GATE_T_360_I_1:   OR3 port map ( O=>T_360, 
             I2=>T_136, 
             I1=>T_135, 
             I0=>T_137 );
-  GATE_T_360_I_1:   AND2 port map ( O=>T_360, 
-            I1=>IPL_D0_1_busQ, 
-            I0=>GATE_T_360_A );
-  GATE_T_360_I_2:   INV port map ( O=>GATE_T_360_A, 
-            I0=>IPL_D0_0_busQ );
   GATE_T_361_I_1:   AND2 port map ( O=>T_361, 
-            I1=>IPL_1XPIN, 
+            I1=>IPL_D0_1_busQ, 
             I0=>GATE_T_361_A );
   GATE_T_361_I_2:   INV port map ( O=>GATE_T_361_A, 
-            I0=>IPL_0XPIN );
+            I0=>IPL_D0_0_busQ );
   GATE_T_362_I_1:   AND2 port map ( O=>T_362, 
+            I1=>IPL_1XPIN, 
+            I0=>GATE_T_362_A );
+  GATE_T_362_I_2:   INV port map ( O=>GATE_T_362_A, 
+            I0=>IPL_0XPIN );
+  GATE_T_363_I_1:   AND2 port map ( O=>T_363, 
             I1=>RSTPIN, 
             I0=>IPL_2XPIN );
-  GATE_T_363_I_1:   NOR2 port map ( O=>T_363, 
+  GATE_T_364_I_1:   NOR2 port map ( O=>T_364, 
             I1=>IPL_D0_1_busQ, 
             I0=>IPL_D0_0_busQ );
-  GATE_T_364_I_1:   NOR2 port map ( O=>T_364, 
+  GATE_T_365_I_1:   NOR2 port map ( O=>T_365, 
             I1=>IPL_0XPIN, 
             I0=>IPL_1XPIN );
-  GATE_T_365_I_1:   AND2 port map ( O=>T_365, 
+  GATE_T_366_I_1:   AND2 port map ( O=>T_366, 
             I1=>RSTPIN, 
             I0=>IPL_2XPIN );
-  GATE_T_366_I_1:   AND2 port map ( O=>T_366, 
-            I1=>IPL_D0_1_busQ, 
-            I0=>GATE_T_366_A );
-  GATE_T_366_I_2:   INV port map ( O=>GATE_T_366_A, 
-            I0=>IPL_D0_0_busQ );
   GATE_T_367_I_1:   AND2 port map ( O=>T_367, 
-            I1=>IPL_1XPIN, 
+            I1=>IPL_D0_1_busQ, 
             I0=>GATE_T_367_A );
   GATE_T_367_I_2:   INV port map ( O=>GATE_T_367_A, 
-            I0=>IPL_0XPIN );
+            I0=>IPL_D0_0_busQ );
   GATE_T_368_I_1:   AND2 port map ( O=>T_368, 
-            I1=>RSTPIN, 
+            I1=>IPL_1XPIN, 
             I0=>GATE_T_368_A );
   GATE_T_368_I_2:   INV port map ( O=>GATE_T_368_A, 
+            I0=>IPL_0XPIN );
+  GATE_T_369_I_1:   AND2 port map ( O=>T_369, 
+            I1=>RSTPIN, 
+            I0=>GATE_T_369_A );
+  GATE_T_369_I_2:   INV port map ( O=>GATE_T_369_A, 
             I0=>IPL_2XPIN );
-  GATE_T_369_I_1:   NOR2 port map ( O=>T_369, 
+  GATE_T_370_I_1:   NOR2 port map ( O=>T_370, 
             I1=>IPL_D0_1_busQ, 
             I0=>IPL_D0_0_busQ );
-  GATE_T_370_I_1:   NOR2 port map ( O=>T_370, 
+  GATE_T_371_I_1:   NOR2 port map ( O=>T_371, 
             I1=>IPL_0XPIN, 
             I0=>IPL_1XPIN );
-  GATE_T_371_I_1:   AND2 port map ( O=>T_371, 
+  GATE_T_372_I_1:   AND2 port map ( O=>T_372, 
             I1=>RSTPIN, 
-            I0=>GATE_T_371_A );
-  GATE_T_371_I_2:   INV port map ( O=>GATE_T_371_A, 
+            I0=>GATE_T_372_A );
+  GATE_T_372_I_2:   INV port map ( O=>GATE_T_372_A, 
             I0=>IPL_2XPIN );
-  GATE_T_372_I_1:   OR3 port map ( O=>T_372, 
+  GATE_T_373_I_1:   OR3 port map ( O=>T_373, 
             I2=>T_152, 
             I1=>T_151, 
             I0=>T_153 );
-  GATE_T_373_I_1:   OR3 port map ( O=>T_373, 
+  GATE_T_374_I_1:   OR3 port map ( O=>T_374, 
             I2=>T_149, 
             I1=>T_148, 
             I0=>T_150 );
-  GATE_T_374_I_1:   OR3 port map ( O=>T_374, 
+  GATE_T_375_I_1:   OR3 port map ( O=>T_375, 
             I2=>T_146, 
             I1=>T_145, 
             I0=>T_147 );
-  GATE_T_375_I_1:   AND2 port map ( O=>T_375, 
-            I1=>IPL_D0_0_busQ, 
-            I0=>GATE_T_375_A );
-  GATE_T_375_I_2:   INV port map ( O=>GATE_T_375_A, 
-            I0=>IPL_D0_1_busQ );
   GATE_T_376_I_1:   AND2 port map ( O=>T_376, 
-            I1=>IPL_0XPIN, 
+            I1=>IPL_D0_0_busQ, 
             I0=>GATE_T_376_A );
   GATE_T_376_I_2:   INV port map ( O=>GATE_T_376_A, 
-            I0=>IPL_1XPIN );
+            I0=>IPL_D0_1_busQ );
   GATE_T_377_I_1:   AND2 port map ( O=>T_377, 
+            I1=>IPL_0XPIN, 
+            I0=>GATE_T_377_A );
+  GATE_T_377_I_2:   INV port map ( O=>GATE_T_377_A, 
+            I0=>IPL_1XPIN );
+  GATE_T_378_I_1:   AND2 port map ( O=>T_378, 
             I1=>RSTPIN, 
             I0=>IPL_2XPIN );
-  GATE_T_378_I_1:   NOR2 port map ( O=>T_378, 
+  GATE_T_379_I_1:   NOR2 port map ( O=>T_379, 
             I1=>IPL_D0_1_busQ, 
             I0=>IPL_D0_0_busQ );
-  GATE_T_379_I_1:   NOR2 port map ( O=>T_379, 
+  GATE_T_380_I_1:   NOR2 port map ( O=>T_380, 
             I1=>IPL_0XPIN, 
             I0=>IPL_1XPIN );
-  GATE_T_380_I_1:   AND2 port map ( O=>T_380, 
+  GATE_T_381_I_1:   AND2 port map ( O=>T_381, 
             I1=>RSTPIN, 
             I0=>IPL_2XPIN );
-  GATE_T_381_I_1:   AND2 port map ( O=>T_381, 
-            I1=>IPL_D0_0_busQ, 
-            I0=>GATE_T_381_A );
-  GATE_T_381_I_2:   INV port map ( O=>GATE_T_381_A, 
-            I0=>IPL_D0_1_busQ );
   GATE_T_382_I_1:   AND2 port map ( O=>T_382, 
-            I1=>IPL_0XPIN, 
+            I1=>IPL_D0_0_busQ, 
             I0=>GATE_T_382_A );
   GATE_T_382_I_2:   INV port map ( O=>GATE_T_382_A, 
-            I0=>IPL_1XPIN );
+            I0=>IPL_D0_1_busQ );
   GATE_T_383_I_1:   AND2 port map ( O=>T_383, 
-            I1=>RSTPIN, 
+            I1=>IPL_0XPIN, 
             I0=>GATE_T_383_A );
   GATE_T_383_I_2:   INV port map ( O=>GATE_T_383_A, 
+            I0=>IPL_1XPIN );
+  GATE_T_384_I_1:   AND2 port map ( O=>T_384, 
+            I1=>RSTPIN, 
+            I0=>GATE_T_384_A );
+  GATE_T_384_I_2:   INV port map ( O=>GATE_T_384_A, 
             I0=>IPL_2XPIN );
-  GATE_T_384_I_1:   NOR2 port map ( O=>T_384, 
+  GATE_T_385_I_1:   NOR2 port map ( O=>T_385, 
             I1=>IPL_D0_1_busQ, 
             I0=>IPL_D0_0_busQ );
-  GATE_T_385_I_1:   NOR2 port map ( O=>T_385, 
+  GATE_T_386_I_1:   NOR2 port map ( O=>T_386, 
             I1=>IPL_0XPIN, 
             I0=>IPL_1XPIN );
-  GATE_T_386_I_1:   AND2 port map ( O=>T_386, 
+  GATE_T_387_I_1:   AND2 port map ( O=>T_387, 
             I1=>RSTPIN, 
-            I0=>GATE_T_386_A );
-  GATE_T_386_I_2:   INV port map ( O=>GATE_T_386_A, 
+            I0=>GATE_T_387_A );
+  GATE_T_387_I_2:   INV port map ( O=>GATE_T_387_A, 
             I0=>IPL_2XPIN );
-  GATE_T_387_I_1:   NOR2 port map ( O=>T_387, 
+  GATE_T_388_I_1:   NOR2 port map ( O=>T_388, 
             I1=>CLK_000_D_1_busQ, 
             I0=>cpu_est_2_busQ );
-  GATE_T_388_I_1:   NOR2 port map ( O=>T_388, 
+  GATE_T_389_I_1:   NOR2 port map ( O=>T_389, 
             I1=>cpu_est_1_busQ, 
             I0=>cpu_est_0_busQ );
-  GATE_T_389_I_1:   NOR2 port map ( O=>T_389, 
+  GATE_T_390_I_1:   NOR2 port map ( O=>T_390, 
             I1=>cpu_est_3_busQ, 
             I0=>VMAQ );
-  GATE_T_390_I_1:   INV port map ( I0=>CLK_000_D_0_busQ, 
-            O=>GATE_T_390_A );
-  GATE_T_390_I_2:   INV port map ( I0=>inst_VPA_DQ, 
-            O=>GATE_T_390_B );
-  GATE_T_390_I_3:   AND3 port map ( O=>T_390, 
-            I0=>CLK_000_D_1_busQ, 
-            I2=>GATE_T_390_A, 
-            I1=>GATE_T_390_B );
-  GATE_T_391_I_1:   INV port map ( I0=>cpu_est_2_busQ, 
+  GATE_T_391_I_1:   INV port map ( I0=>CLK_000_D_0_busQ, 
             O=>GATE_T_391_A );
-  GATE_T_391_I_2:   AND3 port map ( O=>T_391, 
-            I2=>cpu_est_1_busQ, 
-            I1=>cpu_est_0_busQ, 
-            I0=>GATE_T_391_A );
-  GATE_T_392_I_1:   INV port map ( I0=>cpu_est_3_busQ, 
+  GATE_T_391_I_2:   INV port map ( I0=>inst_VPA_DQ, 
+            O=>GATE_T_391_B );
+  GATE_T_391_I_3:   AND3 port map ( O=>T_391, 
+            I0=>CLK_000_D_1_busQ, 
+            I2=>GATE_T_391_A, 
+            I1=>GATE_T_391_B );
+  GATE_T_392_I_1:   INV port map ( I0=>cpu_est_2_busQ, 
             O=>GATE_T_392_A );
   GATE_T_392_I_2:   AND3 port map ( O=>T_392, 
+            I2=>cpu_est_1_busQ, 
+            I1=>cpu_est_0_busQ, 
+            I0=>GATE_T_392_A );
+  GATE_T_393_I_1:   INV port map ( I0=>cpu_est_3_busQ, 
+            O=>GATE_T_393_A );
+  GATE_T_393_I_2:   AND3 port map ( O=>T_393, 
             I2=>VMAQ, 
             I1=>RSTPIN, 
-            I0=>GATE_T_392_A );
-  GATE_T_393_I_1:   AND2 port map ( O=>T_393, 
-            I1=>CLK_000_D_11_busQ, 
             I0=>GATE_T_393_A );
-  GATE_T_393_I_2:   INV port map ( O=>GATE_T_393_A, 
-            I0=>CLK_000_D_10_busQ );
-  GATE_T_394_I_1:   AND2 port map ( O=>T_394, 
-            I1=>RSTPIN, 
-            I0=>GATE_T_394_A );
-  GATE_T_394_I_2:   INV port map ( O=>GATE_T_394_A, 
-            I0=>CLK_030PIN );
-  GATE_T_395_I_1:   AND2 port map ( O=>T_395, 
-            I1=>CLK_000_D_11_busQ, 
-            I0=>GATE_T_395_A );
-  GATE_T_395_I_2:   INV port map ( O=>GATE_T_395_A, 
-            I0=>CLK_000_D_10_busQ );
+  GATE_T_394_I_1:   OR2 port map ( O=>T_394, 
+            I1=>T_165, 
+            I0=>T_164 );
+  GATE_T_395_I_1:   OR2 port map ( O=>T_395, 
+            I1=>T_163, 
+            I0=>T_162 );
   GATE_T_396_I_1:   AND2 port map ( O=>T_396, 
-            I1=>inst_CLK_OUT_PRE_DQ, 
-            I0=>RSTPIN );
+            I1=>CLK_000_D_7_busQ, 
+            I0=>GATE_T_396_A );
+  GATE_T_396_I_2:   INV port map ( O=>GATE_T_396_A, 
+            I0=>CLK_000_D_6_busQ );
   GATE_T_397_I_1:   AND2 port map ( O=>T_397, 
-            I1=>inst_AS_030_D0Q, 
-            I0=>RSTPIN );
+            I1=>RSTPIN, 
+            I0=>GATE_T_397_A );
+  GATE_T_397_I_2:   INV port map ( O=>GATE_T_397_A, 
+            I0=>CLK_030PIN );
   GATE_T_398_I_1:   AND2 port map ( O=>T_398, 
-            I1=>nEXP_SPACEPIN, 
+            I1=>CLK_000_D_7_busQ, 
             I0=>GATE_T_398_A );
   GATE_T_398_I_2:   INV port map ( O=>GATE_T_398_A, 
-            I0=>BG_030PIN );
-  GATE_T_399_I_1:   NOR2 port map ( O=>T_399, 
-            I1=>RW_000Q, 
-            I0=>SM_AMIGA_0_busQ );
+            I0=>CLK_000_D_6_busQ );
+  GATE_T_399_I_1:   AND2 port map ( O=>T_399, 
+            I1=>inst_CLK_OUT_PRE_DQ, 
+            I0=>RSTPIN );
   GATE_T_400_I_1:   AND2 port map ( O=>T_400, 
-            I1=>RSTPIN, 
-            I0=>GATE_T_400_A );
-  GATE_T_400_I_2:   INV port map ( O=>GATE_T_400_A, 
-            I0=>SM_AMIGA_6_busQ );
+            I1=>inst_AS_030_D0Q, 
+            I0=>RSTPIN );
   GATE_T_401_I_1:   AND2 port map ( O=>T_401, 
-            I1=>SM_AMIGA_i_7_busQ, 
+            I1=>nEXP_SPACEPIN, 
             I0=>GATE_T_401_A );
   GATE_T_401_I_2:   INV port map ( O=>GATE_T_401_A, 
+            I0=>BG_030PIN );
+  GATE_T_402_I_1:   NOR2 port map ( O=>T_402, 
+            I1=>RW_000Q, 
             I0=>SM_AMIGA_0_busQ );
-  GATE_T_402_I_1:   AND2 port map ( O=>T_402, 
-            I1=>SM_AMIGA_6_busQ, 
-            I0=>CLK_000_D_0_busQ );
   GATE_T_403_I_1:   AND2 port map ( O=>T_403, 
             I1=>RSTPIN, 
             I0=>GATE_T_403_A );
   GATE_T_403_I_2:   INV port map ( O=>GATE_T_403_A, 
-            I0=>CLK_000_D_1_busQ );
-  GATE_T_404_I_1:   OR3 port map ( O=>T_404, 
-            I2=>T_181, 
-            I1=>T_180, 
-            I0=>T_182 );
-  GATE_T_405_I_1:   OR3 port map ( O=>T_405, 
-            I2=>T_178, 
-            I1=>T_177, 
-            I0=>T_179 );
-  GATE_T_406_I_1:   OR3 port map ( O=>T_406, 
-            I2=>T_175, 
-            I1=>T_174, 
-            I0=>T_176 );
-  GATE_T_407_I_1:   AND2 port map ( O=>T_407, 
-            I1=>IPL_D0_1_busQ, 
-            I0=>IPL_D0_0_busQ );
-  GATE_T_408_I_1:   AND2 port map ( O=>T_408, 
-            I1=>IPL_0XPIN, 
-            I0=>IPL_1XPIN );
-  GATE_T_409_I_1:   AND2 port map ( O=>T_409, 
+            I0=>SM_AMIGA_6_busQ );
+  GATE_T_404_I_1:   AND2 port map ( O=>T_404, 
+            I1=>SM_AMIGA_i_7_busQ, 
+            I0=>GATE_T_404_A );
+  GATE_T_404_I_2:   INV port map ( O=>GATE_T_404_A, 
+            I0=>SM_AMIGA_0_busQ );
+  GATE_T_405_I_1:   AND2 port map ( O=>T_405, 
+            I1=>SM_AMIGA_6_busQ, 
+            I0=>CLK_000_D_0_busQ );
+  GATE_T_406_I_1:   AND2 port map ( O=>T_406, 
             I1=>RSTPIN, 
-            I0=>GATE_T_409_A );
-  GATE_T_409_I_2:   INV port map ( O=>GATE_T_409_A, 
-            I0=>IPL_2XPIN );
+            I0=>GATE_T_406_A );
+  GATE_T_406_I_2:   INV port map ( O=>GATE_T_406_A, 
+            I0=>CLK_000_D_1_busQ );
+  GATE_T_407_I_1:   OR3 port map ( O=>T_407, 
+            I2=>T_182, 
+            I1=>T_181, 
+            I0=>T_183 );
+  GATE_T_408_I_1:   OR3 port map ( O=>T_408, 
+            I2=>T_179, 
+            I1=>T_178, 
+            I0=>T_180 );
+  GATE_T_409_I_1:   OR3 port map ( O=>T_409, 
+            I2=>T_176, 
+            I1=>T_175, 
+            I0=>T_177 );
   GATE_T_410_I_1:   AND2 port map ( O=>T_410, 
             I1=>IPL_D0_1_busQ, 
-            I0=>GATE_T_410_A );
-  GATE_T_410_I_2:   INV port map ( O=>GATE_T_410_A, 
             I0=>IPL_D0_0_busQ );
   GATE_T_411_I_1:   AND2 port map ( O=>T_411, 
-            I1=>IPL_1XPIN, 
-            I0=>GATE_T_411_A );
-  GATE_T_411_I_2:   INV port map ( O=>GATE_T_411_A, 
-            I0=>IPL_0XPIN );
+            I1=>IPL_0XPIN, 
+            I0=>IPL_1XPIN );
   GATE_T_412_I_1:   AND2 port map ( O=>T_412, 
             I1=>RSTPIN, 
             I0=>GATE_T_412_A );
   GATE_T_412_I_2:   INV port map ( O=>GATE_T_412_A, 
             I0=>IPL_2XPIN );
   GATE_T_413_I_1:   AND2 port map ( O=>T_413, 
-            I1=>IPL_D0_0_busQ, 
+            I1=>IPL_D0_1_busQ, 
             I0=>GATE_T_413_A );
   GATE_T_413_I_2:   INV port map ( O=>GATE_T_413_A, 
-            I0=>IPL_D0_1_busQ );
+            I0=>IPL_D0_0_busQ );
   GATE_T_414_I_1:   AND2 port map ( O=>T_414, 
-            I1=>IPL_0XPIN, 
+            I1=>IPL_1XPIN, 
             I0=>GATE_T_414_A );
   GATE_T_414_I_2:   INV port map ( O=>GATE_T_414_A, 
-            I0=>IPL_1XPIN );
+            I0=>IPL_0XPIN );
   GATE_T_415_I_1:   AND2 port map ( O=>T_415, 
             I1=>RSTPIN, 
             I0=>GATE_T_415_A );
   GATE_T_415_I_2:   INV port map ( O=>GATE_T_415_A, 
             I0=>IPL_2XPIN );
-  GATE_T_416_I_1:   NOR2 port map ( O=>T_416, 
-            I1=>IPL_D0_1_busQ, 
-            I0=>IPL_D0_0_busQ );
-  GATE_T_417_I_1:   NOR2 port map ( O=>T_417, 
+  GATE_T_416_I_1:   AND2 port map ( O=>T_416, 
+            I1=>IPL_D0_0_busQ, 
+            I0=>GATE_T_416_A );
+  GATE_T_416_I_2:   INV port map ( O=>GATE_T_416_A, 
+            I0=>IPL_D0_1_busQ );
+  GATE_T_417_I_1:   AND2 port map ( O=>T_417, 
             I1=>IPL_0XPIN, 
+            I0=>GATE_T_417_A );
+  GATE_T_417_I_2:   INV port map ( O=>GATE_T_417_A, 
             I0=>IPL_1XPIN );
   GATE_T_418_I_1:   AND2 port map ( O=>T_418, 
             I1=>RSTPIN, 
             I0=>GATE_T_418_A );
   GATE_T_418_I_2:   INV port map ( O=>GATE_T_418_A, 
             I0=>IPL_2XPIN );
-  GATE_T_419_I_14:   NOR4 port map ( O=>T_419, 
-            I3=>AHIGH_30XPIN, 
-            I2=>AHIGH_29XPIN, 
-            I1=>AHIGH_28XPIN, 
-            I0=>AHIGH_27XPIN );
-  GATE_T_420_I_14:   NOR4 port map ( O=>T_420, 
-            I3=>AHIGH_26XPIN, 
-            I2=>AHIGH_25XPIN, 
-            I1=>AHIGH_24XPIN, 
-            I0=>inst_AS_030_D0Q );
-  GATE_T_421_I_1:   AND4 port map ( O=>T_421, 
-            I3=>A_DECODE_20XPIN, 
-            I2=>A_DECODE_21XPIN, 
-            I1=>A_DECODE_22XPIN, 
-            I0=>A_DECODE_23XPIN );
+  GATE_T_419_I_1:   NOR2 port map ( O=>T_419, 
+            I1=>IPL_D0_1_busQ, 
+            I0=>IPL_D0_0_busQ );
+  GATE_T_420_I_1:   NOR2 port map ( O=>T_420, 
+            I1=>IPL_0XPIN, 
+            I0=>IPL_1XPIN );
+  GATE_T_421_I_1:   AND2 port map ( O=>T_421, 
+            I1=>RSTPIN, 
+            I0=>GATE_T_421_A );
+  GATE_T_421_I_2:   INV port map ( O=>GATE_T_421_A, 
+            I0=>IPL_2XPIN );
   GATE_T_422_I_14:   NOR4 port map ( O=>T_422, 
             I3=>AHIGH_30XPIN, 
             I2=>AHIGH_29XPIN, 
@@ -3937,28 +3915,21 @@ begin
             I2=>A_DECODE_21XPIN, 
             I1=>A_DECODE_22XPIN, 
             I0=>A_DECODE_23XPIN );
-  GATE_T_425_I_1:   INV port map ( I0=>AS_030PIN, 
-            O=>GATE_T_425_A );
-  GATE_T_425_I_2:   INV port map ( I0=>A_DECODE_16XPIN, 
-            O=>GATE_T_425_B );
-  GATE_T_425_I_3:   AND3 port map ( O=>T_425, 
-            I0=>FC_0XPIN, 
-            I2=>GATE_T_425_A, 
-            I1=>GATE_T_425_B );
-  GATE_T_426_I_1:   INV port map ( I0=>A_DECODE_18XPIN, 
-            O=>GATE_T_426_A );
-  GATE_T_426_I_2:   INV port map ( I0=>A_DECODE_19XPIN, 
-            O=>GATE_T_426_B );
-  GATE_T_426_I_3:   AND3 port map ( O=>T_426, 
-            I0=>A_DECODE_17XPIN, 
-            I2=>GATE_T_426_A, 
-            I1=>GATE_T_426_B );
-  GATE_T_427_I_1:   INV port map ( I0=>FPU_SENSEPIN, 
-            O=>GATE_T_427_A );
-  GATE_T_427_I_2:   AND3 port map ( O=>T_427, 
-            I2=>BGACK_000PIN, 
-            I1=>FC_1XPIN, 
-            I0=>GATE_T_427_A );
+  GATE_T_425_I_14:   NOR4 port map ( O=>T_425, 
+            I3=>AHIGH_30XPIN, 
+            I2=>AHIGH_29XPIN, 
+            I1=>AHIGH_28XPIN, 
+            I0=>AHIGH_27XPIN );
+  GATE_T_426_I_14:   NOR4 port map ( O=>T_426, 
+            I3=>AHIGH_26XPIN, 
+            I2=>AHIGH_25XPIN, 
+            I1=>AHIGH_24XPIN, 
+            I0=>inst_AS_030_D0Q );
+  GATE_T_427_I_1:   AND4 port map ( O=>T_427, 
+            I3=>A_DECODE_20XPIN, 
+            I2=>A_DECODE_21XPIN, 
+            I1=>A_DECODE_22XPIN, 
+            I0=>A_DECODE_23XPIN );
   GATE_T_428_I_1:   INV port map ( I0=>AS_030PIN, 
             O=>GATE_T_428_A );
   GATE_T_428_I_2:   INV port map ( I0=>A_DECODE_16XPIN, 
@@ -3975,7 +3946,29 @@ begin
             I0=>A_DECODE_17XPIN, 
             I2=>GATE_T_429_A, 
             I1=>GATE_T_429_B );
-  GATE_T_430_I_1:   AND3 port map ( O=>T_430, 
+  GATE_T_430_I_1:   INV port map ( I0=>FPU_SENSEPIN, 
+            O=>GATE_T_430_A );
+  GATE_T_430_I_2:   AND3 port map ( O=>T_430, 
+            I2=>BGACK_000PIN, 
+            I1=>FC_1XPIN, 
+            I0=>GATE_T_430_A );
+  GATE_T_431_I_1:   INV port map ( I0=>AS_030PIN, 
+            O=>GATE_T_431_A );
+  GATE_T_431_I_2:   INV port map ( I0=>A_DECODE_16XPIN, 
+            O=>GATE_T_431_B );
+  GATE_T_431_I_3:   AND3 port map ( O=>T_431, 
+            I0=>FC_0XPIN, 
+            I2=>GATE_T_431_A, 
+            I1=>GATE_T_431_B );
+  GATE_T_432_I_1:   INV port map ( I0=>A_DECODE_18XPIN, 
+            O=>GATE_T_432_A );
+  GATE_T_432_I_2:   INV port map ( I0=>A_DECODE_19XPIN, 
+            O=>GATE_T_432_B );
+  GATE_T_432_I_3:   AND3 port map ( O=>T_432, 
+            I0=>A_DECODE_17XPIN, 
+            I2=>GATE_T_432_A, 
+            I1=>GATE_T_432_B );
+  GATE_T_433_I_1:   AND3 port map ( O=>T_433, 
             I2=>BGACK_000PIN, 
             I1=>FC_1XPIN, 
             I0=>FPU_SENSEPIN );

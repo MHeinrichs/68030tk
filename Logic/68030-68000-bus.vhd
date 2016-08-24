@@ -62,7 +62,8 @@ end BUS68030;
 architecture Behavioral of BUS68030 is
 
 -- values are determined empirically
-constant DS_SAMPLE : integer := 12; -- for 7.09 MHz Clock with a base clock of 100Mhz and CPU running at 50MHZ
+constant DS_SAMPLE : integer := 10; -- for 7.09 MHz Clock with a base clock of 100Mhz and CPU running at 25MHZ
+--constant DS_SAMPLE : integer := 12; -- for 7.09 MHz Clock with a base clock of 100Mhz and CPU running at 50MHZ
 
 
 
@@ -160,8 +161,8 @@ begin
 						
 			
 			--here the clock is selected
-			--CLK_OUT_PRE_D 	<= CLK_OUT_PRE_25;
-			CLK_OUT_PRE_D 	<= CLK_OUT_PRE_50;
+			CLK_OUT_PRE_D 	<= CLK_OUT_PRE_25;
+			--CLK_OUT_PRE_D 	<= CLK_OUT_PRE_50;
 			
 			-- the external clock to the processor is generated here
 			CLK_OUT_INT	<= CLK_OUT_PRE_D; --this way we know the clock of the next state: Its like looking in the future, cool!
@@ -257,12 +258,13 @@ begin
 				--bgack is simple: assert as soon as Amiga asserts but hold bg_ack for one amiga-clock 
 				if(BGACK_000='0') then
 					BGACK_030_INT	<= '0';
+					--BGACK_030_INT_PRE<= '0';
 				elsif (	BGACK_000='1' 
 						AND CLK_000_PE='1'
 						AND AS_000 = '1' --the amiga AS can be still active while bgack is deasserted, so wait for this signal too!
 						) then -- BGACK_000 is high here!
-					BGACK_030_INT_PRE<= '1';
-					BGACK_030_INT 	<= BGACK_030_INT_PRE; --hold this signal high until 7m clock goes low
+					--BGACK_030_INT_PRE<= '1';
+					BGACK_030_INT 	<= '1'; --hold this signal high until 7m clock goes low
 				end if;
 				BGACK_030_INT_D <= BGACK_030_INT;
 	
@@ -339,7 +341,7 @@ begin
 				case (SM_AMIGA) is
 					when IDLE_P 	 => --68000:S0 wait for a falling edge
 						RW_000_INT		<= '1';		
-						if( CLK_000_D(1)='0' and CLK_000_D(2)= '1' and AS_030_000_SYNC = '0' and nEXP_SPACE ='1')then -- if this a delayed expansion space detection, do not start an amiga cycle!
+						if( CLK_000_D(0)='0' and CLK_000_D(1)= '1' and AS_030_000_SYNC = '0' and nEXP_SPACE ='1')then -- if this a delayed expansion space detection, do not start an amiga cycle!
 							SM_AMIGA<=IDLE_N;  --go to s1
 						end if;
 					when IDLE_N 	 => --68000:S1 place Adress on bus and wait for rising edge, on a rising CLK_000 look for a amiga adressrobe
@@ -363,7 +365,6 @@ begin
 							SM_AMIGA <= SAMPLE_DTACK_P; 
 						end if;
 					when SAMPLE_DTACK_P=> --68000:S4 wait for dtack or VMA
-						DS_000_ENABLE	<= '1';
 						if(	CLK_000_NE='1' and --falling edge
 							((VPA_D = '1' AND DTACK_D0='0') OR --DTACK end cycle
 							(VPA_D='0' AND cpu_est=E9 AND VMA_INT='0')) --VPA end cycle
@@ -371,18 +372,17 @@ begin
 							SM_AMIGA<=DATA_FETCH_N;
 						end if;
 					when DATA_FETCH_N=> --68000:S5 nothing happens here just wait for positive clock
-						DS_000_ENABLE	<= '1';
 						if(CLK_000_PE = '1')then --go to s6
 							SM_AMIGA<=DATA_FETCH_P;
 						end if;
 					when DATA_FETCH_P => --68000:S6: READ: here comes the data on the bus!
-						DS_000_ENABLE	<= '1';
 						if( (CLK_000_D(DS_SAMPLE-2)='0' AND CLK_000_D((DS_SAMPLE-1))='1' AND not (CLK_030 ='1' and CLK_OUT_PRE_D='0')) OR
 							  (CLK_000_D(DS_SAMPLE-1)='0' AND CLK_000_D((DS_SAMPLE-0))='1' )) then --go to s7 next 030-clock is not a falling edge: dsack is sampled at the falling edge
 							DSACK1_INT <='0'; 
 						end if;
 						if( CLK_000_NE ='1') then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
 							SM_AMIGA<=END_CYCLE_N;
+							DSACK1_INT <='0'; 
 						end if;
 					when END_CYCLE_N =>--68000:S7: Latch/Store data. Wait here for new cycle and go to IDLE on high clock
 						if(CLK_000_PE='1')then --go to s0	
@@ -434,10 +434,8 @@ begin
 					and AS_000='0' 
 					and(UDS_000='0' or LDS_000='0')
 					and (					
-						--CYCLE_DMA ="00" or
 						CYCLE_DMA ="01"
 						or CYCLE_DMA ="10"
-						--or CYCLE_DMA ="11"
 						)				
 					)then 
 					--set AS_000
@@ -460,7 +458,8 @@ begin
 					DS_000_DMA		<= '1';
 					CLK_030_H		<= '0';		
 				end if;		
-			end if;					
+			end if;	
+							
 		end if;
 	end process pos_clk;
 

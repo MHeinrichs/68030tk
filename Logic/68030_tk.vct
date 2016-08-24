@@ -15,8 +15,8 @@ Voltage = 5.0;
 RCS = "$Revision: 1.2 $";
 Parent = m4a5.lci;
 SDS_File = m4a5.sds;
-DATE = 08/18/2016;
-TIME = 23:26:14;
+DATE = 08/23/2016;
+TIME = 20:07:14;
 Source_Format = Pure_VHDL;
 Type = TT2;
 Pre_Fit_Time = 1;
@@ -61,8 +61,8 @@ Max_Blk_In_Percent = 100;
 
 [OPTIMIZATION OPTIONS]
 Logic_Reduction = Yes;
-Max_PTerm_Split = 16;
-Max_PTerm_Collapse = 16;
+Max_PTerm_Split = 20;
+Max_PTerm_Collapse = 20;
 XOR_Synthesis = Yes;
 EN_XOR_Synthesis = Yes;
 XOR_Gate = Yes;
@@ -90,7 +90,7 @@ Max_Symbols = 32;
 
 [FITTER GLOBAL OPTIONS]
 Run_Time = 0;
-Set_Reset_Dont_Care = No;
+Set_Reset_Dont_Care = Yes;
 EN_Set_Reset_Dont_Care = Yes;
 In_Reg_Optimize = Yes;
 EN_In_Reg_Optimize = No;
@@ -104,7 +104,7 @@ Conf_Unused_IOs = Out_Low;
 Zero_Hold_Time = Yes;
 Signature_Word = 0;
 Pull_up = Yes;
-Out_Slew_Rate = SLOW,FAST,7,CLK_DIV_OUT,CLK_EXP,FPU_CS,AMIGA_BUS_DATA_DIR,AMIGA_BUS_ENABLE_LOW,AMIGA_ADDR_ENABLE,AMIGA_BUS_ENABLE_HIGH;
+Out_Slew_Rate = SLOW,FAST,57,CLK_DIV_OUT,CLK_EXP,FPU_CS,AMIGA_BUS_DATA_DIR,AMIGA_BUS_ENABLE_LOW,AMIGA_ADDR_ENABLE,AMIGA_BUS_ENABLE_HIGH,AS_030,A_16_,A_17_,A_18_,A_19_,RW,SIZE_1_,SIZE_0_,AVEC,BGACK_030,BG_000,E,IPL_030_0_,IPL_030_1_,IPL_030_2_,LDS_000,UDS_000,VMA,RESET,CIIN,A_20_,A_21_,A_22_,A_24_,A_25_,A_26_,A_27_,A_28_,A_29_,A_30_,A_31_,DS_030,BERR,A0,DSACK1,RW_000,AS_000,A_23_,A1,A_3_,A_2_,AHIGH_24_,AHIGH_25_,AHIGH_26_,AHIGH_27_,AHIGH_28_,AHIGH_29_,AHIGH_30_,AHIGH_31_,A_0_;
 Device_max_fanin = 33;
 Device_max_pterms = 20;
 Usercode_Format = Hex;
