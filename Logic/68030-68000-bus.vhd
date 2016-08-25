@@ -62,7 +62,7 @@ end BUS68030;
 architecture Behavioral of BUS68030 is
 
 -- values are determined empirically
-constant DS_SAMPLE : integer := 10; -- for 7.09 MHz Clock with a base clock of 100Mhz and CPU running at 25MHZ
+constant DS_SAMPLE : integer := 12; -- for 7.09 MHz Clock with a base clock of 100Mhz and CPU running at 25MHZ
 --constant DS_SAMPLE : integer := 12; -- for 7.09 MHz Clock with a base clock of 100Mhz and CPU running at 50MHZ
 
 
@@ -148,7 +148,7 @@ begin
 	--no ansynchronious reset! the reset is sampled synchroniously
 	--this mut be because of the e-clock: The E-Clock has to run CONSTANTLY 
 	--or the Amiga will fail to boot from a reset. 
-	--However a compilation with no resets on thEe-Clock and resets on other signals does not work, either!
+	--However a compilation with no resets on the E-Clock and resets on other signals does not work, either!
 	pos_clk: process(CLK_OSZI)
 	begin
 		if(rising_edge(CLK_OSZI)) then
@@ -187,20 +187,6 @@ begin
 					when E10 => cpu_est <= E1 ;
 				end case;
 			end if;
-			
-			--this is a statemachine to propagate an internal reset to the amiga
-			--if(	(RESET = '0' and RESET_OUT = '1') or RST_DLY_AMIGA /= "11111111") then --reset condition from the tk-board
-			--	if(RST_DLY_AMIGA = "11111111") then --start of reset
-			--		RESET_OUT_AMIGA <= '1';
-			--		RST_DLY_AMIGA <= "00000000";
-			--	else
-			--		RST_DLY_AMIGA <= RST_DLY_AMIGA+1;
-			--	end if;					
-			--else
-			--	RST_DLY_AMIGA	<= "11111111";
-			--	RESET_OUT_AMIGA <= '0';
-			--end if;
-
 			
 			--the statemachine
 			if(RST = '0' ) then
@@ -376,10 +362,10 @@ begin
 							SM_AMIGA<=DATA_FETCH_P;
 						end if;
 					when DATA_FETCH_P => --68000:S6: READ: here comes the data on the bus!
-						if( (CLK_000_D(DS_SAMPLE-2)='0' AND CLK_000_D((DS_SAMPLE-1))='1' AND not (CLK_030 ='1' and CLK_OUT_PRE_D='0')) OR
-							  (CLK_000_D(DS_SAMPLE-1)='0' AND CLK_000_D((DS_SAMPLE-0))='1' )) then --go to s7 next 030-clock is not a falling edge: dsack is sampled at the falling edge
-							DSACK1_INT <='0'; 
-						end if;
+						--if( (CLK_000_D(DS_SAMPLE-2)='0' AND CLK_000_D((DS_SAMPLE-1))='1' AND not (CLK_030 ='1' and CLK_OUT_PRE_D='0')) OR
+						--	  (CLK_000_D(DS_SAMPLE-1)='0' AND CLK_000_D((DS_SAMPLE-0))='1' )) then --go to s7 next 030-clock is not a falling edge: dsack is sampled at the falling edge
+						--	DSACK1_INT <='0'; 
+						--end if;
 						if( CLK_000_NE ='1') then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
 							SM_AMIGA<=END_CYCLE_N;
 							DSACK1_INT <='0'; 
@@ -500,19 +486,17 @@ begin
 	DS_030	<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE = '1' or RESET_OUT ='0' else
 				'0' when DS_000_DMA ='0' and AS_000 ='0' else 
 			   	'1';
-	A(0)		<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE = '1' or RESET_OUT ='0' else
-				'0' when A0_DMA ='0' else 
-			   	'1';
+	A(0)		<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE = '1' or RESET_OUT ='0' --tristate on CPU-Cycle
+							else	A0_DMA; --drive on DMA-Cycle
 	A(1)	<= 'Z';
 	AHIGH <= "ZZZZZZZZ" when BGACK_030_INT ='1' OR nEXP_SPACE = '1' or RESET_OUT ='0' else x"00";
 	SIZE	<= 	"ZZ" when BGACK_030_INT ='1' OR nEXP_SPACE = '1' else
-				"10" when SIZE_DMA ="10" else 
-			   	"01" when SIZE_DMA ="01" else
-			   	"00";
+						"10" when SIZE_DMA ="10" else 
+			   		"01" when SIZE_DMA ="01" else
+			   		"00";
 	--rw
-	RW		<= 	'Z' when BGACK_030_INT ='1' or RESET_OUT ='0' else
-				'0' when RW_000_DMA ='0' else 
-			   	'1';
+	RW		<= 	'Z' when BGACK_030_INT ='1' or RESET_OUT ='0' --tristate on CPU cycle
+						else RW_000_DMA; --drive on DMA-Cycle
 	
 	BGACK_030	<= BGACK_030_INT;	
 
@@ -545,24 +529,23 @@ begin
 		
 	--as and uds/lds
 	AS_000	<=  'Z' when BGACK_030_INT ='0' or RESET_OUT ='0' else
-				'0' when AS_000_INT ='0' and AS_030 ='0' else 
-			   	'1';
-	RW_000	<=  'Z' when BGACK_030_INT ='0' or RESET_OUT ='0' else
-				'0' when RW_000_INT ='0' else 
-			   	'1';
+							'0' when AS_000_INT ='0' and AS_030 ='0' else 
+			   			'1';
+	RW_000	<=  'Z' when BGACK_030_INT ='0' or RESET_OUT ='0' --tristate on DMA-cycle
+							else RW_000_INT; -- drive on CPU cycle
 
-	UDS_000	<=  'Z' when BGACK_030_INT ='0' or RESET_OUT ='0' else -- output on cpu cycle
-			    --'1' when DS_000_ENABLE ='0' else 
-				'0' when UDS_000_INT ='0' and DS_000_ENABLE ='1' else -- datastrobe not ready jet
-			   	'1';
-	LDS_000	<= 	'Z' when BGACK_030_INT ='0' or RESET_OUT ='0' else -- output on cpu cycle
-			   	--'1' when DS_000_ENABLE ='0' else 
-				'0' when LDS_000_INT ='0' and DS_000_ENABLE ='1' else -- datastrobe not ready jet
-			   	'1';
+	UDS_000	<=  'Z' when BGACK_030_INT ='0' or RESET_OUT ='0' else --tristate on DMA cycle
+			    		--'1' when DS_000_ENABLE ='0' else 
+							UDS_000_INT when DS_000_ENABLE ='1' -- output on cpu cycle
+							else '1'; -- datastrobe not ready jet
+	LDS_000	<= 	'Z' when BGACK_030_INT ='0' or RESET_OUT ='0' else --tristate on DMA cycle
+			   			--'1' when DS_000_ENABLE ='0' else 
+							LDS_000_INT when  DS_000_ENABLE ='1' -- output on cpu cycle
+							else '1'; -- datastrobe not ready jet
 
 	--dsack
-	DSACK1	<= 	'Z' when nEXP_SPACE = '0' else -- output on amiga cycle
-				'0' when DSACK1_INT ='0' else 
-			   	'1';
+	DSACK1	<= 	'Z' when nEXP_SPACE = '0' --tristate on expansionboard cycle
+							else DSACK1_INT; -- output on amiga cycle
+
 	
 end Behavioral;

@@ -6,7 +6,7 @@
 #Implementation: logic
 
 $ Start of Compile
-#Wed Aug 24 22:17:42 2016
+#Thu Aug 25 22:27:46 2016
 
 Synopsys VHDL Compiler, version comp201403rcp1, Build 060R, built May 27 2014
 @N|Running in 64-bit mode
@@ -27,6 +27,7 @@ Post processing for work.bus68030.behavioral
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:38:131:40|Pruning register BGACK_030_INT_PRE_2  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":130:34:130:36|Pruning register CLK_OUT_EXP_INT_2  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":154:2:154:3|Pruning register CLK_030_D0_2  
+@W: CL271 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:38:131:40|Pruning bits 12 to 2 of CLK_000_D_3(12 downto 0) -- not in use ... 
 @N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:38:131:40|Trying to extract state machine for register SM_AMIGA
 Extracted state machine for register SM_AMIGA
 State machine has 8 reachable states with original encodings of:
@@ -42,10 +43,10 @@ State machine has 8 reachable states with original encodings of:
 @W: CL246 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":24:1:24:8|Input port bits 15 to 2 of a_decode(23 downto 2) are unused 
 @END
 
-At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 71MB peak: 72MB)
+At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 70MB peak: 71MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Wed Aug 24 22:17:43 2016
+# Thu Aug 25 22:27:46 2016
 
 ###########################################################]
 Synopsys Netlist Linker, version comp201403rcp1, Build 060R, built May 27 2014
@@ -55,6 +56,6 @@ File C:\users\matze\documents\github\68030tk\logic\synwork\BUS68030_comp.srs cha
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 67MB peak: 68MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Wed Aug 24 22:17:44 2016
+# Thu Aug 25 22:27:48 2016
 
 ###########################################################]

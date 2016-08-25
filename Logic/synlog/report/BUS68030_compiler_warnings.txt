@@ -4,5 +4,6 @@
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:38:131:40|Pruning register BGACK_030_INT_PRE_2  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":130:34:130:36|Pruning register CLK_OUT_EXP_INT_2  
 @W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":154:2:154:3|Pruning register CLK_030_D0_2  
+@W: CL271 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:38:131:40|Pruning bits 12 to 2 of CLK_000_D_3(12 downto 0) -- not in use ... 
 @W: CL246 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":24:1:24:8|Input port bits 15 to 2 of a_decode(23 downto 2) are unused 
 
