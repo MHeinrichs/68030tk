@@ -1,14 +1,14 @@
 #--  Synopsys, Inc.
 #--  Version I-2014.03LC 
-#--  Project file C:\users\matze\documents\github\68030tk\logic\scratchproject.prs
+#--  Project file C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\scratchproject.prs
 
 #project files
-add_file -vhdl -lib work "C:/users/matze/documents/github/68030tk/logic/68030-68000-bus.vhd"
+add_file -vhdl -lib work "C:/users/matze/amiga/hardwarehacks/68030-tk/github/logic/68030-68000-bus.vhd"
 
 
 
 #implementation: "logic"
-impl -add C:\users\matze\documents\github\68030tk\logic -type fpga
+impl -add C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic -type fpga
 
 #device options
 set_option -technology mach
@@ -47,8 +47,8 @@ set_option -auto_infer_blackbox 0
 set_option -write_apr_constraint 1
 
 #set result format/file last
-project -result_file "C:/users/matze/documents/github/68030tk/logic/BUS68030.edi"
+project -result_file "C:/users/matze/amiga/hardwarehacks/68030-tk/github/logic/BUS68030.edi"
 
 #set log file 
-set_option log_file "C:/users/matze/documents/github/68030tk/logic/bus68030.srf" 
+set_option log_file "C:/users/matze/amiga/hardwarehacks/68030-tk/github/logic/bus68030.srf" 
 impl -active "logic"

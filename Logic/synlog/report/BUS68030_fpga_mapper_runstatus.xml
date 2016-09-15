@@ -5,7 +5,7 @@ The file contains the job information from mapper to be displayed as part of the
 *******************************************************************************************-->
 <job_run_status name="Mapper">
 <report_link name="Detailed report">
-<data>C:\users\matze\documents\github\68030tk\logic\synlog\BUS68030_fpga_mapper.srr</data>
+<data>C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\synlog\BUS68030_fpga_mapper.srr</data>
 <title>Synopsys CPLD Technology Mapper</title>
 </report_link>
 <job_status>
@@ -15,19 +15,19 @@ The file contains the job information from mapper to be displayed as part of the
 <info name="Notes">
 <data>2</data>
 <report_link name="more">
-<data>C:\users\matze\documents\github\68030tk\logic\synlog\report\BUS68030_fpga_mapper_notes.txt</data>
+<data>C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\synlog\report\BUS68030_fpga_mapper_notes.txt</data>
 </report_link>
 </info>
 <info name="Warnings">
 <data>0</data>
 <report_link name="more">
-<data>C:\users\matze\documents\github\68030tk\logic\synlog\report\BUS68030_fpga_mapper_warnings.txt</data>
+<data>C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\synlog\report\BUS68030_fpga_mapper_warnings.txt</data>
 </report_link>
 </info>
 <info name="Errors">
 <data>0</data>
 <report_link name="more">
-<data>C:\users\matze\documents\github\68030tk\logic\synlog\report\BUS68030_fpga_mapper_errors.txt</data>
+<data>C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\synlog\report\BUS68030_fpga_mapper_errors.txt</data>
 </report_link>
 </info>
 <info name="CPU Time">
@@ -40,7 +40,7 @@ The file contains the job information from mapper to be displayed as part of the
 <data>105MB</data>
 </info>
 <info name="Date &amp; Time">
-<data type="timestamp">1472156868</data>
+<data type="timestamp">1473890062</data>
 </info>
 </job_info>
 </job_run_status>

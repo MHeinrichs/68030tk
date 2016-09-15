@@ -1,1 +1,1 @@
-project -load c:/users/matze/documents/github/68030tk/logic/BUS68030.prj
+project -load c:/users/matze/amiga/hardwarehacks/68030-tk/github/logic/BUS68030.prj

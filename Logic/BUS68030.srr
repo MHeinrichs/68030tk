@@ -6,29 +6,29 @@
 #Implementation: logic
 
 $ Start of Compile
-#Thu Aug 25 22:27:46 2016
+#Wed Sep 14 23:54:20 2016
 
 Synopsys VHDL Compiler, version comp201403rcp1, Build 060R, built May 27 2014
 @N|Running in 64-bit mode
 Copyright (C) 1994-2014 Synopsys, Inc. This software and the associated documentation are proprietary to Synopsys, Inc. This software may only be used in accordance with the terms and conditions of a written license agreement with Synopsys, Inc.  All other use, reproduction, or distribution of this software is strictly prohibited.
 
 @N: CD720 :"E:\ispLEVER_Classic2_0\synpbase\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
-@N:"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Top entity is set to BUS68030.
-File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed - recompiling
+@N:"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":13:7:13:14|Top entity is set to BUS68030.
+File C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd changed - recompiling
 VHDL syntax check successful!
-File C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd changed - recompiling
-@N: CD630 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":13:7:13:14|Synthesizing work.bus68030.behavioral 
-@N: CD233 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":70:10:70:11|Using sequential encoding for type sm_e
-@N: CD233 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":87:14:87:15|Using sequential encoding for type sm_68000
-@W: CD638 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":128:7:128:17|Signal clk_out_pre is undriven 
+File C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd changed - recompiling
+@N: CD630 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":13:7:13:14|Synthesizing work.bus68030.behavioral 
+@N: CD233 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":70:10:70:11|Using sequential encoding for type sm_e
+@N: CD233 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":87:14:87:15|Using sequential encoding for type sm_68000
+@W: CD638 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":128:7:128:17|Signal clk_out_pre is undriven 
 Post processing for work.bus68030.behavioral
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:38:131:40|Pruning register DS_030_D0_3  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:38:131:40|Pruning register nEXP_SPACE_D0_3  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:38:131:40|Pruning register BGACK_030_INT_PRE_2  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":130:34:130:36|Pruning register CLK_OUT_EXP_INT_2  
-@W: CL169 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":154:2:154:3|Pruning register CLK_030_D0_2  
-@W: CL271 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:38:131:40|Pruning bits 12 to 2 of CLK_000_D_3(12 downto 0) -- not in use ... 
-@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:38:131:40|Trying to extract state machine for register SM_AMIGA
+@W: CL169 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":131:38:131:40|Pruning register DS_030_D0_3  
+@W: CL169 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":131:38:131:40|Pruning register nEXP_SPACE_D0_3  
+@W: CL169 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":131:38:131:40|Pruning register BGACK_030_INT_PRE_2  
+@W: CL169 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":130:34:130:36|Pruning register CLK_OUT_EXP_INT_2  
+@W: CL169 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":154:2:154:3|Pruning register CLK_030_D0_2  
+@W: CL271 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":131:38:131:40|Pruning bits 12 to 3 of CLK_000_D_3(12 downto 0) -- not in use ... 
+@N: CL201 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":131:38:131:40|Trying to extract state machine for register SM_AMIGA
 Extracted state machine for register SM_AMIGA
 State machine has 8 reachable states with original encodings of:
    000
@@ -39,24 +39,24 @@ State machine has 8 reachable states with original encodings of:
    101
    110
    111
-@N: CL201 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:38:131:40|Trying to extract state machine for register cpu_est
-@W: CL246 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":24:1:24:8|Input port bits 15 to 2 of a_decode(23 downto 2) are unused 
+@N: CL201 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":131:38:131:40|Trying to extract state machine for register cpu_est
+@W: CL246 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":24:1:24:8|Input port bits 15 to 2 of a_decode(23 downto 2) are unused 
 @END
 
 At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 70MB peak: 71MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Thu Aug 25 22:27:46 2016
+# Wed Sep 14 23:54:21 2016
 
 ###########################################################]
 Synopsys Netlist Linker, version comp201403rcp1, Build 060R, built May 27 2014
 @N|Running in 64-bit mode
-File C:\users\matze\documents\github\68030tk\logic\synwork\BUS68030_comp.srs changed - recompiling
+File C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\synwork\BUS68030_comp.srs changed - recompiling
 
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 67MB peak: 68MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Thu Aug 25 22:27:48 2016
+# Wed Sep 14 23:54:22 2016
 
 ###########################################################]
 Map & Optimize Report
@@ -65,7 +65,7 @@ Synopsys CPLD Technology Mapper, Version maplat, Build 923R, Built May  6 2014
 Copyright (C) 1994-2013, Synopsys, Inc. This software and the associated documentation are proprietary to Synopsys, Inc. This software may only be used in accordance with the terms and conditions of a written license agreement with Synopsys, Inc.  All other use or distribution of the software is strictly prohibited.
 Product Version I-2014.03LC 
 @N: MF248 |Running in 64-bit mode.
-@N:"c:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":131:38:131:40|Found counter in view:work.BUS68030(behavioral) inst RST_DLY[2:0]
+@N:"c:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":131:38:131:40|Found counter in view:work.BUS68030(behavioral) inst RST_DLY[2:0]
 Encoding state machine SM_AMIGA[0:7] (view:work.BUS68030(behavioral))
 original code -> new code
    000 -> 00000000
@@ -80,13 +80,13 @@ original code -> new code
 Resource Usage Report
 
 Simple gate primitives:
-DFF             53 uses
+DFF             54 uses
 BI_DIR          18 uses
 BUFTH           4 uses
 IBUF            38 uses
 OBUF            15 uses
-AND2            286 uses
-INV             258 uses
+AND2            269 uses
+INV             239 uses
 OR2             25 uses
 XOR2            6 uses
 
@@ -98,6 +98,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 39MB peak: 105MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Thu Aug 25 22:27:48 2016
+# Wed Sep 14 23:54:22 2016
 
 ###########################################################]

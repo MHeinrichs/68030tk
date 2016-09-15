@@ -278,7 +278,7 @@ begin
 				-- as030-sampling and FPU-Select
 	
 				
-				if(AS_030_D0 ='1' or BERR='0') then -- "async" reset of various signals
+				if(AS_030_D0 ='1') then -- "async" reset of various signals
 					AS_030_000_SYNC <= '1';
 					DSACK1_INT		<= '1';
 					AS_000_INT  	<= '1';
@@ -320,14 +320,14 @@ begin
 	
 				--Amiga statemachine
 	
-				if(BERR='0')then --"async" reset on errors
-					SM_AMIGA<=IDLE_P;
-				end if;
+				--if(BERR='0')then --"async" reset on errors
+				--	SM_AMIGA<=IDLE_P;
+				--end if;
 	
 				case (SM_AMIGA) is
 					when IDLE_P 	 => --68000:S0 wait for a falling edge
 						RW_000_INT		<= '1';		
-						if( CLK_000_D(0)='0' and CLK_000_D(1)= '1' and AS_030_000_SYNC = '0' and nEXP_SPACE ='1')then -- if this a delayed expansion space detection, do not start an amiga cycle!
+						if( CLK_000_D(1)='0' and CLK_000_D(2)= '1' and AS_030_000_SYNC = '0' and nEXP_SPACE ='1')then -- if this a delayed expansion space detection, do not start an amiga cycle!
 							SM_AMIGA<=IDLE_N;  --go to s1
 						end if;
 					when IDLE_N 	 => --68000:S1 place Adress on bus and wait for rising edge, on a rising CLK_000 look for a amiga adressrobe
@@ -353,6 +353,7 @@ begin
 					when SAMPLE_DTACK_P=> --68000:S4 wait for dtack or VMA
 						if(	CLK_000_NE='1' and --falling edge
 							((VPA_D = '1' AND DTACK_D0='0') OR --DTACK end cycle
+							(VPA_D = '1' AND BERR='0') OR --Bus error
 							(VPA_D='0' AND cpu_est=E9 AND VMA_INT='0')) --VPA end cycle
 							)then --go to s5
 							SM_AMIGA<=DATA_FETCH_N;

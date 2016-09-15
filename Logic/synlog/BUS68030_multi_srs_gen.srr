@@ -1,10 +1,10 @@
 Synopsys Netlist Linker, version comp201403rcp1, Build 060R, built May 27 2014
 @N|Running in 64-bit mode
-File C:\users\matze\documents\github\68030tk\logic\synwork\BUS68030_comp.srs changed - recompiling
+File C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\synwork\BUS68030_comp.srs changed - recompiling
 
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 67MB peak: 68MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Thu Aug 25 22:27:48 2016
+# Wed Sep 14 23:54:22 2016
 
 ###########################################################]
