@@ -1,112 +1,113 @@
 #$ TOOL ispLEVER Classic 2.0.00.17.20.15
-#$ DATE Wed Sep 14 23:54:26 2016
+#$ DATE Thu Oct 06 21:34:55 2016
 #$ MODULE 68030_tk
 #$ PINS 75 SIZE_1_ AHIGH_31_ A_DECODE_23_ IPL_030_2_ IPL_2_ FC_1_ AS_030 AS_000 RW_000 \
-#  DS_030 UDS_000 LDS_000 nEXP_SPACE BERR BG_030 BG_000 BGACK_030 BGACK_000 CLK_030 CLK_000 \
-#  SIZE_0_ CLK_OSZI AHIGH_30_ CLK_DIV_OUT AHIGH_29_ CLK_EXP AHIGH_28_ FPU_CS AHIGH_27_ \
-#  FPU_SENSE AHIGH_26_ DSACK1 AHIGH_25_ DTACK AHIGH_24_ AVEC A_DECODE_22_ E A_DECODE_21_ \
-#  VPA A_DECODE_20_ VMA A_DECODE_19_ RST A_DECODE_18_ RESET A_DECODE_17_ RW A_DECODE_16_ \
-#  AMIGA_ADDR_ENABLE A_DECODE_15_ AMIGA_BUS_DATA_DIR A_DECODE_14_ \
-#  AMIGA_BUS_ENABLE_LOW A_DECODE_13_ AMIGA_BUS_ENABLE_HIGH A_DECODE_12_ CIIN \
-#  A_DECODE_11_ A_DECODE_10_ A_DECODE_9_ A_DECODE_8_ A_DECODE_7_ A_DECODE_6_ \
-#  A_DECODE_5_ A_DECODE_4_ A_DECODE_3_ A_DECODE_2_ A_0_ IPL_030_1_ IPL_030_0_ IPL_1_ \
-#  IPL_0_ FC_0_ A_1_
-#$ NODES 602 N_130_i pos_clk_un6_bgack_000_0_n N_131_i DTACK_c_i CLK_030_H_i N_56_0 \
-#  RW_000_i VPA_c_i a_i_1__n N_55_0 RESET_OUT_i N_6_i AS_030_i N_47_0 FPU_SENSE_i N_26_i \
-#  inst_BGACK_030_INTreg sm_amiga_i_i_7__n N_34_0 vcc_n_n a_decode_i_16__n BG_030_c_i \
-#  inst_VMA_INTreg AS_030_D0_i pos_clk_un6_bg_030_i_n gnd_n_n size_dma_i_0__n \
-#  pos_clk_un9_bg_030_0_n un1_amiga_bus_enable_low size_dma_i_1__n N_25_i un6_as_030 \
-#  a_decode_i_18__n N_35_0 un3_size a_decode_i_19__n N_24_i un4_size ahigh_i_30__n \
-#  N_36_0 un1_LDS_000_INT ahigh_i_31__n N_17_i un1_UDS_000_INT ahigh_i_28__n N_43_0 \
-#  un1_SM_AMIGA_0_sqmuxa_1 ahigh_i_29__n N_4_i un1_DS_000_ENABLE_0_sqmuxa \
-#  ahigh_i_26__n N_49_0 un4_as_000 ahigh_i_27__n N_3_i un10_ciin ahigh_i_24__n N_50_0 \
-#  un21_fpu_cs ahigh_i_25__n N_215_i un21_berr N_210_i N_216_i un6_ds_030 N_211_i N_301_0 \
-#  cpu_est_2_ N_212_i N_243_0 cpu_est_3_ N_266_i cpu_est_0_ un6_ds_030_i N_249_i \
-#  cpu_est_1_ un4_as_000_i AMIGA_BUS_DATA_DIR_c_0 inst_AS_000_INT AS_000_INT_i N_268_i \
-#  inst_AMIGA_BUS_ENABLE_DMA_LOW un6_as_030_i pos_clk_ds_000_dma_4_0_n \
-#  inst_AS_030_D0 AS_030_c CLK_030_c_i inst_AS_030_000_SYNC N_236_0 \
-#  inst_BGACK_030_INT_D AS_000_c un1_as_000_i inst_AS_000_DMA N_297_i inst_DS_000_DMA \
-#  RW_000_c N_160_i CYCLE_DMA_0_ pos_clk_un21_bgack_030_int_i_0_i_n CYCLE_DMA_1_ \
-#  N_100_i SIZE_DMA_0_ UDS_000_c N_186_0 SIZE_DMA_1_ N_183_0 inst_VPA_D LDS_000_c N_182_0 \
-#  CLK_000_D_1_ N_181_0 inst_DTACK_D0 size_c_0__n N_228_i inst_RESET_OUT N_176_0 \
-#  CLK_000_D_0_ size_c_1__n LDS_000_c_i inst_CLK_OUT_PRE_50 UDS_000_c_i \
-#  inst_CLK_OUT_PRE_25 ahigh_c_24__n N_173_i inst_CLK_OUT_PRE_D N_304_i IPL_D0_0_ \
-#  ahigh_c_25__n AS_030_000_SYNC_i IPL_D0_1_ N_157_i IPL_D0_2_ ahigh_c_26__n N_110_0 \
-#  CLK_000_D_2_ RW_c_i pos_clk_un6_bg_030_n ahigh_c_27__n N_106_0 \
-#  inst_AMIGA_BUS_ENABLE_DMA_HIGH N_284_i inst_DSACK1_INTreg ahigh_c_28__n \
-#  pos_clk_ipl_n N_334_i inst_LDS_000_INT ahigh_c_29__n inst_DS_000_ENABLE N_278_i \
-#  inst_UDS_000_INT ahigh_c_30__n N_279_i SM_AMIGA_6_ SM_AMIGA_4_ ahigh_c_31__n N_332_i \
-#  SM_AMIGA_1_ N_237_0 SM_AMIGA_0_ un1_SM_AMIGA_0_sqmuxa_1_0 inst_RW_000_INT N_247_i \
-#  inst_RW_000_DMA N_248_i RST_DLY_0_ RST_DLY_1_ N_246_i RST_DLY_2_ inst_A0_DMA \
-#  pos_clk_a0_dma_3_n un10_ciin_i inst_CLK_030_H N_241_0 SM_AMIGA_5_ \
-#  un1_DS_000_ENABLE_0_sqmuxa_i SM_AMIGA_3_ N_242_0 SM_AMIGA_2_ N_48_i N_227_i N_9 \
-#  N_225_i N_224_i N_15 N_223_i N_16 N_22 N_218_i CLK_OUT_PRE_25_0 \
-#  pos_clk_size_dma_6_0_1__n N_217_i pos_clk_size_dma_6_0_0__n N_213_i N_319_i N_300_0 \
-#  N_15_i a_decode_c_16__n N_45_0 N_16_i a_decode_c_17__n N_44_0 N_22_i a_decode_c_18__n \
-#  N_38_0 pos_clk_un21_bgack_030_int_i_0_i_1_n a_decode_c_19__n \
-#  pos_clk_un21_bgack_030_int_i_0_i_2_n N_238_i_1 a_decode_c_20__n N_238_i_2 \
-#  N_239_i_1 a_decode_c_21__n N_239_i_2 pos_clk_un10_sm_amiga_i_1_n a_decode_c_22__n \
-#  un10_ciin_1 un10_ciin_2 a_decode_c_23__n un10_ciin_3 un10_ciin_4 a_c_0__n \
-#  un10_ciin_5 un10_ciin_6 SM_AMIGA_i_7_ a_c_1__n un10_ciin_7 pos_clk_size_dma_6_0__n \
-#  un10_ciin_8 pos_clk_size_dma_6_1__n nEXP_SPACE_c un10_ciin_9 G_107 un10_ciin_10 \
-#  G_108 BERR_c un10_ciin_11 G_109 N_357_1 pos_clk_un21_bgack_030_int_i_0_n BG_030_c \
-#  N_357_2 N_237 N_357_3 N_241 BG_000DFFreg N_357_4 N_242 N_304_i_1 un21_fpu_cs_1 N_283 \
-#  BGACK_000_c un21_berr_1_0 N_294 N_266_1 N_300 CLK_030_c N_266_2 N_67_i_1 N_106 N_67_i_2 \
-#  N_314_1 N_134 CLK_OSZI_c N_314_2 N_138 N_318_1 N_156 N_318_2 N_160 CLK_OUT_INTreg \
-#  N_341_1 N_167 N_341_2 N_172 N_151_i_1 N_173 FPU_SENSE_c N_143_i_1 N_181 N_141_i_1 N_182 \
-#  IPL_030DFF_0_reg N_237_0_1 N_183 N_240_i_1 N_191 IPL_030DFF_1_reg N_60_i_1 N_199 \
-#  N_64_i_1 N_205 IPL_030DFF_2_reg N_155_i_1 N_209 N_147_i_1 N_319 ipl_c_0__n N_145_i_1 \
-#  N_213 N_139_i_1 N_216 ipl_c_1__n pos_clk_un6_bg_030_1_n N_217 N_220_1 N_218 ipl_c_2__n \
-#  N_216_1 N_220 N_205_1 N_223 N_199_1 N_224 DTACK_c pos_clk_ipl_1_n N_225 \
-#  uds_000_int_0_un3_n N_227 uds_000_int_0_un1_n N_228 uds_000_int_0_un0_n N_246 VPA_c \
-#  as_000_int_0_un3_n N_247 as_000_int_0_un1_n N_248 as_000_int_0_un0_n N_332 RST_c \
-#  dsack1_int_0_un3_n N_278 dsack1_int_0_un1_n N_279 dsack1_int_0_un0_n N_334 RW_c \
-#  vma_int_0_un3_n N_284 vma_int_0_un1_n N_343 fc_c_0__n vma_int_0_un0_n \
-#  pos_clk_CYCLE_DMA_5_1_i_0_x2 lds_000_int_0_un3_n un21_berr_1 fc_c_1__n \
-#  lds_000_int_0_un1_n N_357 lds_000_int_0_un0_n N_266 ipl_030_0_1__un3_n N_186 \
-#  AMIGA_BUS_DATA_DIR_c ipl_030_0_1__un1_n pos_clk_un21_bgack_030_int_i_0_o2_2_x2 \
-#  ipl_030_0_1__un0_n N_297 ipl_030_0_0__un3_n N_236 ipl_030_0_0__un1_n \
-#  pos_clk_ds_000_dma_4_n ipl_030_0_0__un0_n N_268 UDS_000_INT_i cpu_est_0_3__un3_n \
-#  N_249 un1_UDS_000_INT_0 cpu_est_0_3__un1_n N_243 LDS_000_INT_i cpu_est_0_3__un0_n \
-#  N_215 un1_LDS_000_INT_0 cpu_est_0_2__un3_n N_130 N_23_i cpu_est_0_2__un1_n N_131 \
-#  N_37_0 cpu_est_0_2__un0_n N_3 N_21_i cpu_est_0_1__un3_n N_4 N_39_0 cpu_est_0_1__un1_n \
-#  N_17 N_20_i cpu_est_0_1__un0_n N_24 N_40_0 ipl_030_0_2__un3_n N_25 N_19_i \
-#  ipl_030_0_2__un1_n pos_clk_un9_bg_030_n N_41_0 ipl_030_0_2__un0_n N_6 N_14_i \
-#  amiga_bus_enable_dma_low_0_un3_n pos_clk_un6_bgack_000_n N_46_0 \
-#  amiga_bus_enable_dma_low_0_un1_n N_26 ipl_c_i_0__n \
-#  amiga_bus_enable_dma_low_0_un0_n N_208 N_52_0 rw_000_dma_0_un3_n N_207 ipl_c_i_1__n \
-#  rw_000_dma_0_un1_n N_349 N_53_0 rw_000_dma_0_un0_n N_314 ipl_c_i_2__n \
-#  as_000_dma_0_un3_n N_318 N_54_0 as_000_dma_0_un1_n N_348 N_27_i as_000_dma_0_un0_n \
-#  N_201 N_31_0 ds_000_dma_0_un3_n N_200 N_28_i ds_000_dma_0_un1_n N_203 N_32_0 \
-#  ds_000_dma_0_un0_n N_204 N_29_i bgack_030_int_0_un3_n N_185 N_33_0 \
-#  bgack_030_int_0_un1_n N_184 a_c_i_0__n bgack_030_int_0_un0_n N_180 size_c_i_1__n \
-#  bg_000_0_un3_n N_179 pos_clk_un10_sm_amiga_i_n bg_000_0_un1_n N_178 N_256_0 \
-#  bg_000_0_un0_n N_171 N_318_i amiga_bus_enable_dma_high_0_un3_n N_341 N_314_i \
-#  amiga_bus_enable_dma_high_0_un1_n N_342 pos_clk_un9_clk_000_pe_0_n \
-#  amiga_bus_enable_dma_high_0_un0_n N_169 N_219_i \
-#  un1_amiga_bus_enable_dma_high_i_m2_i_m2_0__un3_n N_154 N_220_i \
-#  un1_amiga_bus_enable_dma_high_i_m2_i_m2_0__un1_n N_165 cpu_est_2_0_1__n \
-#  un1_amiga_bus_enable_dma_high_i_m2_i_m2_0__un0_n N_162 N_221_i \
-#  size_dma_0_0__un3_n N_299 N_348_i size_dma_0_0__un1_n N_153 cpu_est_2_0_2__n \
-#  size_dma_0_0__un0_n N_142 N_222_i size_dma_0_1__un3_n N_298 N_196_i \
-#  size_dma_0_1__un1_n N_80 N_226_i size_dma_0_1__un0_n N_232 ds_000_enable_0_un3_n \
-#  N_233 N_231_i ds_000_enable_0_un1_n N_229 N_229_i ds_000_enable_0_un0_n N_231 N_302_i \
-#  as_030_000_sync_0_un3_n N_226 N_233_i as_030_000_sync_0_un1_n N_221 N_232_i \
-#  as_030_000_sync_0_un0_n N_222 rw_000_int_0_un3_n cpu_est_2_2__n N_80_0 \
-#  rw_000_int_0_un1_n cpu_est_2_1__n N_343_i rw_000_int_0_un0_n N_219 N_214_0 \
-#  a0_dma_0_un3_n pos_clk_un9_clk_000_pe_n N_166_i a0_dma_0_un1_n N_256 N_134_i \
-#  a0_dma_0_un0_n N_29 N_298_i a_decode_15__n N_28 N_142_0 N_27 N_153_i a_decode_14__n \
-#  N_14 N_154_0 N_19 N_156_i a_decode_13__n N_20 N_305_i N_21 N_299_i a_decode_12__n N_23 \
-#  N_162_0 un1_amiga_bus_enable_low_i N_165_0 a_decode_11__n un21_fpu_cs_i N_169_i \
-#  cpu_est_i_1__n VMA_INT_i a_decode_10__n rst_dly_i_2__n N_341_i rst_dly_i_1__n \
-#  N_342_i a_decode_9__n cpu_est_i_0__n N_171_i cpu_est_i_2__n N_172_i a_decode_8__n \
-#  sm_amiga_i_0__n N_178_0 sm_amiga_i_3__n N_179_0 a_decode_7__n sm_amiga_i_4__n \
-#  N_180_0 sm_amiga_i_5__n N_184_0 a_decode_6__n rst_dly_i_0__n N_185_0 sm_amiga_i_2__n \
-#  N_203_i a_decode_5__n sm_amiga_i_1__n N_204_i VPA_D_i N_205_i a_decode_4__n \
-#  clk_000_d_i_1__n cpu_est_i_3__n N_200_i a_decode_3__n sm_amiga_i_6__n N_199_i \
-#  clk_000_d_i_0__n N_201_i a_decode_2__n BGACK_030_INT_i AS_000_i AS_000_DMA_i N_208_i \
-#  nEXP_SPACE_i N_207_i cycle_dma_i_0__n N_167_i DS_000_DMA_i N_138_i \
-#  AMIGA_BUS_ENABLE_DMA_LOW_i N_349_i
+#  DS_030 UDS_000 LDS_000 nEXP_SPACE BERR BG_030 BG_000 BGACK_030 BGACK_000 CLK_030 SIZE_0_ \
+#  CLK_000 AHIGH_30_ CLK_OSZI AHIGH_29_ CLK_DIV_OUT AHIGH_28_ CLK_EXP AHIGH_27_ FPU_CS \
+#  AHIGH_26_ FPU_SENSE AHIGH_25_ DSACK1 AHIGH_24_ DTACK A_DECODE_22_ AVEC A_DECODE_21_ E \
+#  A_DECODE_20_ VPA A_DECODE_19_ VMA A_DECODE_18_ RST A_DECODE_17_ RESET A_DECODE_16_ RW \
+#  A_DECODE_15_ AMIGA_ADDR_ENABLE A_DECODE_14_ AMIGA_BUS_DATA_DIR A_DECODE_13_ \
+#  AMIGA_BUS_ENABLE_LOW A_DECODE_12_ AMIGA_BUS_ENABLE_HIGH A_DECODE_11_ CIIN \
+#  A_DECODE_10_ A_DECODE_9_ A_DECODE_8_ A_DECODE_7_ A_DECODE_6_ A_DECODE_5_ A_DECODE_4_ \
+#  A_DECODE_3_ A_DECODE_2_ A_0_ IPL_030_1_ IPL_030_0_ IPL_1_ IPL_0_ FC_0_ A_1_
+#$ NODES 601 nEXP_SPACE_i N_171_i CLK_030_H_i FPU_SENSE_i N_121_i AS_030_i N_255_0 \
+#  AS_000_DMA_i un1_SM_AMIGA_0_sqmuxa_1_0 AS_000_i N_48_0 AS_000_INT_i N_125_i \
+#  DSACK1_INT_i N_126_i inst_BGACK_030_INTreg clk_000_d_i_0__n vcc_n_n \
+#  clk_000_d_i_3__n N_127_i un5_e clk_000_d_i_1__n N_128_i inst_VMA_INTreg \
+#  cpu_est_i_2__n gnd_n_n cpu_est_i_3__n RW_c_i un1_amiga_bus_enable_low \
+#  a_decode_i_16__n pos_clk_rw_000_int_5_0_n un7_as_030 a_decode_i_18__n N_129_i \
+#  un1_UDS_000_INT a_decode_i_19__n un1_LDS_000_INT ahigh_i_30__n \
+#  un1_SM_AMIGA_0_sqmuxa_1 ahigh_i_31__n un10_ciin_i un1_DS_000_ENABLE_0_sqmuxa \
+#  ahigh_i_28__n N_261_0 un10_ciin ahigh_i_29__n N_65_0 un21_fpu_cs ahigh_i_26__n \
+#  N_134_i un21_berr ahigh_i_27__n N_153_i un6_ds_030 ahigh_i_24__n N_67_0 cpu_est_3_ \
+#  ahigh_i_25__n un2_as_030_i cpu_est_0_ N_206_i N_263_i cpu_est_1_ N_207_i N_265_i \
+#  cpu_est_2_ N_208_i AS_030_000_SYNC_i inst_AMIGA_BUS_ENABLE_DMA_LOW N_84_0 \
+#  inst_AS_030_D0 clk_000_d_i_2__n inst_AS_030_000_SYNC N_81_i N_85_i \
+#  inst_BGACK_030_INT_D un6_ds_030_i N_141_i inst_AS_000_DMA DS_000_DMA_i \
+#  un1_DS_000_ENABLE_0_sqmuxa_i inst_DS_000_DMA N_147_i \
+#  pos_clk_un21_bgack_030_int_i_0_i_n CYCLE_DMA_0_ N_145_i N_269_i CYCLE_DMA_1_ \
+#  un7_as_030_i N_90_i inst_VPA_D RESET_OUT_i N_270_i CLK_000_D_2_ AS_030_c N_271_0 \
+#  CLK_000_D_3_ N_96_0 inst_DTACK_D0 AS_000_c N_97_0 inst_RESET_OUT N_98_0 CLK_000_D_1_ \
+#  RW_000_c N_282_i CLK_000_D_0_ N_284_i inst_CLK_OUT_PRE_50 \
+#  pos_clk_un14_clk_000_ne_i_n inst_CLK_OUT_PRE_D UDS_000_c un5_e_0 IPL_D0_0_ N_285_i \
+#  IPL_D0_1_ LDS_000_c N_291_i IPL_D0_2_ N_292_i CLK_000_D_4_ size_c_0__n N_192_i \
+#  pos_clk_un6_bg_030_n N_17_i inst_AMIGA_BUS_ENABLE_DMA_HIGH size_c_1__n \
+#  cpu_est_2_0_2__n pos_clk_ipl_n N_286_i SM_AMIGA_1_ ahigh_c_24__n N_288_i \
+#  AMIGA_BUS_ENABLE_DMA_HIGH_0_sqmuxa cpu_est_2_0_1__n inst_UDS_000_INT \
+#  ahigh_c_25__n N_289_i inst_DS_000_ENABLE N_290_i inst_LDS_000_INT ahigh_c_26__n \
+#  pos_clk_un9_clk_000_pe_0_n SM_AMIGA_6_ N_280_i SM_AMIGA_4_ ahigh_c_27__n \
+#  pos_clk_un10_sm_amiga_i_n SM_AMIGA_0_ a_c_i_0__n SIZE_DMA_0_ ahigh_c_28__n \
+#  size_c_i_1__n SIZE_DMA_1_ N_27_i inst_RW_000_INT ahigh_c_29__n N_30_0 \
+#  inst_RW_000_DMA N_26_i RST_DLY_0_ ahigh_c_30__n N_29_0 RST_DLY_1_ N_25_i RST_DLY_2_ \
+#  ahigh_c_31__n N_28_0 inst_A0_DMA ipl_c_i_2__n pos_clk_un9_clk_000_pe_n N_51_0 \
+#  inst_CLK_030_H ipl_c_i_1__n pos_clk_rw_000_int_5_n N_50_0 inst_DSACK1_INT \
+#  ipl_c_i_0__n inst_AS_000_INT N_49_0 SM_AMIGA_5_ N_4_i SM_AMIGA_3_ N_44_0 SM_AMIGA_2_ \
+#  N_14_i N_4 N_41_0 N_15_i N_40_0 N_9 N_16_i N_39_0 N_18_i N_37_0 N_14 N_21_i N_15 N_34_0 N_16 \
+#  N_23_i N_18 N_32_0 N_21 LDS_000_INT_i N_23 un1_LDS_000_INT_0 N_25 UDS_000_INT_i N_26 \
+#  un1_UDS_000_INT_0 N_27 N_96_0_1 N_96_0_2 N_96_0_3 \
+#  pos_clk_un21_bgack_030_int_i_0_i_1_n N_84_0_1 a_decode_c_16__n N_84_0_2 N_240_0_1 \
+#  a_decode_c_17__n pos_clk_un10_sm_amiga_i_1_n N_289_1 a_decode_c_18__n N_289_2 \
+#  N_290_1 a_decode_c_19__n N_290_2 pos_clk_un14_clk_000_ne_1_n a_decode_c_20__n \
+#  pos_clk_un14_clk_000_ne_2_n N_153_1 a_decode_c_21__n N_153_2 N_153_3 \
+#  a_decode_c_22__n N_153_4 N_153_5 a_decode_c_23__n un10_ciin_1 un10_ciin_2 a_c_0__n \
+#  un10_ciin_3 un10_ciin_4 a_c_1__n un10_ciin_5 un10_ciin_6 SM_AMIGA_i_7_ nEXP_SPACE_c \
+#  un10_ciin_7 cpu_est_2_1__n un10_ciin_8 cpu_est_2_2__n BERR_c un10_ciin_9 G_107 \
+#  un10_ciin_10 G_108 BG_030_c un10_ciin_11 G_109 N_260_i_1 \
+#  pos_clk_un21_bgack_030_int_i_0_n BG_000DFFreg N_260_i_2 N_81 N_233_i_1 N_94 \
+#  N_233_i_2 N_254 BGACK_000_c N_232_i_1 N_255 N_232_i_2 N_261 CLK_030_c N_247_1 N_65 \
+#  N_77_1 N_67 N_83_1 N_269 N_88_1 N_108 CLK_OSZI_c N_142_i_1 N_135 N_146_i_1 N_136 \
+#  N_234_i_1 N_145 CLK_OUT_INTreg pos_clk_un6_bg_030_1_n N_278 N_124_1 N_147 un21_berr_1 \
+#  N_58 FPU_SENSE_c un21_fpu_cs_1 N_110 N_140_i_1 N_239 IPL_030DFF_0_reg N_154_i_1 N_90 \
+#  N_152_i_1 N_265 IPL_030DFF_1_reg N_150_i_1 pos_clk_CYCLE_DMA_5_1_i_x2 N_148_i_1 \
+#  pos_clk_un21_bgack_030_int_i_0_x2 IPL_030DFF_2_reg N_144_i_1 \
+#  pos_clk_un19_bgack_030_int_n N_255_0_1 N_280 ipl_c_0__n N_258_i_1 N_263 N_259_i_1 \
+#  N_247 ipl_c_1__n N_282_1 N_77 N_284_1 N_289 ipl_c_2__n N_288_1 N_291 un5_e_0_1 N_290 \
+#  N_192_i_1 N_286 DTACK_c pos_clk_ipl_1_n N_288 bg_000_0_un3_n N_285 bg_000_0_un1_n N_17 \
+#  bg_000_0_un0_n N_292 VPA_c amiga_bus_enable_dma_low_0_un3_n \
+#  pos_clk_un14_clk_000_ne_n amiga_bus_enable_dma_low_0_un1_n N_282 \
+#  amiga_bus_enable_dma_low_0_un0_n N_284 RST_c a0_dma_0_un3_n N_98 a0_dma_0_un1_n N_97 \
+#  a0_dma_0_un0_n N_84 RW_c rw_000_dma_0_un3_n N_96 rw_000_dma_0_un1_n N_271 fc_c_0__n \
+#  rw_000_dma_0_un0_n N_117 bgack_030_int_0_un3_n N_141 fc_c_1__n \
+#  bgack_030_int_0_un1_n N_134 bgack_030_int_0_un0_n N_153 ds_000_dma_0_un3_n N_129 \
+#  AMIGA_BUS_DATA_DIR_c ds_000_dma_0_un1_n N_127 ds_000_dma_0_un0_n N_128 \
+#  size_dma_0_1__un3_n N_125 size_dma_0_1__un1_n N_126 size_dma_0_1__un0_n N_124 \
+#  BG_030_c_i size_dma_0_0__un3_n N_121 pos_clk_un6_bg_030_i_n size_dma_0_0__un1_n \
+#  N_171 pos_clk_un9_bg_030_0_n size_dma_0_0__un0_n N_120 N_24_i \
+#  un1_amiga_bus_enable_dma_high_i_m2_0__un3_n N_119 N_31_0 \
+#  un1_amiga_bus_enable_dma_high_i_m2_0__un1_n N_118 N_22_i \
+#  un1_amiga_bus_enable_dma_high_i_m2_0__un0_n N_116 N_33_0 cpu_est_0_1__un3_n N_114 \
+#  N_20_i cpu_est_0_1__un1_n N_115 N_35_0 cpu_est_0_1__un0_n N_243 N_19_i \
+#  cpu_est_0_2__un3_n N_240 N_36_0 cpu_est_0_2__un1_n N_88 N_8_i cpu_est_0_2__un0_n N_89 \
+#  N_42_0 cpu_est_0_3__un3_n N_82 N_3_i cpu_est_0_3__un1_n N_83 N_45_0 \
+#  cpu_est_0_3__un0_n N_78 VPA_c_i ipl_030_0_0__un3_n N_79 N_52_0 ipl_030_0_0__un1_n \
+#  N_91 DTACK_c_i ipl_030_0_0__un0_n N_244 N_53_0 ipl_030_0_1__un3_n N_62 \
+#  ipl_030_0_1__un1_n N_64 N_249_i ipl_030_0_1__un0_n N_59 N_248_i ipl_030_0_2__un3_n \
+#  N_61 N_247_i ipl_030_0_2__un1_n N_163 ipl_030_0_2__un0_n N_245 N_77_i \
+#  uds_000_int_0_un3_n N_242 N_251_i uds_000_int_0_un1_n N_246 N_76_i \
+#  uds_000_int_0_un0_n N_248 amiga_bus_enable_dma_high_0_un3_n N_236 N_131_i \
+#  amiga_bus_enable_dma_high_0_un1_n N_249 N_130_i amiga_bus_enable_dma_high_0_un0_n \
+#  N_92 N_264_i as_000_dma_0_un3_n N_251 N_170_i as_000_dma_0_un1_n N_76 \
+#  pos_clk_un6_bgack_000_0_n as_000_dma_0_un0_n N_80 pos_clk_rw_000_dma_3_0_n \
+#  ds_000_enable_0_un3_n pos_clk_a0_dma_3_n N_123_i ds_000_enable_0_un1_n \
+#  SIZE_DMA_3_sqmuxa N_124_i ds_000_enable_0_un0_n N_87 AMIGA_BUS_DATA_DIR_c_0 \
+#  lds_000_int_0_un3_n pos_clk_size_dma_6_1__n N_122_i lds_000_int_0_un1_n \
+#  pos_clk_size_dma_6_0__n pos_clk_ds_000_dma_4_0_n lds_000_int_0_un0_n N_170 N_242_i \
+#  as_030_000_sync_0_un3_n N_122 N_239_i as_030_000_sync_0_un1_n N_123 N_87_i \
+#  as_030_000_sync_0_un0_n N_130 N_236_0 rw_000_int_0_un3_n pos_clk_ds_000_dma_4_n \
+#  N_246_i rw_000_int_0_un1_n pos_clk_rw_000_dma_3_n pos_clk_size_dma_6_0_0__n \
+#  rw_000_int_0_un0_n pos_clk_un6_bgack_000_n N_245_i vma_int_0_un3_n N_131 \
+#  pos_clk_size_dma_6_0_1__n vma_int_0_un1_n N_3 N_91_i vma_int_0_un0_n N_8 N_210_i \
+#  a_decode_15__n N_19 pos_clk_un19_bgack_030_int_i_n N_20 N_163_0 a_decode_14__n N_22 \
+#  N_59_i N_24 N_61_i a_decode_13__n pos_clk_un9_bg_030_n un1_amiga_bus_enable_low_i \
+#  N_62_i a_decode_12__n un21_fpu_cs_i N_64_i BGACK_030_INT_i a_decode_11__n \
+#  AMIGA_BUS_ENABLE_DMA_LOW_i N_244_i N_80_i a_decode_10__n cycle_dma_i_0__n N_78_i_0 \
+#  RW_000_i N_79_i a_decode_9__n rst_dly_i_0__n rst_dly_i_1__n N_82_i a_decode_8__n \
+#  rst_dly_i_2__n N_83_i LDS_000_i N_55_0 a_decode_7__n UDS_000_i N_88_i sm_amiga_i_2__n \
+#  N_89_i a_decode_6__n N_58_i N_240_0 sm_amiga_i_3__n N_243_0 a_decode_5__n \
+#  cpu_est_i_1__n CLK_030_c_i cpu_est_i_0__n N_254_0 a_decode_4__n sm_amiga_i_1__n \
+#  N_114_i N_110_i N_115_i a_decode_3__n a_i_1__n VMA_INT_i N_116_i a_decode_2__n VPA_D_i \
+#  N_117_i DTACK_D0_i AS_030_D0_i N_118_i sm_amiga_i_0__n sm_amiga_i_i_7__n N_119_i \
+#  sm_amiga_i_6__n sm_amiga_i_5__n N_120_i sm_amiga_i_4__n
 .model bus68030
 .inputs A_DECODE_23_.BLIF IPL_2_.BLIF FC_1_.BLIF nEXP_SPACE.BLIF BG_030.BLIF \
 BGACK_000.BLIF CLK_030.BLIF CLK_000.BLIF CLK_OSZI.BLIF FPU_SENSE.BLIF \
@@ -119,155 +120,157 @@ A_DECODE_4_.BLIF A_DECODE_3_.BLIF A_DECODE_2_.BLIF IPL_1_.BLIF IPL_0_.BLIF \
 FC_0_.BLIF A_1_.BLIF SIZE_1_.BLIF AHIGH_31_.BLIF AS_030.BLIF AS_000.BLIF \
 RW_000.BLIF UDS_000.BLIF LDS_000.BLIF BERR.BLIF RW.BLIF SIZE_0_.BLIF \
 AHIGH_30_.BLIF AHIGH_29_.BLIF AHIGH_28_.BLIF AHIGH_27_.BLIF AHIGH_26_.BLIF \
-AHIGH_25_.BLIF AHIGH_24_.BLIF A_0_.BLIF N_130_i.BLIF \
-pos_clk_un6_bgack_000_0_n.BLIF N_131_i.BLIF DTACK_c_i.BLIF CLK_030_H_i.BLIF \
-N_56_0.BLIF RW_000_i.BLIF VPA_c_i.BLIF a_i_1__n.BLIF N_55_0.BLIF \
-RESET_OUT_i.BLIF N_6_i.BLIF AS_030_i.BLIF N_47_0.BLIF FPU_SENSE_i.BLIF \
-N_26_i.BLIF inst_BGACK_030_INTreg.BLIF sm_amiga_i_i_7__n.BLIF N_34_0.BLIF \
-vcc_n_n.BLIF a_decode_i_16__n.BLIF BG_030_c_i.BLIF inst_VMA_INTreg.BLIF \
-AS_030_D0_i.BLIF pos_clk_un6_bg_030_i_n.BLIF gnd_n_n.BLIF size_dma_i_0__n.BLIF \
-pos_clk_un9_bg_030_0_n.BLIF un1_amiga_bus_enable_low.BLIF size_dma_i_1__n.BLIF \
-N_25_i.BLIF un6_as_030.BLIF a_decode_i_18__n.BLIF N_35_0.BLIF un3_size.BLIF \
-a_decode_i_19__n.BLIF N_24_i.BLIF un4_size.BLIF ahigh_i_30__n.BLIF N_36_0.BLIF \
-un1_LDS_000_INT.BLIF ahigh_i_31__n.BLIF N_17_i.BLIF un1_UDS_000_INT.BLIF \
-ahigh_i_28__n.BLIF N_43_0.BLIF un1_SM_AMIGA_0_sqmuxa_1.BLIF ahigh_i_29__n.BLIF \
-N_4_i.BLIF un1_DS_000_ENABLE_0_sqmuxa.BLIF ahigh_i_26__n.BLIF N_49_0.BLIF \
-un4_as_000.BLIF ahigh_i_27__n.BLIF N_3_i.BLIF un10_ciin.BLIF \
-ahigh_i_24__n.BLIF N_50_0.BLIF un21_fpu_cs.BLIF ahigh_i_25__n.BLIF \
-N_215_i.BLIF un21_berr.BLIF N_210_i.BLIF N_216_i.BLIF un6_ds_030.BLIF \
-N_211_i.BLIF N_301_0.BLIF cpu_est_2_.BLIF N_212_i.BLIF N_243_0.BLIF \
-cpu_est_3_.BLIF N_266_i.BLIF cpu_est_0_.BLIF un6_ds_030_i.BLIF N_249_i.BLIF \
-cpu_est_1_.BLIF un4_as_000_i.BLIF AMIGA_BUS_DATA_DIR_c_0.BLIF \
-inst_AS_000_INT.BLIF AS_000_INT_i.BLIF N_268_i.BLIF \
-inst_AMIGA_BUS_ENABLE_DMA_LOW.BLIF un6_as_030_i.BLIF \
-pos_clk_ds_000_dma_4_0_n.BLIF inst_AS_030_D0.BLIF AS_030_c.BLIF \
-CLK_030_c_i.BLIF inst_AS_030_000_SYNC.BLIF N_236_0.BLIF \
-inst_BGACK_030_INT_D.BLIF AS_000_c.BLIF un1_as_000_i.BLIF inst_AS_000_DMA.BLIF \
-N_297_i.BLIF inst_DS_000_DMA.BLIF RW_000_c.BLIF N_160_i.BLIF CYCLE_DMA_0_.BLIF \
-pos_clk_un21_bgack_030_int_i_0_i_n.BLIF CYCLE_DMA_1_.BLIF N_100_i.BLIF \
-SIZE_DMA_0_.BLIF UDS_000_c.BLIF N_186_0.BLIF SIZE_DMA_1_.BLIF N_183_0.BLIF \
-inst_VPA_D.BLIF LDS_000_c.BLIF N_182_0.BLIF CLK_000_D_1_.BLIF N_181_0.BLIF \
-inst_DTACK_D0.BLIF size_c_0__n.BLIF N_228_i.BLIF inst_RESET_OUT.BLIF \
-N_176_0.BLIF CLK_000_D_0_.BLIF size_c_1__n.BLIF LDS_000_c_i.BLIF \
-inst_CLK_OUT_PRE_50.BLIF UDS_000_c_i.BLIF inst_CLK_OUT_PRE_25.BLIF \
-ahigh_c_24__n.BLIF N_173_i.BLIF inst_CLK_OUT_PRE_D.BLIF N_304_i.BLIF \
-IPL_D0_0_.BLIF ahigh_c_25__n.BLIF AS_030_000_SYNC_i.BLIF IPL_D0_1_.BLIF \
-N_157_i.BLIF IPL_D0_2_.BLIF ahigh_c_26__n.BLIF N_110_0.BLIF CLK_000_D_2_.BLIF \
-RW_c_i.BLIF pos_clk_un6_bg_030_n.BLIF ahigh_c_27__n.BLIF N_106_0.BLIF \
-inst_AMIGA_BUS_ENABLE_DMA_HIGH.BLIF N_284_i.BLIF inst_DSACK1_INTreg.BLIF \
-ahigh_c_28__n.BLIF pos_clk_ipl_n.BLIF N_334_i.BLIF inst_LDS_000_INT.BLIF \
-ahigh_c_29__n.BLIF inst_DS_000_ENABLE.BLIF N_278_i.BLIF inst_UDS_000_INT.BLIF \
-ahigh_c_30__n.BLIF N_279_i.BLIF SM_AMIGA_6_.BLIF SM_AMIGA_4_.BLIF \
-ahigh_c_31__n.BLIF N_332_i.BLIF SM_AMIGA_1_.BLIF N_237_0.BLIF SM_AMIGA_0_.BLIF \
-un1_SM_AMIGA_0_sqmuxa_1_0.BLIF inst_RW_000_INT.BLIF N_247_i.BLIF \
-inst_RW_000_DMA.BLIF N_248_i.BLIF RST_DLY_0_.BLIF RST_DLY_1_.BLIF N_246_i.BLIF \
-RST_DLY_2_.BLIF inst_A0_DMA.BLIF pos_clk_a0_dma_3_n.BLIF un10_ciin_i.BLIF \
-inst_CLK_030_H.BLIF N_241_0.BLIF SM_AMIGA_5_.BLIF \
-un1_DS_000_ENABLE_0_sqmuxa_i.BLIF SM_AMIGA_3_.BLIF N_242_0.BLIF \
-SM_AMIGA_2_.BLIF N_48_i.BLIF N_227_i.BLIF N_9.BLIF N_225_i.BLIF N_224_i.BLIF \
-N_15.BLIF N_223_i.BLIF N_16.BLIF N_22.BLIF N_218_i.BLIF CLK_OUT_PRE_25_0.BLIF \
-pos_clk_size_dma_6_0_1__n.BLIF N_217_i.BLIF pos_clk_size_dma_6_0_0__n.BLIF \
-N_213_i.BLIF N_319_i.BLIF N_300_0.BLIF N_15_i.BLIF a_decode_c_16__n.BLIF \
-N_45_0.BLIF N_16_i.BLIF a_decode_c_17__n.BLIF N_44_0.BLIF N_22_i.BLIF \
-a_decode_c_18__n.BLIF N_38_0.BLIF pos_clk_un21_bgack_030_int_i_0_i_1_n.BLIF \
-a_decode_c_19__n.BLIF pos_clk_un21_bgack_030_int_i_0_i_2_n.BLIF N_238_i_1.BLIF \
-a_decode_c_20__n.BLIF N_238_i_2.BLIF N_239_i_1.BLIF a_decode_c_21__n.BLIF \
-N_239_i_2.BLIF pos_clk_un10_sm_amiga_i_1_n.BLIF a_decode_c_22__n.BLIF \
-un10_ciin_1.BLIF un10_ciin_2.BLIF a_decode_c_23__n.BLIF un10_ciin_3.BLIF \
-un10_ciin_4.BLIF a_c_0__n.BLIF un10_ciin_5.BLIF un10_ciin_6.BLIF \
-SM_AMIGA_i_7_.BLIF a_c_1__n.BLIF un10_ciin_7.BLIF pos_clk_size_dma_6_0__n.BLIF \
-un10_ciin_8.BLIF pos_clk_size_dma_6_1__n.BLIF nEXP_SPACE_c.BLIF \
-un10_ciin_9.BLIF G_107.BLIF un10_ciin_10.BLIF G_108.BLIF BERR_c.BLIF \
-un10_ciin_11.BLIF G_109.BLIF N_357_1.BLIF \
-pos_clk_un21_bgack_030_int_i_0_n.BLIF BG_030_c.BLIF N_357_2.BLIF N_237.BLIF \
-N_357_3.BLIF N_241.BLIF BG_000DFFreg.BLIF N_357_4.BLIF N_242.BLIF \
-N_304_i_1.BLIF un21_fpu_cs_1.BLIF N_283.BLIF BGACK_000_c.BLIF \
-un21_berr_1_0.BLIF N_294.BLIF N_266_1.BLIF N_300.BLIF CLK_030_c.BLIF \
-N_266_2.BLIF N_67_i_1.BLIF N_106.BLIF N_67_i_2.BLIF N_314_1.BLIF N_134.BLIF \
-CLK_OSZI_c.BLIF N_314_2.BLIF N_138.BLIF N_318_1.BLIF N_156.BLIF N_318_2.BLIF \
-N_160.BLIF CLK_OUT_INTreg.BLIF N_341_1.BLIF N_167.BLIF N_341_2.BLIF N_172.BLIF \
-N_151_i_1.BLIF N_173.BLIF FPU_SENSE_c.BLIF N_143_i_1.BLIF N_181.BLIF \
-N_141_i_1.BLIF N_182.BLIF IPL_030DFF_0_reg.BLIF N_237_0_1.BLIF N_183.BLIF \
-N_240_i_1.BLIF N_191.BLIF IPL_030DFF_1_reg.BLIF N_60_i_1.BLIF N_199.BLIF \
-N_64_i_1.BLIF N_205.BLIF IPL_030DFF_2_reg.BLIF N_155_i_1.BLIF N_209.BLIF \
-N_147_i_1.BLIF N_319.BLIF ipl_c_0__n.BLIF N_145_i_1.BLIF N_213.BLIF \
-N_139_i_1.BLIF N_216.BLIF ipl_c_1__n.BLIF pos_clk_un6_bg_030_1_n.BLIF \
-N_217.BLIF N_220_1.BLIF N_218.BLIF ipl_c_2__n.BLIF N_216_1.BLIF N_220.BLIF \
-N_205_1.BLIF N_223.BLIF N_199_1.BLIF N_224.BLIF DTACK_c.BLIF \
-pos_clk_ipl_1_n.BLIF N_225.BLIF uds_000_int_0_un3_n.BLIF N_227.BLIF \
-uds_000_int_0_un1_n.BLIF N_228.BLIF uds_000_int_0_un0_n.BLIF N_246.BLIF \
-VPA_c.BLIF as_000_int_0_un3_n.BLIF N_247.BLIF as_000_int_0_un1_n.BLIF \
-N_248.BLIF as_000_int_0_un0_n.BLIF N_332.BLIF RST_c.BLIF \
-dsack1_int_0_un3_n.BLIF N_278.BLIF dsack1_int_0_un1_n.BLIF N_279.BLIF \
-dsack1_int_0_un0_n.BLIF N_334.BLIF RW_c.BLIF vma_int_0_un3_n.BLIF N_284.BLIF \
-vma_int_0_un1_n.BLIF N_343.BLIF fc_c_0__n.BLIF vma_int_0_un0_n.BLIF \
-pos_clk_CYCLE_DMA_5_1_i_0_x2.BLIF lds_000_int_0_un3_n.BLIF un21_berr_1.BLIF \
-fc_c_1__n.BLIF lds_000_int_0_un1_n.BLIF N_357.BLIF lds_000_int_0_un0_n.BLIF \
-N_266.BLIF ipl_030_0_1__un3_n.BLIF N_186.BLIF AMIGA_BUS_DATA_DIR_c.BLIF \
-ipl_030_0_1__un1_n.BLIF pos_clk_un21_bgack_030_int_i_0_o2_2_x2.BLIF \
-ipl_030_0_1__un0_n.BLIF N_297.BLIF ipl_030_0_0__un3_n.BLIF N_236.BLIF \
-ipl_030_0_0__un1_n.BLIF pos_clk_ds_000_dma_4_n.BLIF ipl_030_0_0__un0_n.BLIF \
-N_268.BLIF UDS_000_INT_i.BLIF cpu_est_0_3__un3_n.BLIF N_249.BLIF \
-un1_UDS_000_INT_0.BLIF cpu_est_0_3__un1_n.BLIF N_243.BLIF LDS_000_INT_i.BLIF \
-cpu_est_0_3__un0_n.BLIF N_215.BLIF un1_LDS_000_INT_0.BLIF \
-cpu_est_0_2__un3_n.BLIF N_130.BLIF N_23_i.BLIF cpu_est_0_2__un1_n.BLIF \
-N_131.BLIF N_37_0.BLIF cpu_est_0_2__un0_n.BLIF N_3.BLIF N_21_i.BLIF \
-cpu_est_0_1__un3_n.BLIF N_4.BLIF N_39_0.BLIF cpu_est_0_1__un1_n.BLIF N_17.BLIF \
-N_20_i.BLIF cpu_est_0_1__un0_n.BLIF N_24.BLIF N_40_0.BLIF \
-ipl_030_0_2__un3_n.BLIF N_25.BLIF N_19_i.BLIF ipl_030_0_2__un1_n.BLIF \
-pos_clk_un9_bg_030_n.BLIF N_41_0.BLIF ipl_030_0_2__un0_n.BLIF N_6.BLIF \
-N_14_i.BLIF amiga_bus_enable_dma_low_0_un3_n.BLIF pos_clk_un6_bgack_000_n.BLIF \
-N_46_0.BLIF amiga_bus_enable_dma_low_0_un1_n.BLIF N_26.BLIF ipl_c_i_0__n.BLIF \
-amiga_bus_enable_dma_low_0_un0_n.BLIF N_208.BLIF N_52_0.BLIF \
-rw_000_dma_0_un3_n.BLIF N_207.BLIF ipl_c_i_1__n.BLIF rw_000_dma_0_un1_n.BLIF \
-N_349.BLIF N_53_0.BLIF rw_000_dma_0_un0_n.BLIF N_314.BLIF ipl_c_i_2__n.BLIF \
-as_000_dma_0_un3_n.BLIF N_318.BLIF N_54_0.BLIF as_000_dma_0_un1_n.BLIF \
-N_348.BLIF N_27_i.BLIF as_000_dma_0_un0_n.BLIF N_201.BLIF N_31_0.BLIF \
-ds_000_dma_0_un3_n.BLIF N_200.BLIF N_28_i.BLIF ds_000_dma_0_un1_n.BLIF \
-N_203.BLIF N_32_0.BLIF ds_000_dma_0_un0_n.BLIF N_204.BLIF N_29_i.BLIF \
-bgack_030_int_0_un3_n.BLIF N_185.BLIF N_33_0.BLIF bgack_030_int_0_un1_n.BLIF \
-N_184.BLIF a_c_i_0__n.BLIF bgack_030_int_0_un0_n.BLIF N_180.BLIF \
-size_c_i_1__n.BLIF bg_000_0_un3_n.BLIF N_179.BLIF \
-pos_clk_un10_sm_amiga_i_n.BLIF bg_000_0_un1_n.BLIF N_178.BLIF N_256_0.BLIF \
-bg_000_0_un0_n.BLIF N_171.BLIF N_318_i.BLIF \
-amiga_bus_enable_dma_high_0_un3_n.BLIF N_341.BLIF N_314_i.BLIF \
-amiga_bus_enable_dma_high_0_un1_n.BLIF N_342.BLIF \
-pos_clk_un9_clk_000_pe_0_n.BLIF amiga_bus_enable_dma_high_0_un0_n.BLIF \
-N_169.BLIF N_219_i.BLIF un1_amiga_bus_enable_dma_high_i_m2_i_m2_0__un3_n.BLIF \
-N_154.BLIF N_220_i.BLIF un1_amiga_bus_enable_dma_high_i_m2_i_m2_0__un1_n.BLIF \
-N_165.BLIF cpu_est_2_0_1__n.BLIF \
-un1_amiga_bus_enable_dma_high_i_m2_i_m2_0__un0_n.BLIF N_162.BLIF N_221_i.BLIF \
-size_dma_0_0__un3_n.BLIF N_299.BLIF N_348_i.BLIF size_dma_0_0__un1_n.BLIF \
-N_153.BLIF cpu_est_2_0_2__n.BLIF size_dma_0_0__un0_n.BLIF N_142.BLIF \
-N_222_i.BLIF size_dma_0_1__un3_n.BLIF N_298.BLIF N_196_i.BLIF \
-size_dma_0_1__un1_n.BLIF N_80.BLIF N_226_i.BLIF size_dma_0_1__un0_n.BLIF \
-N_232.BLIF ds_000_enable_0_un3_n.BLIF N_233.BLIF N_231_i.BLIF \
-ds_000_enable_0_un1_n.BLIF N_229.BLIF N_229_i.BLIF ds_000_enable_0_un0_n.BLIF \
-N_231.BLIF N_302_i.BLIF as_030_000_sync_0_un3_n.BLIF N_226.BLIF N_233_i.BLIF \
-as_030_000_sync_0_un1_n.BLIF N_221.BLIF N_232_i.BLIF \
-as_030_000_sync_0_un0_n.BLIF N_222.BLIF rw_000_int_0_un3_n.BLIF \
-cpu_est_2_2__n.BLIF N_80_0.BLIF rw_000_int_0_un1_n.BLIF cpu_est_2_1__n.BLIF \
-N_343_i.BLIF rw_000_int_0_un0_n.BLIF N_219.BLIF N_214_0.BLIF \
-a0_dma_0_un3_n.BLIF pos_clk_un9_clk_000_pe_n.BLIF N_166_i.BLIF \
-a0_dma_0_un1_n.BLIF N_256.BLIF N_134_i.BLIF a0_dma_0_un0_n.BLIF N_29.BLIF \
-N_298_i.BLIF a_decode_15__n.BLIF N_28.BLIF N_142_0.BLIF N_27.BLIF N_153_i.BLIF \
-a_decode_14__n.BLIF N_14.BLIF N_154_0.BLIF N_19.BLIF N_156_i.BLIF \
-a_decode_13__n.BLIF N_20.BLIF N_305_i.BLIF N_21.BLIF N_299_i.BLIF \
-a_decode_12__n.BLIF N_23.BLIF N_162_0.BLIF un1_amiga_bus_enable_low_i.BLIF \
-N_165_0.BLIF a_decode_11__n.BLIF un21_fpu_cs_i.BLIF N_169_i.BLIF \
-cpu_est_i_1__n.BLIF VMA_INT_i.BLIF a_decode_10__n.BLIF rst_dly_i_2__n.BLIF \
-N_341_i.BLIF rst_dly_i_1__n.BLIF N_342_i.BLIF a_decode_9__n.BLIF \
-cpu_est_i_0__n.BLIF N_171_i.BLIF cpu_est_i_2__n.BLIF N_172_i.BLIF \
-a_decode_8__n.BLIF sm_amiga_i_0__n.BLIF N_178_0.BLIF sm_amiga_i_3__n.BLIF \
-N_179_0.BLIF a_decode_7__n.BLIF sm_amiga_i_4__n.BLIF N_180_0.BLIF \
-sm_amiga_i_5__n.BLIF N_184_0.BLIF a_decode_6__n.BLIF rst_dly_i_0__n.BLIF \
-N_185_0.BLIF sm_amiga_i_2__n.BLIF N_203_i.BLIF a_decode_5__n.BLIF \
-sm_amiga_i_1__n.BLIF N_204_i.BLIF VPA_D_i.BLIF N_205_i.BLIF a_decode_4__n.BLIF \
-clk_000_d_i_1__n.BLIF cpu_est_i_3__n.BLIF N_200_i.BLIF a_decode_3__n.BLIF \
-sm_amiga_i_6__n.BLIF N_199_i.BLIF clk_000_d_i_0__n.BLIF N_201_i.BLIF \
-a_decode_2__n.BLIF BGACK_030_INT_i.BLIF AS_000_i.BLIF AS_000_DMA_i.BLIF \
-N_208_i.BLIF nEXP_SPACE_i.BLIF N_207_i.BLIF cycle_dma_i_0__n.BLIF N_167_i.BLIF \
-DS_000_DMA_i.BLIF N_138_i.BLIF AMIGA_BUS_ENABLE_DMA_LOW_i.BLIF N_349_i.BLIF \
+AHIGH_25_.BLIF AHIGH_24_.BLIF A_0_.BLIF nEXP_SPACE_i.BLIF N_171_i.BLIF \
+CLK_030_H_i.BLIF FPU_SENSE_i.BLIF N_121_i.BLIF AS_030_i.BLIF N_255_0.BLIF \
+AS_000_DMA_i.BLIF un1_SM_AMIGA_0_sqmuxa_1_0.BLIF AS_000_i.BLIF N_48_0.BLIF \
+AS_000_INT_i.BLIF N_125_i.BLIF DSACK1_INT_i.BLIF N_126_i.BLIF \
+inst_BGACK_030_INTreg.BLIF clk_000_d_i_0__n.BLIF vcc_n_n.BLIF \
+clk_000_d_i_3__n.BLIF N_127_i.BLIF un5_e.BLIF clk_000_d_i_1__n.BLIF \
+N_128_i.BLIF inst_VMA_INTreg.BLIF cpu_est_i_2__n.BLIF gnd_n_n.BLIF \
+cpu_est_i_3__n.BLIF RW_c_i.BLIF un1_amiga_bus_enable_low.BLIF \
+a_decode_i_16__n.BLIF pos_clk_rw_000_int_5_0_n.BLIF un7_as_030.BLIF \
+a_decode_i_18__n.BLIF N_129_i.BLIF un1_UDS_000_INT.BLIF a_decode_i_19__n.BLIF \
+un1_LDS_000_INT.BLIF ahigh_i_30__n.BLIF un1_SM_AMIGA_0_sqmuxa_1.BLIF \
+ahigh_i_31__n.BLIF un10_ciin_i.BLIF un1_DS_000_ENABLE_0_sqmuxa.BLIF \
+ahigh_i_28__n.BLIF N_261_0.BLIF un10_ciin.BLIF ahigh_i_29__n.BLIF N_65_0.BLIF \
+un21_fpu_cs.BLIF ahigh_i_26__n.BLIF N_134_i.BLIF un21_berr.BLIF \
+ahigh_i_27__n.BLIF N_153_i.BLIF un6_ds_030.BLIF ahigh_i_24__n.BLIF N_67_0.BLIF \
+cpu_est_3_.BLIF ahigh_i_25__n.BLIF un2_as_030_i.BLIF cpu_est_0_.BLIF \
+N_206_i.BLIF N_263_i.BLIF cpu_est_1_.BLIF N_207_i.BLIF N_265_i.BLIF \
+cpu_est_2_.BLIF N_208_i.BLIF AS_030_000_SYNC_i.BLIF \
+inst_AMIGA_BUS_ENABLE_DMA_LOW.BLIF N_84_0.BLIF inst_AS_030_D0.BLIF \
+clk_000_d_i_2__n.BLIF inst_AS_030_000_SYNC.BLIF N_81_i.BLIF N_85_i.BLIF \
+inst_BGACK_030_INT_D.BLIF un6_ds_030_i.BLIF N_141_i.BLIF inst_AS_000_DMA.BLIF \
+DS_000_DMA_i.BLIF un1_DS_000_ENABLE_0_sqmuxa_i.BLIF inst_DS_000_DMA.BLIF \
+N_147_i.BLIF pos_clk_un21_bgack_030_int_i_0_i_n.BLIF CYCLE_DMA_0_.BLIF \
+N_145_i.BLIF N_269_i.BLIF CYCLE_DMA_1_.BLIF un7_as_030_i.BLIF N_90_i.BLIF \
+inst_VPA_D.BLIF RESET_OUT_i.BLIF N_270_i.BLIF CLK_000_D_2_.BLIF AS_030_c.BLIF \
+N_271_0.BLIF CLK_000_D_3_.BLIF N_96_0.BLIF inst_DTACK_D0.BLIF AS_000_c.BLIF \
+N_97_0.BLIF inst_RESET_OUT.BLIF N_98_0.BLIF CLK_000_D_1_.BLIF RW_000_c.BLIF \
+N_282_i.BLIF CLK_000_D_0_.BLIF N_284_i.BLIF inst_CLK_OUT_PRE_50.BLIF \
+pos_clk_un14_clk_000_ne_i_n.BLIF inst_CLK_OUT_PRE_D.BLIF UDS_000_c.BLIF \
+un5_e_0.BLIF IPL_D0_0_.BLIF N_285_i.BLIF IPL_D0_1_.BLIF LDS_000_c.BLIF \
+N_291_i.BLIF IPL_D0_2_.BLIF N_292_i.BLIF CLK_000_D_4_.BLIF size_c_0__n.BLIF \
+N_192_i.BLIF pos_clk_un6_bg_030_n.BLIF N_17_i.BLIF \
+inst_AMIGA_BUS_ENABLE_DMA_HIGH.BLIF size_c_1__n.BLIF cpu_est_2_0_2__n.BLIF \
+pos_clk_ipl_n.BLIF N_286_i.BLIF SM_AMIGA_1_.BLIF ahigh_c_24__n.BLIF \
+N_288_i.BLIF AMIGA_BUS_ENABLE_DMA_HIGH_0_sqmuxa.BLIF cpu_est_2_0_1__n.BLIF \
+inst_UDS_000_INT.BLIF ahigh_c_25__n.BLIF N_289_i.BLIF inst_DS_000_ENABLE.BLIF \
+N_290_i.BLIF inst_LDS_000_INT.BLIF ahigh_c_26__n.BLIF \
+pos_clk_un9_clk_000_pe_0_n.BLIF SM_AMIGA_6_.BLIF N_280_i.BLIF SM_AMIGA_4_.BLIF \
+ahigh_c_27__n.BLIF pos_clk_un10_sm_amiga_i_n.BLIF SM_AMIGA_0_.BLIF \
+a_c_i_0__n.BLIF SIZE_DMA_0_.BLIF ahigh_c_28__n.BLIF size_c_i_1__n.BLIF \
+SIZE_DMA_1_.BLIF N_27_i.BLIF inst_RW_000_INT.BLIF ahigh_c_29__n.BLIF \
+N_30_0.BLIF inst_RW_000_DMA.BLIF N_26_i.BLIF RST_DLY_0_.BLIF \
+ahigh_c_30__n.BLIF N_29_0.BLIF RST_DLY_1_.BLIF N_25_i.BLIF RST_DLY_2_.BLIF \
+ahigh_c_31__n.BLIF N_28_0.BLIF inst_A0_DMA.BLIF ipl_c_i_2__n.BLIF \
+pos_clk_un9_clk_000_pe_n.BLIF N_51_0.BLIF inst_CLK_030_H.BLIF \
+ipl_c_i_1__n.BLIF pos_clk_rw_000_int_5_n.BLIF N_50_0.BLIF inst_DSACK1_INT.BLIF \
+ipl_c_i_0__n.BLIF inst_AS_000_INT.BLIF N_49_0.BLIF SM_AMIGA_5_.BLIF N_4_i.BLIF \
+SM_AMIGA_3_.BLIF N_44_0.BLIF SM_AMIGA_2_.BLIF N_14_i.BLIF N_4.BLIF N_41_0.BLIF \
+N_15_i.BLIF N_40_0.BLIF N_9.BLIF N_16_i.BLIF N_39_0.BLIF N_18_i.BLIF \
+N_37_0.BLIF N_14.BLIF N_21_i.BLIF N_15.BLIF N_34_0.BLIF N_16.BLIF N_23_i.BLIF \
+N_18.BLIF N_32_0.BLIF N_21.BLIF LDS_000_INT_i.BLIF N_23.BLIF \
+un1_LDS_000_INT_0.BLIF N_25.BLIF UDS_000_INT_i.BLIF N_26.BLIF \
+un1_UDS_000_INT_0.BLIF N_27.BLIF N_96_0_1.BLIF N_96_0_2.BLIF N_96_0_3.BLIF \
+pos_clk_un21_bgack_030_int_i_0_i_1_n.BLIF N_84_0_1.BLIF a_decode_c_16__n.BLIF \
+N_84_0_2.BLIF N_240_0_1.BLIF a_decode_c_17__n.BLIF \
+pos_clk_un10_sm_amiga_i_1_n.BLIF N_289_1.BLIF a_decode_c_18__n.BLIF \
+N_289_2.BLIF N_290_1.BLIF a_decode_c_19__n.BLIF N_290_2.BLIF \
+pos_clk_un14_clk_000_ne_1_n.BLIF a_decode_c_20__n.BLIF \
+pos_clk_un14_clk_000_ne_2_n.BLIF N_153_1.BLIF a_decode_c_21__n.BLIF \
+N_153_2.BLIF N_153_3.BLIF a_decode_c_22__n.BLIF N_153_4.BLIF N_153_5.BLIF \
+a_decode_c_23__n.BLIF un10_ciin_1.BLIF un10_ciin_2.BLIF a_c_0__n.BLIF \
+un10_ciin_3.BLIF un10_ciin_4.BLIF a_c_1__n.BLIF un10_ciin_5.BLIF \
+un10_ciin_6.BLIF SM_AMIGA_i_7_.BLIF nEXP_SPACE_c.BLIF un10_ciin_7.BLIF \
+cpu_est_2_1__n.BLIF un10_ciin_8.BLIF cpu_est_2_2__n.BLIF BERR_c.BLIF \
+un10_ciin_9.BLIF G_107.BLIF un10_ciin_10.BLIF G_108.BLIF BG_030_c.BLIF \
+un10_ciin_11.BLIF G_109.BLIF N_260_i_1.BLIF \
+pos_clk_un21_bgack_030_int_i_0_n.BLIF BG_000DFFreg.BLIF N_260_i_2.BLIF \
+N_81.BLIF N_233_i_1.BLIF N_94.BLIF N_233_i_2.BLIF N_254.BLIF BGACK_000_c.BLIF \
+N_232_i_1.BLIF N_255.BLIF N_232_i_2.BLIF N_261.BLIF CLK_030_c.BLIF \
+N_247_1.BLIF N_65.BLIF N_77_1.BLIF N_67.BLIF N_83_1.BLIF N_269.BLIF \
+N_88_1.BLIF N_108.BLIF CLK_OSZI_c.BLIF N_142_i_1.BLIF N_135.BLIF \
+N_146_i_1.BLIF N_136.BLIF N_234_i_1.BLIF N_145.BLIF CLK_OUT_INTreg.BLIF \
+pos_clk_un6_bg_030_1_n.BLIF N_278.BLIF N_124_1.BLIF N_147.BLIF \
+un21_berr_1.BLIF N_58.BLIF FPU_SENSE_c.BLIF un21_fpu_cs_1.BLIF N_110.BLIF \
+N_140_i_1.BLIF N_239.BLIF IPL_030DFF_0_reg.BLIF N_154_i_1.BLIF N_90.BLIF \
+N_152_i_1.BLIF N_265.BLIF IPL_030DFF_1_reg.BLIF N_150_i_1.BLIF \
+pos_clk_CYCLE_DMA_5_1_i_x2.BLIF N_148_i_1.BLIF \
+pos_clk_un21_bgack_030_int_i_0_x2.BLIF IPL_030DFF_2_reg.BLIF N_144_i_1.BLIF \
+pos_clk_un19_bgack_030_int_n.BLIF N_255_0_1.BLIF N_280.BLIF ipl_c_0__n.BLIF \
+N_258_i_1.BLIF N_263.BLIF N_259_i_1.BLIF N_247.BLIF ipl_c_1__n.BLIF \
+N_282_1.BLIF N_77.BLIF N_284_1.BLIF N_289.BLIF ipl_c_2__n.BLIF N_288_1.BLIF \
+N_291.BLIF un5_e_0_1.BLIF N_290.BLIF N_192_i_1.BLIF N_286.BLIF DTACK_c.BLIF \
+pos_clk_ipl_1_n.BLIF N_288.BLIF bg_000_0_un3_n.BLIF N_285.BLIF \
+bg_000_0_un1_n.BLIF N_17.BLIF bg_000_0_un0_n.BLIF N_292.BLIF VPA_c.BLIF \
+amiga_bus_enable_dma_low_0_un3_n.BLIF pos_clk_un14_clk_000_ne_n.BLIF \
+amiga_bus_enable_dma_low_0_un1_n.BLIF N_282.BLIF \
+amiga_bus_enable_dma_low_0_un0_n.BLIF N_284.BLIF RST_c.BLIF \
+a0_dma_0_un3_n.BLIF N_98.BLIF a0_dma_0_un1_n.BLIF N_97.BLIF \
+a0_dma_0_un0_n.BLIF N_84.BLIF RW_c.BLIF rw_000_dma_0_un3_n.BLIF N_96.BLIF \
+rw_000_dma_0_un1_n.BLIF N_271.BLIF fc_c_0__n.BLIF rw_000_dma_0_un0_n.BLIF \
+N_117.BLIF bgack_030_int_0_un3_n.BLIF N_141.BLIF fc_c_1__n.BLIF \
+bgack_030_int_0_un1_n.BLIF N_134.BLIF bgack_030_int_0_un0_n.BLIF N_153.BLIF \
+ds_000_dma_0_un3_n.BLIF N_129.BLIF AMIGA_BUS_DATA_DIR_c.BLIF \
+ds_000_dma_0_un1_n.BLIF N_127.BLIF ds_000_dma_0_un0_n.BLIF N_128.BLIF \
+size_dma_0_1__un3_n.BLIF N_125.BLIF size_dma_0_1__un1_n.BLIF N_126.BLIF \
+size_dma_0_1__un0_n.BLIF N_124.BLIF BG_030_c_i.BLIF size_dma_0_0__un3_n.BLIF \
+N_121.BLIF pos_clk_un6_bg_030_i_n.BLIF size_dma_0_0__un1_n.BLIF N_171.BLIF \
+pos_clk_un9_bg_030_0_n.BLIF size_dma_0_0__un0_n.BLIF N_120.BLIF N_24_i.BLIF \
+un1_amiga_bus_enable_dma_high_i_m2_0__un3_n.BLIF N_119.BLIF N_31_0.BLIF \
+un1_amiga_bus_enable_dma_high_i_m2_0__un1_n.BLIF N_118.BLIF N_22_i.BLIF \
+un1_amiga_bus_enable_dma_high_i_m2_0__un0_n.BLIF N_116.BLIF N_33_0.BLIF \
+cpu_est_0_1__un3_n.BLIF N_114.BLIF N_20_i.BLIF cpu_est_0_1__un1_n.BLIF \
+N_115.BLIF N_35_0.BLIF cpu_est_0_1__un0_n.BLIF N_243.BLIF N_19_i.BLIF \
+cpu_est_0_2__un3_n.BLIF N_240.BLIF N_36_0.BLIF cpu_est_0_2__un1_n.BLIF \
+N_88.BLIF N_8_i.BLIF cpu_est_0_2__un0_n.BLIF N_89.BLIF N_42_0.BLIF \
+cpu_est_0_3__un3_n.BLIF N_82.BLIF N_3_i.BLIF cpu_est_0_3__un1_n.BLIF N_83.BLIF \
+N_45_0.BLIF cpu_est_0_3__un0_n.BLIF N_78.BLIF VPA_c_i.BLIF \
+ipl_030_0_0__un3_n.BLIF N_79.BLIF N_52_0.BLIF ipl_030_0_0__un1_n.BLIF \
+N_91.BLIF DTACK_c_i.BLIF ipl_030_0_0__un0_n.BLIF N_244.BLIF N_53_0.BLIF \
+ipl_030_0_1__un3_n.BLIF N_62.BLIF ipl_030_0_1__un1_n.BLIF N_64.BLIF \
+N_249_i.BLIF ipl_030_0_1__un0_n.BLIF N_59.BLIF N_248_i.BLIF \
+ipl_030_0_2__un3_n.BLIF N_61.BLIF N_247_i.BLIF ipl_030_0_2__un1_n.BLIF \
+N_163.BLIF ipl_030_0_2__un0_n.BLIF N_245.BLIF N_77_i.BLIF \
+uds_000_int_0_un3_n.BLIF N_242.BLIF N_251_i.BLIF uds_000_int_0_un1_n.BLIF \
+N_246.BLIF N_76_i.BLIF uds_000_int_0_un0_n.BLIF N_248.BLIF \
+amiga_bus_enable_dma_high_0_un3_n.BLIF N_236.BLIF N_131_i.BLIF \
+amiga_bus_enable_dma_high_0_un1_n.BLIF N_249.BLIF N_130_i.BLIF \
+amiga_bus_enable_dma_high_0_un0_n.BLIF N_92.BLIF N_264_i.BLIF \
+as_000_dma_0_un3_n.BLIF N_251.BLIF N_170_i.BLIF as_000_dma_0_un1_n.BLIF \
+N_76.BLIF pos_clk_un6_bgack_000_0_n.BLIF as_000_dma_0_un0_n.BLIF N_80.BLIF \
+pos_clk_rw_000_dma_3_0_n.BLIF ds_000_enable_0_un3_n.BLIF \
+pos_clk_a0_dma_3_n.BLIF N_123_i.BLIF ds_000_enable_0_un1_n.BLIF \
+SIZE_DMA_3_sqmuxa.BLIF N_124_i.BLIF ds_000_enable_0_un0_n.BLIF N_87.BLIF \
+AMIGA_BUS_DATA_DIR_c_0.BLIF lds_000_int_0_un3_n.BLIF \
+pos_clk_size_dma_6_1__n.BLIF N_122_i.BLIF lds_000_int_0_un1_n.BLIF \
+pos_clk_size_dma_6_0__n.BLIF pos_clk_ds_000_dma_4_0_n.BLIF \
+lds_000_int_0_un0_n.BLIF N_170.BLIF N_242_i.BLIF as_030_000_sync_0_un3_n.BLIF \
+N_122.BLIF N_239_i.BLIF as_030_000_sync_0_un1_n.BLIF N_123.BLIF N_87_i.BLIF \
+as_030_000_sync_0_un0_n.BLIF N_130.BLIF N_236_0.BLIF rw_000_int_0_un3_n.BLIF \
+pos_clk_ds_000_dma_4_n.BLIF N_246_i.BLIF rw_000_int_0_un1_n.BLIF \
+pos_clk_rw_000_dma_3_n.BLIF pos_clk_size_dma_6_0_0__n.BLIF \
+rw_000_int_0_un0_n.BLIF pos_clk_un6_bgack_000_n.BLIF N_245_i.BLIF \
+vma_int_0_un3_n.BLIF N_131.BLIF pos_clk_size_dma_6_0_1__n.BLIF \
+vma_int_0_un1_n.BLIF N_3.BLIF N_91_i.BLIF vma_int_0_un0_n.BLIF N_8.BLIF \
+N_210_i.BLIF a_decode_15__n.BLIF N_19.BLIF pos_clk_un19_bgack_030_int_i_n.BLIF \
+N_20.BLIF N_163_0.BLIF a_decode_14__n.BLIF N_22.BLIF N_59_i.BLIF N_24.BLIF \
+N_61_i.BLIF a_decode_13__n.BLIF pos_clk_un9_bg_030_n.BLIF \
+un1_amiga_bus_enable_low_i.BLIF N_62_i.BLIF a_decode_12__n.BLIF \
+un21_fpu_cs_i.BLIF N_64_i.BLIF BGACK_030_INT_i.BLIF a_decode_11__n.BLIF \
+AMIGA_BUS_ENABLE_DMA_LOW_i.BLIF N_244_i.BLIF N_80_i.BLIF a_decode_10__n.BLIF \
+cycle_dma_i_0__n.BLIF N_78_i_0.BLIF RW_000_i.BLIF N_79_i.BLIF \
+a_decode_9__n.BLIF rst_dly_i_0__n.BLIF rst_dly_i_1__n.BLIF N_82_i.BLIF \
+a_decode_8__n.BLIF rst_dly_i_2__n.BLIF N_83_i.BLIF LDS_000_i.BLIF N_55_0.BLIF \
+a_decode_7__n.BLIF UDS_000_i.BLIF N_88_i.BLIF sm_amiga_i_2__n.BLIF N_89_i.BLIF \
+a_decode_6__n.BLIF N_58_i.BLIF N_240_0.BLIF sm_amiga_i_3__n.BLIF N_243_0.BLIF \
+a_decode_5__n.BLIF cpu_est_i_1__n.BLIF CLK_030_c_i.BLIF cpu_est_i_0__n.BLIF \
+N_254_0.BLIF a_decode_4__n.BLIF sm_amiga_i_1__n.BLIF N_114_i.BLIF N_110_i.BLIF \
+N_115_i.BLIF a_decode_3__n.BLIF a_i_1__n.BLIF VMA_INT_i.BLIF N_116_i.BLIF \
+a_decode_2__n.BLIF VPA_D_i.BLIF N_117_i.BLIF DTACK_D0_i.BLIF AS_030_D0_i.BLIF \
+N_118_i.BLIF sm_amiga_i_0__n.BLIF sm_amiga_i_i_7__n.BLIF N_119_i.BLIF \
+sm_amiga_i_6__n.BLIF sm_amiga_i_5__n.BLIF N_120_i.BLIF sm_amiga_i_4__n.BLIF \
 AS_030.PIN.BLIF AS_000.PIN.BLIF RW_000.PIN.BLIF UDS_000.PIN.BLIF \
 LDS_000.PIN.BLIF SIZE_0_.PIN.BLIF SIZE_1_.PIN.BLIF AHIGH_24_.PIN.BLIF \
 AHIGH_25_.PIN.BLIF AHIGH_26_.PIN.BLIF AHIGH_27_.PIN.BLIF AHIGH_28_.PIN.BLIF \
@@ -275,162 +278,163 @@ AHIGH_29_.PIN.BLIF AHIGH_30_.PIN.BLIF AHIGH_31_.PIN.BLIF A_0_.PIN.BLIF \
 BERR.PIN.BLIF RW.PIN.BLIF
 .outputs IPL_030_2_ DS_030 BG_000 BGACK_030 CLK_DIV_OUT CLK_EXP FPU_CS DSACK1 \
 AVEC E VMA RESET AMIGA_ADDR_ENABLE AMIGA_BUS_DATA_DIR AMIGA_BUS_ENABLE_LOW \
-AMIGA_BUS_ENABLE_HIGH CIIN IPL_030_1_ IPL_030_0_ SM_AMIGA_3_.D SM_AMIGA_3_.C \
-SM_AMIGA_2_.D SM_AMIGA_2_.C SM_AMIGA_1_.D SM_AMIGA_1_.C SM_AMIGA_0_.D \
-SM_AMIGA_0_.C IPL_030DFF_0_reg.D IPL_030DFF_0_reg.C IPL_030DFF_1_reg.D \
-IPL_030DFF_1_reg.C IPL_030DFF_2_reg.D IPL_030DFF_2_reg.C IPL_D0_0_.D \
-IPL_D0_0_.C IPL_D0_1_.D IPL_D0_1_.C IPL_D0_2_.D IPL_D0_2_.C SM_AMIGA_i_7_.D \
-SM_AMIGA_i_7_.C SM_AMIGA_6_.D SM_AMIGA_6_.C SM_AMIGA_5_.D SM_AMIGA_5_.C \
-SM_AMIGA_4_.D SM_AMIGA_4_.C CLK_000_D_2_.D CLK_000_D_2_.C CYCLE_DMA_0_.D \
-CYCLE_DMA_0_.C CYCLE_DMA_1_.D CYCLE_DMA_1_.C SIZE_DMA_0_.D SIZE_DMA_0_.C \
-SIZE_DMA_1_.D SIZE_DMA_1_.C cpu_est_0_.D cpu_est_0_.C cpu_est_1_.D \
-cpu_est_1_.C cpu_est_2_.D cpu_est_2_.C cpu_est_3_.D cpu_est_3_.C RST_DLY_0_.D \
-RST_DLY_0_.C RST_DLY_1_.D RST_DLY_1_.C RST_DLY_2_.D RST_DLY_2_.C \
-CLK_000_D_0_.D CLK_000_D_0_.C CLK_000_D_1_.D CLK_000_D_1_.C inst_RW_000_INT.D \
-inst_RW_000_INT.C inst_AS_030_000_SYNC.D inst_AS_030_000_SYNC.C \
-inst_LDS_000_INT.D inst_LDS_000_INT.C inst_BGACK_030_INTreg.D \
-inst_BGACK_030_INTreg.C inst_AS_000_DMA.D inst_AS_000_DMA.C inst_DS_000_DMA.D \
-inst_DS_000_DMA.C inst_AS_030_D0.D inst_AS_030_D0.C inst_VPA_D.D inst_VPA_D.C \
-inst_DTACK_D0.D inst_DTACK_D0.C inst_CLK_030_H.D inst_CLK_030_H.C \
-inst_RESET_OUT.D inst_RESET_OUT.C inst_DS_000_ENABLE.D inst_DS_000_ENABLE.C \
-inst_CLK_OUT_PRE_25.D inst_CLK_OUT_PRE_25.C BG_000DFFreg.D BG_000DFFreg.C \
+AMIGA_BUS_ENABLE_HIGH CIIN IPL_030_1_ IPL_030_0_ SM_AMIGA_6_.D SM_AMIGA_6_.C \
+SM_AMIGA_5_.D SM_AMIGA_5_.C SM_AMIGA_4_.D SM_AMIGA_4_.C SM_AMIGA_3_.D \
+SM_AMIGA_3_.C SM_AMIGA_2_.D SM_AMIGA_2_.C SM_AMIGA_1_.D SM_AMIGA_1_.C \
+SM_AMIGA_0_.D SM_AMIGA_0_.C IPL_030DFF_0_reg.D IPL_030DFF_0_reg.C \
+IPL_030DFF_1_reg.D IPL_030DFF_1_reg.C IPL_030DFF_2_reg.D IPL_030DFF_2_reg.C \
+IPL_D0_0_.D IPL_D0_0_.C IPL_D0_1_.D IPL_D0_1_.C IPL_D0_2_.D IPL_D0_2_.C \
+SM_AMIGA_i_7_.D SM_AMIGA_i_7_.C CLK_000_D_1_.D CLK_000_D_1_.C CLK_000_D_2_.D \
+CLK_000_D_2_.C CLK_000_D_3_.D CLK_000_D_3_.C CLK_000_D_4_.D CLK_000_D_4_.C \
+CYCLE_DMA_0_.D CYCLE_DMA_0_.C CYCLE_DMA_1_.D CYCLE_DMA_1_.C SIZE_DMA_0_.D \
+SIZE_DMA_0_.C SIZE_DMA_1_.D SIZE_DMA_1_.C cpu_est_0_.D cpu_est_0_.C \
+cpu_est_1_.D cpu_est_1_.C cpu_est_2_.D cpu_est_2_.C cpu_est_3_.D cpu_est_3_.C \
+RST_DLY_0_.D RST_DLY_0_.C RST_DLY_1_.D RST_DLY_1_.C RST_DLY_2_.D RST_DLY_2_.C \
+CLK_000_D_0_.D CLK_000_D_0_.C inst_DSACK1_INT.D inst_DSACK1_INT.C \
+inst_AS_000_INT.D inst_AS_000_INT.C inst_AS_030_D0.D inst_AS_030_D0.C \
+inst_VPA_D.D inst_VPA_D.C inst_DTACK_D0.D inst_DTACK_D0.C inst_CLK_030_H.D \
+inst_CLK_030_H.C inst_RESET_OUT.D inst_RESET_OUT.C inst_DS_000_ENABLE.D \
+inst_DS_000_ENABLE.C BG_000DFFreg.D BG_000DFFreg.C \
 inst_AMIGA_BUS_ENABLE_DMA_HIGH.D inst_AMIGA_BUS_ENABLE_DMA_HIGH.C \
 inst_AMIGA_BUS_ENABLE_DMA_LOW.D inst_AMIGA_BUS_ENABLE_DMA_LOW.C \
 inst_UDS_000_INT.D inst_UDS_000_INT.C inst_A0_DMA.D inst_A0_DMA.C \
-inst_AS_000_INT.D inst_AS_000_INT.C inst_DSACK1_INTreg.D inst_DSACK1_INTreg.C \
-inst_VMA_INTreg.D inst_VMA_INTreg.C inst_RW_000_DMA.D inst_RW_000_DMA.C \
-inst_BGACK_030_INT_D.D inst_BGACK_030_INT_D.C inst_CLK_OUT_PRE_D.D \
-inst_CLK_OUT_PRE_D.C inst_CLK_OUT_PRE_50.D inst_CLK_OUT_PRE_50.C \
-CLK_OUT_INTreg.D CLK_OUT_INTreg.C SIZE_1_ AHIGH_31_ AS_030 AS_000 RW_000 \
-UDS_000 LDS_000 BERR RW SIZE_0_ AHIGH_30_ AHIGH_29_ AHIGH_28_ AHIGH_27_ \
-AHIGH_26_ AHIGH_25_ AHIGH_24_ A_0_ N_130_i pos_clk_un6_bgack_000_0_n N_131_i \
-DTACK_c_i CLK_030_H_i N_56_0 RW_000_i VPA_c_i a_i_1__n N_55_0 RESET_OUT_i \
-N_6_i AS_030_i N_47_0 FPU_SENSE_i N_26_i sm_amiga_i_i_7__n N_34_0 vcc_n_n \
-a_decode_i_16__n BG_030_c_i AS_030_D0_i pos_clk_un6_bg_030_i_n gnd_n_n \
-size_dma_i_0__n pos_clk_un9_bg_030_0_n un1_amiga_bus_enable_low \
-size_dma_i_1__n N_25_i un6_as_030 a_decode_i_18__n N_35_0 un3_size \
-a_decode_i_19__n N_24_i un4_size ahigh_i_30__n N_36_0 un1_LDS_000_INT \
-ahigh_i_31__n N_17_i un1_UDS_000_INT ahigh_i_28__n N_43_0 \
-un1_SM_AMIGA_0_sqmuxa_1 ahigh_i_29__n N_4_i un1_DS_000_ENABLE_0_sqmuxa \
-ahigh_i_26__n N_49_0 un4_as_000 ahigh_i_27__n N_3_i un10_ciin ahigh_i_24__n \
-N_50_0 un21_fpu_cs ahigh_i_25__n N_215_i un21_berr N_210_i N_216_i un6_ds_030 \
-N_211_i N_301_0 N_212_i N_243_0 N_266_i un6_ds_030_i N_249_i un4_as_000_i \
-AMIGA_BUS_DATA_DIR_c_0 AS_000_INT_i N_268_i un6_as_030_i \
-pos_clk_ds_000_dma_4_0_n AS_030_c CLK_030_c_i N_236_0 AS_000_c un1_as_000_i \
-N_297_i RW_000_c N_160_i pos_clk_un21_bgack_030_int_i_0_i_n N_100_i UDS_000_c \
-N_186_0 N_183_0 LDS_000_c N_182_0 N_181_0 size_c_0__n N_228_i N_176_0 \
-size_c_1__n LDS_000_c_i UDS_000_c_i ahigh_c_24__n N_173_i N_304_i \
-ahigh_c_25__n AS_030_000_SYNC_i N_157_i ahigh_c_26__n N_110_0 RW_c_i \
-pos_clk_un6_bg_030_n ahigh_c_27__n N_106_0 N_284_i ahigh_c_28__n pos_clk_ipl_n \
-N_334_i ahigh_c_29__n N_278_i ahigh_c_30__n N_279_i ahigh_c_31__n N_332_i \
-N_237_0 un1_SM_AMIGA_0_sqmuxa_1_0 N_247_i N_248_i N_246_i pos_clk_a0_dma_3_n \
-un10_ciin_i N_241_0 un1_DS_000_ENABLE_0_sqmuxa_i N_242_0 N_48_i N_227_i N_9 \
-N_225_i N_224_i N_15 N_223_i N_16 N_22 N_218_i pos_clk_size_dma_6_0_1__n \
-N_217_i pos_clk_size_dma_6_0_0__n N_213_i N_319_i N_300_0 N_15_i \
-a_decode_c_16__n N_45_0 N_16_i a_decode_c_17__n N_44_0 N_22_i a_decode_c_18__n \
-N_38_0 pos_clk_un21_bgack_030_int_i_0_i_1_n a_decode_c_19__n \
-pos_clk_un21_bgack_030_int_i_0_i_2_n N_238_i_1 a_decode_c_20__n N_238_i_2 \
-N_239_i_1 a_decode_c_21__n N_239_i_2 pos_clk_un10_sm_amiga_i_1_n \
-a_decode_c_22__n un10_ciin_1 un10_ciin_2 a_decode_c_23__n un10_ciin_3 \
-un10_ciin_4 a_c_0__n un10_ciin_5 un10_ciin_6 a_c_1__n un10_ciin_7 \
-pos_clk_size_dma_6_0__n un10_ciin_8 pos_clk_size_dma_6_1__n nEXP_SPACE_c \
-un10_ciin_9 un10_ciin_10 BERR_c un10_ciin_11 N_357_1 \
-pos_clk_un21_bgack_030_int_i_0_n BG_030_c N_357_2 N_237 N_357_3 N_241 N_357_4 \
-N_242 N_304_i_1 un21_fpu_cs_1 N_283 BGACK_000_c un21_berr_1_0 N_294 N_266_1 \
-N_300 CLK_030_c N_266_2 N_67_i_1 N_106 N_67_i_2 N_314_1 N_134 CLK_OSZI_c \
-N_314_2 N_138 N_318_1 N_156 N_318_2 N_160 N_341_1 N_167 N_341_2 N_172 \
-N_151_i_1 N_173 FPU_SENSE_c N_143_i_1 N_181 N_141_i_1 N_182 N_237_0_1 N_183 \
-N_240_i_1 N_191 N_60_i_1 N_199 N_64_i_1 N_205 N_155_i_1 N_209 N_147_i_1 N_319 \
-ipl_c_0__n N_145_i_1 N_213 N_139_i_1 N_216 ipl_c_1__n pos_clk_un6_bg_030_1_n \
-N_217 N_220_1 N_218 ipl_c_2__n N_216_1 N_220 N_205_1 N_223 N_199_1 N_224 \
-DTACK_c pos_clk_ipl_1_n N_225 uds_000_int_0_un3_n N_227 uds_000_int_0_un1_n \
-N_228 uds_000_int_0_un0_n N_246 VPA_c as_000_int_0_un3_n N_247 \
-as_000_int_0_un1_n N_248 as_000_int_0_un0_n N_332 RST_c dsack1_int_0_un3_n \
-N_278 dsack1_int_0_un1_n N_279 dsack1_int_0_un0_n N_334 RW_c vma_int_0_un3_n \
-N_284 vma_int_0_un1_n N_343 fc_c_0__n vma_int_0_un0_n lds_000_int_0_un3_n \
-un21_berr_1 fc_c_1__n lds_000_int_0_un1_n N_357 lds_000_int_0_un0_n N_266 \
-ipl_030_0_1__un3_n N_186 AMIGA_BUS_DATA_DIR_c ipl_030_0_1__un1_n \
-ipl_030_0_1__un0_n N_297 ipl_030_0_0__un3_n N_236 ipl_030_0_0__un1_n \
-pos_clk_ds_000_dma_4_n ipl_030_0_0__un0_n N_268 UDS_000_INT_i \
-cpu_est_0_3__un3_n N_249 un1_UDS_000_INT_0 cpu_est_0_3__un1_n N_243 \
-LDS_000_INT_i cpu_est_0_3__un0_n N_215 un1_LDS_000_INT_0 cpu_est_0_2__un3_n \
-N_130 N_23_i cpu_est_0_2__un1_n N_131 N_37_0 cpu_est_0_2__un0_n N_3 N_21_i \
-cpu_est_0_1__un3_n N_4 N_39_0 cpu_est_0_1__un1_n N_17 N_20_i \
-cpu_est_0_1__un0_n N_24 N_40_0 ipl_030_0_2__un3_n N_25 N_19_i \
-ipl_030_0_2__un1_n pos_clk_un9_bg_030_n N_41_0 ipl_030_0_2__un0_n N_6 N_14_i \
-amiga_bus_enable_dma_low_0_un3_n pos_clk_un6_bgack_000_n N_46_0 \
-amiga_bus_enable_dma_low_0_un1_n N_26 ipl_c_i_0__n \
-amiga_bus_enable_dma_low_0_un0_n N_208 N_52_0 rw_000_dma_0_un3_n N_207 \
-ipl_c_i_1__n rw_000_dma_0_un1_n N_349 N_53_0 rw_000_dma_0_un0_n N_314 \
-ipl_c_i_2__n as_000_dma_0_un3_n N_318 N_54_0 as_000_dma_0_un1_n N_348 N_27_i \
-as_000_dma_0_un0_n N_201 N_31_0 ds_000_dma_0_un3_n N_200 N_28_i \
-ds_000_dma_0_un1_n N_203 N_32_0 ds_000_dma_0_un0_n N_204 N_29_i \
-bgack_030_int_0_un3_n N_185 N_33_0 bgack_030_int_0_un1_n N_184 a_c_i_0__n \
-bgack_030_int_0_un0_n N_180 size_c_i_1__n bg_000_0_un3_n N_179 \
-pos_clk_un10_sm_amiga_i_n bg_000_0_un1_n N_178 N_256_0 bg_000_0_un0_n N_171 \
-N_318_i amiga_bus_enable_dma_high_0_un3_n N_341 N_314_i \
-amiga_bus_enable_dma_high_0_un1_n N_342 pos_clk_un9_clk_000_pe_0_n \
-amiga_bus_enable_dma_high_0_un0_n N_169 N_219_i \
-un1_amiga_bus_enable_dma_high_i_m2_i_m2_0__un3_n N_154 N_220_i \
-un1_amiga_bus_enable_dma_high_i_m2_i_m2_0__un1_n N_165 cpu_est_2_0_1__n \
-un1_amiga_bus_enable_dma_high_i_m2_i_m2_0__un0_n N_162 N_221_i \
-size_dma_0_0__un3_n N_299 N_348_i size_dma_0_0__un1_n N_153 cpu_est_2_0_2__n \
-size_dma_0_0__un0_n N_142 N_222_i size_dma_0_1__un3_n N_298 N_196_i \
-size_dma_0_1__un1_n N_80 N_226_i size_dma_0_1__un0_n N_232 \
-ds_000_enable_0_un3_n N_233 N_231_i ds_000_enable_0_un1_n N_229 N_229_i \
-ds_000_enable_0_un0_n N_231 N_302_i as_030_000_sync_0_un3_n N_226 N_233_i \
-as_030_000_sync_0_un1_n N_221 N_232_i as_030_000_sync_0_un0_n N_222 \
-rw_000_int_0_un3_n cpu_est_2_2__n N_80_0 rw_000_int_0_un1_n cpu_est_2_1__n \
-N_343_i rw_000_int_0_un0_n N_219 N_214_0 a0_dma_0_un3_n \
-pos_clk_un9_clk_000_pe_n N_166_i a0_dma_0_un1_n N_256 N_134_i a0_dma_0_un0_n \
-N_29 N_298_i a_decode_15__n N_28 N_142_0 N_27 N_153_i a_decode_14__n N_14 \
-N_154_0 N_19 N_156_i a_decode_13__n N_20 N_305_i N_21 N_299_i a_decode_12__n \
-N_23 N_162_0 un1_amiga_bus_enable_low_i N_165_0 a_decode_11__n un21_fpu_cs_i \
-N_169_i cpu_est_i_1__n VMA_INT_i a_decode_10__n rst_dly_i_2__n N_341_i \
-rst_dly_i_1__n N_342_i a_decode_9__n cpu_est_i_0__n N_171_i cpu_est_i_2__n \
-N_172_i a_decode_8__n sm_amiga_i_0__n N_178_0 sm_amiga_i_3__n N_179_0 \
-a_decode_7__n sm_amiga_i_4__n N_180_0 sm_amiga_i_5__n N_184_0 a_decode_6__n \
-rst_dly_i_0__n N_185_0 sm_amiga_i_2__n N_203_i a_decode_5__n sm_amiga_i_1__n \
-N_204_i VPA_D_i N_205_i a_decode_4__n clk_000_d_i_1__n cpu_est_i_3__n N_200_i \
-a_decode_3__n sm_amiga_i_6__n N_199_i clk_000_d_i_0__n N_201_i a_decode_2__n \
-BGACK_030_INT_i AS_000_i AS_000_DMA_i N_208_i nEXP_SPACE_i N_207_i \
-cycle_dma_i_0__n N_167_i DS_000_DMA_i N_138_i AMIGA_BUS_ENABLE_DMA_LOW_i \
-N_349_i AS_030.OE AS_000.OE RW_000.OE UDS_000.OE LDS_000.OE SIZE_0_.OE \
-SIZE_1_.OE AHIGH_24_.OE AHIGH_25_.OE AHIGH_26_.OE AHIGH_27_.OE AHIGH_28_.OE \
-AHIGH_29_.OE AHIGH_30_.OE AHIGH_31_.OE A_0_.OE BERR.OE RW.OE DS_030.OE \
-DSACK1.OE RESET.OE CIIN.OE CLK_OUT_PRE_25_0 G_107 G_108 G_109 \
-pos_clk_CYCLE_DMA_5_1_i_0_x2 pos_clk_un21_bgack_030_int_i_0_o2_2_x2
-.names N_145_i_1.BLIF RST_c.BLIF SM_AMIGA_3_.D
+inst_RW_000_DMA.D inst_RW_000_DMA.C inst_VMA_INTreg.D inst_VMA_INTreg.C \
+inst_RW_000_INT.D inst_RW_000_INT.C inst_AS_030_000_SYNC.D \
+inst_AS_030_000_SYNC.C inst_LDS_000_INT.D inst_LDS_000_INT.C \
+inst_BGACK_030_INTreg.D inst_BGACK_030_INTreg.C inst_AS_000_DMA.D \
+inst_AS_000_DMA.C inst_DS_000_DMA.D inst_DS_000_DMA.C inst_BGACK_030_INT_D.D \
+inst_BGACK_030_INT_D.C CLK_OUT_INTreg.D CLK_OUT_INTreg.C inst_CLK_OUT_PRE_50.D \
+inst_CLK_OUT_PRE_50.C inst_CLK_OUT_PRE_D.D inst_CLK_OUT_PRE_D.C SIZE_1_ \
+AHIGH_31_ AS_030 AS_000 RW_000 UDS_000 LDS_000 BERR RW SIZE_0_ AHIGH_30_ \
+AHIGH_29_ AHIGH_28_ AHIGH_27_ AHIGH_26_ AHIGH_25_ AHIGH_24_ A_0_ nEXP_SPACE_i \
+N_171_i CLK_030_H_i FPU_SENSE_i N_121_i AS_030_i N_255_0 AS_000_DMA_i \
+un1_SM_AMIGA_0_sqmuxa_1_0 AS_000_i N_48_0 AS_000_INT_i N_125_i DSACK1_INT_i \
+N_126_i clk_000_d_i_0__n vcc_n_n clk_000_d_i_3__n N_127_i un5_e \
+clk_000_d_i_1__n N_128_i cpu_est_i_2__n gnd_n_n cpu_est_i_3__n RW_c_i \
+un1_amiga_bus_enable_low a_decode_i_16__n pos_clk_rw_000_int_5_0_n un7_as_030 \
+a_decode_i_18__n N_129_i un1_UDS_000_INT a_decode_i_19__n un1_LDS_000_INT \
+ahigh_i_30__n un1_SM_AMIGA_0_sqmuxa_1 ahigh_i_31__n un10_ciin_i \
+un1_DS_000_ENABLE_0_sqmuxa ahigh_i_28__n N_261_0 un10_ciin ahigh_i_29__n \
+N_65_0 un21_fpu_cs ahigh_i_26__n N_134_i un21_berr ahigh_i_27__n N_153_i \
+un6_ds_030 ahigh_i_24__n N_67_0 ahigh_i_25__n un2_as_030_i N_206_i N_263_i \
+N_207_i N_265_i N_208_i AS_030_000_SYNC_i N_84_0 clk_000_d_i_2__n N_81_i \
+N_85_i un6_ds_030_i N_141_i DS_000_DMA_i un1_DS_000_ENABLE_0_sqmuxa_i N_147_i \
+pos_clk_un21_bgack_030_int_i_0_i_n N_145_i N_269_i un7_as_030_i N_90_i \
+RESET_OUT_i N_270_i AS_030_c N_271_0 N_96_0 AS_000_c N_97_0 N_98_0 RW_000_c \
+N_282_i N_284_i pos_clk_un14_clk_000_ne_i_n UDS_000_c un5_e_0 N_285_i \
+LDS_000_c N_291_i N_292_i size_c_0__n N_192_i pos_clk_un6_bg_030_n N_17_i \
+size_c_1__n cpu_est_2_0_2__n pos_clk_ipl_n N_286_i ahigh_c_24__n N_288_i \
+AMIGA_BUS_ENABLE_DMA_HIGH_0_sqmuxa cpu_est_2_0_1__n ahigh_c_25__n N_289_i \
+N_290_i ahigh_c_26__n pos_clk_un9_clk_000_pe_0_n N_280_i ahigh_c_27__n \
+pos_clk_un10_sm_amiga_i_n a_c_i_0__n ahigh_c_28__n size_c_i_1__n N_27_i \
+ahigh_c_29__n N_30_0 N_26_i ahigh_c_30__n N_29_0 N_25_i ahigh_c_31__n N_28_0 \
+ipl_c_i_2__n pos_clk_un9_clk_000_pe_n N_51_0 ipl_c_i_1__n \
+pos_clk_rw_000_int_5_n N_50_0 ipl_c_i_0__n N_49_0 N_4_i N_44_0 N_14_i N_4 \
+N_41_0 N_15_i N_40_0 N_9 N_16_i N_39_0 N_18_i N_37_0 N_14 N_21_i N_15 N_34_0 \
+N_16 N_23_i N_18 N_32_0 N_21 LDS_000_INT_i N_23 un1_LDS_000_INT_0 N_25 \
+UDS_000_INT_i N_26 un1_UDS_000_INT_0 N_27 N_96_0_1 N_96_0_2 N_96_0_3 \
+pos_clk_un21_bgack_030_int_i_0_i_1_n N_84_0_1 a_decode_c_16__n N_84_0_2 \
+N_240_0_1 a_decode_c_17__n pos_clk_un10_sm_amiga_i_1_n N_289_1 \
+a_decode_c_18__n N_289_2 N_290_1 a_decode_c_19__n N_290_2 \
+pos_clk_un14_clk_000_ne_1_n a_decode_c_20__n pos_clk_un14_clk_000_ne_2_n \
+N_153_1 a_decode_c_21__n N_153_2 N_153_3 a_decode_c_22__n N_153_4 N_153_5 \
+a_decode_c_23__n un10_ciin_1 un10_ciin_2 a_c_0__n un10_ciin_3 un10_ciin_4 \
+a_c_1__n un10_ciin_5 un10_ciin_6 nEXP_SPACE_c un10_ciin_7 cpu_est_2_1__n \
+un10_ciin_8 cpu_est_2_2__n BERR_c un10_ciin_9 un10_ciin_10 BG_030_c \
+un10_ciin_11 N_260_i_1 pos_clk_un21_bgack_030_int_i_0_n N_260_i_2 N_81 \
+N_233_i_1 N_94 N_233_i_2 N_254 BGACK_000_c N_232_i_1 N_255 N_232_i_2 N_261 \
+CLK_030_c N_247_1 N_65 N_77_1 N_67 N_83_1 N_269 N_88_1 N_108 CLK_OSZI_c \
+N_142_i_1 N_135 N_146_i_1 N_136 N_234_i_1 N_145 pos_clk_un6_bg_030_1_n N_278 \
+N_124_1 N_147 un21_berr_1 N_58 FPU_SENSE_c un21_fpu_cs_1 N_110 N_140_i_1 N_239 \
+N_154_i_1 N_90 N_152_i_1 N_265 N_150_i_1 N_148_i_1 N_144_i_1 \
+pos_clk_un19_bgack_030_int_n N_255_0_1 N_280 ipl_c_0__n N_258_i_1 N_263 \
+N_259_i_1 N_247 ipl_c_1__n N_282_1 N_77 N_284_1 N_289 ipl_c_2__n N_288_1 N_291 \
+un5_e_0_1 N_290 N_192_i_1 N_286 DTACK_c pos_clk_ipl_1_n N_288 bg_000_0_un3_n \
+N_285 bg_000_0_un1_n N_17 bg_000_0_un0_n N_292 VPA_c \
+amiga_bus_enable_dma_low_0_un3_n pos_clk_un14_clk_000_ne_n \
+amiga_bus_enable_dma_low_0_un1_n N_282 amiga_bus_enable_dma_low_0_un0_n N_284 \
+RST_c a0_dma_0_un3_n N_98 a0_dma_0_un1_n N_97 a0_dma_0_un0_n N_84 RW_c \
+rw_000_dma_0_un3_n N_96 rw_000_dma_0_un1_n N_271 fc_c_0__n rw_000_dma_0_un0_n \
+N_117 bgack_030_int_0_un3_n N_141 fc_c_1__n bgack_030_int_0_un1_n N_134 \
+bgack_030_int_0_un0_n N_153 ds_000_dma_0_un3_n N_129 AMIGA_BUS_DATA_DIR_c \
+ds_000_dma_0_un1_n N_127 ds_000_dma_0_un0_n N_128 size_dma_0_1__un3_n N_125 \
+size_dma_0_1__un1_n N_126 size_dma_0_1__un0_n N_124 BG_030_c_i \
+size_dma_0_0__un3_n N_121 pos_clk_un6_bg_030_i_n size_dma_0_0__un1_n N_171 \
+pos_clk_un9_bg_030_0_n size_dma_0_0__un0_n N_120 N_24_i \
+un1_amiga_bus_enable_dma_high_i_m2_0__un3_n N_119 N_31_0 \
+un1_amiga_bus_enable_dma_high_i_m2_0__un1_n N_118 N_22_i \
+un1_amiga_bus_enable_dma_high_i_m2_0__un0_n N_116 N_33_0 cpu_est_0_1__un3_n \
+N_114 N_20_i cpu_est_0_1__un1_n N_115 N_35_0 cpu_est_0_1__un0_n N_243 N_19_i \
+cpu_est_0_2__un3_n N_240 N_36_0 cpu_est_0_2__un1_n N_88 N_8_i \
+cpu_est_0_2__un0_n N_89 N_42_0 cpu_est_0_3__un3_n N_82 N_3_i \
+cpu_est_0_3__un1_n N_83 N_45_0 cpu_est_0_3__un0_n N_78 VPA_c_i \
+ipl_030_0_0__un3_n N_79 N_52_0 ipl_030_0_0__un1_n N_91 DTACK_c_i \
+ipl_030_0_0__un0_n N_244 N_53_0 ipl_030_0_1__un3_n N_62 ipl_030_0_1__un1_n \
+N_64 N_249_i ipl_030_0_1__un0_n N_59 N_248_i ipl_030_0_2__un3_n N_61 N_247_i \
+ipl_030_0_2__un1_n N_163 ipl_030_0_2__un0_n N_245 N_77_i uds_000_int_0_un3_n \
+N_242 N_251_i uds_000_int_0_un1_n N_246 N_76_i uds_000_int_0_un0_n N_248 \
+amiga_bus_enable_dma_high_0_un3_n N_236 N_131_i \
+amiga_bus_enable_dma_high_0_un1_n N_249 N_130_i \
+amiga_bus_enable_dma_high_0_un0_n N_92 N_264_i as_000_dma_0_un3_n N_251 \
+N_170_i as_000_dma_0_un1_n N_76 pos_clk_un6_bgack_000_0_n as_000_dma_0_un0_n \
+N_80 pos_clk_rw_000_dma_3_0_n ds_000_enable_0_un3_n pos_clk_a0_dma_3_n N_123_i \
+ds_000_enable_0_un1_n SIZE_DMA_3_sqmuxa N_124_i ds_000_enable_0_un0_n N_87 \
+AMIGA_BUS_DATA_DIR_c_0 lds_000_int_0_un3_n pos_clk_size_dma_6_1__n N_122_i \
+lds_000_int_0_un1_n pos_clk_size_dma_6_0__n pos_clk_ds_000_dma_4_0_n \
+lds_000_int_0_un0_n N_170 N_242_i as_030_000_sync_0_un3_n N_122 N_239_i \
+as_030_000_sync_0_un1_n N_123 N_87_i as_030_000_sync_0_un0_n N_130 N_236_0 \
+rw_000_int_0_un3_n pos_clk_ds_000_dma_4_n N_246_i rw_000_int_0_un1_n \
+pos_clk_rw_000_dma_3_n pos_clk_size_dma_6_0_0__n rw_000_int_0_un0_n \
+pos_clk_un6_bgack_000_n N_245_i vma_int_0_un3_n N_131 \
+pos_clk_size_dma_6_0_1__n vma_int_0_un1_n N_3 N_91_i vma_int_0_un0_n N_8 \
+N_210_i a_decode_15__n N_19 pos_clk_un19_bgack_030_int_i_n N_20 N_163_0 \
+a_decode_14__n N_22 N_59_i N_24 N_61_i a_decode_13__n pos_clk_un9_bg_030_n \
+un1_amiga_bus_enable_low_i N_62_i a_decode_12__n un21_fpu_cs_i N_64_i \
+BGACK_030_INT_i a_decode_11__n AMIGA_BUS_ENABLE_DMA_LOW_i N_244_i N_80_i \
+a_decode_10__n cycle_dma_i_0__n N_78_i_0 RW_000_i N_79_i a_decode_9__n \
+rst_dly_i_0__n rst_dly_i_1__n N_82_i a_decode_8__n rst_dly_i_2__n N_83_i \
+LDS_000_i N_55_0 a_decode_7__n UDS_000_i N_88_i sm_amiga_i_2__n N_89_i \
+a_decode_6__n N_58_i N_240_0 sm_amiga_i_3__n N_243_0 a_decode_5__n \
+cpu_est_i_1__n CLK_030_c_i cpu_est_i_0__n N_254_0 a_decode_4__n \
+sm_amiga_i_1__n N_114_i N_110_i N_115_i a_decode_3__n a_i_1__n VMA_INT_i \
+N_116_i a_decode_2__n VPA_D_i N_117_i DTACK_D0_i AS_030_D0_i N_118_i \
+sm_amiga_i_0__n sm_amiga_i_i_7__n N_119_i sm_amiga_i_6__n sm_amiga_i_5__n \
+N_120_i sm_amiga_i_4__n AS_030.OE AS_000.OE RW_000.OE UDS_000.OE LDS_000.OE \
+SIZE_0_.OE SIZE_1_.OE AHIGH_24_.OE AHIGH_25_.OE AHIGH_26_.OE AHIGH_27_.OE \
+AHIGH_28_.OE AHIGH_29_.OE AHIGH_30_.OE AHIGH_31_.OE A_0_.OE BERR.OE RW.OE \
+DS_030.OE DSACK1.OE RESET.OE CIIN.OE G_107 G_108 G_109 \
+pos_clk_CYCLE_DMA_5_1_i_x2 pos_clk_un21_bgack_030_int_i_0_x2
+.names N_152_i_1.BLIF RST_c.BLIF SM_AMIGA_6_.D
 11 1
-.names N_143_i_1.BLIF RST_c.BLIF SM_AMIGA_2_.D
+.names N_150_i_1.BLIF RST_c.BLIF SM_AMIGA_5_.D
 11 1
-.names N_141_i_1.BLIF N_279_i.BLIF SM_AMIGA_1_.D
+.names N_148_i_1.BLIF RST_c.BLIF SM_AMIGA_4_.D
 11 1
-.names N_139_i_1.BLIF RST_c.BLIF SM_AMIGA_0_.D
+.names N_146_i_1.BLIF RST_c.BLIF SM_AMIGA_3_.D
 11 1
-.names N_31_0.BLIF IPL_030DFF_0_reg.D
+.names N_144_i_1.BLIF RST_c.BLIF SM_AMIGA_2_.D
+11 1
+.names N_142_i_1.BLIF RST_c.BLIF SM_AMIGA_1_.D
+11 1
+.names N_140_i_1.BLIF RST_c.BLIF SM_AMIGA_0_.D
+11 1
+.names N_28_0.BLIF IPL_030DFF_0_reg.D
 0 1
-.names N_32_0.BLIF IPL_030DFF_1_reg.D
+.names N_29_0.BLIF IPL_030DFF_1_reg.D
 0 1
-.names N_33_0.BLIF IPL_030DFF_2_reg.D
+.names N_30_0.BLIF IPL_030DFF_2_reg.D
 0 1
-.names N_52_0.BLIF IPL_D0_0_.D
+.names N_49_0.BLIF IPL_D0_0_.D
 0 1
-.names N_53_0.BLIF IPL_D0_1_.D
+.names N_50_0.BLIF IPL_D0_1_.D
 0 1
-.names N_54_0.BLIF IPL_D0_2_.D
+.names N_51_0.BLIF IPL_D0_2_.D
 0 1
-.names N_155_i_1.BLIF RST_c.BLIF SM_AMIGA_i_7_.D
+.names N_154_i_1.BLIF RST_c.BLIF SM_AMIGA_i_7_.D
 11 1
-.names N_151_i_1.BLIF RST_c.BLIF SM_AMIGA_6_.D
+.names N_260_i_1.BLIF N_260_i_2.BLIF CYCLE_DMA_0_.D
 11 1
-.names N_166_i.BLIF N_226_i.BLIF SM_AMIGA_5_.D
-11 1
-.names N_147_i_1.BLIF RST_c.BLIF SM_AMIGA_4_.D
-11 1
-.names N_67_i_1.BLIF N_67_i_2.BLIF CYCLE_DMA_0_.D
-11 1
-.names N_64_i_1.BLIF pos_clk_CYCLE_DMA_5_1_i_0_x2.BLIF CYCLE_DMA_1_.D
+.names N_259_i_1.BLIF RST_c.BLIF CYCLE_DMA_1_.D
 11 1
 .names size_dma_0_0__un1_n.BLIF size_dma_0_0__un0_n.BLIF SIZE_DMA_0_.D
 1- 1
@@ -438,7 +442,7 @@ pos_clk_CYCLE_DMA_5_1_i_0_x2 pos_clk_un21_bgack_030_int_i_0_o2_2_x2
 .names size_dma_0_1__un1_n.BLIF size_dma_0_1__un0_n.BLIF SIZE_DMA_1_.D
 1- 1
 -1 1
-.names N_232_i.BLIF N_233_i.BLIF cpu_est_0_.D
+.names N_59_i.BLIF N_61_i.BLIF cpu_est_0_.D
 11 1
 .names cpu_est_0_1__un1_n.BLIF cpu_est_0_1__un0_n.BLIF cpu_est_1_.D
 1- 1
@@ -449,352 +453,406 @@ pos_clk_CYCLE_DMA_5_1_i_0_x2 pos_clk_un21_bgack_030_int_i_0_o2_2_x2
 .names cpu_est_0_3__un1_n.BLIF cpu_est_0_3__un0_n.BLIF cpu_est_3_.D
 1- 1
 -1 1
-.names N_240_i_1.BLIF RST_c.BLIF RST_DLY_0_.D
+.names N_234_i_1.BLIF RST_c.BLIF RST_DLY_0_.D
 11 1
-.names N_239_i_1.BLIF N_239_i_2.BLIF RST_DLY_1_.D
+.names N_233_i_1.BLIF N_233_i_2.BLIF RST_DLY_1_.D
 11 1
-.names N_238_i_1.BLIF N_238_i_2.BLIF RST_DLY_2_.D
+.names N_232_i_1.BLIF N_232_i_2.BLIF RST_DLY_2_.D
 11 1
-.names N_44_0.BLIF inst_RW_000_INT.D
-0 1
-.names N_45_0.BLIF inst_AS_030_000_SYNC.D
-0 1
-.names N_46_0.BLIF inst_LDS_000_INT.D
-0 1
-.names N_47_0.BLIF inst_BGACK_030_INTreg.D
-0 1
-.names N_49_0.BLIF inst_AS_000_DMA.D
-0 1
-.names N_50_0.BLIF inst_DS_000_DMA.D
-0 1
-.names N_110_0.BLIF inst_AS_030_D0.D
-0 1
-.names N_55_0.BLIF inst_VPA_D.D
-0 1
-.names N_56_0.BLIF inst_DTACK_D0.D
-0 1
-.names N_60_i_1.BLIF pos_clk_un21_bgack_030_int_i_0_i_n.BLIF inst_CLK_030_H.D
+.names N_127_i.BLIF N_128_i.BLIF inst_DSACK1_INT.D
 11 1
-.names N_301_0.BLIF inst_RESET_OUT.D
+.names N_125_i.BLIF N_126_i.BLIF inst_AS_000_INT.D
+11 1
+.names N_48_0.BLIF inst_AS_030_D0.D
+0 1
+.names N_52_0.BLIF inst_VPA_D.D
+0 1
+.names N_53_0.BLIF inst_DTACK_D0.D
+0 1
+.names N_258_i_1.BLIF pos_clk_un21_bgack_030_int_i_0_i_n.BLIF inst_CLK_030_H.D
+11 1
+.names N_55_0.BLIF inst_RESET_OUT.D
 0 1
 .names N_9.BLIF RST_c.BLIF inst_DS_000_ENABLE.D
 11 1
-.names N_34_0.BLIF BG_000DFFreg.D
+.names N_31_0.BLIF BG_000DFFreg.D
 0 1
-.names N_35_0.BLIF inst_AMIGA_BUS_ENABLE_DMA_HIGH.D
+.names N_32_0.BLIF inst_AMIGA_BUS_ENABLE_DMA_HIGH.D
 0 1
-.names N_36_0.BLIF inst_AMIGA_BUS_ENABLE_DMA_LOW.D
+.names N_33_0.BLIF inst_AMIGA_BUS_ENABLE_DMA_LOW.D
 0 1
-.names N_37_0.BLIF inst_UDS_000_INT.D
+.names N_34_0.BLIF inst_UDS_000_INT.D
 0 1
-.names N_38_0.BLIF inst_A0_DMA.D
+.names N_35_0.BLIF inst_A0_DMA.D
 0 1
-.names N_39_0.BLIF inst_AS_000_INT.D
+.names N_36_0.BLIF inst_RW_000_DMA.D
 0 1
-.names N_40_0.BLIF inst_DSACK1_INTreg.D
+.names N_37_0.BLIF inst_VMA_INTreg.D
 0 1
-.names N_41_0.BLIF inst_VMA_INTreg.D
+.names N_39_0.BLIF inst_RW_000_INT.D
 0 1
-.names N_43_0.BLIF inst_RW_000_DMA.D
+.names N_40_0.BLIF inst_AS_030_000_SYNC.D
 0 1
-.names N_100_i.BLIF inst_BGACK_030_INT_D.D
+.names N_41_0.BLIF inst_LDS_000_INT.D
+0 1
+.names N_42_0.BLIF inst_BGACK_030_INTreg.D
+0 1
+.names N_44_0.BLIF inst_AS_000_DMA.D
+0 1
+.names N_45_0.BLIF inst_DS_000_DMA.D
+0 1
+.names AMIGA_BUS_ENABLE_DMA_HIGH_0_sqmuxa.BLIF inst_BGACK_030_INT_D.D
 0 1
 .names inst_CLK_OUT_PRE_50.BLIF inst_CLK_OUT_PRE_50.D
 0 1
-.names N_130.BLIF N_130_i
+.names nEXP_SPACE_c.BLIF nEXP_SPACE_i
 0 1
-.names BGACK_000_c.BLIF N_349_i.BLIF pos_clk_un6_bgack_000_0_n
-11 1
-.names N_131.BLIF N_131_i
-0 1
-.names DTACK_c.BLIF DTACK_c_i
+.names N_171.BLIF N_171_i
 0 1
 .names inst_CLK_030_H.BLIF CLK_030_H_i
 0 1
-.names DTACK_c_i.BLIF RST_c.BLIF N_56_0
-11 1
-.names RW_000_c.BLIF RW_000_i
+.names FPU_SENSE_c.BLIF FPU_SENSE_i
 0 1
-.names VPA_c.BLIF VPA_c_i
-0 1
-.names a_c_1__n.BLIF a_i_1__n
-0 1
-.names RST_c.BLIF VPA_c_i.BLIF N_55_0
-11 1
-.names inst_RESET_OUT.BLIF RESET_OUT_i
-0 1
-.names N_6.BLIF N_6_i
+.names N_121.BLIF N_121_i
 0 1
 .names AS_030_c.BLIF AS_030_i
 0 1
-.names N_6_i.BLIF RST_c.BLIF N_47_0
+.names N_255_0_1.BLIF pos_clk_un21_bgack_030_int_i_0_i_n.BLIF N_255_0
 11 1
-.names FPU_SENSE_c.BLIF FPU_SENSE_i
+.names inst_AS_000_DMA.BLIF AS_000_DMA_i
 0 1
-.names N_26.BLIF N_26_i
-0 1
-.names SM_AMIGA_i_7_.BLIF sm_amiga_i_i_7__n
-0 1
-.names N_26_i.BLIF RST_c.BLIF N_34_0
+.names N_265.BLIF N_270_i.BLIF un1_SM_AMIGA_0_sqmuxa_1_0
 11 1
-.names vcc_n_n
- 1
-.names a_decode_c_16__n.BLIF a_decode_i_16__n
+.names AS_000_c.BLIF AS_000_i
 0 1
-.names BG_030_c.BLIF BG_030_c_i
-0 1
-.names inst_AS_030_D0.BLIF AS_030_D0_i
-0 1
-.names pos_clk_un6_bg_030_n.BLIF pos_clk_un6_bg_030_i_n
-0 1
-.names gnd_n_n
-.names SIZE_DMA_0_.BLIF size_dma_i_0__n
-0 1
-.names BG_030_c_i.BLIF pos_clk_un6_bg_030_i_n.BLIF pos_clk_un9_bg_030_0_n
-11 1
-.names AMIGA_BUS_ENABLE_DMA_LOW_i.BLIF BGACK_030_INT_i.BLIF \
-un1_amiga_bus_enable_low
-11 1
-.names SIZE_DMA_1_.BLIF size_dma_i_1__n
-0 1
-.names N_25.BLIF N_25_i
-0 1
-.names AS_000_DMA_i.BLIF AS_000_i.BLIF un6_as_030
-11 1
-.names a_decode_c_18__n.BLIF a_decode_i_18__n
-0 1
-.names N_25_i.BLIF RST_c.BLIF N_35_0
-11 1
-.names SIZE_DMA_1_.BLIF size_dma_i_0__n.BLIF un3_size
-11 1
-.names a_decode_c_19__n.BLIF a_decode_i_19__n
-0 1
-.names N_24.BLIF N_24_i
-0 1
-.names SIZE_DMA_0_.BLIF size_dma_i_1__n.BLIF un4_size
-11 1
-.names ahigh_c_30__n.BLIF ahigh_i_30__n
-0 1
-.names N_24_i.BLIF RST_c.BLIF N_36_0
-11 1
-.names un1_LDS_000_INT_0.BLIF un1_LDS_000_INT
-0 1
-.names ahigh_c_31__n.BLIF ahigh_i_31__n
-0 1
-.names N_17.BLIF N_17_i
-0 1
-.names un1_UDS_000_INT_0.BLIF un1_UDS_000_INT
-0 1
-.names ahigh_c_28__n.BLIF ahigh_i_28__n
-0 1
-.names N_17_i.BLIF RST_c.BLIF N_43_0
-11 1
-.names un1_SM_AMIGA_0_sqmuxa_1_0.BLIF un1_SM_AMIGA_0_sqmuxa_1
-0 1
-.names ahigh_c_29__n.BLIF ahigh_i_29__n
-0 1
-.names N_4.BLIF N_4_i
-0 1
-.names N_138_i.BLIF N_162.BLIF un1_DS_000_ENABLE_0_sqmuxa
-11 1
-.names ahigh_c_26__n.BLIF ahigh_i_26__n
-0 1
-.names N_4_i.BLIF RST_c.BLIF N_49_0
-11 1
-.names AS_000_INT_i.BLIF AS_030_i.BLIF un4_as_000
-11 1
-.names ahigh_c_27__n.BLIF ahigh_i_27__n
-0 1
-.names N_3.BLIF N_3_i
-0 1
-.names un10_ciin_10.BLIF un10_ciin_11.BLIF un10_ciin
-11 1
-.names ahigh_c_24__n.BLIF ahigh_i_24__n
-0 1
-.names N_3_i.BLIF RST_c.BLIF N_50_0
-11 1
-.names un21_fpu_cs_1.BLIF N_357.BLIF un21_fpu_cs
-11 1
-.names ahigh_c_25__n.BLIF ahigh_i_25__n
-0 1
-.names N_215.BLIF N_215_i
-0 1
-.names un21_berr_1_0.BLIF N_357.BLIF un21_berr
-11 1
-.names G_107.BLIF N_210_i
-0 1
-.names N_216.BLIF N_216_i
-0 1
-.names AS_000_i.BLIF DS_000_DMA_i.BLIF un6_ds_030
-11 1
-.names G_108.BLIF N_211_i
-0 1
-.names N_215_i.BLIF N_216_i.BLIF N_301_0
-11 1
-.names G_109.BLIF N_212_i
-0 1
-.names BGACK_030_INT_i.BLIF RW_000_i.BLIF N_243_0
-11 1
-.names N_266.BLIF N_266_i
-0 1
-.names un6_ds_030.BLIF un6_ds_030_i
-0 1
-.names N_249.BLIF N_249_i
-0 1
-.names un4_as_000.BLIF un4_as_000_i
-0 1
-.names N_249_i.BLIF N_266_i.BLIF AMIGA_BUS_DATA_DIR_c_0
+.names AS_030_i.BLIF RST_c.BLIF N_48_0
 11 1
 .names inst_AS_000_INT.BLIF AS_000_INT_i
 0 1
-.names N_268.BLIF N_268_i
+.names N_125.BLIF N_125_i
 0 1
-.names un6_as_030.BLIF un6_as_030_i
+.names inst_DSACK1_INT.BLIF DSACK1_INT_i
 0 1
-.names N_268_i.BLIF pos_clk_un21_bgack_030_int_i_0_i_n.BLIF \
-pos_clk_ds_000_dma_4_0_n
-11 1
-.names CLK_030_c.BLIF CLK_030_c_i
+.names N_126.BLIF N_126_i
 0 1
-.names CLK_030_c_i.BLIF pos_clk_un21_bgack_030_int_i_0_i_n.BLIF N_236_0
-11 1
-.names inst_BGACK_030_INTreg.BLIF inst_RESET_OUT.BLIF un1_as_000_i
-11 1
-.names N_297.BLIF N_297_i
+.names CLK_000_D_0_.BLIF clk_000_d_i_0__n
 0 1
-.names inst_BGACK_030_INTreg.BLIF inst_BGACK_030_INT_D.BLIF N_160_i
-11 1
-.names pos_clk_un21_bgack_030_int_i_0_i_1_n.BLIF \
-pos_clk_un21_bgack_030_int_i_0_i_2_n.BLIF pos_clk_un21_bgack_030_int_i_0_i_n
-11 1
-.names BGACK_030_INT_i.BLIF RST_c.BLIF N_100_i
-11 1
-.names AS_000_DMA_i.BLIF CLK_030_c_i.BLIF N_186_0
-11 1
-.names N_157_i.BLIF N_304_i.BLIF N_183_0
-11 1
-.names N_304_i.BLIF nEXP_SPACE_c.BLIF N_182_0
-11 1
-.names N_157_i.BLIF N_160_i.BLIF N_181_0
-11 1
-.names N_228.BLIF N_228_i
+.names vcc_n_n
+ 1
+.names CLK_000_D_3_.BLIF clk_000_d_i_3__n
 0 1
-.names N_228_i.BLIF SM_AMIGA_i_7_.BLIF N_176_0
-11 1
-.names LDS_000_c.BLIF LDS_000_c_i
+.names N_127.BLIF N_127_i
 0 1
-.names UDS_000_c.BLIF UDS_000_c_i
+.names un5_e_0.BLIF un5_e
 0 1
-.names LDS_000_c_i.BLIF UDS_000_c_i.BLIF N_173_i
-11 1
-.names N_304_i_1.BLIF CLK_000_D_2_.BLIF N_304_i
-11 1
-.names inst_AS_030_000_SYNC.BLIF AS_030_000_SYNC_i
+.names CLK_000_D_1_.BLIF clk_000_d_i_1__n
 0 1
-.names sm_amiga_i_i_7__n.BLIF nEXP_SPACE_c.BLIF N_157_i
-11 1
-.names AS_030_i.BLIF RST_c.BLIF N_110_0
-11 1
+.names N_128.BLIF N_128_i
+0 1
+.names cpu_est_2_.BLIF cpu_est_i_2__n
+0 1
+.names gnd_n_n
+.names cpu_est_3_.BLIF cpu_est_i_3__n
+0 1
 .names RW_c.BLIF RW_c_i
 0 1
-.names pos_clk_un6_bg_030_1_n.BLIF CLK_000_D_0_.BLIF pos_clk_un6_bg_030_n
+.names AMIGA_BUS_ENABLE_DMA_LOW_i.BLIF BGACK_030_INT_i.BLIF \
+un1_amiga_bus_enable_low
 11 1
-.names N_176_0.BLIF RW_c_i.BLIF N_106_0
+.names a_decode_c_16__n.BLIF a_decode_i_16__n
+0 1
+.names N_270_i.BLIF RW_c_i.BLIF pos_clk_rw_000_int_5_0_n
 11 1
-.names N_284.BLIF N_284_i
-0 1
-.names pos_clk_ipl_1_n.BLIF N_211_i.BLIF pos_clk_ipl_n
+.names AS_000_DMA_i.BLIF AS_000_i.BLIF un7_as_030
 11 1
-.names N_334.BLIF N_334_i
+.names a_decode_c_18__n.BLIF a_decode_i_18__n
 0 1
-.names N_278.BLIF N_278_i
+.names N_129.BLIF N_129_i
 0 1
-.names N_279.BLIF N_279_i
+.names un1_UDS_000_INT_0.BLIF un1_UDS_000_INT
 0 1
-.names N_332.BLIF N_332_i
+.names a_decode_c_19__n.BLIF a_decode_i_19__n
 0 1
-.names N_237_0_1.BLIF pos_clk_un21_bgack_030_int_i_0_i_n.BLIF N_237_0
-11 1
-.names N_167.BLIF N_176_0.BLIF un1_SM_AMIGA_0_sqmuxa_1_0
-11 1
-.names N_247.BLIF N_247_i
+.names un1_LDS_000_INT_0.BLIF un1_LDS_000_INT
 0 1
-.names N_248.BLIF N_248_i
+.names ahigh_c_30__n.BLIF ahigh_i_30__n
 0 1
-.names N_246.BLIF N_246_i
+.names un1_SM_AMIGA_0_sqmuxa_1_0.BLIF un1_SM_AMIGA_0_sqmuxa_1
 0 1
-.names BGACK_030_INT_i.BLIF UDS_000_c.BLIF pos_clk_a0_dma_3_n
-11 1
+.names ahigh_c_31__n.BLIF ahigh_i_31__n
+0 1
 .names un10_ciin.BLIF un10_ciin_i
 0 1
-.names nEXP_SPACE_i.BLIF un10_ciin_i.BLIF N_241_0
-11 1
-.names un1_DS_000_ENABLE_0_sqmuxa.BLIF un1_DS_000_ENABLE_0_sqmuxa_i
+.names un1_DS_000_ENABLE_0_sqmuxa_i.BLIF un1_DS_000_ENABLE_0_sqmuxa
 0 1
-.names AS_030_D0_i.BLIF un1_DS_000_ENABLE_0_sqmuxa_i.BLIF N_242_0
-11 1
-.names BGACK_030_INT_i.BLIF nEXP_SPACE_i.BLIF N_48_i
-11 1
-.names N_227.BLIF N_227_i
+.names ahigh_c_28__n.BLIF ahigh_i_28__n
 0 1
+.names nEXP_SPACE_i.BLIF un10_ciin_i.BLIF N_261_0
+11 1
+.names un10_ciin_10.BLIF un10_ciin_11.BLIF un10_ciin
+11 1
+.names ahigh_c_29__n.BLIF ahigh_i_29__n
+0 1
+.names AS_030_i.BLIF un1_DS_000_ENABLE_0_sqmuxa_i.BLIF N_65_0
+11 1
+.names un21_fpu_cs_1.BLIF FPU_SENSE_i.BLIF un21_fpu_cs
+11 1
+.names ahigh_c_26__n.BLIF ahigh_i_26__n
+0 1
+.names N_134.BLIF N_134_i
+0 1
+.names un21_berr_1.BLIF FPU_SENSE_c.BLIF un21_berr
+11 1
+.names ahigh_c_27__n.BLIF ahigh_i_27__n
+0 1
+.names N_153.BLIF N_153_i
+0 1
+.names AS_000_i.BLIF DS_000_DMA_i.BLIF un6_ds_030
+11 1
+.names ahigh_c_24__n.BLIF ahigh_i_24__n
+0 1
+.names N_134_i.BLIF N_153_i.BLIF N_67_0
+11 1
+.names ahigh_c_25__n.BLIF ahigh_i_25__n
+0 1
+.names BGACK_030_INT_i.BLIF nEXP_SPACE_i.BLIF un2_as_030_i
+11 1
+.names G_107.BLIF N_206_i
+0 1
+.names CLK_000_D_0_.BLIF clk_000_d_i_1__n.BLIF N_263_i
+11 1
+.names G_108.BLIF N_207_i
+0 1
+.names N_263_i.BLIF SM_AMIGA_6_.BLIF N_265_i
+11 1
+.names G_109.BLIF N_208_i
+0 1
+.names inst_AS_030_000_SYNC.BLIF AS_030_000_SYNC_i
+0 1
+.names N_84_0_1.BLIF N_84_0_2.BLIF N_84_0
+11 1
+.names CLK_000_D_2_.BLIF clk_000_d_i_2__n
+0 1
+.names N_81.BLIF N_81_i
+0 1
+.names CLK_000_D_3_.BLIF clk_000_d_i_2__n.BLIF N_85_i
+11 1
+.names un6_ds_030.BLIF un6_ds_030_i
+0 1
+.names N_141.BLIF N_141_i
+0 1
+.names inst_DS_000_DMA.BLIF DS_000_DMA_i
+0 1
+.names N_110_i.BLIF N_141_i.BLIF un1_DS_000_ENABLE_0_sqmuxa_i
+11 1
+.names N_147.BLIF N_147_i
+0 1
+.names pos_clk_un21_bgack_030_int_i_0_i_1_n.BLIF \
+pos_clk_un19_bgack_030_int_n.BLIF pos_clk_un21_bgack_030_int_i_0_i_n
+11 1
+.names N_145.BLIF N_145_i
+0 1
+.names CLK_000_D_1_.BLIF clk_000_d_i_0__n.BLIF N_269_i
+11 1
+.names un7_as_030.BLIF un7_as_030_i
+0 1
+.names N_85_i.BLIF SM_AMIGA_1_.BLIF N_90_i
+11 1
+.names inst_RESET_OUT.BLIF RESET_OUT_i
+0 1
+.names N_117_i.BLIF SM_AMIGA_i_7_.BLIF N_270_i
+11 1
+.names N_269_i.BLIF SM_AMIGA_5_.BLIF N_271_0
+11 1
+.names N_96_0_3.BLIF nEXP_SPACE_c.BLIF N_96_0
+11 1
+.names N_84_0.BLIF sm_amiga_i_i_7__n.BLIF N_97_0
+11 1
+.names AS_000_DMA_i.BLIF CLK_030_c_i.BLIF N_98_0
+11 1
+.names N_282.BLIF N_282_i
+0 1
+.names N_284.BLIF N_284_i
+0 1
+.names pos_clk_un14_clk_000_ne_n.BLIF pos_clk_un14_clk_000_ne_i_n
+0 1
+.names un5_e_0_1.BLIF N_284_i.BLIF un5_e_0
+11 1
+.names N_285.BLIF N_285_i
+0 1
+.names N_291.BLIF N_291_i
+0 1
+.names N_292.BLIF N_292_i
+0 1
+.names N_192_i_1.BLIF N_292_i.BLIF N_192_i
+11 1
+.names pos_clk_un6_bg_030_1_n.BLIF CLK_000_D_0_.BLIF pos_clk_un6_bg_030_n
+11 1
+.names N_17.BLIF N_17_i
+0 1
+.names N_17_i.BLIF N_285_i.BLIF cpu_est_2_0_2__n
+11 1
+.names pos_clk_ipl_1_n.BLIF N_207_i.BLIF pos_clk_ipl_n
+11 1
+.names N_286.BLIF N_286_i
+0 1
+.names N_288.BLIF N_288_i
+0 1
+.names BGACK_030_INT_i.BLIF RST_c.BLIF AMIGA_BUS_ENABLE_DMA_HIGH_0_sqmuxa
+11 1
+.names N_286_i.BLIF N_288_i.BLIF cpu_est_2_0_1__n
+11 1
+.names N_289.BLIF N_289_i
+0 1
+.names N_290.BLIF N_290_i
+0 1
+.names N_289_i.BLIF N_290_i.BLIF pos_clk_un9_clk_000_pe_0_n
+11 1
+.names cpu_est_0_.BLIF cpu_est_1_.BLIF N_280_i
+11 1
+.names pos_clk_un10_sm_amiga_i_1_n.BLIF size_c_0__n.BLIF \
+pos_clk_un10_sm_amiga_i_n
+11 1
+.names a_c_0__n.BLIF a_c_i_0__n
+0 1
+.names size_c_1__n.BLIF size_c_i_1__n
+0 1
+.names N_27.BLIF N_27_i
+0 1
+.names N_27_i.BLIF RST_c.BLIF N_30_0
+11 1
+.names N_26.BLIF N_26_i
+0 1
+.names N_26_i.BLIF RST_c.BLIF N_29_0
+11 1
+.names N_25.BLIF N_25_i
+0 1
+.names N_25_i.BLIF RST_c.BLIF N_28_0
+11 1
+.names ipl_c_2__n.BLIF ipl_c_i_2__n
+0 1
+.names pos_clk_un9_clk_000_pe_0_n.BLIF pos_clk_un9_clk_000_pe_n
+0 1
+.names ipl_c_i_2__n.BLIF RST_c.BLIF N_51_0
+11 1
+.names ipl_c_1__n.BLIF ipl_c_i_1__n
+0 1
+.names pos_clk_rw_000_int_5_0_n.BLIF pos_clk_rw_000_int_5_n
+0 1
+.names ipl_c_i_1__n.BLIF RST_c.BLIF N_50_0
+11 1
+.names ipl_c_0__n.BLIF ipl_c_i_0__n
+0 1
+.names ipl_c_i_0__n.BLIF RST_c.BLIF N_49_0
+11 1
+.names N_4.BLIF N_4_i
+0 1
+.names N_4_i.BLIF RST_c.BLIF N_44_0
+11 1
+.names N_14.BLIF N_14_i
+0 1
+.names as_000_dma_0_un1_n.BLIF as_000_dma_0_un0_n.BLIF N_4
+1- 1
+-1 1
+.names N_14_i.BLIF RST_c.BLIF N_41_0
+11 1
+.names N_15.BLIF N_15_i
+0 1
+.names N_15_i.BLIF RST_c.BLIF N_40_0
+11 1
 .names ds_000_enable_0_un1_n.BLIF ds_000_enable_0_un0_n.BLIF N_9
 1- 1
 -1 1
-.names N_225.BLIF N_225_i
+.names N_16.BLIF N_16_i
 0 1
-.names N_224.BLIF N_224_i
+.names N_16_i.BLIF RST_c.BLIF N_39_0
+11 1
+.names N_18.BLIF N_18_i
+0 1
+.names N_18_i.BLIF RST_c.BLIF N_37_0
+11 1
+.names lds_000_int_0_un1_n.BLIF lds_000_int_0_un0_n.BLIF N_14
+1- 1
+-1 1
+.names N_21.BLIF N_21_i
 0 1
 .names as_030_000_sync_0_un1_n.BLIF as_030_000_sync_0_un0_n.BLIF N_15
 1- 1
 -1 1
-.names N_223.BLIF N_223_i
-0 1
+.names N_21_i.BLIF RST_c.BLIF N_34_0
+11 1
 .names rw_000_int_0_un1_n.BLIF rw_000_int_0_un0_n.BLIF N_16
 1- 1
 -1 1
-.names a0_dma_0_un1_n.BLIF a0_dma_0_un0_n.BLIF N_22
+.names N_23.BLIF N_23_i
+0 1
+.names vma_int_0_un1_n.BLIF vma_int_0_un0_n.BLIF N_18
 1- 1
 -1 1
-.names N_218.BLIF N_218_i
-0 1
-.names N_218_i.BLIF RST_c.BLIF pos_clk_size_dma_6_0_1__n
+.names N_23_i.BLIF RST_c.BLIF N_32_0
 11 1
-.names N_217.BLIF N_217_i
+.names uds_000_int_0_un1_n.BLIF uds_000_int_0_un0_n.BLIF N_21
+1- 1
+-1 1
+.names inst_LDS_000_INT.BLIF LDS_000_INT_i
 0 1
-.names N_217_i.BLIF RST_c.BLIF pos_clk_size_dma_6_0_0__n
+.names amiga_bus_enable_dma_high_0_un1_n.BLIF \
+amiga_bus_enable_dma_high_0_un0_n.BLIF N_23
+1- 1
+-1 1
+.names inst_DS_000_ENABLE.BLIF LDS_000_INT_i.BLIF un1_LDS_000_INT_0
 11 1
-.names N_213.BLIF N_213_i
+.names ipl_030_0_0__un1_n.BLIF ipl_030_0_0__un0_n.BLIF N_25
+1- 1
+-1 1
+.names inst_UDS_000_INT.BLIF UDS_000_INT_i
 0 1
-.names N_319.BLIF N_319_i
-0 1
-.names N_213_i.BLIF N_319_i.BLIF N_300_0
+.names ipl_030_0_1__un1_n.BLIF ipl_030_0_1__un0_n.BLIF N_26
+1- 1
+-1 1
+.names inst_DS_000_ENABLE.BLIF UDS_000_INT_i.BLIF un1_UDS_000_INT_0
 11 1
-.names N_15.BLIF N_15_i
-0 1
-.names N_15_i.BLIF RST_c.BLIF N_45_0
+.names ipl_030_0_2__un1_n.BLIF ipl_030_0_2__un0_n.BLIF N_27
+1- 1
+-1 1
+.names inst_BGACK_030_INT_D.BLIF inst_BGACK_030_INTreg.BLIF N_96_0_1
 11 1
-.names N_16.BLIF N_16_i
-0 1
-.names N_16_i.BLIF RST_c.BLIF N_44_0
+.names AS_030_D0_i.BLIF sm_amiga_i_i_7__n.BLIF N_96_0_2
 11 1
-.names N_22.BLIF N_22_i
-0 1
-.names N_22_i.BLIF RST_c.BLIF N_38_0
+.names N_96_0_1.BLIF N_96_0_2.BLIF N_96_0_3
 11 1
-.names AS_000_i.BLIF pos_clk_un21_bgack_030_int_i_0_o2_2_x2.BLIF \
+.names pos_clk_un21_bgack_030_int_i_0_x2.BLIF N_264_i.BLIF \
 pos_clk_un21_bgack_030_int_i_0_i_1_n
 11 1
-.names BGACK_030_INT_i.BLIF N_297_i.BLIF pos_clk_un21_bgack_030_int_i_0_i_2_n
+.names CLK_000_D_4_.BLIF clk_000_d_i_3__n.BLIF N_84_0_1
 11 1
-.names N_199_i.BLIF N_200_i.BLIF N_238_i_1
+.names AS_030_000_SYNC_i.BLIF nEXP_SPACE_c.BLIF N_84_0_2
 11 1
-.names N_201_i.BLIF RST_c.BLIF N_238_i_2
+.names BERR_c.BLIF N_88_i.BLIF N_240_0_1
 11 1
-.names N_203_i.BLIF N_204_i.BLIF N_239_i_1
+.names size_c_i_1__n.BLIF a_c_i_0__n.BLIF pos_clk_un10_sm_amiga_i_1_n
 11 1
-.names N_205_i.BLIF RST_c.BLIF N_239_i_2
+.names N_263_i.BLIF N_291.BLIF N_289_1
 11 1
-.names size_c_0__n.BLIF a_c_i_0__n.BLIF pos_clk_un10_sm_amiga_i_1_n
+.names cpu_est_i_0__n.BLIF cpu_est_i_1__n.BLIF N_289_2
+11 1
+.names N_269_i.BLIF N_280_i.BLIF N_290_1
+11 1
+.names N_291.BLIF VPA_D_i.BLIF N_290_2
+11 1
+.names cpu_est_3_.BLIF cpu_est_i_0__n.BLIF pos_clk_un14_clk_000_ne_1_n
+11 1
+.names cpu_est_i_1__n.BLIF cpu_est_i_2__n.BLIF pos_clk_un14_clk_000_ne_2_n
+11 1
+.names AS_030_i.BLIF a_decode_c_17__n.BLIF N_153_1
+11 1
+.names a_decode_i_16__n.BLIF a_decode_i_18__n.BLIF N_153_2
+11 1
+.names fc_c_1__n.BLIF a_decode_i_19__n.BLIF N_153_3
+11 1
+.names N_153_1.BLIF N_153_2.BLIF N_153_4
+11 1
+.names N_153_3.BLIF fc_c_0__n.BLIF N_153_5
 11 1
 .names ahigh_i_24__n.BLIF ahigh_i_25__n.BLIF un10_ciin_1
 11 1
@@ -810,11 +868,11 @@ pos_clk_un21_bgack_030_int_i_0_i_1_n
 11 1
 .names un10_ciin_1.BLIF un10_ciin_2.BLIF un10_ciin_7
 11 1
-.names pos_clk_size_dma_6_0_0__n.BLIF pos_clk_size_dma_6_0__n
+.names cpu_est_2_0_1__n.BLIF cpu_est_2_1__n
 0 1
 .names un10_ciin_3.BLIF un10_ciin_4.BLIF un10_ciin_8
 11 1
-.names pos_clk_size_dma_6_0_1__n.BLIF pos_clk_size_dma_6_1__n
+.names cpu_est_2_0_2__n.BLIF cpu_est_2_2__n
 0 1
 .names un10_ciin_5.BLIF un10_ciin_6.BLIF un10_ciin_9
 11 1
@@ -822,703 +880,642 @@ pos_clk_un21_bgack_030_int_i_0_i_1_n
 11 1
 .names un10_ciin_9.BLIF a_decode_c_22__n.BLIF un10_ciin_11
 11 1
-.names fc_c_0__n.BLIF fc_c_1__n.BLIF N_357_1
+.names N_130_i.BLIF N_131_i.BLIF N_260_i_1
 11 1
 .names pos_clk_un21_bgack_030_int_i_0_i_n.BLIF \
 pos_clk_un21_bgack_030_int_i_0_n
 0 1
-.names a_decode_c_17__n.BLIF a_decode_i_16__n.BLIF N_357_2
+.names N_264_i.BLIF RST_c.BLIF N_260_i_2
 11 1
-.names N_237_0.BLIF N_237
+.names a_i_1__n.BLIF BGACK_030_INT_i.BLIF N_81
+11 1
+.names N_76_i.BLIF N_77_i.BLIF N_233_i_1
+11 1
+.names inst_BGACK_030_INTreg.BLIF inst_BGACK_030_INT_D.BLIF N_94
+11 1
+.names N_251_i.BLIF RST_c.BLIF N_233_i_2
+11 1
+.names N_254_0.BLIF N_254
 0 1
-.names a_decode_i_18__n.BLIF a_decode_i_19__n.BLIF N_357_3
+.names N_247_i.BLIF N_248_i.BLIF N_232_i_1
 11 1
-.names N_241_0.BLIF N_241
+.names N_255_0.BLIF N_255
 0 1
-.names N_357_1.BLIF N_357_2.BLIF N_357_4
+.names N_249_i.BLIF RST_c.BLIF N_232_i_2
 11 1
-.names N_242_0.BLIF N_242
+.names N_261_0.BLIF N_261
 0 1
-.names clk_000_d_i_1__n.BLIF AS_030_000_SYNC_i.BLIF N_304_i_1
+.names N_210_i.BLIF N_239.BLIF N_247_1
 11 1
-.names un21_berr_1.BLIF FPU_SENSE_i.BLIF un21_fpu_cs_1
-11 1
-.names N_294.BLIF nEXP_SPACE_i.BLIF N_283
-11 1
-.names un21_berr_1.BLIF FPU_SENSE_c.BLIF un21_berr_1_0
-11 1
-.names BGACK_030_INT_i.BLIF inst_RESET_OUT.BLIF N_294
-11 1
-.names AS_000_i.BLIF BGACK_030_INT_i.BLIF N_266_1
-11 1
-.names N_300_0.BLIF N_300
+.names N_65_0.BLIF N_65
 0 1
-.names RW_000_c.BLIF nEXP_SPACE_i.BLIF N_266_2
+.names N_210_i.BLIF rst_dly_i_0__n.BLIF N_77_1
 11 1
-.names AS_000_i.BLIF N_100_i.BLIF N_67_i_1
-11 1
-.names N_106_0.BLIF N_106
+.names N_67_0.BLIF N_67
 0 1
-.names N_207_i.BLIF N_208_i.BLIF N_67_i_2
+.names N_91.BLIF N_269_i.BLIF N_83_1
 11 1
-.names N_138_i.BLIF N_305_i.BLIF N_314_1
-11 1
-.names N_134_i.BLIF N_134
+.names N_269_i.BLIF N_269
 0 1
-.names cpu_est_i_0__n.BLIF cpu_est_i_3__n.BLIF N_314_2
+.names VMA_INT_i.BLIF VPA_D_i.BLIF N_88_1
 11 1
-.names N_138_i.BLIF N_138
-0 1
-.names N_134_i.BLIF N_348.BLIF N_318_1
-11 1
-.names N_156_i.BLIF N_156
-0 1
-.names VPA_D_i.BLIF cpu_est_i_3__n.BLIF N_318_2
-11 1
-.names N_160_i.BLIF N_160
-0 1
-.names N_154_0.BLIF N_305_i.BLIF N_341_1
-11 1
-.names N_167_i.BLIF N_167
-0 1
-.names VMA_INT_i.BLIF VPA_D_i.BLIF N_341_2
-11 1
-.names N_172_i.BLIF N_172
-0 1
-.names N_167.BLIF N_284_i.BLIF N_151_i_1
-11 1
-.names N_173_i.BLIF N_173
-0 1
-.names N_138.BLIF N_334_i.BLIF N_143_i_1
-11 1
-.names N_181_0.BLIF N_181
-0 1
-.names N_166_i.BLIF N_278_i.BLIF N_141_i_1
-11 1
-.names N_182_0.BLIF N_182
-0 1
-.names N_332_i.BLIF RW_000_i.BLIF N_237_0_1
-11 1
-.names N_183_0.BLIF N_183
-0 1
-.names N_247_i.BLIF N_248_i.BLIF N_240_i_1
-11 1
-.names un1_amiga_bus_enable_dma_high_i_m2_i_m2_0__un1_n.BLIF \
-un1_amiga_bus_enable_dma_high_i_m2_i_m2_0__un0_n.BLIF N_191
+.names un1_amiga_bus_enable_dma_high_i_m2_0__un1_n.BLIF \
+un1_amiga_bus_enable_dma_high_i_m2_0__un0_n.BLIF N_108
 1- 1
 -1 1
-.names N_246_i.BLIF RST_c.BLIF N_60_i_1
+.names N_62_i.BLIF N_64_i.BLIF N_142_i_1
 11 1
-.names N_199_1.BLIF rst_dly_i_2__n.BLIF N_199
+.names N_278.BLIF nEXP_SPACE_i.BLIF N_135
 11 1
-.names AS_000_i.BLIF N_100_i.BLIF N_64_i_1
+.names N_58_i.BLIF N_244_i.BLIF N_146_i_1
 11 1
-.names N_205_1.BLIF rst_dly_i_1__n.BLIF N_205
+.names inst_BGACK_030_INTreg.BLIF inst_RESET_OUT.BLIF N_136
 11 1
-.names N_227_i.BLIF N_228_i.BLIF N_155_i_1
+.names N_78_i_0.BLIF N_79_i.BLIF N_234_i_1
 11 1
-.names N_160_i.BLIF RST_c.BLIF N_209
-11 1
-.names N_138.BLIF N_225_i.BLIF N_147_i_1
-11 1
-.names AS_030_D0_i.BLIF N_181.BLIF N_319
-11 1
-.names N_172.BLIF N_224_i.BLIF N_145_i_1
-11 1
-.names AS_030_D0_i.BLIF N_357.BLIF N_213
-11 1
-.names N_138.BLIF N_223_i.BLIF N_139_i_1
-11 1
-.names N_216_1.BLIF RST_c.BLIF N_216
+.names AS_000_INT_i.BLIF AS_030_i.BLIF N_145
 11 1
 .names nEXP_SPACE_c.BLIF inst_AS_030_D0.BLIF pos_clk_un6_bg_030_1_n
 11 1
-.names BGACK_030_INT_i.BLIF N_173.BLIF N_217
+.names BGACK_030_INT_i.BLIF inst_RESET_OUT.BLIF N_278
 11 1
-.names cpu_est_0_.BLIF cpu_est_i_1__n.BLIF N_220_1
+.names N_264_i.BLIF RW_000_c.BLIF N_124_1
 11 1
-.names BGACK_030_INT_i.BLIF N_173_i.BLIF N_218
+.names AS_030_i.BLIF DSACK1_INT_i.BLIF N_147
 11 1
-.names N_134_i.BLIF N_343.BLIF N_216_1
+.names N_153.BLIF BGACK_000_c.BLIF un21_berr_1
 11 1
-.names N_220_1.BLIF cpu_est_i_3__n.BLIF N_220
+.names N_240.BLIF N_269_i.BLIF N_58
 11 1
-.names N_214_0.BLIF rst_dly_i_0__n.BLIF N_205_1
+.names N_153.BLIF BGACK_000_c.BLIF un21_fpu_cs_1
 11 1
-.names N_169.BLIF sm_amiga_i_0__n.BLIF N_223
+.names N_263_i.BLIF SM_AMIGA_4_.BLIF N_110
 11 1
-.names N_156.BLIF N_214_0.BLIF N_199_1
+.names N_114_i.BLIF N_115_i.BLIF N_140_i_1
 11 1
-.names N_180.BLIF sm_amiga_i_3__n.BLIF N_224
-11 1
-.names N_212_i.BLIF N_210_i.BLIF pos_clk_ipl_1_n
-11 1
-.names N_185.BLIF sm_amiga_i_4__n.BLIF N_225
-11 1
-.names SM_AMIGA_6_.BLIF uds_000_int_0_un3_n
+.names N_239_i.BLIF N_239
 0 1
-.names N_182.BLIF sm_amiga_i_i_7__n.BLIF N_227
+.names N_116_i.BLIF N_117_i.BLIF N_154_i_1
 11 1
-.names a_c_0__n.BLIF SM_AMIGA_6_.BLIF uds_000_int_0_un1_n
-11 1
-.names N_138_i.BLIF SM_AMIGA_0_.BLIF N_228
-11 1
-.names inst_UDS_000_INT.BLIF uds_000_int_0_un3_n.BLIF uds_000_int_0_un0_n
-11 1
-.names CLK_030_H_i.BLIF N_186.BLIF N_246
-11 1
-.names N_80.BLIF as_000_int_0_un3_n
+.names N_90_i.BLIF N_90
 0 1
-.names N_142.BLIF RST_DLY_0_.BLIF N_247
+.names N_118_i.BLIF N_265.BLIF N_152_i_1
 11 1
-.names N_167.BLIF N_80.BLIF as_000_int_0_un1_n
-11 1
-.names N_166_i.BLIF rst_dly_i_0__n.BLIF N_248
-11 1
-.names inst_AS_000_INT.BLIF as_000_int_0_un3_n.BLIF as_000_int_0_un0_n
-11 1
-.names inst_CLK_030_H.BLIF CLK_030_c.BLIF N_332
-11 1
-.names N_256.BLIF dsack1_int_0_un3_n
+.names N_265_i.BLIF N_265
 0 1
-.names N_138.BLIF SM_AMIGA_2_.BLIF N_278
+.names N_119_i.BLIF N_269.BLIF N_150_i_1
 11 1
-.names N_169.BLIF N_256.BLIF dsack1_int_0_un1_n
+.names N_120_i.BLIF N_263.BLIF N_148_i_1
 11 1
-.names sm_amiga_i_1__n.BLIF sm_amiga_i_2__n.BLIF N_279
+.names N_171_i.BLIF N_263.BLIF N_144_i_1
 11 1
-.names inst_DSACK1_INTreg.BLIF dsack1_int_0_un3_n.BLIF dsack1_int_0_un0_n
-11 1
-.names N_179.BLIF sm_amiga_i_2__n.BLIF N_334
-11 1
-.names pos_clk_un9_clk_000_pe_n.BLIF vma_int_0_un3_n
+.names pos_clk_un19_bgack_030_int_i_n.BLIF pos_clk_un19_bgack_030_int_n
 0 1
-.names N_183.BLIF sm_amiga_i_6__n.BLIF N_284
+.names N_121_i.BLIF RW_000_i.BLIF N_255_0_1
 11 1
-.names cpu_est_i_1__n.BLIF pos_clk_un9_clk_000_pe_n.BLIF vma_int_0_un1_n
-11 1
-.names N_156_i.BLIF RST_DLY_2_.BLIF N_343
-11 1
-.names inst_VMA_INTreg.BLIF vma_int_0_un3_n.BLIF vma_int_0_un0_n
-11 1
-.names SM_AMIGA_6_.BLIF lds_000_int_0_un3_n
+.names N_280_i.BLIF N_280
 0 1
-.names AS_030_i.BLIF BGACK_000_c.BLIF un21_berr_1
+.names N_129_i.BLIF RST_c.BLIF N_258_i_1
 11 1
-.names pos_clk_un10_sm_amiga_i_n.BLIF SM_AMIGA_6_.BLIF lds_000_int_0_un1_n
-11 1
-.names N_357_4.BLIF N_357_3.BLIF N_357
-11 1
-.names inst_LDS_000_INT.BLIF lds_000_int_0_un3_n.BLIF lds_000_int_0_un0_n
-11 1
-.names N_266_1.BLIF N_266_2.BLIF N_266
-11 1
-.names pos_clk_ipl_n.BLIF ipl_030_0_1__un3_n
+.names N_263_i.BLIF N_263
 0 1
-.names N_186_0.BLIF N_186
-0 1
-.names AMIGA_BUS_DATA_DIR_c_0.BLIF AMIGA_BUS_DATA_DIR_c
-0 1
-.names ipl_c_1__n.BLIF pos_clk_ipl_n.BLIF ipl_030_0_1__un1_n
+.names pos_clk_CYCLE_DMA_5_1_i_x2.BLIF N_264_i.BLIF N_259_i_1
 11 1
-.names IPL_030DFF_1_reg.BLIF ipl_030_0_1__un3_n.BLIF ipl_030_0_1__un0_n
+.names N_247_1.BLIF rst_dly_i_2__n.BLIF N_247
 11 1
-.names LDS_000_c.BLIF UDS_000_c.BLIF N_297
+.names cpu_est_1_.BLIF cpu_est_2_.BLIF N_282_1
 11 1
-.names pos_clk_ipl_n.BLIF ipl_030_0_0__un3_n
-0 1
-.names N_236_0.BLIF N_236
-0 1
-.names ipl_c_0__n.BLIF pos_clk_ipl_n.BLIF ipl_030_0_0__un1_n
+.names N_77_1.BLIF rst_dly_i_1__n.BLIF N_77
 11 1
-.names pos_clk_ds_000_dma_4_0_n.BLIF pos_clk_ds_000_dma_4_n
-0 1
-.names IPL_030DFF_0_reg.BLIF ipl_030_0_0__un3_n.BLIF ipl_030_0_0__un0_n
+.names N_292.BLIF cpu_est_3_.BLIF N_284_1
 11 1
-.names inst_AS_000_DMA.BLIF RW_000_i.BLIF N_268
+.names N_289_1.BLIF N_289_2.BLIF N_289
 11 1
-.names inst_UDS_000_INT.BLIF UDS_000_INT_i
-0 1
-.names N_134.BLIF cpu_est_0_3__un3_n
-0 1
-.names inst_BGACK_030_INTreg.BLIF RW_000_i.BLIF N_249
+.names cpu_est_0_.BLIF cpu_est_i_1__n.BLIF N_288_1
 11 1
-.names inst_DS_000_ENABLE.BLIF UDS_000_INT_i.BLIF un1_UDS_000_INT_0
+.names cpu_est_i_2__n.BLIF cpu_est_i_3__n.BLIF N_291
 11 1
-.names cpu_est_3_.BLIF N_134.BLIF cpu_est_0_3__un1_n
+.names pos_clk_un14_clk_000_ne_i_n.BLIF N_282_i.BLIF un5_e_0_1
 11 1
-.names N_243_0.BLIF N_243
-0 1
-.names inst_LDS_000_INT.BLIF LDS_000_INT_i
-0 1
-.names N_196_i.BLIF cpu_est_0_3__un3_n.BLIF cpu_est_0_3__un0_n
+.names N_290_1.BLIF N_290_2.BLIF N_290
 11 1
-.names inst_RESET_OUT.BLIF RST_c.BLIF N_215
+.names N_285_i.BLIF N_291_i.BLIF N_192_i_1
 11 1
-.names inst_DS_000_ENABLE.BLIF LDS_000_INT_i.BLIF un1_LDS_000_INT_0
+.names cpu_est_1_.BLIF cpu_est_i_0__n.BLIF N_286
 11 1
-.names N_134.BLIF cpu_est_0_2__un3_n
-0 1
-.names a_c_1__n.BLIF BGACK_030_INT_i.BLIF N_130
+.names N_208_i.BLIF N_206_i.BLIF pos_clk_ipl_1_n
 11 1
-.names N_23.BLIF N_23_i
-0 1
-.names cpu_est_2_.BLIF N_134.BLIF cpu_est_0_2__un1_n
+.names N_288_1.BLIF cpu_est_i_3__n.BLIF N_288
 11 1
-.names a_i_1__n.BLIF BGACK_030_INT_i.BLIF N_131
-11 1
-.names N_23_i.BLIF RST_c.BLIF N_37_0
-11 1
-.names cpu_est_2_2__n.BLIF cpu_est_0_2__un3_n.BLIF cpu_est_0_2__un0_n
-11 1
-.names ds_000_dma_0_un1_n.BLIF ds_000_dma_0_un0_n.BLIF N_3
-1- 1
--1 1
-.names N_21.BLIF N_21_i
-0 1
-.names N_134.BLIF cpu_est_0_1__un3_n
-0 1
-.names as_000_dma_0_un1_n.BLIF as_000_dma_0_un0_n.BLIF N_4
-1- 1
--1 1
-.names N_21_i.BLIF RST_c.BLIF N_39_0
-11 1
-.names cpu_est_1_.BLIF N_134.BLIF cpu_est_0_1__un1_n
-11 1
-.names rw_000_dma_0_un1_n.BLIF rw_000_dma_0_un0_n.BLIF N_17
-1- 1
--1 1
-.names N_20.BLIF N_20_i
-0 1
-.names cpu_est_2_1__n.BLIF cpu_est_0_1__un3_n.BLIF cpu_est_0_1__un0_n
-11 1
-.names amiga_bus_enable_dma_low_0_un1_n.BLIF \
-amiga_bus_enable_dma_low_0_un0_n.BLIF N_24
-1- 1
--1 1
-.names N_20_i.BLIF RST_c.BLIF N_40_0
-11 1
-.names pos_clk_ipl_n.BLIF ipl_030_0_2__un3_n
-0 1
-.names amiga_bus_enable_dma_high_0_un1_n.BLIF \
-amiga_bus_enable_dma_high_0_un0_n.BLIF N_25
-1- 1
--1 1
-.names N_19.BLIF N_19_i
-0 1
-.names ipl_c_2__n.BLIF pos_clk_ipl_n.BLIF ipl_030_0_2__un1_n
-11 1
-.names pos_clk_un9_bg_030_0_n.BLIF pos_clk_un9_bg_030_n
-0 1
-.names N_19_i.BLIF RST_c.BLIF N_41_0
-11 1
-.names IPL_030DFF_2_reg.BLIF ipl_030_0_2__un3_n.BLIF ipl_030_0_2__un0_n
-11 1
-.names bgack_030_int_0_un1_n.BLIF bgack_030_int_0_un0_n.BLIF N_6
-1- 1
--1 1
-.names N_14.BLIF N_14_i
-0 1
-.names N_160.BLIF amiga_bus_enable_dma_low_0_un3_n
-0 1
-.names pos_clk_un6_bgack_000_0_n.BLIF pos_clk_un6_bgack_000_n
-0 1
-.names N_14_i.BLIF RST_c.BLIF N_46_0
-11 1
-.names N_130_i.BLIF N_160.BLIF amiga_bus_enable_dma_low_0_un1_n
-11 1
-.names bg_000_0_un1_n.BLIF bg_000_0_un0_n.BLIF N_26
-1- 1
--1 1
-.names ipl_c_0__n.BLIF ipl_c_i_0__n
-0 1
-.names inst_AMIGA_BUS_ENABLE_DMA_LOW.BLIF \
-amiga_bus_enable_dma_low_0_un3_n.BLIF amiga_bus_enable_dma_low_0_un0_n
-11 1
-.names CYCLE_DMA_0_.BLIF N_138_i.BLIF N_208
-11 1
-.names ipl_c_i_0__n.BLIF RST_c.BLIF N_52_0
-11 1
-.names N_160.BLIF rw_000_dma_0_un3_n
-0 1
-.names cycle_dma_i_0__n.BLIF N_138.BLIF N_207
-11 1
-.names ipl_c_1__n.BLIF ipl_c_i_1__n
-0 1
-.names N_243.BLIF N_160.BLIF rw_000_dma_0_un1_n
-11 1
-.names AS_000_c.BLIF N_138_i.BLIF N_349
-11 1
-.names ipl_c_i_1__n.BLIF RST_c.BLIF N_53_0
-11 1
-.names inst_RW_000_DMA.BLIF rw_000_dma_0_un3_n.BLIF rw_000_dma_0_un0_n
-11 1
-.names N_314_1.BLIF N_314_2.BLIF N_314
-11 1
-.names ipl_c_2__n.BLIF ipl_c_i_2__n
-0 1
-.names N_236.BLIF as_000_dma_0_un3_n
-0 1
-.names N_318_1.BLIF N_318_2.BLIF N_318
-11 1
-.names ipl_c_i_2__n.BLIF RST_c.BLIF N_54_0
-11 1
-.names pos_clk_un21_bgack_030_int_i_0_n.BLIF N_236.BLIF as_000_dma_0_un1_n
-11 1
-.names N_153_i.BLIF cpu_est_i_2__n.BLIF N_348
-11 1
-.names N_27.BLIF N_27_i
-0 1
-.names inst_AS_000_DMA.BLIF as_000_dma_0_un3_n.BLIF as_000_dma_0_un0_n
-11 1
-.names N_134.BLIF rst_dly_i_2__n.BLIF N_201
-11 1
-.names N_27_i.BLIF RST_c.BLIF N_31_0
-11 1
-.names N_237.BLIF ds_000_dma_0_un3_n
-0 1
-.names N_142.BLIF N_343.BLIF N_200
-11 1
-.names N_28.BLIF N_28_i
-0 1
-.names pos_clk_ds_000_dma_4_n.BLIF N_237.BLIF ds_000_dma_0_un1_n
-11 1
-.names N_142.BLIF N_156_i.BLIF N_203
-11 1
-.names N_28_i.BLIF RST_c.BLIF N_32_0
-11 1
-.names inst_DS_000_DMA.BLIF ds_000_dma_0_un3_n.BLIF ds_000_dma_0_un0_n
-11 1
-.names N_166_i.BLIF rst_dly_i_1__n.BLIF N_204
-11 1
-.names N_29.BLIF N_29_i
-0 1
-.names pos_clk_un6_bgack_000_n.BLIF bgack_030_int_0_un3_n
-0 1
-.names N_185_0.BLIF N_185
-0 1
-.names N_29_i.BLIF RST_c.BLIF N_33_0
-11 1
-.names BGACK_000_c.BLIF pos_clk_un6_bgack_000_n.BLIF bgack_030_int_0_un1_n
-11 1
-.names N_184_0.BLIF N_184
-0 1
-.names a_c_0__n.BLIF a_c_i_0__n
-0 1
-.names inst_BGACK_030_INTreg.BLIF bgack_030_int_0_un3_n.BLIF \
-bgack_030_int_0_un0_n
-11 1
-.names N_180_0.BLIF N_180
-0 1
-.names size_c_1__n.BLIF size_c_i_1__n
-0 1
 .names pos_clk_un9_bg_030_n.BLIF bg_000_0_un3_n
 0 1
-.names N_179_0.BLIF N_179
-0 1
-.names pos_clk_un10_sm_amiga_i_1_n.BLIF size_c_i_1__n.BLIF \
-pos_clk_un10_sm_amiga_i_n
+.names N_280.BLIF cpu_est_2_.BLIF N_285
 11 1
 .names BG_030_c.BLIF pos_clk_un9_bg_030_n.BLIF bg_000_0_un1_n
 11 1
-.names N_178_0.BLIF N_178
-0 1
-.names AS_030_D0_i.BLIF N_169.BLIF N_256_0
+.names N_280_i.BLIF cpu_est_i_2__n.BLIF N_17
 11 1
 .names BG_000DFFreg.BLIF bg_000_0_un3_n.BLIF bg_000_0_un0_n
 11 1
-.names N_171_i.BLIF N_171
-0 1
-.names N_318.BLIF N_318_i
-0 1
-.names N_160.BLIF amiga_bus_enable_dma_high_0_un3_n
-0 1
-.names N_341_1.BLIF N_341_2.BLIF N_341
+.names cpu_est_0_.BLIF cpu_est_i_2__n.BLIF N_292
 11 1
-.names N_314.BLIF N_314_i
+.names N_94.BLIF amiga_bus_enable_dma_low_0_un3_n
 0 1
-.names N_131_i.BLIF N_160.BLIF amiga_bus_enable_dma_high_0_un1_n
+.names pos_clk_un14_clk_000_ne_1_n.BLIF pos_clk_un14_clk_000_ne_2_n.BLIF \
+pos_clk_un14_clk_000_ne_n
 11 1
-.names N_165.BLIF inst_VPA_D.BLIF N_342
+.names inst_AMIGA_BUS_ENABLE_DMA_LOW.BLIF N_94.BLIF \
+amiga_bus_enable_dma_low_0_un1_n
 11 1
-.names N_314_i.BLIF N_318_i.BLIF pos_clk_un9_clk_000_pe_0_n
+.names N_282_1.BLIF cpu_est_i_3__n.BLIF N_282
 11 1
-.names inst_AMIGA_BUS_ENABLE_DMA_HIGH.BLIF \
-amiga_bus_enable_dma_high_0_un3_n.BLIF amiga_bus_enable_dma_high_0_un0_n
+.names N_80_i.BLIF amiga_bus_enable_dma_low_0_un3_n.BLIF \
+amiga_bus_enable_dma_low_0_un0_n
 11 1
-.names N_169_i.BLIF N_169
-0 1
-.names N_219.BLIF N_219_i
-0 1
-.names inst_BGACK_030_INTreg.BLIF \
-un1_amiga_bus_enable_dma_high_i_m2_i_m2_0__un3_n
-0 1
-.names N_154_0.BLIF N_154
-0 1
-.names N_220.BLIF N_220_i
-0 1
-.names inst_AS_030_000_SYNC.BLIF inst_BGACK_030_INTreg.BLIF \
-un1_amiga_bus_enable_dma_high_i_m2_i_m2_0__un1_n
+.names N_284_1.BLIF cpu_est_i_1__n.BLIF N_284
 11 1
-.names N_165_0.BLIF N_165
+.names N_94.BLIF a0_dma_0_un3_n
 0 1
-.names N_219_i.BLIF N_220_i.BLIF cpu_est_2_0_1__n
+.names N_98_0.BLIF N_98
+0 1
+.names inst_A0_DMA.BLIF N_94.BLIF a0_dma_0_un1_n
 11 1
-.names inst_AMIGA_BUS_ENABLE_DMA_HIGH.BLIF \
-un1_amiga_bus_enable_dma_high_i_m2_i_m2_0__un3_n.BLIF \
-un1_amiga_bus_enable_dma_high_i_m2_i_m2_0__un0_n
+.names N_97_0.BLIF N_97
+0 1
+.names pos_clk_a0_dma_3_n.BLIF a0_dma_0_un3_n.BLIF a0_dma_0_un0_n
 11 1
-.names N_162_0.BLIF N_162
+.names N_84_0.BLIF N_84
 0 1
-.names N_221.BLIF N_221_i
+.names N_94.BLIF rw_000_dma_0_un3_n
 0 1
-.names N_209.BLIF size_dma_0_0__un3_n
+.names N_96_0.BLIF N_96
 0 1
-.names RW_c.BLIF SM_AMIGA_6_.BLIF N_299
+.names inst_RW_000_DMA.BLIF N_94.BLIF rw_000_dma_0_un1_n
 11 1
-.names N_348.BLIF N_348_i
+.names N_271_0.BLIF N_271
 0 1
-.names SIZE_DMA_0_.BLIF N_209.BLIF size_dma_0_0__un1_n
+.names pos_clk_rw_000_dma_3_n.BLIF rw_000_dma_0_un3_n.BLIF rw_000_dma_0_un0_n
 11 1
-.names N_153_i.BLIF N_153
+.names N_263_i.BLIF SM_AMIGA_0_.BLIF N_117
+11 1
+.names pos_clk_un6_bgack_000_n.BLIF bgack_030_int_0_un3_n
 0 1
-.names N_221_i.BLIF N_348_i.BLIF cpu_est_2_0_2__n
+.names N_265_i.BLIF RW_c.BLIF N_141
+11 1
+.names BGACK_000_c.BLIF pos_clk_un6_bgack_000_n.BLIF bgack_030_int_0_un1_n
+11 1
+.names AS_030_i.BLIF N_96.BLIF N_134
+11 1
+.names inst_BGACK_030_INTreg.BLIF bgack_030_int_0_un3_n.BLIF \
+bgack_030_int_0_un0_n
+11 1
+.names N_153_4.BLIF N_153_5.BLIF N_153
+11 1
+.names N_255.BLIF ds_000_dma_0_un3_n
+0 1
+.names CLK_030_H_i.BLIF N_98.BLIF N_129
+11 1
+.names AMIGA_BUS_DATA_DIR_c_0.BLIF AMIGA_BUS_DATA_DIR_c
+0 1
+.names pos_clk_ds_000_dma_4_n.BLIF N_255.BLIF ds_000_dma_0_un1_n
+11 1
+.names N_147.BLIF RST_c.BLIF N_127
+11 1
+.names inst_DS_000_DMA.BLIF ds_000_dma_0_un3_n.BLIF ds_000_dma_0_un0_n
+11 1
+.names N_90_i.BLIF RST_c.BLIF N_128
+11 1
+.names SIZE_DMA_3_sqmuxa.BLIF size_dma_0_1__un3_n
+0 1
+.names N_145.BLIF RST_c.BLIF N_125
+11 1
+.names SIZE_DMA_1_.BLIF SIZE_DMA_3_sqmuxa.BLIF size_dma_0_1__un1_n
+11 1
+.names N_265_i.BLIF RST_c.BLIF N_126
+11 1
+.names pos_clk_size_dma_6_1__n.BLIF size_dma_0_1__un3_n.BLIF \
+size_dma_0_1__un0_n
+11 1
+.names N_124_1.BLIF nEXP_SPACE_i.BLIF N_124
+11 1
+.names BG_030_c.BLIF BG_030_c_i
+0 1
+.names SIZE_DMA_3_sqmuxa.BLIF size_dma_0_0__un3_n
+0 1
+.names inst_CLK_030_H.BLIF CLK_030_c.BLIF N_121
+11 1
+.names pos_clk_un6_bg_030_n.BLIF pos_clk_un6_bg_030_i_n
+0 1
+.names SIZE_DMA_0_.BLIF SIZE_DMA_3_sqmuxa.BLIF size_dma_0_0__un1_n
+11 1
+.names N_163.BLIF sm_amiga_i_2__n.BLIF N_171
+11 1
+.names BG_030_c_i.BLIF pos_clk_un6_bg_030_i_n.BLIF pos_clk_un9_bg_030_0_n
 11 1
 .names pos_clk_size_dma_6_0__n.BLIF size_dma_0_0__un3_n.BLIF \
 size_dma_0_0__un0_n
 11 1
-.names N_142_0.BLIF N_142
+.names N_271.BLIF sm_amiga_i_4__n.BLIF N_120
+11 1
+.names N_24.BLIF N_24_i
 0 1
-.names N_222.BLIF N_222_i
+.names inst_BGACK_030_INTreg.BLIF un1_amiga_bus_enable_dma_high_i_m2_0__un3_n
 0 1
-.names N_209.BLIF size_dma_0_1__un3_n
+.names N_265.BLIF sm_amiga_i_5__n.BLIF N_119
+11 1
+.names N_24_i.BLIF RST_c.BLIF N_31_0
+11 1
+.names inst_AS_030_000_SYNC.BLIF inst_BGACK_030_INTreg.BLIF \
+un1_amiga_bus_enable_dma_high_i_m2_0__un1_n
+11 1
+.names N_97.BLIF sm_amiga_i_6__n.BLIF N_118
+11 1
+.names N_22.BLIF N_22_i
 0 1
-.names N_134_i.BLIF N_214_0.BLIF N_298
+.names inst_AMIGA_BUS_ENABLE_DMA_HIGH.BLIF \
+un1_amiga_bus_enable_dma_high_i_m2_0__un3_n.BLIF \
+un1_amiga_bus_enable_dma_high_i_m2_0__un0_n
 11 1
-.names N_221_i.BLIF N_222_i.BLIF N_196_i
+.names N_84.BLIF sm_amiga_i_i_7__n.BLIF N_116
 11 1
-.names SIZE_DMA_1_.BLIF N_209.BLIF size_dma_0_1__un1_n
+.names N_22_i.BLIF RST_c.BLIF N_33_0
 11 1
-.names N_80_0.BLIF N_80
+.names N_269.BLIF cpu_est_0_1__un3_n
 0 1
-.names N_226.BLIF N_226_i
+.names N_90.BLIF sm_amiga_i_0__n.BLIF N_114
+11 1
+.names N_20.BLIF N_20_i
 0 1
-.names pos_clk_size_dma_6_1__n.BLIF size_dma_0_1__un3_n.BLIF \
-size_dma_0_1__un0_n
+.names cpu_est_1_.BLIF N_269.BLIF cpu_est_0_1__un1_n
 11 1
-.names N_134.BLIF cpu_est_i_0__n.BLIF N_232
+.names N_263_i.BLIF sm_amiga_i_1__n.BLIF N_115
 11 1
-.names N_242.BLIF ds_000_enable_0_un3_n
+.names N_20_i.BLIF RST_c.BLIF N_35_0
+11 1
+.names cpu_est_2_1__n.BLIF cpu_est_0_1__un3_n.BLIF cpu_est_0_1__un0_n
+11 1
+.names N_243_0.BLIF N_243
 0 1
-.names N_134_i.BLIF cpu_est_0_.BLIF N_233
-11 1
-.names N_231.BLIF N_231_i
+.names N_19.BLIF N_19_i
 0 1
-.names un1_DS_000_ENABLE_0_sqmuxa.BLIF N_242.BLIF ds_000_enable_0_un1_n
+.names N_269.BLIF cpu_est_0_2__un3_n
+0 1
+.names N_240_0.BLIF N_240
+0 1
+.names N_19_i.BLIF RST_c.BLIF N_36_0
 11 1
-.names N_184.BLIF cpu_est_i_2__n.BLIF N_229
+.names cpu_est_2_.BLIF N_269.BLIF cpu_est_0_2__un1_n
 11 1
-.names N_229.BLIF N_229_i
+.names N_88_1.BLIF pos_clk_un14_clk_000_ne_n.BLIF N_88
+11 1
+.names N_8.BLIF N_8_i
+0 1
+.names cpu_est_2_2__n.BLIF cpu_est_0_2__un3_n.BLIF cpu_est_0_2__un0_n
+11 1
+.names DTACK_D0_i.BLIF inst_VPA_D.BLIF N_89
+11 1
+.names N_8_i.BLIF RST_c.BLIF N_42_0
+11 1
+.names N_269.BLIF cpu_est_0_3__un3_n
+0 1
+.names inst_RESET_OUT.BLIF RST_c.BLIF N_82
+11 1
+.names N_3.BLIF N_3_i
+0 1
+.names cpu_est_3_.BLIF N_269.BLIF cpu_est_0_3__un1_n
+11 1
+.names N_83_1.BLIF RST_c.BLIF N_83
+11 1
+.names N_3_i.BLIF RST_c.BLIF N_45_0
+11 1
+.names N_192_i.BLIF cpu_est_0_3__un3_n.BLIF cpu_est_0_3__un0_n
+11 1
+.names N_236.BLIF RST_DLY_0_.BLIF N_78
+11 1
+.names VPA_c.BLIF VPA_c_i
+0 1
+.names pos_clk_ipl_n.BLIF ipl_030_0_0__un3_n
+0 1
+.names N_92.BLIF rst_dly_i_0__n.BLIF N_79
+11 1
+.names RST_c.BLIF VPA_c_i.BLIF N_52_0
+11 1
+.names ipl_c_0__n.BLIF pos_clk_ipl_n.BLIF ipl_030_0_0__un1_n
+11 1
+.names N_239_i.BLIF RST_DLY_2_.BLIF N_91
+11 1
+.names DTACK_c.BLIF DTACK_c_i
+0 1
+.names IPL_030DFF_0_reg.BLIF ipl_030_0_0__un3_n.BLIF ipl_030_0_0__un0_n
+11 1
+.names N_110_i.BLIF sm_amiga_i_3__n.BLIF N_244
+11 1
+.names DTACK_c_i.BLIF RST_c.BLIF N_53_0
+11 1
+.names pos_clk_ipl_n.BLIF ipl_030_0_1__un3_n
+0 1
+.names N_243.BLIF sm_amiga_i_1__n.BLIF N_62
+11 1
+.names ipl_c_1__n.BLIF pos_clk_ipl_n.BLIF ipl_030_0_1__un1_n
+11 1
+.names N_85_i.BLIF sm_amiga_i_2__n.BLIF N_64
+11 1
+.names N_249.BLIF N_249_i
+0 1
+.names IPL_030DFF_1_reg.BLIF ipl_030_0_1__un3_n.BLIF ipl_030_0_1__un0_n
+11 1
+.names N_269.BLIF cpu_est_i_0__n.BLIF N_59
+11 1
+.names N_248.BLIF N_248_i
+0 1
+.names pos_clk_ipl_n.BLIF ipl_030_0_2__un3_n
+0 1
+.names N_269_i.BLIF cpu_est_0_.BLIF N_61
+11 1
+.names N_247.BLIF N_247_i
+0 1
+.names ipl_c_2__n.BLIF pos_clk_ipl_n.BLIF ipl_030_0_2__un1_n
+11 1
+.names N_163_0.BLIF N_163
+0 1
+.names IPL_030DFF_2_reg.BLIF ipl_030_0_2__un3_n.BLIF ipl_030_0_2__un0_n
+11 1
+.names BGACK_030_INT_i.BLIF N_242_i.BLIF N_245
+11 1
+.names N_77.BLIF N_77_i
+0 1
+.names SM_AMIGA_6_.BLIF uds_000_int_0_un3_n
+0 1
+.names N_242_i.BLIF N_242
+0 1
+.names N_251.BLIF N_251_i
+0 1
+.names a_c_0__n.BLIF SM_AMIGA_6_.BLIF uds_000_int_0_un1_n
+11 1
+.names BGACK_030_INT_i.BLIF N_242.BLIF N_246
+11 1
+.names N_76.BLIF N_76_i
+0 1
+.names inst_UDS_000_INT.BLIF uds_000_int_0_un3_n.BLIF uds_000_int_0_un0_n
+11 1
+.names N_91.BLIF N_236.BLIF N_248
+11 1
+.names N_94.BLIF amiga_bus_enable_dma_high_0_un3_n
+0 1
+.names N_236_0.BLIF N_236
+0 1
+.names N_131.BLIF N_131_i
+0 1
+.names inst_AMIGA_BUS_ENABLE_DMA_HIGH.BLIF N_94.BLIF \
+amiga_bus_enable_dma_high_0_un1_n
+11 1
+.names N_269.BLIF rst_dly_i_2__n.BLIF N_249
+11 1
+.names N_130.BLIF N_130_i
+0 1
+.names N_81_i.BLIF amiga_bus_enable_dma_high_0_un3_n.BLIF \
+amiga_bus_enable_dma_high_0_un0_n
+11 1
+.names N_269.BLIF RST_c.BLIF N_92
+11 1
+.names AS_000_i.BLIF BGACK_030_INT_i.BLIF N_264_i
+11 1
+.names N_254.BLIF as_000_dma_0_un3_n
+0 1
+.names N_236.BLIF N_239_i.BLIF N_251
+11 1
+.names N_170.BLIF N_170_i
+0 1
+.names pos_clk_un21_bgack_030_int_i_0_n.BLIF N_254.BLIF as_000_dma_0_un1_n
+11 1
+.names N_92.BLIF rst_dly_i_1__n.BLIF N_76
+11 1
+.names BGACK_000_c.BLIF N_170_i.BLIF pos_clk_un6_bgack_000_0_n
+11 1
+.names inst_AS_000_DMA.BLIF as_000_dma_0_un3_n.BLIF as_000_dma_0_un0_n
+11 1
+.names a_c_1__n.BLIF BGACK_030_INT_i.BLIF N_80
+11 1
+.names BGACK_030_INT_i.BLIF RW_000_i.BLIF pos_clk_rw_000_dma_3_0_n
+11 1
+.names N_65.BLIF ds_000_enable_0_un3_n
+0 1
+.names BGACK_030_INT_i.BLIF UDS_000_c.BLIF pos_clk_a0_dma_3_n
+11 1
+.names N_123.BLIF N_123_i
+0 1
+.names un1_DS_000_ENABLE_0_sqmuxa.BLIF N_65.BLIF ds_000_enable_0_un1_n
+11 1
+.names N_94.BLIF RST_c.BLIF SIZE_DMA_3_sqmuxa
+11 1
+.names N_124.BLIF N_124_i
 0 1
 .names inst_DS_000_ENABLE.BLIF ds_000_enable_0_un3_n.BLIF \
 ds_000_enable_0_un0_n
 11 1
-.names N_178.BLIF cpu_est_2_.BLIF N_231
+.names N_210_i.BLIF N_269_i.BLIF N_87
 11 1
-.names N_229_i.BLIF N_231_i.BLIF N_302_i
+.names N_123_i.BLIF N_124_i.BLIF AMIGA_BUS_DATA_DIR_c_0
 11 1
-.names N_300.BLIF as_030_000_sync_0_un3_n
+.names SM_AMIGA_6_.BLIF lds_000_int_0_un3_n
 0 1
-.names N_167.BLIF sm_amiga_i_5__n.BLIF N_226
-11 1
-.names N_233.BLIF N_233_i
+.names pos_clk_size_dma_6_0_1__n.BLIF pos_clk_size_dma_6_1__n
 0 1
-.names inst_AS_030_000_SYNC.BLIF N_300.BLIF as_030_000_sync_0_un1_n
-11 1
-.names N_153.BLIF cpu_est_2_.BLIF N_221
-11 1
-.names N_232.BLIF N_232_i
+.names N_122.BLIF N_122_i
 0 1
-.names inst_AS_030_D0.BLIF as_030_000_sync_0_un3_n.BLIF \
-as_030_000_sync_0_un0_n
+.names pos_clk_un10_sm_amiga_i_n.BLIF SM_AMIGA_6_.BLIF lds_000_int_0_un1_n
 11 1
-.names N_154.BLIF cpu_est_i_2__n.BLIF N_222
+.names pos_clk_size_dma_6_0_0__n.BLIF pos_clk_size_dma_6_0__n
+0 1
+.names N_122_i.BLIF pos_clk_un21_bgack_030_int_i_0_i_n.BLIF \
+pos_clk_ds_000_dma_4_0_n
+11 1
+.names inst_LDS_000_INT.BLIF lds_000_int_0_un3_n.BLIF lds_000_int_0_un0_n
+11 1
+.names AS_000_c.BLIF N_263_i.BLIF N_170
+11 1
+.names LDS_000_i.BLIF UDS_000_i.BLIF N_242_i
+11 1
+.names N_67.BLIF as_030_000_sync_0_un3_n
+0 1
+.names inst_AS_000_DMA.BLIF RW_000_i.BLIF N_122
+11 1
+.names RST_DLY_0_.BLIF RST_DLY_1_.BLIF N_239_i
+11 1
+.names inst_AS_030_000_SYNC.BLIF N_67.BLIF as_030_000_sync_0_un1_n
+11 1
+.names inst_BGACK_030_INTreg.BLIF RW_000_i.BLIF N_123
+11 1
+.names N_87.BLIF N_87_i
+0 1
+.names AS_030_c.BLIF as_030_000_sync_0_un3_n.BLIF as_030_000_sync_0_un0_n
+11 1
+.names cycle_dma_i_0__n.BLIF N_263.BLIF N_130
+11 1
+.names N_87_i.BLIF RST_c.BLIF N_236_0
 11 1
 .names un1_SM_AMIGA_0_sqmuxa_1.BLIF rw_000_int_0_un3_n
 0 1
-.names cpu_est_2_0_2__n.BLIF cpu_est_2_2__n
+.names pos_clk_ds_000_dma_4_0_n.BLIF pos_clk_ds_000_dma_4_n
 0 1
-.names AS_030_D0_i.BLIF N_167.BLIF N_80_0
+.names N_246.BLIF N_246_i
+0 1
+.names pos_clk_rw_000_int_5_n.BLIF un1_SM_AMIGA_0_sqmuxa_1.BLIF \
+rw_000_int_0_un1_n
 11 1
-.names N_106.BLIF un1_SM_AMIGA_0_sqmuxa_1.BLIF rw_000_int_0_un1_n
+.names pos_clk_rw_000_dma_3_0_n.BLIF pos_clk_rw_000_dma_3_n
+0 1
+.names N_246_i.BLIF RST_c.BLIF pos_clk_size_dma_6_0_0__n
 11 1
-.names cpu_est_2_0_1__n.BLIF cpu_est_2_1__n
-0 1
-.names N_343.BLIF N_343_i
-0 1
 .names inst_RW_000_INT.BLIF rw_000_int_0_un3_n.BLIF rw_000_int_0_un0_n
 11 1
-.names cpu_est_1_.BLIF cpu_est_i_0__n.BLIF N_219
-11 1
-.names N_343_i.BLIF RST_c.BLIF N_214_0
-11 1
-.names N_160.BLIF a0_dma_0_un3_n
+.names pos_clk_un6_bgack_000_0_n.BLIF pos_clk_un6_bgack_000_n
 0 1
-.names pos_clk_un9_clk_000_pe_0_n.BLIF pos_clk_un9_clk_000_pe_n
+.names N_245.BLIF N_245_i
 0 1
-.names N_134.BLIF RST_c.BLIF N_166_i
-11 1
-.names pos_clk_a0_dma_3_n.BLIF N_160.BLIF a0_dma_0_un1_n
-11 1
-.names N_256_0.BLIF N_256
+.names pos_clk_un9_clk_000_pe_n.BLIF vma_int_0_un3_n
 0 1
-.names CLK_000_D_1_.BLIF clk_000_d_i_0__n.BLIF N_134_i
+.names CYCLE_DMA_0_.BLIF N_263_i.BLIF N_131
 11 1
-.names inst_A0_DMA.BLIF a0_dma_0_un3_n.BLIF a0_dma_0_un0_n
+.names N_245_i.BLIF RST_c.BLIF pos_clk_size_dma_6_0_1__n
 11 1
-.names ipl_030_0_2__un1_n.BLIF ipl_030_0_2__un0_n.BLIF N_29
+.names cpu_est_i_1__n.BLIF pos_clk_un9_clk_000_pe_n.BLIF vma_int_0_un1_n
+11 1
+.names ds_000_dma_0_un1_n.BLIF ds_000_dma_0_un0_n.BLIF N_3
 1- 1
 -1 1
-.names N_298.BLIF N_298_i
+.names N_91.BLIF N_91_i
 0 1
-.names ipl_030_0_1__un1_n.BLIF ipl_030_0_1__un0_n.BLIF N_28
-1- 1
--1 1
-.names N_298_i.BLIF RST_c.BLIF N_142_0
+.names inst_VMA_INTreg.BLIF vma_int_0_un3_n.BLIF vma_int_0_un0_n
 11 1
-.names ipl_030_0_0__un1_n.BLIF ipl_030_0_0__un0_n.BLIF N_27
+.names bgack_030_int_0_un1_n.BLIF bgack_030_int_0_un0_n.BLIF N_8
 1- 1
 -1 1
-.names cpu_est_0_.BLIF cpu_est_1_.BLIF N_153_i
+.names N_91_i.BLIF RST_c.BLIF N_210_i
 11 1
-.names lds_000_int_0_un1_n.BLIF lds_000_int_0_un0_n.BLIF N_14
+.names rw_000_dma_0_un1_n.BLIF rw_000_dma_0_un0_n.BLIF N_19
 1- 1
 -1 1
-.names cpu_est_3_.BLIF cpu_est_i_0__n.BLIF N_154_0
+.names LDS_000_c.BLIF UDS_000_c.BLIF pos_clk_un19_bgack_030_int_i_n
 11 1
-.names vma_int_0_un1_n.BLIF vma_int_0_un0_n.BLIF N_19
+.names a0_dma_0_un1_n.BLIF a0_dma_0_un0_n.BLIF N_20
 1- 1
 -1 1
-.names RST_DLY_0_.BLIF RST_DLY_1_.BLIF N_156_i
+.names N_58.BLIF SM_AMIGA_3_.BLIF N_163_0
 11 1
-.names dsack1_int_0_un1_n.BLIF dsack1_int_0_un0_n.BLIF N_20
+.names amiga_bus_enable_dma_low_0_un1_n.BLIF \
+amiga_bus_enable_dma_low_0_un0_n.BLIF N_22
 1- 1
 -1 1
-.names cpu_est_i_1__n.BLIF cpu_est_i_2__n.BLIF N_305_i
-11 1
-.names as_000_int_0_un1_n.BLIF as_000_int_0_un0_n.BLIF N_21
-1- 1
--1 1
-.names N_299.BLIF N_299_i
+.names N_59.BLIF N_59_i
 0 1
-.names uds_000_int_0_un1_n.BLIF uds_000_int_0_un0_n.BLIF N_23
+.names bg_000_0_un1_n.BLIF bg_000_0_un0_n.BLIF N_24
 1- 1
 -1 1
-.names N_299_i.BLIF sm_amiga_i_4__n.BLIF N_162_0
-11 1
+.names N_61.BLIF N_61_i
+0 1
+.names pos_clk_un9_bg_030_0_n.BLIF pos_clk_un9_bg_030_n
+0 1
 .names un1_amiga_bus_enable_low.BLIF un1_amiga_bus_enable_low_i
 0 1
-.names BERR_c.BLIF inst_DTACK_D0.BLIF N_165_0
-11 1
+.names N_62.BLIF N_62_i
+0 1
 .names un21_fpu_cs.BLIF un21_fpu_cs_i
 0 1
-.names N_134_i.BLIF SM_AMIGA_1_.BLIF N_169_i
-11 1
-.names cpu_est_1_.BLIF cpu_est_i_1__n
-0 1
-.names inst_VMA_INTreg.BLIF VMA_INT_i
-0 1
-.names RST_DLY_2_.BLIF rst_dly_i_2__n
-0 1
-.names N_341.BLIF N_341_i
-0 1
-.names RST_DLY_1_.BLIF rst_dly_i_1__n
-0 1
-.names N_342.BLIF N_342_i
-0 1
-.names cpu_est_0_.BLIF cpu_est_i_0__n
-0 1
-.names N_341_i.BLIF N_342_i.BLIF N_171_i
-11 1
-.names cpu_est_2_.BLIF cpu_est_i_2__n
-0 1
-.names N_134_i.BLIF N_171.BLIF N_172_i
-11 1
-.names SM_AMIGA_0_.BLIF sm_amiga_i_0__n
-0 1
-.names cpu_est_1_.BLIF cpu_est_i_3__n.BLIF N_178_0
-11 1
-.names SM_AMIGA_3_.BLIF sm_amiga_i_3__n
-0 1
-.names N_172_i.BLIF SM_AMIGA_3_.BLIF N_179_0
-11 1
-.names SM_AMIGA_4_.BLIF sm_amiga_i_4__n
-0 1
-.names N_138_i.BLIF SM_AMIGA_4_.BLIF N_180_0
-11 1
-.names SM_AMIGA_5_.BLIF sm_amiga_i_5__n
-0 1
-.names cpu_est_3_.BLIF cpu_est_i_1__n.BLIF N_184_0
-11 1
-.names RST_DLY_0_.BLIF rst_dly_i_0__n
-0 1
-.names N_134_i.BLIF SM_AMIGA_5_.BLIF N_185_0
-11 1
-.names SM_AMIGA_2_.BLIF sm_amiga_i_2__n
-0 1
-.names N_203.BLIF N_203_i
-0 1
-.names SM_AMIGA_1_.BLIF sm_amiga_i_1__n
-0 1
-.names N_204.BLIF N_204_i
-0 1
-.names inst_VPA_D.BLIF VPA_D_i
-0 1
-.names N_205.BLIF N_205_i
-0 1
-.names CLK_000_D_1_.BLIF clk_000_d_i_1__n
-0 1
-.names cpu_est_3_.BLIF cpu_est_i_3__n
-0 1
-.names N_200.BLIF N_200_i
-0 1
-.names SM_AMIGA_6_.BLIF sm_amiga_i_6__n
-0 1
-.names N_199.BLIF N_199_i
-0 1
-.names CLK_000_D_0_.BLIF clk_000_d_i_0__n
-0 1
-.names N_201.BLIF N_201_i
+.names N_64.BLIF N_64_i
 0 1
 .names inst_BGACK_030_INTreg.BLIF BGACK_030_INT_i
 0 1
-.names AS_000_c.BLIF AS_000_i
+.names inst_AMIGA_BUS_ENABLE_DMA_LOW.BLIF AMIGA_BUS_ENABLE_DMA_LOW_i
 0 1
-.names inst_AS_000_DMA.BLIF AS_000_DMA_i
+.names N_244.BLIF N_244_i
 0 1
-.names N_208.BLIF N_208_i
-0 1
-.names nEXP_SPACE_c.BLIF nEXP_SPACE_i
-0 1
-.names N_207.BLIF N_207_i
+.names N_80.BLIF N_80_i
 0 1
 .names CYCLE_DMA_0_.BLIF cycle_dma_i_0__n
 0 1
-.names N_138_i.BLIF SM_AMIGA_6_.BLIF N_167_i
+.names N_78.BLIF N_78_i_0
+0 1
+.names RW_000_c.BLIF RW_000_i
+0 1
+.names N_79.BLIF N_79_i
+0 1
+.names RST_DLY_0_.BLIF rst_dly_i_0__n
+0 1
+.names RST_DLY_1_.BLIF rst_dly_i_1__n
+0 1
+.names N_82.BLIF N_82_i
+0 1
+.names RST_DLY_2_.BLIF rst_dly_i_2__n
+0 1
+.names N_83.BLIF N_83_i
+0 1
+.names LDS_000_c.BLIF LDS_000_i
+0 1
+.names N_82_i.BLIF N_83_i.BLIF N_55_0
 11 1
-.names inst_DS_000_DMA.BLIF DS_000_DMA_i
+.names UDS_000_c.BLIF UDS_000_i
 0 1
-.names CLK_000_D_0_.BLIF clk_000_d_i_1__n.BLIF N_138_i
+.names N_88.BLIF N_88_i
+0 1
+.names SM_AMIGA_2_.BLIF sm_amiga_i_2__n
+0 1
+.names N_89.BLIF N_89_i
+0 1
+.names N_58.BLIF N_58_i
+0 1
+.names N_240_0_1.BLIF N_89_i.BLIF N_240_0
 11 1
-.names inst_AMIGA_BUS_ENABLE_DMA_LOW.BLIF AMIGA_BUS_ENABLE_DMA_LOW_i
+.names SM_AMIGA_3_.BLIF sm_amiga_i_3__n
 0 1
-.names N_349.BLIF N_349_i
+.names N_263_i.BLIF SM_AMIGA_2_.BLIF N_243_0
+11 1
+.names cpu_est_1_.BLIF cpu_est_i_1__n
 0 1
-.names inst_CLK_OUT_PRE_50.BLIF inst_CLK_OUT_PRE_25.BLIF CLK_OUT_PRE_25_0
-01 1
-10 1
-11 0
-00 0
+.names CLK_030_c.BLIF CLK_030_c_i
+0 1
+.names cpu_est_0_.BLIF cpu_est_i_0__n
+0 1
+.names CLK_030_c_i.BLIF pos_clk_un21_bgack_030_int_i_0_i_n.BLIF N_254_0
+11 1
+.names SM_AMIGA_1_.BLIF sm_amiga_i_1__n
+0 1
+.names N_114.BLIF N_114_i
+0 1
+.names N_110.BLIF N_110_i
+0 1
+.names N_115.BLIF N_115_i
+0 1
+.names a_c_1__n.BLIF a_i_1__n
+0 1
+.names inst_VMA_INTreg.BLIF VMA_INT_i
+0 1
+.names N_116.BLIF N_116_i
+0 1
+.names inst_VPA_D.BLIF VPA_D_i
+0 1
+.names N_117.BLIF N_117_i
+0 1
+.names inst_DTACK_D0.BLIF DTACK_D0_i
+0 1
+.names inst_AS_030_D0.BLIF AS_030_D0_i
+0 1
+.names N_118.BLIF N_118_i
+0 1
+.names SM_AMIGA_0_.BLIF sm_amiga_i_0__n
+0 1
+.names SM_AMIGA_i_7_.BLIF sm_amiga_i_i_7__n
+0 1
+.names N_119.BLIF N_119_i
+0 1
+.names SM_AMIGA_6_.BLIF sm_amiga_i_6__n
+0 1
+.names SM_AMIGA_5_.BLIF sm_amiga_i_5__n
+0 1
+.names N_120.BLIF N_120_i
+0 1
+.names SM_AMIGA_4_.BLIF sm_amiga_i_4__n
+0 1
 .names IPL_D0_0_.BLIF ipl_c_0__n.BLIF G_107
 01 1
 10 1
@@ -1534,13 +1531,12 @@ as_030_000_sync_0_un0_n
 10 1
 11 0
 00 0
-.names CYCLE_DMA_1_.BLIF N_208.BLIF pos_clk_CYCLE_DMA_5_1_i_0_x2
+.names CYCLE_DMA_1_.BLIF N_131.BLIF pos_clk_CYCLE_DMA_5_1_i_x2
 01 1
 10 1
 11 0
 00 0
-.names CYCLE_DMA_0_.BLIF CYCLE_DMA_1_.BLIF \
-pos_clk_un21_bgack_030_int_i_0_o2_2_x2
+.names CYCLE_DMA_0_.BLIF CYCLE_DMA_1_.BLIF pos_clk_un21_bgack_030_int_i_0_x2
 01 1
 10 1
 11 0
@@ -1566,13 +1562,13 @@ pos_clk_un21_bgack_030_int_i_0_o2_2_x2
 .names un21_fpu_cs_i.BLIF FPU_CS
 1 1
 0 0
-.names inst_DSACK1_INTreg.BLIF DSACK1
+.names N_147_i.BLIF DSACK1
 1 1
 0 0
 .names vcc_n_n.BLIF AVEC
 1 1
 0 0
-.names N_302_i.BLIF E
+.names un5_e.BLIF E
 1 1
 0 0
 .names inst_VMA_INTreg.BLIF VMA
@@ -1590,7 +1586,7 @@ pos_clk_un21_bgack_030_int_i_0_o2_2_x2
 .names un1_amiga_bus_enable_low_i.BLIF AMIGA_BUS_ENABLE_LOW
 1 1
 0 0
-.names N_191.BLIF AMIGA_BUS_ENABLE_HIGH
+.names N_108.BLIF AMIGA_BUS_ENABLE_HIGH
 1 1
 0 0
 .names un10_ciin.BLIF CIIN
@@ -1600,6 +1596,15 @@ pos_clk_un21_bgack_030_int_i_0_o2_2_x2
 1 1
 0 0
 .names IPL_030DFF_0_reg.BLIF IPL_030_0_
+1 1
+0 0
+.names CLK_OSZI_c.BLIF SM_AMIGA_6_.C
+1 1
+0 0
+.names CLK_OSZI_c.BLIF SM_AMIGA_5_.C
+1 1
+0 0
+.names CLK_OSZI_c.BLIF SM_AMIGA_4_.C
 1 1
 0 0
 .names CLK_OSZI_c.BLIF SM_AMIGA_3_.C
@@ -1635,19 +1640,28 @@ pos_clk_un21_bgack_030_int_i_0_o2_2_x2
 .names CLK_OSZI_c.BLIF SM_AMIGA_i_7_.C
 1 1
 0 0
-.names CLK_OSZI_c.BLIF SM_AMIGA_6_.C
+.names CLK_000_D_0_.BLIF CLK_000_D_1_.D
 1 1
 0 0
-.names CLK_OSZI_c.BLIF SM_AMIGA_5_.C
-1 1
-0 0
-.names CLK_OSZI_c.BLIF SM_AMIGA_4_.C
+.names CLK_OSZI_c.BLIF CLK_000_D_1_.C
 1 1
 0 0
 .names CLK_000_D_1_.BLIF CLK_000_D_2_.D
 1 1
 0 0
 .names CLK_OSZI_c.BLIF CLK_000_D_2_.C
+1 1
+0 0
+.names CLK_000_D_2_.BLIF CLK_000_D_3_.D
+1 1
+0 0
+.names CLK_OSZI_c.BLIF CLK_000_D_3_.C
+1 1
+0 0
+.names CLK_000_D_3_.BLIF CLK_000_D_4_.D
+1 1
+0 0
+.names CLK_OSZI_c.BLIF CLK_000_D_4_.C
 1 1
 0 0
 .names CLK_OSZI_c.BLIF CYCLE_DMA_0_.C
@@ -1689,28 +1703,10 @@ pos_clk_un21_bgack_030_int_i_0_o2_2_x2
 .names CLK_OSZI_c.BLIF CLK_000_D_0_.C
 1 1
 0 0
-.names CLK_000_D_0_.BLIF CLK_000_D_1_.D
+.names CLK_OSZI_c.BLIF inst_DSACK1_INT.C
 1 1
 0 0
-.names CLK_OSZI_c.BLIF CLK_000_D_1_.C
-1 1
-0 0
-.names CLK_OSZI_c.BLIF inst_RW_000_INT.C
-1 1
-0 0
-.names CLK_OSZI_c.BLIF inst_AS_030_000_SYNC.C
-1 1
-0 0
-.names CLK_OSZI_c.BLIF inst_LDS_000_INT.C
-1 1
-0 0
-.names CLK_OSZI_c.BLIF inst_BGACK_030_INTreg.C
-1 1
-0 0
-.names CLK_OSZI_c.BLIF inst_AS_000_DMA.C
-1 1
-0 0
-.names CLK_OSZI_c.BLIF inst_DS_000_DMA.C
+.names CLK_OSZI_c.BLIF inst_AS_000_INT.C
 1 1
 0 0
 .names CLK_OSZI_c.BLIF inst_AS_030_D0.C
@@ -1731,12 +1727,6 @@ pos_clk_un21_bgack_030_int_i_0_o2_2_x2
 .names CLK_OSZI_c.BLIF inst_DS_000_ENABLE.C
 1 1
 0 0
-.names CLK_OUT_PRE_25_0.BLIF inst_CLK_OUT_PRE_25.D
-1 1
-0 0
-.names CLK_OSZI_c.BLIF inst_CLK_OUT_PRE_25.C
-1 1
-0 0
 .names CLK_OSZI_c.BLIF BG_000DFFreg.C
 1 1
 0 0
@@ -1752,28 +1742,31 @@ pos_clk_un21_bgack_030_int_i_0_o2_2_x2
 .names CLK_OSZI_c.BLIF inst_A0_DMA.C
 1 1
 0 0
-.names CLK_OSZI_c.BLIF inst_AS_000_INT.C
-1 1
-0 0
-.names CLK_OSZI_c.BLIF inst_DSACK1_INTreg.C
+.names CLK_OSZI_c.BLIF inst_RW_000_DMA.C
 1 1
 0 0
 .names CLK_OSZI_c.BLIF inst_VMA_INTreg.C
 1 1
 0 0
-.names CLK_OSZI_c.BLIF inst_RW_000_DMA.C
+.names CLK_OSZI_c.BLIF inst_RW_000_INT.C
+1 1
+0 0
+.names CLK_OSZI_c.BLIF inst_AS_030_000_SYNC.C
+1 1
+0 0
+.names CLK_OSZI_c.BLIF inst_LDS_000_INT.C
+1 1
+0 0
+.names CLK_OSZI_c.BLIF inst_BGACK_030_INTreg.C
+1 1
+0 0
+.names CLK_OSZI_c.BLIF inst_AS_000_DMA.C
+1 1
+0 0
+.names CLK_OSZI_c.BLIF inst_DS_000_DMA.C
 1 1
 0 0
 .names CLK_OSZI_c.BLIF inst_BGACK_030_INT_D.C
-1 1
-0 0
-.names inst_CLK_OUT_PRE_25.BLIF inst_CLK_OUT_PRE_D.D
-1 1
-0 0
-.names CLK_OSZI_c.BLIF inst_CLK_OUT_PRE_D.C
-1 1
-0 0
-.names CLK_OSZI_c.BLIF inst_CLK_OUT_PRE_50.C
 1 1
 0 0
 .names inst_CLK_OUT_PRE_D.BLIF CLK_OUT_INTreg.D
@@ -1782,16 +1775,25 @@ pos_clk_un21_bgack_030_int_i_0_o2_2_x2
 .names CLK_OSZI_c.BLIF CLK_OUT_INTreg.C
 1 1
 0 0
-.names un3_size.BLIF SIZE_1_
+.names CLK_OSZI_c.BLIF inst_CLK_OUT_PRE_50.C
+1 1
+0 0
+.names inst_CLK_OUT_PRE_50.BLIF inst_CLK_OUT_PRE_D.D
+1 1
+0 0
+.names CLK_OSZI_c.BLIF inst_CLK_OUT_PRE_D.C
+1 1
+0 0
+.names SIZE_DMA_1_.BLIF SIZE_1_
 1 1
 0 0
 .names gnd_n_n.BLIF AHIGH_31_
 1 1
 0 0
-.names un6_as_030_i.BLIF AS_030
+.names un7_as_030_i.BLIF AS_030
 1 1
 0 0
-.names un4_as_000_i.BLIF AS_000
+.names N_145_i.BLIF AS_000
 1 1
 0 0
 .names inst_RW_000_INT.BLIF RW_000
@@ -1809,7 +1811,7 @@ pos_clk_un21_bgack_030_int_i_0_o2_2_x2
 .names inst_RW_000_DMA.BLIF RW
 1 1
 0 0
-.names un4_size.BLIF SIZE_0_
+.names SIZE_DMA_0_.BLIF SIZE_0_
 1 1
 0 0
 .names gnd_n_n.BLIF AHIGH_30_
@@ -2001,61 +2003,61 @@ pos_clk_un21_bgack_030_int_i_0_o2_2_x2
 .names A_DECODE_2_.BLIF a_decode_2__n
 1 1
 0 0
-.names N_283.BLIF AS_030.OE
+.names N_135.BLIF AS_030.OE
 1 1
 0 0
-.names un1_as_000_i.BLIF AS_000.OE
+.names N_136.BLIF AS_000.OE
 1 1
 0 0
-.names un1_as_000_i.BLIF RW_000.OE
+.names N_136.BLIF RW_000.OE
 1 1
 0 0
-.names un1_as_000_i.BLIF UDS_000.OE
+.names N_136.BLIF UDS_000.OE
 1 1
 0 0
-.names un1_as_000_i.BLIF LDS_000.OE
+.names N_136.BLIF LDS_000.OE
 1 1
 0 0
-.names N_48_i.BLIF SIZE_0_.OE
+.names un2_as_030_i.BLIF SIZE_0_.OE
 1 1
 0 0
-.names N_48_i.BLIF SIZE_1_.OE
+.names un2_as_030_i.BLIF SIZE_1_.OE
 1 1
 0 0
-.names N_283.BLIF AHIGH_24_.OE
+.names N_135.BLIF AHIGH_24_.OE
 1 1
 0 0
-.names N_283.BLIF AHIGH_25_.OE
+.names N_135.BLIF AHIGH_25_.OE
 1 1
 0 0
-.names N_283.BLIF AHIGH_26_.OE
+.names N_135.BLIF AHIGH_26_.OE
 1 1
 0 0
-.names N_283.BLIF AHIGH_27_.OE
+.names N_135.BLIF AHIGH_27_.OE
 1 1
 0 0
-.names N_283.BLIF AHIGH_28_.OE
+.names N_135.BLIF AHIGH_28_.OE
 1 1
 0 0
-.names N_283.BLIF AHIGH_29_.OE
+.names N_135.BLIF AHIGH_29_.OE
 1 1
 0 0
-.names N_283.BLIF AHIGH_30_.OE
+.names N_135.BLIF AHIGH_30_.OE
 1 1
 0 0
-.names N_283.BLIF AHIGH_31_.OE
+.names N_135.BLIF AHIGH_31_.OE
 1 1
 0 0
-.names N_283.BLIF A_0_.OE
+.names N_135.BLIF A_0_.OE
 1 1
 0 0
 .names un21_berr.BLIF BERR.OE
 1 1
 0 0
-.names N_294.BLIF RW.OE
+.names N_278.BLIF RW.OE
 1 1
 0 0
-.names N_283.BLIF DS_030.OE
+.names N_135.BLIF DS_030.OE
 1 1
 0 0
 .names nEXP_SPACE_c.BLIF DSACK1.OE
@@ -2064,7 +2066,7 @@ pos_clk_un21_bgack_030_int_i_0_o2_2_x2
 .names RESET_OUT_i.BLIF RESET.OE
 1 1
 0 0
-.names N_241.BLIF CIIN.OE
+.names N_261.BLIF CIIN.OE
 1 1
 0 0
 .end

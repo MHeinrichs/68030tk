@@ -1,3 +1,3 @@
-@E: CD371 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":504:12:504:22|No matching overload for "="
-@E: CD371 :"C:\users\matze\documents\github\68030tk\logic\68030-68000-bus.vhd":549:12:549:26|No matching overload for "="
+@E: CD415 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":546:7:546:16|Expecting keyword else
+@E|Parse errors encountered - exiting
 

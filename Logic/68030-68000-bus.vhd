@@ -161,8 +161,8 @@ begin
 						
 			
 			--here the clock is selected
-			CLK_OUT_PRE_D 	<= CLK_OUT_PRE_25;
-			--CLK_OUT_PRE_D 	<= CLK_OUT_PRE_50;
+			--CLK_OUT_PRE_D 	<= CLK_OUT_PRE_25;
+			CLK_OUT_PRE_D 	<= CLK_OUT_PRE_50;
 			
 			-- the external clock to the processor is generated here
 			CLK_OUT_INT	<= CLK_OUT_PRE_D; --this way we know the clock of the next state: Its like looking in the future, cool!
@@ -278,7 +278,7 @@ begin
 				-- as030-sampling and FPU-Select
 	
 				
-				if(AS_030_D0 ='1') then -- "async" reset of various signals
+				if(AS_030 ='1') then -- "async" reset of various signals
 					AS_030_000_SYNC <= '1';
 					DSACK1_INT		<= '1';
 					AS_000_INT  	<= '1';
@@ -320,14 +320,10 @@ begin
 	
 				--Amiga statemachine
 	
-				--if(BERR='0')then --"async" reset on errors
-				--	SM_AMIGA<=IDLE_P;
-				--end if;
-	
 				case (SM_AMIGA) is
 					when IDLE_P 	 => --68000:S0 wait for a falling edge
 						RW_000_INT		<= '1';		
-						if( CLK_000_D(1)='0' and CLK_000_D(2)= '1' and AS_030_000_SYNC = '0' and nEXP_SPACE ='1')then -- if this a delayed expansion space detection, do not start an amiga cycle!
+						if( CLK_000_D(4)='0' and CLK_000_D(5)= '1' and AS_030_000_SYNC = '0' and nEXP_SPACE ='1')then -- if this a delayed expansion space detection, do not start an amiga cycle!
 							SM_AMIGA<=IDLE_N;  --go to s1
 						end if;
 					when IDLE_N 	 => --68000:S1 place Adress on bus and wait for rising edge, on a rising CLK_000 look for a amiga adressrobe
@@ -353,7 +349,7 @@ begin
 					when SAMPLE_DTACK_P=> --68000:S4 wait for dtack or VMA
 						if(	CLK_000_NE='1' and --falling edge
 							((VPA_D = '1' AND DTACK_D0='0') OR --DTACK end cycle
-							(VPA_D = '1' AND BERR='0') OR --Bus error
+							(BERR='0') OR --Bus error
 							(VPA_D='0' AND cpu_est=E9 AND VMA_INT='0')) --VPA end cycle
 							)then --go to s5
 							SM_AMIGA<=DATA_FETCH_N;
@@ -367,7 +363,10 @@ begin
 						--	  (CLK_000_D(DS_SAMPLE-1)='0' AND CLK_000_D((DS_SAMPLE-0))='1' )) then --go to s7 next 030-clock is not a falling edge: dsack is sampled at the falling edge
 						--	DSACK1_INT <='0'; 
 						--end if;
-						if( CLK_000_NE ='1') then --go to s7 next 030-clock is high: dsack is sampled at the falling edge
+						
+						--go to s7   dsack is sampled at the falling edge of the 030-clock
+						if(CLK_000_D(2)='0' and CLK_000_D(3)='1')then
+						--if( CLK_000_NE ='1') then 
 							SM_AMIGA<=END_CYCLE_N;
 							DSACK1_INT <='0'; 
 						end if;
@@ -471,10 +470,10 @@ begin
 							 '1';  
 	
 	
-	AMIGA_BUS_DATA_DIR 	 <= '1' WHEN (RW_000='0' AND BGACK_030_INT ='1') ELSE --Amiga WRITE
-							'0' WHEN (RW_000='1' AND BGACK_030_INT ='1') ELSE --Amiga READ
+	AMIGA_BUS_DATA_DIR 	 <= not RW_000 WHEN (BGACK_030_INT ='1') ELSE --Amiga READ/WRITE
+							--'0' WHEN (RW_000='1' AND BGACK_030_INT ='1') ELSE --Amiga READ
 							'1' WHEN (RW_000='1' AND BGACK_030_INT ='0' AND nEXP_SPACE = '0' AND AS_000 = '0') ELSE --DMA READ to expansion space
-							'0' WHEN (RW_000='0' AND BGACK_030_INT ='0' AND AS_000 = '0') ELSE --DMA WRITE to expansion space
+							--'0' WHEN (RW_000='0' AND BGACK_030_INT ='0' AND AS_000 = '0') ELSE --DMA WRITE to expansion space
 							'0'; --Point towarts TK
 	
 	
@@ -492,9 +491,7 @@ begin
 	A(1)	<= 'Z';
 	AHIGH <= "ZZZZZZZZ" when BGACK_030_INT ='1' OR nEXP_SPACE = '1' or RESET_OUT ='0' else x"00";
 	SIZE	<= 	"ZZ" when BGACK_030_INT ='1' OR nEXP_SPACE = '1' else
-						"10" when SIZE_DMA ="10" else 
-			   		"01" when SIZE_DMA ="01" else
-			   		"00";
+						SIZE_DMA;
 	--rw
 	RW		<= 	'Z' when BGACK_030_INT ='1' or RESET_OUT ='0' --tristate on CPU cycle
 						else RW_000_DMA; --drive on DMA-Cycle
@@ -545,8 +542,9 @@ begin
 							else '1'; -- datastrobe not ready jet
 
 	--dsack
-	DSACK1	<= 	'Z' when nEXP_SPACE = '0' --tristate on expansionboard cycle
-							else DSACK1_INT; -- output on amiga cycle
+	DSACK1	<= 	'Z' when nEXP_SPACE = '0' else --tristate on expansionboard cycle
+							DSACK1_INT when AS_030 = '0' else -- output on amiga cycle
+							'1';
 
 	
 end Behavioral;
