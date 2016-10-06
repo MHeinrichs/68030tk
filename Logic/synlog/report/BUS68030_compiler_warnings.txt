@@ -5,6 +5,6 @@
 @W: CL169 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":130:34:130:36|Pruning register CLK_OUT_EXP_INT_1  
 @W: CL169 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":126:36:126:38|Pruning register CLK_OUT_PRE_25_3  
 @W: CL169 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":154:2:154:3|Pruning register CLK_030_D0_2  
-@W: CL271 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":131:38:131:40|Pruning bits 12 to 5 of CLK_000_D_3(12 downto 0) -- not in use ... 
+@W: CL271 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":131:38:131:40|Pruning bits 12 to 6 of CLK_000_D_3(12 downto 0) -- not in use ... 
 @W: CL246 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":24:1:24:8|Input port bits 15 to 2 of a_decode(23 downto 2) are unused 
 

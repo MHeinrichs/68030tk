@@ -8,7 +8,7 @@
 ; Source file 68030_tk.tt4
 ; FITTER-generated Placements.
 ; DEVICE   mach447a
-; DATE     Thu Oct 06 21:35:00 2016
+; DATE     Thu Oct 06 22:04:16 2016
 
 
 Pin   4  AHIGH_31_ Comb ; S6=1  S9=1  Pair 143
@@ -25,32 +25,32 @@ Pin   41  BERR Comb ; S6=1  S9=1  Pair 197
 Pin   21  BG_030
 Pin   28  BGACK_000
 Pin   64  CLK_030
-Pin   11  CLK_000
 Pin   5  AHIGH_30_ Comb ; S6=1  S9=1  Pair 125
-Pin   61  CLK_OSZI
+Pin   11  CLK_000
 Pin   6  AHIGH_29_ Comb ; S6=1  S9=1  Pair 137
-Pin   65  CLK_DIV_OUT Reg  ; S6=1  S9=1  Pair 247
+Pin   61  CLK_OSZI
 Pin   15  AHIGH_28_ Comb ; S6=1  S9=1  Pair 149
+Pin   65  CLK_DIV_OUT Reg  ; S6=1  S9=1  Pair 247
 Pin   16  AHIGH_27_ Comb ; S6=1  S9=1  Pair 157
-Pin   78  FPU_CS Comb ; S6=1  S9=1  Pair 271
 Pin   17  AHIGH_26_ Comb ; S6=1  S9=1  Pair 155
-Pin   91  FPU_SENSE
+Pin   78  FPU_CS Comb ; S6=1  S9=1  Pair 271
 Pin   18  AHIGH_25_ Comb ; S6=1  S9=1  Pair 167
-Pin   81  DSACK1 Comb ; S6=1  S9=1  Pair 283
+Pin   91  FPU_SENSE
 Pin   19  AHIGH_24_ Comb ; S6=1  S9=1  Pair 161
-Pin   30  DTACK
+Pin   81  DSACK1 Comb ; S6=1  S9=1  Pair 283
 Pin   84  A_DECODE_22_
-Pin   92  AVEC Comb ; S6=1  S9=1  Pair 107
+Pin   30  DTACK
 Pin   94  A_DECODE_21_
-Pin   66  E Comb ; S6=1  S9=1  Pair 251
+Pin   92  AVEC Comb ; S6=1  S9=1  Pair 107
 Pin   93  A_DECODE_20_
-Pin   36  VPA
+Pin   66  E Comb ; S6=1  S9=1  Pair 251
 Pin   97  A_DECODE_19_
+Pin   36  VPA
 Pin   95  A_DECODE_18_
-Pin   86  RST
 Pin   59  A_DECODE_17_
-Pin   3  RESET Comb ; S6=1  S9=1  Pair 128
+Pin   86  RST
 Pin   96  A_DECODE_16_
+Pin   3  RESET Comb ; S6=1  S9=1  Pair 128
 Pin   33  AMIGA_ADDR_ENABLE Comb ; S6=1  S9=1  Pair 181
 Pin   48  AMIGA_BUS_DATA_DIR Comb ; S6=1  S9=1  Pair 199
 Pin   20  AMIGA_BUS_ENABLE_LOW Comb ; S6=1  S9=1  Pair 151
@@ -96,48 +96,49 @@ Node  245  RN_RW Reg  ; S6=1  S9=1
 Node  257  RN_A_0_ Reg  ; S6=1  S9=1 
 Node  139  RN_IPL_030_1_ Reg  ; S6=1  S9=1 
 Node  133  RN_IPL_030_0_ Reg  ; S6=1  S9=1 
-Node  193  cpu_est_3_ Reg  ; S6=1  S9=1 
-Node  259  cpu_est_0_ Reg  ; S6=1  S9=1 
-Node  253  cpu_est_1_ Reg  ; S6=1  S9=1 
 Node  176  cpu_est_2_ Reg  ; S6=1  S9=1 
-Node  110  inst_AMIGA_BUS_ENABLE_DMA_LOW Reg  ; S6=1  S9=1 
-Node  278  inst_AS_030_D0 Reg  ; S6=1  S9=1 
+Node  119  cpu_est_3_ Reg  ; S6=1  S9=1 
+Node  194  cpu_est_0_ Reg  ; S6=1  S9=1 
+Node  193  cpu_est_1_ Reg  ; S6=1  S9=1 
+Node  254  inst_AMIGA_BUS_ENABLE_DMA_LOW Reg  ; S6=1  S9=1 
+Node  289  inst_AS_030_D0 Reg  ; S6=1  S9=1 
 Node  227  inst_AS_030_000_SYNC Reg  ; S6=1  S9=1 
-Node  289  inst_BGACK_030_INT_D Reg  ; S6=1  S9=1 
-Node  248  inst_AS_000_DMA Reg  ; S6=1  S9=1 
-Node  265  inst_DS_000_DMA Reg  ; S6=1  S9=1 
-Node  103  CYCLE_DMA_0_ Reg  ; S6=1  S9=1 
-Node  260  CYCLE_DMA_1_ Reg  ; S6=1  S9=1 
-Node  116  inst_VPA_D Reg  ; S6=1  S9=1 
+Node  103  inst_BGACK_030_INT_D Reg  ; S6=1  S9=1 
+Node  169  inst_AS_000_DMA Reg  ; S6=1  S9=1 
+Node  163  inst_DS_000_DMA Reg  ; S6=1  S9=1 
+Node  188  CYCLE_DMA_0_ Reg  ; S6=1  S9=1 
+Node  182  CYCLE_DMA_1_ Reg  ; S6=1  S9=1 
+Node  164  inst_VPA_D Reg  ; S6=1  S9=1 
 Node  272  CLK_000_D_2_ Reg  ; S6=1  S9=1 
-Node  187  CLK_000_D_3_ Reg  ; S6=1  S9=1 
-Node  170  inst_DTACK_D0 Reg  ; S6=1  S9=1 
-Node  113  inst_RESET_OUT Reg  ; S6=1  S9=1 
+Node  104  CLK_000_D_4_ Reg  ; S6=1  S9=1 
+Node  278  inst_DTACK_D0 Reg  ; S6=1  S9=1 
+Node  253  inst_RESET_OUT Reg  ; S6=1  S9=1 
 Node  277  CLK_000_D_1_ Reg  ; S6=1  S9=1 
-Node  145  CLK_000_D_0_ Reg  ; S6=1  S9=1 
+Node  187  CLK_000_D_0_ Reg  ; S6=1  S9=1 
 Node  211  inst_CLK_OUT_PRE_50 Reg  ; S6=1  S9=1 
 Node  209  inst_CLK_OUT_PRE_D Reg  ; S6=1  S9=1 
-Node  194  IPL_D0_0_ Reg  ; S6=1  S9=1 
+Node  122  IPL_D0_0_ Reg  ; S6=1  S9=1 
 Node  146  IPL_D0_1_ Reg  ; S6=1  S9=1 
 Node  266  IPL_D0_2_ Reg  ; S6=1  S9=1 
-Node  188  CLK_000_D_4_ Reg  ; S6=1  S9=1 
-Node  104  inst_AMIGA_BUS_ENABLE_DMA_HIGH Reg  ; S6=1  S9=1 
-Node  169  SM_AMIGA_1_ Reg  ; S6=1  S9=1 
-Node  140  inst_UDS_000_INT Reg  ; S6=1  S9=1 
-Node  239  inst_DS_000_ENABLE Reg  ; S6=1  S9=1 
-Node  134  inst_LDS_000_INT Reg  ; S6=1  S9=1 
+Node  121  CLK_000_D_3_ Reg  ; S6=1  S9=1 
+Node  260  CLK_000_D_5_ Reg  ; S6=1  S9=1 
+Node  248  inst_AMIGA_BUS_ENABLE_DMA_HIGH Reg  ; S6=1  S9=1 
+Node  109  SM_AMIGA_1_ Reg  ; S6=1  S9=1 
+Node  223  inst_UDS_000_INT Reg  ; S6=1  S9=1 
+Node  134  inst_DS_000_ENABLE Reg  ; S6=1  S9=1 
+Node  152  inst_LDS_000_INT Reg  ; S6=1  S9=1 
 Node  221  SM_AMIGA_6_ Reg  ; S6=1  S9=1 
-Node  152  SM_AMIGA_4_ Reg  ; S6=1  S9=1 
-Node  119  SM_AMIGA_0_ Reg  ; S6=1  S9=1 
-Node  163  RST_DLY_0_ Reg  ; S6=1  S9=1 
-Node  121  RST_DLY_1_ Reg  ; S6=1  S9=1 
-Node  115  RST_DLY_2_ Reg  ; S6=1  S9=1 
-Node  254  inst_CLK_030_H Reg  ; S6=1  S9=1 
-Node  109  inst_DSACK1_INT Reg  ; S6=1  S9=1 
-Node  223  inst_AS_000_INT Reg  ; S6=1  S9=1 
-Node  182  SM_AMIGA_5_ Reg  ; S6=1  S9=1 
-Node  164  SM_AMIGA_3_ Reg  ; S6=1  S9=1 
-Node  158  SM_AMIGA_2_ Reg  ; S6=1  S9=1 
+Node  115  SM_AMIGA_4_ Reg  ; S6=1  S9=1 
+Node  113  SM_AMIGA_0_ Reg  ; S6=1  S9=1 
+Node  259  RST_DLY_0_ Reg  ; S6=1  S9=1 
+Node  140  RST_DLY_1_ Reg  ; S6=1  S9=1 
+Node  265  RST_DLY_2_ Reg  ; S6=1  S9=1 
+Node  170  inst_CLK_030_H Reg  ; S6=1  S9=1 
+Node  239  inst_DSACK1_INT Reg  ; S6=1  S9=1 
+Node  158  inst_AS_000_INT Reg  ; S6=1  S9=1 
+Node  145  SM_AMIGA_5_ Reg  ; S6=1  S9=1 
+Node  116  SM_AMIGA_3_ Reg  ; S6=1  S9=1 
+Node  110  SM_AMIGA_2_ Reg  ; S6=1  S9=1 
 Node  233  SM_AMIGA_i_7_ Reg  ; S6=1  S9=1 
 Node  205  CIIN_0 Comb ; S6=1  S9=1 
 ; Unused Pins & Nodes
