@@ -12,8 +12,8 @@ EN_PinMacrocell = Yes;
 
 [Revision]
 Parent = m4a5.lci;
-DATE = 08/23/2016;
-TIME = 20:07:14;
+DATE = 10/08/2016;
+TIME = 22:26:00;
 Source_Format = Pure_VHDL;
 Synthesis = Synplify;
 
@@ -149,7 +149,7 @@ NetList = VHDL;
 layer = OFF;
 
 [Pullup]
-Default = UP;
+Default = HOLD;
 
 [Slewrate]
 FAST = CLK_DIV_OUT, CLK_EXP, FPU_CS, AMIGA_BUS_DATA_DIR, AMIGA_BUS_ENABLE_LOW, 

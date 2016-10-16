@@ -268,16 +268,12 @@ begin
 	
 			
 				--interrupt buffering to avoid ghost interrupts
-				--if(CLK_000_NE='1')then
-					IPL_D0<=IPL;			
-					if(IPL = IPL_D0)then
-						IPL_030<=IPL;
-					end if;
-				--end if;
+				IPL_D0<=IPL;			
+				if(IPL = IPL_D0 and CLK_000_PE = '1')then
+					IPL_030<=IPL;
+				end if;
 			
 				-- as030-sampling and FPU-Select
-	
-				
 				if(AS_030 ='1') then -- "async" reset of various signals
 					AS_030_000_SYNC <= '1';
 					DSACK1_INT		<= '1';
@@ -323,7 +319,7 @@ begin
 				case (SM_AMIGA) is
 					when IDLE_P 	 => --68000:S0 wait for a falling edge
 						RW_000_INT		<= '1';		
-						if( CLK_000_D(4)='0' and CLK_000_D(5)= '1' and AS_030_000_SYNC = '0' and nEXP_SPACE ='1')then -- if this a delayed expansion space detection, do not start an amiga cycle!
+						if( CLK_000_D(3)='0' and CLK_000_D(4)= '1' and AS_030_000_SYNC = '0' and nEXP_SPACE ='1')then -- if this a delayed expansion space detection, do not start an amiga cycle!
 							SM_AMIGA<=IDLE_N;  --go to s1
 						end if;
 					when IDLE_N 	 => --68000:S1 place Adress on bus and wait for rising edge, on a rising CLK_000 look for a amiga adressrobe
@@ -365,8 +361,8 @@ begin
 						--end if;
 						
 						--go to s7   dsack is sampled at the falling edge of the 030-clock
-						if(CLK_000_D(2)='0' and CLK_000_D(3)='1')then
-						--if( CLK_000_NE ='1') then 
+						--if(CLK_000_D(0)='0' and CLK_000_D(1)='1')then
+						if( CLK_000_NE ='1') then 
 							SM_AMIGA<=END_CYCLE_N;
 							DSACK1_INT <='0'; 
 						end if;
@@ -463,7 +459,7 @@ begin
 
 	-- bus drivers
 	AMIGA_ADDR_ENABLE	<= '0';
-	AMIGA_BUS_ENABLE_HIGH <= '0' WHEN BGACK_030_INT ='1' and AS_030_000_SYNC='0' else --not (SM_AMIGA = IDLE_P or (SM_AMIGA = END_CYCLE_N and CLK_000 = '1')) ELSE 
+	AMIGA_BUS_ENABLE_HIGH <= '0' WHEN BGACK_030_INT ='1' and AS_030_000_SYNC='0' and AS_030 = '0' else --not (SM_AMIGA = IDLE_P or (SM_AMIGA = END_CYCLE_N and CLK_000 = '1')) ELSE 
 							 '0' WHEN BGACK_030_INT ='0' AND AMIGA_BUS_ENABLE_DMA_HIGH = '0' ELSE
 							 '1';
 	AMIGA_BUS_ENABLE_LOW <=  '0' WHEN BGACK_030_INT ='0' AND AMIGA_BUS_ENABLE_DMA_LOW = '0'   ELSE

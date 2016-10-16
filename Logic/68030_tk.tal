@@ -38,6 +38,7 @@ SIGNAL NAME       min  max  min  max  min  max  min  max
           FPU_CS  ..   ..   ..   ..    1    2   ..   ..   
           DSACK1  ..   ..   ..   ..    1    2   ..   ..   
 AMIGA_BUS_DATA_DIR  ..   ..   ..   ..    1    2   ..   ..   
+AMIGA_BUS_ENABLE_HIGH  ..   ..   ..   ..    1    2   ..   ..   
        BGACK_030   1    2    0    1   ..   ..    1    1   
     RN_BGACK_030   1    2    0    1   ..   ..    1    1   
   inst_AS_030_D0   1    2    1    1   ..   ..    1    1   
@@ -45,9 +46,9 @@ inst_AS_030_000_SYNC   1    2    1    1   ..   ..    1    1
  inst_DS_000_DMA   1    2    1    1   ..   ..   ..   ..   
     CYCLE_DMA_0_   1    2   ..   ..   ..   ..    1    1   
     CYCLE_DMA_1_   1    2   ..   ..   ..   ..    1    1   
-inst_UDS_000_INT   1    1    1    1   ..   ..    2    2   
-inst_DS_000_ENABLE   1    2    1    1   ..   ..    2    2   
 inst_LDS_000_INT   1    1    1    1   ..   ..    2    2   
+inst_DS_000_ENABLE   1    2    1    1   ..   ..    2    2   
+inst_UDS_000_INT   1    1    1    1   ..   ..    2    2   
   inst_CLK_030_H   1    2   ..   ..   ..   ..    1    1   
  inst_DSACK1_INT   1    2    1    1   ..   ..   ..   ..   
           AS_030  ..   ..   ..   ..    1    1   ..   ..   
@@ -77,11 +78,11 @@ inst_LDS_000_INT   1    1    1    1   ..   ..    2    2
       cpu_est_3_  ..   ..    1    1   ..   ..    1    1   
       cpu_est_0_  ..   ..   ..   ..   ..   ..    1    1   
       cpu_est_1_  ..   ..    1    1   ..   ..    1    1   
+inst_AMIGA_BUS_ENABLE_DMA_HIGH   1    1    1    1   ..   ..   ..   ..   
 inst_AMIGA_BUS_ENABLE_DMA_LOW   1    1    1    1   ..   ..   ..   ..   
 inst_BGACK_030_INT_D   1    1   ..   ..   ..   ..    1    1   
       inst_VPA_D   1    1   ..   ..   ..   ..    1    1   
-    CLK_000_D_2_  ..   ..   ..   ..   ..   ..    1    1   
-    CLK_000_D_4_  ..   ..   ..   ..   ..   ..    1    1   
+    CLK_000_D_3_  ..   ..   ..   ..   ..   ..    1    1   
    inst_DTACK_D0   1    1   ..   ..   ..   ..    1    1   
   inst_RESET_OUT   1    1   ..   ..   ..   ..   ..   ..   
     CLK_000_D_1_  ..   ..   ..   ..   ..   ..    1    1   
@@ -91,12 +92,11 @@ inst_CLK_OUT_PRE_D  ..   ..   ..   ..   ..   ..    1    1
        IPL_D0_0_   1    1   ..   ..   ..   ..    1    1   
        IPL_D0_1_   1    1   ..   ..   ..   ..    1    1   
        IPL_D0_2_   1    1   ..   ..   ..   ..    1    1   
-    CLK_000_D_3_  ..   ..   ..   ..   ..   ..    1    1   
-    CLK_000_D_5_  ..   ..   ..   ..   ..   ..    1    1   
-inst_AMIGA_BUS_ENABLE_DMA_HIGH   1    1    1    1   ..   ..   ..   ..   
-     SM_AMIGA_1_   1    1   ..   ..   ..   ..    1    1   
+    CLK_000_D_2_  ..   ..   ..   ..   ..   ..    1    1   
+    CLK_000_D_4_  ..   ..   ..   ..   ..   ..    1    1   
      SM_AMIGA_6_   1    1   ..   ..   ..   ..    1    1   
      SM_AMIGA_4_   1    1   ..   ..   ..   ..    1    1   
+     SM_AMIGA_1_   1    1   ..   ..   ..   ..    1    1   
      SM_AMIGA_0_   1    1   ..   ..   ..   ..    1    1   
       RST_DLY_0_   1    1   ..   ..   ..   ..    1    1   
       RST_DLY_1_   1    1   ..   ..   ..   ..    1    1   
