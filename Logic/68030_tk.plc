@@ -8,7 +8,7 @@
 ; Source file 68030_tk.tt4
 ; FITTER-generated Placements.
 ; DEVICE   mach447a
-; DATE     Sat Oct 15 23:48:29 2016
+; DATE     Wed Oct 26 22:26:30 2016
 
 
 Pin   4  AHIGH_31_ Comb ; S6=1  S9=1  Pair 143

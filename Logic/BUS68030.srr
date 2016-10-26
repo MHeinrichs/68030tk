@@ -6,7 +6,7 @@
 #Implementation: logic
 
 $ Start of Compile
-#Sat Oct 15 23:48:18 2016
+#Wed Oct 26 22:26:19 2016
 
 Synopsys VHDL Compiler, version comp201403rcp1, Build 060R, built May 27 2014
 @N|Running in 64-bit mode
@@ -47,7 +47,7 @@ State machine has 8 reachable states with original encodings of:
 At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 70MB peak: 71MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sat Oct 15 23:48:18 2016
+# Wed Oct 26 22:26:19 2016
 
 ###########################################################]
 Synopsys Netlist Linker, version comp201403rcp1, Build 060R, built May 27 2014
@@ -57,7 +57,7 @@ File C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\synwork\BUS68030_c
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 67MB peak: 68MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sat Oct 15 23:48:19 2016
+# Wed Oct 26 22:26:20 2016
 
 ###########################################################]
 Map & Optimize Report
@@ -99,6 +99,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 39MB peak: 105MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sat Oct 15 23:48:19 2016
+# Wed Oct 26 22:26:20 2016
 
 ###########################################################]
