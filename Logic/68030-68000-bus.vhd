@@ -100,6 +100,7 @@ signal SM_AMIGA : SM_68000;
   
 --signal	Dout:STD_LOGIC_VECTOR(3 downto 0) := "0000";
 signal	AS_000_INT:STD_LOGIC		:= '1';
+signal	AS_000_D0:STD_LOGIC		:= '1';
 signal	RW_000_INT:STD_LOGIC		:= '1';
 signal	AMIGA_BUS_ENABLE_DMA_HIGH:STD_LOGIC		:= '1';
 signal	AMIGA_BUS_ENABLE_DMA_LOW:STD_LOGIC		:= '1';
@@ -137,7 +138,8 @@ signal	DTACK_D0: STD_LOGIC 		:= '1';
 signal  RESET_OUT: STD_LOGIC 		:= '0';
 signal	CLK_030_D0: STD_LOGIC 		:= '0';
 signal	RST_DLY: STD_LOGIC_VECTOR ( 2 downto 0 ) 	:= "000";
-
+signal	CLK_030_PE: STD_LOGIC_VECTOR ( 1 downto 0 ) 	:= "00";
+signal  AMIGA_DS: STD_LOGIC 		:= '1';
 begin
 
 	CLK_000_PE <= CLK_000_D(0) AND NOT CLK_000_D(1);
@@ -166,7 +168,7 @@ begin
 			
 			-- the external clock to the processor is generated here
 			CLK_OUT_INT	<= CLK_OUT_PRE_D; --this way we know the clock of the next state: Its like looking in the future, cool!
-			CLK_OUT_EXP_INT <= CLK_OUT_PRE_50;
+			CLK_OUT_EXP_INT <= CLK_OUT_PRE_D;
 			--delayed Clocks and signals for edge detection
 			CLK_000_D(0) 	<= CLK_000;
 			CLK_000_D(DS_SAMPLE downto 1) 	<= CLK_000_D((DS_SAMPLE-1) downto 0);
@@ -217,10 +219,12 @@ begin
 				AS_030_D0		<= '1';
 				nEXP_SPACE_D0	<= '1';
 				DS_030_D0		<= '1';
-				CLK_030_H		<= '0';	
 				CYCLE_DMA		<= "00";
 				RST_DLY			<= "000";
 				RESET_OUT 		<= '0';
+				AS_000_D0 <='1';
+				AMIGA_DS <='1';
+				CLK_030_PE <= "00";
 			else 
 				
 				if(CLK_000_NE='1')then
@@ -246,7 +250,7 @@ begin
 					BGACK_030_INT	<= '0';
 					--BGACK_030_INT_PRE<= '0';
 				elsif (	BGACK_000='1' 
-						AND CLK_000_PE='1'
+						AND CLK_000_NE='1'
 						AND AS_000 = '1' --the amiga AS can be still active while bgack is deasserted, so wait for this signal too!
 						) then -- BGACK_000 is high here!
 					--BGACK_030_INT_PRE<= '1';
@@ -269,7 +273,7 @@ begin
 			
 				--interrupt buffering to avoid ghost interrupts
 				IPL_D0<=IPL;			
-				if(IPL = IPL_D0 and CLK_000_PE = '1')then
+				if(IPL = IPL_D0) then --and CLK_000_PE = '1')then
 					IPL_030<=IPL;
 				end if;
 			
@@ -374,10 +378,20 @@ begin
 				end case;
 	
 				--dma stuff
+				AS_000_D0 <=AS_000;
+				if(UDS_000='0' or LDS_000='0') then
+					AMIGA_DS <='0';
+				else 
+					AMIGA_DS <='1';
+				end if; 
+				
 				if(BGACK_030_INT='0')then			
 					--set some signals NOT linked to AS_000='0'
 					RW_000_DMA	<= RW_000;
 					-- now determine the size: if both uds and lds is set its 16 bit else 8 bit!
+					
+
+
 					if(UDS_000='0' and LDS_000='0') then
 						SIZE_DMA		<= "10"; --16bit
 					else
@@ -389,6 +403,7 @@ begin
 					--therefore a1 = uds 
 					--great! life is simple here!
 					A0_DMA <= UDS_000;		
+					--A0_DMA <= '0';		
 					--A1 is set by the amiga side													
 					--here  we determine the upper or lower half of the databus
 					AMIGA_BUS_ENABLE_DMA_HIGH 	<= A(1);
@@ -403,8 +418,8 @@ begin
 				end if;
 						
 				if(BGACK_030_INT='0' and AS_000='0')then 
-					-- an 68000-memory cycle is three positive edges long!
-					if(CLK_000_PE='1')then
+					-- an 68000-memory cycle is three negative edges long!
+					if(CLK_000_NE='1' and CYCLE_DMA<"11")then
 						CYCLE_DMA <= CYCLE_DMA+1;
 					end if;
 				else
@@ -412,33 +427,33 @@ begin
 				end if;		
 											
 				--as can only be done if we know the uds/lds!
-				if(	BGACK_030_INT='0'
-					and AS_000='0' 
-					and(UDS_000='0' or LDS_000='0')
+				if(	CYCLE_DMA >"00"
+				  and AS_000 = '0'
+					and AMIGA_DS ='0'
 					and (					
-						CYCLE_DMA ="01"
-						or CYCLE_DMA ="10"
-						)				
+						CYCLE_DMA < "11"				
+						or RW_000 = '1')
 					)then 
 					--set AS_000
-					if( CLK_030='1') then 
-						AS_000_DMA 	<= '0'; --sampled on rising edges!					
+					if( not(CLK_OUT_INT='0' and CLK_OUT_PRE_D ='1')) then --sampled on rising edges, so we can set AS only if the next clock is not rising!!					
+						AS_000_DMA 	<= '0'; 
+						if(RW_000='1') then
+						  DS_000_DMA	<='0';
+						end if;
+					end if;
+
+					if( CLK_OUT_INT='0' and CLK_OUT_PRE_D ='1' and CLK_030_PE <"11" and AS_000_DMA = '0') then --sample rising edges
+						CLK_030_PE <= CLK_030_PE+1;
 					end if;
 					
-					--delayed clock for write cycle
-					if(AS_000_DMA = '0' and CLK_030='0')then
-						CLK_030_H		<= '1';
-					end if;
-					
-					if(RW_000='1') then
-						DS_000_DMA	<='0';
-					elsif(RW_000='0' and CLK_030_H = '1' and CLK_030='1')then
-						DS_000_DMA	<=AS_000_DMA; -- write: one clock delayed!
+					if(RW_000='0' and CLK_030_PE="01" and CLK_030='1')then
+						DS_000_DMA	<= '0'; -- write: one clock delayed!
 					end if;					
+					
 				else
+					CLK_030_PE <= "00";
 					AS_000_DMA		<= '1';
 					DS_000_DMA		<= '1';
-					CLK_030_H		<= '0';		
 				end if;		
 			end if;	
 							
@@ -452,8 +467,8 @@ begin
 	--CLK_EXP		<= CLK_030;
 
 
-	
-	RESET	<= 'Z' when RESET_OUT ='1' else '0';
+	RESET	<= 'Z';
+	--RESET	<= 'Z' when RESET_OUT ='1' else '0';
 	--RST		<= '0' when RESET_OUT_AMIGA = '1' else 'Z';
 	--RESET	<=  RESET_OUT;
 
@@ -474,7 +489,7 @@ begin
 	
 	
 	--dma stuff
-	DTACK	<= 	'Z'; --DTACK will be generated by GARY!
+	DTACK	<= 	'Z' when AS_000_DMA='1' else '0'; --DTACK will be generated by GARY!
 	
 	AS_030	<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE = '1' or RESET_OUT ='0' else
 			   	'0' when AS_000_DMA ='0' and AS_000 ='0' else 
@@ -485,7 +500,7 @@ begin
 	A(0)		<= 	'Z' when BGACK_030_INT ='1' OR nEXP_SPACE = '1' or RESET_OUT ='0' --tristate on CPU-Cycle
 							else	A0_DMA; --drive on DMA-Cycle
 	A(1)	<= 'Z';
-	AHIGH <= "ZZZZZZZZ" when BGACK_030_INT ='1' OR nEXP_SPACE = '1' or RESET_OUT ='0' else x"00";
+	AHIGH <= "ZZZZZZZZ" when BGACK_030_INT ='1' OR nEXP_SPACE = '1' OR RESET = '0' else x"00";
 	SIZE	<= 	"ZZ" when BGACK_030_INT ='1' OR nEXP_SPACE = '1' else
 						SIZE_DMA;
 	--rw

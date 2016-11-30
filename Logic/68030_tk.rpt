@@ -12,7 +12,7 @@ Project_Summary
 
 Project Name :          68030_tk
 Project Path :          C:\Users\Matze\Amiga\Hardwarehacks\68030-TK\GitHub\Logic
-Project Fitted on :     Wed Oct 26 22:26:30 2016
+Project Fitted on :     Fri Nov 18 19:32:41 2016
 
 Device :                M4A5-128/64
 Package :               100TQFP
@@ -38,10 +38,10 @@ Fitter                                   00:00:00
 Design_Summary
 ~~~~~~~~~~~~~~
   Total Input Pins :                 24
-  Total Output Pins :                19
-  Total Bidir I/O Pins :             18
-  Total Flip-Flops :                 56
-  Total Product Terms :             199
+  Total Output Pins :                18
+  Total Bidir I/O Pins :             19
+  Total Flip-Flops :                 57
+  Total Product Terms :             210
   Total Reserved Pins :               0
   Total Reserved Blocks :             0
 
@@ -54,13 +54,13 @@ Dedicated Pins
   Input-Only Pins                 2        2      0    -->   100%
   Clock/Input Pins                4        4      0    -->   100%
 I/O Pins                         64       55      9    -->    85%
-Logic Macrocells                128       81     47    -->    63%
+Logic Macrocells                128       84     44    -->    65%
   Input Registers                64        0     64    -->     0%
   Unusable Macrocells            ..        0     ..
 
-CSM Outputs/Total Block Inputs  264      206     58    -->    78%
-Logical Product Terms           640      202    438    -->    31%
-Product Term Clusters           128       51     77    -->    39%
+CSM Outputs/Total Block Inputs  264      205     59    -->    77%
+Logical Product Terms           640      213    427    -->    33%
+Product Term Clusters           128       54     74    -->    42%
 
 
 Blocks_Resource_Summary
@@ -71,14 +71,14 @@ Blocks_Resource_Summary
 ---------------------------------------------------------------------------------
 Maximum     33      8      8     --     --         16       80       16       -
 ---------------------------------------------------------------------------------
-Block  A    27      8      0     11      0          5       45        5       Lo 
-Block  B    23      8      0     12      0          4       38        9       Lo 
-Block  C    20      7      0     12      0          4       21       11       Lo 
-Block  D    29      8      0     12      0          4       25       10       Lo 
-Block  E    30      4      0      7      0          9        9       14       Lo 
-Block  F    26      5      0      5      0         11       17       10       Lo 
-Block  G    23      7      0     12      0          4       27        7       Lo 
-Block  H    28      8      0     10      0          6       20       11       Lo 
+Block  A    24      8      0     11      0          5       46        3       Lo 
+Block  B    26      8      0     12      0          4       45        6       Lo 
+Block  C    26      7      0     12      0          4       24       11       Lo 
+Block  D    24      8      0     12      0          4       23       10       Lo 
+Block  E    30      4      0      6      0         10        8       14       Lo 
+Block  F    24      5      0      9      0          7       21        9       Lo 
+Block  G    24      7      0     12      0          4       29        6       Lo 
+Block  H    27      8      0     10      0          6       17       13       Lo 
 ---------------------------------------------------------------------------------
 
 <Note> Four rightmost columns above reflect last status of the placement process.
@@ -287,30 +287,30 @@ Input_Signal_List
             Pin  r e O   Input 
 Pin Blk PTs Type e s E   Fanout    Pwr Slew      Signal 
 ----------------------------------------------------------------------
- 60  F   .  I/O          --C--F--  Low Slow      A_1_   
- 96  A   .  I/O          ----EF-H  Low Slow      A_DECODE_16_   
- 59  F   .  I/O          ----EF-H  Low Slow      A_DECODE_17_   
- 95  A   .  I/O          ----EF-H  Low Slow      A_DECODE_18_   
- 97  A   .  I/O          ----EF-H  Low Slow      A_DECODE_19_   
+ 60  F   .  I/O          -----F--  Low Slow      A_1_   
+ 96  A   .  I/O          -B--E--H  Low Slow      A_DECODE_16_   
+ 59  F   .  I/O          -B--E--H  Low Slow      A_DECODE_17_   
+ 95  A   .  I/O          -B--E--H  Low Slow      A_DECODE_18_   
+ 97  A   .  I/O          -B--E--H  Low Slow      A_DECODE_19_   
  93  A   .  I/O          ----E---  Low Slow      A_DECODE_20_   
  94  A   .  I/O          ----E---  Low Slow      A_DECODE_21_   
  84  H   .  I/O          ----E---  Low Slow      A_DECODE_22_   
  85  H   .  I/O          ----E---  Low Slow      A_DECODE_23_   
  28  D   .  I/O          ----E--H  Low Slow      BGACK_000   
  21  C   .  I/O          ---D----  Low Slow      BG_030   
- 30  D   .  I/O          -B------  Low Slow      DTACK   
- 57  F   .  I/O          ----EF-H  Low Slow      FC_0_   
- 58  F   .  I/O          ----EF-H  Low Slow      FC_1_   
+ 57  F   .  I/O          -B--E--H  Low Slow      FC_0_   
+ 58  F   .  I/O          -B--E--H  Low Slow      FC_1_   
  91  A   .  I/O          ----E--H  Low Slow      FPU_SENSE   
- 67  G   .  I/O          -B----G-  Low Slow      IPL_0_   
- 56  F   .  I/O          -B-D----  Low Slow      IPL_1_   
+ 67  G   .  I/O          -B------  Low Slow      IPL_0_   
+ 56  F   .  I/O          -B------  Low Slow      IPL_1_   
  68  G   .  I/O          -B------  Low Slow      IPL_2_   
- 11  .   . Ck/I          --C-----   -  Slow      CLK_000   
+  3  B   .  I/O          -BC-----  Low Fast      RESET   
+ 11  .   . Ck/I          ---D----   -  Slow      CLK_000   
  14  .   . Ck/I          ABCDEFGH   -  Slow      nEXP_SPACE   
- 36  .   .  Ded          A-------   -  Slow      VPA   
+ 36  .   .  Ded          -----F--   -  Slow      VPA   
  61  .   . Ck/I          ABCDEFGH   -  Slow      CLK_OSZI   
  64  .   . Ck/I          A-------   -  Slow      CLK_030   
- 86  .   .  Ded          ABCDEFGH   -  Slow      RST   
+ 86  .   .  Ded          ABCD-FGH   -  Slow      RST   
 ----------------------------------------------------------------------
 
 <Note> Power : Hi = High
@@ -334,16 +334,15 @@ Pin Blk PTs Type e s E   Fanout    Pwr Slew      Signal
  83  H   3  DFF          --------  Low Fast      BGACK_030   
  29  D   2  DFF          --------  Low Fast      BG_000   
  47  E   1  COM          --------  Low Fast      CIIN   
- 65  G   1  DFF          --------  Low Fast      CLK_DIV_OUT   
- 10  B   1  DFF          --------  Low Fast      CLK_EXP   
+ 65  G   1  COM          --------  Low Fast      CLK_DIV_OUT   
+ 10  B   1  COM          --------  Low Fast      CLK_EXP   
  81  H   1  COM          --------  Low Fast      DSACK1   
  98  A   1  COM          --------  Low Fast      DS_030   
  66  G   2  COM          --------  Low Fast      E   
  78  H   1  COM          --------  Low Fast      FPU_CS   
-  8  B   9  TFF          --------  Low Fast      IPL_030_0_   
-  7  B   9  TFF          --------  Low Fast      IPL_030_1_   
-  9  B   9  TFF          --------  Low Fast      IPL_030_2_   
-  3  B   1  COM          --------  Low Fast      RESET   
+  8  B  10  DFF          --------  Low Fast      IPL_030_0_   
+  7  B  10  DFF          --------  Low Fast      IPL_030_1_   
+  9  B  10  DFF          --------  Low Fast      IPL_030_2_   
  35  D   3  TFF          --------  Low Fast      VMA   
 ----------------------------------------------------------------------
 
@@ -369,15 +368,16 @@ Pin Blk PTs Type e s E   Fanout    Pwr Slew      Signal
   5  B   1  COM          ----E---  Low Fast      AHIGH_30_   
   4  B   1  COM          ----E---  Low Fast      AHIGH_31_   
  42  E   1  COM          A---E--H  Low Fast      AS_000   
- 82  H   1  COM          -BCDEF-H  Low Fast      AS_030   
+ 82  H   1  COM          ABCDE--H  Low Fast      AS_030   
  69  G   3  DFF          -----F--  Low Fast      A_0_   
- 41  E   1  COM          A--D----  Low Fast      BERR   
- 31  D   1  COM          A-----GH  Low Fast      LDS_000   
- 71  G   2  DFF          -B-----H  Low Fast      RW   
+ 41  E   1  COM          --C-----  Low Fast      BERR   
+ 30  D   1  COM          -B------  Low Slow      DTACK   
+ 31  D   1  COM          --C---GH  Low Fast      LDS_000   
+ 71  G   2  DFF          --C----H  Low Fast      RW   
  80  H   4  DFF          A---E-G-  Low Fast      RW_000   
  70  G   3  DFF          -----F--  Low Fast      SIZE_0_   
  79  H   3  DFF          -----F--  Low Fast      SIZE_1_   
- 32  D   1  COM          A-----GH  Low Fast      UDS_000   
+ 32  D   1  COM          --C---GH  Low Fast      UDS_000   
 ----------------------------------------------------------------------
 
 <Note> Power : Hi = High
@@ -393,61 +393,64 @@ Buried_Signal_List
             Pin  r e O   Node 
 #Mc Blk PTs Type e s E   Fanout    Pwr Slew      Signal 
 ----------------------------------------------------------------------
- E9  E   2  COM          ----E---  Low Slow      CIIN_0   
- C9  C   1  DFF          ABCD-FGH  Low Slow      CLK_000_D_0_   
- H5  H   1  DFF          ABCD-FGH  Low Slow      CLK_000_D_1_   
- H6  H   1  DFF          ---D----  Low Slow      CLK_000_D_2_   
- D10  D   1  DFF          -BC-----  Low Slow      CLK_000_D_3_   
- B10  B   1  DFF          --C-----  Low Slow      CLK_000_D_4_   
- A10  A   3  DFF          A-------  Low Slow      CYCLE_DMA_0_   
- A6  A   4  DFF          A-------  Low Slow      CYCLE_DMA_1_   
- G14  G   1  DFF          -B------  Low Slow      IPL_D0_0_   
- D14  D   1  DFF          -B------  Low Slow      IPL_D0_1_   
- B14  B   1  DFF          -B------  Low Slow      IPL_D0_2_   
+ E5  E   2  COM          ----E---  Low Slow      CIIN_0   
+ D13  D   1  DFF          A-CD-FGH  Low Slow      CLK_000_D_0_   
+ H5  H   1  DFF          A-CD-FGH  Low Slow      CLK_000_D_1_   
+ H6  H   1  DFF          -----F--  Low Slow      CLK_000_D_2_   
+ F13  F   1  DFF          --C--F--  Low Slow      CLK_000_D_3_   
+ C14  C   1  DFF          -----F--  Low Slow      CLK_000_D_4_   
+ A9  A   9  DFF          A-------  Low Slow      CLK_030_PE_0_   
+ A2  A   6  DFF          A-------  Low Slow      CLK_030_PE_1_   
+ D10  D   1  DFF          AB----G-  Low Slow      CLK_OUT_INTreg   
+ A6  A   4  DFF          A-------  Low Slow      CYCLE_DMA_0_   
+ A10  A   2  DFF          A-------  Low Slow      CYCLE_DMA_1_   
+ B10  B   1  DFF          -B------  Low Slow      IPL_D0_0_   
+ B6  B   1  DFF          -B------  Low Slow      IPL_D0_1_   
+ B2  B   1  DFF          -B------  Low Slow      IPL_D0_2_   
  G8  G   3  DFF          ------G-  Low  -        RN_A_0_   --> A_0_
  H4  H   3  DFF          ABCDEFGH  Low  -        RN_BGACK_030   --> BGACK_030
  D1  D   2  DFF          ---D----  Low  -        RN_BG_000   --> BG_000
- B5  B   9  TFF          -B------  Low  -        RN_IPL_030_0_   --> IPL_030_0_
- B9  B   9  TFF          -B------  Low  -        RN_IPL_030_1_   --> IPL_030_1_
- B4  B   9  TFF          -B------  Low  -        RN_IPL_030_2_   --> IPL_030_2_
+ B5  B  10  DFF          -B------  Low  -        RN_IPL_030_0_   --> IPL_030_0_
+ B9  B  10  DFF          -B------  Low  -        RN_IPL_030_1_   --> IPL_030_1_
+ B4  B  10  DFF          -B------  Low  -        RN_IPL_030_2_   --> IPL_030_2_
  G0  G   2  DFF          ------G-  Low  -        RN_RW   --> RW
  H0  H   4  DFF          -------H  Low  -        RN_RW_000   --> RW_000
  G12  G   3  DFF          ------G-  Low  -        RN_SIZE_0_   --> SIZE_0_
  H12  H   3  DFF          -------H  Low  -        RN_SIZE_1_   --> SIZE_1_
- D0  D   3  TFF          A--D----  Low  -        RN_VMA   --> VMA
- G2  G   4  DFF          ------G-  Low Slow      RST_DLY_0_   
- G10  G   2  DFF          ------G-  Low Slow      RST_DLY_1_   
- G6  G   2  DFF          ------G-  Low Slow      RST_DLY_2_   
- H13  H   3  DFF          --C----H  Low Slow      SM_AMIGA_0_   
- F4  F   3  DFF          -----F-H  Low Slow      SM_AMIGA_1_   
- A5  A   5  DFF          A----F--  Low Slow      SM_AMIGA_2_   
- D13  D   5  TFF          A--D----  Low Slow      SM_AMIGA_3_   
- D2  D   3  DFF          -B-D----  Low Slow      SM_AMIGA_4_   
- C6  C   3  DFF          --CD----  Low Slow      SM_AMIGA_5_   
- C13  C   3  DFF          -BC--F-H  Low Slow      SM_AMIGA_6_   
- C2  C   3  TFF          --C--F-H  Low Slow      SM_AMIGA_i_7_   
- G9  G   3  DFF          A--D--G-  Low Slow      cpu_est_0_   
- A8  A   4  DFF          A--D--G-  Low Slow      cpu_est_1_   
- A12  A   1  DFF          A--D--G-  Low Slow      cpu_est_2_   
- D9  D   4  DFF          A--D--G-  Low Slow      cpu_est_3_   
- C14  C   2  DFF          --CD----  Low Slow      inst_AMIGA_BUS_ENABLE_DMA_HIGH   
- F1  F   2  DFF          --C--F--  Low Slow      inst_AMIGA_BUS_ENABLE_DMA_LOW   
- A1  A   7  DFF          A------H  Low Slow      inst_AS_000_DMA   
- C10  C   2  DFF          --C-E---  Low Slow      inst_AS_000_INT   
- F0  F   7  DFF          --CD-F--  Low Slow      inst_AS_030_000_SYNC   
- E5  E   1  DFF          ---DEF--  Low Slow      inst_AS_030_D0   
- E8  E   1  DFF          --C--FGH  Low Slow      inst_BGACK_030_INT_D   
- A2  A   8  DFF          A-------  Low Slow      inst_CLK_030_H   
- G13  G   1  DFF          ---D--G-  Low Slow      inst_CLK_OUT_PRE_50   
- D6  D   1  DFF          -B----G-  Low Slow      inst_CLK_OUT_PRE_D   
- H2  H   2  DFF          -------H  Low Slow      inst_DSACK1_INT   
+ D4  D   3  TFF          --CD----  Low  -        RN_VMA   --> VMA
+ G6  G   4  DFF          ------G-  Low Slow      RST_DLY_0_   
+ G14  G   2  DFF          ------G-  Low Slow      RST_DLY_1_   
+ G10  G   2  DFF          ------G-  Low Slow      RST_DLY_2_   
+ A12  A   3  DFF          A----F-H  Low Slow      SM_AMIGA_0_   
+ F8  F   3  DFF          A----F--  Low Slow      SM_AMIGA_1_   
+ C9  C   5  DFF          --C--F--  Low Slow      SM_AMIGA_2_   
+ C6  C   5  TFF          --C-----  Low Slow      SM_AMIGA_3_   
+ A1  A   3  DFF          A-C-----  Low Slow      SM_AMIGA_4_   
+ G13  G   3  DFF          A-----G-  Low Slow      SM_AMIGA_5_   
+ F0  F   3  DFF          --C--FGH  Low Slow      SM_AMIGA_6_   
+ F4  F   3  TFF          -B---F-H  Low Slow      SM_AMIGA_i_7_   
+ G9  G   3  DFF          --CD--G-  Low Slow      cpu_est_0_   
+ D6  D   4  DFF          --CD--G-  Low Slow      cpu_est_1_   
+ D14  D   1  DFF          --CD--G-  Low Slow      cpu_est_2_   
+ D2  D   4  DFF          --CD--G-  Low Slow      cpu_est_3_   
+ F9  F   2  DFF          ---D-F--  Low Slow      inst_AMIGA_BUS_ENABLE_DMA_HIGH   
+ F5  F   2  DFF          --C--F--  Low Slow      inst_AMIGA_BUS_ENABLE_DMA_LOW   
+ C10  C   2  DFF          A-------  Low Slow      inst_AMIGA_DS   
+ A8  A   6  DFF          A--D---H  Low Slow      inst_AS_000_DMA   
+ C2  C   2  DFF          --C-E---  Low Slow      inst_AS_000_INT   
+ B13  B   7  DFF          -B-D-F--  Low Slow      inst_AS_030_000_SYNC   
+ H2  H   1  DFF          -B-DE---  Low Slow      inst_AS_030_D0   
+ H13  H   1  DFF          -B---FGH  Low Slow      inst_BGACK_030_INT_D   
+ G2  G   1  DFF          ----E-G-  Low Slow      inst_CLK_OUT_PRE_50   
+ E8  E   1  DFF          A--D----  Low Slow      inst_CLK_OUT_PRE_D   
+ A5  A   2  DFF          A------H  Low Slow      inst_DSACK1_INT   
  A13  A   9  DFF          A-------  Low Slow      inst_DS_000_DMA   
- B13  B   3  DFF          -B-D----  Low Slow      inst_DS_000_ENABLE   
- B6  B   1  DFF          A--D----  Low Slow      inst_DTACK_D0   
- F8  F   3  DFF          ---D-F--  Low Slow      inst_LDS_000_INT   
- G5  G   2  DFF          ABCDE-GH  Low Slow      inst_RESET_OUT   
- F12  F   2  DFF          ---D-F--  Low Slow      inst_UDS_000_INT   
- A9  A   1  DFF          A--D----  Low Slow      inst_VPA_D   
+ C13  C   3  DFF          --CD----  Low Slow      inst_DS_000_ENABLE   
+ B14  B   1  DFF          --C-----  Low Slow      inst_DTACK_D0   
+ F12  F   3  DFF          ---D-F--  Low Slow      inst_LDS_000_INT   
+ G5  G   2  DFF          A--DE-GH  Low Slow      inst_RESET_OUT   
+ F1  F   2  DFF          ---D-F--  Low Slow      inst_UDS_000_INT   
+ F2  F   1  DFF          --CD----  Low Slow      inst_VPA_D   
 ----------------------------------------------------------------------
 
 <Note> Power : Hi = High
@@ -463,182 +466,186 @@ Signals_Fanout_List
 Signal Source  :    Fanout List
 -----------------------------------------------------------------------------
   AHIGH_31_{ C}:           CIIN{ E}         CIIN_0{ E}
+     IPL_1_{ G}:     IPL_030_1_{ B}     IPL_030_0_{ B}     IPL_030_2_{ B}
+               :      IPL_D0_1_{ B}
+     IPL_0_{ H}:     IPL_030_1_{ B}     IPL_030_0_{ B}     IPL_030_2_{ B}
+               :      IPL_D0_0_{ B}
 A_DECODE_23_{ I}:           CIIN{ E}         CIIN_0{ E}
-     IPL_2_{ H}:     IPL_030_2_{ B}     IPL_030_1_{ B}     IPL_030_0_{ B}
+      FC_0_{ G}:           BERR{ E}         FPU_CS{ H}inst_AS_030_000_SYNC{ B}
+       A_1_{ G}:inst_AMIGA_BUS_ENABLE_DMA_HIGH{ F}inst_AMIGA_BUS_ENABLE_DMA_LOW{ F}
+     IPL_2_{ H}:     IPL_030_1_{ B}     IPL_030_0_{ B}     IPL_030_2_{ B}
                :      IPL_D0_2_{ B}
-      FC_1_{ G}:           BERR{ E}         FPU_CS{ H}inst_AS_030_000_SYNC{ F}
+      FC_1_{ G}:           BERR{ E}         FPU_CS{ H}inst_AS_030_000_SYNC{ B}
      AS_030{ I}:         AS_000{ E}           BERR{ E}         FPU_CS{ H}
-               :         DSACK1{ H}AMIGA_BUS_ENABLE_HIGH{ D} inst_AS_030_D0{ E}
-               :inst_AS_030_000_SYNC{ F}inst_DS_000_ENABLE{ B}inst_DSACK1_INT{ H}
+               :         DSACK1{ H}AMIGA_BUS_ENABLE_HIGH{ D} inst_AS_030_D0{ H}
+               :inst_AS_030_000_SYNC{ B}inst_DS_000_ENABLE{ C}inst_DSACK1_INT{ A}
                :inst_AS_000_INT{ C}
      AS_000{ F}:         AS_030{ H}         DS_030{ A}AMIGA_BUS_DATA_DIR{ E}
                :      BGACK_030{ H}inst_AS_000_DMA{ A}inst_DS_000_DMA{ A}
-               :   CYCLE_DMA_0_{ A}   CYCLE_DMA_1_{ A} inst_CLK_030_H{ A}
-    UDS_000{ E}:        SIZE_1_{ H}        SIZE_0_{ G}           A_0_{ G}
-               :inst_AS_000_DMA{ A}inst_DS_000_DMA{ A} inst_CLK_030_H{ A}
-    LDS_000{ E}:        SIZE_1_{ H}        SIZE_0_{ G}inst_AS_000_DMA{ A}
-               :inst_DS_000_DMA{ A} inst_CLK_030_H{ A}
+               :  CLK_030_PE_1_{ A}   CYCLE_DMA_0_{ A}   CYCLE_DMA_1_{ A}
+               :  CLK_030_PE_0_{ A}
+    UDS_000{ E}:           A_0_{ G}        SIZE_1_{ H}        SIZE_0_{ G}
+               :  inst_AMIGA_DS{ C}
+    LDS_000{ E}:        SIZE_1_{ H}        SIZE_0_{ G}  inst_AMIGA_DS{ C}
  nEXP_SPACE{. }:      AHIGH_31_{ B}         AS_030{ H}         DS_030{ A}
-               :      AHIGH_30_{ B}      AHIGH_29_{ B}      AHIGH_28_{ C}
-               :      AHIGH_27_{ C}      AHIGH_26_{ C}      AHIGH_25_{ C}
-               :      AHIGH_24_{ C}         DSACK1{ H}AMIGA_BUS_DATA_DIR{ E}
-               :        SIZE_1_{ H}         BG_000{ D}        SIZE_0_{ G}
-               :           A_0_{ G}inst_AS_030_000_SYNC{ F}    SM_AMIGA_6_{ C}
-               :  SM_AMIGA_i_7_{ C}         CIIN_0{ E}
-       BERR{ F}:    SM_AMIGA_3_{ D}    SM_AMIGA_2_{ A}
+               :         DSACK1{ H}      AHIGH_30_{ B}      AHIGH_29_{ B}
+               :      AHIGH_28_{ C}      AHIGH_27_{ C}      AHIGH_26_{ C}
+               :      AHIGH_25_{ C}      AHIGH_24_{ C}AMIGA_BUS_DATA_DIR{ E}
+               :           A_0_{ G}        SIZE_1_{ H}         BG_000{ D}
+               :        SIZE_0_{ G}inst_AS_030_000_SYNC{ B}    SM_AMIGA_6_{ F}
+               :  SM_AMIGA_i_7_{ F}         CIIN_0{ E}
+       BERR{ F}:    SM_AMIGA_3_{ C}    SM_AMIGA_2_{ C}
      BG_030{ D}:         BG_000{ D}
-  AHIGH_30_{ C}:           CIIN{ E}         CIIN_0{ E}
   BGACK_000{ E}:           BERR{ E}         FPU_CS{ H}      BGACK_030{ H}
+    CLK_030{. }:inst_DS_000_DMA{ A}
+    CLK_000{. }:   CLK_000_D_0_{ D}
+  FPU_SENSE{ B}:           BERR{ E}         FPU_CS{ H}
+      DTACK{ E}:  inst_DTACK_D0{ B}
+  AHIGH_30_{ C}:           CIIN{ E}         CIIN_0{ E}
+        VPA{. }:     inst_VPA_D{ F}
   AHIGH_29_{ C}:           CIIN{ E}         CIIN_0{ E}
-    CLK_030{. }:inst_AS_000_DMA{ A}inst_DS_000_DMA{ A} inst_CLK_030_H{ A}
   AHIGH_28_{ D}:           CIIN{ E}         CIIN_0{ E}
-    CLK_000{. }:   CLK_000_D_0_{ C}
+        RST{. }:           A_0_{ G}        SIZE_1_{ H}     IPL_030_1_{ B}
+               :     IPL_030_0_{ B}     IPL_030_2_{ B}         RW_000{ H}
+               :         BG_000{ D}      BGACK_030{ H}        SIZE_0_{ G}
+               :            VMA{ D}             RW{ G}inst_AMIGA_BUS_ENABLE_DMA_HIGH{ F}
+               :inst_AMIGA_BUS_ENABLE_DMA_LOW{ F} inst_AS_030_D0{ H}inst_AS_030_000_SYNC{ B}
+               :inst_BGACK_030_INT_D{ H}inst_AS_000_DMA{ A}inst_DS_000_DMA{ A}
+               :     inst_VPA_D{ F}  inst_DTACK_D0{ B} inst_RESET_OUT{ G}
+               :  CLK_030_PE_1_{ A}  inst_AMIGA_DS{ C}      IPL_D0_0_{ B}
+               :      IPL_D0_1_{ B}      IPL_D0_2_{ B}inst_LDS_000_INT{ F}
+               :inst_DS_000_ENABLE{ C}inst_UDS_000_INT{ F}    SM_AMIGA_6_{ F}
+               :    SM_AMIGA_4_{ A}    SM_AMIGA_1_{ F}    SM_AMIGA_0_{ A}
+               :   CYCLE_DMA_0_{ A}   CYCLE_DMA_1_{ A}  CLK_030_PE_0_{ A}
+               :     RST_DLY_0_{ G}     RST_DLY_1_{ G}     RST_DLY_2_{ G}
+               :inst_DSACK1_INT{ A}inst_AS_000_INT{ C}    SM_AMIGA_5_{ G}
+               :    SM_AMIGA_3_{ C}    SM_AMIGA_2_{ C}  SM_AMIGA_i_7_{ F}
   AHIGH_27_{ D}:           CIIN{ E}         CIIN_0{ E}
+      RESET{ C}:      AHIGH_31_{ B}      AHIGH_30_{ B}      AHIGH_29_{ B}
+               :      AHIGH_28_{ C}      AHIGH_27_{ C}      AHIGH_26_{ C}
+               :      AHIGH_25_{ C}      AHIGH_24_{ C}
   AHIGH_26_{ D}:           CIIN{ E}         CIIN_0{ E}
   AHIGH_25_{ D}:           CIIN{ E}         CIIN_0{ E}
   AHIGH_24_{ D}:           CIIN{ E}         CIIN_0{ E}
 A_DECODE_22_{ I}:           CIIN{ E}         CIIN_0{ E}
-  FPU_SENSE{ B}:           BERR{ E}         FPU_CS{ H}
 A_DECODE_21_{ B}:           CIIN{ E}         CIIN_0{ E}
 A_DECODE_20_{ B}:           CIIN{ E}         CIIN_0{ E}
-      DTACK{ E}:  inst_DTACK_D0{ B}
-A_DECODE_19_{ B}:           BERR{ E}         FPU_CS{ H}inst_AS_030_000_SYNC{ F}
-A_DECODE_18_{ B}:           BERR{ E}         FPU_CS{ H}inst_AS_030_000_SYNC{ F}
-A_DECODE_17_{ G}:           BERR{ E}         FPU_CS{ H}inst_AS_030_000_SYNC{ F}
-        VPA{. }:     inst_VPA_D{ A}
-A_DECODE_16_{ B}:           BERR{ E}         FPU_CS{ H}inst_AS_030_000_SYNC{ F}
-        RST{. }:        SIZE_1_{ H}     IPL_030_2_{ B}         RW_000{ H}
-               :         BG_000{ D}        SIZE_0_{ G}      BGACK_030{ H}
-               :            VMA{ D}             RW{ G}           A_0_{ G}
-               :     IPL_030_1_{ B}     IPL_030_0_{ B}inst_AMIGA_BUS_ENABLE_DMA_HIGH{ C}
-               :inst_AMIGA_BUS_ENABLE_DMA_LOW{ F} inst_AS_030_D0{ E}inst_AS_030_000_SYNC{ F}
-               :inst_BGACK_030_INT_D{ E}inst_AS_000_DMA{ A}inst_DS_000_DMA{ A}
-               :   CYCLE_DMA_0_{ A}   CYCLE_DMA_1_{ A}     inst_VPA_D{ A}
-               :  inst_DTACK_D0{ B} inst_RESET_OUT{ G}      IPL_D0_0_{ G}
-               :      IPL_D0_1_{ D}      IPL_D0_2_{ B}inst_LDS_000_INT{ F}
-               :inst_DS_000_ENABLE{ B}inst_UDS_000_INT{ F}    SM_AMIGA_6_{ C}
-               :    SM_AMIGA_4_{ D}    SM_AMIGA_1_{ F}    SM_AMIGA_0_{ H}
-               :     RST_DLY_0_{ G}     RST_DLY_1_{ G}     RST_DLY_2_{ G}
-               : inst_CLK_030_H{ A}inst_DSACK1_INT{ H}inst_AS_000_INT{ C}
-               :    SM_AMIGA_5_{ C}    SM_AMIGA_3_{ D}    SM_AMIGA_2_{ A}
-               :  SM_AMIGA_i_7_{ C}
-     IPL_1_{ G}:     IPL_030_2_{ B}     IPL_030_1_{ B}     IPL_030_0_{ B}
-               :      IPL_D0_1_{ D}
-     IPL_0_{ H}:     IPL_030_2_{ B}     IPL_030_1_{ B}     IPL_030_0_{ B}
-               :      IPL_D0_0_{ G}
-      FC_0_{ G}:           BERR{ E}         FPU_CS{ H}inst_AS_030_000_SYNC{ F}
-       A_1_{ G}:inst_AMIGA_BUS_ENABLE_DMA_HIGH{ C}inst_AMIGA_BUS_ENABLE_DMA_LOW{ F}
+A_DECODE_19_{ B}:           BERR{ E}         FPU_CS{ H}inst_AS_030_000_SYNC{ B}
+A_DECODE_18_{ B}:           BERR{ E}         FPU_CS{ H}inst_AS_030_000_SYNC{ B}
+A_DECODE_17_{ G}:           BERR{ E}         FPU_CS{ H}inst_AS_030_000_SYNC{ B}
+A_DECODE_16_{ B}:           BERR{ E}         FPU_CS{ H}inst_AS_030_000_SYNC{ B}
+       A_0_{ H}:inst_LDS_000_INT{ F}inst_UDS_000_INT{ F}
+    RN_A_0_{ H}:           A_0_{ G}
     SIZE_1_{ I}:inst_LDS_000_INT{ F}
  RN_SIZE_1_{ I}:        SIZE_1_{ H}
+RN_IPL_030_1_{ C}:     IPL_030_1_{ B}
+RN_IPL_030_0_{ C}:     IPL_030_0_{ B}
 RN_IPL_030_2_{ C}:     IPL_030_2_{ B}
-     RW_000{ I}:AMIGA_BUS_DATA_DIR{ E}             RW{ G}inst_DS_000_DMA{ A}
+     RW_000{ I}:AMIGA_BUS_DATA_DIR{ E}             RW{ G}inst_AS_000_DMA{ A}
+               :inst_DS_000_DMA{ A}  CLK_030_PE_1_{ A}  CLK_030_PE_0_{ A}
   RN_RW_000{ I}:         RW_000{ H}
   RN_BG_000{ E}:         BG_000{ D}
-    SIZE_0_{ H}:inst_LDS_000_INT{ F}
- RN_SIZE_0_{ H}:        SIZE_0_{ G}
 RN_BGACK_030{ I}:      AHIGH_31_{ B}         AS_030{ H}         AS_000{ E}
                :         DS_030{ A}        UDS_000{ D}        LDS_000{ D}
                :      AHIGH_30_{ B}      AHIGH_29_{ B}      AHIGH_28_{ C}
                :      AHIGH_27_{ C}      AHIGH_26_{ C}      AHIGH_25_{ C}
                :      AHIGH_24_{ C}AMIGA_BUS_DATA_DIR{ E}AMIGA_BUS_ENABLE_LOW{ C}
-               :AMIGA_BUS_ENABLE_HIGH{ D}        SIZE_1_{ H}         RW_000{ H}
-               :        SIZE_0_{ G}      BGACK_030{ H}             RW{ G}
-               :           A_0_{ G}inst_AMIGA_BUS_ENABLE_DMA_HIGH{ C}inst_AMIGA_BUS_ENABLE_DMA_LOW{ F}
-               :inst_AS_030_000_SYNC{ F}inst_BGACK_030_INT_D{ E}inst_AS_000_DMA{ A}
-               :inst_DS_000_DMA{ A}   CYCLE_DMA_0_{ A}   CYCLE_DMA_1_{ A}
-               : inst_CLK_030_H{ A}
-     RN_VMA{ E}:            VMA{ D}    SM_AMIGA_3_{ D}    SM_AMIGA_2_{ A}
-         RW{ H}:         RW_000{ H}inst_DS_000_ENABLE{ B}
+               :AMIGA_BUS_ENABLE_HIGH{ D}           A_0_{ G}        SIZE_1_{ H}
+               :         RW_000{ H}      BGACK_030{ H}        SIZE_0_{ G}
+               :             RW{ G}inst_AMIGA_BUS_ENABLE_DMA_HIGH{ F}inst_AMIGA_BUS_ENABLE_DMA_LOW{ F}
+               :inst_AS_030_000_SYNC{ B}inst_BGACK_030_INT_D{ H}   CYCLE_DMA_0_{ A}
+               :   CYCLE_DMA_1_{ A}
+    SIZE_0_{ H}:inst_LDS_000_INT{ F}
+ RN_SIZE_0_{ H}:        SIZE_0_{ G}
+     RN_VMA{ E}:            VMA{ D}    SM_AMIGA_3_{ C}    SM_AMIGA_2_{ C}
+         RW{ H}:         RW_000{ H}inst_DS_000_ENABLE{ C}
       RN_RW{ H}:             RW{ G}
-       A_0_{ H}:inst_LDS_000_INT{ F}inst_UDS_000_INT{ F}
-    RN_A_0_{ H}:           A_0_{ G}
-RN_IPL_030_1_{ C}:     IPL_030_1_{ B}
-RN_IPL_030_0_{ C}:     IPL_030_0_{ B}
- cpu_est_2_{ B}:              E{ G}            VMA{ D}     cpu_est_2_{ A}
-               :     cpu_est_3_{ D}    SM_AMIGA_3_{ D}    SM_AMIGA_2_{ A}
- cpu_est_3_{ E}:              E{ G}            VMA{ D}     cpu_est_3_{ D}
-               :     cpu_est_1_{ A}    SM_AMIGA_3_{ D}    SM_AMIGA_2_{ A}
- cpu_est_0_{ H}:            VMA{ D}     cpu_est_2_{ A}     cpu_est_3_{ D}
-               :     cpu_est_0_{ G}     cpu_est_1_{ A}    SM_AMIGA_3_{ D}
-               :    SM_AMIGA_2_{ A}
- cpu_est_1_{ B}:              E{ G}            VMA{ D}     cpu_est_2_{ A}
-               :     cpu_est_3_{ D}     cpu_est_1_{ A}    SM_AMIGA_3_{ D}
-               :    SM_AMIGA_2_{ A}
-inst_AMIGA_BUS_ENABLE_DMA_HIGH{ D}:AMIGA_BUS_ENABLE_HIGH{ D}inst_AMIGA_BUS_ENABLE_DMA_HIGH{ C}
+ cpu_est_1_{ E}:              E{ G}            VMA{ D}     cpu_est_1_{ D}
+               :     cpu_est_2_{ D}     cpu_est_3_{ D}    SM_AMIGA_3_{ C}
+               :    SM_AMIGA_2_{ C}
+ cpu_est_2_{ E}:              E{ G}            VMA{ D}     cpu_est_2_{ D}
+               :     cpu_est_3_{ D}    SM_AMIGA_3_{ C}    SM_AMIGA_2_{ C}
+ cpu_est_3_{ E}:              E{ G}            VMA{ D}     cpu_est_1_{ D}
+               :     cpu_est_3_{ D}    SM_AMIGA_3_{ C}    SM_AMIGA_2_{ C}
+ cpu_est_0_{ H}:            VMA{ D}     cpu_est_1_{ D}     cpu_est_2_{ D}
+               :     cpu_est_3_{ D}     cpu_est_0_{ G}    SM_AMIGA_3_{ C}
+               :    SM_AMIGA_2_{ C}
+inst_AMIGA_BUS_ENABLE_DMA_HIGH{ G}:AMIGA_BUS_ENABLE_HIGH{ D}inst_AMIGA_BUS_ENABLE_DMA_HIGH{ F}
 inst_AMIGA_BUS_ENABLE_DMA_LOW{ G}:AMIGA_BUS_ENABLE_LOW{ C}inst_AMIGA_BUS_ENABLE_DMA_LOW{ F}
-inst_AS_030_D0{ F}:           CIIN{ E}         BG_000{ D}inst_AS_030_000_SYNC{ F}
+inst_AS_030_D0{ I}:           CIIN{ E}         BG_000{ D}inst_AS_030_000_SYNC{ B}
                :         CIIN_0{ E}
-inst_AS_030_000_SYNC{ G}:AMIGA_BUS_ENABLE_HIGH{ D}inst_AS_030_000_SYNC{ F}    SM_AMIGA_6_{ C}
-               :  SM_AMIGA_i_7_{ C}
-inst_BGACK_030_INT_D{ F}:        SIZE_1_{ H}        SIZE_0_{ G}             RW{ G}
-               :           A_0_{ G}inst_AMIGA_BUS_ENABLE_DMA_HIGH{ C}inst_AMIGA_BUS_ENABLE_DMA_LOW{ F}
-               :inst_AS_030_000_SYNC{ F}
-inst_AS_000_DMA{ B}:         AS_030{ H}inst_AS_000_DMA{ A}inst_DS_000_DMA{ A}
-               : inst_CLK_030_H{ A}
+inst_AS_030_000_SYNC{ C}:AMIGA_BUS_ENABLE_HIGH{ D}inst_AS_030_000_SYNC{ B}    SM_AMIGA_6_{ F}
+               :  SM_AMIGA_i_7_{ F}
+inst_BGACK_030_INT_D{ I}:           A_0_{ G}        SIZE_1_{ H}        SIZE_0_{ G}
+               :             RW{ G}inst_AMIGA_BUS_ENABLE_DMA_HIGH{ F}inst_AMIGA_BUS_ENABLE_DMA_LOW{ F}
+               :inst_AS_030_000_SYNC{ B}
+inst_AS_000_DMA{ B}:         AS_030{ H}          DTACK{ D}inst_AS_000_DMA{ A}
+               :  CLK_030_PE_1_{ A}  CLK_030_PE_0_{ A}
 inst_DS_000_DMA{ B}:         DS_030{ A}inst_DS_000_DMA{ A}
-CYCLE_DMA_0_{ B}:inst_AS_000_DMA{ A}inst_DS_000_DMA{ A}   CYCLE_DMA_0_{ A}
-               :   CYCLE_DMA_1_{ A} inst_CLK_030_H{ A}
-CYCLE_DMA_1_{ B}:inst_AS_000_DMA{ A}inst_DS_000_DMA{ A}   CYCLE_DMA_1_{ A}
-               : inst_CLK_030_H{ A}
- inst_VPA_D{ B}:            VMA{ D}    SM_AMIGA_3_{ D}    SM_AMIGA_2_{ A}
-CLK_000_D_3_{ E}:   CLK_000_D_4_{ B}    SM_AMIGA_6_{ C}  SM_AMIGA_i_7_{ C}
-inst_DTACK_D0{ C}:    SM_AMIGA_3_{ D}    SM_AMIGA_2_{ A}
-inst_RESET_OUT{ H}:      AHIGH_31_{ B}         AS_030{ H}         AS_000{ E}
-               :         DS_030{ A}        UDS_000{ D}        LDS_000{ D}
-               :      AHIGH_30_{ B}      AHIGH_29_{ B}      AHIGH_28_{ C}
-               :      AHIGH_27_{ C}      AHIGH_26_{ C}      AHIGH_25_{ C}
-               :      AHIGH_24_{ C}          RESET{ B}         RW_000{ H}
-               :             RW{ G}           A_0_{ G} inst_RESET_OUT{ G}
-CLK_000_D_1_{ I}:     IPL_030_2_{ B}         RW_000{ H}      BGACK_030{ H}
-               :            VMA{ D}     IPL_030_1_{ B}     IPL_030_0_{ B}
-               :     cpu_est_2_{ A}     cpu_est_3_{ D}     cpu_est_0_{ G}
-               :     cpu_est_1_{ A}   CYCLE_DMA_0_{ A}   CYCLE_DMA_1_{ A}
-               : inst_RESET_OUT{ G}   CLK_000_D_2_{ H}inst_DS_000_ENABLE{ B}
-               :    SM_AMIGA_6_{ C}    SM_AMIGA_4_{ D}    SM_AMIGA_1_{ F}
-               :    SM_AMIGA_0_{ H}     RST_DLY_0_{ G}     RST_DLY_1_{ G}
-               :     RST_DLY_2_{ G}inst_DSACK1_INT{ H}inst_AS_000_INT{ C}
-               :    SM_AMIGA_5_{ C}    SM_AMIGA_3_{ D}    SM_AMIGA_2_{ A}
-               :  SM_AMIGA_i_7_{ C}
-CLK_000_D_0_{ D}:     IPL_030_2_{ B}         RW_000{ H}         BG_000{ D}
-               :      BGACK_030{ H}            VMA{ D}     IPL_030_1_{ B}
-               :     IPL_030_0_{ B}     cpu_est_2_{ A}     cpu_est_3_{ D}
-               :     cpu_est_0_{ G}     cpu_est_1_{ A}   CYCLE_DMA_0_{ A}
-               :   CYCLE_DMA_1_{ A} inst_RESET_OUT{ G}   CLK_000_D_1_{ H}
-               :inst_DS_000_ENABLE{ B}    SM_AMIGA_6_{ C}    SM_AMIGA_4_{ D}
-               :    SM_AMIGA_1_{ F}    SM_AMIGA_0_{ H}     RST_DLY_0_{ G}
-               :     RST_DLY_1_{ G}     RST_DLY_2_{ G}inst_DSACK1_INT{ H}
-               :inst_AS_000_INT{ C}    SM_AMIGA_5_{ C}    SM_AMIGA_3_{ D}
-               :    SM_AMIGA_2_{ A}  SM_AMIGA_i_7_{ C}
-inst_CLK_OUT_PRE_50{ H}:inst_CLK_OUT_PRE_50{ G}inst_CLK_OUT_PRE_D{ D}
-inst_CLK_OUT_PRE_D{ E}:    CLK_DIV_OUT{ G}        CLK_EXP{ B}
-  IPL_D0_0_{ H}:     IPL_030_2_{ B}     IPL_030_1_{ B}     IPL_030_0_{ B}
-  IPL_D0_1_{ E}:     IPL_030_2_{ B}     IPL_030_1_{ B}     IPL_030_0_{ B}
-  IPL_D0_2_{ C}:     IPL_030_2_{ B}     IPL_030_1_{ B}     IPL_030_0_{ B}
-CLK_000_D_2_{ I}:   CLK_000_D_3_{ D}
-CLK_000_D_4_{ C}:    SM_AMIGA_6_{ C}  SM_AMIGA_i_7_{ C}
+ inst_VPA_D{ G}:            VMA{ D}    SM_AMIGA_3_{ C}    SM_AMIGA_2_{ C}
+CLK_000_D_3_{ G}:   CLK_000_D_4_{ C}    SM_AMIGA_6_{ F}  SM_AMIGA_i_7_{ F}
+inst_DTACK_D0{ C}:    SM_AMIGA_3_{ C}    SM_AMIGA_2_{ C}
+inst_RESET_OUT{ H}:         AS_030{ H}         AS_000{ E}         DS_030{ A}
+               :        UDS_000{ D}        LDS_000{ D}           A_0_{ G}
+               :         RW_000{ H}             RW{ G} inst_RESET_OUT{ G}
+CLK_030_PE_1_{ B}:inst_DS_000_DMA{ A}  CLK_030_PE_1_{ A}  CLK_030_PE_0_{ A}
+inst_AMIGA_DS{ D}:inst_AS_000_DMA{ A}inst_DS_000_DMA{ A}  CLK_030_PE_1_{ A}
+               :  CLK_030_PE_0_{ A}
+CLK_000_D_1_{ I}:         RW_000{ H}      BGACK_030{ H}            VMA{ D}
+               :     cpu_est_1_{ D}     cpu_est_2_{ D}     cpu_est_3_{ D}
+               :     cpu_est_0_{ G} inst_RESET_OUT{ G}   CLK_000_D_2_{ H}
+               :inst_DS_000_ENABLE{ C}    SM_AMIGA_6_{ F}    SM_AMIGA_4_{ A}
+               :    SM_AMIGA_1_{ F}    SM_AMIGA_0_{ A}   CYCLE_DMA_0_{ A}
+               :   CYCLE_DMA_1_{ A}     RST_DLY_0_{ G}     RST_DLY_1_{ G}
+               :     RST_DLY_2_{ G}inst_DSACK1_INT{ A}inst_AS_000_INT{ C}
+               :    SM_AMIGA_5_{ G}    SM_AMIGA_3_{ C}    SM_AMIGA_2_{ C}
+               :  SM_AMIGA_i_7_{ F}
+CLK_000_D_0_{ E}:         RW_000{ H}         BG_000{ D}      BGACK_030{ H}
+               :            VMA{ D}     cpu_est_1_{ D}     cpu_est_2_{ D}
+               :     cpu_est_3_{ D}     cpu_est_0_{ G} inst_RESET_OUT{ G}
+               :   CLK_000_D_1_{ H}inst_DS_000_ENABLE{ C}    SM_AMIGA_6_{ F}
+               :    SM_AMIGA_4_{ A}    SM_AMIGA_1_{ F}    SM_AMIGA_0_{ A}
+               :   CYCLE_DMA_0_{ A}   CYCLE_DMA_1_{ A}     RST_DLY_0_{ G}
+               :     RST_DLY_1_{ G}     RST_DLY_2_{ G}inst_DSACK1_INT{ A}
+               :inst_AS_000_INT{ C}    SM_AMIGA_5_{ G}    SM_AMIGA_3_{ C}
+               :    SM_AMIGA_2_{ C}  SM_AMIGA_i_7_{ F}
+inst_CLK_OUT_PRE_50{ H}:inst_CLK_OUT_PRE_50{ G}inst_CLK_OUT_PRE_D{ E}
+inst_CLK_OUT_PRE_D{ F}:inst_AS_000_DMA{ A}inst_DS_000_DMA{ A}  CLK_030_PE_1_{ A}
+               :  CLK_030_PE_0_{ A} CLK_OUT_INTreg{ D}
+  IPL_D0_0_{ C}:     IPL_030_1_{ B}     IPL_030_0_{ B}     IPL_030_2_{ B}
+  IPL_D0_1_{ C}:     IPL_030_1_{ B}     IPL_030_0_{ B}     IPL_030_2_{ B}
+  IPL_D0_2_{ C}:     IPL_030_1_{ B}     IPL_030_0_{ B}     IPL_030_2_{ B}
+CLK_000_D_2_{ I}:   CLK_000_D_3_{ F}
+CLK_000_D_4_{ D}:    SM_AMIGA_6_{ F}  SM_AMIGA_i_7_{ F}
 inst_LDS_000_INT{ G}:        LDS_000{ D}inst_LDS_000_INT{ F}
-inst_DS_000_ENABLE{ C}:        UDS_000{ D}        LDS_000{ D}inst_DS_000_ENABLE{ B}
+inst_DS_000_ENABLE{ D}:        UDS_000{ D}        LDS_000{ D}inst_DS_000_ENABLE{ C}
 inst_UDS_000_INT{ G}:        UDS_000{ D}inst_UDS_000_INT{ F}
-SM_AMIGA_6_{ D}:         RW_000{ H}inst_LDS_000_INT{ F}inst_DS_000_ENABLE{ B}
-               :inst_UDS_000_INT{ F}    SM_AMIGA_6_{ C}inst_AS_000_INT{ C}
-               :    SM_AMIGA_5_{ C}
-SM_AMIGA_4_{ E}:inst_DS_000_ENABLE{ B}    SM_AMIGA_4_{ D}    SM_AMIGA_3_{ D}
-SM_AMIGA_1_{ G}:    SM_AMIGA_1_{ F}    SM_AMIGA_0_{ H}inst_DSACK1_INT{ H}
-SM_AMIGA_0_{ I}:         RW_000{ H}    SM_AMIGA_0_{ H}  SM_AMIGA_i_7_{ C}
+SM_AMIGA_6_{ G}:         RW_000{ H}inst_LDS_000_INT{ F}inst_DS_000_ENABLE{ C}
+               :inst_UDS_000_INT{ F}    SM_AMIGA_6_{ F}inst_AS_000_INT{ C}
+               :    SM_AMIGA_5_{ G}
+SM_AMIGA_4_{ B}:inst_DS_000_ENABLE{ C}    SM_AMIGA_4_{ A}    SM_AMIGA_3_{ C}
+SM_AMIGA_1_{ G}:    SM_AMIGA_1_{ F}    SM_AMIGA_0_{ A}inst_DSACK1_INT{ A}
+SM_AMIGA_0_{ B}:         RW_000{ H}    SM_AMIGA_0_{ A}  SM_AMIGA_i_7_{ F}
+CYCLE_DMA_0_{ B}:inst_AS_000_DMA{ A}inst_DS_000_DMA{ A}  CLK_030_PE_1_{ A}
+               :   CYCLE_DMA_0_{ A}   CYCLE_DMA_1_{ A}  CLK_030_PE_0_{ A}
+CYCLE_DMA_1_{ B}:inst_AS_000_DMA{ A}inst_DS_000_DMA{ A}  CLK_030_PE_1_{ A}
+               :   CYCLE_DMA_0_{ A}   CYCLE_DMA_1_{ A}  CLK_030_PE_0_{ A}
+CLK_030_PE_0_{ B}:inst_DS_000_DMA{ A}  CLK_030_PE_1_{ A}  CLK_030_PE_0_{ A}
  RST_DLY_0_{ H}: inst_RESET_OUT{ G}     RST_DLY_0_{ G}     RST_DLY_1_{ G}
                :     RST_DLY_2_{ G}
  RST_DLY_1_{ H}: inst_RESET_OUT{ G}     RST_DLY_0_{ G}     RST_DLY_1_{ G}
                :     RST_DLY_2_{ G}
  RST_DLY_2_{ H}: inst_RESET_OUT{ G}     RST_DLY_0_{ G}     RST_DLY_1_{ G}
                :     RST_DLY_2_{ G}
-inst_CLK_030_H{ B}:inst_DS_000_DMA{ A} inst_CLK_030_H{ A}
-inst_DSACK1_INT{ I}:         DSACK1{ H}inst_DSACK1_INT{ H}
+inst_DSACK1_INT{ B}:         DSACK1{ H}inst_DSACK1_INT{ A}
 inst_AS_000_INT{ D}:         AS_000{ E}inst_AS_000_INT{ C}
-SM_AMIGA_5_{ D}:    SM_AMIGA_4_{ D}    SM_AMIGA_5_{ C}
-SM_AMIGA_3_{ E}:    SM_AMIGA_3_{ D}    SM_AMIGA_2_{ A}
-SM_AMIGA_2_{ B}:    SM_AMIGA_1_{ F}    SM_AMIGA_2_{ A}
-SM_AMIGA_i_7_{ D}:         RW_000{ H}inst_AS_030_000_SYNC{ F}    SM_AMIGA_6_{ C}
-               :  SM_AMIGA_i_7_{ C}
+SM_AMIGA_5_{ H}:    SM_AMIGA_4_{ A}    SM_AMIGA_5_{ G}
+SM_AMIGA_3_{ D}:    SM_AMIGA_3_{ C}    SM_AMIGA_2_{ C}
+SM_AMIGA_2_{ D}:    SM_AMIGA_1_{ F}    SM_AMIGA_2_{ C}
+SM_AMIGA_i_7_{ G}:         RW_000{ H}inst_AS_030_000_SYNC{ B}    SM_AMIGA_6_{ F}
+               :  SM_AMIGA_i_7_{ F}
+CLK_OUT_INTreg{ E}:    CLK_DIV_OUT{ G}        CLK_EXP{ B}inst_AS_000_DMA{ A}
+               :inst_DS_000_DMA{ A}  CLK_030_PE_1_{ A}  CLK_030_PE_0_{ A}
      CIIN_0{ F}:           CIIN{ E}
 -----------------------------------------------------------------------------
 
@@ -657,15 +664,15 @@ Equations :
 +-----+-----+-----+-----+------------------------
 |     |     |     |     | DS_030
 |     |     |     |     | AVEC
-|  *  |  S  | BS  | BR  | cpu_est_1_
-|  *  |  S  | BS  | BR  | cpu_est_2_
 |  *  |  S  | BS  | BR  | inst_AS_000_DMA
-|  *  |  S  | BS  | BR  | SM_AMIGA_2_
-|  *  |  S  | BS  | BR  | inst_VPA_D
+|  *  |  S  | BS  | BR  | SM_AMIGA_0_
+|  *  |  S  | BS  | BR  | SM_AMIGA_4_
+|  *  |  S  | BS  | BR  | inst_DSACK1_INT
+|  *  |  S  | BS  | BR  | CLK_030_PE_0_
 |  *  |  S  | BS  | BR  | inst_DS_000_DMA
-|  *  |  S  | BS  | BR  | inst_CLK_030_H
-|  *  |  S  | BS  | BR  | CYCLE_DMA_1_
+|  *  |  S  | BS  | BR  | CLK_030_PE_1_
 |  *  |  S  | BS  | BR  | CYCLE_DMA_0_
+|  *  |  S  | BS  | BR  | CYCLE_DMA_1_
 |     |     |     |     | A_DECODE_19_
 |     |     |     |     | A_DECODE_16_
 |     |     |     |     | A_DECODE_18_
@@ -687,15 +694,16 @@ Equations :
 |  *  |  S  | BS  | BR  | IPL_030_2_
 |  *  |  S  | BS  | BR  | IPL_030_0_
 |  *  |  S  | BS  | BR  | IPL_030_1_
-|  *  |  S  | BS  | BR  | CLK_EXP
-|     |     |     |     | RESET
-|  *  |  S  | BS  | BR  | inst_DS_000_ENABLE
-|  *  |  S  | BS  | BR  | inst_DTACK_D0
+|     |     |     |     | CLK_EXP
+|  *  |  S  | BS  | BR  | inst_AS_030_000_SYNC
+|  *  |  S  | BS  | BR  | RN_IPL_030_2_
 |  *  |  S  | BS  | BR  | RN_IPL_030_0_
 |  *  |  S  | BS  | BR  | RN_IPL_030_1_
-|  *  |  S  | BS  | BR  | RN_IPL_030_2_
-|  *  |  S  | BS  | BR  | CLK_000_D_4_
 |  *  |  S  | BS  | BR  | IPL_D0_2_
+|  *  |  S  | BS  | BR  | IPL_D0_1_
+|  *  |  S  | BS  | BR  | IPL_D0_0_
+|  *  |  S  | BS  | BR  | inst_DTACK_D0
+|     |     |     |     | RESET
 
 
 Block  C
@@ -711,12 +719,12 @@ Equations :
 |     |     |     |     | AHIGH_27_
 |     |     |     |     | AHIGH_28_
 |     |     |     |     | AMIGA_BUS_ENABLE_LOW
-|  *  |  S  | BS  | BR  | CLK_000_D_0_
-|  *  |  S  | BS  | BR  | SM_AMIGA_6_
-|  *  |  S  | BS  | BR  | SM_AMIGA_i_7_
-|  *  |  S  | BS  | BR  | SM_AMIGA_5_
+|  *  |  S  | BS  | BR  | SM_AMIGA_2_
+|  *  |  S  | BS  | BR  | inst_DS_000_ENABLE
 |  *  |  S  | BS  | BR  | inst_AS_000_INT
-|  *  |  S  | BS  | BR  | inst_AMIGA_BUS_ENABLE_DMA_HIGH
+|  *  |  S  | BS  | BR  | SM_AMIGA_3_
+|  *  |  S  | BS  | BR  | inst_AMIGA_DS
+|  *  |  S  | BS  | BR  | CLK_000_D_4_
 |     |     |     |     | BG_030
 
 
@@ -729,20 +737,19 @@ Equations :
 +-----+-----+-----+-----+------------------------
 |     |     |     |     | UDS_000
 |     |     |     |     | LDS_000
+|     |     |     |     | DTACK
 |  *  |  S  | BS  | BR  | VMA
 |     |     |     |     | AMIGA_BUS_ENABLE_HIGH
 |  *  |  S  | BS  | BR  | BG_000
 |     |     |     |     | AMIGA_ADDR_ENABLE
+|  *  |  S  | BS  | BR  | CLK_000_D_0_
 |  *  |  S  | BS  | BR  | cpu_est_3_
-|  *  |  S  | BS  | BR  | SM_AMIGA_3_
+|  *  |  S  | BS  | BR  | cpu_est_1_
+|  *  |  S  | BS  | BR  | CLK_OUT_INTreg
+|  *  |  S  | BS  | BR  | cpu_est_2_
 |  *  |  S  | BS  | BR  | RN_VMA
-|  *  |  S  | BS  | BR  | SM_AMIGA_4_
-|  *  |  S  | BS  | BR  | inst_CLK_OUT_PRE_D
-|  *  |  S  | BS  | BR  | CLK_000_D_3_
 |  *  |  S  | BS  | BR  | RN_BG_000
-|  *  |  S  | BS  | BR  | IPL_D0_1_
 |     |     |     |     | BGACK_000
-|     |     |     |     | DTACK
 
 
 Block  E
@@ -756,8 +763,7 @@ Equations :
 |     |     |     |     | BERR
 |     |     |     |     | AMIGA_BUS_DATA_DIR
 |     |     |     |     | CIIN
-|  *  |  S  | BS  | BR  | inst_BGACK_030_INT_D
-|  *  |  S  | BS  | BR  | inst_AS_030_D0
+|  *  |  S  | BS  | BR  | inst_CLK_OUT_PRE_D
 |     |     |     |     | CIIN_0
 
 
@@ -768,11 +774,15 @@ Equations :
 |     |     |Block|Block| Signal
 | Reg |Mode |Set  |Reset| Name
 +-----+-----+-----+-----+------------------------
-|  *  |  S  | BS  | BR  | inst_AS_030_000_SYNC
+|  *  |  S  | BS  | BR  | SM_AMIGA_6_
+|  *  |  S  | BS  | BR  | SM_AMIGA_i_7_
 |  *  |  S  | BS  | BR  | SM_AMIGA_1_
 |  *  |  S  | BS  | BR  | inst_LDS_000_INT
 |  *  |  S  | BS  | BR  | inst_UDS_000_INT
 |  *  |  S  | BS  | BR  | inst_AMIGA_BUS_ENABLE_DMA_LOW
+|  *  |  S  | BS  | BR  | inst_AMIGA_BUS_ENABLE_DMA_HIGH
+|  *  |  S  | BS  | BR  | CLK_000_D_3_
+|  *  |  S  | BS  | BR  | inst_VPA_D
 |     |     |     |     | A_DECODE_17_
 |     |     |     |     | FC_1_
 |     |     |     |     | FC_0_
@@ -791,19 +801,19 @@ Equations :
 |  *  |  S  | BS  | BR  | SIZE_0_
 |  *  |  S  | BS  | BR  | A_0_
 |     |     |     |     | E
-|  *  |  S  | BS  | BR  | CLK_DIV_OUT
+|     |     |     |     | CLK_DIV_OUT
 |  *  |  S  | BS  | BR  | inst_RESET_OUT
 |  *  |  S  | BS  | BR  | cpu_est_0_
+|  *  |  S  | BS  | BR  | SM_AMIGA_5_
 |  *  |  S  | BS  | BR  | inst_CLK_OUT_PRE_50
 |  *  |  S  | BS  | BR  | RST_DLY_0_
-|  *  |  S  | BS  | BR  | RN_A_0_
 |  *  |  S  | BS  | BR  | RN_SIZE_0_
+|  *  |  S  | BS  | BR  | RN_A_0_
 |  *  |  S  | BS  | BR  | RN_RW
 |  *  |  S  | BS  | BR  | RST_DLY_2_
 |  *  |  S  | BS  | BR  | RST_DLY_1_
-|  *  |  S  | BS  | BR  | IPL_D0_0_
-|     |     |     |     | IPL_0_
 |     |     |     |     | IPL_2_
+|     |     |     |     | IPL_0_
 
 
 Block  H
@@ -821,10 +831,10 @@ Equations :
 |     |     |     |     | FPU_CS
 |  *  |  S  | BS  | BR  | RN_BGACK_030
 |  *  |  S  | BS  | BR  | CLK_000_D_1_
-|  *  |  S  | BS  | BR  | SM_AMIGA_0_
+|  *  |  S  | BS  | BR  | inst_BGACK_030_INT_D
+|  *  |  S  | BS  | BR  | inst_AS_030_D0
 |  *  |  S  | BS  | BR  | RN_RW_000
 |  *  |  S  | BS  | BR  | RN_SIZE_1_
-|  *  |  S  | BS  | BR  | inst_DSACK1_INT
 |  *  |  S  | BS  | BR  | CLK_000_D_2_
 |     |     |     |     | A_DECODE_23_
 |     |     |     |     | A_DECODE_22_
@@ -844,23 +854,23 @@ BLOCK_A_LOGIC_ARRAY_FANIN
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 CSM             Signal    Source        CSM             Signal    Source
 ------------------------------------    ------------------------------------
-mx A0             RST        pin 86     mx A17            BERR        pin 41
-mx A1          RN_VMA     mcell  D0     mx A18     SM_AMIGA_2_     mcell  A5
-mx A2      inst_VPA_D     mcell  A9     mx A19             ...           ...
-mx A3      cpu_est_1_     mcell  A8     mx A20    RN_BGACK_030     mcell  H4
-mx A4         CLK_030        pin 64     mx A21     SM_AMIGA_3_    mcell  D13
-mx A5      nEXP_SPACE        pin 14     mx A22  inst_CLK_030_H     mcell  A2
-mx A6          RW_000        pin 80     mx A23    CLK_000_D_0_     mcell  C9
-mx A7      cpu_est_3_     mcell  D9     mx A24      cpu_est_2_    mcell  A12
-mx A8         UDS_000        pin 32     mx A25 inst_DS_000_DMA    mcell  A13
-mx A9 inst_AS_000_DMA     mcell  A1     mx A26             ...           ...
-mx A10             VPA        pin 36     mx A27         LDS_000        pin 31
-mx A11   inst_DTACK_D0     mcell  B6     mx A28             ...           ...
-mx A12      cpu_est_0_     mcell  G9     mx A29             ...           ...
-mx A13    CLK_000_D_1_     mcell  H5     mx A30             ...           ...
-mx A14    CYCLE_DMA_0_    mcell  A10     mx A31             ...           ...
-mx A15    CYCLE_DMA_1_     mcell  A6     mx A32  inst_RESET_OUT     mcell  G5
-mx A16          AS_000        pin 42
+mx A0             RST        pin 86     mx A17             ...           ...
+mx A1    CLK_000_D_0_    mcell  D13     mx A18 inst_DSACK1_INT     mcell  A5
+mx A2   CLK_030_PE_0_     mcell  A9     mx A19          AS_030        pin 82
+mx A3 inst_AS_000_DMA     mcell  A8     mx A20     SM_AMIGA_1_     mcell  F8
+mx A4         CLK_030        pin 64     mx A21             ...           ...
+mx A5      nEXP_SPACE        pin 14     mx A22   CLK_030_PE_1_     mcell  A2
+mx A6          RW_000        pin 80     mx A23    RN_BGACK_030     mcell  H4
+mx A7             ...           ...     mx A24             ...           ...
+mx A8   inst_AMIGA_DS    mcell  C10     mx A25 inst_DS_000_DMA    mcell  A13
+mx A9     SM_AMIGA_4_     mcell  A1     mx A26          AS_000        pin 42
+mx A10    CYCLE_DMA_0_     mcell  A6     mx A27             ...           ...
+mx A11             ...           ...     mx A28             ...           ...
+mx A12     SM_AMIGA_5_    mcell  G13     mx A29             ...           ...
+mx A13    CLK_000_D_1_     mcell  H5     mx A30  CLK_OUT_INTreg    mcell  D10
+mx A14    CYCLE_DMA_1_    mcell  A10     mx A31             ...           ...
+mx A15     SM_AMIGA_0_    mcell  A12     mx A32  inst_RESET_OUT     mcell  G5
+mx A16inst_CLK_OUT_PRE_D     mcell  E8
 ----------------------------------------------------------------------------
 
 
@@ -868,21 +878,21 @@ BLOCK_B_LOGIC_ARRAY_FANIN
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 CSM             Signal    Source        CSM             Signal    Source
 ------------------------------------    ------------------------------------
-mx B0    RN_BGACK_030     mcell  H4     mx B17       IPL_D0_1_    mcell  D14
-mx B1             ...           ...     mx B18             ...           ...
-mx B2    CLK_000_D_3_    mcell  D10     mx B19          AS_030        pin 82
-mx B3  inst_RESET_OUT     mcell  G5     mx B20       IPL_D0_2_    mcell  B14
-mx B4inst_CLK_OUT_PRE_D     mcell  D6     mx B21          IPL_1_        pin 56
+mx B0    RN_BGACK_030     mcell  H4     mx B17           FC_0_        pin 57
+mx B1           FC_1_        pin 58     mx B18       IPL_D0_2_     mcell  B2
+mx B2           RESET         pin 3     mx B19          AS_030        pin 82
+mx B3          IPL_1_        pin 56     mx B20  CLK_OUT_INTreg    mcell  D10
+mx B4    A_DECODE_18_        pin 95     mx B21             RST        pin 86
 mx B5      nEXP_SPACE        pin 14     mx B22          IPL_2_        pin 68
-mx B6   RN_IPL_030_1_     mcell  B9     mx B23    CLK_000_D_0_     mcell  C9
-mx B7             ...           ...     mx B24             RST        pin 86
-mx B8              RW        pin 71     mx B25             ...           ...
+mx B6   RN_IPL_030_1_     mcell  B9     mx B23       IPL_D0_1_     mcell  B6
+mx B7inst_BGACK_030_INT_D    mcell  H13     mx B24       IPL_D0_0_    mcell  B10
+mx B8    A_DECODE_17_        pin 59     mx B25             ...           ...
 mx B9           DTACK        pin 30     mx B26             ...           ...
-mx B10inst_DS_000_ENABLE    mcell  B13     mx B27   RN_IPL_030_2_     mcell  B4
-mx B11       IPL_D0_0_    mcell  G14     mx B28     SM_AMIGA_4_     mcell  D2
-mx B12             ...           ...     mx B29             ...           ...
-mx B13    CLK_000_D_1_     mcell  H5     mx B30     SM_AMIGA_6_    mcell  C13
-mx B14             ...           ...     mx B31   RN_IPL_030_0_     mcell  B5
+mx B10inst_AS_030_000_SYNC    mcell  B13     mx B27   RN_IPL_030_2_     mcell  B4
+mx B11    A_DECODE_16_        pin 96     mx B28   RN_IPL_030_0_     mcell  B5
+mx B12    A_DECODE_19_        pin 97     mx B29   SM_AMIGA_i_7_     mcell  F4
+mx B13             ...           ...     mx B30             ...           ...
+mx B14  inst_AS_030_D0     mcell  H2     mx B31             ...           ...
 mx B15             ...           ...     mx B32             ...           ...
 mx B16          IPL_0_        pin 67
 ----------------------------------------------------------------------------
@@ -892,23 +902,23 @@ BLOCK_C_LOGIC_ARRAY_FANIN
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 CSM             Signal    Source        CSM             Signal    Source
 ------------------------------------    ------------------------------------
-mx C0             RST        pin 86     mx C17             ...           ...
-mx C1             ...           ...     mx C18     SM_AMIGA_5_     mcell  C6
-mx C2    CLK_000_D_4_    mcell  B10     mx C19     SM_AMIGA_0_    mcell  H13
-mx C3         CLK_000        pin 11     mx C20    CLK_000_D_3_    mcell  D10
-mx C4    CLK_000_D_1_     mcell  H5     mx C21             ...           ...
-mx C5      nEXP_SPACE        pin 14     mx C22   SM_AMIGA_i_7_     mcell  C2
-mx C6             ...           ...     mx C23    RN_BGACK_030     mcell  H4
-mx C7inst_AMIGA_BUS_ENABLE_DMA_HIGH    mcell  C14     mx C24             ...           ...
-mx C8 inst_AS_000_INT    mcell  C10     mx C25inst_AS_030_000_SYNC     mcell  F0
-mx C9          AS_030        pin 82     mx C26             ...           ...
-mx C10inst_AMIGA_BUS_ENABLE_DMA_LOW     mcell  F1     mx C27             ...           ...
-mx C11            A_1_        pin 60     mx C28             ...           ...
-mx C12             ...           ...     mx C29             ...           ...
-mx C13    CLK_000_D_0_     mcell  C9     mx C30     SM_AMIGA_6_    mcell  C13
-mx C14             ...           ...     mx C31             ...           ...
-mx C15             ...           ...     mx C32  inst_RESET_OUT     mcell  G5
-mx C16inst_BGACK_030_INT_D     mcell  E8
+mx C0inst_DS_000_ENABLE    mcell  C13     mx C17            BERR        pin 41
+mx C1    CLK_000_D_0_    mcell  D13     mx C18     SM_AMIGA_3_     mcell  C6
+mx C2           RESET         pin 3     mx C19          AS_030        pin 82
+mx C3     SM_AMIGA_2_     mcell  C9     mx C20   inst_DTACK_D0    mcell  B14
+mx C4      cpu_est_1_     mcell  D6     mx C21             RST        pin 86
+mx C5      nEXP_SPACE        pin 14     mx C22 inst_AS_000_INT     mcell  C2
+mx C6    CLK_000_D_3_    mcell  F13     mx C23    RN_BGACK_030     mcell  H4
+mx C7             ...           ...     mx C24         LDS_000        pin 31
+mx C8         UDS_000        pin 32     mx C25     SM_AMIGA_6_     mcell  F0
+mx C9inst_AMIGA_BUS_ENABLE_DMA_LOW     mcell  F5     mx C26             ...           ...
+mx C10      cpu_est_2_    mcell  D14     mx C27      cpu_est_0_     mcell  G9
+mx C11              RW        pin 71     mx C28             ...           ...
+mx C12     SM_AMIGA_4_     mcell  A1     mx C29             ...           ...
+mx C13    CLK_000_D_1_     mcell  H5     mx C30             ...           ...
+mx C14          RN_VMA     mcell  D4     mx C31             ...           ...
+mx C15      inst_VPA_D     mcell  F2     mx C32             ...           ...
+mx C16      cpu_est_3_     mcell  D2
 ----------------------------------------------------------------------------
 
 
@@ -916,23 +926,23 @@ BLOCK_D_LOGIC_ARRAY_FANIN
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 CSM             Signal    Source        CSM             Signal    Source
 ------------------------------------    ------------------------------------
-mx D0    RN_BGACK_030     mcell  H4     mx D17inst_UDS_000_INT    mcell  F12
-mx D1     SM_AMIGA_3_    mcell  D13     mx D18inst_AMIGA_BUS_ENABLE_DMA_HIGH    mcell  C14
-mx D2       RN_BG_000     mcell  D1     mx D19      inst_VPA_D     mcell  A9
-mx D3      cpu_est_1_     mcell  A8     mx D20inst_LDS_000_INT     mcell  F8
-mx D4          BG_030        pin 21     mx D21             RST        pin 86
-mx D5inst_AS_030_000_SYNC     mcell  F0     mx D22  inst_RESET_OUT     mcell  G5
-mx D6             ...           ...     mx D23    CLK_000_D_0_     mcell  C9
-mx D7      cpu_est_3_     mcell  D9     mx D24             ...           ...
-mx D8             ...           ...     mx D25            BERR        pin 41
-mx D9      cpu_est_2_    mcell  A12     mx D26          RN_VMA     mcell  D0
-mx D10      cpu_est_0_     mcell  G9     mx D27     SM_AMIGA_5_     mcell  C6
-mx D11   inst_DTACK_D0     mcell  B6     mx D28inst_DS_000_ENABLE    mcell  B13
-mx D12inst_CLK_OUT_PRE_50    mcell  G13     mx D29             ...           ...
-mx D13    CLK_000_D_1_     mcell  H5     mx D30    CLK_000_D_2_     mcell  H6
-mx D14  inst_AS_030_D0     mcell  E5     mx D31          IPL_1_        pin 56
-mx D15      nEXP_SPACE        pin 14     mx D32          AS_030        pin 82
-mx D16     SM_AMIGA_4_     mcell  D2
+mx D0             RST        pin 86     mx D17inst_LDS_000_INT    mcell  F12
+mx D1inst_AMIGA_BUS_ENABLE_DMA_HIGH     mcell  F9     mx D18 inst_AS_000_DMA     mcell  A8
+mx D2       RN_BG_000     mcell  D1     mx D19          AS_030        pin 82
+mx D3      cpu_est_3_     mcell  D2     mx D20    RN_BGACK_030     mcell  H4
+mx D4          BG_030        pin 21     mx D21inst_AS_030_000_SYNC    mcell  B13
+mx D5      nEXP_SPACE        pin 14     mx D22  inst_RESET_OUT     mcell  G5
+mx D6             ...           ...     mx D23             ...           ...
+mx D7             ...           ...     mx D24      cpu_est_2_    mcell  D14
+mx D8inst_CLK_OUT_PRE_D     mcell  E8     mx D25             ...           ...
+mx D9      inst_VPA_D     mcell  F2     mx D26             ...           ...
+mx D10          RN_VMA     mcell  D4     mx D27             ...           ...
+mx D11inst_DS_000_ENABLE    mcell  C13     mx D28  inst_AS_030_D0     mcell  H2
+mx D12      cpu_est_0_     mcell  G9     mx D29    CLK_000_D_0_    mcell  D13
+mx D13    CLK_000_D_1_     mcell  H5     mx D30             ...           ...
+mx D14         CLK_000        pin 11     mx D31             ...           ...
+mx D15inst_UDS_000_INT     mcell  F1     mx D32             ...           ...
+mx D16      cpu_est_1_     mcell  D6
 ----------------------------------------------------------------------------
 
 
@@ -940,22 +950,22 @@ BLOCK_E_LOGIC_ARRAY_FANIN
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 CSM             Signal    Source        CSM             Signal    Source
 ------------------------------------    ------------------------------------
-mx E0             RST        pin 86     mx E17       AHIGH_26_        pin 17
-mx E1           FC_1_        pin 58     mx E18       BGACK_000        pin 28
-mx E2          CIIN_0     mcell  E9     mx E19          AS_030        pin 82
-mx E3       AHIGH_27_        pin 16     mx E20    A_DECODE_22_        pin 84
-mx E4    A_DECODE_18_        pin 95     mx E21      nEXP_SPACE        pin 14
-mx E5       AHIGH_24_        pin 19     mx E22  inst_RESET_OUT     mcell  G5
-mx E6    A_DECODE_19_        pin 97     mx E23    RN_BGACK_030     mcell  H4
+mx E0    RN_BGACK_030     mcell  H4     mx E17    A_DECODE_18_        pin 95
+mx E1           FC_1_        pin 58     mx E18    A_DECODE_23_        pin 85
+mx E2 inst_AS_000_INT     mcell  C2     mx E19       AHIGH_30_         pin 5
+mx E3    A_DECODE_20_        pin 93     mx E20    A_DECODE_22_        pin 84
+mx E4       BGACK_000        pin 28     mx E21       AHIGH_27_        pin 16
+mx E5       AHIGH_24_        pin 19     mx E22       AHIGH_25_        pin 18
+mx E6          RW_000        pin 80     mx E23inst_CLK_OUT_PRE_50     mcell  G2
 mx E7       AHIGH_28_        pin 15     mx E24           FC_0_        pin 57
-mx E8 inst_AS_000_INT    mcell  C10     mx E25       AHIGH_31_         pin 4
-mx E9       AHIGH_30_         pin 5     mx E26    A_DECODE_16_        pin 96
+mx E8       FPU_SENSE        pin 91     mx E25       AHIGH_31_         pin 4
+mx E9          AS_030        pin 82     mx E26       AHIGH_26_        pin 17
 mx E10             ...           ...     mx E27    A_DECODE_17_        pin 59
-mx E11       FPU_SENSE        pin 91     mx E28          RW_000        pin 80
-mx E12       AHIGH_25_        pin 18     mx E29    A_DECODE_20_        pin 93
+mx E11    A_DECODE_16_        pin 96     mx E28  inst_AS_030_D0     mcell  H2
+mx E12    A_DECODE_19_        pin 97     mx E29             ...           ...
 mx E13       AHIGH_29_         pin 6     mx E30             ...           ...
-mx E14  inst_AS_030_D0     mcell  E5     mx E31             ...           ...
-mx E15    A_DECODE_21_        pin 94     mx E32    A_DECODE_23_        pin 85
+mx E14          CIIN_0     mcell  E5     mx E31    A_DECODE_21_        pin 94
+mx E15      nEXP_SPACE        pin 14     mx E32  inst_RESET_OUT     mcell  G5
 mx E16          AS_000        pin 42
 ----------------------------------------------------------------------------
 
@@ -964,23 +974,23 @@ BLOCK_F_LOGIC_ARRAY_FANIN
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 CSM             Signal    Source        CSM             Signal    Source
 ------------------------------------    ------------------------------------
-mx F0         SIZE_0_        pin 70     mx F17inst_UDS_000_INT    mcell  F12
-mx F1           FC_1_        pin 58     mx F18     SM_AMIGA_2_     mcell  A5
-mx F2inst_LDS_000_INT     mcell  F8     mx F19             ...           ...
-mx F3            A_1_        pin 60     mx F20    RN_BGACK_030     mcell  H4
-mx F4    A_DECODE_18_        pin 95     mx F21             RST        pin 86
-mx F5      nEXP_SPACE        pin 14     mx F22   SM_AMIGA_i_7_     mcell  C2
-mx F6           FC_0_        pin 57     mx F23    CLK_000_D_0_     mcell  C9
-mx F7             ...           ...     mx F24             ...           ...
-mx F8    A_DECODE_17_        pin 59     mx F25inst_AS_030_000_SYNC     mcell  F0
-mx F9          AS_030        pin 82     mx F26  inst_AS_030_D0     mcell  E5
-mx F10inst_AMIGA_BUS_ENABLE_DMA_LOW     mcell  F1     mx F27         SIZE_1_        pin 79
-mx F11    A_DECODE_16_        pin 96     mx F28             ...           ...
-mx F12    A_DECODE_19_        pin 97     mx F29             ...           ...
-mx F13    CLK_000_D_1_     mcell  H5     mx F30     SM_AMIGA_6_    mcell  C13
-mx F14     SM_AMIGA_1_     mcell  F4     mx F31             ...           ...
+mx F0         SIZE_0_        pin 70     mx F17inst_LDS_000_INT    mcell  F12
+mx F1    CLK_000_D_0_    mcell  D13     mx F18inst_AMIGA_BUS_ENABLE_DMA_HIGH     mcell  F9
+mx F2     SM_AMIGA_1_     mcell  F8     mx F19inst_BGACK_030_INT_D    mcell  H13
+mx F3     SM_AMIGA_2_     mcell  C9     mx F20    RN_BGACK_030     mcell  H4
+mx F4    CLK_000_D_1_     mcell  H5     mx F21inst_AS_030_000_SYNC    mcell  B13
+mx F5      nEXP_SPACE        pin 14     mx F22             ...           ...
+mx F6    CLK_000_D_3_    mcell  F13     mx F23             ...           ...
+mx F7    CLK_000_D_4_    mcell  C14     mx F24             RST        pin 86
+mx F8             ...           ...     mx F25     SM_AMIGA_6_     mcell  F0
+mx F9     SM_AMIGA_0_    mcell  A12     mx F26             ...           ...
+mx F10inst_UDS_000_INT     mcell  F1     mx F27         SIZE_1_        pin 79
+mx F11            A_1_        pin 60     mx F28             ...           ...
+mx F12             ...           ...     mx F29   SM_AMIGA_i_7_     mcell  F4
+mx F13             VPA        pin 36     mx F30    CLK_000_D_2_     mcell  H6
+mx F14inst_AMIGA_BUS_ENABLE_DMA_LOW     mcell  F5     mx F31             ...           ...
 mx F15            A_0_        pin 69     mx F32             ...           ...
-mx F16inst_BGACK_030_INT_D     mcell  E8
+mx F16             ...           ...
 ----------------------------------------------------------------------------
 
 
@@ -988,23 +998,23 @@ BLOCK_G_LOGIC_ARRAY_FANIN
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 CSM             Signal    Source        CSM             Signal    Source
 ------------------------------------    ------------------------------------
-mx G0          IPL_0_        pin 67     mx G17           RN_RW     mcell  G0
-mx G1             ...           ...     mx G18      cpu_est_1_     mcell  A8
-mx G2             ...           ...     mx G19             ...           ...
-mx G3    CLK_000_D_0_     mcell  C9     mx G20    RN_BGACK_030     mcell  H4
-mx G4inst_CLK_OUT_PRE_D     mcell  D6     mx G21             RST        pin 86
-mx G5      RST_DLY_2_     mcell  G6     mx G22      RST_DLY_1_    mcell  G10
-mx G6          RW_000        pin 80     mx G23      RST_DLY_0_     mcell  G2
-mx G7      RN_SIZE_0_    mcell  G12     mx G24         LDS_000        pin 31
-mx G8         UDS_000        pin 32     mx G25      cpu_est_3_     mcell  D9
-mx G9      cpu_est_2_    mcell  A12     mx G26             ...           ...
-mx G10      cpu_est_0_     mcell  G9     mx G27    CLK_000_D_1_     mcell  H5
+mx G0         LDS_000        pin 31     mx G17           RN_RW     mcell  G0
+mx G1    CLK_000_D_0_    mcell  D13     mx G18             ...           ...
+mx G2  CLK_OUT_INTreg    mcell  D10     mx G19inst_BGACK_030_INT_D    mcell  H13
+mx G3      cpu_est_3_     mcell  D2     mx G20    RN_BGACK_030     mcell  H4
+mx G4inst_CLK_OUT_PRE_50     mcell  G2     mx G21             RST        pin 86
+mx G5      nEXP_SPACE        pin 14     mx G22      RST_DLY_2_    mcell  G10
+mx G6          RW_000        pin 80     mx G23      RST_DLY_0_     mcell  G6
+mx G7      RN_SIZE_0_    mcell  G12     mx G24      cpu_est_2_    mcell  D14
+mx G8         UDS_000        pin 32     mx G25     SM_AMIGA_6_     mcell  F0
+mx G9     SM_AMIGA_5_    mcell  G13     mx G26             ...           ...
+mx G10      RST_DLY_1_    mcell  G14     mx G27    CLK_000_D_1_     mcell  H5
 mx G11             ...           ...     mx G28             ...           ...
-mx G12inst_CLK_OUT_PRE_50    mcell  G13     mx G29             ...           ...
+mx G12      cpu_est_0_     mcell  G9     mx G29             ...           ...
 mx G13         RN_A_0_     mcell  G8     mx G30             ...           ...
 mx G14             ...           ...     mx G31             ...           ...
-mx G15      nEXP_SPACE        pin 14     mx G32  inst_RESET_OUT     mcell  G5
-mx G16inst_BGACK_030_INT_D     mcell  E8
+mx G15             ...           ...     mx G32  inst_RESET_OUT     mcell  G5
+mx G16      cpu_est_1_     mcell  D6
 ----------------------------------------------------------------------------
 
 
@@ -1014,21 +1024,21 @@ CSM             Signal    Source        CSM             Signal    Source
 ------------------------------------    ------------------------------------
 mx H0             RST        pin 86     mx H17           FC_0_        pin 57
 mx H1           FC_1_        pin 58     mx H18       BGACK_000        pin 28
-mx H2   SM_AMIGA_i_7_     mcell  C2     mx H19          AS_030        pin 82
-mx H3    CLK_000_D_0_     mcell  C9     mx H20    RN_BGACK_030     mcell  H4
-mx H4    A_DECODE_18_        pin 95     mx H21             ...           ...
+mx H2 inst_DSACK1_INT     mcell  A5     mx H19       FPU_SENSE        pin 91
+mx H3 inst_AS_000_DMA     mcell  A8     mx H20    RN_BGACK_030     mcell  H4
+mx H4    A_DECODE_18_        pin 95     mx H21    CLK_000_D_0_    mcell  D13
 mx H5      nEXP_SPACE        pin 14     mx H22  inst_RESET_OUT     mcell  G5
 mx H6    A_DECODE_16_        pin 96     mx H23       RN_RW_000     mcell  H0
-mx H7     SM_AMIGA_0_    mcell  H13     mx H24         LDS_000        pin 31
-mx H8         UDS_000        pin 32     mx H25              RW        pin 71
-mx H9 inst_AS_000_DMA     mcell  A1     mx H26          AS_000        pin 42
-mx H10     SM_AMIGA_1_     mcell  F4     mx H27    CLK_000_D_1_     mcell  H5
-mx H11       FPU_SENSE        pin 91     mx H28             ...           ...
-mx H12    A_DECODE_19_        pin 97     mx H29             ...           ...
-mx H13    A_DECODE_17_        pin 59     mx H30     SM_AMIGA_6_    mcell  C13
-mx H14 inst_DSACK1_INT     mcell  H2     mx H31             ...           ...
-mx H15      RN_SIZE_1_    mcell  H12     mx H32             ...           ...
-mx H16inst_BGACK_030_INT_D     mcell  E8
+mx H7inst_BGACK_030_INT_D    mcell  H13     mx H24         LDS_000        pin 31
+mx H8         UDS_000        pin 32     mx H25     SM_AMIGA_6_     mcell  F0
+mx H9          AS_030        pin 82     mx H26             ...           ...
+mx H10   SM_AMIGA_i_7_     mcell  F4     mx H27    CLK_000_D_1_     mcell  H5
+mx H11              RW        pin 71     mx H28             ...           ...
+mx H12    A_DECODE_19_        pin 97     mx H29      RN_SIZE_1_    mcell  H12
+mx H13    A_DECODE_17_        pin 59     mx H30             ...           ...
+mx H14             ...           ...     mx H31             ...           ...
+mx H15     SM_AMIGA_0_    mcell  A12     mx H32             ...           ...
+mx H16          AS_000        pin 42
 ----------------------------------------------------------------------------
 
 <Note> CSM indicates the mux inputs from the Central Switch Matrix.
@@ -1057,6 +1067,15 @@ PostFit_Equations
    1          2        1    Pin   LDS_000.OE 
    0          0        1    Pin   BERR 
    1          9        1    Pin   BERR.OE 
+   1          1        1    Pin   CLK_DIV_OUT 
+   1          1        1    Pin   CLK_EXP 
+   1          9        1    Pin   FPU_CS- 
+   1          2        1    Pin   DSACK1- 
+   1          1        1    Pin   DSACK1.OE 
+   0          0        1    Pin   DTACK 
+   1          1        1    Pin   DTACK.OE 
+   1          0        1    Pin   AVEC 
+   2          3        1    Pin   E 
    0          0        1    Pin   AHIGH_30_ 
    1          3        1    Pin   AHIGH_30_.OE 
    0          0        1    Pin   AHIGH_29_ 
@@ -1067,54 +1086,45 @@ PostFit_Equations
    1          3        1    Pin   AHIGH_27_.OE 
    0          0        1    Pin   AHIGH_26_ 
    1          3        1    Pin   AHIGH_26_.OE 
-   1          1        1    Pin   CLK_DIV_OUT.D 
-   1          1        1    Pin   CLK_DIV_OUT.C 
    0          0        1    Pin   AHIGH_25_ 
    1          3        1    Pin   AHIGH_25_.OE 
+   0          0        1    Pin   AMIGA_ADDR_ENABLE 
    0          0        1    Pin   AHIGH_24_ 
    1          3        1    Pin   AHIGH_24_.OE 
-   1          9        1    Pin   FPU_CS- 
-   1          2        1    Pin   DSACK1- 
-   1          1        1    Pin   DSACK1.OE 
-   1          0        1    Pin   AVEC 
-   2          3        1    Pin   E 
-   0          0        1    Pin   RESET 
-   1          1        1    Pin   RESET.OE 
-   0          0        1    Pin   AMIGA_ADDR_ENABLE 
    2          4        1    Pin   AMIGA_BUS_DATA_DIR 
    1          2        1    Pin   AMIGA_BUS_ENABLE_LOW- 
    2          4        1    Pin   AMIGA_BUS_ENABLE_HIGH- 
    1         13        1    Pin   CIIN 
    1          1        1    Pin   CIIN.OE 
+   1          3        1    Pin   A_0_.OE 
+   3          5        1    Pin   A_0_.D 
+   1          1        1    Pin   A_0_.C 
    1          2        1    Pin   SIZE_1_.OE 
    3          6        1    Pin   SIZE_1_.D 
    1          1        1    Pin   SIZE_1_.C 
-   9         10        1    Pin   IPL_030_2_.T 
+  10          8        1    Pin   IPL_030_1_.D- 
+   1          1        1    Pin   IPL_030_1_.C 
+  10          8        1    Pin   IPL_030_0_.D- 
+   1          1        1    Pin   IPL_030_0_.C 
+  10          8        1    Pin   IPL_030_2_.D- 
    1          1        1    Pin   IPL_030_2_.C 
    1          2        1    Pin   RW_000.OE 
    4          8        1    Pin   RW_000.D- 
    1          1        1    Pin   RW_000.C 
    2          6        1    Pin   BG_000.D- 
    1          1        1    Pin   BG_000.C 
+   3          6        1    Pin   BGACK_030.D 
+   1          1        1    Pin   BGACK_030.C 
    1          2        1    Pin   SIZE_0_.OE 
    3          6        1    Pin   SIZE_0_.D- 
    1          1        1    Pin   SIZE_0_.C 
-   3          6        1    Pin   BGACK_030.D 
-   1          1        1    Pin   BGACK_030.C 
-   1          1        1    Pin   CLK_EXP.D 
-   1          1        1    Pin   CLK_EXP.C 
    3          9        1    Pin   VMA.T 
    1          1        1    Pin   VMA.C 
    1          2        1    Pin   RW.OE 
    2          5        1    Pin   RW.D- 
    1          1        1    Pin   RW.C 
-   1          3        1    Pin   A_0_.OE 
-   3          5        1    Pin   A_0_.D 
-   1          1        1    Pin   A_0_.C 
-   9         10        1    Pin   IPL_030_1_.T 
-   1          1        1    Pin   IPL_030_1_.C 
-   9         10        1    Pin   IPL_030_0_.T 
-   1          1        1    Pin   IPL_030_0_.C 
+   4          5        1    Node  cpu_est_1_.D 
+   1          1        1    Node  cpu_est_1_.C 
    1          1        1    NodeX1  cpu_est_2_.D.X1 
    1          4        1    NodeX2  cpu_est_2_.D.X2 
    1          1        1    Node  cpu_est_2_.C 
@@ -1122,8 +1132,6 @@ PostFit_Equations
    1          1        1    Node  cpu_est_3_.C 
    3          3        1    Node  cpu_est_0_.D 
    1          1        1    Node  cpu_est_0_.C 
-   4          5        1    Node  cpu_est_1_.D 
-   1          1        1    Node  cpu_est_1_.C 
    2          5        1    Node  inst_AMIGA_BUS_ENABLE_DMA_HIGH.D- 
    1          1        1    Node  inst_AMIGA_BUS_ENABLE_DMA_HIGH.C 
    2          5        1    Node  inst_AMIGA_BUS_ENABLE_DMA_LOW.D- 
@@ -1134,14 +1142,10 @@ PostFit_Equations
    1          1        1    Node  inst_AS_030_000_SYNC.C 
    1          2        1    Node  inst_BGACK_030_INT_D.D- 
    1          1        1    Node  inst_BGACK_030_INT_D.C 
-   7          9        1    Node  inst_AS_000_DMA.D 
+   6          9        1    Node  inst_AS_000_DMA.D 
    1          1        1    Node  inst_AS_000_DMA.C 
    9         12        1    Node  inst_DS_000_DMA.D 
    1          1        1    Node  inst_DS_000_DMA.C 
-   3          6        1    Node  CYCLE_DMA_0_.D 
-   1          1        1    Node  CYCLE_DMA_0_.C 
-   4          7        1    Node  CYCLE_DMA_1_.D 
-   1          1        1    Node  CYCLE_DMA_1_.C 
    1          2        1    Node  inst_VPA_D.D- 
    1          1        1    Node  inst_VPA_D.C 
    1          1        1    Node  CLK_000_D_3_.D 
@@ -1150,6 +1154,10 @@ PostFit_Equations
    1          1        1    Node  inst_DTACK_D0.C 
    2          7        1    Node  inst_RESET_OUT.D 
    1          1        1    Node  inst_RESET_OUT.C 
+   6         11        1    Node  CLK_030_PE_1_.D 
+   1          1        1    Node  CLK_030_PE_1_.C 
+   2          3        1    Node  inst_AMIGA_DS.D 
+   1          1        1    Node  inst_AMIGA_DS.C 
    1          1        1    Node  CLK_000_D_1_.D 
    1          1        1    Node  CLK_000_D_1_.C 
    1          1        1    Node  CLK_000_D_0_.D 
@@ -1182,6 +1190,12 @@ PostFit_Equations
    1          1        1    Node  SM_AMIGA_1_.C 
    3          5        1    Node  SM_AMIGA_0_.D 
    1          1        1    Node  SM_AMIGA_0_.C 
+   4          7        1    Node  CYCLE_DMA_0_.D 
+   1          1        1    Node  CYCLE_DMA_0_.C 
+   2          7        1    Node  CYCLE_DMA_1_.D 
+   1          1        1    Node  CYCLE_DMA_1_.C 
+   9         11        1    Node  CLK_030_PE_0_.D- 
+   1          1        1    Node  CLK_030_PE_0_.C 
    4          6        1    Node  RST_DLY_0_.D 
    1          1        1    Node  RST_DLY_0_.C 
    2          6        1    NodeX1  RST_DLY_1_.D.X1 
@@ -1189,8 +1203,6 @@ PostFit_Equations
    1          1        1    Node  RST_DLY_1_.C 
    2          6        1    Node  RST_DLY_2_.D 
    1          1        1    Node  RST_DLY_2_.C 
-   8         10        1    Node  inst_CLK_030_H.D 
-   1          1        1    Node  inst_CLK_030_H.C 
    2          6        1    Node  inst_DSACK1_INT.D- 
    1          1        1    Node  inst_DSACK1_INT.C 
    2          6        1    Node  inst_AS_000_INT.D- 
@@ -1204,11 +1216,13 @@ PostFit_Equations
    3          9        1    NodeX1  SM_AMIGA_i_7_.T.X1 
    1          9        1    NodeX2  SM_AMIGA_i_7_.T.X2 
    1          1        1    Node  SM_AMIGA_i_7_.C 
+   1          1        1    Node  CLK_OUT_INTreg.D 
+   1          1        1    Node  CLK_OUT_INTreg.C 
    2         14        1    Node  CIIN_0 
 =========
- 269                 P-Term Total: 269
+ 281                 P-Term Total: 281
                        Total Pins: 61
-                      Total Nodes: 44
+                      Total Nodes: 47
             Average P-Term/Output: 2
 
 
@@ -1216,7 +1230,7 @@ Equations:
 
 AHIGH_31_ = (0);
 
-AHIGH_31_.OE = (!nEXP_SPACE & !BGACK_030.Q & inst_RESET_OUT.Q);
+AHIGH_31_.OE = (!nEXP_SPACE & RESET & !BGACK_030.Q);
 
 !AS_030 = (!inst_AS_000_DMA.Q & !AS_000.PIN);
 
@@ -1242,37 +1256,9 @@ BERR = (0);
 
 BERR.OE = (FC_1_ & BGACK_000 & FPU_SENSE & !A_DECODE_19_ & !A_DECODE_18_ & A_DECODE_17_ & !A_DECODE_16_ & FC_0_ & !AS_030.PIN);
 
-AHIGH_30_ = (0);
+CLK_DIV_OUT = (CLK_OUT_INTreg.Q);
 
-AHIGH_30_.OE = (!nEXP_SPACE & !BGACK_030.Q & inst_RESET_OUT.Q);
-
-AHIGH_29_ = (0);
-
-AHIGH_29_.OE = (!nEXP_SPACE & !BGACK_030.Q & inst_RESET_OUT.Q);
-
-AHIGH_28_ = (0);
-
-AHIGH_28_.OE = (!nEXP_SPACE & !BGACK_030.Q & inst_RESET_OUT.Q);
-
-AHIGH_27_ = (0);
-
-AHIGH_27_.OE = (!nEXP_SPACE & !BGACK_030.Q & inst_RESET_OUT.Q);
-
-AHIGH_26_ = (0);
-
-AHIGH_26_.OE = (!nEXP_SPACE & !BGACK_030.Q & inst_RESET_OUT.Q);
-
-CLK_DIV_OUT.D = (inst_CLK_OUT_PRE_D.Q);
-
-CLK_DIV_OUT.C = (CLK_OSZI);
-
-AHIGH_25_ = (0);
-
-AHIGH_25_.OE = (!nEXP_SPACE & !BGACK_030.Q & inst_RESET_OUT.Q);
-
-AHIGH_24_ = (0);
-
-AHIGH_24_.OE = (!nEXP_SPACE & !BGACK_030.Q & inst_RESET_OUT.Q);
+CLK_EXP = (CLK_OUT_INTreg.Q);
 
 !FPU_CS = (FC_1_ & BGACK_000 & !FPU_SENSE & !A_DECODE_19_ & !A_DECODE_18_ & A_DECODE_17_ & !A_DECODE_16_ & FC_0_ & !AS_030.PIN);
 
@@ -1280,16 +1266,44 @@ AHIGH_24_.OE = (!nEXP_SPACE & !BGACK_030.Q & inst_RESET_OUT.Q);
 
 DSACK1.OE = (nEXP_SPACE);
 
+DTACK = (0);
+
+DTACK.OE = (!inst_AS_000_DMA.Q);
+
 AVEC = (1);
 
-E = (cpu_est_2_.Q & !cpu_est_3_.Q & cpu_est_1_.Q
-     # !cpu_est_2_.Q & cpu_est_3_.Q & !cpu_est_1_.Q);
+E = (!cpu_est_1_.Q & !cpu_est_2_.Q & cpu_est_3_.Q
+     # cpu_est_1_.Q & cpu_est_2_.Q & !cpu_est_3_.Q);
 
-RESET = (0);
+AHIGH_30_ = (0);
 
-RESET.OE = (!inst_RESET_OUT.Q);
+AHIGH_30_.OE = (!nEXP_SPACE & RESET & !BGACK_030.Q);
+
+AHIGH_29_ = (0);
+
+AHIGH_29_.OE = (!nEXP_SPACE & RESET & !BGACK_030.Q);
+
+AHIGH_28_ = (0);
+
+AHIGH_28_.OE = (!nEXP_SPACE & RESET & !BGACK_030.Q);
+
+AHIGH_27_ = (0);
+
+AHIGH_27_.OE = (!nEXP_SPACE & RESET & !BGACK_030.Q);
+
+AHIGH_26_ = (0);
+
+AHIGH_26_.OE = (!nEXP_SPACE & RESET & !BGACK_030.Q);
+
+AHIGH_25_ = (0);
+
+AHIGH_25_.OE = (!nEXP_SPACE & RESET & !BGACK_030.Q);
 
 AMIGA_ADDR_ENABLE = (0);
+
+AHIGH_24_ = (0);
+
+AHIGH_24_.OE = (!nEXP_SPACE & RESET & !BGACK_030.Q);
 
 AMIGA_BUS_DATA_DIR = (BGACK_030.Q & !RW_000.PIN
      # !nEXP_SPACE & !BGACK_030.Q & !AS_000.PIN & RW_000.PIN);
@@ -1303,6 +1317,14 @@ CIIN = (A_DECODE_23_ & A_DECODE_22_ & A_DECODE_21_ & A_DECODE_20_ & !inst_AS_030
 
 CIIN.OE = (CIIN_0);
 
+A_0_.OE = (!nEXP_SPACE & !BGACK_030.Q & inst_RESET_OUT.Q);
+
+A_0_.D = (!RST
+     # !BGACK_030.Q & UDS_000.PIN
+     # BGACK_030.Q & inst_BGACK_030_INT_D.Q & A_0_.Q);
+
+A_0_.C = (CLK_OSZI);
+
 SIZE_1_.OE = (!nEXP_SPACE & !BGACK_030.Q);
 
 SIZE_1_.D = (!RST
@@ -1311,15 +1333,42 @@ SIZE_1_.D = (!RST
 
 SIZE_1_.C = (CLK_OSZI);
 
-IPL_030_2_.T = (!RST & !IPL_030_2_.Q
-     # IPL_2_ & IPL_1_ & IPL_0_ & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & IPL_D0_0_.Q & IPL_D0_1_.Q & IPL_D0_2_.Q & !IPL_030_2_.Q
-     # IPL_2_ & IPL_1_ & !IPL_0_ & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & !IPL_D0_0_.Q & IPL_D0_1_.Q & IPL_D0_2_.Q & !IPL_030_2_.Q
-     # IPL_2_ & !IPL_1_ & IPL_0_ & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & IPL_D0_0_.Q & !IPL_D0_1_.Q & IPL_D0_2_.Q & !IPL_030_2_.Q
-     # IPL_2_ & !IPL_1_ & !IPL_0_ & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & !IPL_D0_0_.Q & !IPL_D0_1_.Q & IPL_D0_2_.Q & !IPL_030_2_.Q
-     # !IPL_2_ & RST & IPL_1_ & IPL_0_ & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & IPL_D0_0_.Q & IPL_D0_1_.Q & !IPL_D0_2_.Q & IPL_030_2_.Q
-     # !IPL_2_ & RST & IPL_1_ & !IPL_0_ & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & !IPL_D0_0_.Q & IPL_D0_1_.Q & !IPL_D0_2_.Q & IPL_030_2_.Q
-     # !IPL_2_ & RST & !IPL_1_ & IPL_0_ & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & IPL_D0_0_.Q & !IPL_D0_1_.Q & !IPL_D0_2_.Q & IPL_030_2_.Q
-     # !IPL_2_ & RST & !IPL_1_ & !IPL_0_ & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & !IPL_D0_0_.Q & !IPL_D0_1_.Q & !IPL_D0_2_.Q & IPL_030_2_.Q);
+!IPL_030_1_.D = (RST & !IPL_1_ & !IPL_030_1_.Q
+     # RST & !IPL_D0_1_.Q & !IPL_030_1_.Q
+     # RST & !IPL_0_ & IPL_D0_0_.Q & !IPL_030_1_.Q
+     # RST & IPL_0_ & !IPL_D0_0_.Q & !IPL_030_1_.Q
+     # !IPL_2_ & RST & IPL_D0_2_.Q & !IPL_030_1_.Q
+     # IPL_2_ & RST & !IPL_D0_2_.Q & !IPL_030_1_.Q
+     # IPL_2_ & RST & !IPL_1_ & IPL_0_ & IPL_D0_0_.Q & !IPL_D0_1_.Q & IPL_D0_2_.Q
+     # IPL_2_ & RST & !IPL_1_ & !IPL_0_ & !IPL_D0_0_.Q & !IPL_D0_1_.Q & IPL_D0_2_.Q
+     # !IPL_2_ & RST & !IPL_1_ & IPL_0_ & IPL_D0_0_.Q & !IPL_D0_1_.Q & !IPL_D0_2_.Q
+     # !IPL_2_ & RST & !IPL_1_ & !IPL_0_ & !IPL_D0_0_.Q & !IPL_D0_1_.Q & !IPL_D0_2_.Q);
+
+IPL_030_1_.C = (CLK_OSZI);
+
+!IPL_030_0_.D = (RST & !IPL_0_ & !IPL_030_0_.Q
+     # RST & !IPL_D0_0_.Q & !IPL_030_0_.Q
+     # RST & !IPL_1_ & IPL_D0_1_.Q & !IPL_030_0_.Q
+     # RST & IPL_1_ & !IPL_D0_1_.Q & !IPL_030_0_.Q
+     # !IPL_2_ & RST & IPL_D0_2_.Q & !IPL_030_0_.Q
+     # IPL_2_ & RST & !IPL_D0_2_.Q & !IPL_030_0_.Q
+     # IPL_2_ & RST & IPL_1_ & !IPL_0_ & !IPL_D0_0_.Q & IPL_D0_1_.Q & IPL_D0_2_.Q
+     # IPL_2_ & RST & !IPL_1_ & !IPL_0_ & !IPL_D0_0_.Q & !IPL_D0_1_.Q & IPL_D0_2_.Q
+     # !IPL_2_ & RST & IPL_1_ & !IPL_0_ & !IPL_D0_0_.Q & IPL_D0_1_.Q & !IPL_D0_2_.Q
+     # !IPL_2_ & RST & !IPL_1_ & !IPL_0_ & !IPL_D0_0_.Q & !IPL_D0_1_.Q & !IPL_D0_2_.Q);
+
+IPL_030_0_.C = (CLK_OSZI);
+
+!IPL_030_2_.D = (!IPL_2_ & RST & !IPL_030_2_.Q
+     # RST & !IPL_D0_2_.Q & !IPL_030_2_.Q
+     # RST & !IPL_0_ & IPL_D0_0_.Q & !IPL_030_2_.Q
+     # RST & IPL_0_ & !IPL_D0_0_.Q & !IPL_030_2_.Q
+     # RST & !IPL_1_ & IPL_D0_1_.Q & !IPL_030_2_.Q
+     # RST & IPL_1_ & !IPL_D0_1_.Q & !IPL_030_2_.Q
+     # !IPL_2_ & RST & IPL_1_ & IPL_0_ & IPL_D0_0_.Q & IPL_D0_1_.Q & !IPL_D0_2_.Q
+     # !IPL_2_ & RST & IPL_1_ & !IPL_0_ & !IPL_D0_0_.Q & IPL_D0_1_.Q & !IPL_D0_2_.Q
+     # !IPL_2_ & RST & !IPL_1_ & IPL_0_ & IPL_D0_0_.Q & !IPL_D0_1_.Q & !IPL_D0_2_.Q
+     # !IPL_2_ & RST & !IPL_1_ & !IPL_0_ & !IPL_D0_0_.Q & !IPL_D0_1_.Q & !IPL_D0_2_.Q);
 
 IPL_030_2_.C = (CLK_OSZI);
 
@@ -1337,6 +1386,12 @@ RW_000.C = (CLK_OSZI);
 
 BG_000.C = (CLK_OSZI);
 
+BGACK_030.D = (!RST
+     # BGACK_000 & BGACK_030.Q
+     # BGACK_000 & CLK_000_D_1_.Q & !CLK_000_D_0_.Q & AS_000.PIN);
+
+BGACK_030.C = (CLK_OSZI);
+
 SIZE_0_.OE = (!nEXP_SPACE & !BGACK_030.Q);
 
 !SIZE_0_.D = (RST & BGACK_030.Q & !inst_BGACK_030_INT_D.Q
@@ -1345,19 +1400,9 @@ SIZE_0_.OE = (!nEXP_SPACE & !BGACK_030.Q);
 
 SIZE_0_.C = (CLK_OSZI);
 
-BGACK_030.D = (!RST
-     # BGACK_000 & BGACK_030.Q
-     # BGACK_000 & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & AS_000.PIN);
-
-BGACK_030.C = (CLK_OSZI);
-
-CLK_EXP.D = (inst_CLK_OUT_PRE_D.Q);
-
-CLK_EXP.C = (CLK_OSZI);
-
 VMA.T = (!RST & !VMA.Q
-     # !VMA.Q & !cpu_est_2_.Q & !cpu_est_3_.Q & !cpu_est_0_.Q & !cpu_est_1_.Q & !CLK_000_D_1_.Q & CLK_000_D_0_.Q
-     # RST & VMA.Q & !cpu_est_2_.Q & !cpu_est_3_.Q & cpu_est_0_.Q & cpu_est_1_.Q & !inst_VPA_D.Q & CLK_000_D_1_.Q & !CLK_000_D_0_.Q);
+     # !VMA.Q & !cpu_est_1_.Q & !cpu_est_2_.Q & !cpu_est_3_.Q & !cpu_est_0_.Q & !CLK_000_D_1_.Q & CLK_000_D_0_.Q
+     # RST & VMA.Q & cpu_est_1_.Q & !cpu_est_2_.Q & !cpu_est_3_.Q & cpu_est_0_.Q & !inst_VPA_D.Q & CLK_000_D_1_.Q & !CLK_000_D_0_.Q);
 
 VMA.C = (CLK_OSZI);
 
@@ -1368,48 +1413,23 @@ RW.OE = (!BGACK_030.Q & inst_RESET_OUT.Q);
 
 RW.C = (CLK_OSZI);
 
-A_0_.OE = (!nEXP_SPACE & !BGACK_030.Q & inst_RESET_OUT.Q);
+cpu_est_1_.D = (cpu_est_1_.Q & !cpu_est_0_.Q
+     # cpu_est_1_.Q & !CLK_000_D_1_.Q
+     # cpu_est_1_.Q & CLK_000_D_0_.Q
+     # !cpu_est_1_.Q & !cpu_est_3_.Q & cpu_est_0_.Q & CLK_000_D_1_.Q & !CLK_000_D_0_.Q);
 
-A_0_.D = (!RST
-     # !BGACK_030.Q & UDS_000.PIN
-     # BGACK_030.Q & inst_BGACK_030_INT_D.Q & A_0_.Q);
-
-A_0_.C = (CLK_OSZI);
-
-IPL_030_1_.T = (!RST & !IPL_030_1_.Q
-     # IPL_2_ & IPL_1_ & IPL_0_ & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & IPL_D0_0_.Q & IPL_D0_1_.Q & IPL_D0_2_.Q & !IPL_030_1_.Q
-     # IPL_2_ & IPL_1_ & !IPL_0_ & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & !IPL_D0_0_.Q & IPL_D0_1_.Q & IPL_D0_2_.Q & !IPL_030_1_.Q
-     # !IPL_2_ & IPL_1_ & IPL_0_ & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & IPL_D0_0_.Q & IPL_D0_1_.Q & !IPL_D0_2_.Q & !IPL_030_1_.Q
-     # !IPL_2_ & IPL_1_ & !IPL_0_ & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & !IPL_D0_0_.Q & IPL_D0_1_.Q & !IPL_D0_2_.Q & !IPL_030_1_.Q
-     # IPL_2_ & RST & !IPL_1_ & IPL_0_ & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & IPL_D0_0_.Q & !IPL_D0_1_.Q & IPL_D0_2_.Q & IPL_030_1_.Q
-     # IPL_2_ & RST & !IPL_1_ & !IPL_0_ & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & !IPL_D0_0_.Q & !IPL_D0_1_.Q & IPL_D0_2_.Q & IPL_030_1_.Q
-     # !IPL_2_ & RST & !IPL_1_ & IPL_0_ & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & IPL_D0_0_.Q & !IPL_D0_1_.Q & !IPL_D0_2_.Q & IPL_030_1_.Q
-     # !IPL_2_ & RST & !IPL_1_ & !IPL_0_ & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & !IPL_D0_0_.Q & !IPL_D0_1_.Q & !IPL_D0_2_.Q & IPL_030_1_.Q);
-
-IPL_030_1_.C = (CLK_OSZI);
-
-IPL_030_0_.T = (!RST & !IPL_030_0_.Q
-     # IPL_2_ & IPL_1_ & IPL_0_ & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & IPL_D0_0_.Q & IPL_D0_1_.Q & IPL_D0_2_.Q & !IPL_030_0_.Q
-     # IPL_2_ & !IPL_1_ & IPL_0_ & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & IPL_D0_0_.Q & !IPL_D0_1_.Q & IPL_D0_2_.Q & !IPL_030_0_.Q
-     # !IPL_2_ & IPL_1_ & IPL_0_ & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & IPL_D0_0_.Q & IPL_D0_1_.Q & !IPL_D0_2_.Q & !IPL_030_0_.Q
-     # !IPL_2_ & !IPL_1_ & IPL_0_ & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & IPL_D0_0_.Q & !IPL_D0_1_.Q & !IPL_D0_2_.Q & !IPL_030_0_.Q
-     # IPL_2_ & RST & IPL_1_ & !IPL_0_ & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & !IPL_D0_0_.Q & IPL_D0_1_.Q & IPL_D0_2_.Q & IPL_030_0_.Q
-     # IPL_2_ & RST & !IPL_1_ & !IPL_0_ & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & !IPL_D0_0_.Q & !IPL_D0_1_.Q & IPL_D0_2_.Q & IPL_030_0_.Q
-     # !IPL_2_ & RST & IPL_1_ & !IPL_0_ & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & !IPL_D0_0_.Q & IPL_D0_1_.Q & !IPL_D0_2_.Q & IPL_030_0_.Q
-     # !IPL_2_ & RST & !IPL_1_ & !IPL_0_ & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & !IPL_D0_0_.Q & !IPL_D0_1_.Q & !IPL_D0_2_.Q & IPL_030_0_.Q);
-
-IPL_030_0_.C = (CLK_OSZI);
+cpu_est_1_.C = (CLK_OSZI);
 
 cpu_est_2_.D.X1 = (cpu_est_2_.Q);
 
-cpu_est_2_.D.X2 = (cpu_est_0_.Q & cpu_est_1_.Q & CLK_000_D_1_.Q & !CLK_000_D_0_.Q);
+cpu_est_2_.D.X2 = (cpu_est_1_.Q & cpu_est_0_.Q & CLK_000_D_1_.Q & !CLK_000_D_0_.Q);
 
 cpu_est_2_.C = (CLK_OSZI);
 
 cpu_est_3_.D = (cpu_est_3_.Q & !CLK_000_D_1_.Q
      # cpu_est_3_.Q & CLK_000_D_0_.Q
      # !cpu_est_2_.Q & cpu_est_3_.Q & !cpu_est_0_.Q
-     # cpu_est_2_.Q & cpu_est_0_.Q & cpu_est_1_.Q & CLK_000_D_1_.Q & !CLK_000_D_0_.Q);
+     # cpu_est_1_.Q & cpu_est_2_.Q & cpu_est_0_.Q & CLK_000_D_1_.Q & !CLK_000_D_0_.Q);
 
 cpu_est_3_.C = (CLK_OSZI);
 
@@ -1418,13 +1438,6 @@ cpu_est_0_.D = (cpu_est_0_.Q & !CLK_000_D_1_.Q
      # !cpu_est_0_.Q & CLK_000_D_1_.Q & !CLK_000_D_0_.Q);
 
 cpu_est_0_.C = (CLK_OSZI);
-
-cpu_est_1_.D = (!cpu_est_0_.Q & cpu_est_1_.Q
-     # cpu_est_1_.Q & !CLK_000_D_1_.Q
-     # cpu_est_1_.Q & CLK_000_D_0_.Q
-     # !cpu_est_3_.Q & cpu_est_0_.Q & !cpu_est_1_.Q & CLK_000_D_1_.Q & !CLK_000_D_0_.Q);
-
-cpu_est_1_.C = (CLK_OSZI);
 
 !inst_AMIGA_BUS_ENABLE_DMA_HIGH.D = (RST & !A_1_ & !BGACK_030.Q
      # RST & BGACK_030.Q & !inst_AMIGA_BUS_ENABLE_DMA_HIGH.Q & inst_BGACK_030_INT_D.Q);
@@ -1455,39 +1468,25 @@ inst_AS_030_000_SYNC.C = (CLK_OSZI);
 inst_BGACK_030_INT_D.C = (CLK_OSZI);
 
 inst_AS_000_DMA.D = (!RST
-     # BGACK_030.Q
+     # inst_AMIGA_DS.Q
      # AS_000.PIN
-     # !CLK_030 & inst_AS_000_DMA.Q
-     # CYCLE_DMA_0_.Q & CYCLE_DMA_1_.Q
      # !CYCLE_DMA_0_.Q & !CYCLE_DMA_1_.Q
-     # UDS_000.PIN & LDS_000.PIN);
+     # inst_AS_000_DMA.Q & inst_CLK_OUT_PRE_D.Q & !CLK_OUT_INTreg.Q
+     # CYCLE_DMA_0_.Q & CYCLE_DMA_1_.Q & !RW_000.PIN);
 
 inst_AS_000_DMA.C = (CLK_OSZI);
 
 inst_DS_000_DMA.D = (!RST
-     # BGACK_030.Q
+     # inst_AMIGA_DS.Q
      # AS_000.PIN
-     # CYCLE_DMA_0_.Q & CYCLE_DMA_1_.Q
      # !CYCLE_DMA_0_.Q & !CYCLE_DMA_1_.Q
-     # UDS_000.PIN & LDS_000.PIN
      # !CLK_030 & inst_DS_000_DMA.Q & !RW_000.PIN
-     # inst_DS_000_DMA.Q & !inst_CLK_030_H.Q & !RW_000.PIN
-     # CLK_030 & inst_AS_000_DMA.Q & inst_CLK_030_H.Q & !RW_000.PIN);
+     # inst_DS_000_DMA.Q & CLK_030_PE_1_.Q & !RW_000.PIN
+     # CYCLE_DMA_0_.Q & CYCLE_DMA_1_.Q & !RW_000.PIN
+     # inst_DS_000_DMA.Q & !CLK_030_PE_0_.Q & !RW_000.PIN
+     # inst_DS_000_DMA.Q & inst_CLK_OUT_PRE_D.Q & !CLK_OUT_INTreg.Q & RW_000.PIN);
 
 inst_DS_000_DMA.C = (CLK_OSZI);
-
-CYCLE_DMA_0_.D = (RST & !BGACK_030.Q & CYCLE_DMA_0_.Q & CLK_000_D_1_.Q & !AS_000.PIN
-     # RST & !BGACK_030.Q & CYCLE_DMA_0_.Q & !CLK_000_D_0_.Q & !AS_000.PIN
-     # RST & !BGACK_030.Q & !CYCLE_DMA_0_.Q & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & !AS_000.PIN);
-
-CYCLE_DMA_0_.C = (CLK_OSZI);
-
-CYCLE_DMA_1_.D = (RST & !BGACK_030.Q & !CYCLE_DMA_0_.Q & CYCLE_DMA_1_.Q & !AS_000.PIN
-     # RST & !BGACK_030.Q & CYCLE_DMA_1_.Q & CLK_000_D_1_.Q & !AS_000.PIN
-     # RST & !BGACK_030.Q & CYCLE_DMA_1_.Q & !CLK_000_D_0_.Q & !AS_000.PIN
-     # RST & !BGACK_030.Q & CYCLE_DMA_0_.Q & !CYCLE_DMA_1_.Q & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & !AS_000.PIN);
-
-CYCLE_DMA_1_.C = (CLK_OSZI);
 
 !inst_VPA_D.D = (!VPA & RST);
 
@@ -1497,7 +1496,7 @@ CLK_000_D_3_.D = (CLK_000_D_2_.Q);
 
 CLK_000_D_3_.C = (CLK_OSZI);
 
-!inst_DTACK_D0.D = (!DTACK & RST);
+!inst_DTACK_D0.D = (RST & !DTACK.PIN);
 
 inst_DTACK_D0.C = (CLK_OSZI);
 
@@ -1505,6 +1504,20 @@ inst_RESET_OUT.D = (RST & inst_RESET_OUT.Q
      # RST & CLK_000_D_1_.Q & !CLK_000_D_0_.Q & RST_DLY_0_.Q & RST_DLY_1_.Q & RST_DLY_2_.Q);
 
 inst_RESET_OUT.C = (CLK_OSZI);
+
+CLK_030_PE_1_.D = (RST & CLK_030_PE_1_.Q & !inst_AMIGA_DS.Q & !CYCLE_DMA_0_.Q & CYCLE_DMA_1_.Q & !AS_000.PIN
+     # RST & CLK_030_PE_1_.Q & !inst_AMIGA_DS.Q & CYCLE_DMA_0_.Q & !CYCLE_DMA_1_.Q & !AS_000.PIN
+     # RST & CLK_030_PE_1_.Q & !inst_AMIGA_DS.Q & CYCLE_DMA_1_.Q & !AS_000.PIN & RW_000.PIN
+     # RST & !inst_AS_000_DMA.Q & !inst_AMIGA_DS.Q & inst_CLK_OUT_PRE_D.Q & !CYCLE_DMA_0_.Q & CYCLE_DMA_1_.Q & CLK_030_PE_0_.Q & !CLK_OUT_INTreg.Q & !AS_000.PIN
+     # RST & !inst_AS_000_DMA.Q & !inst_AMIGA_DS.Q & inst_CLK_OUT_PRE_D.Q & CYCLE_DMA_0_.Q & !CYCLE_DMA_1_.Q & CLK_030_PE_0_.Q & !CLK_OUT_INTreg.Q & !AS_000.PIN
+     # RST & !inst_AS_000_DMA.Q & !inst_AMIGA_DS.Q & inst_CLK_OUT_PRE_D.Q & CYCLE_DMA_1_.Q & CLK_030_PE_0_.Q & !CLK_OUT_INTreg.Q & !AS_000.PIN & RW_000.PIN);
+
+CLK_030_PE_1_.C = (CLK_OSZI);
+
+inst_AMIGA_DS.D = (!RST
+     # UDS_000.PIN & LDS_000.PIN);
+
+inst_AMIGA_DS.C = (CLK_OSZI);
 
 CLK_000_D_1_.D = (CLK_000_D_0_.Q);
 
@@ -1583,6 +1596,30 @@ SM_AMIGA_0_.D = (RST & CLK_000_D_1_.Q & SM_AMIGA_0_.Q
 
 SM_AMIGA_0_.C = (CLK_OSZI);
 
+CYCLE_DMA_0_.D = (RST & !BGACK_030.Q & !CLK_000_D_1_.Q & CYCLE_DMA_0_.Q & !AS_000.PIN
+     # RST & !BGACK_030.Q & CLK_000_D_0_.Q & CYCLE_DMA_0_.Q & !AS_000.PIN
+     # RST & !BGACK_030.Q & CYCLE_DMA_0_.Q & CYCLE_DMA_1_.Q & !AS_000.PIN
+     # RST & !BGACK_030.Q & CLK_000_D_1_.Q & !CLK_000_D_0_.Q & !CYCLE_DMA_0_.Q & !AS_000.PIN);
+
+CYCLE_DMA_0_.C = (CLK_OSZI);
+
+CYCLE_DMA_1_.D = (RST & !BGACK_030.Q & CYCLE_DMA_1_.Q & !AS_000.PIN
+     # RST & !BGACK_030.Q & CLK_000_D_1_.Q & !CLK_000_D_0_.Q & CYCLE_DMA_0_.Q & !AS_000.PIN);
+
+CYCLE_DMA_1_.C = (CLK_OSZI);
+
+!CLK_030_PE_0_.D = (!RST
+     # inst_AMIGA_DS.Q
+     # AS_000.PIN
+     # !CYCLE_DMA_0_.Q & !CYCLE_DMA_1_.Q
+     # inst_AS_000_DMA.Q & !CLK_030_PE_0_.Q
+     # !inst_CLK_OUT_PRE_D.Q & !CLK_030_PE_0_.Q
+     # !CLK_030_PE_0_.Q & CLK_OUT_INTreg.Q
+     # CYCLE_DMA_0_.Q & CYCLE_DMA_1_.Q & !RW_000.PIN
+     # !inst_AS_000_DMA.Q & !CLK_030_PE_1_.Q & inst_CLK_OUT_PRE_D.Q & CLK_030_PE_0_.Q & !CLK_OUT_INTreg.Q);
+
+CLK_030_PE_0_.C = (CLK_OSZI);
+
 RST_DLY_0_.D = (RST & !CLK_000_D_1_.Q & RST_DLY_0_.Q
      # RST & CLK_000_D_0_.Q & RST_DLY_0_.Q
      # RST & CLK_000_D_1_.Q & !CLK_000_D_0_.Q & !RST_DLY_0_.Q
@@ -1601,17 +1638,6 @@ RST_DLY_2_.D = (RST & RST_DLY_2_.Q
      # RST & CLK_000_D_1_.Q & !CLK_000_D_0_.Q & RST_DLY_0_.Q & RST_DLY_1_.Q);
 
 RST_DLY_2_.C = (CLK_OSZI);
-
-inst_CLK_030_H.D = (RST & !BGACK_030.Q & !CYCLE_DMA_0_.Q & CYCLE_DMA_1_.Q & inst_CLK_030_H.Q & !AS_000.PIN & !UDS_000.PIN
-     # RST & !BGACK_030.Q & CYCLE_DMA_0_.Q & !CYCLE_DMA_1_.Q & inst_CLK_030_H.Q & !AS_000.PIN & !UDS_000.PIN
-     # RST & !BGACK_030.Q & !CYCLE_DMA_0_.Q & CYCLE_DMA_1_.Q & inst_CLK_030_H.Q & !AS_000.PIN & !LDS_000.PIN
-     # RST & !BGACK_030.Q & CYCLE_DMA_0_.Q & !CYCLE_DMA_1_.Q & inst_CLK_030_H.Q & !AS_000.PIN & !LDS_000.PIN
-     # !CLK_030 & RST & !BGACK_030.Q & !inst_AS_000_DMA.Q & !CYCLE_DMA_0_.Q & CYCLE_DMA_1_.Q & !AS_000.PIN & !UDS_000.PIN
-     # !CLK_030 & RST & !BGACK_030.Q & !inst_AS_000_DMA.Q & CYCLE_DMA_0_.Q & !CYCLE_DMA_1_.Q & !AS_000.PIN & !UDS_000.PIN
-     # !CLK_030 & RST & !BGACK_030.Q & !inst_AS_000_DMA.Q & !CYCLE_DMA_0_.Q & CYCLE_DMA_1_.Q & !AS_000.PIN & !LDS_000.PIN
-     # !CLK_030 & RST & !BGACK_030.Q & !inst_AS_000_DMA.Q & CYCLE_DMA_0_.Q & !CYCLE_DMA_1_.Q & !AS_000.PIN & !LDS_000.PIN);
-
-inst_CLK_030_H.C = (CLK_OSZI);
 
 !inst_DSACK1_INT.D = (RST & !inst_DSACK1_INT.Q & !AS_030.PIN
      # RST & CLK_000_D_1_.Q & !CLK_000_D_0_.Q & SM_AMIGA_1_.Q);
@@ -1633,7 +1659,7 @@ SM_AMIGA_3_.T = (!RST & SM_AMIGA_3_.Q
      # CLK_000_D_1_.Q & !CLK_000_D_0_.Q & SM_AMIGA_3_.Q & !BERR.PIN
      # inst_VPA_D.Q & !inst_DTACK_D0.Q & CLK_000_D_1_.Q & !CLK_000_D_0_.Q & SM_AMIGA_3_.Q
      # RST & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & SM_AMIGA_4_.Q & !SM_AMIGA_3_.Q
-     # !VMA.Q & !cpu_est_2_.Q & cpu_est_3_.Q & !cpu_est_0_.Q & !cpu_est_1_.Q & !inst_VPA_D.Q & CLK_000_D_1_.Q & !CLK_000_D_0_.Q & SM_AMIGA_3_.Q);
+     # !VMA.Q & !cpu_est_1_.Q & !cpu_est_2_.Q & cpu_est_3_.Q & !cpu_est_0_.Q & !inst_VPA_D.Q & CLK_000_D_1_.Q & !CLK_000_D_0_.Q & SM_AMIGA_3_.Q);
 
 SM_AMIGA_3_.C = (CLK_OSZI);
 
@@ -1641,7 +1667,7 @@ SM_AMIGA_2_.D = (RST & CLK_000_D_1_.Q & SM_AMIGA_2_.Q
      # RST & !CLK_000_D_0_.Q & SM_AMIGA_2_.Q
      # RST & CLK_000_D_1_.Q & !CLK_000_D_0_.Q & SM_AMIGA_3_.Q & !BERR.PIN
      # RST & inst_VPA_D.Q & !inst_DTACK_D0.Q & CLK_000_D_1_.Q & !CLK_000_D_0_.Q & SM_AMIGA_3_.Q
-     # RST & !VMA.Q & !cpu_est_2_.Q & cpu_est_3_.Q & !cpu_est_0_.Q & !cpu_est_1_.Q & !inst_VPA_D.Q & CLK_000_D_1_.Q & !CLK_000_D_0_.Q & SM_AMIGA_3_.Q);
+     # RST & !VMA.Q & !cpu_est_1_.Q & !cpu_est_2_.Q & cpu_est_3_.Q & !cpu_est_0_.Q & !inst_VPA_D.Q & CLK_000_D_1_.Q & !CLK_000_D_0_.Q & SM_AMIGA_3_.Q);
 
 SM_AMIGA_2_.C = (CLK_OSZI);
 
@@ -1652,6 +1678,10 @@ SM_AMIGA_i_7_.T.X1 = (!RST & SM_AMIGA_i_7_.Q
 SM_AMIGA_i_7_.T.X2 = (nEXP_SPACE & RST & !inst_AS_030_000_SYNC.Q & !CLK_000_D_3_.Q & !CLK_000_D_1_.Q & CLK_000_D_0_.Q & CLK_000_D_4_.Q & SM_AMIGA_0_.Q & !SM_AMIGA_i_7_.Q);
 
 SM_AMIGA_i_7_.C = (CLK_OSZI);
+
+CLK_OUT_INTreg.D = (inst_CLK_OUT_PRE_D.Q);
+
+CLK_OUT_INTreg.C = (CLK_OSZI);
 
 CIIN_0 = (nEXP_SPACE
      # A_DECODE_23_ & A_DECODE_22_ & A_DECODE_21_ & A_DECODE_20_ & !inst_AS_030_D0.Q & !AHIGH_24_.PIN & !AHIGH_25_.PIN & !AHIGH_26_.PIN & !AHIGH_27_.PIN & !AHIGH_28_.PIN & !AHIGH_29_.PIN & !AHIGH_30_.PIN & !AHIGH_31_.PIN);
