@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <!DOCTYPE		ispXCF	SYSTEM	"IspXCF.dtd" >
-<ispXCF version="18.0.3">
+<ispXCF version="18.1">
 	<Comment></Comment>
 	<Chain>
 		<Comm>JTAG</Comm>
@@ -19,14 +19,15 @@
 				<BScanVal>0</BScanVal>
 			</Bypass>
 			<File>C:\Users\Matze\Amiga\Hardwarehacks\68030-TK\GitHub\Logic\68030_tk.jed</File>
-			<FileTime>10/15/16 23:48:29</FileTime>
-			<JedecChecksum>0x1315</JedecChecksum>
+			<FileTime>12/29/16 15:52:11</FileTime>
+			<JedecChecksum>0x82ED</JedecChecksum>
 			<Operation>Erase,Program,Verify</Operation>
 			<Option>
 				<SVFVendor>JTAG STANDARD</SVFVendor>
 				<IOState>HighZ</IOState>
 				<PreloadLength>198</PreloadLength>
 				<IOVectorData>0x00000000000000000000000000000000000000000000000000</IOVectorData>
+				<Reinitialize value="TRUE"/>
 				<OverideUES value="TRUE"/>
 				<TCKFrequency>1.000000 MHz</TCKFrequency>
 				<SVFProcessor>ispVM</SVFProcessor>
@@ -49,6 +50,7 @@
 			TDO	LOW;
 			CableEN	HIGH;
 			ISPEN	LOW;
+			TRST	HIGH;
 		</PinSetting>
 	</ProjectOptions>
 </ispXCF>
