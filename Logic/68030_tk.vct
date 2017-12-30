@@ -15,8 +15,8 @@ Voltage = 5.0;
 RCS = "$Revision: 1.2 $";
 Parent = m4a5.lci;
 SDS_File = m4a5.sds;
-DATE = 10/08/2016;
-TIME = 22:26:00;
+DATE = 02/16/2017;
+TIME = 19:15:23;
 Source_Format = Pure_VHDL;
 Type = TT2;
 Pre_Fit_Time = 1;
@@ -224,6 +224,7 @@ Page_Break = Yes;
 [POWER]
 Powerlevel =  Low,High;
 Default = High;
+High = 1,B;
 Low = 8,H,G,F,E,D,C,B,A;
 Type = GLB;
 

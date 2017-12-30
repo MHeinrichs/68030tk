@@ -2,7 +2,6 @@ Synopsys CPLD Technology Mapper, Version maplat, Build 923R, Built May  6 2014
 Copyright (C) 1994-2013, Synopsys, Inc. This software and the associated documentation are proprietary to Synopsys, Inc. This software may only be used in accordance with the terms and conditions of a written license agreement with Synopsys, Inc.  All other use or distribution of the software is strictly prohibited.
 Product Version I-2014.03LC 
 @N: MF248 |Running in 64-bit mode.
-@N:"c:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":132:38:132:40|Found counter in view:work.BUS68030(behavioral) inst RST_DLY[2:0]
 Encoding state machine SM_AMIGA[0:7] (view:work.BUS68030(behavioral))
 original code -> new code
    000 -> 00000000
@@ -17,15 +16,15 @@ original code -> new code
 Resource Usage Report
 
 Simple gate primitives:
-DFF             57 uses
-BI_DIR          19 uses
-BUFTH           3 uses
-IBUF            38 uses
-OBUF            15 uses
-AND2            277 uses
-INV             236 uses
-OR2             23 uses
-XOR2            8 uses
+DFF             52 uses
+BI_DIR          18 uses
+BUFTH           4 uses
+IBUF            39 uses
+OBUF            14 uses
+AND2            221 uses
+INV             203 uses
+OR2             17 uses
+XOR2            4 uses
 
 
 @N: FC100 |Timing Report not generated for this device, please use place and route tools for timing analysis.
@@ -35,6 +34,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 39MB peak: 105MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Thu Dec 29 16:01:51 2016
+# Sat Dec 30 00:43:31 2017
 
 ###########################################################]

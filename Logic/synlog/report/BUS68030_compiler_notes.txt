@@ -4,6 +4,6 @@
 @N: CD630 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":13:7:13:14|Synthesizing work.bus68030.behavioral 
 @N: CD233 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":70:10:70:11|Using sequential encoding for type sm_e
 @N: CD233 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":87:14:87:15|Using sequential encoding for type sm_68000
-@N: CL201 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":132:38:132:40|Trying to extract state machine for register SM_AMIGA
-@N: CL201 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":132:38:132:40|Trying to extract state machine for register cpu_est
+@N: CL201 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":133:38:133:40|Trying to extract state machine for register SM_AMIGA
+@N: CL201 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":133:38:133:40|Trying to extract state machine for register cpu_est
 

@@ -2568,7 +2568,7 @@ minimale Strichstärke: &lt;b&gt;0.2 mm&lt;/b&gt;&lt;br&gt;&lt;br&gt;
 <param name="mlMaxStopFrame" value="3mil"/>
 <param name="mlMinCreamFrame" value="0mil"/>
 <param name="mlMaxCreamFrame" value="0mil"/>
-<param name="mlViaStopLimit" value="0mil"/>
+<param name="mlViaStopLimit" value="12mil"/>
 <param name="srRoundness" value="0"/>
 <param name="srMinRoundness" value="0mil"/>
 <param name="srMaxRoundness" value="0mil"/>
@@ -6357,11 +6357,11 @@ minimale Strichstärke: &lt;b&gt;0.2 mm&lt;/b&gt;&lt;br&gt;&lt;br&gt;
 <contactref element="R6" pad="2"/>
 <contactref element="R5" pad="2"/>
 <contactref element="R4" pad="2"/>
-<polygon width="0.254" layer="2">
-<vertex x="0.6096" y="99.3648"/>
-<vertex x="92.3036" y="99.3648"/>
-<vertex x="92.3036" y="0.6096"/>
-<vertex x="0.6096" y="0.6096"/>
+<polygon width="0.254" layer="2" isolate="0.3048">
+<vertex x="0" y="99.9744"/>
+<vertex x="92.9132" y="99.822"/>
+<vertex x="92.9132" y="0"/>
+<vertex x="0" y="0"/>
 </polygon>
 <wire x1="42.7896" y1="94.8172" x2="42.7896" y2="97.1296" width="0.3048" layer="1"/>
 <via x="41.3004" y="97.282" extent="1-16" drill="0.3"/>
@@ -6614,13 +6614,13 @@ minimale Strichstärke: &lt;b&gt;0.2 mm&lt;/b&gt;&lt;br&gt;&lt;br&gt;
 <contactref element="RN1" pad="5"/>
 <via x="31.9278" y="24.3586" extent="1-16" drill="0.3"/>
 <contactref element="C8" pad="2"/>
-<polygon width="0.254" layer="16">
+<polygon width="0.254" layer="16" isolate="0.3048">
 <vertex x="0" y="99.9744"/>
 <vertex x="92.9386" y="99.9744"/>
 <vertex x="92.9386" y="0"/>
 <vertex x="0" y="0"/>
 </polygon>
-<polygon width="0.254" layer="1">
+<polygon width="0.254" layer="1" isolate="0.3048">
 <vertex x="0" y="99.9744"/>
 <vertex x="92.9386" y="99.9998"/>
 <vertex x="92.9386" y="0.0254"/>
@@ -6704,11 +6704,11 @@ minimale Strichstärke: &lt;b&gt;0.2 mm&lt;/b&gt;&lt;br&gt;&lt;br&gt;
 <wire x1="57.263" y1="32.4612" x2="57.263" y2="30.1866" width="0.6096" layer="1"/>
 <wire x1="57.263" y1="30.1866" x2="57.2516" y2="30.1752" width="0.6096" layer="1"/>
 <via x="57.2516" y="30.1752" extent="1-16" drill="0.3"/>
-<polygon width="0.254" layer="15">
-<vertex x="0.6096" y="99.3648"/>
-<vertex x="92.3036" y="99.3648"/>
-<vertex x="92.3036" y="0.6096"/>
-<vertex x="0.6096" y="0.6096"/>
+<polygon width="0.254" layer="15" isolate="0.3048">
+<vertex x="0" y="99.9744"/>
+<vertex x="92.9132" y="99.822"/>
+<vertex x="92.9132" y="0"/>
+<vertex x="0" y="0"/>
 </polygon>
 <wire x1="10.3746" y1="84.9376" x2="10.3632" y2="84.949" width="0.6096" layer="1"/>
 <wire x1="10.3632" y1="84.949" x2="10.3632" y2="86.2076" width="0.6096" layer="1"/>
