@@ -2,11 +2,19 @@
 Copyright(C), 1992-2015, Lattice Semiconductor Corp.
 All Rights Reserved.
 
-Design bus68030 created  Sat Dec 30 00:43:37 2017
+Design bus68030 created  Thu Jan 11 20:16:29 2018
 
 
  P-Terms   Fan-in  Fan-out  Type  Name (attributes)
 ---------  ------  -------  ----  -----------------
+   0          0        1    Pin   AHIGH_30_ 
+   1          1        1    Pin   AHIGH_30_.OE 
+   0          0        1    Pin   AHIGH_31_ 
+   1          1        1    Pin   AHIGH_31_.OE 
+   0          0        1    Pin   AHIGH_29_ 
+   1          1        1    Pin   AHIGH_29_.OE 
+   0          0        1    Pin   AHIGH_28_ 
+   1          1        1    Pin   AHIGH_28_.OE 
    0          0        1    Pin   AHIGH_27_ 
    1          1        1    Pin   AHIGH_27_.OE 
    0          0        1    Pin   AHIGH_26_ 
@@ -15,8 +23,6 @@ Design bus68030 created  Sat Dec 30 00:43:37 2017
    1          1        1    Pin   AHIGH_25_.OE 
    0          0        1    Pin   AHIGH_24_ 
    1          1        1    Pin   AHIGH_24_.OE 
-   0          0        1    Pin   AHIGH_31_ 
-   1          1        1    Pin   AHIGH_31_.OE 
    1          2        1    Pin   AS_030- 
    1          1        1    Pin   AS_030.OE 
    1          2        1    Pin   AS_000- 
@@ -42,15 +48,12 @@ Design bus68030 created  Sat Dec 30 00:43:37 2017
    2          4        1    Pin   AMIGA_BUS_ENABLE_HIGH- 
    1         13        1    Pin   CIIN 
    1          1        1    Pin   CIIN.OE 
-   0          0        1    Pin   AHIGH_30_ 
-   1          1        1    Pin   AHIGH_30_.OE 
-   0          0        1    Pin   AHIGH_29_ 
-   1          1        1    Pin   AHIGH_29_.OE 
-   0          0        1    Pin   AHIGH_28_ 
-   1          1        1    Pin   AHIGH_28_.OE 
    1          1        1    Pin   SIZE_1_.OE 
    2          4        1    Pin   SIZE_1_.D 
    1          1        1    Pin   SIZE_1_.C 
+   1          1        1    Pin   SIZE_0_.OE 
+   2          4        1    Pin   SIZE_0_.D- 
+   1          1        1    Pin   SIZE_0_.C 
   10          8        1    Pin   IPL_030_2_.D- 
    1          1        1    Pin   IPL_030_2_.C 
    1          2        1    Pin   RW_000.OE 
@@ -73,9 +76,6 @@ Design bus68030 created  Sat Dec 30 00:43:37 2017
    1          1        1    Pin   RW.OE 
    1          3        1    Pin   RW.D- 
    1          1        1    Pin   RW.C 
-   1          1        1    Pin   SIZE_0_.OE 
-   2          4        1    Pin   SIZE_0_.D- 
-   1          1        1    Pin   SIZE_0_.C 
    3          3        1    Node  cpu_est_0_.D 
    1          1        1    Node  cpu_est_0_.C 
    4          5        1    Node  cpu_est_1_.D 
@@ -85,9 +85,9 @@ Design bus68030 created  Sat Dec 30 00:43:37 2017
    1          1        1    Node  cpu_est_2_.C 
    4          6        1    Node  cpu_est_3_.D 
    1          1        1    Node  cpu_est_3_.C 
-   1          3        1    Node  inst_AMIGA_BUS_ENABLE_DMA_HIGH.D- 
+   2         16        1    Node  inst_AMIGA_BUS_ENABLE_DMA_HIGH.D- 
    1          1        1    Node  inst_AMIGA_BUS_ENABLE_DMA_HIGH.C 
-   1          3        1    Node  inst_AMIGA_BUS_ENABLE_DMA_LOW.D- 
+   4         16        1    Node  inst_AMIGA_BUS_ENABLE_DMA_LOW.D 
    1          1        1    Node  inst_AMIGA_BUS_ENABLE_DMA_LOW.C 
    1          2        1    Node  inst_AS_030_D0.D- 
    1          1        1    Node  inst_AS_030_D0.C 
@@ -160,15 +160,31 @@ Design bus68030 created  Sat Dec 30 00:43:37 2017
    3          9        1    NodeX1  SM_AMIGA_i_7_.T.X1 
    1          9        1    NodeX2  SM_AMIGA_i_7_.T.X2 
    1          1        1    Node  SM_AMIGA_i_7_.C 
-   2         14        1    Node  N_60 
+   2         14        1    Node  N_205 
 =========
- 243                 P-Term Total: 243
+ 247                 P-Term Total: 247
                        Total Pins: 59
                       Total Nodes: 42
             Average P-Term/Output: 2
 
 
 Equations:
+
+AHIGH_30_ = (0);
+
+AHIGH_30_.OE = (!BGACK_030.Q);
+
+AHIGH_31_ = (0);
+
+AHIGH_31_.OE = (!BGACK_030.Q);
+
+AHIGH_29_ = (0);
+
+AHIGH_29_.OE = (!BGACK_030.Q);
+
+AHIGH_28_ = (0);
+
+AHIGH_28_.OE = (!BGACK_030.Q);
 
 AHIGH_27_ = (0);
 
@@ -185,10 +201,6 @@ AHIGH_25_.OE = (!BGACK_030.Q);
 AHIGH_24_ = (0);
 
 AHIGH_24_.OE = (!BGACK_030.Q);
-
-AHIGH_31_ = (0);
-
-AHIGH_31_.OE = (!BGACK_030.Q);
 
 !AS_030 = (!inst_AS_000_DMA.Q & !AS_000.PIN);
 
@@ -241,19 +253,7 @@ AMIGA_BUS_DATA_DIR = (BGACK_030.Q & !RW_000.PIN
 
 CIIN = (A_DECODE_23_ & A_DECODE_22_ & A_DECODE_21_ & A_DECODE_20_ & !inst_AS_030_D0.Q & !AHIGH_24_.PIN & !AHIGH_25_.PIN & !AHIGH_26_.PIN & !AHIGH_27_.PIN & !AHIGH_28_.PIN & !AHIGH_29_.PIN & !AHIGH_30_.PIN & !AHIGH_31_.PIN);
 
-CIIN.OE = (N_60);
-
-AHIGH_30_ = (0);
-
-AHIGH_30_.OE = (!BGACK_030.Q);
-
-AHIGH_29_ = (0);
-
-AHIGH_29_.OE = (!BGACK_030.Q);
-
-AHIGH_28_ = (0);
-
-AHIGH_28_.OE = (!BGACK_030.Q);
+CIIN.OE = (N_205);
 
 SIZE_1_.OE = (!BGACK_030.Q);
 
@@ -261,6 +261,13 @@ SIZE_1_.D = (!RST
      # !BGACK_030.Q & !UDS_000.PIN & !LDS_000.PIN);
 
 SIZE_1_.C = (CLK_OSZI);
+
+SIZE_0_.OE = (!BGACK_030.Q);
+
+!SIZE_0_.D = (RST & BGACK_030.Q
+     # RST & !UDS_000.PIN & !LDS_000.PIN);
+
+SIZE_0_.C = (CLK_OSZI);
 
 !IPL_030_2_.D = (!IPL_2_ & RST & !IPL_030_2_.Q
      # RST & !IPL_D0_2_.Q & !IPL_030_2_.Q
@@ -342,13 +349,6 @@ RW.OE = (!BGACK_030.Q);
 
 RW.C = (CLK_OSZI);
 
-SIZE_0_.OE = (!BGACK_030.Q);
-
-!SIZE_0_.D = (RST & BGACK_030.Q
-     # RST & !UDS_000.PIN & !LDS_000.PIN);
-
-SIZE_0_.C = (CLK_OSZI);
-
 cpu_est_0_.D = (cpu_est_0_.Q & !CLK_000_D_1_.Q
      # cpu_est_0_.Q & CLK_000_D_0_.Q
      # !cpu_est_0_.Q & CLK_000_D_1_.Q & !CLK_000_D_0_.Q);
@@ -375,11 +375,15 @@ cpu_est_3_.D = (!cpu_est_0_.Q & cpu_est_3_.Q
 
 cpu_est_3_.C = (CLK_OSZI);
 
-!inst_AMIGA_BUS_ENABLE_DMA_HIGH.D = (RST & !A_1_ & !BGACK_030.Q);
+!inst_AMIGA_BUS_ENABLE_DMA_HIGH.D = (RST & !A_1_ & !BGACK_030.Q
+     # A_DECODE_23_ & RST & A_DECODE_22_ & A_DECODE_21_ & !A_DECODE_20_ & A_DECODE_19_ & !BGACK_030.Q & !AHIGH_24_.PIN & !AHIGH_25_.PIN & !AHIGH_26_.PIN & !AHIGH_27_.PIN & !AHIGH_28_.PIN & !AHIGH_29_.PIN & !AHIGH_30_.PIN & !AHIGH_31_.PIN);
 
 inst_AMIGA_BUS_ENABLE_DMA_HIGH.C = (CLK_OSZI);
 
-!inst_AMIGA_BUS_ENABLE_DMA_LOW.D = (RST & A_1_ & !BGACK_030.Q);
+inst_AMIGA_BUS_ENABLE_DMA_LOW.D = (!RST
+     # !A_1_
+     # BGACK_030.Q
+     # A_DECODE_23_ & A_DECODE_22_ & A_DECODE_21_ & !A_DECODE_20_ & A_DECODE_19_ & !AHIGH_24_.PIN & !AHIGH_25_.PIN & !AHIGH_26_.PIN & !AHIGH_27_.PIN & !AHIGH_28_.PIN & !AHIGH_29_.PIN & !AHIGH_30_.PIN & !AHIGH_31_.PIN);
 
 inst_AMIGA_BUS_ENABLE_DMA_LOW.C = (CLK_OSZI);
 
@@ -574,7 +578,7 @@ SM_AMIGA_i_7_.T.X2 = (nEXP_SPACE & RST & !inst_AS_030_000_SYNC.Q & !CLK_000_D_3_
 
 SM_AMIGA_i_7_.C = (CLK_OSZI);
 
-N_60 = (nEXP_SPACE
+N_205 = (nEXP_SPACE
      # A_DECODE_23_ & A_DECODE_22_ & A_DECODE_21_ & A_DECODE_20_ & !inst_AS_030_D0.Q & !AHIGH_24_.PIN & !AHIGH_25_.PIN & !AHIGH_26_.PIN & !AHIGH_27_.PIN & !AHIGH_28_.PIN & !AHIGH_29_.PIN & !AHIGH_30_.PIN & !AHIGH_31_.PIN);
 
 

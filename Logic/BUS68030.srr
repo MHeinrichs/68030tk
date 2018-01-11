@@ -6,7 +6,7 @@
 #Implementation: logic
 
 $ Start of Compile
-#Sat Dec 30 00:43:29 2017
+#Thu Jan 11 20:16:21 2018
 
 Synopsys VHDL Compiler, version comp201403rcp1, Build 060R, built May 27 2014
 @N|Running in 64-bit mode
@@ -55,7 +55,7 @@ State machine has 8 reachable states with original encodings of:
 At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 70MB peak: 71MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sat Dec 30 00:43:29 2017
+# Thu Jan 11 20:16:21 2018
 
 ###########################################################]
 Synopsys Netlist Linker, version comp201403rcp1, Build 060R, built May 27 2014
@@ -65,7 +65,7 @@ File C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\synwork\BUS68030_c
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 67MB peak: 68MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sat Dec 30 00:43:31 2017
+# Thu Jan 11 20:16:23 2018
 
 ###########################################################]
 Map & Optimize Report
@@ -93,8 +93,8 @@ BI_DIR          18 uses
 BUFTH           4 uses
 IBUF            39 uses
 OBUF            14 uses
-AND2            221 uses
-INV             203 uses
+AND2            225 uses
+INV             205 uses
 OR2             17 uses
 XOR2            4 uses
 
@@ -106,6 +106,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 39MB peak: 105MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sat Dec 30 00:43:31 2017
+# Thu Jan 11 20:16:24 2018
 
 ###########################################################]

@@ -409,8 +409,13 @@ begin
 					--A0_DMA <= '0';		
 					--A1 is set by the amiga side													
 					--here  we determine the upper or lower half of the databus
-					AMIGA_BUS_ENABLE_DMA_HIGH 	<= A(1);
-					AMIGA_BUS_ENABLE_DMA_LOW 	<= not A(1);				
+					if(AHIGH=x"00" and A_DECODE(23 downto 19) = "11101") then --evil hack: E8-EF is assumed to be only 16 bit wide!
+						AMIGA_BUS_ENABLE_DMA_HIGH 	<= '0';
+						AMIGA_BUS_ENABLE_DMA_LOW 	<= '1';				
+					else
+						AMIGA_BUS_ENABLE_DMA_HIGH 	<= A(1);
+						AMIGA_BUS_ENABLE_DMA_LOW 	<= not A(1);				
+					end if;
 	
 				else			
 					RW_000_DMA		<= '1';	

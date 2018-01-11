@@ -21,8 +21,8 @@ BI_DIR          18 uses
 BUFTH           4 uses
 IBUF            39 uses
 OBUF            14 uses
-AND2            221 uses
-INV             203 uses
+AND2            225 uses
+INV             205 uses
 OR2             17 uses
 XOR2            4 uses
 
@@ -34,6 +34,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 39MB peak: 105MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sat Dec 30 00:43:31 2017
+# Thu Jan 11 20:16:24 2018
 
 ###########################################################]
