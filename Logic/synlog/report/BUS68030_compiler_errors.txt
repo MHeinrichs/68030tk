@@ -1,3 +1,0 @@
-@E: CG103 :"C:\users\matze\amiga\hardwarehacks\68030-tk\github\logic\68030-68000-bus.vhd":428:18:428:18|Expecting expression
-@E|Parse errors encountered - exiting
-
